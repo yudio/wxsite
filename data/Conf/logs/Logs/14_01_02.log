@@ -1,0 +1,2354 @@
+[ 2014-01-02T16:18:45+08:00 ] 223.199.132.149 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004513s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.029589s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002932s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.032678s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.178746s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.211629s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.219844s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.223974s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.232801s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.023686s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.235597s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008654s ]
+
+[ 2014-01-02T16:19:10+08:00 ] 123.129.195.189 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.005653s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006450s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.029321s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001421s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.030884s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094787s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.125868s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.127231s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.130996s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.131772s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017519s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.143663s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002186s ]
+
+[ 2014-01-02T16:19:24+08:00 ] 119.147.146.189 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002082s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.013106s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001247s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.014514s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.089293s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.103935s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.104889s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.106016s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.106569s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004143s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.108376s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001700s ]
+
+[ 2014-01-02T16:20:28+08:00 ] 183.60.153.106 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009288s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.050123s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008772s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.059176s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.133514s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.192803s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.194719s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.197241s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.207976s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018142s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.211262s ]
+INFO: [ view_end ] --END-- [ RunTime:0.012206s ]
+
+[ 2014-01-02T16:29:13+08:00 ] 223.198.93.147 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002901s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.029041s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002623s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.031878s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.155132s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.191716s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.193677s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.195766s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.203376s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018131s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.205400s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008615s ]
+
+[ 2014-01-02T16:29:23+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006912s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007256s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.010441s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000704s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003843s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000779s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.016106s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.000746s ]
+
+[ 2014-01-02T16:29:23+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001959s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.020476s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001188s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.021809s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.122234s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.144227s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.146598s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.147823s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.148394s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011775s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.156373s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001427s ]
+
+[ 2014-01-02T16:29:29+08:00 ] 223.198.93.147 /index.php?m=Users&a=checklogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002089s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013374s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `username` = 'aaaa' ) LIMIT 1   [ RunTime:0.008414s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.010063s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000534s ]
+SQL: UPDATE `tp_users` SET `diynum`=0,`connectnum`=0,`activitynum`=0 WHERE ( `id` = 33 ) [ RunTime:0.000709s ]
+SQL: UPDATE `tp_users` SET `lasttime`=1388651369,`lastloginmonth`=1,`lastip`='223.198.93.147' WHERE ( `id` = 33 ) [ RunTime:0.006433s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.176541s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002761s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.180432s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052704s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.232987s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.234426s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.236308s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.238978s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010317s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.244140s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004753s ]
+
+[ 2014-01-02T16:29:31+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008783s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009089s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003590s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.010701s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004051s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000621s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.014589s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000639s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004302s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000622s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000428s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.000597s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.155542s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001602s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.157231s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.166194s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.323572s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.325298s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.327181s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.328377s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010903s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.335066s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008146s ]
+
+[ 2014-01-02T16:29:31+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002123s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007335s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003125s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000566s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007100s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000576s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.005345s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.002952s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.012781s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.004019s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000618s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.001842s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.154796s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002602s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.157728s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.148913s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.306687s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.310102s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.311520s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.312374s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010284s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.317418s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005335s ]
+
+[ 2014-01-02T16:29:41+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&id=59&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008863s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.008117s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001185s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008391s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.001582s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.017864s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000903s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000915s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.005589s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.007290s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.001398s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.011328s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.001149s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.000980s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.000726s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.000878s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001275s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.199253s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007882s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.207300s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.270642s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.478103s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.489096s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.500442s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.507129s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.032252s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.510671s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003191s ]
+
+[ 2014-01-02T16:30:04+08:00 ] ERR: (ThinkException) 无法加载模块:function
+[ 2014-01-02T16:30:04+08:00 ] 119.147.146.194 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001932s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002162s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.018315s ]
+INFO: [ view_template ] --END-- [ RunTime:0.010315s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.029181s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.149645s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.179095s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.181008s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.183176s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.191715s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.019193s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.200489s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008953s ]
+
+[ 2014-01-02T16:30:05+08:00 ] 223.198.93.147 /index.php?g=User&m=Home&a=set&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002969s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003492s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.011572s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008743s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001533s ]
+SQL: SHOW COLUMNS FROM `tp_home` [ RunTime:0.003107s ]
+SQL: SELECT * FROM `tp_home` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000804s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.129738s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001656s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.131488s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.202816s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.334485s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.337100s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.338331s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.344032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011303s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.346076s ]
+INFO: [ view_end ] --END-- [ RunTime:0.009383s ]
+
+[ 2014-01-02T16:30:06+08:00 ] 119.147.146.195 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004253s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.021467s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003190s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.023900s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.087807s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.113244s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.116803s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.119166s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.120152s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008662s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.121513s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001621s ]
+
+[ 2014-01-02T16:30:11+08:00 ] 223.198.93.147 /index.php?g=User&m=Lottery&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002638s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.008410s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004531s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000566s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.009794s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.005336s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.136010s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004969s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.141088s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067987s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.209786s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.211520s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.216034s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.217585s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009521s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.219558s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002124s ]
+
+[ 2014-01-02T16:30:13+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=price
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002043s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.026256s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001050s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\7d87f40fe1a639b5d2faca7da636fe55.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.027413s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.160842s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.193481s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.197320s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.199266s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.200034s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013193s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.202629s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003415s ]
+
+[ 2014-01-02T16:30:14+08:00 ] 112.64.235.246 /index.php?g=Home&m=Index&a=price
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.012868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013185s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.017831s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001883s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\7d87f40fe1a639b5d2faca7da636fe55.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\7d87f40fe1a639b5d2faca7da636fe55.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.019787s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.199218s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.219145s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.226617s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.232539s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.234241s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017684s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.237194s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002129s ]
+
+[ 2014-01-02T16:30:20+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=common
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003694s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.014288s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005083s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\3a807e3868876623571a2cfb7c876a8f.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.020138s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.061129s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.081254s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.082214s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.083034s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.083656s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003848s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.085293s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001721s ]
+
+[ 2014-01-02T16:30:22+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003332s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.007855s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000811s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005179s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000882s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008613s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001478s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003647s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.001019s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.005638s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.000704s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.171839s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002639s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.175138s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.125503s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.300849s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.302701s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.304057s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.309774s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011015s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.312184s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005673s ]
+
+[ 2014-01-02T16:30:27+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&id=59&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002089s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.008903s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.005432s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013261s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008724s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001881s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000742s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.010100s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000614s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.000740s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.013086s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.000510s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.000586s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.000504s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.000433s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000510s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.152655s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002036s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.155017s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.240620s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.395610s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.406913s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.411528s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.412225s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017923s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.413750s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007506s ]
+
+[ 2014-01-02T16:30:31+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&token=jalkmt1388468740&id=59
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.005139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005830s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.016827s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.007914s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013737s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000531s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.006671s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.007045s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.003172s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.003279s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000376s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.000527s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.016882s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.009230s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.001215s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.001175s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.001133s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000737s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.222447s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007299s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.229974s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.289849s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.520259s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.522366s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.535750s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.537416s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.019039s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.545069s ]
+INFO: [ view_end ] --END-- [ RunTime:0.006833s ]
+
+[ 2014-01-02T16:30:34+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&token=jalkmt1388468740&id=59
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001932s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002247s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.006288s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006804s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000796s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003488s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.010699s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000923s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.003473s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001128s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.001355s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.005648s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.003476s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.000591s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.009301s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.000657s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000485s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.168121s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004579s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.173035s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.290945s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.464462s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.466862s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.470106s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.472526s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010938s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.483725s ]
+INFO: [ view_end ] --END-- [ RunTime:0.010679s ]
+
+[ 2014-01-02T16:30:36+08:00 ] 223.198.93.147 /index.php?g=User&m=Text&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002013s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002431s ]
+NOTIC: [2048] Declaration of TextAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\TextAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.006116s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000940s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004357s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.003128s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.007444s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.006295s ]
+SQL: SHOW COLUMNS FROM `tp_text` [ RunTime:0.003290s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_text` WHERE ( `uid` = 33 ) AND ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.006874s ]
+SQL: SELECT * FROM `tp_text` WHERE ( `uid` = 33 ) AND ( `token` = 'jalkmt1388468740' ) LIMIT 0,25   [ RunTime:0.001423s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.182700s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001782s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.189833s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.250410s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.440529s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.441775s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.442861s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.443537s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004278s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.444974s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008710s ]
+
+[ 2014-01-02T16:30:40+08:00 ] 223.198.93.147 /index.php?g=User&m=Call&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001472s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001716s ]
+NOTIC: [2048] Declaration of CallAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\CallAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004757s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.005542s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009705s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.001836s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003815s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `tp_call` [ RunTime:0.002501s ]
+SQL: SELECT * FROM `tp_call` WHERE ( `uid` = 33 ) AND ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000503s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.130973s ]
+INFO: [ view_template ] --END-- [ RunTime:0.010120s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.141845s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.175807s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.317604s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.319864s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.322802s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.328468s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012031s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.329771s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001488s ]
+
+[ 2014-01-02T16:30:46+08:00 ] 223.198.93.147 /index.php?g=User&m=Company&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002688s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003015s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.022474s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.006688s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005848s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000720s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.005256s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `tp_company` [ RunTime:0.003941s ]
+SQL: SELECT * FROM `tp_company` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `isbranch` = 0 ) LIMIT 1   [ RunTime:0.002965s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.154217s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007084s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: id D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\f2d3ec30fc8a5c5c71679dbbc185174b.php 第 397 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\f2d3ec30fc8a5c5c71679dbbc185174b.php 第 400 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\f2d3ec30fc8a5c5c71679dbbc185174b.php 第 400 行.
+NOTIC: [8] Undefined variable: isUpdate D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\f2d3ec30fc8a5c5c71679dbbc185174b.php 第 416 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.161803s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.202321s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.364107s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.365701s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.369717s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.370924s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008875s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.373423s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003678s ]
+
+[ 2014-01-02T16:30:58+08:00 ] 223.198.93.147 /index.php?g=User&m=Requerydata&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006952s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003181s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000859s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.012026s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.006251s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `tp_requestdata` [ RunTime:0.022736s ]
+SQL: SELECT * FROM `tp_requestdata` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `month` = 1 ) AND ( `year` = 2014 ) ORDER BY id desc LIMIT 31   [ RunTime:0.001228s ]
+NOTIC: [2] array_reverse() [<a href='function.array-reverse'>function.array-reverse</a>]: The argument should be an array D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\RequerydataAction.class.php 第 40 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\RequerydataAction.class.php 第 41 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.146181s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002606s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.148870s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.272318s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.428962s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.430774s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.432392s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.437918s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012473s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.440827s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002142s ]
+
+[ 2014-01-02T16:31:06+08:00 ] 223.198.93.147 /index.php?g=User&m=Alipay_config&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001667s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002857s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.012134s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000781s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008056s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.001901s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.005839s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: SHOW COLUMNS FROM `tp_alipay_config` [ RunTime:0.020798s ]
+SQL: SELECT * FROM `tp_alipay_config` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000937s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.154812s ]
+INFO: [ view_template ] --END-- [ RunTime:0.009732s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.165844s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.236789s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.402839s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.404222s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.413199s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.414776s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013597s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.421725s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001720s ]
+
+[ 2014-01-02T16:31:19+08:00 ] 223.198.93.147 /index.php?g=User&m=Voiceresponse&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007797s ]
+NOTIC: [2048] Declaration of VoiceresponseAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\VoiceresponseAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.012196s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000496s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003673s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.001406s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.011902s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.006816s ]
+SQL: SHOW COLUMNS FROM `tp_voiceresponse` [ RunTime:0.020263s ]
+SQL: SELECT * FROM `tp_voiceresponse` WHERE ( `uid` = 33 )  [ RunTime:0.008151s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.169837s ]
+INFO: [ view_template ] --END-- [ RunTime:0.010579s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.180621s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.224811s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.405703s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.407286s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.408635s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.409975s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012013s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.418035s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002650s ]
+
+[ 2014-01-02T16:31:21+08:00 ] 223.198.93.147 /index.php?g=User&m=Areply&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009690s ]
+NOTIC: [2048] Declaration of AreplyAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\AreplyAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003728s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013011s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.001870s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.019648s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.007994s ]
+SQL: SHOW COLUMNS FROM `tp_areply` [ RunTime:0.011794s ]
+SQL: SELECT * FROM `tp_areply` WHERE ( `uid` = 33 ) AND ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.005815s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.172950s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004446s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.177582s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.328246s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.506209s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.508757s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.510309s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.511176s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007076s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.513590s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001820s ]
+
+[ 2014-01-02T16:31:24+08:00 ] 223.198.93.147 /index.php?g=User&m=Img&a=add
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001656s ]
+NOTIC: [2048] Declaration of ImgAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\ImgAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002300s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003088s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.004147s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.004557s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000937s ]
+SQL: SHOW COLUMNS FROM `tp_classify` [ RunTime:0.008478s ]
+SQL: SELECT * FROM `tp_classify` WHERE ( `token` = 'jalkmt1388468740' )  [ RunTime:0.000745s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.113809s ]
+INFO: [ view_template ] --END-- [ RunTime:0.006974s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.120347s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055102s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.175586s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.177720s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.179156s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.180363s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005916s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.186697s ]
+INFO: [ view_end ] --END-- [ RunTime:0.006415s ]
+
+[ 2014-01-02T16:31:26+08:00 ] 223.198.93.147 /index.php?g=User&m=Classify&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002011s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002236s ]
+NOTIC: [2048] Declaration of ClassifyAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\ClassifyAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.010805s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001457s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.022705s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000604s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.014924s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.010082s ]
+SQL: SHOW COLUMNS FROM `tp_classify` [ RunTime:0.004165s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_classify` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000678s ]
+SQL: SELECT * FROM `tp_classify` WHERE ( `token` = 'jalkmt1388468740' ) ORDER BY sorts desc LIMIT 0,25   [ RunTime:0.001897s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.189139s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004112s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.198712s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.281616s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.480584s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.483022s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.485382s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.487326s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014575s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.495987s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003645s ]
+
+[ 2014-01-02T16:31:28+08:00 ] 223.198.93.147 /index.php?g=User&m=Diymen&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001590s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.032285s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.006900s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.011035s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.013120s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.012043s ]
+SQL: SHOW COLUMNS FROM `tp_diymen_set` [ RunTime:0.012299s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000918s ]
+SQL: SHOW COLUMNS FROM `tp_diymen_class` [ RunTime:0.009944s ]
+SQL: SELECT * FROM `tp_diymen_class` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `pid` = 0 ) ORDER BY sort desc  [ RunTime:0.004477s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\DiymenAction.class.php 第 17 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.217411s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003016s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.221595s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.256325s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.477902s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.479573s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.486596s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.487643s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011694s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.489967s ]
+INFO: [ view_end ] --END-- [ RunTime:0.013209s ]
+
+[ 2014-01-02T16:31:46+08:00 ] 223.198.93.147 /index.php?g=User&m=Home&a=plugmenu&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006694s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007013s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.011381s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001881s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013755s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000728s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.013373s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001105s ]
+SQL: SHOW COLUMNS FROM `tp_home` [ RunTime:0.008290s ]
+SQL: SELECT * FROM `tp_home` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000703s ]
+SQL: SHOW COLUMNS FROM `tp_site_plugmenu` [ RunTime:0.014876s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.190153s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002883s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.198150s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.060134s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.258580s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.264938s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.265983s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.266902s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010399s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.270012s ]
+INFO: [ view_end ] --END-- [ RunTime:0.027939s ]
+
+[ 2014-01-02T16:31:48+08:00 ] 223.198.93.147 /index.php?g=User&m=Home&a=set&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006800s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007133s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.009245s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009187s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000895s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003925s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.006446s ]
+SQL: SHOW COLUMNS FROM `tp_home` [ RunTime:0.007064s ]
+SQL: SELECT * FROM `tp_home` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000543s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.115760s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001111s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.117037s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.248637s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.366132s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.372936s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.374390s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.375739s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011268s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.377523s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001537s ]
+
+[ 2014-01-02T16:31:51+08:00 ] 223.198.93.147 /index.php?g=User&m=Photo&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001998s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002466s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.010428s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000710s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004068s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.005873s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.015334s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.006098s ]
+SQL: SELECT `queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000969s ]
+SQL: SHOW COLUMNS FROM `tp_photo` [ RunTime:0.008778s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_photo` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000742s ]
+SQL: SELECT * FROM `tp_photo` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 0,12   [ RunTime:0.000749s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.185679s ]
+INFO: [ view_template ] --END-- [ RunTime:0.018413s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.204398s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.266444s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.471073s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.481418s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.483428s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.490356s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.025717s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.497207s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002517s ]
+
+[ 2014-01-02T16:44:22+08:00 ] 223.198.93.147 /index.php?g=User&m=Member_card&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.004873s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005948s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.005735s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.020619s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.002381s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003455s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.002199s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.003247s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.009522s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001746s ]
+SQL: UPDATE `tp_wxuser` SET `allcardnum`=10 WHERE ( `token` = 'jalkmt1388468740' ) [ RunTime:0.001882s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.004633s ]
+SQL: SELECT `queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.009127s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.211902s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007358s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.219454s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053330s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.272903s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.274923s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.276578s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.277864s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015336s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.291186s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005397s ]
+
+[ 2014-01-02T16:44:25+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&token=jalkmt1388468740&id=59
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003576s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004200s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000625s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003609s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000489s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.011430s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000718s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.015455s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.003401s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000439s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.000587s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.012107s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.000693s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.000351s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.000367s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.009218s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.008013s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.196365s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003739s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.199632s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.307700s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.507434s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.518245s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.524037s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.528397s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.023413s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.531282s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008978s ]
+
+[ 2014-01-02T16:44:28+08:00 ] 223.198.93.147 /index.php?g=User&m=Home&a=set&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.010224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010550s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.014312s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.002081s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.017468s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.009553s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.013083s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000455s ]
+SQL: SHOW COLUMNS FROM `tp_home` [ RunTime:0.020028s ]
+SQL: SELECT * FROM `tp_home` WHERE ( `token` = 'jalkmt1388468740' ) LIMIT 1   [ RunTime:0.000675s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.173927s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007846s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.181891s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.245784s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.427789s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.434689s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.437414s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.439121s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013928s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.442109s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007689s ]
+
+[ 2014-01-02T16:44:30+08:00 ] 223.198.93.147 /index.php?g=User&m=Lottery&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002486s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002743s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003384s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000536s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004709s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.007984s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.003051s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.152384s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003560s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.156200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.109366s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.265721s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.270664s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.275793s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.278057s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.021642s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.288795s ]
+INFO: [ view_end ] --END-- [ RunTime:0.012299s ]
+
+[ 2014-01-02T16:44:33+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=price
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004151s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.075670s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008203s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\7d87f40fe1a639b5d2faca7da636fe55.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.084016s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.176848s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.261044s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.271613s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.275269s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.276961s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018394s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.279813s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008607s ]
+
+[ 2014-01-02T16:44:36+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003928s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.044280s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000658s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.017633s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000526s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008086s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000729s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.008588s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000523s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000693s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.000792s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.210777s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007631s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.218595s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.116164s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.334961s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.337246s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.339293s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.341367s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009011s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.344210s ]
+INFO: [ view_end ] --END-- [ RunTime:0.020453s ]
+
+[ 2014-01-02T16:44:41+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001902s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.013309s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000651s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013132s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000800s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.009644s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000845s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.015270s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.005536s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000863s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.000646s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.186746s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001917s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.188829s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.107393s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.296379s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.297412s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.307514s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.308995s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014238s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.310975s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003998s ]
+
+[ 2014-01-02T16:44:43+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=add
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008676s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.009282s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000534s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002417s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000808s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.010405s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000472s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.118060s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003131s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: province D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 151 行.
+NOTIC: [8] Undefined variable: city D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 151 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.121786s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.164925s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.286693s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.287988s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.290121s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.293220s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009041s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.301308s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002725s ]
+
+[ 2014-01-02T16:44:45+08:00 ] 223.198.93.147 /index.php?g=User&m=Alipay&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001486s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.006413s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003699s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000582s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003646s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000786s ]
+SQL: SELECT `id`,`name`,`price` FROM `tp_user_group` WHERE price>0  [ RunTime:0.000452s ]
+SQL: SELECT `price` FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000455s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.091803s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001803s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.093947s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.108846s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.203095s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.204992s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.206229s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.212620s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011483s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.214728s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001716s ]
+
+[ 2014-01-02T16:44:51+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001875s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002142s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003094s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001841s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004632s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000516s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003951s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004603s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.006492s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.001357s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.001301s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.156772s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001808s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.158618s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.145983s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.304714s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.310730s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.313821s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.316769s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013811s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.318721s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003632s ]
+
+[ 2014-01-02T16:44:53+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&id=59&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007070s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007951s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.010305s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.004777s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006207s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.005516s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.006767s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.004296s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.001232s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.007775s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000854s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.000727s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.005191s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.004103s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.000586s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.001159s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.000565s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000541s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.177317s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001627s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.179119s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.339646s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.518939s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.526336s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.528062s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.528881s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012775s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.531966s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007200s ]
+
+[ 2014-01-02T16:45:01+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002011s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002317s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.007932s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000489s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.010754s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000978s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003130s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'jalkmt1388468740' ) AND ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000840s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003512s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000598s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 1   [ RunTime:0.000451s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 33 ) LIMIT 0,25   [ RunTime:0.001330s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.116116s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001877s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.118121s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.100156s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.218509s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.221786s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.222770s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.223373s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011288s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.230805s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003767s ]
+
+[ 2014-01-02T16:45:11+08:00 ] 223.198.93.147 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002029s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.014299s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002159s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.016624s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.097454s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.114525s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.115829s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.116868s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.122601s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018695s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.133479s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001856s ]
+
+[ 2014-01-02T16:45:15+08:00 ] 223.198.93.147 /index.php?g=System&m=Admin&a=logout
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008970s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.012126s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008671s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.020951s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039878s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.060983s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.065965s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.067591s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.068446s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008564s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.069680s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001829s ]
+
+[ 2014-01-02T16:45:17+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.009539s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010410s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.036128s ]
+INFO: [ view_template ] --END-- [ RunTime:0.006733s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.049158s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.107767s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.158635s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.160495s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.162314s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.172403s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016665s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.175106s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008750s ]
+
+[ 2014-01-02T16:45:18+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002745s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.009565s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.002405s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003986s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.005269s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.004113s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.001043s ]
+
+[ 2014-01-02T16:45:18+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002597s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.019242s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001142s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.020546s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093952s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.114755s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.116096s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.117896s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.118593s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011365s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.126310s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001544s ]
+
+[ 2014-01-02T16:45:34+08:00 ] 223.198.93.147 /index.php?m=Users&a=checkreg
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007160s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007518s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007222s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.016118s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.011745s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `username` = 'chn11' ) LIMIT 1   [ RunTime:0.007312s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `email` = '123456@qq.com' ) LIMIT 1   [ RunTime:0.001103s ]
+NOTIC: [2] md5() expects at least 1 parameter, 0 given D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 876 行.
+SQL: INSERT INTO `tp_users` (`username`,`password`,`email`,`createtime`,`createip`,`viptime`,`lasttime`,`lastip`,`status`,`gid`) VALUES ('chn11','e10adc3949ba59abbe56e057f20f883e','123456@qq.com',1388652334,'223.198.93.147',1388652334,1388652334,'223.198.93.147',1,1) [ RunTime:0.000880s ]
+SQL: UPDATE `tp_users` SET `viptime`=1388911534 WHERE ( `id` = 34 ) [ RunTime:0.002279s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.209802s ]
+INFO: [ view_template ] --END-- [ RunTime:0.014757s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.223287s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.089964s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.313501s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.315130s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.316575s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.317845s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011444s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.325696s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007146s ]
+
+[ 2014-01-02T16:45:35+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006474s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002560s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.005411s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.021383s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.007525s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.020984s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000711s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.010544s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.003349s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 1   [ RunTime:0.007972s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 0,25   [ RunTime:0.000817s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.251101s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001322s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\56f7804e54d354c9c14b7fc522e75478.php 第 60 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.252509s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.109073s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.361778s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.362890s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.364210s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.371625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011300s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.373390s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001681s ]
+
+[ 2014-01-02T16:45:36+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002712s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.007063s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000634s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009232s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.001400s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008432s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000600s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002538s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000406s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000567s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 0,25   [ RunTime:0.001045s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.286400s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001898s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\56f7804e54d354c9c14b7fc522e75478.php 第 60 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.288374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.124816s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.413375s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.417335s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.426773s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.432695s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.028330s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.441920s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002682s ]
+
+[ 2014-01-02T16:45:38+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=add
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002886s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.012849s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000912s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008307s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.002992s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.010227s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.007259s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.145540s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002329s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 60 行.
+NOTIC: [8] Undefined variable: province D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 151 行.
+NOTIC: [8] Undefined variable: city D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 151 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.148108s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093881s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.242171s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.243902s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.245555s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.246359s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008473s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.250836s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001746s ]
+
+[ 2014-01-02T16:45:40+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=useredit
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007487s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.016857s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001059s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003636s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.001589s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.011278s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000406s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.099752s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002610s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\c2f1273206e633c9506d94bb0e4594fc.php 第 60 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.102370s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.101977s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.204537s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.205620s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.210710s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.211848s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011712s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.222110s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004790s ]
+
+[ 2014-01-02T16:45:41+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=add
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001194s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001419s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002325s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000358s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002679s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.002725s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.006120s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000392s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.095227s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005758s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 60 行.
+NOTIC: [8] Undefined variable: province D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 151 行.
+NOTIC: [8] Undefined variable: city D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\abcb2dc0cdf6cecdbc543733dfd2e7d4.php 第 151 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.101143s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058033s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.159296s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.165017s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.166137s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.166768s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008712s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.168206s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005684s ]
+
+[ 2014-01-02T16:45:50+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=insert
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002138s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.006290s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000875s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.016186s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000500s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.007183s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.001196s ]
+SQL: SELECT `wechat_card_num` FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000660s ]
+SQL: SELECT `wechat_card_num` FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000748s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.009084s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `token` = 'ptlrak1388652341' ) LIMIT 1   [ RunTime:0.005930s ]
+NOTIC: [8] Undefined offset:  3 D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 868 行.
+NOTIC: [8] Undefined offset:  3 D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 868 行.
+NOTIC: [8] Undefined offset:  3 D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 868 行.
+NOTIC: [8] Undefined offset:  3 D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 868 行.
+NOTIC: [8] Undefined offset:  3 D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 868 行.
+NOTIC: [8] Undefined offset:  3 D:\wwwroot\wx6\Web\Lib\Core\Model.class.php 第 868 行.
+SQL: INSERT INTO `tp_wxuser` (`wxname`,`wxid`,`weixin`,`headerpic`,`token`,`province`,`city`,`qq`,`wxfans`,`uid`,`tpltypeid`,`tpllistid`,`tplcontentid`,`tpltypename`,`tpllistname`,`tplcontentname`,`createtime`,`updatetime`,`typeid`,`typename`) VALUES ('海口旭东名品','gh_e8f4be79e13a','xudongmingpin','./tpl/User/default/common/images/portrait.jpg','ptlrak1388652341','海南','海口','1388652341@yourdomain.com',0,34,'1','1','1','ty_index','yl_list','ktv_content',1388652350,1388652350,1,'情感') [ RunTime:0.002075s ]
+SQL: UPDATE `tp_users` SET `wechat_card_num`=wechat_card_num+1 WHERE ( `id` = 34 ) [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.003364s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.021527s ]
+SQL: SELECT `funname`,`gid`,`isserve` FROM `tp_function` WHERE `gid` <= 1  [ RunTime:0.002876s ]
+NOTIC: [8] Undefined variable: queryname D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 105 行.
+SQL: INSERT INTO `tp_token_open` (`uid`,`token`,`queryname`) VALUES (34,'ptlrak1388652341','tianqi,qiushi,jishuan,kuaidi,xiaohua,peiliao,liaotian,shouji,fujin,fanyi,suanming,shouye,adma,geci') [ RunTime:0.007150s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.198860s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001709s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.212275s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041630s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.253824s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.254675s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.255458s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.256276s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003913s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.258049s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001930s ]
+
+[ 2014-01-02T16:45:52+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001486s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001706s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.013005s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000447s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.015079s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000541s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.016520s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.002938s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.021283s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000492s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 1   [ RunTime:0.008130s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 0,25   [ RunTime:0.000717s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.179665s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004852s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\56f7804e54d354c9c14b7fc522e75478.php 第 60 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.185000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.089897s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.274840s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.275812s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.276857s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.277641s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007687s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.282730s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001476s ]
+
+[ 2014-01-02T16:45:52+08:00 ] 223.198.93.147 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008694s ]
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\IndexAction.class.php 第 2 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002220s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.003518s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.017575s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000605s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008432s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002632s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.007081s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 34 ) LIMIT 0,25   [ RunTime:0.000521s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.105500s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005906s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\56f7804e54d354c9c14b7fc522e75478.php 第 60 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.111565s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.085772s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.197483s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.198478s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.199472s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.200077s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003817s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.201377s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008049s ]
+
+[ 2014-01-02T16:45:59+08:00 ] 223.198.93.147 /index.php?g=User&m=Function&a=index&id=60&token=ptlrak1388652341
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002043s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003190s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000377s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.011233s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000882s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.010663s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.000354s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `id` = 60 ) LIMIT 1   [ RunTime:0.000736s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.011220s ]
+SQL: SELECT `id`,`queryname` FROM `tp_token_open` WHERE ( `token` = 'ptlrak1388652341' ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.001159s ]
+SQL: SELECT `id`,`name` FROM `tp_user_group` WHERE status=1  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `tp_function` [ RunTime:0.013992s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 1 )  [ RunTime:0.000442s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 2 )  [ RunTime:0.000624s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 3 )  [ RunTime:0.009106s ]
+SQL: SELECT * FROM `tp_function` WHERE ( `status` = 1 ) AND ( `gid` = 4 )  [ RunTime:0.010688s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'ptlrak1388652341' ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.004158s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.173681s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002237s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\52858e5695fc543ba4c03ea48eacfeda.php 第 73 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.176509s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.214099s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.390211s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.393504s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.395395s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.402376s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015535s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.406209s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002824s ]
+
+[ 2014-01-02T16:46:03+08:00 ] 223.198.93.147 /index.php?g=User&m=Home&a=set&token=ptlrak1388652341
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002087s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002426s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004465s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.004193s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.017741s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.007634s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.010163s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'ptlrak1388652341' ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.001452s ]
+SQL: SHOW COLUMNS FROM `tp_home` [ RunTime:0.007187s ]
+SQL: SELECT * FROM `tp_home` WHERE ( `token` = 'ptlrak1388652341' ) LIMIT 1   [ RunTime:0.001132s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.212878s ]
+INFO: [ view_template ] --END-- [ RunTime:0.034815s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  viptime D:\wwwroot\wx6\Web\data\Conf\logs\Cache\User\ce07842f679ae3250c6630aa4d81e755.php 第 73 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.247873s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.212462s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.460481s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.469985s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.471551s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.472716s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013793s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.479522s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002089s ]
+
+[ 2014-01-02T16:46:06+08:00 ] 223.198.93.147 /index.php?g=User&m=Lottery&a=index&token=ptlrak1388652341
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007569s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.005925s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.003493s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009426s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000425s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.013042s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = 'ptlrak1388652341' ) AND ( `uid` = 34 ) LIMIT 1   [ RunTime:0.005479s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.141744s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002913s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.144824s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053470s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.198388s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.199143s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.199919s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.200488s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003465s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.202147s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001969s ]
+
+[ 2014-01-02T16:46:08+08:00 ] 223.198.93.147 /index.php?g=Home&m=Index&a=price
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001621s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001886s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.022367s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008720s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\7d87f40fe1a639b5d2faca7da636fe55.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.030846s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.170318s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.201164s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.202257s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.203341s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.203854s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004053s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.205525s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001694s ]
+
+[ 2014-01-02T16:59:14+08:00 ] 112.64.235.248 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009700s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.027852s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008213s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.036147s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.138096s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.174461s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.180644s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.189201s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.193301s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.021847s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.198206s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003038s ]
+
+[ 2014-01-02T16:59:41+08:00 ] 112.64.235.252 /index.php?g=User&m=Function&a=index&id=59&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002682s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.013871s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.001991s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007933s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000955s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.018298s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.001107s ]
+
+[ 2014-01-02T16:59:41+08:00 ] 112.64.235.252 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002524s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002852s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.025454s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001442s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.026994s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093864s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.121042s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.123038s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.132474s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.133867s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015269s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.136548s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004088s ]
+
+[ 2014-01-02T17:00:05+08:00 ] 180.153.206.32 /index.php?g=User&m=Home&a=set&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006807s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007273s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.007140s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.002885s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.012784s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.001446s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.026330s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.004109s ]
+
+[ 2014-01-02T17:00:05+08:00 ] 180.153.206.32 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001590s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.052009s ]
+INFO: [ view_template ] --END-- [ RunTime:0.009599s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.061817s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.152316s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.214363s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.224435s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.235535s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.238764s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.027187s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.241971s ]
+INFO: [ view_end ] --END-- [ RunTime:0.013490s ]
+
+[ 2014-01-02T17:00:46+08:00 ] 180.153.201.64 /index.php?g=User&m=Company&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.011248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011778s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.003080s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.008323s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.013061s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.013131s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.010538s ]
+
+[ 2014-01-02T17:00:46+08:00 ] 180.153.201.64 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.005812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006316s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.054988s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001860s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.056939s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.141178s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.198239s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.201719s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.219257s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.228000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.035498s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.234026s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004125s ]
+
+[ 2014-01-02T17:01:24+08:00 ] 101.226.66.193 /index.php?g=User&m=Img&a=add
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001603s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002059s ]
+NOTIC: [2048] Declaration of ImgAction::insert() should be compatible with that of BaseAction::insert() D:\wwwroot\wx6\Web\Lanrain\Lib\Action\User\ImgAction.class.php 第 5 行.
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.021349s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.006575s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.023711s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.004335s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.003317s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.004194s ]
+
+[ 2014-01-02T17:01:24+08:00 ] 101.226.66.193 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007606s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.025068s ]
+INFO: [ view_template ] --END-- [ RunTime:0.010906s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.036596s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.119507s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.156204s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.157613s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.171457s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.173006s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.020220s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.176579s ]
+INFO: [ view_end ] --END-- [ RunTime:0.013702s ]
+
+[ 2014-01-02T17:01:33+08:00 ] 101.226.51.226 /index.php?g=User&m=Diymen&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003372s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002463s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.011441s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.016454s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.014904s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.010169s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.000886s ]
+
+[ 2014-01-02T17:01:34+08:00 ] 101.226.51.226 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001923s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002251s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.036448s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001246s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.037937s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094067s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.132068s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.142095s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.144363s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.146965s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.026890s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.160034s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002800s ]
+
+[ 2014-01-02T17:01:45+08:00 ] 101.226.33.221 /index.php?g=User&m=Home&a=plugmenu&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006699s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007010s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.009560s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000782s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009667s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.008893s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.000356s ]
+
+[ 2014-01-02T17:01:46+08:00 ] 101.226.33.221 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.008033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008713s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.031056s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001631s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.032968s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.096194s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.129838s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.131237s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.133149s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.136189s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008181s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.138400s ]
+INFO: [ view_end ] --END-- [ RunTime:0.020390s ]
+
+[ 2014-01-02T17:14:22+08:00 ] 180.153.206.25 /index.php?g=User&m=Member_card&a=index&token=jalkmt1388468740
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001792s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004349s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000547s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006417s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000549s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.009185s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.000413s ]
+
+[ 2014-01-02T17:14:22+08:00 ] 180.153.206.25 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.004390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005114s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.015496s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001767s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.017382s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077162s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.094681s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.098768s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.102904s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.103681s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010191s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.104996s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004064s ]
+
+[ 2014-01-02T17:14:25+08:00 ] 101.226.33.203 /index.php?g=User&m=Function&a=index&token=jalkmt1388468740&id=59
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.005327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005619s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.004071s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008348s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000403s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.002845s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.003869s ]
+
+[ 2014-01-02T17:14:25+08:00 ] 101.226.33.203 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001156s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001410s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.025910s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000953s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.027034s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.085515s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.113886s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.120343s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.128913s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.129703s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017274s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.131426s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002398s ]
+
+[ 2014-01-02T17:15:15+08:00 ] 180.153.205.252 /index.php?g=System&m=Admin&a=logout
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001610s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006325s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.011738s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005864s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.017851s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031513s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.049485s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.051515s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.054609s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.055715s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007563s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.057263s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001831s ]
+
+[ 2014-01-02T17:15:18+08:00 ] 180.153.206.38 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003577s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.018525s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008321s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.026818s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074074s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.101069s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.111971s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.114815s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.121044s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.021776s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.123076s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002201s ]
+
+[ 2014-01-02T17:15:21+08:00 ] 101.226.66.179 /index.php?g=User&m=Alipay&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000966s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001113s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.002122s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.002449s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.010586s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.004732s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.000493s ]
+
+[ 2014-01-02T17:16:06+08:00 ] 180.153.206.32 /index.php?g=User&m=Lottery&a=index&token=ptlrak1388652341
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002483s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002769s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.005267s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005831s ]
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\Lanrain\Lib\Action\UserAction.class.php 第 6 行.
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = null ) LIMIT 1   [ RunTime:0.000475s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.007744s ]
+SQL: SELECT `wxname`,`wxid`,`headerpic`,`weixin` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = null ) LIMIT 1   [ RunTime:0.005533s ]
+
+[ 2014-01-02T17:16:07+08:00 ] 180.153.206.32 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001771s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.021464s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007138s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\52f87a7eb8f08d96b8a13f27c31684b4.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.028945s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.098158s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.126951s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.128464s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.129935s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.132542s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007255s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.134436s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001902s ]
+
+[ 2014-01-02T17:19:50+08:00 ] 180.153.205.252 /index.php?g=Home&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.012389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012648s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.018755s ]
+INFO: [ view_template ] --END-- [ RunTime:0.013273s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.032156s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.092593s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.124878s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.133977s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.135820s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.137005s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.019045s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.144304s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002588s ]
+
+[ 2014-01-02T19:05:31+08:00 ] 106.120.160.109 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.017779s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018135s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.029132s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005310s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.034636s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.120777s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.155469s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.157329s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.160449s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.161918s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016267s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.173163s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004349s ]
+
+[ 2014-01-02T19:07:43+08:00 ] 220.181.132.194 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.009721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010052s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.018114s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002366s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.020563s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.133736s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.154393s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.161489s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.163795s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.165361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018132s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.172845s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003034s ]
+

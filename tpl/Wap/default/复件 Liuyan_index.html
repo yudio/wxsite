@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Liuyan</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			color:#333;
+		}
+		a{
+			text-decoration: none;
+		}
+		body{
+			width: 600px;
+			margin: 0 auto;
+		}
+		#topic{
+			background: #ccc;
+			border: 1px solid #dbdbdb;
+			height: 120px;
+			margin: 0 0 20px 0;
+		}
+		ul.list{
+			list-style: none;
+			padding:10px 5px;
+			border-left: 1px dashed #ccc;
+			background: ;
+		}
+		ul.list li{
+			height: 25px; 
+			line-height: 25px;
+			padding: 8px;
+			border: 1px solid #ccc;
+			margin: 0 0 5px 0;
+			border-radius: 8px;
+		}
+		a.del{
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			font-size: 12px;
+			padding: 5px;
+			text-align: center;
+		}
+		p.re{
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			line-height: 25px;
+			height: 25px;
+			text-align: center;
+			background: #999;
+		}
+		p.re a{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="topic">
+		留言
+	</div>
+	<p class="re"><a href="{lanrain::U('Liuyan/add', array('token'=> $token, 'wecha_id'=> $wecha_id))}">点击发布留言</a></p>
+	<ul class="list">
+		<volist name="info" id="vo">
+			<li>名字:{lanrain:$vo.title}</li>
+			<li>时间：<php>echo date('Y-m-d H:i',$vo['createtime'])</php></li>
+			<li>内容:{lanrain:$vo.text}</li>
+			
+				<php>
+					if($vo['wecha_id'] == $wecha_id){
+				</php>
+					
+						<li><a href="{lanrain::U('Liuyan/del',array('id'=>$vo['id']))}"class="del">删除</a></li>
+				<php>
+					}
+				</php>
+			<br>
+		</volist>
+	</ul>
+	<p class="re"><a href="{lanrain::U('Liuyan/add',array('token'=> $token, 'wecha_id'=> $wecha_id))}">点击发布留言</a></p>
+</body>
+</html>

@@ -1,0 +1,378 @@
+[ 2014-01-03T10:50:58+08:00 ] 112.67.116.7 /index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002866s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.044469s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003114s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+NOTIC: [8] Undefined index:  uid D:\wwwroot\wx6\Web\data\Conf\logs\Cache\Home\6fec05cdeb567bdd6f06e8ce37bfd4e0.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.052673s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.151186s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.204065s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.212266s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.220544s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.230313s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.031380s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.235711s ]
+INFO: [ view_end ] --END-- [ RunTime:0.009291s ]
+
+[ 2014-01-03T10:51:13+08:00 ] 112.67.116.7 /index.php?g=System&m=Admin&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002637s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.012334s ]
+INFO: [ view_template ] --END-- [ RunTime:0.007997s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant STATICS - assumed 'STATICS' D:\wwwroot\wx6\Web\data\Conf\logs\Cache\System\0ac5617eb2d3cba46a940e61fff06d9f.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.020520s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094448s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.115993s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.118025s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.123982s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.125470s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017318s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.134044s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004226s ]
+
+[ 2014-01-03T10:51:13+08:00 ] 112.67.116.7 /index.php?g=System&m=Admin&a=verify
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004223s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+
+[ 2014-01-03T10:51:25+08:00 ] 112.67.116.7 /index.php?g=System&m=Admin&a=insert
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.010069s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010421s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user` [ RunTime:0.011688s ]
+SQL: SELECT * FROM `tp_user` WHERE ( `username` = 'admin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001972s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.125061s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008420s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.133784s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.092414s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.226356s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.250516s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.253523s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.255703s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.031349s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.257849s ]
+INFO: [ view_end ] --END-- [ RunTime:0.012666s ]
+
+[ 2014-01-03T10:53:32+08:00 ] 112.67.116.7 /index.php?g=System&m=Admin&a=insert
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002646s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_user` [ RunTime:0.003887s ]
+SQL: SELECT * FROM `tp_user` WHERE ( `username` = 'admin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000515s ]
+NOTIC: [2] fopen(D:\wwwroot\wx6\Web\Lanrain\Lib\ORG/UTFWry.dat) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: No such file or directory D:\wwwroot\wx6\Web\Lanrain\Lib\ORG\IpLocation.class.php 第 57 行.
+SQL: UPDATE `tp_user` SET `last_location`='',`last_login_time`=1388717612,`last_login_ip`='112.67.116.7' WHERE ( `id` = 8 ) [ RunTime:0.000816s ]
+
+[ 2014-01-03T10:53:33+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.004196s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004616s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.010023s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000509s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.006979s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 1 ) AND ( `status` = 1 ) ORDER BY `sort` asc  [ RunTime:0.001507s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.134594s ]
+INFO: [ view_template ] --END-- [ RunTime:0.008541s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.143277s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.122621s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.266497s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.269306s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.278705s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.280788s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.024589s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.293184s ]
+INFO: [ view_end ] --END-- [ RunTime:0.008994s ]
+
+[ 2014-01-03T10:53:34+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001696s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003690s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000492s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.083198s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002535s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.085891s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063626s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.149574s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.152625s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.154578s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.155500s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007419s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.157225s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001910s ]
+
+[ 2014-01-03T10:53:34+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=menu
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001753s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.004407s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.005300s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.014946s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 2 ) AND ( `status` = 1 ) AND ( `pid` = 2 ) AND ( `level` = 2 ) ORDER BY `sort` asc  [ RunTime:0.000414s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.266809s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002183s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.269164s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072607s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.342018s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.348621s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.350414s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.351411s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014825s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.357148s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007533s ]
+
+[ 2014-01-03T10:55:12+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=menu&pid=3&level=2&title=%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001894s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002466s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003682s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = 2 ) AND ( `pid` = 3 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.002605s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.117269s ]
+INFO: [ view_template ] --END-- [ RunTime:0.013274s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.130728s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072721s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.203596s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.204797s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.205978s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.206890s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015682s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.219540s ]
+INFO: [ view_end ] --END-- [ RunTime:0.009583s ]
+
+[ 2014-01-03T10:55:14+08:00 ] 112.67.116.7 /index.php?g=System&m=User&a=index&pid=18&level=3
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002645s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003815s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = 3 ) AND ( `pid` = 18 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.002921s ]
+SQL: SHOW COLUMNS FROM `tp_role` [ RunTime:0.004371s ]
+SQL: SELECT `id`,`name` FROM `tp_role`  [ RunTime:0.000630s ]
+SQL: SHOW COLUMNS FROM `tp_user` [ RunTime:0.015099s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_user` LIMIT 1   [ RunTime:0.001093s ]
+SQL: SELECT * FROM `tp_user` ORDER BY id ASC LIMIT 0,15   [ RunTime:0.001635s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.169064s ]
+INFO: [ view_template ] --END-- [ RunTime:0.009212s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.178573s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.102302s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.281131s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.283220s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.285587s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.290580s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013274s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.294611s ]
+INFO: [ view_end ] --END-- [ RunTime:0.030983s ]
+
+[ 2014-01-03T10:55:17+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=menu&pid=45&level=2&title=%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001949s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002767s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.016217s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = 2 ) AND ( `pid` = 45 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.003699s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.133132s ]
+INFO: [ view_template ] --END-- [ RunTime:0.010882s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.144308s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.061072s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.205730s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.208711s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.219210s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.224305s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.020264s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.226218s ]
+INFO: [ view_end ] --END-- [ RunTime:0.012347s ]
+
+[ 2014-01-03T10:55:19+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=menu&pid=3&level=2&title=%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003369s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003533s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = 2 ) AND ( `pid` = 3 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.002134s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.101041s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002337s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.103497s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069131s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.173150s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.175634s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.187425s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.188867s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.021128s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.194193s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007466s ]
+
+[ 2014-01-03T10:55:21+08:00 ] 112.67.116.7 /index.php?g=System&m=User&a=index&pid=18&level=3
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002102s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002439s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003354s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = 3 ) AND ( `pid` = 18 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.035085s ]
+SQL: SHOW COLUMNS FROM `tp_role` [ RunTime:0.013089s ]
+SQL: SELECT `id`,`name` FROM `tp_role`  [ RunTime:0.008883s ]
+SQL: SHOW COLUMNS FROM `tp_user` [ RunTime:0.008435s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_user` LIMIT 1   [ RunTime:0.000543s ]
+SQL: SELECT * FROM `tp_user` ORDER BY id ASC LIMIT 0,15   [ RunTime:0.001093s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.214631s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002515s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.217300s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069003s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.288648s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.290761s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.291964s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.292772s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005729s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.294649s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002821s ]
+
+[ 2014-01-03T10:55:42+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=menu&pid=2&level=2&title=%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.013095s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013373s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.016787s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = 2 ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.001288s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.139163s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004064s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.143409s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.066024s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.209611s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.214001s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.217726s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.219136s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016967s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.227382s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007948s ]
+
+[ 2014-01-03T10:55:45+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002005s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002276s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.004586s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000542s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003440s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 1 ) AND ( `status` = 1 ) ORDER BY `sort` asc  [ RunTime:0.001227s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.104467s ]
+INFO: [ view_template ] --END-- [ RunTime:0.006813s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.111354s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.059703s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.171288s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.178364s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.181443s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.182642s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013058s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.184495s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001391s ]
+
+[ 2014-01-03T10:55:46+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.005614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012927s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.012076s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000738s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.101596s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004173s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.106075s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070973s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.177307s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.180604s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.188838s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.189780s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.020401s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.200424s ]
+INFO: [ view_end ] --END-- [ RunTime:0.004213s ]
+
+[ 2014-01-03T10:55:46+08:00 ] 112.67.116.7 /index.php?g=System&m=System&a=menu
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.007725s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008051s ]
+NOTIC: [2] Cannot use a scalar value as an array D:\wwwroot\wx6\Web\Lib\Core\Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.008424s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.002728s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.008796s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 2 ) AND ( `status` = 1 ) AND ( `pid` = 2 ) AND ( `level` = 2 ) ORDER BY `sort` asc  [ RunTime:0.010168s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.327282s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003558s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.330600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.066037s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.397198s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.398003s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.399315s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.400198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.019594s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.417009s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005161s ]
+
