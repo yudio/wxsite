@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
 <title>
-	<?php echo C('site_name');?>-LanRain后台管理登录
+	<?php echo C('site_name');?>-奈斯伙伴后台管理登录
 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="LanRain微信营销系统" />
-<meta name="Description" content="LanRain微信营销系统" />
+<meta name="Keywords" content="奈斯伙伴微信营销系统" />
+<meta name="Description" content="奈斯伙伴微信营销系统" />
 <link type="text/css" rel="stylesheet" href="<?php echo RES;?>/css/reset.css" />
 <link type="text/css" rel="stylesheet" href="<?php echo RES;?>/css/common.css" />
 <link type="text/css" rel="stylesheet" href="<?php echo RES;?>/css/page.css" />
@@ -51,7 +51,7 @@ DD_belatedPNG.fix(".logo a img,.shade img");
             	<form name="form1" method="post" action="<?php echo U('Admin/insert');?>" id="form1" class="myform">
 
                 	<fieldset>
-                		<legend><h1>LanRain 后台管理系统</h1></legend>
+                		<legend><h1>奈斯伙伴 后台管理系统</h1></legend>
                        
                   		<p><span><input name="username" type="text" id="username" class="username_input" /></span></p>
                    	    <p><span><input name="password" type="password" id="pw" class="ps_input" /></span></p>
@@ -79,7 +79,7 @@ DD_belatedPNG.fix(".logo a img,.shade img");
 
 <!--footer-->
 <div class="footer pt30">
-	CopyRight &copy 2013 LanRain All Rights Reserved 版权所有 LanRain<br />
+	CopyRight &copy 2013 奈斯伙伴 All Rights Reserved 版权所有 NiceDog<br />
 	
 </div>
 </body>

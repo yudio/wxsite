@@ -264,3 +264,1112 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:-0.012895s ]
 INFO: [ view_end ] --END-- [ RunTime:0.000336s ]
 
+[ 2014-01-26T18:47:20+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001045s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004407s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.015792s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000873s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.016780s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026641s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.043442s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.044005s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.044618s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.045100s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002257s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.045754s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000803s ]
+
+[ 2014-01-26T18:47:24+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001098s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000178s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001304s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008154s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.009483s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.009666s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009862s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009966s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000736s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.010268s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000299s ]
+
+[ 2014-01-26T18:47:24+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000429s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.006168s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000216s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.006423s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012295s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.018754s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.019063s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.019390s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.019577s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001157s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.019987s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000614s ]
+
+[ 2014-01-26T18:47:28+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000908s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000154s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001085s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013606s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.014733s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.015034s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.015446s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.015605s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001159s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.015939s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000386s ]
+
+[ 2014-01-26T18:47:29+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000430s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001301s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000173s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001506s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015132s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.016699s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.017097s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.017543s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.017764s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001520s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.018364s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000628s ]
+
+[ 2014-01-26T18:47:32+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001012s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000322s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001363s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008205s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.009593s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.009777s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009975s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.010079s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000690s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.010317s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000281s ]
+
+[ 2014-01-26T18:47:32+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000430s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.005968s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000183s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.006185s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009355s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.015573s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.015815s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.016085s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.016209s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000882s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.016502s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000330s ]
+
+[ 2014-01-26T18:47:48+08:00 ] 0.0.0.0 /index.php?g=System&m=Admin&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.010019s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000509s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant STATICS - assumed 'STATICS' /Library/WebServer/Documents/data/conf/logs/Cache/System/0ac5617eb2d3cba46a940e61fff06d9f.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.010558s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009917s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.020507s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.020763s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.021041s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.021288s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001249s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.021839s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000611s ]
+
+[ 2014-01-26T18:47:49+08:00 ] 0.0.0.0 /index.php?g=System&m=Admin&a=verify
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000474s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+
+[ 2014-01-26T18:47:53+08:00 ] 0.0.0.0 /?g=System&m=Admin&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000695s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000159s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant STATICS - assumed 'STATICS' /Library/WebServer/Documents/data/conf/logs/Cache/System/0ac5617eb2d3cba46a940e61fff06d9f.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.000876s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003675s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.004574s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.004732s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.004916s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.005018s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000643s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.005253s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000277s ]
+
+[ 2014-01-26T18:47:53+08:00 ] 0.0.0.0 /index.php?g=System&m=Admin&a=verify
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000546s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+
+[ 2014-01-26T18:48:00+08:00 ] 0.0.0.0 /index.php?g=System&m=Admin&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000768s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000156s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant STATICS - assumed 'STATICS' /Library/WebServer/Documents/data/conf/logs/Cache/System/0ac5617eb2d3cba46a940e61fff06d9f.php 第 14 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.000949s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003766s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.004739s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.004896s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.005078s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.005210s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000692s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.005471s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000350s ]
+
+[ 2014-01-26T18:48:00+08:00 ] 0.0.0.0 /index.php?g=System&m=Admin&a=verify
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000517s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+
+[ 2014-01-26T18:48:04+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000281s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003854s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000557s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001457s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 1 ) AND ( `status` = 1 ) ORDER BY `sort` asc  [ RunTime:0.002202s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.016882s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000257s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.017176s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008371s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.025583s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.025830s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.026035s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.026148s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000793s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.026405s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000305s ]
+
+[ 2014-01-26T18:48:04+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000602s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001559s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000570s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.013935s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000372s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.014374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007124s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.021558s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.021797s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.022011s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.022145s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000848s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.022446s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000383s ]
+
+[ 2014-01-26T18:48:04+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=menu
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000667s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001618s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000278s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.002410s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 2 ) AND ( `status` = 1 ) AND ( `pid` = 2 ) AND ( `level` = 2 ) ORDER BY `sort` asc  [ RunTime:0.002631s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.037506s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000201s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.037733s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006641s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.044409s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.044622s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.044839s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.044984s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000816s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.045262s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2014-01-26T18:48:09+08:00 ] 0.0.0.0 /?g=System&m=System&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000277s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001555s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000367s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001273s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 1 ) AND ( `status` = 1 ) ORDER BY `sort` asc  [ RunTime:0.000420s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.010548s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000238s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.010819s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005833s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.016709s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.016915s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.017117s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.017246s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000767s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.017501s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000304s ]
+
+[ 2014-01-26T18:48:09+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000487s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001293s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000319s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.011507s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000328s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.011895s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006107s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.018039s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.018302s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.018602s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.018774s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001078s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.019178s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000472s ]
+
+[ 2014-01-26T18:48:09+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=menu
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001613s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001318s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 2 ) AND ( `status` = 1 ) AND ( `pid` = 2 ) AND ( `level` = 2 ) ORDER BY `sort` asc  [ RunTime:0.000463s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.029370s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000359s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.029786s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007750s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.037575s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.037863s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.038171s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.038354s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001186s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.038835s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000771s ]
+
+[ 2014-01-26T18:48:09+08:00 ] 0.0.0.0 /?g=System&m=System&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.008291s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001463s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 1 ) AND ( `status` = 1 ) ORDER BY `sort` asc  [ RunTime:0.000533s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.022589s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000373s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.023014s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006067s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.029093s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.029265s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.029454s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.029566s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000719s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.029853s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000364s ]
+
+[ 2014-01-26T18:48:10+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=menu
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000509s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001523s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000366s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001451s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 2 ) AND ( `status` = 1 ) AND ( `pid` = 2 ) AND ( `level` = 2 ) ORDER BY `sort` asc  [ RunTime:0.000385s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.011559s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000218s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.011812s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006285s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.018132s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.018359s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.018590s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.018732s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000873s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.019046s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000382s ]
+
+[ 2014-01-26T18:48:10+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001632s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000332s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.029061s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000211s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.029297s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003986s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.033319s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.033482s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.033673s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.033786s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000680s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.034052s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000347s ]
+
+[ 2014-01-26T18:50:57+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001252s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000181s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001464s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008968s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.010459s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.010657s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.010867s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.010988s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000748s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.011247s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000292s ]
+
+[ 2014-01-26T18:50:57+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000897s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000182s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001103s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007760s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.008890s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.009083s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009280s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009413s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000729s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.009654s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000284s ]
+
+[ 2014-01-26T18:51:03+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000429s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001382s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000211s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001629s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010248s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.011906s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.012119s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.012346s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.012489s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000826s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.012780s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000321s ]
+
+[ 2014-01-26T18:51:03+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000451s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000523s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001608s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000269s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001923s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013926s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.015892s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.016168s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.016479s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.016637s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001078s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.017025s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000455s ]
+
+[ 2014-01-26T18:51:04+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000993s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000176s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001204s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007481s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.008711s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.008894s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009090s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009196s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000690s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.009435s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000331s ]
+
+[ 2014-01-26T18:51:04+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.010289s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000168s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.010482s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007419s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.017955s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.018207s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.018431s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.018551s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000836s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.018826s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000320s ]
+
+[ 2014-01-26T18:51:20+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000276s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000876s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000178s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001077s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007489s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.008591s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.008770s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.008963s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009067s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000709s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.009333s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000278s ]
+
+[ 2014-01-26T18:51:22+08:00 ] 0.0.0.0 /?g=System&m=System&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000278s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.003100s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000560s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001217s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 1 ) AND ( `status` = 1 ) ORDER BY `sort` asc  [ RunTime:0.000412s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.012950s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000238s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.013221s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005771s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.019014s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.019179s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.019353s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.019462s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000665s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.019711s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000296s ]
+
+[ 2014-01-26T18:51:22+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=menu
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.002627s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000719s ]
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001488s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `display` = 2 ) AND ( `status` = 1 ) AND ( `pid` = 2 ) AND ( `level` = 2 ) ORDER BY `sort` asc  [ RunTime:0.000346s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.012860s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000198s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.013085s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004856s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.017974s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.018170s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.018362s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.018483s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000740s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.018752s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000326s ]
+
+[ 2014-01-26T18:51:22+08:00 ] 0.0.0.0 /index.php?g=System&m=System&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000780s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+SQL: SHOW COLUMNS FROM `tp_node` [ RunTime:0.001700s ]
+SQL: SELECT * FROM `tp_node` WHERE ( `level` = null ) AND ( `pid` = 2 ) AND ( `status` = 1 ) AND ( `display` > 0 ) ORDER BY `sort` asc  [ RunTime:0.000329s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.019364s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000352s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.019770s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006529s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.026329s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.026597s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.026887s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.027081s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001147s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.027550s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2014-01-26T18:51:26+08:00 ] 0.0.0.0 /?g=Home
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001229s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000177s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001439s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012430s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.013972s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.014514s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.015019s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.015295s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001860s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.015919s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000703s ]
+
+[ 2014-01-26T18:51:51+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001306s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000187s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001545s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008707s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.010279s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.010496s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.010721s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.010840s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000793s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.011110s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000332s ]
+
+[ 2014-01-26T18:51:52+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000872s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000157s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001053s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007551s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.008629s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.008808s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009001s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009106s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000680s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.009343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000278s ]
+
+[ 2014-01-26T18:51:54+08:00 ] 0.0.0.0 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000285s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000896s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000157s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001077s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007519s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.008622s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.008803s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.008999s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009104s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000688s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.009344s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000283s ]
+
+[ 2014-01-26T18:52:12+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001101s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000186s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001338s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008900s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.010263s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.010443s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.010639s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.010744s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000685s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.010984s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000298s ]
+
+[ 2014-01-26T18:52:14+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.000983s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000176s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001184s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008358s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.009582s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.009794s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.010017s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.010136s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000785s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.010407s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000318s ]
+
+[ 2014-01-26T18:52:14+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000443s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000518s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001615s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000273s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001945s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016308s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.018307s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.018710s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.019109s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.019319s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001417s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.019791s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000554s ]
+
+[ 2014-01-26T18:52:14+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000446s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.018024s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000243s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.018299s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008803s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.027128s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.027319s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.027517s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.027623s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000704s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.027868s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000316s ]
+
+[ 2014-01-26T18:52:14+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001495s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000297s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001834s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014137s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.016013s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.016346s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.016699s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.016890s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001263s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.017361s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000535s ]
+
+[ 2014-01-26T18:52:15+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.018053s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000283s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.018381s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014804s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.033237s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.033570s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.033915s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.034086s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001212s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.034516s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000491s ]
+
+[ 2014-01-26T18:52:15+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001023s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000181s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001232s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008239s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.009498s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.009690s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009890s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009997s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000706s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.010239s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000288s ]
+
+[ 2014-01-26T18:52:15+08:00 ] 0.0.0.0 /?g/Home/index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000602s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.008472s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000188s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.008687s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007740s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.016466s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.016651s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.016847s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.016953s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000757s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.017250s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000736s ]
+
+[ 2014-01-26T18:52:15+08:00 ] 0.0.0.0 /?g/Home/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001274s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000163s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.001462s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007549s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.009037s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.009221s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.009421s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.009527s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000694s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.009767s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000320s ]
+
+[ 2014-01-26T18:52:16+08:00 ] 0.0.0.0 /?g/Home
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000572s ]
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [2] Cannot use a scalar value as an array /Library/WebServer/Documents/Lib/Core/Action.class.php 第 206 行.
+NOTIC: [8] Undefined offset: 1 /Library/WebServer/Documents/Lib/Core/View.class.php 第 69 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.001678s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000303s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant uid - assumed 'uid' /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+NOTIC: [8] Undefined index: uid /Library/WebServer/Documents/data/conf/logs/Cache/Home/ec2581276f7f70d69e2cae61f13676d3.php 第 31 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.002028s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015234s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.017298s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.017600s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.017941s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.018114s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001103s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.018469s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000585s ]
+

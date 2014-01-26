@@ -1,8 +1,8 @@
 <?php if (!defined('THINK_PATH')) exit();?><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo C('site_name');?>-微信后台管理系统</title>
-<meta name="keywords" content="<?php echo C('site_name');?>-LanRain后台管理系统" />
-<meta name="description" content="<?php echo C('site_name');?>-LanRain后台管理系统" />
+<meta name="keywords" content="<?php echo C('site_name');?>-奈斯伙伴后台管理系统" />
+<meta name="description" content="<?php echo C('site_name');?>-奈斯伙伴后台管理系统" />
 <link href="<?php echo RES;?>/images/style.css" type="text/css" rel="stylesheet">
 <meta http-equiv="x-ua-compatible" content="ie=7" />
 <script src="<?php echo STATICS;?>/jquery-1.4.2.min.js" type="text/javascript"></script>
@@ -17,7 +17,7 @@
 	<div class="top">
     	<a href="/" class="logo" title="首页">首页</a>
 		 <div class="login">
-			<li>您好：<b><?php echo (session('username')); ?></b> ，欢迎使用微信CMS！</li>	
+			<li>您好：<b><?php echo (session('username')); ?></b> ，欢迎使用微信CMS！</li>
 			<li><a href="/index.php" target="_blank"> 访问首页</a></li>
 			<li><a href="/index.php?g=User&m=Index&a=index" target="_blank">用户中心</a></li>
 			<li><a href="<?php echo U('Admin/logout');?>">[退出]</a></li>
