@@ -6,8 +6,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
-<title>{lanrain:$Zadan.title}</title>
-<link href="{lanrain::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
+<title>{np:$Zadan.title}</title>
+<link href="{np::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #txt {
 	color: #000000;
@@ -51,11 +51,11 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 </style>
 <style type="text/css">
 .cover{height:240px;margin:20px auto;} 
-.eggBox{background:url({lanrain::RES}/css/guajiang/images/egg_1.png) no-repeat bottom;width:158px;padding-top:15px;margin-top:50px; height:187px;cursor:pointer;position:relative;margin-left:35px;} 
-.curr{background:url({lanrain::RES}/css/guajiang/images/egg_2.png) no-repeat bottom;cursor:default;z-index:300;} 
-.curr sup{position:absolute;width:232px;height:181px;top:-36px;left:-34px;background:url({lanrain::RES}/css/guajiang/images/img-5.png) no-repeat;z-index:800;} 
-.curr sup.win{background:url({lanrain::RES}/css/guajiang/images/img-4.png) no-repeat;}
-.hammer{background:url({lanrain::RES}/css/guajiang/images/img-6.png) no-repeat;width:74px;height:87px;position:absolute;  
+.eggBox{background:url({np::RES}/css/guajiang/images/egg_1.png) no-repeat bottom;width:158px;padding-top:15px;margin-top:50px; height:187px;cursor:pointer;position:relative;margin-left:35px;}
+.curr{background:url({np::RES}/css/guajiang/images/egg_2.png) no-repeat bottom;cursor:default;z-index:300;}
+.curr sup{position:absolute;width:232px;height:181px;top:-36px;left:-34px;background:url({np::RES}/css/guajiang/images/img-5.png) no-repeat;z-index:800;}
+.curr sup.win{background:url({np::RES}/css/guajiang/images/img-4.png) no-repeat;}
+.hammer{background:url({np::RES}/css/guajiang/images/img-6.png) no-repeat;width:74px;height:87px;position:absolute;
 text-indent:-9999px;z-index:150;left:130px;top:0;} 
 </style>
 <script type="text/javascript">
@@ -130,8 +130,8 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
     loadingObj.show();   
 
 </script>
-<script   src="{lanrain::RES}/css/guajiang/js/jquery.js" type="text/javascript"></script>
-<script   src="{lanrain::RES}/css/guajiang/js/wScratchPad.js" type="text/javascript"></script>
+<script   src="{np::RES}/css/guajiang/js/jquery.js" type="text/javascript"></script>
+<script   src="{np::RES}/css/guajiang/js/wScratchPad.js" type="text/javascript"></script>
 
 <if condition="$Zadan['usenums'] eq 2">
 <div class="main">
@@ -141,7 +141,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 					<div class="title-brown">恭喜：</div>
 					<div class="Detail">
 					
-					<p>尊敬的 <font color='red'> {lanrain:$Zadan.uname} </font> 您已经中过 <strong><font color='red'>{lanrain:$Zadan.winprize}</font></strong> 奖了,<br />兑奖号： <font color='red'>{lanrain:$Zadan.sncode}</font></p>	
+					<p>尊敬的 <font color='red'> {np:$Zadan.uname} </font> 您已经中过 <strong><font color='red'>{np:$Zadan.winprize}</font></strong> 奖了,<br />兑奖号： <font color='red'>{np:$Zadan.sncode}</font></p>
 			
 					</div>
 				</div>
@@ -151,13 +151,13 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 </if>
 <if condition="$Zadan['usenums'] eq 3">
 	<div class="main">
-		<div class="banner"><img src="{lanrain::RES}/css/guajiang/images/activity-scratch-card-end2.jpg"></div>
+		<div class="banner"><img src="{np::RES}/css/guajiang/images/activity-scratch-card-end2.jpg"></div>
 		<div class="content" style="margin-top:-5px">
 			<div class="boxcontent boxwhite">
 				<div class="box">
 					<div class="title-brown">活动结束说明：</div>
 					<div class="Detail">
-						<p>{lanrain:$Zadan.endinfo}.</p>
+						<p>{np:$Zadan.endinfo}.</p>
 					</div>
 				</div>
 			</div>
@@ -177,13 +177,13 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 		<div class="box">
 			<div class="title-red"><span>恭喜你中奖了</span></div>
 			<div class="Detail">
-				<p>您中了：<span class="red">{lanrain:$Zadan.winprize}</span></p>
-				<p class="red"> {lanrain:$Zadan.sttxt} </p>
+				<p>您中了：<span class="red">{np:$Zadan.winprize}</span></p>
+				<p class="red"> {np:$Zadan.sttxt} </p>
 				<p>
 					<input name=""  class="px" id="tel" value="" type="text" placeholder="请输入您的手机号">
 					<input name=""  class="px" id="wechaname" value="" type="text" placeholder="请输入您的微信号">
-					<input name=""  id="wechaid" value="{lanrain:$Zadan.wecha_id}" type="hidden">
-					<input name=""  id="lid" value="{lanrain:$Zadan.lid}" type="hidden">
+					<input name=""  id="wechaid" value="{np:$Zadan.wecha_id}" type="hidden">
+					<input name=""  id="lid" value="{np:$Zadan.lid}" type="hidden">
 				</p><p>
 				<p>
 					<input class="pxbtn" name="提 交"  id="save-btn" type="button" value="用户提交">
@@ -197,18 +197,18 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 			<div class="title-brown"><span>奖项说明：</span></div>
 			<div class="Detail">
 			<p class="red">砸不开视为作废</p>
-			<p>每人最多有{lanrain:$Zadan.canrqnums}次机会</p>
-			<p>这是您第 <span class="red" id="usenums">{lanrain:$Zadan.usecout}</span> 次砸蛋</p>
-			 {lanrain::$prizeStr}
+			<p>每人最多有{np:$Zadan.canrqnums}次机会</p>
+			<p>这是您第 <span class="red" id="usenums">{np:$Zadan.usecout}</span> 次砸蛋</p>
+			 {np::$prizeStr}
 			</div>
 		</div>
 	</div>
 	<div class="boxcontent boxwhite">
 		<div class="box">
 			<div class="title-brown">活动说明：</div>
-			<div class="Detail">{lanrain:$Zadan.info}
-				<p>活动时间:{lanrain:$Zadan.statdate|date="Y-m-d",###}至{lanrain:$Zadan.enddate|date="Y-m-d",###}</p>
-				<p>{lanrain:$Zadan.txt}</p>				
+			<div class="Detail">{np:$Zadan.info}
+				<p>活动时间:{np:$Zadan.statdate|date="Y-m-d",###}至{np:$Zadan.enddate|date="Y-m-d",###}</p>
+				<p>{np:$Zadan.txt}</p>
 							
 			</div>
 		</div>
@@ -218,7 +218,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 </div>	
 </if>	
 <div style="height:60px;"></div>
-<script src="{lanrain::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
+<script src="{np::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
 <style type="text/css">
 .window {
 	width:290px;
@@ -345,10 +345,10 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
  
 
 <script type="text/javascript">
-/*window.sncode = "{lanrain:$Zadan.sn}";*/
-window.prize = "{lanrain:$Zadan.winprize}";
-var winprize  = "{lanrain:$Zadan.winprize}";
-var zjl = "{lanrain:$Zadan.zjl}";	
+/*window.sncode = "{np:$Zadan.sn}";*/
+window.prize = "{np:$Zadan.winprize}";
+var winprize  = "{np:$Zadan.winprize}";
+var zjl = "{np:$Zadan.zjl}";
 var goon = true;
 $(function(){
 	$('#egg').bind("click",function(){

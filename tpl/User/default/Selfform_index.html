@@ -1,8 +1,8 @@
 <include file="Public:head"/> 
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/cymain.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/cymain.css" />
         <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
-<h4 class="left">自定义表单 ({lanrain:$page}) </h4>
+<h4 class="left">自定义表单 ({np:$page}) </h4>
 <div class="searchbar right">
 <form method="post" action="">
 <input type="text" id="msgSearchInput" class="txt left" placeholder="输入关键词搜索" name="searchkey" value="">
@@ -16,7 +16,7 @@
 </div>
 
 <div class="cLine">
-<div class="pageNavigator left"> <a href="{lanrain::U('Selfform/add',array('token'=>$token))}" title="添加" class="btnGrayS vm bigbtn"><img src="{lanrain::RES}/images/product/add.png" width="16" class="vm">添加</a></div>
+<div class="pageNavigator left"> <a href="{np::U('Selfform/add',array('token'=>$token))}" title="添加" class="btnGrayS vm bigbtn"><img src="{np::RES}/images/product/add.png" width="16" class="vm">添加</a></div>
 <div class="clr"></div>
 </div>
 <div class="msgWrap">
@@ -38,12 +38,12 @@
 <tr></tr>
 <volist name="list" id="item"> 
 <tr>
-<td><input type="checkbox" name="del_id[{lanrain:$i}]" value="285" class="checkitem"></td>
-<td>{lanrain:$item.name}</td>
-<td>{lanrain:$item.keyword}</td>
-<td>{lanrain:$item.time|date="Y-m-d H:i:s",###}</td> 
+<td><input type="checkbox" name="del_id[{np:$i}]" value="285" class="checkitem"></td>
+<td>{np:$item.name}</td>
+<td>{np:$item.keyword}</td>
+<td>{np:$item.time|date="Y-m-d H:i:s",###}</td>
 
-<td class="norightborder"><a href="{lanrain::U('Selfform/infos',array('id'=>$item['id'],'token'=>$token))}">提交信息管理</a>&nbsp;&nbsp;<a href="{lanrain::U('User/Selfform/inputs',array('id'=>$item['id'],'token'=>$token))}">输入项管理</a>&nbsp;&nbsp;<a href="{lanrain::U('Selfform/set',array('id'=>$item['id'],'token'=>$token))}">修改</a>&nbsp;&nbsp;<a href="javascript:drop_confirm('您确定要删除吗?', '{lanrain::U('Selfform/del',array('id'=>$item['id'],'token'=>$token))}');">删除</a></td>
+<td class="norightborder"><a href="{np::U('Selfform/infos',array('id'=>$item['id'],'token'=>$token))}">提交信息管理</a>&nbsp;&nbsp;<a href="{np::U('User/Selfform/inputs',array('id'=>$item['id'],'token'=>$token))}">输入项管理</a>&nbsp;&nbsp;<a href="{np::U('Selfform/set',array('id'=>$item['id'],'token'=>$token))}">修改</a>&nbsp;&nbsp;<a href="javascript:drop_confirm('您确定要删除吗?', '{np::U('Selfform/del',array('id'=>$item['id'],'token'=>$token))}');">删除</a></td>
 </tr>
 </volist>
 </tbody>
@@ -53,7 +53,7 @@
 </div>
 <div class="cLine">
 <div class="pageNavigator right">
-<div class="pages">{lanrain:$page}</div>
+<div class="pages">{np:$page}</div>
 </div>
 <div class="clr"></div>
 </div>

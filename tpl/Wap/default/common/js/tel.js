@@ -9,9 +9,9 @@ $(function(){
 			}else{
 				e.preventDefault();
 				if(url.indexOf('?')!=-1){
-					window.location.href = (url + '&lanrain=mp.weixin.qq.com');
+					window.location.href = (url + '&nicedog=mp.weixin.qq.com');
 				}else{
-					window.location.href = (url + '?lanrain=mp.weixin.qq.com');
+					window.location.href = (url + '?nicedog=mp.weixin.qq.com');
 				}
 				return false;
 			}

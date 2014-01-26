@@ -19,23 +19,23 @@
 	  </tr>
 	    <volist name="list" id="vo">
 			<tr>
-				<td align='center'>{lanrain:$vo.id}</td>
-				<td >{lanrain:$vo.name}</td>
-				<td >{lanrain:$vo['price']}</td>
-				<td >{lanrain:$vo.diynum}</td>
-				<td align='center'>{lanrain:$vo.connectnum}</td>
+				<td align='center'>{np:$vo.id}</td>
+				<td >{np:$vo.name}</td>
+				<td >{np:$vo['price']}</td>
+				<td >{np:$vo.diynum}</td>
+				<td align='center'>{np:$vo.connectnum}</td>
 				<td align='center'><if condition="$vo['iscopyright'] eq 1">是<else/>否</if></td>
-				<td align='center'>{lanrain:$vo.activitynum}</td>
+				<td align='center'>{np:$vo.activitynum}</td>
 				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
 				<td align='center'>
-					<a href="{lanrain::U('User_group/edit/',array('id'=>$vo['id']))}">修改</a>
-					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{lanrain::U('User_group/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+					<a href="{np::U('User_group/edit/',array('id'=>$vo['id']))}">修改</a>
+					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{np::U('User_group/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{lanrain:$page}</div></td>
+      <td colspan="8"><div class="listpage">{np:$page}</div></td>
 	  <td></td>
     </tr>
    

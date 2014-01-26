@@ -7,7 +7,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <title>签到赚积分</title>
-<link href="{lanrain::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
+<link href="{np::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #txt {
   color: #000000;
@@ -55,21 +55,21 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 
 <body data-role="page" >
 
-<script type="text/javascript" src="{lanrain::RES}/css/guajiang/js/jquery.js"></script> 
+<script type="text/javascript" src="{np::RES}/css/guajiang/js/jquery.js"></script>
 <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">\x3C/script>')</script>
 
 <div class="main">
 <div class="cover">
  <if condition="$cardset['qiandao'] neq false">
-   <img src="{lanrain::$cardset['qiandao']}">
+   <img src="{np::$cardset['qiandao']}">
  <else/>
-   <img src="{lanrain::RES}/images/cart_info/qiandao.jpg">
+   <img src="{np::RES}/images/cart_info/qiandao.jpg">
  </if>
 
 </div>
 <div class="cover">
   <if condition="$signined eq 1">
-    <img src="{lanrain::RES}/images/cart_info/qiandaook.png">
+    <img src="{np::RES}/images/cart_info/qiandaook.png">
   <else/>
  <form action="" method="post" accept-charset="utf-8">   
      <input class="pxbtn" name="sign-btn"  id="sign-btn" type="submit" value="点击这里签到赚积分">
@@ -90,9 +90,9 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
         </thead>
         <tbody>
           <tr align="middle">
-            <td>{lanrain:$userinfo['total_score']}</td>
-            <td>{lanrain:$userinfo['sign_score']}</td>
-            <td>{lanrain:$userinfo['expend_score']}</td>
+            <td>{np:$userinfo['total_score']}</td>
+            <td>{np:$userinfo['sign_score']}</td>
+            <td>{np:$userinfo['expend_score']}</td>
           </tr>
         </tbody>
       </table>
@@ -100,7 +100,7 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
   </div>
   <div class="boxcontent boxwhite">
     <div class="box">
-      <div class="day-brown">连续签到<font color='red'>{lanrain:$userinfo['continuous']}</font>天,连续签到<strong>6</strong>天奖励<strong>{lanrain::$cardset['continuation']}</strong>积分.</div>
+      <div class="day-brown">连续签到<font color='red'>{np:$userinfo['continuous']}</font>天,连续签到<strong>6</strong>天奖励<strong>{np::$cardset['continuation']}</strong>积分.</div>
       <div class="Detail">
         <table border="0" cellSpacing="0" cellPadding="0" width="100%"  align="center" >
         <thead >
@@ -113,9 +113,9 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
         <tbody>
           <volist name="sign" id="list"> 
             <tr align="middle">
-              <td><if condition="$list.sign_time neq false">{lanrain:$list.sign_time|date="Y-m-d",###}<else/>无</if></td>
-              <td><if condition="$list.is_sign eq 1"><img src="{lanrain::RES}/images/cart_info/signed.png"><else/>未签</if></td>
-              <td>{lanrain:$list.expense}</td>
+              <td><if condition="$list.sign_time neq false">{np:$list.sign_time|date="Y-m-d",###}<else/>无</if></td>
+              <td><if condition="$list.is_sign eq 1"><img src="{np::RES}/images/cart_info/signed.png"><else/>未签</if></td>
+              <td>{np:$list.expense}</td>
             </tr>
           </volist>
         </tbody>
@@ -129,8 +129,8 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 </div>  
 
 <div style="height:20px;"></div>
-<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{lanrain::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>
-<script src="{lanrain::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
+<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{np::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>
+<script src="{np::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
 <style type="text/css">
 .window {
   width:290px;
@@ -260,8 +260,8 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 
 $("#sign-btn").bind("click",
   function() {
-   var  token ="{lanrain:$Think.get.token}";
-   var wecha_id ="{lanrain:$Think.get.wecha_id}";    
+   var  token ="{np:$Think.get.token}";
+   var wecha_id ="{np:$Think.get.wecha_id}";
    var btn   = $(this);    
    
 
@@ -270,7 +270,7 @@ $("#sign-btn").bind("click",
       wecha_id : wecha_id,     
       action  : "signin"
     };
-    $.post('index.php?g=Wap&m=Signscore&a=signin&token={lanrain:$Think.get.token}&wecha_id={lanrain:$Think.get.wecha_id}', submitData,
+    $.post('index.php?g=Wap&m=Signscore&a=signin&token={np:$Think.get.token}&wecha_id={np:$Think.get.wecha_id}', submitData,
       function(data) {
         if (data.success == true) {
           alert(data.msg);

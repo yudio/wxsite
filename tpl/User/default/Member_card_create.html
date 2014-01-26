@@ -14,7 +14,7 @@ function selectall(name) {
 	}
 }
 </script> 
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/cymain.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/cymain.css" />
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
          
           <div class="cLineB">
@@ -26,8 +26,8 @@ function selectall(name) {
           <div class="cLine">
 			<div class="pageNavigator left">
 			
-				<a href="{lanrain::U('Member_card/create_add',array('token'=>$token))}" title="创建会员卡号" class="add">创建会员卡号
-				</a>&nbsp;&nbsp;<a class="delete" href="###" onclick="if(confirm('确定删除吗')){$('#info').submit()}">删除</a>&nbsp;&nbsp; <strong>已经领取 <span style="color:red">{lanrain:$usecount}</span> 张，剩余<span style="color:red">{lanrain:$ucount}</span>张未领取，一共 <span style="color:red">{lanrain:$count}</span>张</strong>
+				<a href="{np::U('Member_card/create_add',array('token'=>$token))}" title="创建会员卡号" class="add">创建会员卡号
+				</a>&nbsp;&nbsp;<a class="delete" href="###" onclick="if(confirm('确定删除吗')){$('#info').submit()}">删除</a>&nbsp;&nbsp; <strong>已经领取 <span style="color:red">{np:$usecount}</span> 张，剩余<span style="color:red">{np:$ucount}</span>张未领取，一共 <span style="color:red">{np:$count}</span>张</strong>
 			</div>
 			<a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:10px">返回</a>          
 			<div class="clr"></div>
@@ -48,9 +48,9 @@ function selectall(name) {
               <tbody>
                 <volist name="data_vip" id="data_vip">           
                 <tr>
-					  <td><input type="checkbox" value="{lanrain:$data_vip.id}" class="cbitem" name="id_{lanrain:$i}"></td>
+					  <td><input type="checkbox" value="{np:$data_vip.id}" class="cbitem" name="id_{np:$i}"></td>
 
-					  <td><div class="answer_text">{lanrain:$data_vip.number}</div></td>
+					  <td><div class="answer_text">{np:$data_vip.number}</div></td>
 					 
 					  <td class="norightborder">
 						<!--a href="">使用统计</a--> 
@@ -59,7 +59,7 @@ function selectall(name) {
                       <td> 
                       <if condition="$data_vip['wecha_id'] neq false">
                             
-                    <a href="index.php?g=User&m=Member_card&a=getuserinfo&id={lanrain:$data_vip.wecha_id}">查看详情</a>
+                    <a href="index.php?g=User&m=Member_card&a=getuserinfo&id={np:$data_vip.wecha_id}">查看详情</a>
                        
                       </if>
                     
@@ -90,7 +90,7 @@ function selectall(name) {
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{lanrain:$page}</div>
+                 <div class="pages">{np:$page}</div>
              </div>
             <div class="clr"></div>
           </div>

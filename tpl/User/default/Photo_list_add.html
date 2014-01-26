@@ -7,7 +7,7 @@
  </div>
  
  <div class="cLineB">
-<div class="pageNavigator left"><strong>此相册地址：<a href="" class="green">{lanrain::C('site_url')}</a></strong></div>
+<div class="pageNavigator left"><strong>此相册地址：<a href="" class="green">{np::C('site_url')}</a></strong></div>
 <div class="clr"></div>
 </div>
  <div class="msgWrap form">
@@ -34,7 +34,7 @@
 	<td>
 		<div class="cateimg"></div>
 		<input class="px" style="width:250px;" type="text" name="picurl" value=""  />
-		<input type="hidden"   name="pid" value="{lanrain:$Think.get.id}"  />
+		<input type="hidden"   name="pid" value="{np:$Think.get.id}"  />
 	</td>
 	<td><input class="px" type="text"  style="width:250px;"  name="info" value=""  /></td>
 	<td><input class="checkbox" type="checkbox" name="status" value="1"  checked ></td>
@@ -63,20 +63,20 @@
 </tr>
 </thead> 
 <volist name="photo" id="photo">
- <form method="post" action="{lanrain::U('Photo/list_edit',array('token'=>session('token')))}">              
+ <form method="post" action="{np::U('Photo/list_edit',array('token'=>session('token')))}">
 <tr>
-	<td><input type="text" name="title" value="{lanrain:$photo.title}"  class="px"    /></td>
-	<td><input type="text" name="sort" value="{lanrain:$photo.sort}"  class="px" style="width:50px;" /></td>
-	<td><div class="cateimg"></div><input class="px"  style="width:250px;"   type="text"   name="picurl" value="{lanrain:$photo.picurl}"  /></td>
-	<td><input class="px" type="text"  style="width:250px;"  name="info" value="{lanrain:$photo.info}"  /></td>
+	<td><input type="text" name="title" value="{np:$photo.title}"  class="px"    /></td>
+	<td><input type="text" name="sort" value="{np:$photo.sort}"  class="px" style="width:50px;" /></td>
+	<td><div class="cateimg"></div><input class="px"  style="width:250px;"   type="text"   name="picurl" value="{np:$photo.picurl}"  /></td>
+	<td><input class="px" type="text"  style="width:250px;"  name="info" value="{np:$photo.info}"  /></td>
 	<td>
 		<input class="checkbox" type="checkbox" name="status" value="1"  <if condition="$list['status'] eq 1">checked</if> >
-		<input type="hidden"   name="id" value="{lanrain:$photo.id}"  /></td>
+		<input type="hidden"   name="id" value="{np:$photo.id}"  /></td>
 	<td class="norightborder">
 		<button type="submit" name="edit" value="true" class="btnGreen vm" style="height:20px;font-size:12px;line-height:10px;">
 			<strong>修改</strong>
 		</button>
-	<a href="{lanrain::U('Photo/list_del',array('id'=>$photo['id'],'token'=>session('token')))}">删除</a>
+	<a href="{np::U('Photo/list_del',array('id'=>$photo['id'],'token'=>session('token')))}">删除</a>
 	</td>
 </tr>
 </form>

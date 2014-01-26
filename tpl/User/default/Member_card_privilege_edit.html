@@ -19,7 +19,7 @@ items : [
 });
 });
 </script>
-<script src="{lanrain::RES}/js/date/WdatePicker.js"></script>
+<script src="{np::RES}/js/date/WdatePicker.js"></script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
           <div class="cLineB"><h4>发布会员特权 <span class="FAQ">填写一些长期不变的会员卡优惠特权信息</span></h4><a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:-27px">返回</a></div>
          
@@ -29,7 +29,7 @@ items : [
               <tbody>
 				<tr>
               		<th>特权名称：</th>
-              		<td><input type="input" class="px" id="title" value="{lanrain:$vip.title}" name="title" style="width:400px;"> </td>
+              		<td><input type="input" class="px" id="title" value="{np:$vip.title}" name="title" style="width:400px;"> </td>
               		</tr>
 				<tr>
               		<th>选择人群：</th>
@@ -54,13 +54,13 @@ items : [
 		<tr id="cktime" <if  condition="$vip['statdate'] eq false">style="display:none"</if>>
 		<th></th>
 		<td>
-			<input type="input" class="px" id="statdate" value="<if condition="$vip['statdate'] neq false">{lanrain:$vip.statdate|date="Y-m-d H:i:s",###}</if>" onClick="WdatePicker()" name="statdate"> （含）到 
-			<input type="input" class="px" id="enddate" name="enddate" value="<if condition="$vip['enddate'] neq false">{lanrain:$vip.enddate|date="Y-m-d H:i:s",###}</if>" onClick="WdatePicker()">（含）
+			<input type="input" class="px" id="statdate" value="<if condition="$vip['statdate'] neq false">{np:$vip.statdate|date="Y-m-d H:i:s",###}</if>" onClick="WdatePicker()" name="statdate"> （含）到
+			<input type="input" class="px" id="enddate" name="enddate" value="<if condition="$vip['enddate'] neq false">{np:$vip.enddate|date="Y-m-d H:i:s",###}</if>" onClick="WdatePicker()">（含）
 		</td>
 		</tr>
               	<tr>
               		<th valign="top">使用说明：</th>
-              		<td><textarea name="info" id="info" rows="5" style="width: 410px; height: 250px; border:1px solid #ccc ;"> {lanrain:$vip.info}  </textarea></td>
+              		<td><textarea name="info" id="info" rows="5" style="width: 410px; height: 250px; border:1px solid #ccc ;"> {np:$vip.info}  </textarea></td>
               	</tr>
               	<tr>
 					<th></th>

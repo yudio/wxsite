@@ -6,10 +6,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-<link href="{lanrain::RES}/css/userinfo/fans.css" rel="stylesheet" type="text/css"> 
+<link href="{np::RES}/css/userinfo/fans.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="{lanrain::RES}/css/guajiang/js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="{np::RES}/css/guajiang/js/jquery.js">\x3C/script>')</script>
 
 
 <style>
@@ -52,7 +52,7 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 </style>
 </head>
 <body id="fans" >
-<div class="qiandaobanner"> <img src="{lanrain:$homepic}" > </div>
+<div class="qiandaobanner"> <img src="{np:$homepic}" > </div>
 <div class="cardexplain">
 <li class="nob">
 <div class="beizhu"><if condition="$info['wechaname'] neq false">您可以修改你的会员卡信息。以下信息将作为消费凭证，请认真填写！ <else/>填写以下信息即可领取vip会员卡,红色字必填 </if></div>
@@ -63,7 +63,7 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 	<tr>
 	<th><font color='red'>会员卡号</font></th>
-	<td><input  type="text" class="px" readonly value="{lanrain:$cardnum}"></td>
+	<td><input  type="text" class="px" readonly value="{np:$cardnum}"></td>
 	</tr>
 	</table>
 	</li>
@@ -73,7 +73,7 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 <tr>
 <th><font color='red'>微信名称</font></th>
 <td><input name="wechaname" onfocus="check2(this)"
-onblur="check1(this)"  type="text" class="px" id="wechaname" value="{lanrain:$info.wechaname}" placeholder="请输入您的微信名称"></td>
+onblur="check1(this)"  type="text" class="px" id="wechaname" value="{np:$info.wechaname}" placeholder="请输入您的微信名称"></td>
 </tr>
 </table>
 </li>
@@ -82,7 +82,7 @@ onblur="check1(this)"  type="text" class="px" id="wechaname" value="{lanrain:$in
 <tr>
 <th><font color='red'>手机号码</font></th>
 <td><input onfocus="check2(this)"
-onblur="check3(this)" name="tel"  class="px" id="tel" value="{lanrain:$info.tel}"  type="text" placeholder="请输入您的电话"></td>
+onblur="check3(this)" name="tel"  class="px" id="tel" value="{np:$info.tel}"  type="text" placeholder="请输入您的电话"></td>
 </tr>
 </table>
 </li>
@@ -90,7 +90,7 @@ onblur="check3(this)" name="tel"  class="px" id="tel" value="{lanrain:$info.tel}
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>真实姓名</th>
-<td><input name="truename"  type="text" class="px" id="truename" value="{lanrain:$info.truename}" placeholder="请输入您的真实姓名"></td>
+<td><input name="truename"  type="text" class="px" id="truename" value="{np:$info.truename}" placeholder="请输入您的真实姓名"></td>
 </tr>
 </table>
 </li>
@@ -98,7 +98,7 @@ onblur="check3(this)" name="tel"  class="px" id="tel" value="{lanrain:$info.tel}
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>QQ号码</th>
-<td><input name="qq"  class="px" id="qq" value="{lanrain:$info.qq}"  type="text" placeholder="请输入您的QQ号码"></td>
+<td><input name="qq"  class="px" id="qq" value="{np:$info.qq}"  type="text" placeholder="请输入您的QQ号码"></td>
 </tr>
 </table>
 </li>
@@ -121,7 +121,7 @@ onblur="check3(this)" name="tel"  class="px" id="tel" value="{lanrain:$info.tel}
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>年龄</th>
-<td><input name="age"  type="text" class="px" id="age" value="{lanrain:$info.age}" placeholder="请输入您的年龄"></td>
+<td><input name="age"  type="text" class="px" id="age" value="{np:$info.age}" placeholder="请输入您的年龄"></td>
 </tr>
 </table>
 </li>
@@ -137,7 +137,7 @@ onblur="check3(this)" name="tel"  class="px" id="tel" value="{lanrain:$info.tel}
 </div>
 </div>
 <div style="height:60px;" id="msg">&nbsp;</div>
-<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{lanrain::U('Card/vip',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回会员卡页</span></a></div>
+<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{np::U('Card/vip',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回会员卡页</span></a></div>
 <script type="text/javascript">
 
 $("#showcard").bind("click",
@@ -174,14 +174,14 @@ function() {
         age 	  : age,
         action: "index"
     };
-    $.post('index.php?g=Wap&m=Userinfo&a=index&token={lanrain:$Think.get.token}&wecha_id={lanrain:$Think.get.wecha_id}', submitData,
+    $.post('index.php?g=Wap&m=Userinfo&a=index&token={np:$Think.get.token}&wecha_id={np:$Think.get.wecha_id}', submitData,
     function(data) {
         if(data==1){			 
 			alert('更新成功');
 		}else if(data==2){
 			 
 			alert('成功领取了会员卡');
-			location.href = "{lanrain::U('Card/vip',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}";
+			location.href = "{np::U('Card/vip',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}";
 		}else if(data==3){
 			 
 			alert('该商家会员卡缺货了');

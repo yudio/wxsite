@@ -1,9 +1,9 @@
 <include file="Public:head"/>
-<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/themes/default/default.css" />
-<link rel="stylesheet" href="{lanrain::STATICS}/kindeditor/plugins/code/prettify.css" />
-<script src="{lanrain::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
-<script src="{lanrain::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
-<script src="{lanrain::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{np::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{np::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{np::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{np::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
 <script>
 	KindEditor.ready(function(K){
 		var editor = K.editor({
@@ -17,7 +17,7 @@
 						if(url.indexOf("http") > -1){
 							K('#pic').val(url);
 						}else{
-							K('#pic').val("{lanrain::C('site_url')}"+url);
+							K('#pic').val("{np::C('site_url')}"+url);
 						}
 						editor.hideDialog();
 					}
@@ -40,11 +40,11 @@ box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.15);
 -moz-border-radius:5px 5px 10px 10px;
 border-radius:5px 5px 10px 10px;
 width:235px;padding: 0 0 10px;
-background: url({lanrain::RES}/images/photo/bottom.png) repeat-x scroll left bottom #FFFFFF;
+background: url({np::RES}/images/photo/bottom.png) repeat-x scroll left bottom #FFFFFF;
 background-size:2px auto;
  *background:none;
 }
-.photoimg .cover{ width:100%;height:131px; overflow:hidden;display:block; background:url({lanrain::RES}/images/photo/noneimg.jpg) no-repeat 0 0 #f5f5f5;
+.photoimg .cover{ width:100%;height:131px; overflow:hidden;display:block; background:url({np::RES}/images/photo/noneimg.jpg) no-repeat 0 0 #f5f5f5;
 -webkit-border-radius:5px 5px 0 0;
 -moz-border-radius:5px 5px 0 0;
 border-radius:5px 5px 0 0;
@@ -89,7 +89,7 @@ width: 200px;
                             </form>
 </div>
 <div class="cLine">
-<div class="pageNavigator left"> <a href="{lanrain::U('Photo/add',array('token'=>$_SESSION['token']))}" title="创建相册" class="btnGrayS vm bigbtn"><img src="{lanrain::RES}/images/pic.png" class="vm">创建相册</a> </div>
+<div class="pageNavigator left"> <a href="{np::U('Photo/add',array('token'=>$_SESSION['token']))}" title="创建相册" class="btnGrayS vm bigbtn"><img src="{np::RES}/images/pic.png" class="vm">创建相册</a> </div>
 <div class="clr"></div>
 </div>
 <div class="msgWrap">
@@ -97,16 +97,16 @@ width: 200px;
 <volist name="photo" id="photo">                     
 <li>
 <div class="photoimg">
- <a title="{lanrain:$photo.title}" class="cover" href="{lanrain::U('Photo/list_add',array('id'=>$photo['id']))}">
-  <img src="{lanrain:$photo.picurl}" alt="{lanrain:$photo.title}">
+ <a title="{np:$photo.title}" class="cover" href="{np::U('Photo/list_add',array('id'=>$photo['id']))}">
+  <img src="{np:$photo.picurl}" alt="{np:$photo.title}">
  </a>
 <div class="bd">
-<h6>{lanrain:$photo.title}</h6>
-<p class="sn">有{lanrain:$photo.num}张照片</p>
+<h6>{np:$photo.title}</h6>
+<p class="sn">有{np:$photo.num}张照片</p>
 </div>
 <div class="fr">
-<a href="{lanrain::U('Photo/list_add',array('id'=>$photo['id']))}">上传图片</a>　
-<a href="{lanrain::U('Photo/edit',array('token'=>session('token'),'id'=>$photo['id']))}">编辑</a>　<a href="javascript:drop_confirm('您确定要删除吗?', '{lanrain::U('Photo/del',array('token'=>session('token'),'id'=>$photo['id']))}');">删除</a>
+<a href="{np::U('Photo/list_add',array('id'=>$photo['id']))}">上传图片</a>　
+<a href="{np::U('Photo/edit',array('token'=>session('token'),'id'=>$photo['id']))}">编辑</a>　<a href="javascript:drop_confirm('您确定要删除吗?', '{np::U('Photo/del',array('token'=>session('token'),'id'=>$photo['id']))}');">删除</a>
 </div>
 </div>
 </li>
@@ -117,7 +117,7 @@ width: 200px;
 
 <div class="cLine">
 <div class="pageNavigator right">
-<div class="pages">{lanrain:$page}</div>
+<div class="pages">{np:$page}</div>
 </div>
 <div class="clr"></div>
 </div>

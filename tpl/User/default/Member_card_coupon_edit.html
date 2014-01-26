@@ -19,7 +19,7 @@ items : [
 });
 });
 </script>
-<script src="{lanrain::RES}/js/date/WdatePicker.js"></script>
+<script src="{np::RES}/js/date/WdatePicker.js"></script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
           <div class="cLineB"><h4>发布优惠券 <span class="FAQ">发布现金抵用券和打折优惠券信息</span></h4><a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:-27px">返回</a></div>
          
@@ -29,7 +29,7 @@ items : [
               <tbody>
   <tr>
               		<th>券名称：</th>
-              		<td><input type="input" class="px" id="title" value="{lanrain:$vip.title}" name="title" style="width:400px;"> </td>
+              		<td><input type="input" class="px" id="title" value="{np:$vip.title}" name="title" style="width:400px;"> </td>
               		</tr>
   <tr>
               		<th >选择人群：</th>
@@ -47,8 +47,8 @@ items : [
               	<tr>
 <th>有效期：</th>
 <td>
-	<input type="input" class="px" id="statdate" value="{lanrain:$vip.statdate|date='Y-m-d',###}" onClick="WdatePicker()" name="statdate"> （含）到
-	<input type="input" class="px" id="enddate" value="{lanrain:$vip.enddate|date='Y-m-d',###}" name="enddate" onClick="WdatePicker()">（含）
+	<input type="input" class="px" id="statdate" value="{np:$vip.statdate|date='Y-m-d',###}" onClick="WdatePicker()" name="statdate"> （含）到
+	<input type="input" class="px" id="enddate" value="{np:$vip.enddate|date='Y-m-d',###}" name="enddate" onClick="WdatePicker()">（含）
 </td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@ items : [
 	<input name="type" <if  condition="$vip['type'] eq false">checked="checked"</if>  type="radio" id="RadioGroup1_0" onclick="document.getElementById('cktime').style.display='';;" value="0">
 	现金抵用券
   </label>
-<span id="cktime" <if  condition="$vip['type'] neq false">style="display:none"</if>>（抵用金额：<input type="input" class="px"  value="{lanrain:$vip.price}" name="price" style="width:50px;"> 元）</span>
+<span id="cktime" <if  condition="$vip['type'] neq false">style="display:none"</if>>（抵用金额：<input type="input" class="px"  value="{np:$vip.price}" name="price" style="width:50px;"> 元）</span>
 　
 </td>
 </tr>
@@ -69,12 +69,12 @@ items : [
 <tr>
 	<th valign="top">使用说明：</th>
 	<td>
-		<textarea name="info" id="info" rows="5" style="width: 410px; height: 250px; display: none;">{lanrain:$vip.info}</textarea>
+		<textarea name="info" id="info" rows="5" style="width: 410px; height: 250px; display: none;">{np:$vip.info}</textarea>
 	</td>
 </tr>  
 <tr>
 <th>数量：</th>
-<td>每个用户可以获得：<input type="input" class="px" id="people" value="{lanrain:$vip.people}" name="people" style="width:50px;"> 张券</td>
+<td>每个用户可以获得：<input type="input" class="px" id="people" value="{np:$vip.people}" name="people" style="width:50px;"> 张券</td>
 </tr>
 <tr>
 	<th></th>

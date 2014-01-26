@@ -6,11 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="" name="Keywords">
 	<meta content="" name="Description">
-    <link rel="stylesheet" type="text/css" href="{lanrain::RES}/weixitie/wedding.css" media="all" />
-<script type="text/javascript" src="{lanrain::RES}/weixitie/jQuery.js"></script>
-<script type="text/javascript" src="{lanrain::RES}/weixitie/wedding.js"></script>
-<script type="text/javascript" src="{lanrain::RES}/weixitie/jquery_easing.js"></script>
-<script type="text/javascript" src="{lanrain::RES}/weixitie/weiba_sys.js"></script>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/weixitie/wedding.css" media="all" />
+<script type="text/javascript" src="{np::RES}/weixitie/jQuery.js"></script>
+<script type="text/javascript" src="{np::RES}/weixitie/wedding.js"></script>
+<script type="text/javascript" src="{np::RES}/weixitie/jquery_easing.js"></script>
+<script type="text/javascript" src="{np::RES}/weixitie/weiba_sys.js"></script>
 <title></title>
     <!--[if lte IE 9]><script src="http://stc.weimob.com/src/watermark.js"></script><![endif]-->
 	<!--[if IE 7]><link href="http://stc.weimob.com/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
@@ -73,7 +73,7 @@
 					count: count,
 					action 	: "add"
 	        	}
-	        	$.post("index.php?g=Wap&m=Xitie&a=add&token={lanrain:$token}&wecha_id={lanrain:$wecha_id}", obj,function(result){
+	        	$.post("index.php?g=Wap&m=Xitie&a=add&token={np:$token}&wecha_id={np:$wecha_id}", obj,function(result){
 				   	alert(result);
 				   	form1.reset();
 					$("#overlay_ul").removeClass("on");
@@ -110,7 +110,7 @@
 					content: content,
 					action 	: "addtwo"
 	        	}
-	        	$.post("index.php?g=Wap&m=Xitie&a=add&token={lanrain:$token}&wecha_id={lanrain:$wecha_id}", obj,function(result){
+	        	$.post("index.php?g=Wap&m=Xitie&a=add&token={np:$token}&wecha_id={np:$wecha_id}", obj,function(result){
 				   	alert(result);
 				   	form2.reset();
 					$("#overlay_ul").removeClass("on");
@@ -164,7 +164,7 @@
     position: relative;
     width: 50px;
     height: 50px;
-    background: url('{lanrain::RES}/weixitie/love.gif') center center no-repeat;
+    background: url('{np::RES}/weixitie/love.gif') center center no-repeat;
     margin: auto;
 }
 
@@ -211,7 +211,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('{lanrain::RES}/weixitie/icons.png') 0 0 no-repeat;
+    background: url('{np::RES}/weixitie/icons.png') 0 0 no-repeat;
     top: 0;
     left: 0; 
 }
@@ -291,7 +291,7 @@
     </div>
     <div class="cover t1">
     <div class="slogan">
-        <div class="head" style="background-image:url('{lanrain:$Xitie['pic']}')"></div>
+        <div class="head" style="background-image:url('{np:$Xitie['pic']}')"></div>
         <div class="mask"></div>
     </div>
 </div>
@@ -299,17 +299,17 @@
 			<header>
 				<div>
 					<ul class="box">
-						<li class="relative"><span class="pic"><img src="{lanrain:$Xitie['small_pic']}" /></span></li>
+						<li class="relative"><span class="pic"><img src="{np:$Xitie['small_pic']}" /></span></li>
 						<li>
 							<div class="label">
-								<label>{lanrain:$Xitie['man_name']}</label>
-								<img src="{lanrain::RES}/weixitie/04.png" style="width:30px;" />
-								<label>{lanrain:$Xitie['girl_name']}</label>
+								<label>{np:$Xitie['man_name']}</label>
+								<img src="{np::RES}/weixitie/04.png" style="width:30px;" />
+								<label>{np:$Xitie['girl_name']}</label>
 							<div>
 						</li>
 						<li>
 							<span id="playbox" class="btn_music" onClick="playbox.init(this).play();">
-							<audio id="audio" loop src="{lanrain:$Xitie['background_music']}"></audio></span>
+							<audio id="audio" loop src="{np:$Xitie['background_music']}"></audio></span>
 						</li>
 					</ul>
 				</div>
@@ -317,51 +317,51 @@
 			<section class="body">
 								<div>
                                 <video id="tenvideo_video_player_0" autobuffer="false" onplay="document.getElementById('audio').pause()" controls="" preload="metadata" autoplay="1" x-webkit-airplay="" style="width: 100%; min-height:200px;">
-						<source src="{lanrain:$Xitie['video']}">示例视频1</source> 
+						<source src="{np:$Xitie['video']}">示例视频1</source>
 					</video>
 				</div>
 				<div>
-					<ul>						<li class="pb_10"><img src="{lanrain:$Xitie['pic']}" style="width:100%;" /></li>
-												<li class="pb_10"><img src="{lanrain:$Xitie['pic']}" style="width:100%;" /></li>
-												<li class="pb_10"><img src="{lanrain:$Xitie['pic']}" style="width:100%;" /></li>
-												<li class="pb_10"><img src="{lanrain:$Xitie['pic']}" style="width:100%;" /></li>
-												<li class="pb_10"><img src="{lanrain:$Xitie['pic']}" style="width:100%;" /></li>
+					<ul>						<li class="pb_10"><img src="{np:$Xitie['pic']}" style="width:100%;" /></li>
+												<li class="pb_10"><img src="{np:$Xitie['pic']}" style="width:100%;" /></li>
+												<li class="pb_10"><img src="{np:$Xitie['pic']}" style="width:100%;" /></li>
+												<li class="pb_10"><img src="{np:$Xitie['pic']}" style="width:100%;" /></li>
+												<li class="pb_10"><img src="{np:$Xitie['pic']}" style="width:100%;" /></li>
 											</ul>
 				</div>
 				<div class="des">
 					<h3  class="align_center">想说的话</h3>
-					<p>{lanrain:$Xitie['message']}</p>
+					<p>{np:$Xitie['message']}</p>
 				</div>
 				<div>
 					<ul class="list_font" >
 						<li >
 							<a href="javascript:;" class="tbox" >
-								<div >{lanrain:$Xitie['time']}</div>
+								<div >{np:$Xitie['time']}</div>
 								<div style="margin-left:10px; margin-right:10px;" >
 									<figure>
-										<p><span><img src="{lanrain::RES}/weixitie/08.png" /></span></p>
+										<p><span><img src="{np::RES}/weixitie/08.png" /></span></p>
 										<figcaption>宴会时间</figcaption>
 									</figure>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a href="http://map.baidu.com/?latlng={lanrain:$Xitie['longitude']},{lanrain:$Xitie['latitude']}&title={lanrain:$Xitie['address']}&content={lanrain:$Xitie['address']}&autoOpen=true&l=" class="tbox">
-								<div>{lanrain:$Xitie['address']}</div>
+							<a href="http://map.baidu.com/?latlng={np:$Xitie['longitude']},{np:$Xitie['latitude']}&title={np:$Xitie['address']}&content={np:$Xitie['address']}&autoOpen=true&l=" class="tbox">
+								<div>{np:$Xitie['address']}</div>
 								<div>
 									<figure>
-										<p><span><img src="{lanrain::RES}/weixitie/06.png" /></span></p>
+										<p><span><img src="{np::RES}/weixitie/06.png" /></span></p>
 										<figcaption>点此导航</figcaption>
 									</figure>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a href="http://site.tg.qq.com/forwardToPhonePage?siteId=1&phone={lanrain:$Xitie['phone']}" class="tbox">
-								<div>{lanrain:$Xitie['phone']}</div>
+							<a href="http://site.tg.qq.com/forwardToPhonePage?siteId=1&phone={np:$Xitie['phone']}" class="tbox">
+								<div>{np:$Xitie['phone']}</div>
 								<div>
 									<figure>
-										<p><span><img src="{lanrain::RES}/weixitie/07.png" /></span></p>
+										<p><span><img src="{np::RES}/weixitie/07.png" /></span></p>
 										<figcaption>接待电话</figcaption>
 									</figure>
 								</div>
@@ -378,7 +378,7 @@
 					<ul id="overlay_ul" class="overlay_ul">
 						<li>
 							<form id="form1" action="javascript:;" method="post">
-								<input type="hidden" name="id" value="{lanrain:$Xitie['id']}" />
+								<input type="hidden" name="id" value="{np:$Xitie['id']}" />
 								<table>
 									<tr><td colspan="2"><label>我要赴宴</label></td></tr>
 									<tr><td style="width:45px;">姓名</td><td><input type="text" name="Name" /></td></tr>
@@ -390,7 +390,7 @@
 						</li>
 						<li>
 							<form id="form2" action="javascript:;" method="post">
-								<input type="hidden" name="id" value="{lanrain:$Xitie['id']}" />
+								<input type="hidden" name="id" value="{np:$Xitie['id']}" />
 								<table>
 									<tr><td colspan="2"><label>送上祝福</label></td></tr>
 									<tr><td style="width:45px;">姓名</td><td><input type="text" name="Name" /></td></tr>
@@ -401,10 +401,10 @@
 							</form>
 						</li>
 						<li style="text-align:right;height:100%!important;right:-15px;left:0px;background-color:rgba(62,78,78,0.7) " onClick="$('#overlay_ul').click();event.preventDefault(); return false;">
-							<img src="{lanrain::RES}/weixitie/09.png" style="width:260px;" />
+							<img src="{np::RES}/weixitie/09.png" style="width:260px;" />
 						</li>
 						<li style="text-align:right;" onClick="$('#overlay_ul').click();event.preventDefault(); return false;">
-							<img src="{lanrain::RES}/weixitie/10.png" style="width:260px;" />
+							<img src="{np::RES}/weixitie/10.png" style="width:260px;" />
 						</li>
 					</ul>
 				</div>
@@ -415,7 +415,7 @@
 				<script type="text/javascript">
  	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
         window.shareData = {  
-            "imgUrl": "{lanrain:$Xitie['pic']}", 
+            "imgUrl": "{np:$Xitie['pic']}",
             "timeLineLink": "#",
             "sendFriendLink": "#",
             "weiboLink": "#",

@@ -1,9 +1,9 @@
 <include file="Public:head"/>
- <script src="{lanrain::RES}/flash/FusionCharts.js" type="text/javascript"></script>
- <script src="{lanrain::RES}/flash/MSLine.swf" language="javascript" type="text/javascript"></script>      
+ <script src="{np::RES}/flash/FusionCharts.js" type="text/javascript"></script>
+ <script src="{np::RES}/flash/MSLine.swf" language="javascript" type="text/javascript"></script>
 
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
-        	<h4 class="cLineB">选择年份<select class="setting-period" name="year" id="year" onchange="doit($('#period').val())">{lanrain:$yearOption}</select> 选择月份&nbsp;&nbsp;<select class="setting-period" name="period" id="period" onchange="doit(this.value)">
+        	<h4 class="cLineB">选择年份<select class="setting-period" name="year" id="year" onchange="doit($('#period').val())">{np:$yearOption}</select> 选择月份&nbsp;&nbsp;<select class="setting-period" name="period" id="period" onchange="doit(this.value)">
                 
             <option value="1" <if condition="$month eq 1">selected</if>>1月</option>
             <option value="2" <if condition="$month eq 2">selected</if>>2月</option>
@@ -20,7 +20,7 @@
             </select></h4>
                 <script>
 function doit(month){
-location.href= '/index.php?g=User&m=Requerydata&a=index&token={lanrain:$token}&month='+month+'&year='+$('#year').val();
+location.href= '/index.php?g=User&m=Requerydata&a=index&token={np:$token}&month='+month+'&year='+$('#year').val();
 }
 </script>
 <div class="msgWrap">
@@ -31,9 +31,9 @@ location.href= '/index.php?g=User&m=Requerydata&a=index&token={lanrain:$token}&m
 					<div id="chartdiv1" align="center">
 					</div>
 					<script type="text/javascript">
-						var chart = new FusionCharts("{lanrain::RES}/flash/MSLine.swf", "ChartId", "930", "400", "0", "1");
+						var chart = new FusionCharts("{np::RES}/flash/MSLine.swf", "ChartId", "930", "400", "0", "1");
 						//chart.setTransparent("false");
-						chart.setDataXML('{lanrain:$xml}');
+						chart.setDataXML('{np:$xml}');
 						//chart.setDataURL("data.html");
 						chart.render("chartdiv1");
 					</script>
@@ -71,14 +71,14 @@ location.href= '/index.php?g=User&m=Requerydata&a=index&token={lanrain:$token}&m
 		   <tfoot>
              <volist id="list" name="list">                
 				<tr>
-					<td>{lanrain:$list.time|date='Y-m-d',###}</td>
-					<td style="display:none">{lanrain:$list.3g}</td>
-					<td>{lanrain:$list.textnum}</td>
-					<td>{lanrain:$list.imgnum}</td>
-					<td>{lanrain:$list.videonum}</td>
-					<td>{lanrain:$list.other}</td>					
-					<td>{lanrain:$list.follownum}</td>
-					<td>{lanrain:$list.unfollownum}</td>											 
+					<td>{np:$list.time|date='Y-m-d',###}</td>
+					<td style="display:none">{np:$list.3g}</td>
+					<td>{np:$list.textnum}</td>
+					<td>{np:$list.imgnum}</td>
+					<td>{np:$list.videonum}</td>
+					<td>{np:$list.other}</td>
+					<td>{np:$list.follownum}</td>
+					<td>{np:$list.unfollownum}</td>
 					<td><?php echo $list['3g']+$list['textnum']+$list['imgnum']+$list['videonum']+$list['other']?></td>
 				</tr>
 			</volist>

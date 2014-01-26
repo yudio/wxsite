@@ -2,25 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{lanrain:$res.title}-{lanrain:$tpl.wxname}</title>
+<title>{np:$res.title}-{np:$tpl.wxname}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 <meta name="viewport" content="initial-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta charset="utf-8">
-<link href="{lanrain::RES}/css/ktv/style.css" rel="stylesheet" type="text/css" />
+<link href="{np::RES}/css/ktv/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 <div class="content">
 	<span class="marginb">
-		<h3>{lanrain:$res.title}</h3>
-		<span id="post-date">{lanrain:$res.createtime|date="y-m-d",###}</span>
+		<h3>{np:$res.title}</h3>
+		<span id="post-date">{np:$res.createtime|date="y-m-d",###}</span>
 	</span>
 	
 	<eq name="res.showpic" value="1">
-<div class="showpic"><img src="{lanrain:$res.pic}" /></div> 
+<div class="showpic"><img src="{np:$res.pic}" /></div>
 </eq>
 	<php>echo htmlspecialchars_decode($res['info'])</php>
 </div>

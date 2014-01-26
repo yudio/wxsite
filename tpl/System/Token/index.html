@@ -18,16 +18,16 @@
 	  </tr>
 	    <volist name="list" id="vo">
 			<tr>
-				<td align='center'>{lanrain:$vo.id}</td>
-				<td >{lanrain:$vo.wxname}</td>
-				<td ><if condition="$vo['usr']['gid'] eq -1">0<else/>{lanrain:$vo.user.gid}</if></td>
-				<td >{lanrain:$vo.user.username}</td>
-				<td align='center'>{lanrain:$vo.usenum}</td>
+				<td align='center'>{np:$vo.id}</td>
+				<td >{np:$vo.wxname}</td>
+				<td ><if condition="$vo['usr']['gid'] eq -1">0<else/>{np:$vo.user.gid}</if></td>
+				<td >{np:$vo.user.username}</td>
+				<td align='center'>{np:$vo.usenum}</td>
 				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
 				<td align='center'>
 					
-					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{lanrain::U('Token/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{np::U('Token/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
 				</td>
 			</tr>
 	    </volist>
@@ -36,7 +36,7 @@
 		</style>
      <tr bgcolor="#FFFFFF"> 
 	 
-      <td colspan="7"><div class="listpage">{lanrain:$page}</div></td>
+      <td colspan="7"><div class="listpage">{np:$page}</div></td>
      
     </tr>
    

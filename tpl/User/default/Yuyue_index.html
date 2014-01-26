@@ -1,11 +1,11 @@
 <include file="Public:head"/> 
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/cymain.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/cymain.css" />
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
-<h4 class="left">预约 ({lanrain:$page} ) </h4>
+<h4 class="left">预约 ({np:$page} ) </h4>
 <div class="searchbar right">
 <form method="post" action="">
-<input type="text" id="msgSearchInput" class="txt left" placeholder="输入关键词搜索" name="searchkey" value="{lanrain:$key}">
+<input type="text" id="msgSearchInput" class="txt left" placeholder="输入关键词搜索" name="searchkey" value="{np:$key}">
 <input type="submit" value="搜索" id="msgSearchBtn" href="" class="btnGrayS" title="搜索">
 </form>
 </div>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="cLine">
-<div class="pageNavigator left"> <a href="{lanrain::U('Yuyue/add',array('token'=>$token))}" title="添加" class="btnGrayS vm bigbtn"><img src="{lanrain::RES}/images/product/add.png" width="16" class="vm">添加</a></div>
+<div class="pageNavigator left"> <a href="{np::U('Yuyue/add',array('token'=>$token))}" title="添加" class="btnGrayS vm bigbtn"><img src="{np::RES}/images/product/add.png" width="16" class="vm">添加</a></div>
 <div class="clr"></div>
 </div>
 <div class="msgWrap">
@@ -36,13 +36,13 @@
 <tr></tr>
 <volist name="data" id="item"> 
 <tr>
-<td>{lanrain:$item.title}</td>
-<td>{lanrain:$item.keyword}</td>
-<td>{lanrain:$item.phone}</td>
-<td>{lanrain:$item.statdate}</td>
-<td>{lanrain:$item.enddate}</td> 
+<td>{np:$item.title}</td>
+<td>{np:$item.keyword}</td>
+<td>{np:$item.phone}</td>
+<td>{np:$item.statdate}</td>
+<td>{np:$item.enddate}</td>
 
-<td class="norightborder"><a href="{lanrain::U('Yuyue/infos',array('id'=>$item['id'],'token'=>$token))}">订单管理</a>&nbsp;&nbsp;<a href="{lanrain::U('Yuyue/set',array('id'=>$item['id'],'token'=>$token))}">修改</a>&nbsp;&nbsp;<a href="{lanrain::U('Yuyue/del',array('id'=>$item['id'],'token'=>$token))}">删除</a></td>
+<td class="norightborder"><a href="{np::U('Yuyue/infos',array('id'=>$item['id'],'token'=>$token))}">订单管理</a>&nbsp;&nbsp;<a href="{np::U('Yuyue/set',array('id'=>$item['id'],'token'=>$token))}">修改</a>&nbsp;&nbsp;<a href="{np::U('Yuyue/del',array('id'=>$item['id'],'token'=>$token))}">删除</a></td>
 </tr>
 </volist>
 </tbody>
@@ -52,7 +52,7 @@
 </div>
 <div class="cLine">
 <div class="pageNavigator right">
-<div class="pages">{lanrain:$page}</div>
+<div class="pages">{np:$page}</div>
 </div>
 <div class="clr"></div>
 </div>

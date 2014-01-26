@@ -1,25 +1,25 @@
 <include file="Product:header"/>
 <div class="main">
 	<div class="p_place">
-		<h1>{lanrain:$thisCompany.name}</h1>
-		<span style="display:none">{lanrain:$branchStoreCount}家分店</span>
+		<h1>{np:$thisCompany.name}</h1>
+		<span style="display:none">{np:$branchStoreCount}家分店</span>
 	</div>
 	
 	<div class="p_mod">
-		<h2 class="p_mod_title">{lanrain:$thisCompany.name}&nbsp;</h2>
+		<h2 class="p_mod_title">{np:$thisCompany.name}&nbsp;</h2>
 		<ul>
 			
 			<li class="p_phone">
-				<a href="tel:{lanrain:$s.tel}">
+				<a href="tel:{np:$s.tel}">
 					<strong>电话：</strong>
-					<font>{lanrain:$thisCompany.tel}&nbsp;</font>
+					<font>{np:$thisCompany.tel}&nbsp;</font>
 					<span class="gt"></span>
 				</a>
 			</li>
 			<li class="p_address">
-				<a href="{lanrain::U('Product/companyMap',array('token'=>$_GET['token'],'id'=>$_GET['id'],'wecha_id'=>$_GET['wecha_id']))}">
+				<a href="{np::U('Product/companyMap',array('token'=>$_GET['token'],'id'=>$_GET['id'],'wecha_id'=>$_GET['wecha_id']))}">
 					<strong>地址：</strong>
-					<font>{lanrain:$thisCompany.address}&nbsp;</font>
+					<font>{np:$thisCompany.address}&nbsp;</font>
 					<span class="gt"></span>
 				</a>
 			</li>
@@ -27,20 +27,20 @@
 	</div>
 <volist name="branchStores" id="s">
 			<div class="p_mod">
-		<h2 class="p_mod_title">{lanrain:$s.name}&nbsp;</h2>
+		<h2 class="p_mod_title">{np:$s.name}&nbsp;</h2>
 		<ul>
 			
 			<li class="p_phone">
-				<a href="tel:{lanrain:$s.tel}">
+				<a href="tel:{np:$s.tel}">
 					<strong>电话：</strong>
-					<font>{lanrain:$s.tel}&nbsp;</font>
+					<font>{np:$s.tel}&nbsp;</font>
 					<span class="gt"></span>
 				</a>
 			</li>
 			<li class="p_address">
-				<a href="{lanrain::U('Product/companyMap',array('token'=>$_GET['token'],'id'=>$_GET['id'],'companyid'=>$s['id'],'wecha_id'=>$_GET['wecha_id']))}">
+				<a href="{np::U('Product/companyMap',array('token'=>$_GET['token'],'id'=>$_GET['id'],'companyid'=>$s['id'],'wecha_id'=>$_GET['wecha_id']))}">
 					<strong>地址：</strong>
-					<font>{lanrain:$s.address}&nbsp;</font>
+					<font>{np:$s.address}&nbsp;</font>
 					<span class="gt"></span>
 				</a>
 			</li>
@@ -51,7 +51,7 @@
 	</volist>
 			
 		<div class="p_mod p_seller_info p_tips ts2">
-		<a href="{lanrain::U('Product/product',array('token'=>$_GET['token'],'id'=>$_GET['id'],'wecha_id'=>$_GET['wecha_id']))}">
+		<a href="{np::U('Product/product',array('token'=>$_GET['token'],'id'=>$_GET['id'],'wecha_id'=>$_GET['wecha_id']))}">
 			查看商品详情
 			<span class="gt"></span>
 		</a>

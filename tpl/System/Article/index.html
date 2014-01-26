@@ -18,22 +18,22 @@
 	  </tr>
 	    <volist name="info" id="vo">
 			<tr>
-				<td align='center'>{lanrain:$vo.id}</td>
-				<td align='center'>{lanrain:$vo.keyword}</td>
-				<td align='center'><if condition="$vo['wxname'] eq null">微信已删除<else/>{lanrain:$vo.wxname}</if></td>
+				<td align='center'>{np:$vo.id}</td>
+				<td align='center'>{np:$vo.keyword}</td>
+				<td align='center'><if condition="$vo['wxname'] eq null">微信已删除<else/>{np:$vo.wxname}</if></td>
 				
 				<td align='center'><php>echo date('Y-m-d', $vo['createtime'])</php></td>
 				<td align='center'><php>echo date('Y-m-d', $vo['uptatetime'])</php></td>
 				<td align='center'><php>echo $vo['uname']</php></td>
 				</td>
 				<td align='center'>
-					<a target="ddd" href="{lanrain::U('Wap/Index/content',array('token'=>$vo['token'],'id'=>$vo['id']))}">查看</a> |
-					<a href="{lanrain::U('Article/del/',array('id'=>$vo['id'],'pid'=>$_GET['pid']))}">删除</a>
+					<a target="ddd" href="{np::U('Wap/Index/content',array('token'=>$vo['token'],'id'=>$vo['id']))}">查看</a> |
+					<a href="{np::U('Article/del/',array('id'=>$vo['id'],'pid'=>$_GET['pid']))}">删除</a>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{lanrain:$page}</div></td>
+      <td colspan="8"><div class="listpage">{np:$page}</div></td>
     </tr>
    
 </table>

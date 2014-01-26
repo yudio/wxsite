@@ -7,29 +7,29 @@
                 <volist name="products" id="p">
               <div class="car_list clearfix">
                 <div class="car_content clearfix">
-                  <h3><a href="{lanrain::U('Product/product',array('token'=>$_GET['token'],'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">{lanrain:$p.name}</a></h3>
-                     <a href="{lanrain::U('Product/product',array('token'=>$_GET['token'],'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">
-                      <img src="{lanrain:$p.logourl}" />
+                  <h3><a href="{np::U('Product/product',array('token'=>$_GET['token'],'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">{np:$p.name}</a></h3>
+                     <a href="{np::U('Product/product',array('token'=>$_GET['token'],'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">
+                      <img src="{np:$p.logourl}" />
                      </a>
                      <div class="car_property">
-                        <span class="price_now">单价：<font>￥{lanrain:$p.price}</font></span>
-                                                <div class="o_num_input clearfix" id="{lanrain:$p.id}">
-                            <a class="minus ts2" href="javascript:;" onclick="plus_minus({lanrain:$p.id}, -1,{lanrain:$p.price})">-</a>
-                            <input type="number" min="1" lastnum="1" value="{lanrain:$p.count}" id="qty{lanrain:$p.id}" class="qty" onblur="full_update({lanrain:$p.id},{lanrain:$p.price})" />
-                            <a class="plus ts2 on" href="javascript:;" onclick="plus_minus({lanrain:$p.id},1,{lanrain:$p.price})">+</a>
+                        <span class="price_now">单价：<font>￥{np:$p.price}</font></span>
+                                                <div class="o_num_input clearfix" id="{np:$p.id}">
+                            <a class="minus ts2" href="javascript:;" onclick="plus_minus({np:$p.id}, -1,{np:$p.price})">-</a>
+                            <input type="number" min="1" lastnum="1" value="{np:$p.count}" id="qty{np:$p.id}" class="qty" onblur="full_update({np:$p.id},{np:$p.price})" />
+                            <a class="plus ts2 on" href="javascript:;" onclick="plus_minus({np:$p.id},1,{np:$p.price})">+</a>
                         </div>
-                        <a class="u_order_return delete" href="{lanrain::U('Product/deleteCart',array('token'=>$_GET['token'],'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">删除商品</a>                     
+                        <a class="u_order_return delete" href="{np::U('Product/deleteCart',array('token'=>$_GET['token'],'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">删除商品</a>
                      </div>
                 </div>
               </div>
                  </volist>
-                            <p><span class="price_now" id="total_fee">总价格：<font>￥{lanrain:$totalFee}</font></span></p>
+                            <p><span class="price_now" id="total_fee">总价格：<font>￥{np:$totalFee}</font></span></p>
             </div>            
     	</div>
             	<div class="o_btn clearfix">
             	<if condition="$totalProductCount neq 0">
     		<input type="button" class="o_btn_back ts1" onclick="history.go(-1);" value="继续购物"/>
-    		<input type="button" class="o_btn_submit ts1" onclick="location.href='{lanrain::U('Product/orderCart',array('token'=>$_GET['token'],'cartIsDining'=>$cartIsDining,'wecha_id'=>$_GET['wecha_id']))}'" value="去结算" />
+    		<input type="button" class="o_btn_submit ts1" onclick="location.href='{np::U('Product/orderCart',array('token'=>$_GET['token'],'cartIsDining'=>$cartIsDining,'wecha_id'=>$_GET['wecha_id']))}'" value="去结算" />
     		</if>
     	</div>
  
@@ -62,7 +62,7 @@ function plus_minus(rowid, number,price) {
 //更新购物车
 function update_cart(rowid, num,price) {
 	$.ajax({
-		url: '{lanrain::U('Product/ajaxUpdateCart',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}&id='+rowid+'&count='+num+'&price='+price,
+		url: '{np::U('Product/ajaxUpdateCart',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}&id='+rowid+'&count='+num+'&price='+price,
 		success: function( data ) {
 			if(data){
 				var datas=data.split('|');
@@ -76,7 +76,7 @@ function update_cart(rowid, num,price) {
 //点击加入购物车
     function add_cart(id,price,count) {
     	$.ajax({
-    		url: "{lanrain::U('Product/addProductToCart',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}"+'&id='+id+'&price='+price+'&count='+count,
+    		url: "{np::U('Product/addProductToCart',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}"+'&id='+id+'&price='+price+'&count='+count,
     		success: function( data ) {
     			if(data){
     				var datas=data.split('|');

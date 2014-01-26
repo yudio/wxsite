@@ -7,7 +7,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <title>消费记录</title>
-<link href="{lanrain::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
+<link href="{np::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #txt {
   color: #000000;
@@ -58,9 +58,9 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 <div class="main">
 <div class="cover">
  <if condition="$cardset['shopping'] neq false">
-   <img src="{lanrain::$cardset['shopping']}">
+   <img src="{np::$cardset['shopping']}">
  <else/>
-   <img src="{lanrain::RES}/images/cart_info/shopping.jpg">
+   <img src="{np::RES}/images/cart_info/shopping.jpg">
  </if>
 
 </div>
@@ -78,9 +78,9 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
         </thead>
         <tbody>
           <tr align="middle">
-            <td>{lanrain:$userinfo['total_score']}</td>
-            <td>{lanrain:$userinfo['sign_score']}</td>
-            <td>{lanrain:$userinfo['expend_score']}</td>
+            <td>{np:$userinfo['total_score']}</td>
+            <td>{np:$userinfo['sign_score']}</td>
+            <td>{np:$userinfo['expend_score']}</td>
           </tr>
         </tbody>
       </table>
@@ -101,9 +101,9 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
         <tbody>
           <volist name="sign" id="list"> 
             <tr align="middle">
-              <td><if condition="$list.sign_time neq false">{lanrain:$list.sign_time|date="Y-m-d",###}<else/>无</if></td>
-              <td>{lanrain:$list.sell_expense} 元</td>
-              <td>+ {lanrain:$list.expense}</td>
+              <td><if condition="$list.sign_time neq false">{np:$list.sign_time|date="Y-m-d",###}<else/>无</if></td>
+              <td>{np:$list.sell_expense} 元</td>
+              <td>+ {np:$list.expense}</td>
             </tr>
           </volist>
         </tbody>
@@ -111,8 +111,8 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
         <tbody>           
             <tr align="middle">
               <td>本月</td>
-              <td>{lanrain:$list.sell_expense} 元</td>
-              <td>+ {lanrain:$list.expense}</td>
+              <td>{np:$list.sell_expense} 元</td>
+              <td>+ {np:$list.expense}</td>
             </tr>          
         </tbody>
         -->
@@ -126,7 +126,7 @@ Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(Gra
 </div>  
 
 <div style="height:20px;"></div>
-<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{lanrain::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>
+<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{np::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>
 
  
 </body></html>

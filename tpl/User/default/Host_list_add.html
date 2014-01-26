@@ -2,7 +2,7 @@
     <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
 <h4>订单类型设置 [ 都是必填项 ]</h4>
-<a href="{lanrain::U('Host/lists',array('token'=>$token,'id'=>(int)$_GET['id']))}" class="right btnGreen" style="margin-top:-27px">返回</a> </div>
+<a href="{np::U('Host/lists',array('token'=>$token,'id'=>(int)$_GET['id']))}" class="right btnGreen" style="margin-top:-27px">返回</a> </div>
 <div class="msgWrap bgfc">
 <form class="form" method="post" action="" target="_top" enctype="multipart/form-data">
   
@@ -10,15 +10,15 @@
 <tbody>
 <tr>
 <th>订单类型：</th>
-<td width="220"><input type="text" name="type" value="{lanrain:$list['type']}" class="px" style="width:200px;">如:"标准房/商务套房"</td>
+<td width="220"><input type="text" name="type" value="{np:$list['type']}" class="px" style="width:200px;">如:"标准房/商务套房"</td>
 <th>简要说明：</th>
-<td colspan="3"><input type="text" name="typeinfo" value="{lanrain:$list['typeinfo']}" class="px" style="width:200px;"> 字尽量少，如“大床，双床，适合2人”</td>
+<td colspan="3"><input type="text" name="typeinfo" value="{np:$list['typeinfo']}" class="px" style="width:200px;"> 字尽量少，如“大床，双床，适合2人”</td>
 </tr>
 <tr>
 <th>原价：</th>
-<td><input type="text" name="price" value="{lanrain:$list['price']}" class="px" style="width:200px;"></td>
+<td><input type="text" name="price" value="{np:$list['price']}" class="px" style="width:200px;"></td>
 <th>优惠价：</th>
-<td colspan="3"><input type="text" name="yhprice" value="{lanrain:$list['yhprice']}" class="px" style="width:200px;"></td>
+<td colspan="3"><input type="text" name="yhprice" value="{np:$list['yhprice']}" class="px" style="width:200px;"></td>
 </tr>
             <tr>
 <th valign="top">商家图片：</th>
@@ -36,9 +36,9 @@
 </thead>
                           <tbody id="div_add_del" name="div_add_del">
                         <tr>
-                            <td width="160"><input type="text" name="name" value="{lanrain:$list['name']}" class="px" style="width:160px;"></td>                             
-                            <td width="200"><input type="text" name="picurl" value="{lanrain:$list['picurl']}" class="px" style="width:160px;"></td>
-                             <td width="200"><input type="text" name="url" value="{lanrain:$list['url']}" class="px" style="width:160px;"></td>
+                            <td width="160"><input type="text" name="name" value="{np:$list['name']}" class="px" style="width:160px;"></td>
+                            <td width="200"><input type="text" name="picurl" value="{np:$list['picurl']}" class="px" style="width:160px;"></td>
+                             <td width="200"><input type="text" name="url" value="{np:$list['url']}" class="px" style="width:160px;"></td>
                             
                         </tr>
                     </tbody>
@@ -52,11 +52,11 @@
 
 <tr>
 <th valign="top">配套设施：</th>
-<td valign="top" colspan="5"><textarea class="px" id="info" name="info" style="width: 600px; height: 180px; ">{lanrain:$list['info']}</textarea></td>
+<td valign="top" colspan="5"><textarea class="px" id="info" name="info" style="width: 600px; height: 180px; ">{np:$list['info']}</textarea></td>
 </tr>
 <tr><th width="100">&nbsp;</th>
 <td><button type="submit" name="button" class="btnGreen">保存</button>
-<a href="{lanrain::U('Host/lists',array('token'=>$token,'id'=>$_GET['hid']))}" class="btnGray vm">取消</a></td>
+<a href="{np::U('Host/lists',array('token'=>$token,'id'=>$_GET['hid']))}" class="btnGray vm">取消</a></td>
 </tr>
 </tbody></table>
 

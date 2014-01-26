@@ -18,7 +18,7 @@ td{text-align: -webkit-left;}
 				<select name="pid" id="pid">
 					<option  value="0">请选择菜单</option>
 					<volist id="class" name="class">
-						<option  value="{lanrain:$class.id}" <if condition="$show['pid'] eq $class['id']">selected</if>>{lanrain:$class.title}</option>
+						<option  value="{np:$class.id}" <if condition="$show['pid'] eq $class['id']">selected</if>>{np:$class.title}</option>
 					</volist>
 				</select>
 				</div>
@@ -28,21 +28,21 @@ td{text-align: -webkit-left;}
 			<td align="right" height="42" width="">主菜单名称:</td>
 			<td>
 				<div class="mr15 l">
-				<input id="menu_title" class="txt" name="title" title="主菜单名称" value="{lanrain:$show.title}" type="text"></div>
+				<input id="menu_title" class="txt" name="title" title="主菜单名称" value="{np:$show.title}" type="text"></div>
 				<div class="system l"></div>
 			</td>
 		</tr>					
 		<tr bgcolor="#F1F1F1">
 			<td align="right" height="42" width="">关联关键词</td>
 			<td>
-				<div class="mr15 l"><input id="menu_key" class="txt" name="keyword" title="关联关键词" value="{lanrain:$show.keyword}" type="text"></div>
+				<div class="mr15 l"><input id="menu_key" class="txt" name="keyword" title="关联关键词" value="{np:$show.keyword}" type="text"></div>
 				<div class="system l"></div>
 			</td>
 		</tr>
 		<tr bgcolor="#F1F1F1">
 			<td align="right" height="42" width="">外链接url</td>
 			<td>
-				<div class="mr15 l"><input id="menu_key" class="txt" name="url" title="外链接url" value="{lanrain:$show.url}" type="text"></div>
+				<div class="mr15 l"><input id="menu_key" class="txt" name="url" title="外链接url" value="{np:$show.url}" type="text"></div>
 				<div class="system l"></div>
 			</td>
 		</tr>
@@ -60,7 +60,7 @@ td{text-align: -webkit-left;}
 			<td align="right" height="42">排序:</td>
 			<td>
 				<div class="mr15 l">
-				<input id="sort" class="txt" name="sort" title="排序" value="{lanrain:$show.sort}" type="text"></div>
+				<input id="sort" class="txt" name="sort" title="排序" value="{np:$show.sort}" type="text"></div>
 				<div class="system l"></div>
 			</td>
 		</tr>

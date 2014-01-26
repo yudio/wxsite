@@ -1,13 +1,13 @@
 <include file="Public:head"/>  
         <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
           <div class="cLineB">
-              <h4 class="left">优惠券列表 ({lanrain:$count}) 条<span class="FAQ">你本月有 {lanrain:$group.activitynum} 次机会可免收活动创建费，已经使用了 {lanrain:$activitynum} 次机会!</span></h4>
+              <h4 class="left">优惠券列表 ({np:$count}) 条<span class="FAQ">你本月有 {np:$group.activitynum} 次机会可免收活动创建费，已经使用了 {np:$activitynum} 次机会!</span></h4>
                  
               <div class="clr"></div>
           </div>
           <div class="cLine">
             <div class="pageNavigator left">
-  <a href='{lanrain::U('Coupon/add',array('token'=>$token))}' title='新增优惠券' class='btnGrayS vm bigbtn'><img src="{lanrain::RES}/images/img/activity-scratch-card.png" class="vm" />新增优惠券</a>
+  <a href='{np::U('Coupon/add',array('token'=>$token))}' title='新增优惠券' class='btnGrayS vm bigbtn'><img src="{np::RES}/images/img/activity-scratch-card.png" class="vm" />新增优惠券</a>
               
             </div>
           
@@ -36,27 +36,27 @@
                   <volist id="list" name="list">
                 <TR>
                   <TD><input type="checkbox" name='del_id[]' value="842" class="checkitem"></TD>
-                  <TD>{lanrain:$list.title}</TD>
-                  <TD>{lanrain:$list.keyword}</TD> 
-				  <TD>{lanrain:$list.joinnum}</TD>
-                  <TD>{lanrain:$list.click}</TD>                  
-                  <TD>{lanrain:$list.statdate|date='Y-m-d',###}<br />{lanrain:$list.enddate|date='Y-m-d',###}</TD>
+                  <TD>{np:$list.title}</TD>
+                  <TD>{np:$list.keyword}</TD>
+				  <TD>{np:$list.joinnum}</TD>
+                  <TD>{np:$list.click}</TD>
+                  <TD>{np:$list.statdate|date='Y-m-d',###}<br />{np:$list.enddate|date='Y-m-d',###}</TD>
                   <TD>
 				  <if condition="$list['status'] eq 0">未开始<elseif condition="$list['status'] eq 2"/>已经结束<else/>已经开始</if>
 				  
 				 </TD>
-                  <TD>优惠券 {lanrain:$list.id}</TD>
+                  <TD>优惠券 {np:$list.id}</TD>
                    <TD class="norightborder">
-				   <a href="index.php?g=User&m=Coupon&a=sn&id={lanrain:$list.id}&type=3">SN码管理</a> 
-				   <a href="index.php?g=User&m=Coupon&a=edit&id={lanrain:$list.id}">编辑</a>  
+				   <a href="index.php?g=User&m=Coupon&a=sn&id={np:$list.id}&type=3">SN码管理</a>
+				   <a href="index.php?g=User&m=Coupon&a=edit&id={np:$list.id}">编辑</a>
 				   <a href="
 				   <if condition="$list['status'] eq 1">				   
-				   javascript:drop_confirm('你确定要结束活动吗，结束后不可再开启本活动!', 'index.php?g=User&m=Coupon&a=setdes&id={lanrain:$list.id}');<else/>index.php?g=User&m=Coupon&a=setinc&id={lanrain:$list.id}   
+				   javascript:drop_confirm('你确定要结束活动吗，结束后不可再开启本活动!', 'index.php?g=User&m=Coupon&a=setdes&id={np:$list.id}');<else/>index.php?g=User&m=Coupon&a=setinc&id={np:$list.id}
 				   </if>">
 				   <if condition="$list['status'] eq 0">开始<elseif condition="$list['status'] eq 2"/><else/>结束</if>				   
 				   </a>
 				  
-				   <a href="index.php?g=User&m=Coupon&a=del&id={lanrain:$list.id}">删除</a></TD>
+				   <a href="index.php?g=User&m=Coupon&a=del&id={np:$list.id}">删除</a></TD>
                 </TR>
 				</volist>
               </TBODY>

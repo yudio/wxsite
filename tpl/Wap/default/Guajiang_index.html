@@ -6,8 +6,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
-<title>{lanrain:$Guajiang.title}</title>
-<link href="{lanrain::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
+<title>{np:$Guajiang.title}</title>
+<link href="{np::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #txt {
 	color: #000000;
@@ -121,8 +121,8 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
     loadingObj.show();   
 
 </script>
-<script   src="{lanrain::RES}/css/guajiang/js/jquery.js" type="text/javascript"></script>
-<script   src="{lanrain::RES}/css/guajiang/js/wScratchPad.js" type="text/javascript"></script>
+<script   src="{np::RES}/css/guajiang/js/jquery.js" type="text/javascript"></script>
+<script   src="{np::RES}/css/guajiang/js/wScratchPad.js" type="text/javascript"></script>
 
 <if condition="$Guajiang['usenums'] eq 2">
 <div class="main">
@@ -132,7 +132,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 					<div class="title-brown">恭喜：</div>
 					<div class="Detail">
 					
-					<p>尊敬的 <font color='red'> {lanrain:$Guajiang.uname} </font> 您已经中过 <strong><font color='red'>{lanrain:$Guajiang.winprize}</font></strong> 奖了,<br />兑奖号： <font color='red'>{lanrain:$Guajiang.sncode}</font></p>	
+					<p>尊敬的 <font color='red'> {np:$Guajiang.uname} </font> 您已经中过 <strong><font color='red'>{np:$Guajiang.winprize}</font></strong> 奖了,<br />兑奖号： <font color='red'>{np:$Guajiang.sncode}</font></p>
 			
 					</div>
 				</div>
@@ -142,13 +142,13 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 </if>
 <if condition="$Guajiang['usenums'] eq 3">
 	<div class="main">
-		<div class="banner"><img src="{lanrain::RES}/css/guajiang/images/activity-scratch-card-end2.jpg"></div>
+		<div class="banner"><img src="{np::RES}/css/guajiang/images/activity-scratch-card-end2.jpg"></div>
 		<div class="content" style="margin-top:-5px">
 			<div class="boxcontent boxwhite">
 				<div class="box">
 					<div class="title-brown">活动结束说明：</div>
 					<div class="Detail">
-						<p>{lanrain:$Guajiang.endinfo}.</p>
+						<p>{np:$Guajiang.endinfo}.</p>
 					</div>
 				</div>
 			</div>
@@ -157,7 +157,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 <else/>
 	<div class="main">
 <div class="cover">
-	<img src="{lanrain::RES}/css/guajiang/images/activity-scratch-card-bannerbg.png">
+	<img src="{np::RES}/css/guajiang/images/activity-scratch-card-bannerbg.png">
 	<div id="prize"> <if condition="$Guajiang['usenums'] eq 1">刮奖次数已用完</if></div>
 	<div id="scratchpad"></div>
 </div>
@@ -167,13 +167,13 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 		<div class="box">
 			<div class="title-red"><span>恭喜你中奖了</span></div>
 			<div class="Detail">
-				<p>您中了：<span class="red">{lanrain:$Guajiang.winprize}</span></p>
-				<p class="red"> {lanrain:$Guajiang.sttxt} </p>
+				<p>您中了：<span class="red">{np:$Guajiang.winprize}</span></p>
+				<p class="red"> {np:$Guajiang.sttxt} </p>
 				<p>
 					<input name=""  class="px" id="tel" value="" type="text" placeholder="请输入您的手机号">
 					<input name=""  class="px" id="wechaname" value="" type="text" placeholder="请输入您的微信号">
-					<input name=""  id="wechaid" value="{lanrain:$Guajiang.wecha_id}" type="hidden">
-					<input name=""  id="lid" value="{lanrain:$Guajiang.lid}" type="hidden">
+					<input name=""  id="wechaid" value="{np:$Guajiang.wecha_id}" type="hidden">
+					<input name=""  id="lid" value="{np:$Guajiang.lid}" type="hidden">
 				</p><p>
 				<p>
 					<input class="pxbtn" name="提 交"  id="save-btn" type="button" value="用户提交">
@@ -187,18 +187,18 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 			<div class="title-brown"><span>奖项说明：</span></div>
 			<div class="Detail">
 			<p class="red">打开不刮奖视为作废</p>
-			<p>每人最多有{lanrain:$Guajiang.canrqnums}次机会</p>
-			<p>这是您第 <span class="red" id="usenums">{lanrain:$Guajiang.usecout}</span> 次刮奖</p>
-			 {lanrain::$prizeStr}
+			<p>每人最多有{np:$Guajiang.canrqnums}次机会</p>
+			<p>这是您第 <span class="red" id="usenums">{np:$Guajiang.usecout}</span> 次刮奖</p>
+			 {np::$prizeStr}
 			</div>
 		</div>
 	</div>
 	<div class="boxcontent boxwhite">
 		<div class="box">
 			<div class="title-brown">活动说明：</div>
-			<div class="Detail">{lanrain:$Guajiang.info}
-				<p>活动时间:{lanrain:$Guajiang.statdate|date="Y-m-d",###}至{lanrain:$Guajiang.enddate|date="Y-m-d",###}</p>
-				<p>{lanrain:$Guajiang.txt}</p>				
+			<div class="Detail">{np:$Guajiang.info}
+				<p>活动时间:{np:$Guajiang.statdate|date="Y-m-d",###}至{np:$Guajiang.enddate|date="Y-m-d",###}</p>
+				<p>{np:$Guajiang.txt}</p>
 							
 			</div>
 		</div>
@@ -208,8 +208,8 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 </div>	
 </if>	
 <div style="height:60px;"></div>
-<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{lanrain::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>
-<script src="{lanrain::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
+<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{np::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>
+<script src="{np::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
 <style type="text/css">
 .window {
 	width:290px;
@@ -336,10 +336,10 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
  
 
 <script type="text/javascript">
-/*window.sncode = "{lanrain:$Guajiang.sn}";*/
-window.prize = "{lanrain:$Guajiang.winprize}";
-var winprize  = "{lanrain:$Guajiang.winprize}";
-var zjl = "{lanrain:$Guajiang.zjl}";	
+/*window.sncode = "{np:$Guajiang.sn}";*/
+window.prize = "{np:$Guajiang.winprize}";
+var winprize  = "{np:$Guajiang.winprize}";
+var zjl = "{np:$Guajiang.zjl}";
 var goon = true;
 var text = true;
 $(function(){

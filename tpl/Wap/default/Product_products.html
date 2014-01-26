@@ -15,10 +15,10 @@
 		<volist name="products" id="hostlist"> 
 						<li>
 			<div class="f_list_l">
-				<a href="{lanrain::U('Product/product',array('token'=>$_GET['token'],'id'=>$hostlist['id'],'wecha_id'=>$_GET['wecha_id']))}">
-					<img src="{lanrain:$hostlist.logourl}" />
-					<h3>{lanrain:$hostlist.name}</h3>
-					<p class="tui_price ts2" style="font-weight:normal;font-size:14px;color:#666;text-decoration:line-through">原价：{lanrain:$hostlist.oprice}&nbsp;元</p>
+				<a href="{np::U('Product/product',array('token'=>$_GET['token'],'id'=>$hostlist['id'],'wecha_id'=>$_GET['wecha_id']))}">
+					<img src="{np:$hostlist.logourl}" />
+					<h3>{np:$hostlist.name}</h3>
+					<p class="tui_price ts2" style="font-weight:normal;font-size:14px;color:#666;text-decoration:line-through">原价：{np:$hostlist.oprice}&nbsp;元</p>
 										<div class="hot">
 						<strong <if condition="$hostlist.groupon neq 1"> style="display:none"</if>>团购</strong>
 					</div>
@@ -26,9 +26,9 @@
 			</div>
 			<div class="f_list_r">
 				<p class="tui_price ts2">
-					<strong>￥{lanrain:$hostlist.price}</strong>
+					<strong>￥{np:$hostlist.price}</strong>
 				</p>
-				<a href="{lanrain::U('Product/product',array('token'=>$_GET['token'],'id'=>$hostlist['id'],'wecha_id'=>$_GET['wecha_id']))}" class="u_order_return ts1" id="in_car"><if condition="$hostlist['dining'] eq 1">请点餐<else/>去购买</if></a>
+				<a href="{np::U('Product/product',array('token'=>$_GET['token'],'id'=>$hostlist['id'],'wecha_id'=>$_GET['wecha_id']))}" class="u_order_return ts1" id="in_car"><if condition="$hostlist['dining'] eq 1">请点餐<else/>去购买</if></a>
 			</div>
 		</li>
 			</volist>
@@ -47,11 +47,11 @@ $(function() {
 	});
 
 	//点击排序
-	var base_url = '{lanrain::U('Product/products',array('token'=>$_GET['token'],'catid'=>$thisCat['id'],'wecha_id'=>$_GET['wecha_id']))}';
-	var b_url = '<if condition="$isSearch neq 1">{lanrain::U('Product/ajaxProducts',array('token'=>$_GET['token'],'catid'=>$thisCat['id'],'wecha_id'=>$_GET['wecha_id']))}<else/>{lanrain::U('Product/ajaxProducts',array('token'=>$_GET['token'],'keyword'=>$_GET['keyword'],'wecha_id'=>$_GET['wecha_id']))}</if>'
+	var base_url = '{np::U('Product/products',array('token'=>$_GET['token'],'catid'=>$thisCat['id'],'wecha_id'=>$_GET['wecha_id']))}';
+	var b_url = '<if condition="$isSearch neq 1">{np::U('Product/ajaxProducts',array('token'=>$_GET['token'],'catid'=>$thisCat['id'],'wecha_id'=>$_GET['wecha_id']))}<else/>{np::U('Product/ajaxProducts',array('token'=>$_GET['token'],'keyword'=>$_GET['keyword'],'wecha_id'=>$_GET['wecha_id']))}</if>'
 		method = 'DESC',
-		_get_method = '{lanrain:$method}',
-		order = '{lanrain:$order}',
+		_get_method = '{np:$method}',
+		order = '{np:$order}',
 		_get_order  = '';
 	if (_get_order != '') {
 		order = _get_order;
@@ -69,11 +69,11 @@ $(function() {
 	});
 
 	/*---------------------加载更多--------------------*/
-	var total = {lanrain:$count},
+	var total = {np:$count},
 		pagesize = 5,
 		pages = Math.ceil(total / pagesize);
 
-	var com_link = '{lanrain::U('Product/product',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';
+	var com_link = '{np::U('Product/product',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';
 
 	var label_arr = ["\u8bf7\u9009\u62e9\u6807\u7b7e","\u70ed\u5356","\u7206\u6b3e"];
 

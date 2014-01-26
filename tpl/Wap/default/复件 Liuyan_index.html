@@ -60,24 +60,24 @@
 	<div id="topic">
 		留言
 	</div>
-	<p class="re"><a href="{lanrain::U('Liuyan/add', array('token'=> $token, 'wecha_id'=> $wecha_id))}">点击发布留言</a></p>
+	<p class="re"><a href="{np::U('Liuyan/add', array('token'=> $token, 'wecha_id'=> $wecha_id))}">点击发布留言</a></p>
 	<ul class="list">
 		<volist name="info" id="vo">
-			<li>名字:{lanrain:$vo.title}</li>
+			<li>名字:{np:$vo.title}</li>
 			<li>时间：<php>echo date('Y-m-d H:i',$vo['createtime'])</php></li>
-			<li>内容:{lanrain:$vo.text}</li>
+			<li>内容:{np:$vo.text}</li>
 			
 				<php>
 					if($vo['wecha_id'] == $wecha_id){
 				</php>
 					
-						<li><a href="{lanrain::U('Liuyan/del',array('id'=>$vo['id']))}"class="del">删除</a></li>
+						<li><a href="{np::U('Liuyan/del',array('id'=>$vo['id']))}"class="del">删除</a></li>
 				<php>
 					}
 				</php>
 			<br>
 		</volist>
 	</ul>
-	<p class="re"><a href="{lanrain::U('Liuyan/add',array('token'=> $token, 'wecha_id'=> $wecha_id))}">点击发布留言</a></p>
+	<p class="re"><a href="{np::U('Liuyan/add',array('token'=> $token, 'wecha_id'=> $wecha_id))}">点击发布留言</a></p>
 </body>
 </html>

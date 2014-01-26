@@ -5,7 +5,7 @@
 <title>权限管理</title>
 <include file="common:public" />
 <div class="cr"></div>
-<form action="{lanrain::U('Group/role_sort')}" method="post">
+<form action="{np::U('Group/role_sort')}" method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="alist">
 	<tr>
 		<td width="70">排序权重</td>
@@ -18,16 +18,16 @@
 	<volist name="list" id="vo">
 		<tr>
 			<td align='center'>
-				<input type='text' value='{lanrain:$vo.sort}' size='3' name='sort[{lanrain:$vo.id}]'></td>
-			<td align='center'>{lanrain:$vo.id}</td>
-			<td >{lanrain:$vo.name}</td>
-			<td >{lanrain:$vo.remark}</td>
+				<input type='text' value='{np:$vo.sort}' size='3' name='sort[{np:$vo.id}]'></td>
+			<td align='center'>{np:$vo.id}</td>
+			<td >{np:$vo.name}</td>
+			<td >{np:$vo.remark}</td>
 			<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 			</td>
 			<td align='center'>
-				<a href="javascript:setting_access({lanrain:$vo.id}, '{lanrain:$vo.name}')">权限设置</a>
-				| <a href="{lanrain::U('Group/edit/',array('id'=>$vo['id']))}">修改</a>
-				| <a href="javascript:void(0)" onclick="return confirmurl('{lanrain::U('Group/del/',array('id'=>$vo['id']))}','确定删除该角色吗?')">删除</a>
+				<a href="javascript:setting_access({np:$vo.id}, '{np:$vo.name}')">权限设置</a>
+				| <a href="{np::U('Group/edit/',array('id'=>$vo['id']))}">修改</a>
+				| <a href="javascript:void(0)" onclick="return confirmurl('{np::U('Group/del/',array('id'=>$vo['id']))}','确定删除该角色吗?')">删除</a>
 			</td>
 		</tr>
 	</volist>
@@ -36,7 +36,7 @@
 <script type="text/javascript">
 //权限设置
 function setting_access(id, name) {
-	window.top.art.dialog.open('{lanrain::U("Group/access")}'+'&roleid='+id,{title: name+'权限设置', width: 600, height: 500});
+	window.top.art.dialog.open('{np::U("Group/access")}'+'&roleid='+id,{title: name+'权限设置', width: 600, height: 500});
 }
 </script>
 <div class="bottom">

@@ -8,7 +8,7 @@
           </div>
           <div class="cLine">
             <div class="pageNavigator left">
-  <a href="{lanrain::U('Vote/add',array('type'=>'text'))}" title="发起文字投票" class="btnGrayS vm bigbtn"><img src="/tpl/User/default/common/images/text.png" class="vm">发起文字投票</a>　<a href="{lanrain::U('Vote/add',array('type'=>'text'))}" title="发起图片投票" class="btnGrayS vm bigbtn"><img src="tpl/User/default/common/images/pic.png" class="vm">发起图片投票</a>　　
+  <a href="{np::U('Vote/add',array('type'=>'text'))}" title="发起文字投票" class="btnGrayS vm bigbtn"><img src="/tpl/User/default/common/images/text.png" class="vm">发起文字投票</a>　<a href="{np::U('Vote/add',array('type'=>'text'))}" title="发起图片投票" class="btnGrayS vm bigbtn"><img src="tpl/User/default/common/images/pic.png" class="vm">发起图片投票</a>　　
               
             </div>
           
@@ -42,7 +42,7 @@
                   <td>2013-07-30</td>
                     <td>2013-07-30</td>
                      <td>文字投票674</td>
-                   <td onclick="alert('内测中,暂时未放出');return false;" class="norightborder"><a href="{lanrain::U('Vote/list',array('type'=>'text','id'=>$vote['id']))}" title="投票结果">投票结果</a> <a href="{lanrain::U('Vote/edit',array('type'=>'text','id'=>$vote['id']))}" title="编辑">编辑</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{lanrain::U('Vote/del',array('type'=>'text','id'=>$vote['id']))}');">删除</a> <a href="javascript:drop_confirm('开始投票活动将预先扣除1000金币，折合RMB 1元 ', '{lanrain::U('Vote/start',array('type'=>'text','id'=>$vote['id']))}');">开始</a>   </td>
+                   <td onclick="alert('内测中,暂时未放出');return false;" class="norightborder"><a href="{np::U('Vote/list',array('type'=>'text','id'=>$vote['id']))}" title="投票结果">投票结果</a> <a href="{np::U('Vote/edit',array('type'=>'text','id'=>$vote['id']))}" title="编辑">编辑</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{np::U('Vote/del',array('type'=>'text','id'=>$vote['id']))}');">删除</a> <a href="javascript:drop_confirm('开始投票活动将预先扣除1000金币，折合RMB 1元 ', '{np::U('Vote/start',array('type'=>'text','id'=>$vote['id']))}');">开始</a>   </td>
           
                 </tr>
       			                 <tr>

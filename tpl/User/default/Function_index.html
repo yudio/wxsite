@@ -13,9 +13,9 @@
 	<volist name="fun" id="list" key="b">
 	  <li>
 		  <label> 
-			<input  type="checkbox" <if condition="in_array($list['funname'],$check)">checked="checked"</if> <if condition="$list['gid'] gt session('gid')"> disabled="disabled" </if> onchange="changeapp(this,'{lanrain:$Think.session.token}','{lanrain:$list.id}')"  value="{lanrain:$list.id}"/> {lanrain:$list.name}
+			<input  type="checkbox" <if condition="in_array($list['funname'],$check)">checked="checked"</if> <if condition="$list['gid'] gt session('gid')"> disabled="disabled" </if> onchange="changeapp(this,'{np:$Think.session.token}','{np:$list.id}')"  value="{np:$list.id}"/> {np:$list.name}
 		  </label>
-		  <div>查询例子:<br> {lanrain:$list.info}</div>
+		  <div>查询例子:<br> {np:$list.info}</div>
 		</li>
 	</volist>
 	</ul>   

@@ -3,33 +3,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>权限管理</title>
-<link href="{lanrain::RES}/images/main.css" type="text/css" rel="stylesheet">
-<script src="{lanrain::STATICS}/jquery-1.4.2.min.js" type="text/javascript"></script>
+<link href="{np::RES}/images/main.css" type="text/css" rel="stylesheet">
+<script src="{np::STATICS}/jquery-1.4.2.min.js" type="text/javascript"></script>
 <meta http-equiv="x-ua-compatible" content="ie=7" />
 </head>
 <body class="warp">
 <div id="artlist" class="addn">
 <gt name="info.id" value="0">
-			<form action="{lanrain::U('Links/upsave')}" method="post" name="form" id="myform">
-			<input type="hidden" name="id" value="{lanrain:$info.id}">
+			<form action="{np::U('Links/upsave')}" method="post" name="form" id="myform">
+			<input type="hidden" name="id" value="{np:$info.id}">
 		<else />
-			<form action="{lanrain::U('Links/insert')}" method="post" name="form" id="myform">
+			<form action="{np::U('Links/insert')}" method="post" name="form" id="myform">
 		</gt>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="addn">
 
 				 <tr>
-					<th colspan="4">{lanrain:$title}</th>
+					<th colspan="4">{np:$title}</th>
 				</tr>
 				<tr>
 					<td height="48" align="right"><strong>友情链接名称：</strong></td>
 					<td colspan="3" class="lt">
-						<input type="text" name="name" class="ipt" size="45" value="{lanrain:$info.name}" <eq name="info.name" value="admin">readonly="readonly"</eq>>
+						<input type="text" name="name" class="ipt" size="45" value="{np:$info.name}" <eq name="info.name" value="admin">readonly="readonly"</eq>>
 					</td>
 				</tr>
 				<tr>
 					<td height="48" align="right"><strong>url地 址：</strong></td>
 					<td colspan="3" class="lt">
-						<input type="url" name="url" class="ipt" size="45" value="{lanrain:$info.url}">
+						<input type="url" name="url" class="ipt" size="45" value="{np:$info.url}">
 					</td>
 				</tr>
 				<tr>

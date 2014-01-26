@@ -2,9 +2,9 @@
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
           <div class="cLine">
             <div class="pageNavigator left">
-  <a href='{lanrain::U("Text/add")}' title='新增文本自定义回复' class='btnGrayS vm bigbtn'><img src="{lanrain::RES}/images/text.png" class="vm" />新增文本自定义回复</a>　
-  <a href='{lanrain::U("Img/add")}' title='新增图文自定义回复' class='btnGrayS vm bigbtn'><img src="{lanrain::RES}/images/pic.png" class="vm" />新增图文自定义回复</a>　
-  <!--<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=csv&id=9379';" ><img src="{lanrain::RES}/images/import.png" class="vm" />批量导入文本</a>　<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=outtxt&page=1&type=0&classid=0&wxid=gh_858dwjkeww5';" ><img src="{lanrain::RES}/images/export.png" class="vm" />批量导出本页文本结果</a>-->
+  <a href='{np::U("Text/add")}' title='新增文本自定义回复' class='btnGrayS vm bigbtn'><img src="{np::RES}/images/text.png" class="vm" />新增文本自定义回复</a>　
+  <a href='{np::U("Img/add")}' title='新增图文自定义回复' class='btnGrayS vm bigbtn'><img src="{np::RES}/images/pic.png" class="vm" />新增图文自定义回复</a>　
+  <!--<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=csv&id=9379';" ><img src="{np::RES}/images/import.png" class="vm" />批量导入文本</a>　<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=outtxt&page=1&type=0&classid=0&wxid=gh_858dwjkeww5';" ><img src="{np::RES}/images/export.png" class="vm" />批量导出本页文本结果</a>-->
               
             </div>
           
@@ -32,13 +32,13 @@
 				</TR>
 				<volist name="info" id="vo">
 				<tr>
-                  <td>  {lanrain:$i}</td>
-                  <td>{lanrain:$vo.keyword}</td>
-                  <td><div class="answer_text">{lanrain:$vo.text}</div></td>
+                  <td>  {np:$i}</td>
+                  <td>{np:$vo.keyword}</td>
+                  <td><div class="answer_text">{np:$vo.text}</div></td>
                   <td><eq name="vo.type" value="1">完全匹配<else/>模糊匹配</eq></td>
-                  <td>{lanrain:$vo.click}</td>
+                  <td>{np:$vo.click}</td>
                     <td><php>echo date('Y-m-d',$vo['updatetime']);</php></td>
-                   <td class="norightborder"> <a href="{lanrain::U('Text/edit',array('id'=>$vo['id']))}" title="编辑文本">编辑</a> <a href="{lanrain::U('Text/del',array('id'=>$vo['id']))}">删除</a></td>
+                   <td class="norightborder"> <a href="{np::U('Text/edit',array('id'=>$vo['id']))}" title="编辑文本">编辑</a> <a href="{np::U('Text/del',array('id'=>$vo['id']))}">删除</a></td>
           
                 </tr>
 				</volist>
@@ -67,7 +67,7 @@ alert('未选中任何文章或回复！')
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{lanrain:$page}</div>
+                 <div class="pages">{np:$page}</div>
               </div>
             <div class="clr"></div>
           </div>

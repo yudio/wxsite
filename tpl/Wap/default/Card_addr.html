@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="format-detection" content="telephone=no" />
 <title></title>
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/card/wei_webapp_new_v1.0.4.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/card/wei_webapp_new_v1.0.4.css" />
 </head>
 
 <body id="page_applicable" class="topCities">
@@ -17,14 +17,14 @@
   </div>
   <div class="inner root" style="height: 3576px;">
 	<volist id="addr" name="addr">
-    <h2>{lanrain:$addr.cname}</h2>
+    <h2>{np:$addr.cname}</h2>
     <ul class="round">
-      <li class="addr" data-hidden-when-lost="{lanrain:$addr.info}">{lanrain:$addr.info}</li>
-      <li class="tel" data-hidden-when-lost="{lanrain:$addr.tel}"><a class="autotel" href="tel:{lanrain:$addr.tel}" data-telnum="tel:{lanrain:$addr.tel}">{lanrain:$addr.tel}</a></li>
+      <li class="addr" data-hidden-when-lost="{np:$addr.info}">{np:$addr.info}</li>
+      <li class="tel" data-hidden-when-lost="{np:$addr.tel}"><a class="autotel" href="tel:{np:$addr.tel}" data-telnum="tel:{np:$addr.tel}">{np:$addr.tel}</a></li>
     </ul>
  </volist>
   </div>
-  <div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{lanrain::U('Card/vip',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回会员卡页</span></a></div>
+  <div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{np::U('Card/vip',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回会员卡页</span></a></div>
 </div>
 
 <!-------------------- templates end -------------------->

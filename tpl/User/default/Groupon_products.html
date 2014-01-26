@@ -1,8 +1,8 @@
 <include file="Public:head"/> 
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/cymain.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/cymain.css" />
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
-<h4 class="left">团购管理 ({lanrain:$page}) </h4>
+<h4 class="left">团购管理 ({np:$page}) </h4>
 <div class="searchbar right">
 <form method="post" action="">
 <input type="text" id="msgSearchInput" class="txt left" placeholder="输入关键词搜索" name="searchkey" value="">
@@ -17,14 +17,14 @@
 <!--tab start-->
 <div class="tab">
 <ul>
-<li class="tabli" id="tab0"><a href="{lanrain::U('Groupon/index',array('token'=>$token))}">团购订单管理</a></li>
-<li class="current tabli" id="tab2"><a href="{lanrain::U('Groupon/products',array('token'=>$token))}">团购管理</a></li>
-<li class="tabli" id="tab2"><a href="{lanrain::U('Reply_info/set',array('token'=>$token,'infotype'=>'Groupon'))}">团购回复配置</a></li>
+<li class="tabli" id="tab0"><a href="{np::U('Groupon/index',array('token'=>$token))}">团购订单管理</a></li>
+<li class="current tabli" id="tab2"><a href="{np::U('Groupon/products',array('token'=>$token))}">团购管理</a></li>
+<li class="tabli" id="tab2"><a href="{np::U('Reply_info/set',array('token'=>$token,'infotype'=>'Groupon'))}">团购回复配置</a></li>
 </ul>
 </div>
 <!--tab end-->
 <div class="cLine">
-<div class="pageNavigator left"> <a href="{lanrain::U('Groupon/add',array('token'=>$token))}" title="添加" class="btnGrayS vm bigbtn"><img src="{lanrain::RES}/images/product/add.png" width="16" class="vm">添加团购</a></div>
+<div class="pageNavigator left"> <a href="{np::U('Groupon/add',array('token'=>$token))}" title="添加" class="btnGrayS vm bigbtn"><img src="{np::RES}/images/product/add.png" width="16" class="vm">添加团购</a></div>
 <div class="clr"></div>
 </div>
 <div class="msgWrap">
@@ -48,13 +48,13 @@
 <tr></tr>
 <volist name="list" id="hostlist"> 
 <tr>
-<td><input type="checkbox" name="del_id[{lanrain:$i}]" value="285" class="checkitem"></td>
-<td>{lanrain:$hostlist.name}</td>
-<td><span style="text-decoration:line-through">{lanrain:$hostlist.oprice}</span> / {lanrain:$hostlist.price}</td>
-<td>{lanrain:$hostlist.keyword}</td>
-<td>{lanrain:$hostlist.time|date="Y-m-d",###} / {lanrain:$hostlist.endtime|date="Y-m-d",###}</td> 
-<td align="center">{lanrain:$hostlist.salecount}</td>
-<td class="norightborder"><a href="{lanrain::U('Groupon/set',array('id'=>$hostlist['id'],'token'=>$token))}">修改</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{lanrain::U('Groupon/del',array('id'=>$hostlist['id'],'token'=>$token))}');">删除</a></td>
+<td><input type="checkbox" name="del_id[{np:$i}]" value="285" class="checkitem"></td>
+<td>{np:$hostlist.name}</td>
+<td><span style="text-decoration:line-through">{np:$hostlist.oprice}</span> / {np:$hostlist.price}</td>
+<td>{np:$hostlist.keyword}</td>
+<td>{np:$hostlist.time|date="Y-m-d",###} / {np:$hostlist.endtime|date="Y-m-d",###}</td>
+<td align="center">{np:$hostlist.salecount}</td>
+<td class="norightborder"><a href="{np::U('Groupon/set',array('id'=>$hostlist['id'],'token'=>$token))}">修改</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{np::U('Groupon/del',array('id'=>$hostlist['id'],'token'=>$token))}');">删除</a></td>
 </tr>
 </volist>
 </tbody>
@@ -64,7 +64,7 @@
 </div>
 <div class="cLine">
 <div class="pageNavigator right">
-<div class="pages">{lanrain:$page}</div>
+<div class="pages">{np:$page}</div>
 </div>
 <div class="clr"></div>
 </div>

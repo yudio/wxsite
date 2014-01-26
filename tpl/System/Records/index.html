@@ -9,7 +9,7 @@
 
 	 <div class="ksearch">
     	<div class="fl">
-			<form action="{lanrain::U('Users/search')}" method="post">
+			<form action="{np::U('Users/search')}" method="post">
 			<b class="kserico">快速搜索：</b>搜索类型：
 			<select name="type">
 				<option value="1">用户名</option>
@@ -49,19 +49,19 @@
 	  </tr>
 	    <volist name="info" id="vo">
 			<tr>
-				<td align='center'>{lanrain:$vo.id}</td>
-				<td align='center'>{lanrain:$vo.title}</td>
-				<td align='center'>{lanrain:$vo.uname}</td>
-				<td align='center'>{lanrain:$vo.indent_id}</td>
-				<td align='center'>{lanrain:$vo.price}</td>
-				<td align='center'>{lanrain:$vo.create_time|date='Y-m-d H:i:s',###}</td>
+				<td align='center'>{np:$vo.id}</td>
+				<td align='center'>{np:$vo.title}</td>
+				<td align='center'>{np:$vo.uname}</td>
+				<td align='center'>{np:$vo.indent_id}</td>
+				<td align='center'>{np:$vo.price}</td>
+				<td align='center'>{np:$vo.create_time|date='Y-m-d H:i:s',###}</td>
 				<td align='center'><if condition="$vo['status'] eq 1">已付款(未确认)<elseif condition="$vo['status'] eq 2"/>完成<else/>未付款</if></td>
-				<td align='center'><a href="{lanrain::U('Admin/Records/send',array('price'=>$vo['price'],'uid'=>$vo['uid'],'iid'=>$vo['id']))}">入金</a> 删除 </td>
+				<td align='center'><a href="{np::U('Admin/Records/send',array('price'=>$vo['price'],'uid'=>$vo['uid'],'iid'=>$vo['id']))}">入金</a> 删除 </td>
 
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{lanrain:$page}</div></td>
+      <td colspan="8"><div class="listpage">{np:$page}</div></td>
     </tr>
 </table>
 </body>

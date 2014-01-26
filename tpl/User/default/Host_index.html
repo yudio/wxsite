@@ -1,7 +1,7 @@
 <include file="Public:head"/>  
         <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
-<h4 class="left">商家订单订单信息 ({lanrain:$page}) </h4>
+<h4 class="left">商家订单订单信息 ({np:$page}) </h4>
 <div class="searchbar right">
 <form method="post" action="">
 <input type="text" id="msgSearchInput" class="txt left" placeholder="输入关键词搜索" name="searchkey" value="">
@@ -14,7 +14,7 @@
 <div class="clr"></div>
 </div>
 <div class="cLine">
-<div class="pageNavigator left"> <a href="{lanrain::U('Host/add',array('token'=>$token))}" title="新增订单商家" class="btnGrayS vm bigbtn"><img src="{lanrain::RES}/images/pic.png" class="vm">新增订单商家</a> </div>
+<div class="pageNavigator left"> <a href="{np::U('Host/add',array('token'=>$token))}" title="新增订单商家" class="btnGrayS vm bigbtn"><img src="{np::RES}/images/pic.png" class="vm">新增订单商家</a> </div>
 <div class="clr"></div>
 </div>
 <div class="msgWrap">
@@ -39,14 +39,14 @@
 <tr></tr>
 <volist name="list" id="hostlist"> 
 <tr>
-<td><input type="checkbox" name="del_id[{lanrain:$i}]" value="285" class="checkitem"></td>
-<td>{lanrain:$hostlist.title}</td>
-<td>{lanrain:$hostlist.keyword}</td>
-<td style="display:none">{lanrain:$hostlist.address}</td>
-<td>{lanrain:$hostlist.tel}</td>
-<td>{lanrain:$hostlist.creattime|date="Y-m-d H:i:s",###}</td> 
-<td>商家订单 {lanrain:$hostlist.id}</td>
-<td class="norightborder"><a href="{lanrain::U('Host/admin',array('id'=>$hostlist['id'],'token'=>$token))}">订单管理</a> <a href="{lanrain::U('Host/set',array('id'=>$hostlist['id'],'token'=>$token))}">商家设置</a> <a href="{lanrain::U('Host/lists',array('id'=>$hostlist['id'],'token'=>$token))}">订单设置</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{lanrain::U('Host/index_del',array('id'=>$hostlist['id'],'token'=>$token))}');">删除</a></td>
+<td><input type="checkbox" name="del_id[{np:$i}]" value="285" class="checkitem"></td>
+<td>{np:$hostlist.title}</td>
+<td>{np:$hostlist.keyword}</td>
+<td style="display:none">{np:$hostlist.address}</td>
+<td>{np:$hostlist.tel}</td>
+<td>{np:$hostlist.creattime|date="Y-m-d H:i:s",###}</td>
+<td>商家订单 {np:$hostlist.id}</td>
+<td class="norightborder"><a href="{np::U('Host/admin',array('id'=>$hostlist['id'],'token'=>$token))}">订单管理</a> <a href="{np::U('Host/set',array('id'=>$hostlist['id'],'token'=>$token))}">商家设置</a> <a href="{np::U('Host/lists',array('id'=>$hostlist['id'],'token'=>$token))}">订单设置</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{np::U('Host/index_del',array('id'=>$hostlist['id'],'token'=>$token))}');">删除</a></td>
 </tr>
 </volist>
 </tbody>
@@ -73,7 +73,7 @@ alert('未选中任何文章或回复！')
 </div>
 <div class="cLine">
 <div class="pageNavigator right">
-<div class="pages">{lanrain:$page}</div>
+<div class="pages">{np:$page}</div>
 </div>
 <div class="clr"></div>
 </div>

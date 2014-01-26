@@ -1,5 +1,5 @@
 <include file="Public:head"/>
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/cymain.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/cymain.css" />
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
     
 	  <div class="cLineB">
@@ -9,14 +9,14 @@
 	<!--tab start-->
 	<div class="tab">
 	<ul>
-	<li class="tabli current" id="tab0"><a href="{lanrain::U('Liuyan/index',array('token'=>$token))}">留言管理</a></li>
-	<li class="tabli" id="tab2"><a href="{lanrain::U('Reply_info/set',array('token'=>$token,'infotype'=>'Liuyan'))}">回复配置</a></li>
+	<li class="tabli current" id="tab0"><a href="{np::U('Liuyan/index',array('token'=>$token))}">留言管理</a></li>
+	<li class="tabli" id="tab2"><a href="{np::U('Reply_info/set',array('token'=>$token,'infotype'=>'Liuyan'))}">回复配置</a></li>
 	</ul>
 	</div>
 	<!--tab end-->  
           <div class="cLine">
               <div class="pageNavigator left">
-  <a href="{lanrain::U('Liuyan/add')}" title='新增留言信息' class='btnGrayS vm bigbtn'><img src="{lanrain::RES}/images/pic.png" class="vm" />新增留言</a>　
+  <a href="{np::U('Liuyan/add')}" title='新增留言信息' class='btnGrayS vm bigbtn'><img src="{np::RES}/images/pic.png" class="vm" />新增留言</a>　
               
             </div>
           
@@ -39,15 +39,15 @@
 				<volist name="info" id="vo">
 				<tr>
                   
-                  <td>{lanrain:$vo.title}</td>
-                  <td><div class="cateimg">{lanrain:$vo.text}</div></td>
-                  <td>{lanrain:$vo.re}</td>
+                  <td>{np:$vo.title}</td>
+                  <td><div class="cateimg">{np:$vo.text}</div></td>
+                  <td>{np:$vo.re}</td>
                   <td><php>if($vo['createtime'])echo date('Y-m-d',$vo['createtime']);</php></td>
                    
                    <td class="norightborder"><php>if($vo['uptatetime'])echo date('Y-m-d',$vo['uptatetime']);</php></td>
                    <td class="norightborder">
-				   <a href="{lanrain::U('Liuyan/edit',array('id'=>$vo['id']))}" title="编辑图文自定义回复">回复</a>
-				   <a href="{lanrain::U('Liuyan/del',array('id'=>$vo['id']))}">删除</a></td>
+				   <a href="{np::U('Liuyan/edit',array('id'=>$vo['id']))}" title="编辑图文自定义回复">回复</a>
+				   <a href="{np::U('Liuyan/del',array('id'=>$vo['id']))}">删除</a></td>
                 </tr>
 				</volist>
               </TBODY>
@@ -74,7 +74,7 @@ alert('未选中任何文章或回复！')
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{lanrain:$page}</div>
+                 <div class="pages">{np:$page}</div>
               </div>
             <div class="clr"></div>
           </div>

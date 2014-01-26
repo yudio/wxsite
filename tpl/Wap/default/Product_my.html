@@ -17,12 +17,12 @@ $(function() {
               
                             </div>
             <div class="u_text">
-                <h2>{lanrain:$o.time|date="Y-m-d H:i:s",###}</h2>
-                <p class="u_color1">数量：<font class="org">{lanrain:$o.total}</font>  总价： <font class="org">￥{lanrain:$o.price}</font></p>
+                <h2>{np:$o.time|date="Y-m-d H:i:s",###}</h2>
+                <p class="u_color1">数量：<font class="org">{np:$o.total}</font>  总价： <font class="org">￥{np:$o.price}</font></p>
 				<php>if($alipayConfig['open']){</php>
 				<p><php>if($o['paid']){echo '<span style="color:green">已付款</span>';}else{echo '<span style="color:red">未付款(点查看付款)</span>';}</php></p>
 				<php>}</php>
-                                <p><span class="u_mt5">订购人：{lanrain:$o.truename}</span> <a class="u_btn ts1" href="{lanrain::U('Product/updateOrder',array('token'=>$token,'id'=>$o['id'],'wecha_id'=>$wecha_id))}" style="margin-left:10px;display:">查看</a> <if condition="$o.handled eq 0"><a class="u_btn ts1" href="{lanrain::U('Product/deleteOrder',array('token'=>$token,'id'=>$o['id'],'wecha_id'=>$wecha_id))}">删除</a></if></p>
+                                <p><span class="u_mt5">订购人：{np:$o.truename}</span> <a class="u_btn ts1" href="{np::U('Product/updateOrder',array('token'=>$token,'id'=>$o['id'],'wecha_id'=>$wecha_id))}" style="margin-left:10px;display:">查看</a> <if condition="$o.handled eq 0"><a class="u_btn ts1" href="{np::U('Product/deleteOrder',array('token'=>$token,'id'=>$o['id'],'wecha_id'=>$wecha_id))}">删除</a></if></p>
                             </div>
         </li>
          </volist>

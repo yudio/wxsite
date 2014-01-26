@@ -18,7 +18,7 @@ define('CORE','./');
 $GLOBALS['_beginTime'] = microtime(TRUE);
 define('MEMORY_LIMIT_ON',function_exists('memory_get_usage'));
 if(MEMORY_LIMIT_ON) $GLOBALS['_startUseMems'] = memory_get_usage();
-define('APP_PATH','./Lanrain/');
+define('APP_PATH','./Nicedog/');
 defined('APP_PATH') 	or define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']).'/');
 define('RUNTIME_PATH','./data/conf/logs/');
 defined('RUNTIME_PATH') or define('RUNTIME_PATH',APP_PATH.'Runtime/');

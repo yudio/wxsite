@@ -4,8 +4,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
 	<meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
-    <link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/liuyan/message.css" media="all">
-<script type="text/javascript" src="{lanrain::RES}/js/liuyan/jquery_min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/liuyan/message.css" media="all">
+<script type="text/javascript" src="{np::RES}/js/liuyan/jquery_min.js"></script>
 <title>请在此留言</title>
 
     <!--[if lte IE 9]><script src="http://stc.weimob.com/src/watermark.js"></script><![endif]-->
@@ -42,12 +42,12 @@
 					return;
 				}
 				var submitData = {
-					uid:'{lanrain:$uid}',
+					uid:'{np:$uid}',
 					title:wxname,
 					text: info,
-					createtime:'{lanrain:$createtime}',
-					token:'{lanrain:$token}',
-					wecha_id:'{lanrain:$wecha_id}',
+					createtime:'{np:$createtime}',
+					token:'{np:$token}',
+					wecha_id:'{np:$wecha_id}',
 					action: "liuyan"
 				};
 				$.post('index.php?g=wap&m=Liuyan&a=add', submitData,
@@ -73,12 +73,12 @@
 					return;
 				}
 				var submitData = {
-					uid:'{lanrain:$uid}',
+					uid:'{np:$uid}',
 					title:wxname,
 					text: info,
-					createtime:'{lanrain:$createtime}',
-					token:'{lanrain:$token}',
-					wecha_id:'{lanrain:$wecha_id}',
+					createtime:'{np:$createtime}',
+					token:'{np:$token}',
+					wecha_id:'{np:$wecha_id}',
 					action: "liuyan"
 				};
 				$.post('index.php?g=wap&m=Liuyan&a=add', submitData,
@@ -99,12 +99,12 @@
 					return;
 				}
 				var submitData = {
-					uid:'{lanrain:$uid}',
+					uid:'{np:$uid}',
 					title:wxname,
 					text: info,
-					createtime:'{lanrain:$createtime}',
-					token:'{lanrain:$token}',
-					wecha_id:'{lanrain:$wecha_id}',
+					createtime:'{np:$createtime}',
+					token:'{np:$token}',
+					wecha_id:'{np:$wecha_id}',
 					action: "liuyan"
 				};
 				$.post('index.php?g=wap&m=Liuyan&a=add', submitData,
@@ -161,11 +161,11 @@
 				<php>
 					if($repic['picurl']){
 				</php>
-					<img src="{lanrain:$repic.picurl}" style="width:100%;">
+					<img src="{np:$repic.picurl}" style="width:100%;">
 				<php>
 					}else{
 				</php>
-					<img src="{lanrain::RES}/images/liuyan/mpic.jpg" style="width:100%;">
+					<img src="{np::RES}/images/liuyan/mpic.jpg" style="width:100%;">
 				<php>
 					}
 				</php>
@@ -200,24 +200,24 @@
 						<li class="green bounceInDown">
 							<h3>
 								<!--<img src="http://www.apiwx.com/index/images/logo100x100.jpg">-->
-								{lanrain:$vo.title}
+								{np:$vo.title}
 								<div class="clr"></div>
 							</h3>
 							<dl>
-								<dt class="hfinfo" date="9055" >{lanrain:$vo.text} <b style="font-weight:100; font-size:10px; color:#1DB702; padding:0 0px 0 8px;"><php>echo date('Y-m-d H:i',$vo['createtime'])</php></b></dt>
+								<dt class="hfinfo" date="9055" >{np:$vo.text} <b style="font-weight:100; font-size:10px; color:#1DB702; padding:0 0px 0 8px;"><php>echo date('Y-m-d H:i',$vo['createtime'])</php></b></dt>
 							</dl>
 							
 							<php>
 								if($vo['wecha_id'] == $wecha_id){
 							</php>
 					
-								<dl><a href="{lanrain::U('Liuyan/del',array('id'=>$vo['id'],'token'=> $token, 'wecha_id'=> $wecha_id))}"class="del">删除</a></dl>
+								<dl><a href="{np::U('Liuyan/del',array('id'=>$vo['id'],'token'=> $token, 'wecha_id'=> $wecha_id))}"class="del">删除</a></dl>
 							<php>
 									}
 							</php>
 							<php>if($vo['re']){</php>
 								<dl class="huifu" style="width:80%; float:right">
-										<dt>回复：{lanrain:$vo.re}<b style="font-weight:100; font-size:10px; color:#1DB702; padding:0 0px 0 8px;"><php>if($vo['uptatetime'])echo date('Y-m-d H:i',$vo['uptatetime']);</php></b>
+										<dt>回复：{np:$vo.re}<b style="font-weight:100; font-size:10px; color:#1DB702; padding:0 0px 0 8px;"><php>if($vo['uptatetime'])echo date('Y-m-d H:i',$vo['uptatetime']);</php></b>
 										</dt>
 								</dl>
 							<php>}</php>

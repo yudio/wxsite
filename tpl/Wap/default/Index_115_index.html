@@ -1,13 +1,13 @@
 ﻿<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>{lanrain:$tpl.wxname}</title>
+        <title>{np:$tpl.wxname}</title>
         <base href="." />
         <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="format-detection" content="telephone=no" />
-		<link href="{lanrain::RES}/css/109/iscroll.css" rel="stylesheet" type="text/css" />
-        <link href="{lanrain::RES}/css/allcss/cate{lanrain:$tpl.tpltypeid}_{lanrain:$tpl.color_id}.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="{lanrain::RES}/css/flash/css/plugmenu.css">
+		<link href="{np::RES}/css/109/iscroll.css" rel="stylesheet" type="text/css" />
+        <link href="{np::RES}/css/allcss/cate{np:$tpl.tpltypeid}_{np:$tpl.color_id}.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="{np::RES}/css/flash/css/plugmenu.css">
 		<style>
 #cate14 .mainmenu li:last-of-type {
 margin-bottom: 0;
@@ -20,7 +20,7 @@ top:0;
 
 
 </style>
-<script src="{lanrain::RES}/css/109/iscroll.js" type="text/javascript"></script>
+<script src="{np::RES}/css/109/iscroll.js" type="text/javascript"></script>
 <script type="text/javascript">
 var myScroll;
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', loaded, false);
 
     <body id="cate14">
 	  <div class="mainbg">
-                <img src="<if condition="$homeInfo.homeurl neq false">{lanrain:$homeInfo.homeurl}<else/>{lanrain::RES}/images/themes/bg1.jpg</if> "/>
+                <img src="<if condition="$homeInfo.homeurl neq false">{np:$homeInfo.homeurl}<else/>{np::RES}/images/themes/bg1.jpg</if> "/>
         </div>
 
 <div class="mainmenu">
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', loaded, false);
 
  <volist name="info" id="vo">
                     <li>
-                        <div class="menubtn"><a href="<if condition="$vo['url'] eq ''">{lanrain::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{lanrain:$vo.url|htmlspecialchars_decode}</if>">{lanrain:$vo.name}</a>
+                        <div class="menubtn"><a href="<if condition="$vo['url'] eq ''">{np::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{np:$vo.url|htmlspecialchars_decode}</if>">{np:$vo.name}</a>
                         </div>
 
                     </li>
@@ -71,11 +71,11 @@ document.addEventListener('DOMContentLoaded', loaded, false);
 <if condition="$showPlugMenu">
 <div class="plug-div">
         <div class="plug-phone">
-            <div class="plug-menu themeStyle" style="background:{lanrain:$homeInfo.plugmenucolor}"><span class="close"></span></div> 
+            <div class="plug-menu themeStyle" style="background:{np:$homeInfo.plugmenucolor}"><span class="close"></span></div>
                <volist name="plugmenus" id="vo">
-                        <div class="themeStyle plug-btn plug-btn{lanrain:$i} close" style="background:{lanrain:$homeInfo.plugmenucolor}">
-							<a  href="{lanrain:$vo.url}">
-								<span style="background-image: url({lanrain::RES}/css/flash/images/img/{lanrain:$vo.name}.png);" ></span>
+                        <div class="themeStyle plug-btn plug-btn{np:$i} close" style="background:{np:$homeInfo.plugmenucolor}">
+							<a  href="{np:$vo.url}">
+								<span style="background-image: url({np::RES}/css/flash/images/img/{np:$vo.name}.png);" ></span>
 							</a>
 						</div>
                       </volist>   
@@ -83,12 +83,12 @@ document.addEventListener('DOMContentLoaded', loaded, false);
                     </div>
 </div>
 </if>
-<script src="{lanrain::RES}/css/flash/js/zepto.min.js" type="text/javascript"></script>
-<script src="{lanrain::RES}/css/flash/js/plugmenu.js" type="text/javascript"></script>
+<script src="{np::RES}/css/flash/js/zepto.min.js" type="text/javascript"></script>
+<script src="{np::RES}/css/flash/js/plugmenu.js" type="text/javascript"></script>
   <div class="copyright">
 <if condition="$iscopyright eq 1">
-{lanrain:$homeInfo.copyright}
+{np:$homeInfo.copyright}
 <else/>
-{lanrain:$siteCopyright}
+{np:$siteCopyright}
 </if>
 </div>   </body></html>

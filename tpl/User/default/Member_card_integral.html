@@ -8,14 +8,14 @@
           </div>
           <div class="cLine">
 			<div class="pageNavigator left">
-				<a href="{lanrain::U('Member_card/privilege',array('token'=>$token))}" title="查看会员特权" class="btnGrayS vm bigbtn">
-					<img src="{lanrain::RES}/images/cart_info/power1.png" width="24px" class="vm">查看会员特权
+				<a href="{np::U('Member_card/privilege',array('token'=>$token))}" title="查看会员特权" class="btnGrayS vm bigbtn">
+					<img src="{np::RES}/images/cart_info/power1.png" width="24px" class="vm">查看会员特权
 				</a>
-			　<a href="{lanrain::U('Member_card/coupon',array('token'=>$token))}" title="查看优惠券" class="btnGrayS vm bigbtn">
-				<img src="{lanrain::RES}/images/cart_info/power2.png" width="24px" class="vm">查看优惠券
+			　<a href="{np::U('Member_card/coupon',array('token'=>$token))}" title="查看优惠券" class="btnGrayS vm bigbtn">
+				<img src="{np::RES}/images/cart_info/power2.png" width="24px" class="vm">查看优惠券
 			  </a>　
-				<a class="btnGrayS vm bigbtn" href="{lanrain::U('Member_card/integral_add',array('token'=>$token))}" title="发布礼品券">
-					<img src="{lanrain::RES}/images/cart_info/power3.png" width="24px" class="vm">发布礼品券
+				<a class="btnGrayS vm bigbtn" href="{np::U('Member_card/integral_add',array('token'=>$token))}" title="发布礼品券">
+					<img src="{np::RES}/images/cart_info/power3.png" width="24px" class="vm">发布礼品券
 				</a>　
 			</div>
 			<a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:10px">返回</a>          
@@ -40,13 +40,13 @@
                 <volist name="data_vip" id="data_vip">           
                 <tr>
 					  <td>  <input type="checkbox" name="del_id[]" value="" class="checkitem"></td>
-					  <td><div class="answer_text">{lanrain:$data_vip.title}</div></td>
+					  <td><div class="answer_text">{np:$data_vip.title}</div></td>
 					  
-					  <td><if condition="$data_vip['type'] eq 1">无时间限制<else/>{lanrain:$data_vip.statdate|date='Y-m-d',###}</if></td>
-					  <td><if condition="$data_vip['type'] eq 1">无时间限制<else/>{lanrain:$data_vip.enddate|date='Y-m-d',###}</if></td>
+					  <td><if condition="$data_vip['type'] eq 1">无时间限制<else/>{np:$data_vip.statdate|date='Y-m-d',###}</if></td>
+					  <td><if condition="$data_vip['type'] eq 1">无时间限制<else/>{np:$data_vip.enddate|date='Y-m-d',###}</if></td>
 					  <td class="norightborder">
 						<!--a href="">使用统计</a--> 
-						<a href="{lanrain::U('Member_card/integral_edit',array('id'=>$data_vip['id']))}">编辑</a> <a href="{lanrain::U('Member_card/integral_del',array('id'=>$data_vip['id']))}">删除</a>
+						<a href="{np::U('Member_card/integral_edit',array('id'=>$data_vip['id']))}">编辑</a> <a href="{np::U('Member_card/integral_del',array('id'=>$data_vip['id']))}">删除</a>
 					  </td>
                 </tr>
 				</volist>

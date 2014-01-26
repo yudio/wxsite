@@ -3,18 +3,18 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>
-			{lanrain:$tpl['wxname']}
+			{np:$tpl['wxname']}
 		</title>
 		<base href="." />
 		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no">
-		<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/yuesh/iscroll.css"
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/yuesh/iscroll.css"
 		/>
-		<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/yuesh/wz04.css"
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/yuesh/wz04.css"
 		/>
-		<link rel="stylesheet" href="{lanrain::RES}/css/flash/css/plugmenu.css">
+		<link rel="stylesheet" href="{np::RES}/css/flash/css/plugmenu.css">
 		<style type="text/css">
 			html,body { color: #ffffff; font-family: Microsoft YaHei, Helvitica, Verdana,
 			Tohoma, Arial, san-serif; margin: 0; padding: 0; text-decoration: none;
@@ -30,10 +30,10 @@
 						<volist name="flash" id="so">
 							<li>
 								<p>
-									{lanrain:$so.info}
+									{np:$so.info}
 								</p>
-								<a href="{lanrain:$so.url}">
-									<img src="{lanrain:$so.img}" />
+								<a href="{np:$so.url}">
+									<img src="{np:$so.img}" />
 								</a>
 							</li>
 						</volist>
@@ -49,7 +49,7 @@
 						<li <if condition="$i eq 1">
 							class="active"
 							</if>
-							>{lanrain:$i}
+							>{np:$i}
 						</li>
 					</volist>
 				</ul>
@@ -93,16 +93,16 @@
 		<div class="wz04_content">
 			<volist name="info" id="vo">
 				<a href="<if condition=" $vo[ 'url'] eq ''
-				">{lanrain::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{lanrain:$vo.url}</if>">
+				">{np::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{np:$vo.url}</if>">
 					<div class="content_big_out">
 						<div class="content_big">
 							<div class="content_big_inner">
 								<div class="content_smm_one">
-									<img src="{lanrain:$vo.img}" />
+									<img src="{np:$vo.img}" />
 								</div>
 								<div class="content_smm_two">
 									<span>
-										{lanrain:$so.info}
+										{np:$so.info}
 									</span>
 								</div>
 							</div>
@@ -114,14 +114,14 @@
 		<if condition="$showPlugMenu">
 			<div class="plug-div">
 				<div class="plug-phone">
-					<div class="plug-menu themeStyle" style="background:{lanrain:$homeInfo.plugmenucolor}">
+					<div class="plug-menu themeStyle" style="background:{np:$homeInfo.plugmenucolor}">
 						<span class="close">
 						</span>
 					</div>
 					<volist name="plugmenus" id="vo">
-						<div class="themeStyle plug-btn plug-btn{lanrain:$i} close" style="background:{lanrain:$homeInfo.plugmenucolor}">
-							<a href="{lanrain:$vo.url}">
-								<span style="background-image: url({lanrain::RES}/css/flash/images/img/{lanrain:$vo.name}.png);">
+						<div class="themeStyle plug-btn plug-btn{np:$i} close" style="background:{np:$homeInfo.plugmenucolor}">
+							<a href="{np:$vo.url}">
+								<span style="background-image: url({np::RES}/css/flash/images/img/{np:$vo.name}.png);">
 								</span>
 							</a>
 						</div>
@@ -131,17 +131,17 @@
 				</div>
 			</div>
 		</if>
-		<script src="{lanrain::RES}/css/flash/js/zepto.min.js" type="text/javascript">
+		<script src="{np::RES}/css/flash/js/zepto.min.js" type="text/javascript">
 		</script>
-		<script src="{lanrain::RES}/css/flash/js/plugmenu.js" type="text/javascript">
+		<script src="{np::RES}/css/flash/js/plugmenu.js" type="text/javascript">
 		</script>
 		<div style="display:none">
 		</div>
 		<div class="copyright">
 			<if condition="$iscopyright eq 1">
-				{lanrain:$homeInfo.copyright}
+				{np:$homeInfo.copyright}
 				<else/>
-				{lanrain:$siteCopyright}
+				{np:$siteCopyright}
 			</if>
 		</div>
 	</body>

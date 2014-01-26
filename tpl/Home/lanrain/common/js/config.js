@@ -1,1 +1,0 @@
-var DTPath = "http://www.hifeng.cn/";var SKPath = "http://www.hifeng.cn/skin/weixin/";var MEPath = "http://www.hifeng.cn/member/";var EXPath = "http://www.hifeng.cn/extend/";var CKDomain = "";var CKPath = "/";var CKPrex = "czx_";

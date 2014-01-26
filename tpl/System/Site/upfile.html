@@ -3,39 +3,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>站点配置</title>
-<link href="{lanrain::RES}/images/main.css" type="text/css" rel="stylesheet">
-<link href="{lanrain::RES}/images/jquery-1.7.2.min.js" type="text/css" rel="stylesheet">
-<link href="{lanrain::RES}/images/jquery.form.js" type="text/css" rel="stylesheet">
+<link href="{np::RES}/images/main.css" type="text/css" rel="stylesheet">
+<link href="{np::RES}/images/jquery-1.7.2.min.js" type="text/css" rel="stylesheet">
+<link href="{np::RES}/images/jquery.form.js" type="text/css" rel="stylesheet">
 <meta http-equiv="x-ua-compatible" content="ie=7" />
 </head>
 <body class="warp">
 <style>
-.set_top{background:url('{lanrain::RES}/images/set_top.png');height:60px;}
-.set_top li{font-weight: bold;float:left;width:98px;line-height:60px;text-align: center;background:url('{lanrain::RES}/images/set_top_li.png');}
-#set_top_li_bg{background:url('{lanrain::RES}/images/set_top_li_hover.png');}
+.set_top{background:url('{np::RES}/images/set_top.png');height:60px;}
+.set_top li{font-weight: bold;float:left;width:98px;line-height:60px;text-align: center;background:url('{np::RES}/images/set_top_li.png');}
+#set_top_li_bg{background:url('{np::RES}/images/set_top_li_hover.png');}
 </style>
 <include file="Site:public" />
 <div id="artlist">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="addn">
- <form id="myform" action="{lanrain::U('Site/insert')}" method="post">
+ <form id="myform" action="{np::U('Site/insert')}" method="post">
 
     <tr> 
       <td  height="48" align="right"><strong>文件上传大小：</strong></td>
-      <td><input type="text" name="up_size" value="{lanrain::C('up_size')}" class="ipt" size="45" /><span>&nbsp;&nbsp;例：20480（2M）</span>
+      <td><input type="text" name="up_size" value="{np::C('up_size')}" class="ipt" size="45" /><span>&nbsp;&nbsp;例：20480（2M）</span>
 	  </td>
     </tr>
 	 <tr> 
       <td  height="48" align="right"><strong>上传文件类型：</strong></td>
-      <td><input type="text" name="up_exts" value="{lanrain::C('up_exts')}" class="ipt" size="45" /><span>&nbsp;&nbsp;多类型用,隔开</span>
+      <td><input type="text" name="up_exts" value="{np::C('up_exts')}" class="ipt" size="45" /><span>&nbsp;&nbsp;多类型用,隔开</span>
 	  
     </tr>
 	 <tr> 
       <td  height="48" align="right"><strong>文件存储路径：</strong></td>
-      <td><input type="text" name="up_path" value="{lanrain::C('up_path')}" class="ipt" size="45" /><span>&nbsp;&nbsp;例:./data/upload</span>
+      <td><input type="text" name="up_path" value="{np::C('up_path')}" class="ipt" size="45" /><span>&nbsp;&nbsp;例:./data/upload</span>
     </tr> 
 	<tr> 
       <td  height="48" align="right"><strong>微信过期提醒：</strong></td>
-      <td><input type="text" name="connectnum" value="{lanrain::C('connectnum')}" class="ipt" size="45" /><span>&nbsp;&nbsp;释：当微信请求超过或用户费用到期提示信息</span>
+      <td><input type="text" name="connectnum" value="{np::C('connectnum')}" class="ipt" size="45" /><span>&nbsp;&nbsp;释：当微信请求超过或用户费用到期提示信息</span>
     </tr>
    <input type="hidden" name="files" value="upfile.php" />
     <tr> 

@@ -16,20 +16,20 @@
 	  </tr>
 	    <volist name="info" id="vo">
 			<tr>
-				<td align='center'>{lanrain:$vo.id}</td>
-				<td >{lanrain:$vo.name}</td>
-				<td >{lanrain:$vo.url}</td>
-				<td ><img src="{lanrain:$vo.img}"/></td>
+				<td align='center'>{np:$vo.id}</td>
+				<td >{np:$vo.name}</td>
+				<td >{np:$vo.url}</td>
+				<td ><img src="{np:$vo.img}"/></td>
 				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
 				<td align='center'>
-					<a href="{lanrain::U('Case/edit/',array('id'=>$vo['id']))}">修改</a>
-					| <a href="{lanrain::U('Case/del/',array('id'=>$vo['id']))}" >删除</a>
+					<a href="{np::U('Case/edit/',array('id'=>$vo['id']))}">修改</a>
+					| <a href="{np::U('Case/del/',array('id'=>$vo['id']))}" >删除</a>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{lanrain:$page}</div></td>
+      <td colspan="8"><div class="listpage">{np:$page}</div></td>
     </tr>
    
 </table>

@@ -1,5 +1,5 @@
 <include file="Public:head"/>
-<script src="{lanrain::RES}/js/date/WdatePicker.js"></script>  
+<script src="{np::RES}/js/date/WdatePicker.js"></script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
          
           <div class="cLineB">
@@ -45,24 +45,24 @@
 				 <volist id="list" name="list">
                 <TR>
                   <TD></TD>
-                  <TD>{lanrain:$i}</TD>
-                  <TD>{lanrain:$list.wechaname}</TD>
-                  <TD>{lanrain:$list.truename}</TD>
-                  <TD>{lanrain:$list.tel}</TD>
-                  <TD>{lanrain:$list.qq}</TD> 
-                  <TD>{lanrain:$list.info}</TD> 
+                  <TD>{np:$i}</TD>
+                  <TD>{np:$list.wechaname}</TD>
+                  <TD>{np:$list.truename}</TD>
+                  <TD>{np:$list.tel}</TD>
+                  <TD>{np:$list.qq}</TD>
+                  <TD>{np:$list.info}</TD>
                   <TD>
                    <if condition="$list['getcardtime'] neq false">
-                        {lanrain:$list.getcardtime|date='Y-m-d',###}
+                        {np:$list.getcardtime|date='Y-m-d',###}
                     <else/>
                     无时间记录
                     </if>                      
                   </TD>
  <form method="post"  action="/index.php?g=User&m=Member&a=edit" >
                   <TD>
-                  <input type="text" name="add_expend" value="{lanrain:$list.add_expend}" class="px" style="width:40px;">
-                  <input type="hidden" name="token" value="{lanrain:$list.token}">
-                  <input type="hidden" name="wecha_id" value="{lanrain:$list.wecha_id}">
+                  <input type="text" name="add_expend" value="{np:$list.add_expend}" class="px" style="width:40px;">
+                  <input type="hidden" name="token" value="{np:$list.token}">
+                  <input type="hidden" name="wecha_id" value="{np:$list.wecha_id}">
                    </TD>
                   <TD>
                   <input type="input" class="px" id="add_expend_time" value="<?php
@@ -75,7 +75,7 @@
                    <TD>  <button type="submit" style="cursor:pointer">修改</button></TD>
 </form>
                   <TD class="norightborder">				  
-				                 <a href="javascript:drop_confirm('您确定要删除吗?', '/index.php?g=User&m=Member&a=del&token={lanrain:$Think.get.token}&id={lanrain:$list.id}');"><strong>删除</strong></a> 
+				                 <a href="javascript:drop_confirm('您确定要删除吗?', '/index.php?g=User&m=Member&a=del&token={np:$Think.get.token}&id={np:$list.id}');"><strong>删除</strong></a>
                   </TD>
                 </TR>
 				</volist>

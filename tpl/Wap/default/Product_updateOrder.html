@@ -8,15 +8,15 @@
                 <volist name="products" id="p">
               <div class="car_list clearfix">
                 <div class="car_content clearfix">
-                  <h3><a href="{lanrain::U('Product/product',array('token'=>$token,'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">{lanrain:$p.name}</a></h3>
-                     <a href="{lanrain::U('Product/product',array('token'=>$token,'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">
-                      <img src="{lanrain:$p.logourl}" />
+                  <h3><a href="{np::U('Product/product',array('token'=>$token,'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">{np:$p.name}</a></h3>
+                     <a href="{np::U('Product/product',array('token'=>$token,'id'=>$p['id'],'wecha_id'=>$_GET['wecha_id']))}">
+                      <img src="{np:$p.logourl}" />
                      </a>
                      <div class="car_property">
-                        <span class="price_now">单价：<font>￥{lanrain:$p.price}</font></span>
-                                                <div class="o_num_input clearfix" id="{lanrain:$p.id}">
+                        <span class="price_now">单价：<font>￥{np:$p.price}</font></span>
+                                                <div class="o_num_input clearfix" id="{np:$p.id}">
                             
-                            数量：{lanrain:$p.count}
+                            数量：{np:$p.count}
                            
                         </div>
                                              
@@ -24,7 +24,7 @@
                 </div>
               </div>
                  </volist>
-                            <p><span class="price_now" id="total_fee">总价格：<font>￥{lanrain:$totalFee}</font></span></p>
+                            <p><span class="price_now" id="total_fee">总价格：<font>￥{np:$totalFee}</font></span></p>
             </div>            
     	</div>
 
@@ -41,8 +41,8 @@
     		<ul>
     			<li><strong>发货状态：<php>if($thisOrder['sent']){echo '已发货';}else{echo '未发货';}</php></strong></li>
 				<php>if($thisOrder['sent']){</php>
-    			<li><strong>快递公司：{lanrain:$thisOrder.logistics}</strong></li>
-    			<li><strong>快递单号：{lanrain:$thisOrder.logisticsid}</strong></li>
+    			<li><strong>快递公司：{np:$thisOrder.logistics}</strong></li>
+    			<li><strong>快递单号：{np:$thisOrder.logisticsid}</strong></li>
 				<php>}</php>
     		</ul>
             </div>
@@ -67,9 +67,9 @@
     		<h2 class="p_mod_title">接收信息</h2>
             <div id="city">
     		<ul>
-    			<li><strong>姓名：</strong><input type="text" placeholder="请输入收货人姓名" id="truename" name="truename" value="{lanrain:$thisOrder.truename}" /></li>
-    			<li><strong>手机：</strong><input type="text" placeholder="请输入联系人手机号" id="tel" name="tel" value="{lanrain:$thisOrder.tel}" /></li>
-    			<li><strong>地址：</strong><input type="text" placeholder="请输入详细地址" id="address" name="address" value="{lanrain:$thisOrder.address}" /></li>
+    			<li><strong>姓名：</strong><input type="text" placeholder="请输入收货人姓名" id="truename" name="truename" value="{np:$thisOrder.truename}" /></li>
+    			<li><strong>手机：</strong><input type="text" placeholder="请输入联系人手机号" id="tel" name="tel" value="{np:$thisOrder.tel}" /></li>
+    			<li><strong>地址：</strong><input type="text" placeholder="请输入详细地址" id="address" name="address" value="{np:$thisOrder.address}" /></li>
     		</ul>
             </div>
 			
@@ -78,7 +78,7 @@
 		<div class="o_btn clearfix">
 			<php>if($alipayConfig['open']&&!$thisOrder['paid']){</php>
 			<input type="button" class="o_btn_back ts1" onclick="history.go(-1);" value="返回" />
-    		<input type="button" class="o_btn_submit ts1" onclick="location.href='/index.php?g=Wap&m=Alipay&a=pay&price={lanrain:$totalFee}&orderName={lanrain:$p.name}&single_orderid={lanrain:$thisOrder.id}&token={lanrain:$token}'" value="点击这里付款" />
+    		<input type="button" class="o_btn_submit ts1" onclick="location.href='/index.php?g=Wap&m=Alipay&a=pay&price={np:$totalFee}&orderName={np:$p.name}&single_orderid={np:$thisOrder.id}&token={np:$token}'" value="点击这里付款" />
 			<php>}</php>
 			</div>
     </form>

@@ -2,7 +2,7 @@
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 
 <div class="cLineB">
-  <h4>商品分类管理</h4><a href="{lanrain::U('Ordering/index',array('token'=>session('token')))}" class="right btnGrayS vm" style="margin-top:-27px">返回</a>
+  <h4>商品分类管理</h4><a href="{np::U('Ordering/index',array('token'=>session('token')))}" class="right btnGrayS vm" style="margin-top:-27px">返回</a>
   
  </div>
  
@@ -57,20 +57,20 @@
 </tr>
 </thead> 
 <volist name="list" id="list">
- <form method="post" action="{lanrain::U('Ordering/class_edit',array('token'=>session('token')))}">              
+ <form method="post" action="{np::U('Ordering/class_edit',array('token'=>session('token')))}">
 <tr>
-	<td><input type="text" name="name" value="{lanrain:$list.name}"  class="px"    /></td>
-	<td><input type="text" name="sort" value="{lanrain:$list.sort}"  class="px" style="width:50px;" /></td>
+	<td><input type="text" name="name" value="{np:$list.name}"  class="px"    /></td>
+	<td><input type="text" name="sort" value="{np:$list.sort}"  class="px" style="width:50px;" /></td>
 	
-	<td><input class="px" type="text"  style="width:250px;"  name="info" value="{lanrain:$list.info}"  /></td>
+	<td><input class="px" type="text"  style="width:250px;"  name="info" value="{np:$list.info}"  /></td>
 	<td>
 		<input class="checkbox" type="checkbox" name="status" value="1"  <if condition="$list['status'] eq 1">checked</if>>
-		<input type="hidden"   name="id" value="{lanrain:$list.id}"  /></td>
+		<input type="hidden"   name="id" value="{np:$list.id}"  /></td>
 	<td class="norightborder">
 		<button type="submit" name="edit" value="true" class="btnGreen vm" style="height:20px;font-size:12px;line-height:10px;">
 			<strong>修改</strong>
 		</button>
-	<a href="{lanrain::U('Ordering/class_del',array('id'=>$list['id'],'token'=>session('token')))}">删除</a>
+	<a href="{np::U('Ordering/class_del',array('id'=>$list['id'],'token'=>session('token')))}">删除</a>
 	</td>
 </tr>
 </form>
@@ -79,7 +79,7 @@
 </div>
 </div>
 <div class="footactions" style="padding-left:10px">
-  <div class="pages">{lanrain:$page}</div>
+  <div class="pages">{np:$page}</div>
 </div>
  </div>
   

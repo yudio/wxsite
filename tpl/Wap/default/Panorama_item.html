@@ -42,11 +42,11 @@ activeNodeMarker=newMarker;}
 this.skinTimerEvent=function(){setTimeout(function(){me.skinTimerEvent();},10);this._loading_text.ggUpdateText();var hs='';if(me._loading_bar.ggParameter){hs+=parameterToTransform(me._loading_bar.ggParameter)+' ';}
 hs+='scale('+(1*me.player.getPercentLoaded()+0)+',1.0) ';me._loading_bar.style[domTransform]=hs;};this.addSkin();};
 </script>
-<title>{lanrain:$item.name}</title>
+<title>{np:$item.name}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-        <meta name="Keywords" content="{lanrain:$item.name}" />
-        <meta name="Description" content={lanrain:$item.intro}" />
+        <meta name="Keywords" content="{np:$item.name}" />
+        <meta name="Description" content={np:$item.intro}" />
             <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
             <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
             <meta content="no-cache" http-equiv="pragma">
@@ -149,7 +149,7 @@ a {
 	if (ggHasHtml5Css3D() || ggHasWebGL()) {
 		pano=new pano2vrPlayer("container");
 		skin=new pano2vrSkin(pano);
-		pano.readConfigUrl('/index.php?g=Wap&m=Panorama&a=item&o=xml&id={lanrain:$item.id}');
+		pano.readConfigUrl('/index.php?g=Wap&m=Panorama&a=item&o=xml&id={np:$item.id}');
 	} else{
 		alert("not support 360view");
 	}
@@ -157,7 +157,7 @@ a {
 <noscript>
 	<p><b>Please enable Javascript!</b></p>
 </noscript>
-<div class='view_change'><a href='javascript:history.go(-1);'>{lanrain:$item.name}</a></div>
+<div class='view_change'><a href='javascript:history.go(-1);'>{np:$item.name}</a></div>
 
 <a href="javascript:history.go(-1);" class="back360" style="">&nbsp;</a>        		<div mark="stat_code" style="width:0px; height:0px; display:none;">
 					</div>

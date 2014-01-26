@@ -3,35 +3,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>权限管理</title>
-<link href="{lanrain::RES}/images/main.css" type="text/css" rel="stylesheet">
-<script src="{lanrain::STATICS}/jquery-1.4.2.min.js" type="text/javascript"></script>
+<link href="{np::RES}/images/main.css" type="text/css" rel="stylesheet">
+<script src="{np::STATICS}/jquery-1.4.2.min.js" type="text/javascript"></script>
 <meta http-equiv="x-ua-compatible" content="ie=7" />
 </head>
 <body class="warp">
 <div id="artlist" class="addn">
 <gt name="info.id" value="0">
-			<form action="{lanrain::U('Case/upsave')}" method="post" name="form" enctype="multipart/form-data" id="myform">
-			<input type="hidden" name="id" value="{lanrain:$info.id}">
+			<form action="{np::U('Case/upsave')}" method="post" name="form" enctype="multipart/form-data" id="myform">
+			<input type="hidden" name="id" value="{np:$info.id}">
 		<else />
-			<form action="{lanrain::U('Case/insert')}" method="post" name="form" enctype="multipart/form-data" id="myform">
+			<form action="{np::U('Case/insert')}" method="post" name="form" enctype="multipart/form-data" id="myform">
 		</gt>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="addn">
 
 				 <tr>
-					<th colspan="4">{lanrain:$title}</th>
+					<th colspan="4">{np:$title}</th>
 				</tr>
 				<tr>
 					<td height="48" align="right"><strong>名称：</strong></td>
 					<td colspan="3" class="lt">
-						<input type="text" name="name" class="ipt" size="45" value="{lanrain:$info.name}" />
+						<input type="text" name="name" class="ipt" size="45" value="{np:$info.name}" />
 					</td>
 				</tr>
 				<tr>
 					<td height="48" align="right"><strong>图片：</strong></td>
 					<td colspan="3" class="lt">
 						<neq name="info.id" value="0">
-							<img src="{lanrain:$info.img}"/>
-							<input type="hidden" name="ysimg" value="{lanrain:$info.img}" />
+							<img src="{np:$info.img}"/>
+							<input type="hidden" name="ysimg" value="{np:$info.img}" />
 						</neq>
 						<input type="file" name="img" class="ipt" size="45" value="">
 					</td>
@@ -39,7 +39,7 @@
 				<tr>
 					<td height="48" align="right"><strong>url地址：</strong></td>
 					<td colspan="3" class="lt">
-						<input type="url" name="url" class="ipt" value="{lanrain:$info.url}" size="45"/>
+						<input type="url" name="url" class="ipt" value="{np:$info.url}" size="45"/>
 					</td>
 				</tr>
 				<tr>

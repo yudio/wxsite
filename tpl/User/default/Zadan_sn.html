@@ -12,7 +12,7 @@
           </div>
         
   <div class="cLineB">
-             本次活动奖品总数：<span class="redamount">{lanrain:$datacount}</span>个　　　中奖人数：<span class="redamount">{lanrain:$recordcount} </span>个　　已领取奖品：<span class="redamount">{lanrain::$sendCount}</span>个          </div>
+             本次活动奖品总数：<span class="redamount">{np:$datacount}</span>个　　　中奖人数：<span class="redamount">{np:$recordcount} </span>个　　已领取奖品：<span class="redamount">{np::$sendCount}</span>个          </div>
   <div class="cLine" style=" padding: 8px 0">
           </div>
           <div class="msgWrap">
@@ -37,22 +37,22 @@
               <TBODY>
 				<volist name="record" id="record">
 					 <TR style="line-height:30px;height: 43px;line-height: 59px;">
-						<td class="select">{lanrain:$i}</td>
-						<td>{lanrain:$record.sn}</td>
-						<td>{lanrain:$record.prize}</td>
+						<td class="select">{np:$i}</td>
+						<td>{np:$record.sn}</td>
+						<td>{np:$record.prize}</td>
 						<td>
               <if condition="$record['sendstutas'] eq 0">否<else/>是</if>
             </td>
-            <td><if condition="$record['sendtime'] eq 0"> <else/>{lanrain:$record.sendtime|date='Y-m-d H:i:s',###}</if>
+            <td><if condition="$record['sendtime'] eq 0"> <else/>{np:$record.sendtime|date='Y-m-d H:i:s',###}</if>
             </td>
-						<td>{lanrain:$record.phone}</td>
-						<td>{lanrain:$record.wecha_name}</td>
-						<td>{lanrain:$record.time|date='Y-m-d H:i:s',###}</td>
+						<td>{np:$record.phone}</td>
+						<td>{np:$record.wecha_name}</td>
+						<td>{np:$record.time|date='Y-m-d H:i:s',###}</td>
 						<td>
                <if condition="$record['sendstutas'] eq 0"> 
-                 <a href="index.php?g=User&m=zadan&a=sendprize&id={lanrain:$record.id}">发奖</a>
+                 <a href="index.php?g=User&m=zadan&a=sendprize&id={np:$record.id}">发奖</a>
               <else/>
-               <a href="index.php?g=User&m=zadan&a=sendnull&id={lanrain:$record.id}">取消发奖</a>
+               <a href="index.php?g=User&m=zadan&a=sendnull&id={np:$record.id}">取消发奖</a>
               </if>
              
             </td>

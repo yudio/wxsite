@@ -9,7 +9,7 @@
 
 	 <div class="ksearch">
     	<div class="fl">
-			<form action="{lanrain::U('Users/search')}" method="post">
+			<form action="{np::U('Users/search')}" method="post">
 			<b class="kserico">快速搜索：</b>搜索类型：
 			<select name="type">
 				<option value="1">用户名</option>
@@ -48,21 +48,21 @@
 	  </tr>
 	    <volist name="info" id="vo">
 			<tr>
-				<td align='center'>{lanrain:$vo.id}</td>
-				<td >{lanrain:$vo.username}</td>
-				<td >{lanrain:$group[$vo['gid']]}</td>
-				<td align='center'>{lanrain:$vo.lastip}</td>
+				<td align='center'>{np:$vo.id}</td>
+				<td >{np:$vo.username}</td>
+				<td >{np:$group[$vo['gid']]}</td>
+				<td align='center'>{np:$vo.lastip}</td>
 				<td align='center'><php>echo date('Y-m-d H:i:s', $vo['lasttime'])</php></td>
 				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
 				<td align='center'>
-					<a href="{lanrain::U('Users/edit/',array('id'=>$vo['id']))}">修改</a>
-					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{lanrain::U('Users/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+					<a href="{np::U('Users/edit/',array('id'=>$vo['id']))}">修改</a>
+					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{np::U('Users/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{lanrain:$page}</div></td>
+      <td colspan="8"><div class="listpage">{np:$page}</div></td>
     </tr>
    
 </table>

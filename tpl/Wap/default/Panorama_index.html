@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{lanrain:$replyInfo.title}</title>
+<title>{np:$replyInfo.title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -19,10 +19,10 @@
    <volist name="list" id="so">   
 <li>
 <if condition="$so['url']">
-<a href="{lanrain::U('Panorama/item',array('id'=>$so['id'],'token'=>$so['token']))}">
-<div class="img"><img src="{lanrain:$so.frontpic}"></div>
-<h2>{lanrain:$so.name}</h2>
-<p class="onlyheight">{lanrain:$so.intro}</p>
+<a href="{np::U('Panorama/item',array('id'=>$so['id'],'token'=>$so['token']))}">
+<div class="img"><img src="{np:$so.frontpic}"></div>
+<h2>{np:$so.name}</h2>
+<p class="onlyheight">{np:$so.intro}</p>
 <div class="commentNum"></div>
 </a>
 </li>

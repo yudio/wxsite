@@ -1,8 +1,8 @@
 <include file="Public:head"/> 
-<link rel="stylesheet" type="text/css" href="{lanrain::RES}/css/cymain.css" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/cymain.css" />
         <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
-<h4>“{lanrain:$thisForm.name}”信息列表 <if condition="$page">({lanrain:$page})</if> &nbsp;&nbsp;&nbsp;&nbsp;<a href="{lanrain::U('Selfform/index',array('token'=>$token))}">返回</a> </h4>
+<h4>“{np:$thisForm.name}”信息列表 <if condition="$page">({np:$page})</if> &nbsp;&nbsp;&nbsp;&nbsp;<a href="{np::U('Selfform/index',array('token'=>$token))}">返回</a> </h4>
 
 <div class="searchbar right">
 <form method="post" action="">
@@ -29,7 +29,7 @@
 <th width="40">ID</th>
 <th width="120">时间</th>
 <volist name="fields" id="item">
-<th>{lanrain:$item.displayname}</th>
+<th>{np:$item.displayname}</th>
 </volist>
 <th width="30" class="norightborder">操作</th>
 </tr>
@@ -39,9 +39,9 @@
 <volist name="list" id="item"> 
 <tr>
 <volist name="item" id="citem">
-<td>{lanrain:$citem}</td>
+<td>{np:$citem}</td>
 </volist>
-<td class="norightborder"><a href="javascript:drop_confirm('您确定要删除吗?', '{lanrain::U('Selfform/infoDelete',array('id'=>$item['id'],'token'=>$token))}');">删除</a></td>
+<td class="norightborder"><a href="javascript:drop_confirm('您确定要删除吗?', '{np::U('Selfform/infoDelete',array('id'=>$item['id'],'token'=>$token))}');">删除</a></td>
 </tr>
 </volist>
 </tbody>
@@ -51,7 +51,7 @@
 </div>
 <div class="cLine">
 <div class="pageNavigator right">
-<div class="pages">{lanrain:$page}</div>
+<div class="pages">{np:$page}</div>
 </div>
 <div class="clr"></div>
 </div>

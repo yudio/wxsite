@@ -6,11 +6,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-<link href="{lanrain::RES}/css/userinfo/fans.css" rel="stylesheet" type="text/css">
+<link href="{np::RES}/css/userinfo/fans.css" rel="stylesheet" type="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 </head>
 <body id="fans" >
-<div class="qiandaobanner"> <img src="{lanrain:$homepic}" > </div>
+<div class="qiandaobanner"> <img src="{np:$homepic}" > </div>
 <div class="cardexplain">
 <li class="nob">
 <div class="beizhu"><if condition="$info['wechaname'] neq false">以下信息将作为消费凭证，请认真填写！<else/>填写以下信息即可领取vip会员卡</if></div>
@@ -20,7 +20,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>微信名称</th>
-<td><input name="wechaname"  type="text" class="px" id="wechaname" value="{lanrain:$info.wechaname}" placeholder="请输入您的微信名称"></td>
+<td><input name="wechaname"  type="text" class="px" id="wechaname" value="{np:$info.wechaname}" placeholder="请输入您的微信名称"></td>
 </tr>
 </table>
 </li>
@@ -28,7 +28,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>真实姓名</th>
-<td><input name="truename"  type="text" class="px" id="truename" value="{lanrain:$info.truename}" placeholder="请输入您的真实姓名"></td>
+<td><input name="truename"  type="text" class="px" id="truename" value="{np:$info.truename}" placeholder="请输入您的真实姓名"></td>
 </tr>
 </table>
 </li>
@@ -36,7 +36,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>手机号码</th>
-<td><input name="tel"  class="px" id="tel" value="{lanrain:$info.tel}"  type="text" placeholder="请输入您的电话"></td>
+<td><input name="tel"  class="px" id="tel" value="{np:$info.tel}"  type="text" placeholder="请输入您的电话"></td>
 </tr>
 </table>
 </li>
@@ -44,7 +44,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>QQ号码</th>
-<td><input name="qq"  class="px" id="qq" value="{lanrain:$info.qq}"  type="text" placeholder="请输入您的QQ号码"></td>
+<td><input name="qq"  class="px" id="qq" value="{np:$info.qq}"  type="text" placeholder="请输入您的QQ号码"></td>
 </tr>
 </table>
 </li>
@@ -67,7 +67,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="kuang">
 <tr>
 <th>年龄</th>
-<td><input name="age"  type="text" class="px" id="age" value="{lanrain:$info.age}" placeholder="请输入您的年龄"></td>
+<td><input name="age"  type="text" class="px" id="age" value="{np:$info.age}" placeholder="请输入您的年龄"></td>
 </tr>
 </table>
 </li>
@@ -111,13 +111,13 @@ $("#showcard").click(function () {
 	action: "setTel"
 	};
 	
-	$.post('index.php?g=Wap&m=Userinfo&a=index&token={lanrain:$Think.get.token}&wecha_id={lanrain:$Think.get.wecha_id}', submitData,
+	$.post('index.php?g=Wap&m=Userinfo&a=index&token={np:$Think.get.token}&wecha_id={np:$Think.get.wecha_id}', submitData,
 	function(data) {
 		if(data==1){
 			alertdiy('更新成功');
 		}else if(data==2){
 			alert('成功领取了会员卡');
-			location.href = "{lanrain::U('Card/vip',array('token'=>$_GET['token'],'weicha_id'=>$_GET['weicha_id']))}";
+			location.href = "{np::U('Card/vip',array('token'=>$_GET['token'],'weicha_id'=>$_GET['weicha_id']))}";
 		}else if(data==3){
 			alertdiy('该商家会员卡缺货了');
 		}else{

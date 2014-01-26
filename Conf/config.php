@@ -1,8 +1,8 @@
 <?php
 /**
  *项目公共配置
- *@package LanRain
- *@author LanRain
+ *@package NiceDog
+ *@author NiceDog
  **/
 return array(
 	'LOAD_EXT_CONFIG' 		=> 'db,info,email,safe,upfile,cache,route,app,alipay',		
@@ -13,7 +13,7 @@ return array(
 	'COOKIE_PATH'           => '/',     		// Cookie路径
     'COOKIE_PREFIX'         => '',      		// Cookie前缀 避免冲突
 	/*定义模版标签*/
-	'TMPL_L_DELIM'   		=>'{lanrain:',			//模板引擎普通标签开始标记
+	'TMPL_L_DELIM'   		=>'{np:',			//模板引擎普通标签开始标记
 	'TMPL_R_DELIM'			=>'}',				//模板引擎普通标签结束标记
 	'APP_STATUS' => 'debug',					//debug模式
     'SHOW_PAGE_TRACE' =>true,
