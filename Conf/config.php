@@ -17,6 +17,6 @@ return array(
 	'TMPL_R_DELIM'			=>'}',				//模板引擎普通标签结束标记
 	'APP_STATUS' => 'debug',					//debug模式
     'SHOW_PAGE_TRACE' =>true,
-    'URL_MODEL' => 2,
+    'URL_MODEL' => 1,
 );
 ?>

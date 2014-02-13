@@ -51,6 +51,32 @@ class DiymenAction extends UserAction{
 
 
 	}
+
+    public function class_test(){
+        if (IS_GET) {
+            $api=M('Diymen_set')->where(array('token'=>$_SESSION['token']))->find();
+            $wxservice      = new WxService($api);
+            $api['appaccess'] = $wxservice->getAccessToken();
+            if ($wxservice->getAccessTime()>0){
+                $api['updatetime'] = $wxservice->getAccessTime();
+            }
+            M('Diymen_set')->where(array('token'=>$_SESSION['token']))->data($api)->save();
+            dump($wxservice->getAccessToken());
+            echo "MENU_GET";
+            dump($wxservice->menu_get());
+            echo "USER/GET";
+            dump($wxusers=$wxservice->user_get());
+            echo "USER/INFO";
+            dump($wxservice->user_info($wxusers->data->openid[0]));
+            echo "MSG_COSTOMER_SEND";
+            $con = array('content'=>'TEST_MESSAGE');
+            $arr = array('touser'=>$wxusers->data->openid[0],'msgtype'=>'text','text'=>$con);
+            echo json_encode($arr);
+            dump($wxservice->msg_customer_send(json_encode($arr)));
+            exit;
+        }
+    }
+
 	public function  class_edit(){
 		if(IS_POST){
 			$_POST['id']=$this->_get('id');
@@ -70,13 +96,21 @@ class DiymenAction extends UserAction{
 	}
 	public function  class_send(){
 		if(IS_GET){
-			$api=M('Diymen_set')->where(array('token'=>$_SESSION['token']))->find();
+			/*$api=M('Diymen_set')->where(array('token'=>$_SESSION['token']))->find();
 			// dump($api);die;
 			$url_get='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$api['appid'].'&secret='.$api['appsecret'];
 			echo "$url_get";
             $json=json_decode($this->curlGet($url_get));
-            echo "$json";
-			if($api['appid']==false||$api['appsecret']==false){$this->error('必须先填写【AppId】【 AppSecret】');exit;}
+            echo "$json";*/
+            $api=M('Diymen_set')->where(array('token'=>$_SESSION['token']))->find();
+            if($api['appid']==false||$api['appsecret']==false){$this->error('必须先填写【AppId】【 AppSecret】');exit;}
+            $wxservice      = new WxService($api);
+            $api['appaccess'] = $wxservice->getAccessToken();
+            if ($wxservice->getAccessTime()>0){
+                $api['updatetime'] = $wxservice->getAccessTime();
+            }
+            M('Diymen_set')->where(array('token'=>$_SESSION['token']))->data($api)->save();
+
 			$data = '{"button":[';
 
 			$class=M('Diymen_class')->where(array('token'=>$_SESSION['token'],'pid'=>0))->limit(3)->order('sort desc')->select();
@@ -125,11 +159,11 @@ class DiymenAction extends UserAction{
 			}
 			$data.=']}';
 
-			file_get_contents('https://api.weixin.qq.com/cgi-bin/menu/delete?access_token='.$json->access_token);
+			/*file_get_contents('https://api.weixin.qq.com/cgi-bin/menu/delete?access_token='.$wxservice->getAccessToken());
 
-			$url='https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$json->access_token;
-
-			if($this->api_notice_increment($url,$data)==false){
+			$url='https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$wxservice->getAccessToken();
+            */
+			if($wxservice->menu_update($data)==false){
 				$this->error('操作失败');
 			}else{
 				$this->success('操作成功',U('Diymen/index'));
@@ -146,7 +180,7 @@ class DiymenAction extends UserAction{
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, true);
 		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
@@ -167,11 +201,11 @@ class DiymenAction extends UserAction{
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, true);
 		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$temp = curl_exec($ch);
 		return $temp;

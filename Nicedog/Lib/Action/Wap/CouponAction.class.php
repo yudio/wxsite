@@ -14,7 +14,7 @@ class CouponAction extends LotteryBaseAction{
 		$this->lottory_record_db=M('Lottery_record');
 		$this->lottory_db=M('Lottery');
 		if (!defined('RES')){
-			define('RES',THEME_PATH.'common');
+			define('RES','/'.THEME_PATH.'common');
 		}
 		if (!defined('STATICS')){
 			define('STATICS',TMPL_PATH.'static');

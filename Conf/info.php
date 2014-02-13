@@ -2,7 +2,7 @@
 return array (
   'site_name' => '奈斯伙伴-微信营销专家',
   'site_title' => '奈斯伙伴-微信营销专家',
-  'site_url' => 'http://wx.nicepartner.com',
+  'site_url' => 'http://hifeng.cn',
   'site_my' => '奈斯伙伴',
   'ischeckuser' => 'false',
   'ipc' => '',

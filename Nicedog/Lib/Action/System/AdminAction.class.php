@@ -3,7 +3,7 @@
 class AdminAction extends Action{
 	
 	public function index(){
-		define('RES',THEME_PATH.'common');
+		define('RES','/'.THEME_PATH.'common');
 		$this->display();
 	}
 	

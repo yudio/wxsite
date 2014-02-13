@@ -14,8 +14,21 @@ class IndexAction extends BaseAction{
 	public $homeInfo;
 	public function _initialize(){
 		parent::_initialize();
-		$agent = $_SERVER['HTTP_USER_AGENT']; 
-		if(!strpos($agent,"icroMessenger")&&!isset($_GET['show'])) {
+		$agent = $_SERVER['HTTP_USER_AGENT'];
+        /*$userinfo=M('User_group')->where(array('id'=>session('gid')))->find();
+        $users=M('Users')->where(array('id'=>$_SESSION['uid']))->find();
+        $this->assign('thisUser',$users);
+        //dump($users);
+        $this->assign('viptime',$users['viptime']);
+        if(session('uid')){
+            if($users['viptime']<time()){
+                session(null);
+                session_destroy();
+                unset($_SESSION);
+                $this->error('您的帐号已经到期，请充值后再使用');
+            }
+        }*/
+		if(!strpos($agent,"icroMessenger")&&!isset($_GET['show'])&&!isset($_SESSION['uid'])) {
 			echo '此功能只能在微信浏览器中使用';exit;
 		}
 		//

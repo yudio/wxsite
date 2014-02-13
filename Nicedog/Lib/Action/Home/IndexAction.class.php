@@ -2,7 +2,6 @@
 class IndexAction extends BaseAction{
 	//关注回复
 	public function index(){
-        echo "NICE";
 		$this->display();
 	}
 	public function resetpwd(){

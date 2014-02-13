@@ -3,7 +3,7 @@ class BaseAction extends Action
 {
     protected function _initialize()
     {
-        define('RES', THEME_PATH . 'common');
+        define('RES', '/'.THEME_PATH . 'common');
         define('STATICS', TMPL_PATH . 'static');
         $this->assign('action', $this->getActionName());
     }

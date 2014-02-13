@@ -4,7 +4,7 @@ class WeixinAction extends Action
     private $token;
     private $fun;
     private $data = array();
-    private $my = '小猪猪';
+    private $my = '奈斯伙伴';
     public function index()
     {
         $this->token = $this->_get('token');
@@ -95,7 +95,7 @@ class WeixinAction extends Action
         $datafun   = explode(',', $open['queryname']);
         $tags      = $this->get_tags($key);
         $back      = explode(',', $tags);
-        foreach ($back as $keydata => $data) {
+        foreach ($back as $keydata => $data) {   //开放功能模块过滤
             $string = $Pin->Pinyin($data);
             if (in_array($string, $datafun)) {
                 $check = $this->user('connectnum');
