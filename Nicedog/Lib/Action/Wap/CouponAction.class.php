@@ -17,7 +17,7 @@ class CouponAction extends LotteryBaseAction{
 			define('RES','/'.THEME_PATH.'common');
 		}
 		if (!defined('STATICS')){
-			define('STATICS',TMPL_PATH.'static');
+			define('STATICS','/'.TMPL_PATH.'static');
 		}
 	}
 	public function index(){

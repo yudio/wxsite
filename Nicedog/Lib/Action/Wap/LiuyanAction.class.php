@@ -27,7 +27,7 @@ class LiuyanAction extends BaseAction{
 				// );
 		$this->token = $this->_get('token');
 		$this->wecha_id	= $this->_get('wecha_id');
-		$this->uid = session('uid');
+		//$this->uid = session('uid');
 		$this->createtime = time();
 		$db = M('liuyan');
 		$rep = M('reply_info');

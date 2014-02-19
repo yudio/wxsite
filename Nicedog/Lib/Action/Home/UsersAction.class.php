@@ -47,10 +47,14 @@ class UsersAction extends BaseAction{
 			
 			//
 			$db->where(array('id'=>$res['id']))->save(array('lasttime'=>$now,'lastloginmonth'=>$month,'lastip'=>$_SERVER['REMOTE_ADDR']));//最后登录时间
-			$this->success('登录成功',U('User/Index/index'));
+			//$this->success('登录成功',U('User/Index/index'));
+            $ret = array('errno'=>'200','error'=>'登录成功','url_route'=>U('User/Index/index'));
+            $this->ajaxReturn($ret,'JSON');
 		}else{
-			$this->error('帐号密码错误',U('Index/login'));
-		}
+			//$this->error('帐号密码错误',U('Index/login'));
+            $ret = array('errno'=>'0','error'=>'帐号密码错误','url_route'=>U('Index/login'));
+            $this->ajaxReturn($ret,'JSON');
+        }
 	}
 	
 	public function checkreg(){

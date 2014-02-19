@@ -110,6 +110,8 @@ class IndexAction extends BaseAction{
 		$this->assign('num',$count);
 		$this->assign('info',$this->info);
 		$this->assign('tpl',$this->tpl);
+        $this->assign('token',$this->token);
+        $this->assign('wecha_id',$this->wecha_id);
 
 		$this->display($this->tpl['tpltypename']);
 	}

@@ -29,12 +29,13 @@ class IndexAction extends UserAction{
 		}
 		$tokenvalue=$randStr.time();
 		$this->assign('tokenvalue',$tokenvalue);
-		$this->assign('email',time().'@yourdomain.com');
+
+        //$this->assign('email',time().'@yourdomain.com');
 		//地理信息
 		if (C('baidu_map_api')){
-			//$locationInfo=json_decode(file_get_contents('http://api.map.baidu.com/location/ip?ip='.$_SERVER['REMOTE_ADDR'].'&coor=bd09ll&ak='.C('baidu_map_api')),1);
-			///$this->assign('province',$locationInfo['content']['address_detail']['province']);
-			//$this->assign('city',$locationInfo['content']['address_detail']['city']);
+			$locationInfo=json_decode(file_get_contents('http://api.map.baidu.com/location/ip?ip='.$_SERVER['REMOTE_ADDR'].'&coor=bd09ll&ak='.C('baidu_map_api')),1);
+			$this->assign('province',$locationInfo['content']['address_detail']['province']);
+			$this->assign('city',$locationInfo['content']['address_detail']['city']);
 			//var_export($locationInfo);
 		}
 	
@@ -74,6 +75,22 @@ class IndexAction extends UserAction{
 		//$this->all_insert('Wxuser');
 		//
 		$db=D('Wxuser');
+        $wxclient = new WeiXinClient(array('account'=>$_POST['wxaccount'],'password'=>md5($_POST['wxpwd']),'temp_path'=>THINK_PATH));
+        $setdata = $wxclient->getSetting();
+        preg_match_all('/window.wx ={(.*)};/iUs', $setdata, $arr);
+        $jsdata = $arr[1][0];
+        preg_match('/uin:"(.*)"/', $jsdata, $uniarr);  //FakeId==uni==$uniarr[1][0]
+        preg_match('/user_name:"(.*)"/',$jsdata,$wxnames);
+        preg_match('/"nickname">(\w*)<\/a>/i',$setdata,$nicknames);
+        //echo $uniarr[1].'|'.$wxnames[1].'|'.$nicknames[1];
+        $_POST['wxid'] = $wxclient->getwxid();
+        $_POST['weixin'] = $wxnames[1];
+        $_POST['wxname'] = $nicknames[1];
+        $_post['wxfakeid'] = $uniarr[1];
+        $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
+        $_POST['headerpic'] = '/'.$picpath;
+        file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($uniarr[1]));
+        //dump($_POST);
 		if($db->create()===false){
 			$this->error($db->getError());
 		}else{

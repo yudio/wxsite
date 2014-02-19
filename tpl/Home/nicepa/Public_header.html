@@ -1,0 +1,143 @@
+<script src="{np::RES}/src/html5.js"></script>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/www/index1/index.css?2014-01-24-6" media="all" />
+<script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-01-24-6"></script>
+<script type="text/javascript" src="{np::RES}/src/www/index1/project.js?2014-01-24-6"></script>
+<script type="text/javascript" src="{np::RES}/src/www/index1/carouFredSel.js?2014-01-24-6"></script>
+<script type="text/javascript" src="{np::RES}/src/www/index1/weimob-index.js?2014-01-24-6"></script>
+<title>奈斯（Weimob）—国内最大的微信公众服务平台</title>
+<link rel="shortcut icon" href="{np::RES}/img/favicon.ico" />
+</head>
+<body>
+<!--[if lte IE 8]>  <script language="javascript">$(function (){$.browser.msie&&$("#ie9-tips").show().find("#stopSuggestA").click(function(){$("#ie9-tips").hide()})})</script><![endif]-->
+<div class="nav clearfix">
+    <div class="nav-content">
+        <h1 class="left"><a href="/">奈斯·微信营销，如此简单！</a></h1>
+        <div class="left city">
+            <h2>上海</h2>
+            <a href="/site/city1">
+                切换城市<i class="tri4"></i>
+            </a>
+        </div>
+        <div class="right line-li">
+            <ul>
+                <li>
+                    <a href="/" class="hover">首页</a>
+                </li>
+                <li>
+                    <a href="npHome/Index/case.act" >经典案例</a>
+                </li>
+                <li>
+                    <a href="npHome/Index/proxy.act" >渠道代理</a>
+                </li>
+                <li>
+                    <a href="npHome/Index/fc.act" >功能介绍</a>
+                </li>
+                <li>
+                    <a href="/site/weipai"  class="navtwo" target="_black">微拍</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="hover navtwo" onclick="loginBox.toggle(this, event);">登录</a>
+                </li>
+                <li>
+                    <a href="/site/reg1" class="navtwo" target="_black">注册</a>
+                </li>
+                <li>
+                    <a href="/site/help"  class="navtwo" target="_black">帮助</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="loginBox">
+    <div class="login-panel">
+        <h3>登录</h3>
+        <div class="login-mod">
+            <div class="login-err-panel dn" id="err_area">
+                <span class="icon-wrapper"><i class="icon24-login err" style="margin-top:-.2em;*margin-top:0;"></i></span>
+                <span id="err_tips"></span>
+            </div>
+            <form class="login-form" id="login-form">
+                <div class="login-un">
+                    <span class="icon-wrapper"><i class="icon24-login un"></i></span>
+                    <input type="text" id="username" placeholder="奈斯号">
+                </div>
+                <div class="login-pwd">
+                    <span class="icon-wrapper"><i class="icon24-login pwd"></i></span>
+                    <input type="password" id="password" placeholder="密码">
+                </div>
+            </form>
+            <div class="login-help-panel">
+                <a id="rememberPwd" class="login-remember-pwd" href="javascript:;">
+                    <input type="checkbox" id="rememberPwdIcon">记住帐号
+                </a>
+                <a class="login-forget-pwd" href="/site/reg1">我是新用户!<strong>申请入驻</strong></a>
+            </div>
+            <div class="login-btn-panel">
+                <a class="login-btn" title="点击登录" href="javascript:;" id="login_button" onclick="login();">登录</a>
+                {__TOKEN__}
+            </div>
+        </div>
+    </div>
+    <div class="login-cover" onclick="loginBox.toggle(this, event);"></div>
+</div>
+<div id="ie9-tips" class="clearfix">
+    <div id="tipsPanel">
+        <div id="tipsDesc">系统检测到您所使用的浏览器版本较低，推荐使用<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox</a>或<a href="http://www.google.cn/intl/zh-CN/chrome/browser/index.html" target="_blank">Chrome</a>浏览器打开，否则将无法体验完整产品功能。</div>
+        <a id="stopSuggestA" href="javascript:;">×</a>
+    </div>
+</div>
+
+<script>
+    var $do_submit = false;
+
+    // 绑定回车键
+    $('#loginBox').keydown(function(e){
+        if(13 == event.keyCode){
+            login();
+        }
+    });
+
+    function login()
+    {
+        alert('doLogin');
+        if (true == $do_submit)
+        {
+            return false;
+        }
+
+        var $pre_submit = '登录', $done_submit = '登录中...';
+        var $username = $('#username').val(), $password = $('#password').val(), $keepalive = $('#rememberPwdIcon').val();
+        $('#login_button').text($done_submit);
+        $do_submit = true;
+
+        // check
+        if ('' == $username || '' == $password)
+        {
+            $('#err_tips').text('您输入的奈斯号或密码错误，请重新输入！');
+            $('#err_area').show();
+            $('#login_button').text($pre_submit);
+            $do_submit = false;
+            return false;
+        }
+
+        var $login_data = {
+            username:$username,
+            password:$password,
+            __hash__:$("input[name='__hash__']").val()
+        };
+        $.post('/npHome/Users/checklogin.act', $login_data, function(rs){
+            if(rs.errno == 200)
+            {
+                location.href = rs.url_route;
+            }
+            else
+            {
+                $('#err_tips').text(rs.error);
+                $('#err_area').show();
+                $('#login_button').text($pre_submit);
+            }
+            $do_submit = true;
+        }, 'json');
+    }
+</script>
