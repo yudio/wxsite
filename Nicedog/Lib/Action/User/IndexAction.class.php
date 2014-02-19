@@ -86,11 +86,15 @@ class IndexAction extends UserAction{
         $_POST['wxid'] = $wxclient->getwxid();
         $_POST['weixin'] = $wxnames[1];
         $_POST['wxname'] = $nicknames[1];
-        $_post['wxfakeid'] = $uniarr[1];
+        $_POST['wxfakeid'] = $uniarr[1];
         $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
         $_POST['headerpic'] = '/'.$picpath;
         file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($uniarr[1]));
-        //dump($_POST);
+        $ret = $wxclient->bindUrlDev(C('site_url').'/index.php/api/'.$_POST['token'],$_POST['token']);
+        if ($ret){
+            print_r($ret);//,U('Index/index'));
+            exit;
+        }
 		if($db->create()===false){
 			$this->error($db->getError());
 		}else{
