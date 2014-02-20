@@ -32,12 +32,12 @@ class IndexAction extends UserAction{
 
         //$this->assign('email',time().'@yourdomain.com');
 		//地理信息
-		if (C('baidu_map_api')){
+		/*if (C('baidu_map_api')){
 			$locationInfo=json_decode(file_get_contents('http://api.map.baidu.com/location/ip?ip='.$_SERVER['REMOTE_ADDR'].'&coor=bd09ll&ak='.C('baidu_map_api')),1);
 			$this->assign('province',$locationInfo['content']['address_detail']['province']);
 			$this->assign('city',$locationInfo['content']['address_detail']['city']);
 			//var_export($locationInfo);
-		}
+		}*/
 	
 		
 		$this->display();
@@ -63,7 +63,19 @@ class IndexAction extends UserAction{
 	public function upsave(){
 		$this->all_save('Wxuser');
 	}
-	
+
+    public function test(){
+        $wxclient = new WeiXinClient(array('account'=>'yudio@hotmail.com','password'=>md5('samon1'),'temp_path'=>THINK_PATH));
+        //;
+        //print_r($wxclient->getContact());
+        preg_match('/totalCount : \'(.*)\'/Us',$wxclient->getContact(),$res);
+        print_r($res[1]);
+        exit;
+        //print_r($wxclient->getContact());
+    }
+
+
+
 	public function insert(){
 		$data=M('User_group')->field('wechat_card_num')->where(array('id'=>session('gid')))->find();
 		$users=M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->find();
@@ -74,27 +86,23 @@ class IndexAction extends UserAction{
 		}
 		//$this->all_insert('Wxuser');
 		//
-		$db=D('Wxuser');
         $wxclient = new WeiXinClient(array('account'=>$_POST['wxaccount'],'password'=>md5($_POST['wxpwd']),'temp_path'=>THINK_PATH));
-        $setdata = $wxclient->getSetting();
-        preg_match_all('/window.wx ={(.*)};/iUs', $setdata, $arr);
-        $jsdata = $arr[1][0];
-        preg_match('/uin:"(.*)"/', $jsdata, $uniarr);  //FakeId==uni==$uniarr[1][0]
-        preg_match('/user_name:"(.*)"/',$jsdata,$wxnames);
-        preg_match('/"nickname">(\w*)<\/a>/i',$setdata,$nicknames);
-        //echo $uniarr[1].'|'.$wxnames[1].'|'.$nicknames[1];
         $_POST['wxid'] = $wxclient->getwxid();
-        $_POST['weixin'] = $wxnames[1];
-        $_POST['wxname'] = $nicknames[1];
-        $_POST['wxfakeid'] = $uniarr[1];
+        $_POST['weixin'] = $wxclient->getWxName();
+        $_POST['wxname'] = $wxclient->getNickName();
+        $_POST['wxfakeid'] = $wxclient->getFakeId();
+        $_POST['wxaccount'] = $_POST['wxaccount'];
+        $_POST['wxpwd'] = $_POST['wxpwd'];
         $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
         $_POST['headerpic'] = '/'.$picpath;
-        file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($uniarr[1]));
-        $ret = $wxclient->bindUrlDev(C('site_url').'/index.php/api/'.$_POST['token'],$_POST['token']);
+        file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($wxclient->getFakeId()));
+        /*$ret = $wxclient->bindUrlDev(C('site_url').'/index.php/api/'.$_POST['token'],$_POST['token']);
         if ($ret){
             print_r($ret);//,U('Index/index'));
             exit;
-        }
+        }*/
+        //dump($_POST);
+        $db=D('Wxuser');//->where(array('token'=>session('token'),'wxid'=>$wxclient->getwxid()))->find();
 		if($db->create()===false){
 			$this->error($db->getError());
 		}else{

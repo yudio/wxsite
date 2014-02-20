@@ -32,7 +32,7 @@ class IndexAction extends BaseAction{
 			echo '此功能只能在微信浏览器中使用';exit;
 		}
 		//
-		$Model = new Model();
+		/*$Model = new Model();
 		$rt=$Model->query("CREATE TABLE IF NOT EXISTS `tp_site_plugmenu` (
   `token` varchar(60) NOT NULL DEFAULT '',
   `name` varchar(20) NOT NULL DEFAULT '',
@@ -40,7 +40,7 @@ class IndexAction extends BaseAction{
   `taxis` mediumint(4) NOT NULL DEFAULT '0',
   `display` tinyint(1) NOT NULL DEFAULT '0',
   KEY `token` (`token`,`taxis`,`display`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8");*/
 		//
 		$this->token=$this->_get('token','trim');
 		$where['token']=$this->token;
@@ -91,7 +91,12 @@ class IndexAction extends BaseAction{
 		
 		$this->display($this->tpl['tpltypename']);
 	}
-	
+
+    public function test(){
+        print_r($this->tVar);
+        exit;
+    }
+
 	public function index(){
 		//是否是高级模板
 		if ($this->homeInfo['advancetpl']){
@@ -112,6 +117,7 @@ class IndexAction extends BaseAction{
 		$this->assign('tpl',$this->tpl);
         $this->assign('token',$this->token);
         $this->assign('wecha_id',$this->wecha_id);
+        //print_r($this->tpl);
 
 		$this->display($this->tpl['tpltypename']);
 	}
