@@ -36,8 +36,8 @@ function getHost()
 
 	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	

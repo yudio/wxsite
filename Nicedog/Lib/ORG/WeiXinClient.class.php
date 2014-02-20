@@ -25,6 +25,14 @@ class WeiXinClient
 // 缓存的值
     private $webToken; // 登录后每个链接后都要加token
     private $cookie;
+    private $wxid;
+    private $wxname;
+    private $nkname;
+    private $wxfakeid;
+    private $setdata;
+    private $jsdata;
+    private $contactdata;
+
 
     private $req;
 
@@ -59,7 +67,6 @@ class WeiXinClient
         $post["pwd"] = $this->password;
         $post["f"] = "json";
         $re = $this->req->submit($url, $post);
-
 // 保存cookie
         $this->cookie = $re['cookie'];
         file_put_contents($this->cookiePath, $this->cookie);
@@ -75,20 +82,81 @@ class WeiXinClient
      */
     public function getSetting()
     {
-        $url = "https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&action=index&token={$this->webToken}&lang=zh_CN";
-        $ret = $this->req->get($url,$this->cookie);
+        if (!$this->setdata){
+            $url = "https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&action=index&token={$this->webToken}&lang=zh_CN";
+            $ret = $this->req->get($url,$this->cookie);
+            $this->setdata = $ret['body'];
+            preg_match_all('/window.wx ={(.*)};/iUs', $ret['body'], $arr);
+            $this->jsdata = $arr[1][0];
+        }
 
-        return $ret['body'];
+        return $this->setdata;
         //$preg = '/window.wx ={(.*)};/iUs';
         //preg_match_all($preg, $ret['body'], $arr);
         //return $arr[1][0];
         //return json_decode($arr[1][0], 1);
     }
+    /*
+     * 获取用户MSG DATA
+     */
+    public function getContact(){
+        if (!$this->contactdata){
+            $url = "https://mp.weixin.qq.com/cgi-bin/contactmanage?t=user/index&pagesize=10&pageidx=0&type=0&token={$this->webToken}&lang=zh_CN";
+            $ret = $this->req->get($url,$this->cookie);
+            preg_match('/wx.cgiData={(.*)};/iUs',$ret['body'],$arr);
+            $this->contactdata = $arr[1];
+        }
+        return $this->contactdata;
+    }
 
+    /**
+     * @return mixed
+     * 获取用户的Fakeid
+     */
+    public function getFakeId(){
+        if (!$this->setdata){$this->getSetting();}
+        if (!$this->wxfakeid){
+            preg_match('/uin:"(.*)"/', $this->jsdata, $uniarr);
+            $this->wxfakeid = $uniarr[1];
+        }
+        return $this->wxfakeid;
+    }
+
+    /*
+     *
+     * 获取用户的wxname
+     */
+    public function getWxName(){
+        if (!$this->setdata){$this->getSetting();}
+        if (!$this->wxname){
+            preg_match('/user_name:"(.*)"/',$this->jsdata,$wxnames);
+            $this->wxname = $wxnames[1];
+        }
+        return $this->wxname;
+    }
+
+    /**
+     * @return mixed
+     * 获取用户昵称nickname
+     */
+    public function getNickName(){
+        if (!$this->setdata){$this->getSetting();}
+        if (!$this->nkname){
+            preg_match('/"nickname">(\w*)<\/a>/i',$this->setdata,$nicknames);
+            $this->nkname = $nicknames[1];
+        }
+        return $this->nkname;
+    }
+    /*
+     * 获取用户的wxid，微信原始ID
+     */
     public function getwxid()
     {
-        preg_match('/slave_user=(.*);/iUs',$this->cookie,$arr);
-        return $arr[1];
+        if (!$this->wxid){
+            preg_match('/slave_user=(.*);/iUs',$this->cookie,$arr);
+            $this->wxid = $arr[1];
+        }
+        return $this->wxid;
     }
 
     /**

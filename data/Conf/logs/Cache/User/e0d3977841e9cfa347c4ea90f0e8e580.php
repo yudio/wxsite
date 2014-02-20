@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -381,9 +381,9 @@ window.onload =getHost;
                   <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><TR>
                   <TD><input type="checkbox" name='del_id[]' value="842" class="checkitem"></TD>
                   <TD><?php echo ($list["title"]); ?></TD>
-                  <TD><?php echo ($list["keyword"]); ?></TD> 
+                  <TD><?php echo ($list["keyword"]); ?></TD>
 				  <TD><?php echo ($list["joinnum"]); ?></TD>
-                  <TD><?php echo ($list["click"]); ?></TD>                  
+                  <TD><?php echo ($list["click"]); ?></TD>
                   <TD><?php echo (date('Y-m-d',$list["statdate"])); ?><br /><?php echo (date('Y-m-d',$list["enddate"])); ?></TD>
                   <TD>
 				  <?php if($list['status'] == 0): ?>未开始<?php elseif($list['status'] == 2): ?>已经结束<?php else: ?>已经开始<?php endif; ?>
@@ -391,8 +391,8 @@ window.onload =getHost;
 				 </TD>
                   <TD>刮刮卡 <?php echo ($list["id"]); ?></TD>
                    <TD class="norightborder">
-				   <a href="index.php?g=User&m=Guajiang&a=sn&id=<?php echo ($list["id"]); ?>&type=2">SN码管理</a> 
-				   <a href="index.php?g=User&m=Guajiang&a=edit&id=<?php echo ($list["id"]); ?>">编辑</a>  
+				   <a href="index.php?g=User&m=Guajiang&a=sn&id=<?php echo ($list["id"]); ?>&type=2">SN码管理</a>
+				   <a href="index.php?g=User&m=Guajiang&a=edit&id=<?php echo ($list["id"]); ?>">编辑</a>
 				   <a href="
 				   <?php if($list['status'] == 1): ?>javascript:drop_confirm('你确定要结束活动吗，结束后不可再开启本活动!', 'index.php?g=User&m=Guajiang&a=setdes&id=<?php echo ($list["id"]); ?>');<?php else: ?>index.php?g=User&m=Guajiang&a=setinc&id=<?php echo ($list["id"]); endif; ?>">
 				   <?php if($list['status'] == 0): ?>开始<?php elseif($list['status'] == 2): else: ?>结束<?php endif; ?>				   

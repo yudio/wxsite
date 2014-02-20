@@ -131,7 +131,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 					<div class="title-brown">恭喜：</div>
 					<div class="Detail">
 					
-					<p>尊敬的 <font color='red'> <?php echo ($Guajiang["uname"]); ?> </font> 您已经中过 <strong><font color='red'><?php echo ($Guajiang["winprize"]); ?></font></strong> 奖了,<br />兑奖号： <font color='red'><?php echo ($Guajiang["sncode"]); ?></font></p>	
+					<p>尊敬的 <font color='red'> <?php echo ($Guajiang["uname"]); ?> </font> 您已经中过 <strong><font color='red'><?php echo ($Guajiang["winprize"]); ?></font></strong> 奖了,<br />兑奖号： <font color='red'><?php echo ($Guajiang["sncode"]); ?></font></p>
 			
 					</div>
 				</div>
@@ -195,7 +195,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 			<div class="title-brown">活动说明：</div>
 			<div class="Detail"><?php echo ($Guajiang["info"]); ?>
 				<p>活动时间:<?php echo (date("Y-m-d",$Guajiang["statdate"])); ?>至<?php echo (date("Y-m-d",$Guajiang["enddate"])); ?></p>
-				<p><?php echo ($Guajiang["txt"]); ?></p>				
+				<p><?php echo ($Guajiang["txt"]); ?></p>
 							
 			</div>
 		</div>
@@ -335,7 +335,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 /*window.sncode = "<?php echo ($Guajiang["sn"]); ?>";*/
 window.prize = "<?php echo ($Guajiang["winprize"]); ?>";
 var winprize  = "<?php echo ($Guajiang["winprize"]); ?>";
-var zjl = "<?php echo ($Guajiang["zjl"]); ?>";	
+var zjl = "<?php echo ($Guajiang["zjl"]); ?>";
 var goon = true;
 var text = true;
 $(function(){

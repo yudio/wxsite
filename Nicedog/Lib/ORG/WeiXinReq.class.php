@@ -27,7 +27,6 @@ class WeiXinReq {
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
         // curl_setopt($curl, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
         curl_setopt($curl, CURLOPT_HTTPHEADER, array("Referer:https://mp.weixin.qq.com/cgi-bin/message?t=message/list&action=&keyword=&frommsgid=&offset=&count=&day=&token=&lang=zh_CN"));
-        //https://mp.weixin.qq.com/也行
         curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
         curl_setopt($curl, CURLOPT_POSTFIELDS, $dataStr); // Post提交的数据包
         curl_setopt($curl, CURLOPT_TIMEOUT, 30); // 设置超时限制防止死循环
@@ -78,7 +77,7 @@ class WeiXinReq {
         curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // 模拟用户使用的浏览器
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
         // curl_setopt($curl, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
-        // curl_setopt($curl, CURLOPT_HTTPHEADER, array("Referer:https://mp.weixin.qq.com/cgi-bin/message?t=message/list&action=&keyword=&frommsgid=&offset=&count=&day=&token=&lang=zh_CN"));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Referer:https://mp.weixin.qq.com/cgi-bin/message?t=message/list&action=&keyword=&frommsgid=&offset=&count=&day=&token=&lang=zh_CN"));
         // curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
         // curl_setopt($curl, CURLOPT_POSTFIELDS, $dataStr); // Post提交的数据包
         curl_setopt($curl, CURLOPT_TIMEOUT, 30); // 设置超时限制防止死循环
@@ -97,7 +96,7 @@ class WeiXinReq {
         if (curl_errno($curl)) {
             // echo 'Errno'.curl_error($curl);//捕抓异常
 
-            return 'Errno'.curl_error($curl);
+            return;
         }
 
         curl_close($curl); // 关闭CURL会话

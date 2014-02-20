@@ -7,7 +7,7 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 
-RewriteRule ^np(.+)/(.+)/(.+)\.act\??(.*)$ index.php/?g=$1&m=$2&a=$3&$4  [L,NE]
+RewriteRule ^np(.+)/(.+)/(.+)\.act$ index.php?g=$1&m=$2&a=$3&%{QUERY_STRING}  [L,NE]
 
 
 

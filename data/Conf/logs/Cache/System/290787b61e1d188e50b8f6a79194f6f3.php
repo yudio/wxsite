@@ -33,11 +33,11 @@
     </tr>
 	 <tr> 
       <td  height="48" align="right"><strong>网站地址：</strong></td>
-      <td><input type="text" name="site_url" value="<?php echo C('site_url');?>" class="ipt" size="45" /><span>&nbsp;&nbsp;例:http://lanrain.cn</span>
+      <td><input type="text" name="site_url" value="<?php echo C('site_url');?>" class="ipt" size="45" /><span>&nbsp;&nbsp;例:http://nicedog.cn</span>
     </tr>  
 	<tr> 
       <td  height="48" align="right"><strong>机器人名称：</strong></td>
-      <td><input type="text" name="site_my" value="<?php echo C('site_my');?>" class="ipt" size="45" /><span>&nbsp;&nbsp;例:http://lanrain.cn</span>
+      <td><input type="text" name="site_my" value="<?php echo C('site_my');?>" class="ipt" size="45" /><span>&nbsp;&nbsp;例:http://nicedog.cn</span>
     </tr> 
 	<tr> 
       <td  height="48" align="right"><strong>审核用户：</strong></td>
@@ -57,7 +57,7 @@
     </tr>
 	<tr> 
       <td  height="48" align="right"><strong>站长Email：</strong></td>
-      <td><input type="text" name="site_email" value="<?php echo C('site_email');?>" class="ipt" size="45" /><span>&nbsp;&nbsp;例如:QQ:server@lanrain.cn</span>
+      <td><input type="text" name="site_email" value="<?php echo C('site_email');?>" class="ipt" size="45" /><span>&nbsp;&nbsp;例如:QQ:server@qq.cn</span>
     </tr>
 	<tr> 
       <td  height="48" align="right"><strong>网站关键词：</strong></td>
@@ -73,7 +73,7 @@
     </tr>
 	<tr> 
       <td  height="48" align="right"><strong>底部　版权：</strong></td>
-      <td><textarea	 type="text" name="copyright" class="ipt" style="width:450px;height:60px;margin:5px 0 5px 0;" /><?php echo C('copyright');?></textarea><span>&nbsp;&nbsp;例:lanrain版权所有</span>
+      <td><textarea	 type="text" name="copyright" class="ipt" style="width:450px;height:60px;margin:5px 0 5px 0;" /><?php echo C('copyright');?></textarea><span>&nbsp;&nbsp;例:奈斯伙伴版权所有</span>
     </tr>
    <input type="hidden" name="files" value="info.php" />
     <tr> 

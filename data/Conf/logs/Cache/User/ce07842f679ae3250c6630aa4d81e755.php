@@ -36,8 +36,8 @@ function getHost()
 
 	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -349,27 +349,83 @@ window.onload =getHost;
 <script src="<?php echo STATICS;?>/kindeditor/kindeditor.js" type="text/javascript"></script>
 <script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
 <script src="<?php echo STATICS;?>/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script src="<?php echo STATICS;?>/inside.js" type="text/javascript"></script>
 <script>
 	KindEditor.ready(function(K){
 		var editor = K.editor({
+            themeType: "simple",
 			allowFileManager:true
 		});
-		K('#upload').click(function() {
-			editor.loadPlugin('image', function() {
+		K('#upload').click(function(e) {
+			editor.loadPlugin('smimage', function() {
 				editor.plugin.imageDialog({
+                    imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
 					fileUrl : K('#pic').val(),
-					clickFn : function(url, title) {
+					/*clickFn : function(url, title) {
 						if(url.indexOf("http") > -1){
 							K('#pic').val(url);
 						}else{
 							K('#pic').val("<?php echo C('site_url');?>"+url);
 						}
 						editor.hideDialog();
-					}
+					}*/
+                    clickFn: function (url, title, width, height, border, align) {
+                        var $input = $(e.target).parent().prevAll("input[type=text]")
+                        $input.val(url)
+                        $input.hide();
+                        var t_img = $(e.target).parent().prevAll(".thumb_img:first");
+                        if (t_img.length == 0) {
+                            var tmp = '<img class="thumb_img" src="{0}" style="max-height: 100px;">';
+                            $input.before(tmp.format(url))
+                        } else {
+                            t_img.attr("src", url);
+                        }
+
+                        editor.hideDialog();
+                    }
 				});
 			});
 		});
 	});
+
+   /* KindEditor.ready(function (K) {
+        var editor = K.editor({
+            themeType: "simple",
+            allowFileManager: true
+
+        });
+        var _mp3_i = 0;
+        K('button.select_img').click(function (e) {
+            editor.loadPlugin('smimage', function () {
+                editor.plugin.imageDialog({
+                    imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                    clickFn: function (url, title, width, height, border, align) {
+                        var $input = $(e.target).parent().prevAll("input[type=text]")
+                        $input.val(url)
+                        $input.hide();
+                        var t_img = $(e.target).parent().prevAll(".thumb_img:first");
+                        if (t_img.length == 0) {
+                            var tmp = '<img class="thumb_img" src="{0}" style="max-height: 100px;">';
+                            $input.before(tmp.format(url))
+                        } else {
+                            t_img.attr("src", url);
+                        }
+
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+        $("#select_bg").change(function () {
+            var v = $(this).val();
+            if (v.length > 0) {
+                $("img.gwbg").attr("src", v)
+                $("#bg_img").val(v);
+            }
+        })
+    });*/
+
+</script>
 </script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 

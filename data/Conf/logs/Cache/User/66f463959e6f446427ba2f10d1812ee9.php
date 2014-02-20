@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -351,7 +351,7 @@ window.onload =getHost;
   
  </div>
          <div class="cLineC" style="line-height: 32px;">
- <a  target="ddd" href="<?php echo U('Classify/add');?>" class="btnGrayS vm bigbtn" >添加文章分类</a>　 
+ <a  target="ddd" href="<?php echo U('Classify/add');?>" class="btnGrayS vm bigbtn" >添加文章分类</a>　
 </div>
  
  <div class="msgWrap form">

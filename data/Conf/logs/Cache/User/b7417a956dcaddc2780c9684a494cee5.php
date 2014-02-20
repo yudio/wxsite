@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -343,7 +343,7 @@ window.onload =getHost;
 		</div>
 	</div>
 	<div id="Content" >
-	</div> 
+	</div>
 <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/cymain.css" />
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
 <div class="cLineB">
@@ -399,7 +399,7 @@ window.onload =getHost;
 <td><?php echo ($hostlist["name"]); ?></td>
 <td><?php echo ($hostlist["price"]); ?>元</td>
 <td><?php echo ($hostlist["keyword"]); ?></td>
-<td><?php echo (date("Y-m-d H:i:s",$hostlist["time"])); ?></td> 
+<td><?php echo (date("Y-m-d H:i:s",$hostlist["time"])); ?></td>
 
 <td class="norightborder"><a href="<?php echo U('Product/set',array('id'=>$hostlist['id'],'token'=>$token,'dining'=>$isDining));?>">修改</a> <a href="javascript:drop_confirm('您确定要删除吗?', '<?php echo U('Product/del',array('id'=>$hostlist['id'],'token'=>$token,'dining'=>$isDining));?>');">删除</a></td>
 </tr><?php endforeach; endif; else: echo "" ;endif; ?>

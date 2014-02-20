@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -375,7 +375,7 @@ window.onload =getHost;
 <div class="cLineB">
   <h4>淘宝天猫店铺配置<span class="FAQ">只需要你填写天猫或淘宝店铺的手机站点地址，简单配置关键词，再在功能管理页面开启此功能，就可以直接通过微信检索店铺内的商品。</span></h4>             
  </div>
-    <div class="msgWrap form"><form method="post"   action="<?php if($taobao['keyword'] != ''): ?>index.php?g=User&m=Taobao&a=edit&token=<?php echo ($_GET['token']); endif; ?>"  enctype="multipart/form-data" >  
+    <div class="msgWrap form"><form method="post"   action="<?php if($taobao['keyword'] != ''): ?>index.php?g=User&m=Taobao&a=edit&token=<?php echo ($_GET['token']); endif; ?>"  enctype="multipart/form-data" >
 <table width="100%" cellspacing="0" cellpadding="0" border="0" class="userinfoArea">
               <tbody>
                <tr>

@@ -119,10 +119,10 @@ $(function(){
 			<img src="tpl/User/default/common/images/cart_info/power1.png" width="50">
 		</div>
 		<div style="float:leftwidth:460px;">
-			<?php echo ($vip["title"]); ?><br/>到期时间：<?php if($vip["enddate"] != false): echo (date('Y/m/d',$vip["enddate"])); else: ?> 暂时无该活动<?php endif; ?>	
+			<?php echo ($vip["title"]); ?><br/>到期时间：<?php if($vip["enddate"] != false): echo (date('Y/m/d',$vip["enddate"])); else: ?> 暂时无该活动<?php endif; ?>
 			
 		</div>
-		<div style="clear:both;background:rgb(230, 230, 230);font-size:12px;display:none;padding:5px;" id="vip"><?php echo (htmlspecialchars_decode($vip["info"])); ?></div>		
+		<div style="clear:both;background:rgb(230, 230, 230);font-size:12px;display:none;padding:5px;" id="vip"><?php echo (htmlspecialchars_decode($vip["info"])); ?></div>
 	</li>
       <!-- 自定义链接在预存余额下面显示 -->
     </ul>
@@ -132,7 +132,7 @@ $(function(){
 			<img src="tpl/User/default/common/images/cart_info/power2.png" width="50">
 		</div>
 		<div style="float:left;">
-			<?php echo ($coupon["title"]); ?><br/>到期时间：<?php if($coupon["enddate"] != false): echo (date('Y/m/d',$coupon["enddate"])); else: ?> 暂时无该活动<?php endif; ?>	
+			<?php echo ($coupon["title"]); ?><br/>到期时间：<?php if($coupon["enddate"] != false): echo (date('Y/m/d',$coupon["enddate"])); else: ?> 暂时无该活动<?php endif; ?>
 			
 		</div>
 		<div style="clear:both;background:rgb(230, 230, 230);font-size:12px;display:none;padding:5px;" id="vip-2"><p><?php echo (htmlspecialchars_decode($coupon["info"])); ?></p></div>
@@ -144,7 +144,7 @@ $(function(){
 			<img src="tpl/User/default/common/images/cart_info/power3.png" width="50">
 		</div>
 		<div style="float:left;">
-			<?php echo ($integral["title"]); ?><br/>到期时间： <?php if($integral["enddate"] != false): echo (date('Y/m/d',$integral["enddate"])); else: ?> 暂时无该活动<?php endif; ?>			
+			<?php echo ($integral["title"]); ?><br/>到期时间： <?php if($integral["enddate"] != false): echo (date('Y/m/d',$integral["enddate"])); else: ?> 暂时无该活动<?php endif; ?>
 		</div>
 		<div style="clear:both;background:rgb(230, 230, 230);font-size:12px;display:none;padding:5px;" id="vip-3"><p><?php echo (htmlspecialchars_decode($integral["info"])); ?></p></div>
 	</li>
