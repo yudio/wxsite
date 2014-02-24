@@ -41,17 +41,17 @@
                         <div class="box-content">
 
 
-                            <form action="/wechat/user" method="post" class="form-horizontal form-validate">
+                            <form action="/npManage/account/updateuser.act" method="post" class="form-horizontal form-validate">
                                 <div class="control-group">
                                     <label for="name" class="control-label">商户名称：</label>
                                     <div class="controls">
-                                        <input type="text" name="name" id="name" class="input-medium" value="funying" data-rule-required="true" /><span class="maroon">*</span>
+                                        <input type="text" name="nickname" id="nickname" class="input-medium" value="{np:$info['nickname']}" data-rule-required="true" /><span class="maroon">*</span>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label for="mobile" class="control-label">手机号码：</label>
                                     <div class="controls">
-                                        <input type="text" name="mobile" id="mobile" class="input-medium" data-rule-required="true" value="18912341234" /><span class="maroon">*</span><span class="help-inline">
+                                        <input type="text" name="mobile" id="mobile" class="input-medium" data-rule-required="true" value="{np:$info['mobile']}" /><span class="maroon">*</span><span class="help-inline">
 
                                         </span>
                                     </div>
@@ -59,13 +59,13 @@
                                 <div class="control-group">
                                     <label for="qq" class="control-label">常用QQ号码：</label>
                                     <div class="controls">
-                                        <input type="text" name="qq" id="qq" class="input-medium" data-rule-required="true" value="" /><span class="maroon">*</span>
+                                        <input type="text" name="qq" id="qq" class="input-medium" data-rule-required="true" value="{np:$info['qq']}" /><span class="maroon">*</span>
                                     </div>
                                 </div>
 								  <div class="control-group">
                                     <label for="email" class="control-label">常用email：</label>
                                     <div class="controls">
-                                        <input type="text" name="email" id="email" class="input-medium" data-rule-required="true" value="123@1.com" /><span class="maroon">*</span>
+                                        <input type="text" name="email" id="email" class="input-medium" data-rule-required="true" value="{np:$info['email']}" /><span class="maroon">*</span>
                                     </div>
                                 </div>
 								  <div class="control-group">

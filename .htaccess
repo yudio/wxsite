@@ -6,7 +6,7 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
-
+RewriteRule ^wechat.wx/(.+)$ index.php/wechat/$1/{QUERY_STRING} [NE]
 RewriteRule ^np(.+)/(.+)/(.+)\.act$ index.php?g=$1&m=$2&a=$3&%{QUERY_STRING}  [L,NE]
 
 

@@ -9,9 +9,9 @@ var G = {
     util: {},
     data: {},
     domain: {
-        w: 'weimob.com',
-        t: 'http://stc.weimob.com',
-        k: 'http://www.weimob.com/wm-xin-a'
+        w: 'yudio.xicp.net',
+        t: 'http://yudio.xicp.net',
+        k: 'http://yudio.xicp.net/tpl/static/wm-xin-a'
     },
     set: {
         KindEditor_seting: {
@@ -936,7 +936,7 @@ G.logic.page = {
     },
     copy: function () {
         ZeroClipboard.setDefaults({
-            moviePath: G.domain.k + "/swf/zeroclipboard.swf"
+            moviePath: G.domain.k + "/zeroclipboard.swf"
         });
         $(".copy_text").each(function (i) {
             var $id = "copy_button{0}".format(i),
@@ -1367,7 +1367,7 @@ G.logic.uploadify = {
         this.live()
     }
 };
-if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a";
+//if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a";
 $(function () {
     G.logic.page.init();
     G.logic.form.init()

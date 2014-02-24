@@ -44,23 +44,24 @@
                                         请输入微信公众平台帐号信息，非微盟帐号。无帐号点击<a href="https://mp.weixin.qq.com" target="_blank">申请</a>
                                     </div>
 
-                                    <form action="/wechat/autobind" method="post" class="form-horizontal form-validate2">
+                                    <form action="/npManage/account/bind.act" method="post" class="form-horizontal form-validate2">
                                         <div class="control-group">
                                             <label class="control-label" for="username">微信公众平台帐号:</label>
                                             <div class="controls">
-                                                <input type="text" name="username" id="username" class="input-large" data-rule-required="true" data-rule-maxlength="60" />
+                                                <input type="text" name="wxaccount" id="username" class="input-large" data-rule-required="true" data-rule-maxlength="60" />
                                                 <span for="username" class="help-block error valid"></span>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label" for="password">密码:</label>
                                             <div class="controls">
-                                                <input type="password" name="password" id="password" class="input-large" data-rule-required="true" data-rule-maxlength="60" />
+                                                <input type="password" name="wxpwd" id="password" class="input-large" data-rule-required="true" data-rule-maxlength="60" />
                                                 <span for="password" class="help-block error valid"></span>
                                             </div>
                                         </div>
                                         <div class="form-actions">
                                             <button id="bsubmit" type="submit" data-loading-text="绑定中..." class="btn btn-primary">智能绑定</button>
+                                            {__TOKEN__}
                                         </div>
                                     </form>
                                     <div class="f14 gray">
@@ -71,7 +72,7 @@
                             </div>
                             <div class="bboxl step2 hide">
                                 <div class="carousel">
-                                    <img src="img/binding/b1.jpg" />
+                                    <img src="{np::RES}/img/binding/b1.jpg" />
                                 </div>
                             </div>
                             <div class="bboxl step3 hide">
@@ -82,7 +83,7 @@
                                             使用个人帐号向您的公众帐号发送一条文本消息“验证”，如收到“绑定成功， 盟妹来了”，表明您已成功完成智能绑定。
                                         </div>
                                         <div class="mb30">
-                                            <a class="btn btn-primary btn-large btn-zdy" id="gotomyaccount" href="/wechat/account" target="_top">进入“微”世界</a>
+                                            <a class="btn btn-primary btn-large btn-zdy" id="gotomyaccount" href="npManage/account/index.act" target="_top">进入“微”世界</a>
                                         </div>
                                         <div class="f14 margin-bm10">
                                             未收到消息，点此<a href="javascript:location.reload()">重新绑定</a>
@@ -93,7 +94,7 @@
                                         </div>
                                     </div>
                                     <div class="mm">
-                                        <img src="img/binding/mm.jpg" />
+                                        <img src="{np::RES}/img/binding/mm.jpg" />
                                         <div class="f14 gray">盟妹来了~  </div>
                                         <div class="f14 gray">关注盟妹，惊喜每一天！</div>
                                     </div>
@@ -191,10 +192,10 @@
                         dataType: 'json',
                         success: function (d) {
                             btn.button('reset');
-							//{"errno":0,"error":"\u60a8\u5f53\u524d\u5fae\u4fe1\u516c\u4f17\u5e73\u53f0\u5e10\u53f7\u7c7b\u578b\u4e3a\u8ba2\u9605\u53f7,\u4f1a\u5b58\u5728\u56e0\u5e10\u53f7\u7c7b\u578b\u6743\u9650\u9020\u6210\u529f\u80fd\u65e0\u6cd5\u4f7f\u7528\u7684\u95ee\u9898\u3002","pid":69535}
+							//{"errno":0,"error":"信息","pid":69535}
                             if (d.errno == 0) {
 								// 修改跳转链接
-								var url = '/wechat/index/aid/' + d.pid;
+								var url = '/npManage/account/index.act' + d.pid;
 								$('#gotomyaccount').attr('href', url);
 
 								$('#suc_tip').html(d.error);
@@ -245,7 +246,7 @@
                     if ($step > 0 && v > 0) {
                         $('.easypiechart:eq(' + $step + ')').data('easyPieChart').update(100);
                         $(".carousel img").fadeOut('fast', function () {
-                            $(".carousel img").attr("src", ("img/binding/b{0}.jpg".format($step + 1)));
+                            $(".carousel img").attr("src", ("{np::RES}/img/binding/b{0}.jpg".format($step + 1)));
                         });
                         $(".carousel img").fadeIn('slow');
                     }

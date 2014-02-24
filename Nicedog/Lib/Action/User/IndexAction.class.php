@@ -69,7 +69,7 @@ class IndexAction extends UserAction{
         //;
         //print_r($wxclient->getContact());
         preg_match('/totalCount : \'(.*)\'/Us',$wxclient->getContact(),$res);
-        print_r($res[1]);
+        print_r($wxclient->getNickName());
         exit;
         //print_r($wxclient->getContact());
     }

@@ -10,7 +10,7 @@ if (get_magic_quotes_gpc()) {
     $_GET = array_map('stripslashes_deep', $_GET);
     $_COOKIE = array_map('stripslashes_deep', $_COOKIE);
 }
-define('APP_NAME', 'cms');
+define('APP_NAME', '');
 define('CONF_PATH','./data/conf/');
 define('TMPL_PATH','./tpl/');
 define('HTML_PATH','./data/html/');

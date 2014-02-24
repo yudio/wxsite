@@ -29,7 +29,7 @@
 	<h3>奈斯伙伴官方动态</h3>
     <div class="con dcon">
     <div class="kjnav">
-    <a href="http://hifeng.cn">使用帮助</a><a href="http://hifeng.cn">技术售后</a><a href="http://hifeng.cn">安装指导</a><a href="http://hifeng.cn">联系我们</a><a href="http://hifeng.cn">升级咨询</a>
+    <a href="http://yudio.xicp.net">使用帮助</a><a href="http://yudio.xicp.net">技术售后</a><a href="http://yudio.xicp.net">安装指导</a><a href="http://yudio.xicp.net">联系我们</a><a href="http://yudio.xicp.net">升级咨询</a>
     </div>
     <ul class="myinfo kjinfo">
    <li class="title">售后服务范围</li>

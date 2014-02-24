@@ -1367,7 +1367,7 @@ G.logic.uploadify = {
         this.live()
     }
 };
-if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a";
+//if (!((/localhost/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a";
 $(function () {
     G.logic.page.init();
     G.logic.form.init()
