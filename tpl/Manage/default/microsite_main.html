@@ -281,7 +281,7 @@
                     <a href="/npManage/member/addcard.act">会员卡设置</a>
                 </li>
                 <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">微信会员管理</a>
+                    <a href="/npManage/member/memberlist.act">微信会员管理</a>
                 </li>
                 <li>
                     <a href="/tg/manager/goods/indexPage/aid/72040">实体店会员管理</a>

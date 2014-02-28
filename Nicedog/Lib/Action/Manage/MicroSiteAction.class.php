@@ -37,7 +37,7 @@ class MicroSiteAction extends UserAction{
      * 获取接口地址
      */
     public function getAPIAddr(){
-        return array('url'=>CURL_SITE.'/wechat.wx/'.sesson('token').'?wechatid=fromUsername','token'=>session('token'));
+        return array('url'=>CURL_SITE.'/wechat/'.session('token').'?wechatid=fromUsername','token'=>session('token'));
     }
     //微官网配置
     public function set(){
@@ -50,6 +50,7 @@ class MicroSiteAction extends UserAction{
                 if ($db->create() === false) {
                     $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');//error($db->getError());
                 } else {
+                    $_POST['token'] = session('token');
                     $id = $db->add();
                     $data['pid']     = $id;
                     $data['module']  = 'Home';

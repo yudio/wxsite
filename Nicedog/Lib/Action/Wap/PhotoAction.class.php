@@ -2,9 +2,9 @@
 class PhotoAction extends BaseAction{
 	public function index(){
 		$agent = $_SERVER['HTTP_USER_AGENT']; 
-		if(!strpos($agent,"MicroMessenger")) {
+		/*if(!strpos($agent,"MicroMessenger")) {
 			echo '此功能只能在微信浏览器中使用';exit;
-		}
+		}*/
 		$token=$this->_get('token');
 		if($token==false){
 			echo '数据不存在';exit;

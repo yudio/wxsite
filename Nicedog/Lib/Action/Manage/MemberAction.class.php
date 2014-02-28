@@ -87,6 +87,28 @@ class MemberAction extends UserAction{
         }
         $this->display();
     }
+    /*
+     *
+     * 微信用户管理aid:78071/keyword-input:samon/integral-grade:/type:
+     */
+    public function memberlist(){
+        $type = $this->_get('type');
+        $keys = $this->_get('keyword-input');
+        $integral = $this->_get('integral-grade');
+        $db=M('Userinfo');
+        //$where['uid']=session('uid');
+        $where['token']=session('token');
+        if ($type){
+            $where['type'] = $type;
+        }
+        if ($keys){$where['keyword'] = array('like','%'.$keys.'%');}
+        $count=$db->where($where)->count();
+        $page=new Page($count,25);
+        $info=$db->where($where)->order('getcardtime DESC')->limit($page->firstRow.','.$page->listRows)->select();
+        $this->assign('page',$page->show());
+        $this->assign('info',$info);
+        $this->display();
+    }
 
 }
 
