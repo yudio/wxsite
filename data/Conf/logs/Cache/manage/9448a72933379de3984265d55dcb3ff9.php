@@ -55,46 +55,6 @@
                                     <input type="text" name="wxname" id="plc_name" class="input-medium" data-rule-required="true" value=""><span class="maroon">*</span>
                                 </div>
                             </div>
-
-
-                            <!--
-
-                                                            <div class="control-group">
-                                                                <label class="control-label">公众帐号类型：</label>
-                                                                <div class="controls">
-                                                                        <label class="radio inline"><input type="radio"  name="account_type" value="1">订阅号</label>
-                                                                        <label class="radio inline"><input type="radio"  name="account_type" value="2">服务号</label>
-                                                                 </div>
-                                                            </div>
-                            <div id="server_id" class="hide">
-                            <!--                                 <div class="control-group">
-                                                                <label for="account_is_auth" class="control-label">公众帐号已认证：</label>
-                                                                <div class="controls">
-                                                                        <input type="checkbox" value="1"  name="account_is_auth">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="control-group">
-                                                                <label for="appid" class="control-label">AppId：</label>
-                                                                <div class="controls">
-                                                                <input type="text"  name="appid" id="appid" class="span4" value="" data-rule-required="true">
-                                                                <span>公众平台申请到的AppId</span><span class="maroon">*</span></div>
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <label for="appid" class="control-label">AppSecret：</label>
-                                                                <div class="controls">
-                                                                <input type="text"  name="appsecret" id="appsecret" class="span4" value="" data-rule-required="true">
-                                                                <span>公众平台申请到的AppSecret</span><span class="maroon">*</span></div>
-                                                            </div>
-
-                            </div>
-
-
-
-                            -->
-
-
-
                             <div class="control-group">
                                 <label for="wxid" class="control-label">公众号原始id：</label>
                                 <div class="controls">
@@ -127,11 +87,11 @@
                                 <label class="control-label">地区：</label>
 
                                 <div class="controls">
-                                    <select name="location_p" id="location_p" ></select>
-                                    <select name="location_c" id="location_c" ></select>
-                                    <select name="location_a" id="location_a" ></select>
+                                    <select name="province" id="province" ></select>
+                                    <select name="city" id="city" ></select>
+                                    <select name="town" id="town" ></select>
                                     <script type="text/javascript">
-                                        new PCAS('location_p', 'location_c', 'location_a', '', '', '');
+                                        new PCAS('province', 'city', 'town', '', '', '');
                                     </script>
                                 </div>
 

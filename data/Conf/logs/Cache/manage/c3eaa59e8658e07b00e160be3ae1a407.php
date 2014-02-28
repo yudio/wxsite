@@ -105,7 +105,7 @@
                         <div class="box-content">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="javascript:;">卡片设置</a> </li>
-                                <li><a href="/newmembertrade/DefineMemberFields?aid=73272">会员资料设置</a></li>
+                                <li><a href="/npManage/member/memberFields.act">会员资料设置</a></li>
                                 <li><a href="/newmembercard/listmemberprivilege?aid=73272">会员卡特权</a></li>
                                 <li><a href="/newmembercard/Listprogram?aid=73272">业务关联</a></li>
                                 <li><a href="/newmembercard/setScore?aid=73272">等级设置</a></li>

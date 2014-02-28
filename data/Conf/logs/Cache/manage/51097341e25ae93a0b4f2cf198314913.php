@@ -82,8 +82,8 @@
                                     <div class="control-group">
                                     	<label class="control-label" for="logo">图文消息封面</label>
                                     	<div class="controls">
-                                        	    <img id="thumb_img" src="<?php echo ($info["logo"]); ?>" style="max-height:100px;" />
-                                            	<input id="thumb" type="hidden" name="logo" value="<?php echo ($info["logo"]); ?>" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
+                                        	    <img id="thumb_img" src="<?php echo (($info["logo"])?($info["logo"]):RES."/img/card_cover1.jpg"); ?>" style="max-height:100px;" />
+                                            	<input id="thumb" type="hidden" name="logo" value="<?php echo (($info["logo"])?($info["logo"]):RES."/img/card_cover1.jpg"); ?>" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
                                         	                                        	<span class="help-inline" style="margin-top:3px;">
                                             	<a class="btn" id="insertimage">选择封面</a>
                                         	</span>
