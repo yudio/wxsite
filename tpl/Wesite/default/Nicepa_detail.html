@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>微盟—国内最大的微信公众智能服务平台</title>
+<title>奈斯伙伴—国内最大的微信公众智能服务平台</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-        <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-        <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+        <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+        <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
         <!-- Mobile Devices Support @begin -->
             <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
             <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -119,7 +119,7 @@
 				"timeLineLink": "/weisite/detail?pid=1071&bid=5&did=1596&wechatid=fromUsername&from=list&wxref=mp.weixin.qq.com",
 				"sendFriendLink": "/weisite/detail?pid=1071&bid=5&did=1596&wechatid=fromUsername&from=list&wxref=mp.weixin.qq.com",
 				"weiboLink": "/weisite/detail?pid=1071&bid=5&did=1596&wechatid=fromUsername&from=list&wxref=mp.weixin.qq.com",
-				"tTitle": "微盟—国内最大的微信公众智能服务平台",
+				"tTitle": "奈斯伙伴—国内最大的微信公众智能服务平台",
 				"tContent": "<p style="color:#000000;text-indent:0px;" align="left">
 	<span style="color:#000000;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;微盟是一个专门针对微信公众账号提供营销推广服务的第三方平台。主要功能是针对微信商家公众号提供与众不同的、有针对性的营销推广服务。通过微盟平台，用户可以轻松管理自己的微信各类信息，对微信公众账号进行维护、开展智能机器人、在线发优惠劵、抽奖、刮奖、派发会员卡、打造微官网、开启微团购等多种活动，对微信营销实现有效监控，极大扩展潜在客户群和实现企业的运营目标。微盟平台很好的弥补了微信公众平台本身功能不足、针对性不强、交互不便利的问题，为商家公众账号提供更为贴心的、且是核心需求的功能和服务。在线优惠劵、转盘抽奖、微信会员卡等推广服务更是让微信成为商家推广的利器。智能客服的可调教功能让用户真正从微信繁琐的日常客服工作中解脱出来，真正成为商家便利的新营销渠道。</span>
 </p>
@@ -131,7 +131,7 @@
 	<strong><span style="color:#009900;font-size:16px;">微盟八大“微体系”</span></strong>
 </p>
 <p style="color:#000000;text-indent:0px;" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 微盟，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 奈斯伙伴，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
 </p>
 <span style="color: rgb(229, 102, 0); font-family: ;" arial="" black?;font-size:18px;font-style:normal;font-weight:normal;?="">
 <p align="left">
@@ -297,7 +297,7 @@
 <p>
 	<br />
 </p>",
-				"fTitle": "微盟—国内最大的微信公众智能服务平台",
+				"fTitle": "奈斯伙伴—国内最大的微信公众智能服务平台",
 				"fContent": "<p style="color:#000000;text-indent:0px;" align="left">
 	<span style="color:#000000;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;微盟是一个专门针对微信公众账号提供营销推广服务的第三方平台。主要功能是针对微信商家公众号提供与众不同的、有针对性的营销推广服务。通过微盟平台，用户可以轻松管理自己的微信各类信息，对微信公众账号进行维护、开展智能机器人、在线发优惠劵、抽奖、刮奖、派发会员卡、打造微官网、开启微团购等多种活动，对微信营销实现有效监控，极大扩展潜在客户群和实现企业的运营目标。微盟平台很好的弥补了微信公众平台本身功能不足、针对性不强、交互不便利的问题，为商家公众账号提供更为贴心的、且是核心需求的功能和服务。在线优惠劵、转盘抽奖、微信会员卡等推广服务更是让微信成为商家推广的利器。智能客服的可调教功能让用户真正从微信繁琐的日常客服工作中解脱出来，真正成为商家便利的新营销渠道。</span>
 </p>
@@ -309,7 +309,7 @@
 	<strong><span style="color:#009900;font-size:16px;">微盟八大“微体系”</span></strong>
 </p>
 <p style="color:#000000;text-indent:0px;" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 微盟，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 奈斯伙伴，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
 </p>
 <span style="color: rgb(229, 102, 0); font-family: ;" arial="" black?;font-size:18px;font-style:normal;font-weight:normal;?="">
 <p align="left">
@@ -486,7 +486,7 @@
 	<strong><span style="color:#009900;font-size:16px;">微盟八大“微体系”</span></strong>
 </p>
 <p style="color:#000000;text-indent:0px;" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 微盟，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 奈斯伙伴，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
 </p>
 <span style="color: rgb(229, 102, 0); font-family: ;" arial="" black?;font-size:18px;font-style:normal;font-weight:normal;?="">
 <p align="left">
@@ -695,7 +695,7 @@
 	</script>
 				<section class="news_article">
 			<header>
-				<h3 style="font-size:14px;">微盟—国内最大的微信公众智能服务平台</h3>
+				<h3 style="font-size:14px;">奈斯伙伴—国内最大的微信公众智能服务平台</h3>
 				<small class="gray">2013.08.28</small>
 			</header>
 			<article>
@@ -712,7 +712,7 @@
 	<strong><span style="color:#009900;font-size:16px;">微盟八大“微体系”</span></strong>
 </p>
 <p style="color:#000000;text-indent:0px;" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 微盟，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 奈斯伙伴，国内最大的微营销联盟，八大微体系为企业微信营销保驾护驾。微官网，微会员、微活动、微服务、微预约、微团购、微商城、微支付，企业微信营销必备。
 </p>
 <span style="color: rgb(229, 102, 0); font-family: ;" arial="" black?;font-size:18px;font-style:normal;font-weight:normal;?="">
 <p align="left">
