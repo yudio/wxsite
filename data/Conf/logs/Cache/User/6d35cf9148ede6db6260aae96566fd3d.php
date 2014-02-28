@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -362,7 +362,7 @@ window.onload =getHost;
   </TD>
   <TD rowspan="7" valign="top">
 	  <div style="margin-left:20px">
-		<img id="pic" src="<?php if($vo['starpicurl'] == ''): echo RES;?>/images/img/activity-zadan-start.jpg<?php else: echo ($vo["starpicurl"]); endif; ?>" width="373px" >	
+		<img id="pic" src="<?php if($vo['starpicurl'] == ''): echo RES;?>/images/img/activity-zadan-start.jpg<?php else: echo ($vo["starpicurl"]); endif; ?>" width="373px" >
 		<br />
 		<input class="px"  name="starpicurl" value="<?php if($vo['starpicurl'] == ''): echo C('site_url');?>/tpl/User/default/common/images/img/activity-zadan-start.jpg<?php else: echo ($vo["starpicurl"]); endif; ?>"   onclick="document.getElementById('pic').src=this.value;" style="width:363px;"  />
 		<br /><input name="type" value="4" type="hidden"   />

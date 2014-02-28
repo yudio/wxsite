@@ -1,65 +1,76 @@
 <?php
+
 class WeixinAction extends Action
 {
     private $token;
     private $fun;
     private $data = array();
     private $my = '奈斯伙伴';
+
     public function index()
     {
         $this->token = $this->_get('token');
-        $weixin      = new Wechat($this->token);
-        $data        = $weixin->request();
-        $this->data  = $weixin->request();
-        $this->my    = C('site_my');
+        $weixin = new Wechat($this->token);
+        $data = $weixin->request();
+        $this->data = $weixin->request();
+        $this->my = C('site_my');
         list($content, $type) = $this->reply($data);
         //测试接口记录
         $vo = M('Actlog');
         $arr = array();
         $arr['act_url'] = "HTTP";
         $arr['act_date'] = date("Y-m-d H:i:s");
-        $arr['act_data'] = $data['orgin'];//is_array($weixin->request());//explode('|',$weixin->request());
+        $arr['act_data'] = $data['orgin']; //is_array($weixin->request());//explode('|',$weixin->request());
 
-		$weixin->response($content, $type);
+        $weixin->response($content, $type);
         $arr['act_reply'] = $weixin->getXMLRES();
         $vo->add($arr);
         $weixin->close($weixin->getXMLRES());
 
     }
+
     private function reply($data)
     {
         if ('CLICK' == $data['Event']) {
+            LOG::write("CLICK",LOG::INFO);
             $data['Content'] = $data['EventKey'];
         }
         if ('subscribe' == $data['Event']) {
-			
-			$follow_data['follow_form_id']=$data['FromUserName'];
-			$follow_data['follow_to_id']=$data['ToUserName'];
-			$follow_data['follow_time']=$data['CreateTime'];
-			$foloow_lists = M('Follow')->add($follow_data);
-			
+            LOG::write("SUBSCRIBE OPEN",LOG::INFO);
+            $follow_data['follow_form_id'] = $data['FromUserName'];
+            $follow_data['follow_to_id'] = $data['ToUserName'];
+            $follow_data['follow_time'] = $data['CreateTime'];
+            $foloow_lists = M('Follow')->add($follow_data);
+
             $this->requestdata('follownum');
             $data = M('Areply')->field('home,keyword,content')->where(array(
                 'token' => $this->token
             ))->find();
-            if ($data['keyword'] == '首页' || $data['keyword'] == 'home') {
-                return $this->shouye();
+            LOG::write("[SUB-HOMESTR]",LOG::INFO);
+            $homestr = M('Home')->field('wxkey')->where(array('token' => $this->token))->find();
+            if ($homestr) {
+                $key = $data['keyword'];
+                $homedata = explode(' ',trim($homestr['wxkey']));
+                LOG::write("[KEY=>{$key}][HOMESTR=>".$homestr['wxkey']."]",LOG::INFO);
+                if (in_array(mb_strtoupper($key,'UTF-8'),$homedata)){
+                    return $this->shouye();
+                }
             }
             if ($data['home'] == 1) {
                 $like['keyword'] = array(
                     'like',
                     '%' . $data['keyword'] . '%'
                 );
-                $like['token']   = $this->token;
-                $back            = M('Img')->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($like)->select();
+                $like['token'] = $this->token;
+                $back = M('Img')->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($like)->select();
                 foreach ($back as $keya => $infot) {
                     if ($infot['url'] != false) {
                         $url = $infot['url'];
                     } else {
                         $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array(
-                            'token' => $this->token,
-                            'id' => $infot['id']
-                        ));
+                                'token' => $this->token,
+                                'id' => $infot['id']
+                            ));
                     }
                     $return[] = array(
                         $infot['title'],
@@ -78,24 +89,35 @@ class WeixinAction extends Action
                     'text'
                 );
             }
-        }elseif ('unsubscribe' == $data['Event']) {
-			$follow_data['follow_form_id']=$data['FromUserName'];
-			$follow_data['follow_to_id']=$data['ToUserName'];
-			
-			$foloow_del= M('Follow')->where($follow_data)->delete();
-		
+        } elseif ('unsubscribe' == $data['Event']) {
+            $follow_data['follow_form_id'] = $data['FromUserName'];
+            $follow_data['follow_to_id'] = $data['ToUserName'];
+
+            $foloow_del = M('Follow')->where($follow_data)->delete();
+
             $this->requestdata('unfollownum');
         }
-        $Pin       = new GetPin();
-        $key       = $data['Content'];
-        $open      = M('Token_open')->where(array(
+        $key = $data['Content'];
+        //主页过滤
+        LOG::write("[HOMESTR]",LOG::INFO);
+        $homestr  = M('Home')->field('wxkey')->where(array('token' => $this->token))->find();
+        if ($homestr){
+            $homedata = explode(' ',trim($homestr['wxkey']));
+            LOG::write("[KEY=>{$key}][HOMESTR=>".$homestr['wxkey']."]",LOG::INFO);
+            if (in_array(mb_strtoupper($key,'UTF-8'),$homedata)){
+                return $this->shouye();
+            }
+        }
+        LOG::write("TOKEN OPEN",LOG::INFO);
+        $Pin = new GetPin();
+        $open = M('Token_open')->where(array(
             'token' => $this->_get('token')
         ))->find();
         $this->fun = $open['queryname'];
-        $datafun   = explode(',', $open['queryname']);
-        $tags      = $this->get_tags($key);
-        $back      = explode(',', $tags);
-        foreach ($back as $keydata => $data) {   //开放功能模块过滤
+        $datafun = explode(',', $open['queryname']);
+        $tags = $this->get_tags($key);
+        $back = explode(',', $tags);
+        foreach ($back as $keydata => $data) { //开放功能模块过滤
             $string = $Pin->Pinyin($data);
             if (in_array($string, $datafun)) {
                 $check = $this->user('connectnum');
@@ -112,6 +134,7 @@ class WeixinAction extends Action
                 continue;
             }
         }
+        LOG::write("RETURN VALUE",LOG::INFO);
         if (!empty($return)) {
             if (is_array($return)) {
                 return $return;
@@ -122,6 +145,7 @@ class WeixinAction extends Action
                 );
             }
         } else {
+            LOG::write("Location_X",LOG::INFO);
             if ($this->data['Location_X']) {
                 $this->recordLastRequest($this->data['Location_Y'] . ',' . $this->data['Location_X'], 'location');
                 return $this->map($this->data['Location_X'], $this->data['Location_Y']);
@@ -129,7 +153,7 @@ class WeixinAction extends Action
             if (!(strpos($key, '开车去') === FALSE) || !(strpos($key, '坐公交') === FALSE) || !(strpos($key, '步行去') === FALSE)) {
                 $this->recordLastRequest($key);
                 $user_request_model = M('User_request');
-                $loctionInfo        = $user_request_model->where(array(
+                $loctionInfo = $user_request_model->where(array(
                     'token' => $this->_get('token'),
                     'msgtype' => 'location',
                     'uid' => $this->data['FromUserName']
@@ -143,6 +167,7 @@ class WeixinAction extends Action
                     'text'
                 );
             }
+            LOG::write("FUNCTION",LOG::INFO);
             switch ($key) {
                 case '首页':
                     return $this->home();
@@ -155,7 +180,7 @@ class WeixinAction extends Action
                 case '最近的':
                     $this->recordLastRequest($key);
                     $user_request_model = M('User_request');
-                    $loctionInfo        = $user_request_model->where(array(
+                    $loctionInfo = $user_request_model->where(array(
                         'token' => $this->_get('token'),
                         'msgtype' => 'location',
                         'uid' => $this->data['FromUserName']
@@ -172,16 +197,16 @@ class WeixinAction extends Action
                 case '帮助':
                     return $this->help();
                     break;
-				case '笑话':
+                case '笑话':
                     return $this->xiaohua();
                     break;
-				case '快递':
+                case '快递':
                     return $this->kuaidi();
                     break;
-				case '公交':
+                case '公交':
                     return $this->gongjiao();
                     break;
-				case '火车':
+                case '火车':
                     return $this->huoche();
                     break;
                 case 'help':
@@ -190,7 +215,7 @@ class WeixinAction extends Action
                 case '会员卡':
                     return $this->member();
                     break;
-				case '身份证':
+                case '身份证':
                     return $this->shenfenzheng();
                     break;
                 case '会员':
@@ -202,9 +227,9 @@ class WeixinAction extends Action
                 case '相册':
                     return $this->xiangce();
                     break;
-				// case '留言':
-					// return $this->liuyan();
-					// break;
+                // case '留言':
+                // return $this->liuyan();
+                // break;
                 case '商城':
                     /*$pro = M('product')->where(array(
                         'groupon' => '0',
@@ -222,7 +247,7 @@ class WeixinAction extends Action
                         ),
                         'news'
                     );*/
-					$pro = M('reply_info')->where(array(
+                    $pro = M('reply_info')->where(array(
                         'infotype' => 'Shop',
                         'token' => $this->token
                     ))->find();
@@ -238,8 +263,8 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-				case '全景':
-					$pro = M('reply_info')->where(array(
+                case '全景':
+                    $pro = M('reply_info')->where(array(
                         'infotype' => 'Panorama',
                         'token' => $this->token
                     ))->find();
@@ -255,8 +280,8 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-				case '留言':
-					$pro = M('reply_info')->where(array(
+                case '留言':
+                    $pro = M('reply_info')->where(array(
                         'infotype' => 'Liuyan',
                         'token' => $this->token
                     ))->find();
@@ -272,8 +297,8 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-				case '预约':
-					$pro = M('reply_info')->where(array(
+                case '预约':
+                    $pro = M('reply_info')->where(array(
                         'infotype' => 'Yuyue',
                         'token' => $this->token
                     ))->find();
@@ -336,7 +361,7 @@ class WeixinAction extends Action
                         'news'
                     );
 					*/
-					$pro = M('reply_info')->where(array(
+                    $pro = M('reply_info')->where(array(
                         'infotype' => 'Groupon',
                         'token' => $this->token
                     ))->find();
@@ -365,19 +390,20 @@ class WeixinAction extends Action
             }
         }
     }
+
     function xiangce()
     {
-        $photo           = M('Photo')->where(array(
+        $photo = M('Photo')->where(array(
             'token' => $this->token,
             'status' => 1
         ))->find();
-        $data['title']   = $photo['title'];
+        $data['title'] = $photo['title'];
         $data['keyword'] = $photo['info'];
-        $data['url']     = rtrim(C('site_url'), '/') . U('Wap/Photo/index', array(
-            'token' => $this->token,
-            'wecha_id' => $this->data['FromUserName']
-        ));
-        $data['picurl']  = $photo['picurl'] ? $photo['picurl'] : rtrim(C('site_url'), '/') . '/tpl/static/images/yj.jpg';
+        $data['url'] = rtrim(C('site_url'), '/') . U('Wap/Photo/index', array(
+                'token' => $this->token,
+                'wecha_id' => $this->data['FromUserName']
+            ));
+        $data['picurl'] = $photo['picurl'] ? $photo['picurl'] : rtrim(C('site_url'), '/') . '/tpl/static/images/yj.jpg';
         return array(
             array(
                 array(
@@ -390,36 +416,37 @@ class WeixinAction extends Action
             'news'
         );
     }
-	// function liuyan(){
-		// $liuyan = M('liuyan')->where(array(
-            // 'token' => $this->token,
-            // 'status' => 1
-        // ))->find();
-		// $data['title']   = $liuyan['title'];
-        // $data['keyword'] = $liuyan['keyword'];
-        // $data['url']     = rtrim(C('site_url'), '/') . U('Wap/Liuyan/index', array(
-            // 'token' => $this->token,
-            // 'wecha_id' => $this->data['FromUserName']
-        // ));
-        // $data['pic']  = $liuyan['pic'] ? $liuyan['pic'] : rtrim(C('site_url'), '/') . '/tpl/static/images/02.jpg';
-        // return array(
-            // array(
-                // array(
-                    // $data['title'],
-                    // $data['keyword'],
-                    // $data['pic'],
-                    // $data['url']
-                // )
-            // ),
-            // 'news'
-        // );
-	// }
+    // function liuyan(){
+    // $liuyan = M('liuyan')->where(array(
+    // 'token' => $this->token,
+    // 'status' => 1
+    // ))->find();
+    // $data['title']   = $liuyan['title'];
+    // $data['keyword'] = $liuyan['keyword'];
+    // $data['url']     = rtrim(C('site_url'), '/') . U('Wap/Liuyan/index', array(
+    // 'token' => $this->token,
+    // 'wecha_id' => $this->data['FromUserName']
+    // ));
+    // $data['pic']  = $liuyan['pic'] ? $liuyan['pic'] : rtrim(C('site_url'), '/') . '/tpl/static/images/02.jpg';
+    // return array(
+    // array(
+    // array(
+    // $data['title'],
+    // $data['keyword'],
+    // $data['pic'],
+    // $data['url']
+    // )
+    // ),
+    // 'news'
+    // );
+    // }
     function companyMap()
     {
         import("Home.Action.MapAction");
         $mapAction = new MapAction();
         return $mapAction->staticCompanyMap();
     }
+
     function shenhe($name)
     {
         $name = implode('', $name);
@@ -435,9 +462,9 @@ class WeixinAction extends Action
                 $up = M('users')->where(array(
                     'id' => $user['id']
                 ))->save(array(
-                    'status' => 1,
-                    'viptime' => strtotime("+1 day")
-                ));
+                        'status' => 1,
+                        'viptime' => strtotime("+1 day")
+                    ));
                 if ($up != false) {
                     return '主人' . $this->my . '恭喜您,您的帐号已经审核,您现在可以登陆平台测试功能啦!';
                 } else {
@@ -446,13 +473,15 @@ class WeixinAction extends Action
             }
         }
     }
+
     function huiyuanka($name)
     {
         return $this->member();
     }
+
     function member()
     {
-        $card     = M('member_card_create')->where(array(
+        $card = M('member_card_create')->where(array(
             'token' => $this->token,
             'wecha_id' => $this->data['FromUserName']
         ))->find();
@@ -460,21 +489,21 @@ class WeixinAction extends Action
             'token' => $this->token
         ))->find();
         if ($card == false) {
-            $data['picurl']  = rtrim(C('site_url'), '/') . '/tpl/static/images/member.jpg';
-            $data['title']   = '会员卡,省钱，打折,促销，优先知道,有奖励哦';
+            $data['picurl'] = rtrim(C('site_url'), '/') . '/tpl/static/images/member.jpg';
+            $data['title'] = '会员卡,省钱，打折,促销，优先知道,有奖励哦';
             $data['keyword'] = '尊贵vip，是您消费身份的体现,会员卡,省钱，打折,促销，优先知道,有奖励哦';
-            $data['url']     = rtrim(C('site_url'), '/') . U('Wap/Card/get_card', array(
-                'token' => $this->token,
-                'wecha_id' => $this->data['FromUserName']
-            ));
+            $data['url'] = rtrim(C('site_url'), '/') . U('Wap/Card/get_card', array(
+                    'token' => $this->token,
+                    'wecha_id' => $this->data['FromUserName']
+                ));
         } else {
-            $data['picurl']  = rtrim(C('site_url'), '/') . '/tpl/static/images/vip.jpg';
-            $data['title']   = $cardInfo['cardname'];
+            $data['picurl'] = rtrim(C('site_url'), '/') . '/tpl/static/images/vip.jpg';
+            $data['title'] = $cardInfo['cardname'];
             $data['keyword'] = $cardInfo['msg'];
-            $data['url']     = rtrim(C('site_url'), '/') . U('Wap/Card/vip', array(
-                'token' => $this->token,
-                'wecha_id' => $this->data['FromUserName']
-            ));
+            $data['url'] = rtrim(C('site_url'), '/') . U('Wap/Card/vip', array(
+                    'token' => $this->token,
+                    'wecha_id' => $this->data['FromUserName']
+                ));
         }
         return array(
             array(
@@ -488,6 +517,7 @@ class WeixinAction extends Action
             'news'
         );
     }
+
     function taobao($name)
     {
         $name = array_merge($name);
@@ -515,6 +545,7 @@ class WeixinAction extends Action
             return '商家还未及时更新淘宝店铺的信息,回复帮助,查看功能详情';
         }
     }
+
     function choujiang($name)
     {
         $data = M('lottery')->field('id,keyword,info,title,starpicurl')->where(array(
@@ -530,11 +561,11 @@ class WeixinAction extends Action
         }
         $pic = $data['starpicurl'] ? $data['starpicurl'] : rtrim(C('site_url'), '/') . '/tpl/User/default/common/images/img/activity-lottery-start.jpg';
         $url = rtrim(C('site_url'), '/') . U('Wap/Lottery/index', array(
-            'type' => 1,
-            'token' => $this->token,
-            'id' => $data['id'],
-            'wecha_id' => $this->data['FromUserName']
-        ));
+                'type' => 1,
+                'token' => $this->token,
+                'id' => $data['id'],
+                'wecha_id' => $this->data['FromUserName']
+            ));
         return array(
             array(
                 array(
@@ -547,83 +578,102 @@ class WeixinAction extends Action
             'news'
         );
     }
+
+
+    /*
+     *
+     * 图文消息关联地址url[string] = fun(infot[Img])
+     */
+    public function getRelatedImg($infot){
+        if ($infot['url'] != false) {
+            if (!(strpos($infot['url'], 'http') === FALSE)) {
+                $url = $infot['url'];
+            } else {
+                $urlInfos = explode(' ', $infot['url']);
+                switch ($urlInfos[0]) {
+                    case '刮刮卡':
+                        $url = C('site_url') . U('Wap/Guajiang/index', array(
+                                'token' => $this->token,
+                                'wecha_id' => $this->data['FromUserName'],
+                                'id' => $urlInfos[1]
+                            ));
+
+                        break;
+                    case '砸金蛋':
+                        $url = C('site_url') . U('Wap/Zadan/index', array(
+                                'token' => $this->token,
+                                'wecha_id' => $this->data['FromUserName'],
+                                'id' => $urlInfos[1]
+                            ));
+
+                        break;
+                    case '大转盘':
+                        $url = C('site_url') . U('Wap/Lottery/index', array(
+                                'token' => $this->token,
+                                'wecha_id' => $this->data['FromUserName'],
+                                'id' => $urlInfos[1]
+                            ));
+                        break;
+                    case '商家订单':
+                        $url = C('site_url') . '/index.php?g=Wap&m=Host&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'] . '&hid=' . $urlInfos[1];
+                        break;
+                    case '优惠券':
+                        $url = C('site_url') . U('Wap/Coupon/index', array(
+                                'token' => $this->token,
+                                'wecha_id' => $this->data['FromUserName'],
+                                'id' => $urlInfos[1]
+                            ));
+                        break;
+                }
+            }
+        } else {
+            $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array(
+                    'token' => $this->token,
+                    'id' => $infot['id']
+                ));
+        }
+        return $url;
+    }
+
     function keyword($key)
     {
         $like['keyword'] = array(
             'like',
             '%' . $key . '%'
         );
-        $like['token']   = $this->token;
-        $data            = M('keyword')->where($like)->order('id desc')->find();
+        $like['token'] = $this->token;
+        LOG::write('关键字匹配'.$key,LOG::ERR);
+        $data = M('keyword')->where($like)->order('id desc')->find();
         if ($data != false) {
             switch ($data['module']) {
                 case 'Img':
+                    LOG::write('组装多图文'.$key,LOG::ERR);
                     $this->requestdata('imgnum');
-                    $img_db   = M($data['module']);
-                    $back     = $img_db->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($like)->select();
-                    $idsWhere = 'id in (';
-                    $comma    = '';
+                    $img_db = M($data['module']);
+                    //多图文关联
+                    $imgmsg = $img_db->field('id,text,pic,url,title,news')->where($like)->find();
+                    LOG::write('图文'.$imgmsg['id'],LOG::ERR);
+                    $return[] = array(
+                        $imgmsg['title'],
+                        $imgmsg['text'],
+                        $imgmsg['pic'],
+                        $this->getRelatedImg($imgmsg)
+                    );
+                    $back = array();
+                    if($imgmsg['news']){
+                        $backwhere['id'] = array('in',$imgmsg['news']);
+                        $back = $img_db->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($backwhere)->select();
+                    }
                     foreach ($back as $keya => $infot) {
-                        $idsWhere .= $comma . $infot['id'];
-                        $comma = ',';
-                        if ($infot['url'] != false) {
-                            if (!(strpos($infot['url'], 'http') === FALSE)) {
-                                $url = $infot['url'];
-                            } else {
-                                $urlInfos = explode(' ', $infot['url']);
-                                switch ($urlInfos[0]) {
-                                    case '刮刮卡':
-                                        $url = C('site_url') . U('Wap/Guajiang/index', array(
-                                            'token' => $this->token,
-                                            'wecha_id' => $this->data['FromUserName'],
-                                            'id' => $urlInfos[1]
-                                        ));
-										
-                                        break;
-									case '砸金蛋':
-                                        $url = C('site_url') . U('Wap/Zadan/index', array(
-                                            'token' => $this->token,
-                                            'wecha_id' => $this->data['FromUserName'],
-                                            'id' => $urlInfos[1]
-                                        ));
-										
-                                        break;
-                                    case '大转盘':
-                                        $url = C('site_url') . U('Wap/Lottery/index', array(
-                                            'token' => $this->token,
-                                            'wecha_id' => $this->data['FromUserName'],
-                                            'id' => $urlInfos[1]
-                                        ));
-                                        break;
-                                    case '商家订单':
-                                        $url = C('site_url') . '/index.php?g=Wap&m=Host&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'] . '&hid=' . $urlInfos[1];
-                                        break;
-                                    case '优惠券':
-                                        $url = C('site_url') . U('Wap/Coupon/index', array(
-                                            'token' => $this->token,
-                                            'wecha_id' => $this->data['FromUserName'],
-                                            'id' => $urlInfos[1]
-                                        ));
-                                        break;
-                                }
-                            }
-                        } else {
-                            $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array(
-                                'token' => $this->token,
-                                'id' => $infot['id']
-                            ));
-                        }
-						//这里修改过
+                        $url = $this->getRelatedImg($infot);
+                        //这里修改过
+                        LOG::write('图文'.$infot['id'],LOG::ERR);
                         $return[] = array(
                             $infot['title'],
                             $infot['text'],
                             $infot['pic'],
                             $url
                         );
-                    }
-                    $idsWhere .= ')';
-                    if ($back) {
-                        $img_db->where($idsWhere)->setInc('click');
                     }
                     return array(
                         $return,
@@ -673,7 +723,7 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-				case 'Xitie':
+                case 'Xitie':
                     $this->requestdata('other');
                     $pro = M('Xitie')->where(array(
                         'id' => $data['pid']
@@ -690,7 +740,7 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-				case 'liuyan':
+                case 'liuyan':
                     $this->requestdata('other');
                     $pro = M('liuyan')->where(array(
                         'id' => $data['pid']
@@ -742,29 +792,29 @@ class WeixinAction extends Action
                             break;
                         case 3:
                             $model = 'Coupon';
-							break;
-						case 4:
+                            break;
+                        case 4:
                             $model = 'Zadan';
                     }
-                    $id   = $info['id'];
+                    $id = $info['id'];
                     $type = $info['type'];
                     if ($info['status'] == 1) {
                         $picurl = $info['starpicurl'];
-                        $title  = $info['title'];
-                        $id     = $info['id'];
-                        $info   = $info['info'];
+                        $title = $info['title'];
+                        $id = $info['id'];
+                        $info = $info['info'];
                     } else {
                         $picurl = $info['endpicurl'];
-                        $title  = $info['endtite'];
-                        $info   = $info['endinfo'];
+                        $title = $info['endtite'];
+                        $info = $info['endinfo'];
                     }
                     $url = C('site_url') . U('Wap/' . $model . '/index', array(
-                        'token' => $this->token,
-                        'type' => $type,
-                        'wecha_id' => $this->data['FromUserName'],
-                        'id' => $id,
-                        'type' => $type
-                    ));
+                            'token' => $this->token,
+                            'type' => $type,
+                            'wecha_id' => $this->data['FromUserName'],
+                            'id' => $id,
+                            'type' => $type
+                        ));
                     return array(
                         array(
                             array(
@@ -805,7 +855,7 @@ class WeixinAction extends Action
                             $other['info'],
                             'text'
                         );
-                    }else{
+                    } else {
                         $img = M('Img')->field('id,text,pic,url,title')->limit(5)->order('id desc')->where(array(
                             'token' => $this->token,
                             'keyword' => array(
@@ -824,11 +874,11 @@ class WeixinAction extends Action
                                 $url = $infot['url'];
                             } else {
                                 $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array(
-                                    'token' => $this->token,
-                                    'id' => $infot['id']
-                                ));
+                                        'token' => $this->token,
+                                        'id' => $infot['id']
+                                    ));
                             }
-							
+
                             $return[] = array(
                                 $infot['title'],
                                 $infot['text'],
@@ -849,11 +899,13 @@ class WeixinAction extends Action
             );
         }
     }
+
     function home()
     {
         return $this->shouye();
     }
-    function shouye($name)
+
+    function shouye()
     {
         $home = M('Home')->where(array(
             'token' => $this->token
@@ -864,14 +916,14 @@ class WeixinAction extends Action
                 'text'
             );
         } else {
-          
+
             if ($home['apiurl'] == false) {
-                $url = rtrim(C('site_url'), '/') . '/index.php?g=Wap&m=Index&a=index&token='. $this->token .'&wecha_id='.$this->data['FromUserName'];
+                $url = rtrim(C('site_url'), '/') . '/index.php?g=Wap&m=Index&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'];
             } else {
                 $url = $home['apiurl'];
             }
         }
-		
+
         return array(
             array(
                 array(
@@ -884,15 +936,17 @@ class WeixinAction extends Action
             'news'
         );
     }
+
     function kuaidi($data)
     {
         $data = array_merge($data);
-        $str  = file_get_contents('http://www.weinxinma.com/api/index.php?m=Express&a=index&name=' . $data[0] . '&number=' . $data[1]);
+        $str = file_get_contents('http://www.weinxinma.com/api/index.php?m=Express&a=index&name=' . $data[0] . '&number=' . $data[1]);
         return $str;
     }
+
     function langdu($data)
     {
-        $data   = implode('', $data);
+        $data = implode('', $data);
         $mp3url = 'http://www.apiwx.com/aaa.php?w=' . urlencode($data);
         return array(
             array(
@@ -904,20 +958,21 @@ class WeixinAction extends Action
             'music'
         );
     }
+
     function jiankang($data)
     {
         if (empty($data))
             return '主人，' . $this->my . "提醒您\n正确的查询方式是:\n健康+身高,+体重\n例如：健康170,65";
-        $height  = $data[1] / 100;
-        $weight  = $data[2];
-        $Broca   = ($height * 100 - 80) * 0.7;
-        $kaluli  = 66 + 13.7 * $weight + 5 * $height * 100 - 6.8 * 25;
-        $chao    = $weight - $Broca;
+        $height = $data[1] / 100;
+        $weight = $data[2];
+        $Broca = ($height * 100 - 80) * 0.7;
+        $kaluli = 66 + 13.7 * $weight + 5 * $height * 100 - 6.8 * 25;
+        $chao = $weight - $Broca;
         $zhibiao = $chao * 0.1;
-        $res     = round($weight / ($height * $height), 1);
+        $res = round($weight / ($height * $height), 1);
         if ($res < 18.5) {
             $info = '您的体形属于骨感型，需要增加体重' . $chao . '公斤哦!';
-            $pic  = 1;
+            $pic = 1;
         } elseif ($res < 24) {
             $info = '您的体形属于圆滑型的身材，需要减少体重' . $chao . '公斤哦!';
         } elseif ($res > 24) {
@@ -927,19 +982,20 @@ class WeixinAction extends Action
         }
         return $info;
     }
+
     function fujin($keyword)
     {
         $keyword = implode('', $keyword);
         if ($keyword == false) {
             return $this->my . "很难过,无法识别主淫的指令,正确使用方法是:输入【附近+关键词】当" . $this->my . '提醒您输入地理位置的时候就OK啦';
         }
-        $data            = array();
-        $data['time']    = time();
-        $data['token']   = $this->_get('token');
+        $data = array();
+        $data['time'] = time();
+        $data['token'] = $this->_get('token');
         $data['keyword'] = $keyword;
-        $data['uid']     = $this->data['FromUserName'];
-        $re              = M('Nearby_user');
-        $user            = $re->where(array(
+        $data['uid'] = $this->data['FromUserName'];
+        $re = M('Nearby_user');
+        $user = $re->where(array(
             'token' => $this->_get('token'),
             'uid' => $data['uid']
         ))->find();
@@ -951,16 +1007,17 @@ class WeixinAction extends Action
         }
         return "主淫【" . $this->my . "】已经接收到你的指令\n请发送您的地理位置给我哈";
     }
+
     function recordLastRequest($key, $msgtype = 'text')
     {
-        $rdata              = array();
-        $rdata['time']      = time();
-        $rdata['token']     = $this->_get('token');
-        $rdata['keyword']   = $key;
-        $rdata['msgtype']   = $msgtype;
-        $rdata['uid']       = $this->data['FromUserName'];
+        $rdata = array();
+        $rdata['time'] = time();
+        $rdata['token'] = $this->_get('token');
+        $rdata['keyword'] = $key;
+        $rdata['msgtype'] = $msgtype;
+        $rdata['uid'] = $this->data['FromUserName'];
         $user_request_model = M('User_request');
-        $user_request_row   = $user_request_model->where(array(
+        $user_request_row = $user_request_model->where(array(
             'token' => $this->_get('token'),
             'msgtype' => $msgtype,
             'uid' => $rdata['uid']
@@ -972,24 +1029,25 @@ class WeixinAction extends Action
             $user_request_model->where($rid)->save($rdata);
         }
     }
+
     function map($x, $y)
     {
         $user_request_model = M('User_request');
-        $user_request_row   = $user_request_model->where(array(
+        $user_request_row = $user_request_model->where(array(
             'token' => $this->_get('token'),
             'msgtype' => 'text',
             'uid' => $this->data['FromUserName']
         ))->find();
         if (!(strpos($user_request_row['keyword'], '附近') === FALSE)) {
-            $user    = M('Nearby_user')->where(array(
+            $user = M('Nearby_user')->where(array(
                 'token' => $this->_get('token'),
                 'uid' => $this->data['FromUserName']
             ))->find();
             $keyword = $user['keyword'];
-            $radius  = 2000;
-            $str     = file_get_contents(C('site_url') . '/map.php?keyword=' . urlencode($keyword) . '&x=' . $x . '&y=' . $y);
-            $array   = json_decode($str);
-            $map     = array();
+            $radius = 2000;
+            $str = file_get_contents(C('site_url') . '/map.php?keyword=' . urlencode($keyword) . '&x=' . $x . '&y=' . $y);
+            $array = json_decode($str);
+            $map = array();
             foreach ($array as $key => $vo) {
                 $map[] = array(
                     $vo->title,
@@ -1036,6 +1094,7 @@ class WeixinAction extends Action
             }
         }
     }
+
     function suanming($name)
     {
         $name = implode('', $name);
@@ -1043,15 +1102,16 @@ class WeixinAction extends Action
             return '主人' . $this->my . '提醒您正确的使用方法是[算命+姓名]';
         }
         $data = require_once(CONF_PATH . 'suanming.php');
-        $num  = mt_rand(0, 80);
+        $num = mt_rand(0, 80);
         return $name . "\n" . trim($data[$num]);
     }
+
     function yinle($name)
     {
         $name = implode('', $name);
-        $url  = 'http://httop1.duapp.com/mp3.php?musicName=' . $name;
-        $str  = file_get_contents($url);
-        $obj  = json_decode($str);
+        $url = 'http://httop1.duapp.com/mp3.php?musicName=' . $name;
+        $str = file_get_contents($url);
+        $obj = json_decode($str);
         return array(
             array(
                 $name,
@@ -1062,67 +1122,78 @@ class WeixinAction extends Action
             'music'
         );
     }
-    function geci($n){
-		$name = implode('', $n);
+
+    function geci($n)
+    {
+        $name = implode('', $n);
         @$str = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode('歌词' . $name);
         $json = json_decode(file_get_contents($str));
         $str = str_replace('{br}', "\n", $json->content);
         return str_replace('mzxing_com', 'nicedog', $str);
-	}
-	function yuming($n){
-		$name = implode('', $n);
+    }
+
+    function yuming($n)
+    {
+        $name = implode('', $n);
         @$str = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode('域名' . $name);
         $json = json_decode(file_get_contents($str));
         $str = str_replace('{br}', "\n", $json->content);
         return str_replace('mzxing_com', 'nicedog', $str);
-	}
-	function tianqi($n){
-		$name = implode('', $n);
+    }
+
+    function tianqi($n)
+    {
+        $name = implode('', $n);
         @$str = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode('天气' . $name);
-		$json = json_decode(file_get_contents($str));
-		$str = str_replace('{br}', "\n", $json->content);
+        $json = json_decode(file_get_contents($str));
+        $str = str_replace('{br}', "\n", $json->content);
         return str_replace('mzxing_com', 'nicedog', $str);
-	}
-	function shouji($n){
-		$name = implode('', $n);
+    }
+
+    function shouji($n)
+    {
+        $name = implode('', $n);
         @$str = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode('归属' . $name);
-		$json = json_decode(file_get_contents($str));
-		$str = str_replace('{br}', "\n", $json->content);
+        $json = json_decode(file_get_contents($str));
+        $str = str_replace('{br}', "\n", $json->content);
         return str_replace('mzxing_com', 'nicedog', $n);
-	}
-/*
-   function shouji($n){
-		$n = implode('', $n);
-		if (count($n) > 1) {
-			$this->error_msg($n);
+    }
 
-			return false;
-		};
-		$str = file_get_contents('http://www.096.me/api.php?phone=' . $n . '&mode=txt');
-		if ($str !== iconv('UTF-8', 'UTF-8', iconv('UTF-8', 'UTF-8', $str))) {
-			$str = iconv('GBK', 'UTF-8', $str);
-		}
+    /*
+       function shouji($n){
+            $n = implode('', $n);
+            if (count($n) > 1) {
+                $this->error_msg($n);
 
-		return str_replace('\t', '', str_replace('|', "\n", $str));
-	}
-	*/
-    function shenfenzheng($n){
-		$n = implode('', $n);
-		if (count($n) > 1) {
-			$this->error_msg($n);
+                return false;
+            };
+            $str = file_get_contents('http://www.096.me/api.php?phone=' . $n . '&mode=txt');
+            if ($str !== iconv('UTF-8', 'UTF-8', iconv('UTF-8', 'UTF-8', $str))) {
+                $str = iconv('GBK', 'UTF-8', $str);
+            }
 
-			return false;
-		};
-	    $xml_array=simplexml_load_file('http://api.k780.com/?app=idcard.get&idcard=' . $n . '&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=xml'); //将XML中的数据,读取到数组对象中 
-        foreach($xml_array as $tmp){
-         if ($str !== iconv('UTF-8', 'UTF-8', iconv('UTF-8', 'UTF-8', $str))) {
-	         $str = iconv('GBK', 'UTF-8', $str);
-         }
-         $str= "【身份证】".$tmp->idcard."【地址】".$tmp->att."【性别】".$tmp->sex."【生日】".$tmp->born; 
-         //$str=$xml_array;
-        } 
-		return $str;
-	}
+            return str_replace('\t', '', str_replace('|', "\n", $str));
+        }
+        */
+    function shenfenzheng($n)
+    {
+        $n = implode('', $n);
+        if (count($n) > 1) {
+            $this->error_msg($n);
+
+            return false;
+        };
+        $xml_array = simplexml_load_file('http://api.k780.com/?app=idcard.get&idcard=' . $n . '&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=xml'); //将XML中的数据,读取到数组对象中
+        foreach ($xml_array as $tmp) {
+            if ($str !== iconv('UTF-8', 'UTF-8', iconv('UTF-8', 'UTF-8', $str))) {
+                $str = iconv('GBK', 'UTF-8', $str);
+            }
+            $str = "【身份证】" . $tmp->idcard . "【地址】" . $tmp->att . "【性别】" . $tmp->sex . "【生日】" . $tmp->born;
+            //$str=$xml_array;
+        }
+        return $str;
+    }
+
     function gongjiao($data)
     {
         $data = array_merge($data);
@@ -1130,31 +1201,31 @@ class WeixinAction extends Action
             $this->error_msg();
             return false;
         }
-        
-        $json    = file_get_contents("http://www.twototwo.cn/bus/Service.aspx?format=json&action=QueryBusByLine&key=5da453b2-b154-4ef1-8f36-806ee58580f6&zone=" . $data[0] . "&line=" . $data[1]);
-        $data    = json_decode($json);
-        $xianlu  = $data->Response->Head->XianLu;
-        $xdata   = get_object_vars($xianlu->ShouMoBanShiJian);
-        $xdata   = $xdata['#cdata-section'];
+
+        $json = file_get_contents("http://www.twototwo.cn/bus/Service.aspx?format=json&action=QueryBusByLine&key=5da453b2-b154-4ef1-8f36-806ee58580f6&zone=" . $data[0] . "&line=" . $data[1]);
+        $data = json_decode($json);
+        $xianlu = $data->Response->Head->XianLu;
+        $xdata = get_object_vars($xianlu->ShouMoBanShiJian);
+        $xdata = $xdata['#cdata-section'];
         $piaojia = get_object_vars($xianlu->PiaoJia);
-        $xdata   = $xdata . ' -- ' . $piaojia['#cdata-section'];
-        $main    = $data->Response->Main->Item->FangXiang;
-        $xianlu  = $main[0]->ZhanDian;
-        $str     = "【本公交途经】\n";
+        $xdata = $xdata . ' -- ' . $piaojia['#cdata-section'];
+        $main = $data->Response->Main->Item->FangXiang;
+        $xianlu = $main[0]->ZhanDian;
+        $str = "【本公交途经】\n";
         for ($i = 0; $i < count($xianlu); $i++) {
             $str .= "\n" . trim($xianlu[$i]->ZhanDianMingCheng);
         }
         return $str;
     }
+
     function huoche($data, $time = '')
     {
-        $data    = array_merge($data);
+        $data = array_merge($data);
         $data[2] = date('Y', time()) . $time;
         if (count($data) != 3) {
             $this->error_msg($data[0] . '至' . $data[1]);
             return false;
-        }
-        ;
+        };
         $time = empty($time) ? date('Y-m-d', time()) : date('Y-', time()) . $time;
         $json = file_get_contents("http://www.twototwo.cn/train/Service.aspx?format=json&action=QueryTrainScheduleByTwoStation&key=5da453b2-b154-4ef1-8f36-806ee58580f6&startStation=" . $data[0] . "&arriveStation=" . $data[1] . "&startDate=" . $data[2] . "&ignoreStartDate=0&like=1&more=0");
         if ($json) {
@@ -1174,16 +1245,17 @@ class WeixinAction extends Action
         }
         return $str;
     }
+
     function fanyi($name)
     {
         $name = array_merge($name);
-        $url  = "http://openapi.baidu.com/public/2.0/bmt/translate?client_id=kylV2rmog90fKNbMTuVsL934&q=" . $name[0] . "&from=auto&to=auto";
+        $url = "http://openapi.baidu.com/public/2.0/bmt/translate?client_id=kylV2rmog90fKNbMTuVsL934&q=" . $name[0] . "&from=auto&to=auto";
         $json = Http::fsockopenDownload($url);
         if ($json == false) {
             $json = file_get_contents($url);
         }
         $json = json_decode($json);
-        $str  = $json->trans_result;
+        $str = $json->trans_result;
         if ($str[0]->dst == false)
             return $this->error_msg($name[0]);
         $mp3url = 'http://www.apiwx.com/aaa.php?w=' . $str[0]->dst;
@@ -1197,18 +1269,20 @@ class WeixinAction extends Action
             'music'
         );
     }
+
     function caipiao($name)
     {
         $name = array_merge($name);
-        $url  = "http://api2.sinaapp.com/search/lottery/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword=" . $name[0];
+        $url = "http://api2.sinaapp.com/search/lottery/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword=" . $name[0];
         $json = Http::fsockopenDownload($url);
         if ($json == false) {
             $json = file_get_contents($url);
         }
         $json = json_decode($json, true);
-        $str  = $json['text']['content'];
+        $str = $json['text']['content'];
         return $str;
     }
+
     function mengjian($name)
     {
         $name = array_merge($name);
@@ -1219,41 +1293,48 @@ class WeixinAction extends Action
             return '周公睡着了,无法解此梦,这年头神仙也偷懒';
         return $data['content'];
     }
+
     function test($name, $data)
     {
         file_put_contents($name, $data);
     }
+
     function gupiao($name)
     {
         $name = array_merge($name);
-        $url  = "http://api2.sinaapp.com/search/stock/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword=" . $name[0];
+        $url = "http://api2.sinaapp.com/search/stock/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword=" . $name[0];
         $json = Http::fsockopenDownload($url);
         if ($json == false) {
             $json = file_get_contents($url);
         }
         $json = json_decode($json, true);
-        $str  = $json['text']['content'];
+        $str = $json['text']['content'];
         return $str;
     }
+
     function getmp3($data)
     {
-        $obj            = new getYu();
-        $ContentString  = $obj->getGoogleTTS($data);
+        $obj = new getYu();
+        $ContentString = $obj->getGoogleTTS($data);
         $randfilestring = 'mp3/' . time() . '_' . sprintf('%02d', rand(0, 999)) . ".mp3";
         file_put_contents($randfilestring, $ContentString);
         return rtrim(C('site_url'), '/') . $randfilestring;
     }
-    function xiaohua(){
-		$str  = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode('笑话');
-		$json = json_decode(file_get_contents($str));
+
+    function xiaohua()
+    {
+        $str = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode('笑话');
+        $json = json_decode(file_get_contents($str));
         $str = str_replace('{br}', "\n", $json->content);
         return str_replace('mzxing_com', 'nicedog', $str);
-	}
+    }
+
     function liaotian($name)
     {
         $name = array_merge($name);
         $this->chat($name[0]);
     }
+
     function chat($name)
     {
         $this->requestdata('textnum');
@@ -1270,17 +1351,19 @@ class WeixinAction extends Action
         } elseif ($name == '网站' || $name == '官网' || $name == '网址' || $name == '3g网址') {
             return "【百度官网网址】\nwww.baidu.com\n【百度服务综旨】\n化繁为简,让菜鸟(pig)也能使用强大的系统!";
         }
-        $str  = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode($name);
+        $str = 'http://api.ajaxsns.com/api.php?key=free&appid=0&msg=' . urlencode($name);
         $json = json_decode(file_get_contents($str));
-        $str  = str_replace('菲菲', $this->my, str_replace('提示：', $this->my . '提醒您:', str_replace('{br}', "\n", $json->content)));
-        return  $str;
+        $str = str_replace('菲菲', $this->my, str_replace('提示：', $this->my . '提醒您:', str_replace('{br}', "\n", $json->content)));
+        return $str;
     }
+
     public function fistMe($data)
     {
         if ('event' == $data['MsgType'] && 'subscribe' == $data['Event']) {
             return $this->help();
         }
     }
+
     public function help()
     {
         $data = M('Areply')->where(array(
@@ -1291,23 +1374,25 @@ class WeixinAction extends Action
             'text'
         );
     }
+
     function error_msg($data)
     {
         return '没有找到' . $data . '相关的数据';
     }
+
     public function user($action, $keyword = '')
     {
-        $user      = M('Wxuser')->field('uid')->where(array(
+        $user = M('Wxuser')->field('uid')->where(array(
             'token' => $this->token
         ))->find();
         $usersdata = M('Users');
         $dataarray = array(
             'id' => $user['uid']
         );
-        $users     = $usersdata->field('gid,diynum,connectnum,activitynum,viptime')->where(array(
+        $users = $usersdata->field('gid,diynum,connectnum,activitynum,viptime')->where(array(
             'id' => $user['uid']
         ))->find();
-        $group     = M('User_group')->where(array(
+        $group = M('User_group')->where(array(
             'id' => $users['gid']
         ))->find();
         if ($users['diynum'] < $group['diynum']) {
@@ -1327,14 +1412,15 @@ class WeixinAction extends Action
         }
         return $data;
     }
+
     public function requestdata($field)
     {
-        $data['year']  = date('Y');
+        $data['year'] = date('Y');
         $data['month'] = date('m');
-        $data['day']   = date('d');
+        $data['day'] = date('d');
         $data['token'] = $this->token;
-        $mysql         = M('Requestdata');
-        $check         = $mysql->field('id')->where($data)->find();
+        $mysql = M('Requestdata');
+        $check = $mysql->field('id')->where($data)->find();
         if ($check == false) {
             $data['time'] = time();
             $data[$field] = 1;
@@ -1343,19 +1429,20 @@ class WeixinAction extends Action
             $mysql->where($data)->setInc($field);
         }
     }
+
     function baike($name)
     {
         $name = implode('', $name);
         if ($name == 'nicedog') {
             return '世界上最牛B的微信营销系统，两天前被腾讯收购，当然这只是一个笑话';
         }
-        $name_gbk         = iconv('utf-8', 'gbk', $name);
-        $encode           = urlencode($name_gbk);
-        $url              = 'http://baike.baidu.com/list-php/dispose/searchword.php?word=' . $encode . '&pic=1';
-        $get_contents     = $this->httpGetRequest_baike($url);
+        $name_gbk = iconv('utf-8', 'gbk', $name);
+        $encode = urlencode($name_gbk);
+        $url = 'http://baike.baidu.com/list-php/dispose/searchword.php?word=' . $encode . '&pic=1';
+        $get_contents = $this->httpGetRequest_baike($url);
         $get_contents_gbk = iconv('gbk', 'utf-8', $get_contents);
         preg_match("/URL=(\S+)'>/s", $get_contents_gbk, $out);
-        $real_link     = 'http://baike.baidu.com' . $out[1];
+        $real_link = 'http://baike.baidu.com' . $out[1];
         $get_contents2 = $this->httpGetRequest_baike($real_link);
         preg_match('#"Description"\scontent="(.+?)"\s\/\>#is', $get_contents2, $matchresult);
         if (isset($matchresult[1]) && $matchresult[1] != "") {
@@ -1364,6 +1451,7 @@ class WeixinAction extends Action
             return "抱歉，没有找到与“" . $name . "”相关的百科结果。";
         }
     }
+
     function httpGetRequest_baike($url)
     {
         $headers = array(
@@ -1372,7 +1460,7 @@ class WeixinAction extends Action
             "Accept-Language: en-us,en;q=0.5",
             "Referer: http://www.baidu.com/"
         );
-        $ch      = curl_init();
+        $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -1383,6 +1471,7 @@ class WeixinAction extends Action
         }
         return $output;
     }
+
     public function get_tags($title, $num = 10)
     {
         vendor('Pscws.Pscws4', '', '.class.php');
@@ -1400,4 +1489,5 @@ class WeixinAction extends Action
         return implode(',', $tags);
     }
 }
+
 ?>

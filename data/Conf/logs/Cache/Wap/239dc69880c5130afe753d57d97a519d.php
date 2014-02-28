@@ -23,10 +23,10 @@
 	<?php echo htmlspecialchars_decode($res['info']) ?>
 </div>
 <div class="content">
-<!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1713244"></script>
-<!-- UY END -->
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1897896"></script>
+    <!-- UY END -->
 </div>
 	<?php if(($copyright) == "0"): ?><div class="copyright"  >
 <?php echo htmlspecialchars_decode(C('copyright')) ?>

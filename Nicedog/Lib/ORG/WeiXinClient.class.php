@@ -46,13 +46,15 @@ class WeiXinClient
 // 配置初始化
         $this->account = $data['account'];
         $this->password = $data['password'];
-        $this->cookiePath = $data['temp_path'].'data/Conf/logs/Cache/cookie';
-        $this->webTokenPath = $data['temp_path'].'data/Conf/logs/Cache/webToken';
+        //$this->cookiePath = $data['temp_path'].'data/Conf/logs/Cache/cookie';
+        //$this->webTokenPath = $data['temp_path'].'data/Conf/logs/Cache/webToken';
 
         $this->req = new WeiXinReq();
-
+        $this->req->get("https://mp.weixin.qq.com");
+        LOG::write("C|".$this->cookie,LOG::ERR);
+        LOG::write("C|".$this->webToken,LOG::ERR);
 // 读取cookie, webToken
-        $this->getCookieAndWebToken();
+        //$this->getCookieAndWebToken();
     }
 
 // 登录, 并获取cookie, webToken
@@ -63,17 +65,43 @@ class WeiXinClient
     public function login()
     {
         $url = "https://mp.weixin.qq.com/cgi-bin/login?lang=zh_CN";
+        $post['username'] = $this->account;
+        $post['pwd'] = $this->password;
+        $post['f'] = "json";
+        $re = $this->req->submit($url, $post);
+        // 保存cookie
+        $this->cookie = $re['cookie'];
+        //file_put_contents($this->cookiePath, $this->cookie);
+        // 得到token
+        $this->getWebToken($re['body']);
+        LOG::write("LOGIN:".$this->cookie,LOG::ERR);
+        LOG::write("LOGIN:".$this->webToken,LOG::ERR);
+        if (!$this->webToken){
+            return $re['body'];
+        }else{
+            return true;
+        }
+    }
+
+    public function logout(){
+        $url = "https://mp.weixin.qq.com/cgi-bin/logout?t=wxm-logout&lang=zh_CN&token=".$this->webToken;
+        $this->req->get($url);
+        $this->cookie   = "";
+        $this->webToken = "";
+    }
+
+    public function checkLogin()
+    {
+        $url = "https://mp.weixin.qq.com/cgi-bin/login?lang=zh_CN";
         $post["username"] = $this->account;
         $post["pwd"] = $this->password;
         $post["f"] = "json";
+
         $re = $this->req->submit($url, $post);
-// 保存cookie
-        $this->cookie = $re['cookie'];
-        file_put_contents($this->cookiePath, $this->cookie);
-
-// 得到token
-        $this->getWebToken($re['body']);
-
+        $result = json_decode($re['body'], 1);
+        if ($result['Ret'] == '400'){
+            return $result;
+        }
         return true;
     }
 
@@ -173,7 +201,7 @@ class WeiXinClient
             return false;
         } else {
             $this->webToken = $msgArr[1];
-            file_put_contents($this->webTokenPath, $this->webToken);
+            //file_put_contents($this->webTokenPath, $this->webToken);
             return true;
         }
     }
@@ -184,8 +212,8 @@ class WeiXinClient
      */
     public function getCookieAndWebToken()
     {
-        $this->cookie = file_get_contents($this->cookiePath);
-        $this->webToken = file_get_contents($this->webTokenPath);
+            //$this->cookie = file_get_contents($this->cookiePath);
+            //$this->webToken = file_get_contents($this->webTokenPath);
 
 // 如果有缓存信息, 则验证下有没有过时, 此时只需要访问一个api即可判断
         if ($this->cookie && $this->webToken) {
@@ -194,12 +222,10 @@ class WeiXinClient
             $result = json_decode($re['body'], 1);
 
             if (!$result) {
-                return $this->login();
-            } else {
-                return true;
+                $this->login();
             }
         } else {
-            return $this->login();
+             $this->login();
         }
     }
 

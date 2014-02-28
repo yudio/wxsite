@@ -109,7 +109,6 @@
 
     function login()
     {
-        alert('doLogin');
         if (true == $do_submit)
         {
             return false;
@@ -138,6 +137,8 @@
         $.post('/npHome/Users/checklogin.act', $login_data, function(rs){
             if(rs.errno == 200)
             {
+                $('#err_tips').text(rs.error);
+                $('#err_area').show();
                 location.href = rs.url_route;
             }
             else

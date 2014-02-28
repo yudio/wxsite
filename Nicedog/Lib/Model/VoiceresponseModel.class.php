@@ -14,7 +14,7 @@ class VoiceresponseModel extends Model{
 		array('uid','getuser',self::MODEL_INSERT,'callback'),
 		array('uname','getname',self::MODEL_INSERT,'callback'),
 		array('createtime','time',self::MODEL_INSERT,'function'),
-		array('uptatetime','time',self::MODEL_BOTH,'function'),
+		array('updatetime','time',self::MODEL_BOTH,'function'),
 		array('token','gettoken',self::MODEL_INSERT,'callback'),
 		array('click','0'),
 	);

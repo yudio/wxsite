@@ -1,7 +1,7 @@
 /*
  Navicat MySQL Data Transfer
 
- Source Server         : hifeng.cn
+ Source Server         : yudio.xicp.net
  Source Server Version : 50528
  Source Host           : MYSQL1004.webweb.com
  Source Database       : db_993d88_weixin2

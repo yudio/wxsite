@@ -12,6 +12,6 @@ return array(
 	'URL_ROUTE_RULES' 		=> array( 			//定义路由规则
 		'api/:token'        => 'Home/Weixin/index',
 		'show/:token'       => 'Home/Adma/index',
-		'wechat/:token/:wechatid'     => 'Wap/Index/index',
+		//'wechat/:token'     => 'Wap/Index/index',
 	),
 );

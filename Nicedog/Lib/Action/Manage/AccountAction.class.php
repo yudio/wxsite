@@ -6,6 +6,13 @@ class AccountAction extends UserAction{
         parent::_initialize();
         $this->token=$this->_session('token');
     }
+
+    public function main(){
+        if (session('uid')==false){
+            $this->error('非法操作','/nphome/index/index.act');
+        }
+        $this->display();
+    }
     /**
      *
      * 公众号管理 /Manage/account/index
@@ -36,6 +43,23 @@ class AccountAction extends UserAction{
         $user = M('Users')->where(array('id'=>$_SESSION['uid']))->find();
         $this->assign('info',$user);
         $this->display();
+    }
+
+    /*
+     *
+     *
+     */
+    public function logout(){
+        session(null);
+        session_destroy();
+        unset($_SESSION);
+        if(session('?'.C('USER_AUTH_KEY'))) {
+            session(C('USER_AUTH_KEY'),null);
+
+            redirect('/');
+        }else {
+            $this->error('已经登出！','/');
+        }
     }
     /*
      *
@@ -112,6 +136,28 @@ class AccountAction extends UserAction{
      */
     public function bind(){
         $wxclient = new WeiXinClient(array('account'=>$_POST['wxaccount'],'password'=>md5($_POST['wxpwd']),'temp_path'=>THINK_PATH));
+        $loginret = $wxclient->login();
+        if ($loginret!="true"){
+            $ret =    json_decode($loginret,1);
+            $retcode = $ret['ErrCode'];
+            switch ($retcode){
+                case '-3':
+                    $data=array('errno'=>'-3','error'=>"密码错误！",'pid'=>session('uid'));
+                    $this->ajaxReturn($data,'JSON');
+                    break;
+                case '-6':
+                    $data=array('errno'=>'-6','error'=>"绑定失败，请稍后重试或手动绑定！",'pid'=>session('uid'));
+                    $this->ajaxReturn($data,'JSON');
+                    break;
+                case '-4':
+                    $data=array('errno'=>'-4','error'=>"账号不存在！",'pid'=>session('uid'));
+                    $this->ajaxReturn($data,'JSON');
+                    break;
+                default:
+                    $data=array('errno'=>'100','error'=>"发生未知错误{$retcode}，请尝试手动绑定！",'pid'=>session('uid'));
+                    $this->ajaxReturn($data,'JSON');
+            }
+        }
         $_POST['wxid'] = $wxclient->getwxid();
         $_POST['weixin'] = $wxclient->getWxName();
         $_POST['wxname'] = $wxclient->getNickName();
@@ -123,8 +169,9 @@ class AccountAction extends UserAction{
         $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
         $_POST['headerpic'] = '/'.$picpath;
         file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($wxclient->getFakeId()));
-        $ret = $wxclient->bindUrlDev(C('site_url').'/index.php/api/'.$_POST['token'],$_POST['token']);
-        LOG::write(C('site_url').'/index.php/api/'.$_POST['token'],LOG::ERR);
+        $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
+        $ret = $wxclient->bindUrlDev($tokenurl,$_POST['token']);
+        LOG::write($wxclient->getWxName(),LOG::ERR);
         if ($ret['ret']>0){
             $this->ajaxReturn($ret,'JSON');
         }
@@ -140,7 +187,7 @@ class AccountAction extends UserAction{
                 M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->setInc('wechat_card_num');
                 $this->addfc();
                 //jsret {"errno":0,"error":"信息","pid":69535}
-                $data=array('errno'=>'0','error'=>'操作成功','pid'=>session('uid'));
+                $data=array('errno'=>'0','error'=>'操作成功','pid'=>session('uid'),'tip'=>"<h5>复制此处token和url到腾讯平台绑定</h5><p>URL:<input style='width:300px'  value='{$tokenurl}'/> </p><p>token:{$_POST['token']}</p>");
                 $this->ajaxReturn($data,'JSON');
                 //$this->success('操作成功',U('Index/index'));
             }else{
@@ -151,6 +198,59 @@ class AccountAction extends UserAction{
         }
     }
 
+    /*
+     *
+     * 手动绑定公众号
+     */
+    public function addwxuser(){
+        $db = D('Wxuser');
+        if (IS_POST){
+            $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
+            $id = $this->_post('id');
+            if ($id){//更新操作
+                if ($db->create()){
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/account/index.act'),'JSON');
+                    //,'tip'=>"<h5>复制此处token和url到腾讯平台绑定</h5><p>URL:<input style='width:300px'  value='{$tokenurl}'/> </p><p>token:{$_POST['token']}</p>"),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                }
+            }else{
+                $_POST['token'] = $this->genToken();
+                if ($db->create()){
+                    $id = $db->add();
+                    M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->setInc('wechat_card_num');
+                    $this->addfc();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/account/index.act','tip'=>"<h5>复制此处token和url到腾讯平台绑定</h5><p>URL:<input style='width:300px'  value='{$tokenurl}'/> </p><p>token:{$_POST['token']}</p>"),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                }
+            }
+        }
+        $id = $this->_get('id','intval');
+        if ($id){
+            $info = $db->where(array('id'=>$id))->find();
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+
+    /*
+     *
+     * 删除公众号
+     */
+    public function delwxuser(){
+        $db = D('Wxuser');
+        $where['id']=$this->_get('id','intval');
+        $where['uid']=session('uid');
+        if($db->where($where)->delete()){
+            LOG::write('/npManage/account/index.act',LOG::ERR);
+            redirect('/npManage/account/index.act');
+        }else{
+            LOG::write('ajaxReturn',LOG::ERR);
+            $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+        }
+    }
     /*
      *
      * 添加功能列表
@@ -174,7 +274,6 @@ class AccountAction extends UserAction{
      * 新后台首页
      */
     public function home(){
-        dump(session('token'));
         $user = M('Wxuser')->where(array('token'=>session('token')))->find();
         $this->assign('user',$user);
         $this->display();
@@ -230,6 +329,32 @@ class AccountAction extends UserAction{
                 $this->display();
             }
         }
+    }
+    /**
+     *
+     * 公众号类型
+     */
+    public function type(){
+        $token = session('token');
+        $user  = M('Wxuser')->where(array('token'=>$token))->find();
+        $this->assign('user',$user);
+        $this->display();
+    }
+    public function typeset(){
+        if (IS_POST){
+            $db = M('Wxuser');
+            if($db->create()){
+                $db->save();
+                $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/account/type.act'));
+            }else{
+                $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()));
+            }
+
+
+        }else{
+            $this->ajaxReturn(array('errno'=>'100','error'=>'请提交数据！'));
+        }
+
     }
 
 }

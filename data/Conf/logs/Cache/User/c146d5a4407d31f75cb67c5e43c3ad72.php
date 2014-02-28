@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -384,7 +384,7 @@ window.onload =getHost;
 <td><?php echo ($item["keyword"]); ?></td>
 <td><?php echo ($item["man_name"]); ?></td>
 <td><?php echo ($item["girl_name"]); ?></td>
-<td><?php echo (date("Y-m-d H:i:s",$item["time"])); ?></td> 
+<td><?php echo (date("Y-m-d H:i:s",$item["time"])); ?></td>
 
 <td class="norightborder"><a href="<?php echo U('Xitie/infos',array('id'=>$item['id'],'token'=>$token));?>">留言查看</a>&nbsp;&nbsp;<a href="<?php echo U('User/Xitie/inputs',array('id'=>$item['id'],'token'=>$token));?>">参与查看</a>&nbsp;&nbsp;<a href="<?php echo U('Xitie/set',array('id'=>$item['id'],'token'=>$token));?>">修改</a>&nbsp;&nbsp;<a href="<?php echo U('Xitie/del',array('id'=>$item['id'],'token'=>$token));?>">删除</a></td>
 </tr><?php endforeach; endif; else: echo "" ;endif; ?>

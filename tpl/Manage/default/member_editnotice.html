@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+        <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+        <link rel="shortcut icon" href="img/favicon.ico?v=2014-02-24-4" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap_min.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap_responsive_min.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/style.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/todc_bootstrap.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/themes.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/inside.css?2014-02-24-4" media="all" />
+		<script type="text/javascript" src="src/jQuery.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/bootstrap_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/inside.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/validation/jquery_validate_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/validation/jquery_validate_methods.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/form/jquery_form_min.js?2014-02-24-4"></script>
+		<title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+        <!--[if IE 7]>
+            <link href="css/font_awesome_ie7.css?v=2014-02-24-4" rel="stylesheet" />
+        <![endif]-->
+        <!--[if lte IE 8]>
+            <script src="js/excanvas_min.js?v=2014-02-24-4"></script>
+        <![endif]-->
+        <!--[if lte IE 9]>
+            <script src="js/watermark.js?v=2014-02-24-4"></script>
+        <![endif]-->
+    </head>
+    
+	<script src="/templates/kindeditor/kindeditor-min.js"></script>
+    <script src="/templates/kindeditor/kindeditor_select_img.js"></script>
+	
+<div id="main">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="box">
+					<div class="box-title">
+						<div class="span10">
+							<h3><i class="icon-edit"></i>发布通知</h3>
+						</div>
+						<div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+					</div>
+					<div class="box-content">
+						<form action="/Newmemberannounce/EditNotice" method="post" class="form-horizontal form-validate">
+							<div class="control-group">
+								<label for="keyword" class="control-label">标题：</label>
+								<div class="controls">
+									<input type="text" name="title" id="short_title" class="input-large" data-rule-required="true" data-rule-maxlength="30" value="" />
+									<span class="help-inline">不超过30个字符</span>
+								</div>
+							</div>
+							<div class="control-group">
+                                    <label class="control-label"  >通知图片</label>
+                                    <div class="controls">
+                                        <img class="thumb_img" src="http://www.weimob.com/templates/kindeditor/attached/c3/e8/78/image/20130816/20130816220610_88488.jpg" style="max-height: 100px;">
+                                        
+                                        <input class="hide" type="text" name="image" value="">
+                                        <span class="help-inline">
+                                            <button class="btn select_img" type="button">自定义</button>
+                                        </span>
+                                        <span class="help-inline">建议尺寸：200*200
+                                        </span>
+                                    </div>
+                             </div>
+							<div class="control-group">
+								<label class="control-label">选择人群</label>
+								<div class="controls">
+									<label class="radio inline">
+										<input type="radio" name="to_grade" value="0" checked="checked" />所有会员
+									</label>
+				
+				
+									
+																		
+								</div>
+							</div>
+							<script src="/templates/kindeditor/kindeditor-min.js"></script>
+							<div class="control-group">
+								<label class="control-label" for="content">图文详细页内容</label>
+								<div class="controls">
+									<textarea class="input-large" name="content" id="info" data-rule-required="true"  ></textarea>
+								</div>
+							</div>
+							<div class="form-actions">
+								<input type="hidden" name="aid" id="aid" value="74461">
+								<input type="hidden" name="tid" id="tid" value="">
+								<button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+								<button type="button" class="btn" onclick="Javascript:window.history.go(-1)">取消</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ <script type="text/javascript">
+	 var seting = {
+		 themeType: "simple",
+		 resizeType: 1,
+		 syncType: "",
+		 allowPreviewEmoticons: false,
+		 items: [
+'source', 'undo', 'redo', 'plainpaste', 'plainpaste', 'wordpaste', 'clearhtml', 'quickformat', 'selectall', 'fullscreen', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'hr',
+'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+'insertunorderedlist', '|', 'emoticons', 'image', 'link', 'unlink', 'preview'],
+		 allowFileManager: true,
+		 width: "70%",
+		 afterCreate: function () {
+			 this.sync();
+		 },
+		 afterBlur: function () {
+			 this.sync();
+		 }
+	 }
+	 var editor1;
+	 KindEditor.ready(function (K) {
+		 editor1 = K.create('#info', seting);
+
+	 });
+</script>	
+<script>
+		window.document.onkeydown = function(e) {
+			if ('' == document.activeElement.id) {
+				var e=e || event;
+　 				var currKey=e.keyCode || e.which || e.charCode;
+				if (8 == currKey) {
+					return false;
+				}
+			}
+		};
+	</script>
+</html>

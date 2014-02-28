@@ -154,7 +154,7 @@ function layout($layout) {
  * @param string $suffix 伪静态后缀，默认为true表示获取配置值
  * @param boolean $redirect 是否跳转，如果设置为true则表示跳转到该URL地址
  * @param boolean $domain 是否显示域名
- * @return string
+ * @return string         index.php?g=group&m=module&a=action     npGroup/module/action.act
  */
 function U($url='',$vars='',$suffix=true,$redirect=false,$domain=false) {
     // 解析URL
@@ -256,6 +256,16 @@ function U($url='',$vars='',$suffix=true,$redirect=false,$domain=false) {
             }
         }
     }
+    /*if (strpos(strtolower($var[C('VAR_GROUP')]),"np") === 0){   //自定义模式转换
+        $url        =   'np'.$var[C('VAR_GROUP')].$depr.$var[C('VAR_MODULE')].$depr.$var[C('VAR_ACTION')].'.act';
+        $diyparams = $var;
+        unset($diyparams[C('VAR_GROUP')]);
+        unset($diyparams[C('VAR_MODULE')]);
+        unset($diyparams[C('VAR_ACTION')]);
+        if (!empty($vars)){
+            $diyvars   =   urldecode(http_build_query($vars));
+            $url   .=   '?'.$diyvars;
+    }*/
     if($domain) {
         $url   =  (is_ssl()?'https://':'http://').$domain.$url;
     }

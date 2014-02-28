@@ -38,24 +38,24 @@ class Member_cardAction extends UserAction{
 		}else{
 			if($data==false){
 				$data=array (
-  'id' => '2',
-  'token' => 'PigCms',
-  'cardname' => C('site_name').'会员卡',
-  'logo' => '/tpl/User/default/common/images/cart_info/logo-card.png',
-  'bg' => './tpl/User/default/common/images/card/card_bg15.png',
-  'diybg' => '/tpl/User/default/common/images/card/card_bg17.png',
-  'msg' => '微时代会员卡，方便携带收藏，永不挂失',
-  'numbercolor' => '#000000',
-  'vipnamecolor' => '#121212',
-  'Lastmsg' => '/tpl/User/default/common/images/cart_info/news.jpg',
-  'vip' => '/tpl/User/default/common/images/cart_info/vippower.jpg',
-  'qiandao' => '/tpl/User/default/common/images/cart_info/qiandao.jpg',
-  'shopping' => '/tpl/User/default/common/images/cart_info/shopping.jpg',
-  'memberinfo' => '/tpl/User/default/common/images/cart_info/user.jpg',
-  'membermsg' => '/tpl/User/default/common/images/cart_info/vippower.jpg',
-  'contact' => '/tpl/User/default/common/images/cart_info/addr.jpg',
-  'create_time' => '0',
-);
+              'id' => '2',
+              'token' => 'PigCms',
+              'cardname' => C('site_name').'会员卡',
+              'logo' => '/tpl/User/default/common/images/cart_info/logo-card.png',
+              'bg' => './tpl/User/default/common/images/card/card_bg15.png',
+              'diybg' => '/tpl/User/default/common/images/card/card_bg17.png',
+              'msg' => '微时代会员卡，方便携带收藏，永不挂失',
+              'numbercolor' => '#000000',
+              'vipnamecolor' => '#121212',
+              'Lastmsg' => '/tpl/User/default/common/images/cart_info/news.jpg',
+              'vip' => '/tpl/User/default/common/images/cart_info/vippower.jpg',
+              'qiandao' => '/tpl/User/default/common/images/cart_info/qiandao.jpg',
+              'shopping' => '/tpl/User/default/common/images/cart_info/shopping.jpg',
+              'memberinfo' => '/tpl/User/default/common/images/cart_info/user.jpg',
+              'membermsg' => '/tpl/User/default/common/images/cart_info/vippower.jpg',
+              'contact' => '/tpl/User/default/common/images/cart_info/addr.jpg',
+              'create_time' => '0',
+            );
 			}
 			$this->assign('card',$data);
 			$this->display();
@@ -292,7 +292,7 @@ class Member_cardAction extends UserAction{
 		$data=M('Member_card_info')->where(array('token'=>$_SESSION['token']))->find();
 		if(IS_POST){
 			//dump($_POST);EXIT;
-			$_POST['token']=$_SESSION['token'];			
+			$_POST['token']=$_SESSION['token'];
 			if($data==false){				
 				$this->all_insert('Member_card_info','/info');
 			}else{

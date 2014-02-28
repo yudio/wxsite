@@ -10,7 +10,7 @@ class ImgModel extends Model{
 		array('uid','getuser',self::MODEL_INSERT,'callback'),
 		array('uname','getname',self::MODEL_INSERT,'callback'),
 		array('createtime','time',self::MODEL_INSERT,'function'),
-		array('uptatetime','time',self::MODEL_BOTH,'function'),
+		array('updatetime','time',self::MODEL_BOTH,'function'),
 		array('classid','getclassid',self::MODEL_BOTH,'callback'),
 		array('classname','getclassname',self::MODEL_BOTH,'callback'),
 		array('token','gettoken',self::MODEL_INSERT,'callback'),
@@ -32,6 +32,9 @@ class ImgModel extends Model{
 	//获取分类名字
 	public function getclassname(){
 		$id=explode(',',$_POST['classid']);
+        if ($id[0]==0){
+            return "根分类";
+        }
 		return $id[1];
 	}
 	function gettoken(){

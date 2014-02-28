@@ -119,7 +119,6 @@ class IndexAction extends BaseAction{
         $this->assign('token',$this->token);
         $this->assign('wecha_id',$this->wecha_id);
         //print_r($this->tpl);
-
 		$this->display($this->tpl['tpltypename']);
 	}
 	
@@ -160,7 +159,7 @@ class IndexAction extends BaseAction{
 			$contentid=intval($_GET['id']);
 		}
 		$where['id']=array('neq',$contentid);
-		$lists=$db->where($where)->limit(5)->order('uptatetime')->select();
+		$lists=$db->where($where)->limit(5)->order('updatetime')->select();
 		$where['id']=$contentid;
 		$res=$db->where($where)->find();
 		$this->assign('info',$this->info);	//分类信息
@@ -168,6 +167,7 @@ class IndexAction extends BaseAction{
 		$this->assign('res',$res);			//内容详情;
 		$this->assign('tpl',$this->tpl);				//微信帐号信息
 		$this->assign('copyright',$this->copyright);	//版权是否显示
+        LOG::write('图文手机页面:WAP/Index/'.$this->tpl['tplcontentname'],LOG::ERR);
 		$this->display($this->tpl['tplcontentname']);
 	}
 	

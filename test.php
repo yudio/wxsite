@@ -115,7 +115,7 @@ class test {
      * 校验登陆
      * @return boolean true
      */
-    private function checkLogin() {
+    public function checkLogin() {
         $cookie = $this->read($this->cookieLog);
         $token = $this->read($this->tokenLog);
         $post = array();
@@ -136,34 +136,15 @@ class test {
 }
 ?>
 <?php
-/*include './http.php';
+include './http.php';
 // 微信公众账号 
 $user = "yudio@hotmail.com";
 // 微信公众号登陆密码  MD5加密
 $pass = md5(substr('samon1', 0, 16));
 
 $obj = new test($user, $pass);
-//$obj->checkLogin();
-$obj->sendTextMsg(1150920200, '你好！');
-*/
+print_r($obj->checkLogin());
+//$obj->sendTextMsg(1150920200, '你好！');
 
-function getImg($url = "", $filename = "")
-{
-    //去除URL连接上面可能的引号
-    //$url = preg_replace( '/(?:^['"]+|['"/]+$)/', '', $url );
-    $hander = curl_init();
-    $fp = fopen($filename,'wb');
-    curl_setopt($hander,CURLOPT_URL,$url);
-    curl_setopt($hander,CURLOPT_FILE,$fp);
-    curl_setopt($hander,CURLOPT_HEADER,0);
-    curl_setopt($hander,CURLOPT_FOLLOWLOCATION,1);
-    //curl_setopt($hander,CURLOPT_RETURNTRANSFER,false);//以数据流的方式返回数据,当为false是直接显示出来
-    curl_setopt($hander,CURLOPT_TIMEOUT,60);
-    print_r(curl_exec($hander));
-    //curl_close($hander);
-    //fclose($fp);
-    //Return true;
-}
 
-getImg('https://mp.weixin.qq.com/cgi-bin/getheadimg?fakeid=3083238024&token=671940174&lang=zh_CN','./pp.jpg');
 ?>

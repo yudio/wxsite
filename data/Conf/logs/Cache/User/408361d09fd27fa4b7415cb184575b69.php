@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -508,7 +508,7 @@ function setlatlng(longitude,latitude){
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
    <div class="cLineB"> 
     <h4>360°全景设置</h4> 
-    <a href="<?php echo U('Panorama/index',array('token'=>$token));?>" class="right  btnGreen" style="margin-top:-27px">返回</a> 
+    <a href="<?php echo U('Panorama/index',array('token'=>$token));?>" class="right  btnGreen" style="margin-top:-27px">返回</a>
    </div> 
    
    

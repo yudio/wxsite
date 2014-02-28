@@ -57,8 +57,8 @@ class http {
                 break;
             case 'https':
                 $this->host = $urlArr['host'];
-                $this->host = 'ssl://' . $urlArr['host'];
-                $this->port = 443;
+                /*$this->host = 'ssl://' . $urlArr['host'];
+                $this->port = 443;*/
                 break;
             default:
                 echo "Error: wrong url!";

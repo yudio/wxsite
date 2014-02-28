@@ -11,6 +11,7 @@ class AdminAction extends Action{
 		$username = $this->_post('username');
         $password =  $this->_post('password','md5');
 		if(empty($username)||empty($password)){
+            LOG("PATH:".U('Admin/index'),LOG::ERR);
 			$this->error('请输入帐号密码',U('Admin/index'));
 		}
 		$code=$this->_post('code','intval,md5',0);

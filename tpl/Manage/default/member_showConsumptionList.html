@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+	<meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_min.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap_responsive_min.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/todc_bootstrap_button.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/plugins/daterangepicker/daterangepicker.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/themes.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/inside.css?2014-02-24-4" media="all" />
+	<script type="text/javascript" src="src/jQuery.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/bootstrap_min.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/plugins/daterangepicker/moment_min.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/plugins/daterangepicker/daterangepicker.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/inside.js?2014-02-24-4"></script>
+	<title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+	<link rel="shortcut icon" href="img/favicon.ico" />
+    <!--[if lte IE 9]><script src="src/watermark.js"></script><![endif]-->
+	<!--[if IE 7]><link href="css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+	<div id="main">
+	<div class="container-fluid">
+
+		<div class="row-fluid">
+			<div class="span12">
+
+				<div class="box">
+					<div class="box-title">
+						<div class="span10"> <h3><i class="icon-table"></i>消费查询 </h3></div>
+					</div>
+
+					<div class="box-content">
+						<form action="" method="get" class="form-horizontal form-horizontal-s">
+							<input type="hidden" name="aid" id="aid" value="74461"/>
+							<input type="hidden" name="types"  value="1"/>
+							<div class="row-fluid">
+								<div class="span6">
+									<div class="control-group">
+										<label  class="control-label">会员名称</label>
+										<div class="controls">
+											<input type="text" name="name" value="" class="input-medium" />
+										</div>
+									</div>
+									<div class="control-group">
+										<label  class="control-label">消费类型</label>
+										<div class="controls">
+											<select name="ticket_ty" id="ticket_ty" class="input-small" data-selected="" data-rule-required="true">
+											</select>
+											<select name="ticket_id" id="ticket_id" class="input-medium" data-selected="" data-rule-required="true">
+											</select>
+										</div>
+									</div>
+									<div class="control-group">
+										<label  class="control-label">会员手机号</label>
+										<div class="controls">
+											<input type="text" name="phone" class="input-medium" value=""/>
+										</div>
+									</div>
+								</div>
+								<div class="span6">
+									<div class="control-group">
+										<label  class="control-label">消费门店</label>
+										<div class="controls">
+											<select class="input-medium" name="spoutlet_id">
+												<option selected="selected" value="0" >商户总部</option>
+																							</select>
+										</div>
+									</div>
+									<div class="control-group">
+										<label  class="control-label">消费日期</label>
+										<div class="controls">
+											<div class="input-prepend">
+												<span class="add-on"><i class="icon-calendar"></i></span>
+												<input type="text" name="time" class="input-xlarge daterangepick " value="" readonly />
+											</div>
+
+										</div>
+									</div>
+									<div class="control-group">
+										<label  class="control-label">消费金额</label>
+										<div class="controls">
+											<input type="text" name="moneys" class="input-mini" value="" />
+											至
+											<input type="text" name="moneye" class="input-mini" value="" />
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<hr />
+							<div class="row-fluid">
+								<div class="span12 control-group">
+									<button type="submit" class="btn"><i class="icon-search"></i>查询</button>
+									<a class="btn" href="/Newmembertrade/BillExportConsume?aid=74461&types=2" target="_blank"><i class="icon-cloud-download"></i>导出</a>
+								</div>
+
+							</div>
+						</form>
+						<div class="row-fluid dataTables_wrapper">
+							<table id="listTable" class="table table-bordered table-hover  dataTable">
+								<thead>
+									<tr>
+										<th>会员名称</th>
+										<th>电话</th>
+										<th>优惠类型</th>
+										<th>SN码</th>
+										<th>消费时间</th>
+										<th>消费门店</th>
+										<th>消费金额</th>
+										<th>消费方式</th>
+									</tr>
+								</thead>
+								<tbody>
+								
+								</tbody>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var options = {
+		ajax: '/Newmembertrade/getConsumptiontype?aid=74461',
+		auto: true,
+		default_text:"全部"
+	};
+	//{"1":"\u4f18\u60e0\u5238","2":"\u4ee3\u91d1\u5238","4":"\u76f4\u63a5\u6d88\u8d39"}
+	var sel = new G.util.select(options);
+	sel.bind('#ticket_ty');
+	sel.bind('#ticket_id');
+</script></body>
+</html>

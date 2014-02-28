@@ -46,7 +46,7 @@ class LiuyanAction extends UserAction{
 		// $this->assign('info',$info);
 		$this->uid = session('uid');
 		$this->token = session('token');
-		$this->uptatetime = time();
+		$this->updatetime = time();
 		$this->createtime = time();
 		$this->display();
 	}
@@ -81,7 +81,7 @@ class LiuyanAction extends UserAction{
 		$db = D('Liuyan');
 		$this->uid = session('uid');
 		$this->token = session('token');
-		$this->uptatetime = time();
+		$this->updatetime = time();
 		$id = $_GET['id'];
 		$this->info = $db->find($id);
 		$this->display();

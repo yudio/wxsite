@@ -19,7 +19,7 @@
 		<div class="mediaHead"> 
 			<div class="clr"></div>
 		</div>
-		<div class="mediaImg"><img src="<?php echo ($photo["picurl"]); ?>"></div>                                                        
+		<div class="mediaImg"><img src="<?php echo ($photo["picurl"]); ?>"></div>
 		<div class="mediaFooter">
 			<span class="mesgIcon right"></span><span class="bt"><?php echo ($photo["title"]); ?></span>
 			<div class="clr"></div>

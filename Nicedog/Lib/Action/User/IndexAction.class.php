@@ -65,11 +65,19 @@ class IndexAction extends UserAction{
 	}
 
     public function test(){
-        $wxclient = new WeiXinClient(array('account'=>'yudio@hotmail.com','password'=>md5('samon1'),'temp_path'=>THINK_PATH));
+        $wxclient = new WeiXinClient(array('account'=>'yudio@hotmail.com','password'=>md5('samon1')));
         //;
         //print_r($wxclient->getContact());
-        preg_match('/totalCount : \'(.*)\'/Us',$wxclient->getContact(),$res);
-        print_r($wxclient->getNickName());
+        //preg_match('/totalCount : \'(.*)\'/Us',$wxclient->getContact(),$res);
+        //print_r($wxclient->getNickName());
+        dump($wxclient->login());
+        //print_r($wxclient->getSetting());
+        //print_r($wxclient->getLatestMsgs());
+        //dump($wxclient->getwxid());
+        //dump($wxclient->getWxName());
+        //dump($wxclient->getNickName());
+        //dump($wxclient->getFakeId());
+
         exit;
         //print_r($wxclient->getContact());
     }

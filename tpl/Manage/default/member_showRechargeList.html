@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+	<meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_min.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap_responsive_min.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/plugins/daterangepicker/daterangepicker.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/todc-bootstrap-button.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/themes.css?2014-02-24-4" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/inside.css?2014-02-24-4" media="all" />
+	<script type="text/javascript" src="src/jQuery.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/bootstrap_min.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/plugins/daterangepicker/moment_min.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/plugins/daterangepicker/daterangepicker.js?2014-02-24-4"></script>
+	<script type="text/javascript" src="src/inside.js?2014-02-24-4"></script>
+	<title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+	<link rel="shortcut icon" href="img/favicon.ico" />
+    <!--[if lte IE 9]><script src="src/watermark.js"></script><![endif]-->
+	<!--[if IE 7]><link href="css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+	<div id="main">
+	<div class="container-fluid">
+
+		<div class="row-fluid">
+			<div class="span12">
+
+				<div class="box">
+					<div class="box-title">
+						<div class="span10"> <h3><i class="icon-table"></i>充值查询 </h3></div>
+					</div>
+
+					<div class="box-content">
+						<form action="/Newmembertrade/showRechargeList" method="get" class="form-horizontal form-horizontal-s">
+							<input type="hidden" name="aid" id="aid" value="74461"/>
+							<input type="hidden" name="types"  value="1"/>
+							<div class="row-fluid">
+								<div class="span6">
+									<div class="control-group">
+										<label class="control-label">会员名称</label>
+										<div class="controls">
+											<input type="text" name="name" class="input-medium" value="" />
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">会员手机号</label>
+										<div class="controls">
+											<input type="text" name="phone" class="input-medium" value=""/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">操作员</label>
+										<div class="controls">
+											<input type="text" name="user"  class="input-medium" value=""/>
+										</div>
+									</div>
+								</div>
+								<div class="span6">
+									<div class="control-group">
+										<label class="control-label">充值门店</label>
+										<div class="controls">
+											<select class="input-medium" name="spoutlet_id">
+												<option selected="selected" value="0" >商户总部</option>
+																							</select>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">充值时间</label>
+										<div class="controls">
+											<div class="input-prepend">
+												<span class="add-on"><i class="icon-calendar"></i></span>
+												<input type="text" name="time" class="input-xlarge daterangepick " value="" readonly />
+											</div>
+
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">充值金额</label>
+										<div class="controls">
+											<input type="text" name="moneys" class="input-mini" value="" />
+											至
+											<input type="text" name="moneye" class="input-mini" value="" />
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<hr />
+							<div class="row-fluid">
+								<div class="span12 control-group">
+									<button type="submit" class="btn"><i class="icon-search"></i>查询</button>
+									<a class="btn" href="/Newmembertrade/BillExport?aid=74461&types=1" target="_blank"><i class="icon-cloud-download"></i>导出</a>
+								</div>
+
+							</div>
+						</form>
+						<div class="row-fluid dataTables_wrapper">
+							<table id="listTable" class="table table-bordered table-hover  dataTable">
+								<thead>
+									<tr>
+										<th>会员卡号</th>
+										<th>姓名</th>
+										<th>手机号码</th>
+										<th>充值金额</th>
+										<th>充值时间</th>
+										<th>充值门店</th>
+										<th>操作员</th>
+									</tr>
+								</thead>
+								<tbody>
+																	</tbody>
+							</table>
+														<!--<div class="dataTables_info" id="DataTables_Table_8_info">Showing <span>1</span> to <span>10</span> of <span>22</span> entries</div>
+							<div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_8_paginate"><a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_8_first">First</a><a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_8_previous">Previous</a><span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a></span><a tabindex="0" class="next paginate_button" id="DataTables_Table_8_next">Next</a><a tabindex="0" class="last paginate_button" id="DataTables_Table_8_last">Last</a></div>
+							-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -80,7 +80,7 @@
             <div class="user">
                 <ul class="icon-nav">
 					<li>
-						<a href="http://www.weimob.com" target="_blank" title="打开微盟首页"><i class="icon-home"></i></a>
+						<a href="http://nicepa.cn" target="_blank" title="打开首页"><i class="icon-home"></i></a>
 					</li>
 					<li class='dropdown'>
                         <a href="#" class='dropdown-toggle' data-toggle="dropdown" title="消息" style="display:none;"><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
@@ -114,7 +114,7 @@
                         </ul>
                     </li>
                      <li>
-                        <a href="/login/logout"  target="_self"  title="退出"><i class="icon-signout"></i> 退出</a>
+                        <a href="/npManage/account/logout.act"  target="_self"  title="退出"><i class="icon-signout"></i> 退出</a>
                     </li>
 
                 </ul>

@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+        <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+        <link rel="shortcut icon" href="img/favicon.ico?v=2014-02-24-4" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap_min.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap_responsive_min.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/style.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/todc_bootstrap.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/plugins/chosen/chosen.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/plugins/timepicker/bootstrap_timepicker_min.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/plugins/datetimepicker/bootstrap-datetimepicker_min.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/themes.css?2014-02-24-4" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/inside.css?2014-02-24-4" media="all" />
+		<script type="text/javascript" src="src/jQuery.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/bootstrap_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/validation/jquery_validate_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/validation/jquery_validate_methods.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/form/jquery_form_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/chosen/chosen_jquery_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/insert_text.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/lunarcalendar/calendar.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/lunarcalendar/lunar.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/datetimepicker/bootstrap_datetimepicker_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/plugins/timepicker/bootstrap_timepicker_min.js?2014-02-24-4"></script>
+		<script type="text/javascript" src="src/inside.js?2014-02-24-4"></script>
+		<title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+				<!--[if IE 7]>
+            <link href="css/font_awesome_ie7.css?v=2014-02-24-4" rel="stylesheet" />
+        <![endif]-->
+        <!--[if lte IE 8]>
+            <script src="js/excanvas_min.js?v=2014-02-24-4"></script>
+        <![endif]-->
+        <!--[if lte IE 9]>
+            <script src="js/watermark.js?v=2014-02-24-4"></script>
+        <![endif]-->
+    </head>
+        <div id="main">
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <div class="box">
+                        <div class="box-title">
+                            <div class="span10">
+                                <h3><i class="icon-edit"></i>添加节日关怀 </h3>
+                            </div>
+                            <div class="pull-left"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+                        </div>
+
+                        <div class="box-content">
+                            <form action="/newmembercard/CustomerCareAdd" method="post" class="form-horizontal form-validate">
+                            	<input type="hidden" name="aid" id="aid" value="74461"/>
+                                <div class="control-group">
+                                    <label for="title" class="control-label">节日名：</label>
+                                    <div class="controls">
+                                        <input type="text" name="title" id="title" class="input-large" data-rule-required="true" /><span class="maroon">*</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">节日类型</label>
+                                    <div class="controls margin-bm10">
+                                        <label class="radio inline">
+                                            <input type="radio" name="ty" data-type="gl" value="0" checked="checked" />公历
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="ty" data-type="yl" value="1" />农历
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="ty" data-type="zdy" value="2" />自定义
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="ty" data-type="sr" value="3" />会员生日
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="crowd">适用人群</label>
+                                    <div class="controls">
+                                        <select name="crowd" id="crowd" class="input-medium" data-rule-required="true">
+                                        	<option value="0" selected="selected" >全部会员</option>
+                                        	                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group" id="date">
+                                    <label class="control-label">时间</label>
+                                    <div class="controls">
+                                        <select class="input-small hide" name="form[y]" id="calendar">
+                                            <option value="0" selected="selected">公历</option>
+                                            <option value="1">农历</option>
+                                        </select>
+                                        <select id="birthday_y" name = "festival_time[]" class="input-medium"></select>
+                                        <select id="birthday_m" name = "festival_time[]" class="input-small"></select>
+                                        <select id="birthday_d" name = "festival_time[]" class="input-small"></select>
+
+                                    </div>
+                                </div>
+                                <div class="control-group" id="sr_div">
+                                    <label class="control-label">赠送类型</label>
+                                    <div>
+                                        <div class="controls top10">
+                                            <label class="radio pull-left">
+                                                <input type="radio" name="send" data-type="zsjf" value="1" checked="checked" />赠送积分 
+                                            </label>
+                                            <span class="help-inline " id="zsjf">
+                                                <input type="text" name="jifen" data-rule-required="true" data-rule-integer="true" class="input-mini" />
+                                            </span>
+
+                                        </div>
+                                        <div class="controls margin-top10">
+                                            <label class="radio inline">
+                                                <input type="radio" name="send" data-type="zsyh" value="2" />赠送优惠 
+                                            </label>
+                                            <select class="input-medium zsyh_select" disabled="disabled" name="coupon_type" data-tableid="yh1">
+                                                <option value="">请选择券类型</option>
+                                                <option value="1">优惠券</option>
+                                                <option value="2">代金券 </option>
+                                                <option value="3">礼品券</option>
+                                            </select>
+                                            <table class="dataTable-mini" id="yh1">
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="control-group" id="send_date_time">
+                                    <label class="control-label">赠送时间</label>
+                                    <div class="controls">
+                                        <div class="input-append date datetimepicker">
+                                            <input data-format="yyyy/MM/dd hh:mm:ss" type="text" name="send_time"  data-rule-required="true" readonly />
+                                            <span class="add-on">
+                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group hide" id="send_date_sr">
+                                    <label class="control-label">赠送及消息发送时间</label>
+                                    <div class="controls">
+                                        生日前
+                                        <input class="input-mini" name="send_sr_time" value="0" data-rule-integer="true" />
+                                        天
+                                    <div class="input-append bootstrap-timepicker">
+                                        <input name="timepicker"  type="text" class="input-small timepicker"  data-rule-required="true" >
+                                        <span class="add-on"><i class="icon-time"></i></span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="info">营销</label>
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="1"  name="ck_description" id="ck_description" />在会员卡界面展示 
+                                        </label>
+                                        <textarea class="input-xlarge __description hide" rows="3" name="description" placeholder="请输入活动说明" data-rule-required="true"></textarea>
+                                    </div>
+                                </div>
+<!--                                <div class="control-group">-->
+<!--                                    <label class="control-label" for="info">短信通知</label>-->
+<!--                                    <div class="controls">-->
+<!--                                        <span class="help-inline hide">未开通短信增值包</span>-->
+<!--                                        <textarea class="input-xlarge" rows="3" name="info" id="info" data-rule-required="true"></textarea>-->
+<!--                                        <span class="help-block">动态参数：<a href="javascript:;" class="add_par" data-value="{会员姓名}">会员姓名</a> <a href="javascript:;" class="add_par" data-value="{商户简称}">商户简称</a> <a href="javascript:;" class="add_par" data-value="{卡号后四位}">卡号后四位</a></span>-->
+<!--                                        <span class="help-block">当前字数：<span class="red words">0</span> 字  短信条数：<span class="red number">0</span> 条</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="control-group" >
+                                    <label class="control-label" for="send_number">短信预览</label>
+                                    <div class="controls"> 
+                                        <input class="input-xlarge"  id="send_number"  type="text"  placeholder="多个号码用,分开" /> <span class="help-inline"><a href="javascript:;" class="btn" id="send_msg" data-loading-text="发送中...">发送</a></span>
+                                        <script type="text/javascript">
+                                            $(function () { 
+                                                var s = $("#send_msg");
+                                                s.click(function () {
+                                                    var n = $("#send_number").val(),  t = $("#title").val();
+                                                    
+                                                    if (n.length > 0 && t.length > 0) {
+                                                        s.button('loading')
+                                                        $.ajax({
+                                                            url: "/newmembercard/SentMessage/",
+                                                            type: "post",
+                                                            dataType: 'json',
+                                                            data: {
+                                                        		"type":9,
+                                                                "aid": 74461,       
+                                                                "title": t,
+                                                                "number":n
+                                                            },
+                                                            success: function (data) { 
+                                                                G.logic.form.tip(data);//和页面提交返回参数相同
+                                                                s.button('reset');
+                                                            },
+                                                            error: function () {
+                                                                G.ui.tips.info("网络异常请重试..")
+                                                            }
+                                                        });
+
+                                                    } else { G.ui.tips.info("请输入手机号码和活动名称") }
+                                                });
+                                            })
+                                        </script>
+                                    </div>
+                                </div>
+                                <input id="classid" type="hidden" />
+                                <div class="form-actions">
+                                    <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary" style="float:conter">保存</button>
+                                    <button type="button" class="btn" onclick="Javascript:window.history.go(-1)">取消</button>
+
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="add_code" action="/Newmembercard/Yhj" method="post" class="form-horizontal">
+                	<input type="hidden" name="aid" value="74461"/>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="icon-table"></i>选择优惠 <small>最多选择3个优惠</small></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row-fluid">
+                            优惠名称：<input name="key" id="key" type="text" class="input-medium" placeholder="输入名称进行查找" />
+                        </div>
+                        <p></p>
+
+                        <div class="row-fluid">
+                            共有 <span class="red" id="count_num">0</span> 条符合条件　
+                            <button type="button" class="btn btn-mini" id="p_page"><strong>上一页</strong></button>
+                            <span id="p_page_str">第1页/共1页</span>
+                            <button type="button" class="btn btn-mini" id="n_page"><strong>下一页</strong></button>
+                            <ul class="unstyled list-li-border" id="data-list"></ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script type="text/javascript">
+
+    var _obj = {
+            statr: $("#calendar"),	//公农历ID
+            nowData: new Date(),	//默认时间
+            day_y: $("#birthday_y"),	//年
+            day_m: $("#birthday_m"),	//月
+            day_d: $("#birthday_d"),	//日
+            starSpan: $("#starSpan"),
+            lunar: $("#animalSpan")
+        }
+        $(document).ready(function () {
+
+            var $zsyh_select = $("select.zsyh_select"), $yh1 = $("#yh1");
+            var $sr_div = $("#sr_div"), $ty = $(":radio[name='ty']"), $send = $(":radio[name='send']");
+            var $tychecked = $(":radio[name='ty'][checked]").data("type"), $ljxf = $("#ljxf"), $stores_div = $("#stores_div"), $info = $("#info");
+            var $calendar = $("#calendar"), $date = $("#date"), $send_date_time = $("#send_date_time"), $send_date_sr = $("#send_date_sr");
+            $info.setCaret();
+            $("a.add_par").click(function () {
+                //console.log($(this).data("value"));
+                $info.insertAtCaret($(this).data("value"));
+            })
+            $info.live("keydown keyup blur", function (e) {
+                var content = $(this).val();
+                var length = content.length;
+                var $words = $("span.words"), $number = $("span.number");
+                $words.text(length)
+                var f = Math.floor(length / 70) + 1;
+                $number.text(f);
+            });
+            $zsyh_select.change(function () {
+                var $this = $(this), v = $this.val(), c = $("#classid").val();
+                var tbaleid = $this.data("tableid");
+                if ($this.val().length > 0) {
+                    if (c.length > 0) {
+                        if (c != v) {
+                            $yh1.find("tbody").html("");
+                        }
+                    }
+                    $("#classid").val(v);
+                    show_zsyh(tbaleid);
+                }
+            });
+
+            $ty.click(function () {
+                var $this = $(this), type = $this.data("type");
+                var $$gl = (type == "gl");
+                var $$yl = (type == "yl");
+                var $$zdy = (type == "zdy");
+                var $$sr = (type == "sr");
+                if ($$gl || $$yl) {
+                    //待优化  
+                    var $set_value = $$yl ? 1 : 0;
+                    $calendar.val($set_value);
+                    //$("#calendar option").each(function () {
+                    //    var $$$this = $(this);
+                    //    if ($$$this.val() == $set_value) {
+                    //        $$$this.attr("selected", true);
+                    //    } else {
+                    //        $$$this.removeAttr("selected")
+                    //    }
+                    //})
+                    $calendar.change();
+                }
+                $date.toggle(!$$sr);
+                $calendar.toggle($$zdy);
+                $ljxf.toggle($$zdy);
+ //               $sr_div.toggle($$sr);
+                $stores_div.toggle($$zdy);
+                $send_date_time.toggle(!$$sr);
+                $send_date_sr.toggle($$sr);
+            });
+            $send.click(function () {
+                var $this = $(this), type = $this.data("type");
+                var $cc = $this.parents(".controls");
+                var $all_c = $cc.find("select,input[type=text]");
+                $all_c.removeAttr("disabled");
+                var $this_k_c = $cc.siblings().find("select,input[type=text]");
+                $this_k_c.attr("disabled", true);
+              //region营销
+                //$(".__description").toggle(!$$sr && !!$("#ck_description").attr("checked"));
+            });
+            $send.click(function () {
+                var $this = $(this), type = $this.data("type");
+                var $cc = $this.parents(".controls");
+                var $all_c = $cc.find("select,input[type=text]");
+                $all_c.removeAttr("disabled");
+                var $this_k_c = $cc.siblings().find("select,input[type=text]");
+                $this_k_c.attr("disabled", true);
+            });
+            //region营销
+            $("#ck_description").click(function () {
+                var $this = $(":radio[name='ty']:checked"), type = $this.data("type");
+                var $$sr = (type == "sr"); 
+                $(".__description").toggle(this.checked&&!$$sr)
+               
+            })
+            //endregion
+            //#region 选择时间
+         
+
+            if (_obj.statr.val() == "0") {
+                var temp = lunarCalc.transform(_obj.nowData.getFullYear(), _obj.nowData.getMonth() + 1, _obj.nowData.getDate(), 0, 0);
+                CalendarList.init(_obj.day_y, _obj.day_m, _obj.day_d, null, null, _obj.lunar, _obj.starSpan, temp.sYear, temp.sMonth, temp.sDay, 0);
+            }
+            else {
+                var temp = lunarCalc.transform(_obj.nowData.getYear(), _obj.nowData.getMonth(), _obj.nowData.getDate(), 0, 1);
+                CalendarList.init(_obj.day_y, _obj.day_m, _obj.day_d, null, null, _obj.lunar, _obj.starSpan, temp.lYear, temp.lMonth, temp.lDay, 1);
+            }
+
+
+
+            /*
+                下拉列表操作
+                改变时触发改变时间对象的值
+                便下公农转换时所用
+            */
+            var select = [_obj.day_y[0].id, _obj.day_m[0].id, _obj.day_d[0].id];
+
+            //公农转换触发
+            _obj.statr.on("change", function () {
+
+                var ldate = [];
+                $('#' + select.join(',#')).each(function () {
+                    ldate.push(parseFloat($(this).val()))
+                })
+                if (_obj.statr.val() == '1') {
+                    var temp = lunarCalc.transform(ldate[0], ldate[1], ldate[2], 0, 0);
+                    CalendarList.init(_obj.day_y, _obj.day_m, _obj.day_d, null, null, _obj.lunar, _obj.starSpan, temp.lYear, temp.lMonth, temp.lDay, 1);
+
+                }
+                else {
+                    var temp = lunarCalc.drawTest(ldate[0], ldate[1], ldate[2], 1, 0);
+                    console.log(temp);
+                    CalendarList.init(_obj.day_y, _obj.day_m, _obj.day_d, null, null, _obj.lunar, _obj.starSpan, temp.sYear, temp.sMonth, temp.sDay, 0);
+
+                }
+            })
+            //#endregion
+            //#region 选择优惠
+            var _pdata_table_id;
+            var _isoso = false;
+
+            $("#_soso").click(function () { _isoso = true; $("#_soso").attr("disabled", ""); _page(1) });
+            $("#classid").change(function () { _this_page = 1; _page(1) });
+            $("#data-list input[name='check']").live("click", function () { _tr($(this)); });
+            var _tr = function (_t) {
+                var $this = _t;
+                var $title = $this.attr("t");
+                var $id = $this.val();
+                var $selecttr = $("#" + _pdata_table_id + "tr" + $id + "");
+                if ($this.attr("checked")) {
+                    if ($selecttr.length == 0 && $("#" + _pdata_table_id + " tr").length < 3) {
+                        var _trtmp = "<tr id='" + _pdata_table_id + "tr" + $id + "' draggable='true'><td><input type='hidden' name='zsyh[id][]'  value='" + $id + "' />" + $title + "</td><td><a href='javascript:void(0)' class='btn btn-mini del'><i class='icon-remove'></i></a></td></tr>";
+                        $("#" + _pdata_table_id + "").append(_trtmp);
+
+                    } else {
+                        $this.attr("checked", false);
+                    }
+
+                } else {
+                    $selecttr.remove();
+                }
+            }
+            //删除
+            $("table.dataTable-mini .del").live("click", function () {
+                $(this).parent().parent().remove();
+            });
+            function show_zsyh(t) {
+                _pdata_table_id = t;
+                $('#myModal').modal('show');
+                $("#chkall").attr("checked", false);
+                _page(1);
+            }
+
+            $("#p_page").click(function () {
+                if (_this_page - 1 > 0) {
+                    _this_page--;
+                    _page(_this_page);
+                }
+            });
+            $("#n_page").click(function () {
+                if (_this_page + 1 <= _this_page_count) {
+                    _this_page++;
+                    _page(_this_page);
+                }
+            });
+            var _this_page = 1;//当前页
+            var _this_page_count = 0;//总页数
+            var _page = function (_index) {
+                var key;
+                if (_isoso) {
+                    key = $("#key").val();
+                }
+                var classid = $("#classid").val();
+                $.post("/newmembercard/Yhj", { "aid": "74461", "key":key,"classid": classid , "page": _index}, function (data, textStatus) {
+                    $("#data-list").html("");
+                    //console.log(data.list);
+                    $.each(data.rows, function (index, item) {
+                        //console.log(index);
+                        var _li_tmp = '<li> <label> <input type="checkbox" name="check" t="' + item.couponname + '" value="' + item.id + '" data-price="' + item.couponname + '" />  ' + item.couponname + '</label></li>';
+                        $("#data-list").append(_li_tmp);
+                    });
+                    _this_page_count = data.total;
+                    $("#count_num").text(_this_page_count * 1);
+                    $("#p_page_str").text("第" + _this_page + "页/共" + _this_page_count + "页");
+                    $("#_soso").removeAttr("disabled")
+                }, "json");
+            }
+
+            //#endregion
+             
+        })
+    </script>
+
+	<script>
+		window.document.onkeydown = function(e) {
+			if ('' == document.activeElement.id) {
+				var e=e || event;
+　 				var currKey=e.keyCode || e.which || e.charCode;
+				if (8 == currKey) {
+					return false;
+				}
+			}
+		};
+	</script>
+</html>

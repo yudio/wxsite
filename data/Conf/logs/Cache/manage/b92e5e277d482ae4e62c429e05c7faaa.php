@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="box-content">
-                            <form action="/wechat/modifypwd" method="post" class="form-horizontal form-validate">
+                            <form action="/npManage/account/updatepwd.act" method="post" class="form-horizontal form-validate">
                                 <div class="control-group">
                                     <label class="control-label" for="old_password">原始密码</label>
                                     <div class="controls">

@@ -20,7 +20,7 @@
 <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/flot/jquery_flot.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/flot/jquery_easy_pie_chart.js"></script>
-<script type="text/javascript" src="{np::RES}/src/inside.js"></script>
+<script type="text/javascript" src="{np::STATICS}/inside.js"></script>
 <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
 	<link rel="shortcut icon" href="{np::RES}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
@@ -65,7 +65,7 @@
                                         </div>
                                     </form>
                                     <div class="f14 gray">
-                                        帐号及密码仅限智能绑定使用，不保存！不泄漏！不放心？点此 <a href="/wechat/addaccount">手动绑定</a>
+                                        帐号及密码仅限智能绑定使用，不保存！不泄漏！不放心？点此 <a href="/npManage/account/addwxuser.act">手动绑定</a>
                                     </div>
                                 </div>
 
@@ -195,7 +195,7 @@
 							//{"errno":0,"error":"信息","pid":69535}
                             if (d.errno == 0) {
 								// 修改跳转链接
-								var url = '/npManage/account/index.act' + d.pid;
+								var url = '/npManage/account/main.act';
 								$('#gotomyaccount').attr('href', url);
 
 								$('#suc_tip').html(d.error);

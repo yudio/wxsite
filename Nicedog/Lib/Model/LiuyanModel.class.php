@@ -10,7 +10,7 @@ class LiuyanModel extends Model{
 		array('uid','getuser',self::MODEL_INSERT,'callback'),
 		//array('uname','getname',self::MODEL_INSERT,'callback'),
 		array('createtime','time',self::MODEL_INSERT,'function'),
-		array('uptatetime','time',self::MODEL_BOTH,'function'),
+		array('updatetime','time',self::MODEL_BOTH,'function'),
 		//array('classid','getclassid',self::MODEL_BOTH,'callback'),
 		//array('classname','getclassname',self::MODEL_BOTH,'callback'),
 		array('token','gettoken',self::MODEL_INSERT,'callback'),

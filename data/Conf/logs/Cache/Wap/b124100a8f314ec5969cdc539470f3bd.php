@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-<link href="<?php echo RES;?>/css/userinfo/fans.css" rel="stylesheet" type="text/css"> 
+<link href="<?php echo RES;?>/css/userinfo/fans.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="<?php echo RES;?>/css/guajiang/js/jquery.js">\x3C/script>')</script>

@@ -36,7 +36,7 @@
                   <td><div class="cateimg"><img <if condition="empty($vo['pic'])">src="{np::RES}/images/pic.png"<else/>src="{np:$vo.pic}"</if> class="cateimg_small" title="图文自定义内容" <if condition="$vo['pic']"> style="width:150px;height:90px"</if>><img <if condition="empty($vo['pic'])">src="{np::RES}/images/pic.png"<else/>src="{np:$vo.pic}"</if> class="cateimg_big2" title="图文自定义内容">{np:$vo.text}</div></td>
                   <td>{np:$vo.classname}</td>
                   <td>{np:$vo.click}</td>
-                    <td><php>echo date('Y-m-d',$vo['uptatetime']);</php></td>
+                    <td><php>echo date('Y-m-d',$vo['updatetime']);</php></td>
                    
                    <td class="norightborder">
 				   <!--a target="ddd" href="{np::U('Wap/Index/content',array('token'=>$_SESSION['token'],'id'=>$vo['id']))}">查看</a-->

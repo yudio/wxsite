@@ -34,10 +34,10 @@ function getHost()
 	}
 	var t= window.location.search.replace("?","");
 
-	document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
+	//document.getElementById("Login").src="http://shop.fj400.net/index.html?host="+d+"&t="+t;
 	document.body.style.height="100%";
-	document.body.style.overflow="hidden";
-    document.body.style.overflowY="hidden";
+	//document.body.style.overflow="hidden";
+    //document.body.style.overflowY="hidden";
 	document.body.style.overflowX="hidden";
 	
 	
@@ -379,7 +379,7 @@ window.onload =getHost;
 15.糗事　直接发送糗事<br/>
 16.快递 快递＋快递名＋快递号　例：快递顺丰117215889174<br/>
 17.健康指数查询　健康＋高，＋重　例：健康170,65<br/>
-18.朗读 朗读＋关键词　例：朗读LanRain多用户营销系统<br/>
+18.朗读 朗读＋关键词　例：朗读奈斯伙伴多用户营销系统<br/>
 19.计算器 计算器使用方法　例：计算50-50　，计算100*100<br/>
 20.输入服务了解平台系统的售后服务<br/>
 21.输入抽奖，即可玩幸运大抽奖<br/>

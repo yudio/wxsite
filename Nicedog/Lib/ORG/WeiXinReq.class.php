@@ -49,10 +49,11 @@ class WeiXinReq {
         }
 
         curl_close($curl); // 关闭CURL会话
-
+        //LOG::write($tmpInfo,LOG::ERR);
         // 解析HTTP数据流
-        list($header, $body) = explode("\r\n\r\n", $tmpInfo);
-
+        list($header, $body) = explode("\r\n\r\n", $tmpInfo,2);
+        //LOG::write("POST_COOKIE:".$header,LOG::ERR);
+        //LOG::write("POST_BODY:".$body,LOG::ERR);
         if(!$cookie) {
             // 解析COOKIE
             $cookie = "";
@@ -100,9 +101,9 @@ class WeiXinReq {
         }
 
         curl_close($curl); // 关闭CURL会话
-
+        //LOG::write("WX_RETURN:".$tmpInfo,LOG::ERR);
         // 解析HTTP数据流
-        list($header, $body) = explode("\r\n\r\n", $tmpInfo);
+        list($header, $body) = explode("\r\n\r\n", $tmpInfo,2);
 
         if(!$cookie) {
             // 解析COOKIE

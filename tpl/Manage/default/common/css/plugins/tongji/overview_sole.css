@@ -1,0 +1,518 @@
+﻿div.table-list {
+    margin-top: 10px;
+}
+
+    div.table-list div.index-table-list-tip {
+        background-color: #FFFFC6;
+        overflow: hidden;
+        position: absolute;
+        visibility: hidden;
+        width: 145px;
+        word-wrap: break-word;
+        z-index: 100;
+        border: 1px solid #9D9A89;
+        padding: 10px 2px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    div.table-list table.list {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+    }
+
+        div.table-list table.list th {
+            height: 16px;
+            line-height: 16px;
+            padding: 7px 10px;
+            text-align: right;
+            color: #999;
+            white-space: nowrap;
+            font-weight: normal;
+        }
+
+            div.table-list table.list th.nbg {
+                background: none;
+                color: #000;
+            }
+
+        div.table-list table.list tr td {
+            border-bottom: 1px #E5E5E5 solid;
+            padding: 6px 10px 6px 5px;
+            height: 17px;
+            line-height: 17px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        div.table-list table.list tr.title {
+            background-color: #fae1dc;
+            border-bottom: none;
+        }
+
+        div.table-list table.list tr.highlight td {
+            color: #323332;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+
+            div.table-list table.list tr.highlight td.normal {
+                font-size: 12px;
+                font-weight: normal;
+            }
+
+        div.table-list table.list tr td.normal {
+            width: 85px;
+        }
+
+        div.table-list table.list tr.fade {
+            height: 18px;
+            line-height: 18px;
+        }
+
+            div.table-list table.list tr.fade th {
+                color: #A8A7A7;
+            }
+
+            div.table-list table.list tr.fade td {
+                color: #A8A7A7;
+                font-size: 12px;
+                border-bottom: none;
+            }
+
+                div.table-list table.list tr.fade td.highlight-tip {
+                    cursor: pointer;
+                }
+
+.arrow {
+    display: inline-block;
+    width: 9px;
+    height: 10px;
+    float: left;
+}
+
+.arrow-up {
+    background-repeat: no-repeat;
+    background-position: right 10px;
+    background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+    -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+    background-position: right -0px;
+}
+
+.arrow-down {
+    background-repeat: no-repeat;
+    background-position: right 10px;
+    background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+    -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+    background-position: right -30px;
+}
+
+div.overview-flash-indicator-container {
+    height: 17px;
+    line-height: 17px;
+    color: #666;
+    margin: 10px 0 0 20px;
+}
+
+    div.overview-flash-indicator-container label {
+        float: left;
+        margin-right: 10px;
+    }
+
+    div.overview-flash-indicator-container div.option-select-bar label {
+        display: inline-block;
+    }
+
+    div.overview-flash-indicator-container span.flash-trend-tip {
+        background-repeat: no-repeat;
+        background-position: left 5px;
+        background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+        -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+        background-position: left -60px;
+        padding-left: 15px;
+        margin-right: 30px;
+        float: right;
+    }
+
+div.fold {
+    margin: 0;
+}
+
+div.btw {
+    border-top-width: 1px;
+}
+
+table.date-compare-container {
+    width: 100%;
+}
+
+    table.date-compare-container td {
+        line-height: 22px;
+    }
+
+        table.date-compare-container td div.check-option-container {
+            color: #666;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 22px;
+        }
+
+            table.date-compare-container td div.check-option-container label {
+                margin-right: 8px;
+            }
+
+        table.date-compare-container td a.detail-report-btn {
+            text-align: center;
+            color: #666;
+            background-repeat: no-repeat;
+            background-position: 0 1px;
+            background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+            -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+            background-position: left -82px;
+            display: inline-block;
+            width: 89px;
+        }
+
+div.visitor-attr { 
+}
+
+    div.visitor-attr div.title div.l {
+        color: #666;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    div.visitor-attr div.title div.r {
+        line-height: 22px;
+    }
+
+        div.visitor-attr div.title div.r a {
+            color: #666;
+        }
+
+            div.visitor-attr div.title div.r a.detail-report-btn {
+                background-repeat: no-repeat;
+                background-position: 0 1px;
+                background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+                -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+                background-position: left -82px;
+                display: inline-block;
+                text-align: center;
+                width: 89px;
+            }
+
+    div.visitor-attr div.table-title {
+        line-height: 50px;
+        height: 50px;
+        padding-left: 28px;
+    }
+
+        div.visitor-attr div.table-title span.text {
+            color: #999;
+        }
+
+    div.visitor-attr table.sex-list {
+        margin-top: 6px;
+        border-collapse: collapse;
+        height: 330px;
+        /*border-bottom: 1px solid #E6E6E6;*/
+        font-size: 12px;
+        width: 100%;
+        height: 181px;
+    }
+
+        div.visitor-attr table.sex-list td {
+            width: 50%;
+        }
+
+            div.visitor-attr table.sex-list td span {
+                display: inline-block;
+            }
+
+                div.visitor-attr table.sex-list td span.ratio {
+                    font-size: 28px;
+                    line-height: 28px;
+                    color: #636464;
+                }
+
+                div.visitor-attr table.sex-list td span.male {
+                    padding-left: 6px;
+                    width: 21px;
+                    height: 49px;
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+                    -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+                    background-position: left -113px;
+                }
+
+                div.visitor-attr table.sex-list td span.male-shadow {
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+                    -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+                    background-position: left -172px;
+                }
+
+                div.visitor-attr table.sex-list td span.female {
+                    padding-left: 5px;
+                    width: 21px;
+                    height: 49px;
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+                    -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+                    background-position: left -241px;
+                }
+
+                div.visitor-attr table.sex-list td span.female-shadow {
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+                    -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+                    background-position: left -310px;
+                }
+
+            div.visitor-attr table.sex-list td.top {
+                height: 35px;
+            }
+
+            div.visitor-attr table.sex-list td.al {
+                text-align: left;
+                padding-left: 20px;
+            }
+
+            div.visitor-attr table.sex-list td.ar {
+                text-align: right;
+                padding-right: 20px;
+            }
+
+    div.visitor-attr div.visitor-attr-content {
+        background-color: #fafafa;
+        margin-top: 6px;
+        border-top: 1px solid #E6E6E6;
+        border-bottom: 1px solid #E6E6E6;
+    }
+
+        div.visitor-attr div.visitor-attr-content div.age {
+            float: left;
+            width: 49.9%;
+        }
+
+            div.visitor-attr div.visitor-attr-content div.age table.age-list {
+                border-collapse: collapse;
+                height: 330px;
+                font-size: 12px;
+                width: 100%;
+            }
+
+                div.visitor-attr div.visitor-attr-content div.age table.age-list td {
+                    color: #767676;
+                    padding-left: 5px;
+                }
+
+                    div.visitor-attr div.visitor-attr-content div.age table.age-list td div {
+                        display: inline-block;
+                        height: 20px;
+                        line-height: 20px;
+                        float: left;
+                    }
+
+                        div.visitor-attr div.visitor-attr-content div.age table.age-list td div.age-back {
+                            background-color: #48BEF4;
+                        }
+
+                        div.visitor-attr div.visitor-attr-content div.age table.age-list td div.age-ratio {
+                            padding-left: 5px;
+                        }
+
+                    div.visitor-attr div.visitor-attr-content div.age table.age-list td.age-text {
+                        width: 60px;
+                        padding-left: 28px;
+                        color: #333;
+                    }
+
+        div.visitor-attr div.visitor-attr-content div.area {
+            float: right;
+            width: 49.9%;
+        }
+
+            div.visitor-attr div.visitor-attr-content div.area table.area-list {
+                border-collapse: collapse;
+                height: 330px;
+                font-size: 12px;
+                width: 100%;
+            }
+
+div.table-grid div.left {
+    float: left;
+    width: 49%;
+}
+
+div.table-grid div.right {
+    float: right;
+    width: 49%;
+}
+
+div.table-grid div.source-site, div.table-grid div.key-word, div.table-grid div.landing-page, div.table-grid div.page-view {
+    margin-top: 20px;
+}
+
+    div.table-grid div.source-site div.title div.l, div.table-grid div.key-word div.title div.l, div.table-grid div.landing-page div.title div.l, div.table-grid div.page-view div.title div.l {
+        color: #666;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    div.table-grid div.source-site div.title div.r, div.table-grid div.key-word div.title div.r, div.table-grid div.landing-page div.title div.r, div.table-grid div.page-view div.title div.r {
+        line-height: 22px;
+    }
+
+        div.table-grid div.source-site div.title div.r a, div.table-grid div.key-word div.title div.r a, div.table-grid div.landing-page div.title div.r a, div.table-grid div.page-view div.title div.r a {
+            color: #666;
+        }
+
+            div.table-grid div.source-site div.title div.r a.detail-report-btn, div.table-grid div.key-word div.title div.r a.detail-report-btn, div.table-grid div.landing-page div.title div.r a.detail-report-btn, div.table-grid div.page-view div.title div.r a.detail-report-btn {
+                background-repeat: no-repeat;
+                background-position: 0 1px;
+                background-image: url('decorator/overview_sole-85efd0a27cf13e42d284db3bc3d60745.png');
+                -background-image: url('decorator/overview_sole-3999b91b86a794e81f664ad9191b1b1f-ie6.png');
+                background-position: left -379px;
+                display: inline-block;
+                text-align: center;
+                width: 89px;
+            }
+
+    div.table-grid div.source-site table, div.table-grid div.key-word table, div.table-grid div.landing-page table, div.table-grid div.page-view table {
+        width: 100%;
+    }
+
+        div.table-grid div.source-site table tr.th td, div.table-grid div.key-word table tr.th td, div.table-grid div.landing-page table tr.th td, div.table-grid div.page-view table tr.th td {
+            color: #999;
+            background-color: #EAEAEA;
+        }
+
+        div.table-grid div.source-site table tr, div.table-grid div.key-word table tr, div.table-grid div.landing-page table tr, div.table-grid div.page-view table tr {
+            height: 20px;
+            line-height: 20px;
+        }
+
+            div.table-grid div.source-site table tr td, div.table-grid div.key-word table tr td, div.table-grid div.landing-page table tr td, div.table-grid div.page-view table tr td {
+                background-color: #FAFAFA;
+                margin: 0;
+                overflow: hidden;
+                padding: 0;
+                color: #666;
+                padding-left: 10px;
+                border-top: 1px solid #fff;
+            }
+
+            div.table-grid div.landing-page table tr td, div.table-grid div.page-view table tr td {
+                cursor: pointer;
+            }
+
+                div.table-grid div.source-site table tr td.ar, div.table-grid div.key-word table tr td.ar, div.table-grid div.landing-page table tr td.ar, div.table-grid div.page-view table tr td.ar {
+                    text-align: right;
+                }
+
+                div.table-grid div.source-site table tr td.al, div.table-grid div.key-word table tr td.al, div.table-grid div.landing-page table tr td.al, div.table-grid div.page-view table tr td.al {
+                    text-align: left;
+                    white-space: nowrap;
+                }
+
+                div.table-grid div.source-site table tr td.ratio, div.table-grid div.key-word table tr td.ratio, div.table-grid div.landing-page table tr td.ratio, div.table-grid div.page-view table tr td.ratio {
+                    text-align: left;
+                    padding-left: 20px;
+                }
+
+div.fc-user-list {
+    border: 1px solid #ccc;
+    color: gray;
+    float: right;
+    margin-right: 40px;
+    width: 200px;
+    position: relative;
+}
+
+    div.fc-user-list .text {
+        float: left;
+        width: 178px;
+    }
+
+    div.fc-user-list .options {
+        left: 0;
+        max-height: 300px;
+        overflow-y: auto;
+        top: 20px;
+        width: 198px;
+    }
+
+div.title-bar span.normal {
+    font-size: 12px;
+    color: #6191D3;
+    font-weight: normal;
+}
+
+.toggleable-hidden {
+    display: none;
+}
+
+.trade-dialog {
+    border: 2px solid #4abff4;
+    background-color: #eff9fe;
+}
+
+    .trade-dialog .dialog-title {
+        background: none;
+        height: 1px;
+    }
+
+        .trade-dialog .dialog-title .dialog-close {
+            background: none;
+        }
+
+    .trade-dialog .dialog-content div.trade-setting-container {
+        padding: 0 20px;
+    }
+
+        .trade-dialog .dialog-content div.trade-setting-container div.trade-select-container {
+            margin: 25px 0;
+        }
+
+            .trade-dialog .dialog-content div.trade-setting-container div.trade-select-container a.button {
+                margin-left: 5px;
+            }
+
+        .trade-dialog .dialog-content div.trade-setting-container div.trade-setting-footer {
+            color: #999;
+            line-height: 1.5;
+        }
+
+    .trade-dialog .dialog-content .trade-setting-tip {
+        display: inline-block;
+        padding-left: 50px;
+        line-height: 35px;
+        font-weight: bolder;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-image: url("decorator/trade_setting_tip.png");
+    }
+
+.chart-china-area {
+    width: 365px;
+    height: 330px;
+    text-align: left;
+}
+
+.chart-tip-container {
+    position: absolute;
+    top: 50%;
+    height: 3em;
+    margin-top: -1.5em;
+}
+
+.chart-container .loading {
+    height: 330px;
+    line-height: 330px;
+}
