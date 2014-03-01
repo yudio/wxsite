@@ -13,8 +13,7 @@ if (get_magic_quotes_gpc()) {
 }
 define('APP_NAME', '');
 define('CONF_PATH','./data/conf/');
-define('TMPL_PATH','./tpl/');
-define('HTML_PATH','./data/html/');
+define('TMPL_PATH','./tpl/');\
 define('CORE','./');
 $GLOBALS['_beginTime'] = microtime(TRUE);
 define('MEMORY_LIMIT_ON',function_exists('memory_get_usage'));
