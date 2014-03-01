@@ -11,6 +11,11 @@ class MemberAction extends UserAction{
         parent::_initialize();
         $token = session('token');
         $db=M("Wxuser");
+        //验证权限
+        $token_open=M('token_open')->field('queryname')->where(array('token'=>session('token')))->find();
+        if(!strpos($token_open['queryname'],'huiyuanka')){
+            $this->error('您还未开启该模块的使用权,请到功能模块中添加','/npManage/func/app.act');
+        }
         //获取所在组的开卡数量
         $thisWxUser=$db->where(array('token'=>$token))->find();
         $thisUser=M("Users")->where(array('id'=>$thisWxUser['uid']))->find();
@@ -21,6 +26,7 @@ class MemberAction extends UserAction{
             $data['cardisok'] = 1;
             $db->where(array('uid'=>session('uid'),'token'=>session('token')))->save($data);
         }
+
     }
 
     //商家设置
@@ -56,10 +62,6 @@ class MemberAction extends UserAction{
 
     //会员卡配置
     public function addcard(){
-        $token_open=M('token_open')->field('queryname')->where(array('token'=>session('token')))->find();
-        if(!strpos($token_open['queryname'],'huiyuanka')){
-            $this->error('您还未开启该模块的使用权,请到功能模块中添加','/npManage/func/app.act');
-        }
         $db = D('Member_card_set');
         if (IS_POST){
             $_POST['token'] = session('token');
@@ -67,7 +69,7 @@ class MemberAction extends UserAction{
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
-                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/addcard.act'));
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/addcard.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
                 }
@@ -86,6 +88,111 @@ class MemberAction extends UserAction{
             $this->assign('info',$info);
         }
         $this->display();
+    }
+    public function addmemfields(){
+        //C('TOKEN_ON',false);
+        $db = M('Member_field_set');
+        if (IS_POST){
+            $_POST['token'] = session('token');
+            $_POST['uid']   = session('uid');
+            $id = $this->_post('id');
+            if ($id){//更新操作
+                if ($db->create()){
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/addmemfields.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                }
+            }else{
+                if ($db->create()){
+                    $id = $db->add();
+                    if (!$_POST['name_is_edit']){$_POST['name_is_edit']=0;}
+                    if (!$_POST['phone_is_edit']){$_POST['name_is_edit']=0;}
+                    if (!$_POST['birthday_is_must']){$_POST['name_is_edit']=0;}
+                    if (!$_POST['birthday_is_edit']){$_POST['name_is_edit']=0;}
+                    if (!$_POST['gender_is_must']){$_POST['name_is_edit']=0;}
+                    if (!$_POST['address_is_must']){$_POST['name_is_edit']=0;}
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/addmemfields.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
+                }
+            }
+        }
+        //$id = $this->_get('id','intval');
+        if (session('token')){
+            $info = $db->where(array('token'=>session('token')))->find();
+            $this->assign('info',$info);
+        }
+        $this->display('memberfields');
+    }
+    public function listmemberprivilege(){
+        $db   = M('Member_card_privilege');
+        $info = $db->where(array('token'=>session('token')))->select();
+        $this->assign('info',$info);
+        $this->display();
+    }
+
+    public function setCardLevel(){
+        $db = M('Member_card_level');
+        $data = array();
+        if (IS_POST){
+            $data['token'] = session('token');
+            $data['uid']   = session('uid');
+            $data['basis'] = $this->_post('basis');
+
+            $data['id']      = $this->_post('zid');
+            $data['cname']   = $this->_post('sxname');
+            $data['bscore']  = $this->_post('sxstarjf');
+            $data['zk']      = $this->_post('sxzk');
+            $data['type']    = 0;
+            $this->updatecardlevel($data);
+
+            $add = $_REQUEST['add'];
+            foreach($add as $key=>$vo){
+                $data['id']     = "";//新增ID自增
+                $data['cname']  = $vo['name'];
+                $data['bscore'] = $vo['startjf'];
+                $data['escore'] = $vo['endjf'];
+                $data['zk']     = $vo['zk'];
+                $data['type']   = 1;
+                $this->updatecardlevel($data);
+            }
+            $psarr = $_REQUEST['ps'];
+            foreach($add as $key=>$vo){
+                $data['id']     = "";//新增ID自增
+                $data['cname']  = $vo['name'];
+                $data['bscore'] = $vo['startjf'];
+                $data['escore'] = $vo['endjf'];
+                $data['zk']     = $vo['zk'];
+                $data['type']   = 1;
+                $this->updatecardlevel($data);
+            }
+        }
+        //$id = $this->_get('id','intval');
+        if (session('token')){
+            $info = $db->where(array('token'=>session('token')))->find();
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+    public function updatecardlevel($data){
+        $db = M('Member_card_level');
+        if ($data['id']){
+            if ($db->create($data)){
+                $db->save();
+                return true;
+            }else{
+                return $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+            }
+        }else{
+            if (!$data['escore']){$data['escore']==0;}
+            if ($db->create($data)){
+                $db->add();
+                return true;
+            }else{
+                return $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
+            }
+        }
     }
     /*
      *

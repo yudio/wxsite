@@ -344,101 +344,64 @@ window.onload =getHost;
 	</div>
 	<div id="Content" >
 	</div>
+<link rel="stylesheet" href="./tpl/static/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="./tpl/static/kindeditor/plugins/code/prettify.css" />
+<script src="./tpl/static/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="./tpl/static/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="./tpl/static/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script>
+
+var editor;
+KindEditor.ready(function(K) {
+editor = K.create('#info', {
+resizeType : 1,
+allowPreviewEmoticons : false,
+allowImageUpload : false,
+items : [
+'source','undo','redo','copy','plainpaste','wordpaste','clearhtml','quickformat','selectall','fullscreen','fontname', 'fontsize','subscript','superscript','indent','outdent','|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline','hr',
+ '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+'insertunorderedlist', '|', 'emoticons', 'link', 'unlink','baidumap']
+});
+});
+</script>
+<script src="<?php echo RES;?>/js/date/WdatePicker.js"></script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+          <div class="cLineB"><h4>发布礼品券 <span class="FAQ">发布积分兑换礼品信息</span></h4><a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:-27px">返回</a></div>
          
-          <div class="cLineB">
-              <h4 class="left">自定义回复信息</h4>
-              <div class="clr"></div>
-          </div>
-          <div class="cLine">
-              <div class="pageNavigator left">
-  <a href='<?php echo U("Text/add");?>' title='新增文本自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/text.png" class="vm" />新增文本自定义回复</a>　
-  <a href='<?php echo U("Img/add");?>' title='新增图文自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/pic.png" class="vm" />新增图文自定义回复</a>　
-              
-            </div>
-          
-            <div class="clr"></div>
-          </div>
-          <div class="msgWrap">
-            <TABLE class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
-              <THEAD>
-                <TR>
-					
-					<TH class="keywords">关键词</TH>
-					<TH class="answer">回答</TH>
-                    <TH  class="category" >分类</TH>
-                    <TH class="time">浏览次数</TH>
-					<TH class="time">时间</TH>
-					<TH class="edit norightborder">操作</TH>
-                </TR>
-              </THEAD>
-              <TBODY>
-                <TR></TR>
-				<?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                  
-                  <td><?php echo ($vo["keyword"]); ?></td>
-                  <td><div class="cateimg"><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_small" title="图文自定义内容" <?php if($vo['pic']): ?>style="width:150px;height:90px"<?php endif; ?>><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_big2" title="图文自定义内容"><?php echo ($vo["text"]); ?></div></td>
-                  <td><?php echo ($vo["classname"]); ?></td>
-                  <td><?php echo ($vo["click"]); ?></td>
-                    <td><?php echo date('Y-m-d',$vo['updatetime']); ?></td>
-                   
-                   <td class="norightborder">
-				   <!--a target="ddd" href="<?php echo U('Wap/Index/content',array('token'=>$_SESSION['token'],'id'=>$vo['id']));?>">查看</a-->
-				   <a href="<?php echo U('Img/edit',array('id'=>$vo['id']));?>" title="编辑图文自定义回复">编辑</a>
-				   <a href="<?php echo ($vo["tiaourl"]); ?>" title="查看">查看</a>
-				   <a href="<?php echo U('Img/del',array('id'=>$vo['id']));?>">删除</a></td>
-          
-                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                              
-              </TBODY>
-            </TABLE>
+          <form method="post" action="" enctype="multipart/form-data">
+          <div class="msgWrap form">
+            <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tbody>
+				<tr>
+              		<th>礼品名称：</th>
+              		<td><input type="input" class="px" id="title" value="" name="title" style="width:400px;"> </td>
+              	</tr>
+				<tr>
+					<th>兑换礼品所需积分：</th>
+					<td><input type="input" class="px" id="title" value="" name="integral" style="width:50px;"> 积分				　
+				</td>
+				</tr>
+              	<tr>
+					<th>有效期：</th>
+					<td><input type="input" class="px" id="statdate" value="" onclick="WdatePicker()" name="statdate"> （含）到 
+					<input type="input" class="px" id="enddate" value="" name="enddate" onclick="WdatePicker()">（含）</td>
+				</tr>
+              	<tr>
+              		<th valign="top">使用说明：</th>
+              		<td><textarea name="info" id="info" rows="5" style="width: 410px; height: 250px; display: none;"></textarea></td>
+              		</tr>
 
-           <script>
-   function checkvotethis() {
-var aa=document.getElementsByName('del_id[]');
-var mnum = aa.length;
-j=0;
-for(i=0;i<mnum;i++){
-if(aa[i].checked){
-j++;
-}
-}
-if(j>0) {
-document.getElementById('info').submit();
-} else {
-alert('未选中任何文章或回复！')
-}
-}
-
-   </script>
+              	<tr>
+              		<th></th>
+              		<td><button type="submit" name="button" class="btnGreen">保存</button>　<a href="javascript:history.go(-1);" class="btnGray vm">取消</a></td>
+              		</tr>
+              	</tbody>
+            </table>
+            
           </div>
-          <div class="cLine">
-            <div class="pageNavigator right">
-                 <div class="pages"><?php echo ($page); ?></div>
-              </div>
-            <div class="clr"></div>
-          </div>
+          </form>
+          
         </div>
-
-        <div class="clr"></div>
-      </div>
-    </div>
-  </div>
-  <script>
-
-function checkAll(form, name) {
-for(var i = 0; i < form.elements.length; i++) {
-var e = form.elements[i];
-if(e.name.match(name)) {
-e.checked = form.elements['chkall'].checked;
-}
-}
-}
-
-
-  </script>
-  <!--底部-->
-  	</div>
 
 	<div style="clear:both;"></div>
 </div>

@@ -344,101 +344,160 @@ window.onload =getHost;
 	</div>
 	<div id="Content" >
 	</div>
+<script src="<?php echo RES;?>/js/date/WdatePicker.js"></script>
+<form class="form" method="post" action=""  target="_top" enctype="multipart/form-data" >
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
-         
-          <div class="cLineB">
-              <h4 class="left">自定义回复信息</h4>
-              <div class="clr"></div>
-          </div>
-          <div class="cLine">
-              <div class="pageNavigator left">
-  <a href='<?php echo U("Text/add");?>' title='新增文本自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/text.png" class="vm" />新增文本自定义回复</a>　
-  <a href='<?php echo U("Img/add");?>' title='新增图文自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/pic.png" class="vm" />新增图文自定义回复</a>　
-              
-            </div>
-          
-            <div class="clr"></div>
-          </div>
-          <div class="msgWrap">
-            <TABLE class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
-              <THEAD>
-                <TR>
-					
-					<TH class="keywords">关键词</TH>
-					<TH class="answer">回答</TH>
-                    <TH  class="category" >分类</TH>
-                    <TH class="time">浏览次数</TH>
-					<TH class="time">时间</TH>
-					<TH class="edit norightborder">操作</TH>
-                </TR>
-              </THEAD>
-              <TBODY>
-                <TR></TR>
-				<?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                  
-                  <td><?php echo ($vo["keyword"]); ?></td>
-                  <td><div class="cateimg"><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_small" title="图文自定义内容" <?php if($vo['pic']): ?>style="width:150px;height:90px"<?php endif; ?>><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_big2" title="图文自定义内容"><?php echo ($vo["text"]); ?></div></td>
-                  <td><?php echo ($vo["classname"]); ?></td>
-                  <td><?php echo ($vo["click"]); ?></td>
-                    <td><?php echo date('Y-m-d',$vo['updatetime']); ?></td>
-                   
-                   <td class="norightborder">
-				   <!--a target="ddd" href="<?php echo U('Wap/Index/content',array('token'=>$_SESSION['token'],'id'=>$vo['id']));?>">查看</a-->
-				   <a href="<?php echo U('Img/edit',array('id'=>$vo['id']));?>" title="编辑图文自定义回复">编辑</a>
-				   <a href="<?php echo ($vo["tiaourl"]); ?>" title="查看">查看</a>
-				   <a href="<?php echo U('Img/del',array('id'=>$vo['id']));?>">删除</a></td>
-          
-                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                              
-              </TBODY>
-            </TABLE>
+<!--活动开始-->
+<div class="cLineB">
+  <h4>编辑优惠券活动开始内容</h4><a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:-27px">返回</a></div>  
+<div class="msgWrap bgfc">
+ 
+<table class="userinfoArea" style=" margin:0;" border="0" cellspacing="0" cellpadding="0" width="100%"><tbody>
+<tr>
+  <th valign="top"><span class="red">*</span>关键词：</th>
+  <td><input type="input" class="px" id="keyword" value="<?php echo ($vo["keyword"]); ?>" name="keyword" style="width:400px"><br>
+  	<span class="red">只能写一个关键词</span>，用户输入此关键词将会触发此活动。</td>
+  <td rowspan="7" valign="top"><div style="margin-left:20px"><img id="pic" src="<?php echo C('site_url');?>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-start.jpg" width="373px">
+<br>
+<input class="px" name="starpicurl" value="<?php if($vo['starpicul'] == ''): echo C('site_url');?>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-start.jpg<?php else: ?>{picms:$vo.starpicurl}<?php endif; ?>" onclick="document.getElementById('pic').src=this.value;" style="width:363px;">
+<br>
+  	填写活动开始图片网址
+  </div><div style="margin-left:20px"><img id="zjpic" src="<?php echo C('site_url');?>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg" width="373px">
+<br>
+<input class="px" name="zjpic" value="<?php if($vo['zjpic'] == ''): echo C('site_url');?>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg<?php else: ?>{picms:$vo.zjpic}<?php endif; ?>" onclick="document.getElementById('zjpic').src=this.value;" style="width:363px;">
+<br>
+  	填写中奖后显示的头部图片地址
+     <br>
 
-           <script>
-   function checkvotethis() {
-var aa=document.getElementsByName('del_id[]');
-var mnum = aa.length;
-j=0;
-for(i=0;i<mnum;i++){
-if(aa[i].checked){
-j++;
-}
-}
-if(j>0) {
-document.getElementById('info').submit();
-} else {
-alert('未选中任何文章或回复！')
-}
-}
+  </div></td>
+</tr>
+<tr>
+  <th valign="top"><span class="red">*</span>活动名称：</th>
+  <td><input type="input" class="px" id="title" value="<?php echo ($vo["title"]); ?>" name="title" style="width:400px">
+  	<br>
+  	请不要多于50字!
+  	</td>
+  </tr>
 
-   </script>
-          </div>
-          <div class="cLine">
-            <div class="pageNavigator right">
-                 <div class="pages"><?php echo ($page); ?></div>
-              </div>
-            <div class="clr"></div>
-          </div>
-        </div>
+<tr>
+  	<th valign="top"><span class="red">*</span>优惠券介绍：</th>
+  	<td><textarea class="px" id="sttxt" name="sttxt" style="width:400px; height: 125px;"><?php echo ($vo["sttxt"]); ?></textarea>
+  		 </td>
+</tr>
+</TR>
+<tr>
+	<th><span class="red">*</span>活动时间：</th>
+	<td><input type="input" class="px" id="statdate" value="<?php if($vo['statdate'] != ''): echo (date("Y-m-d H:i:s",$vo["statdate"])); else: echo date('Y-m-d H:i:s',mktime(0, 0, 0, date("m") , date("d"), date("Y"))); endif; ?>" onClick="WdatePicker()" name="statdate" />                
+		到
+		<input type="input" class="px" id="enddate" value="<?php if($vo['enddate'] != ''): echo (date("Y-m-d H:i:s",$vo["enddate"])); else: echo date('Y-m-d H:i:s',mktime(0, 0, 0, date("m") , date("d")+3, date("Y"))); endif; ?>" name="enddate" onClick="WdatePicker()"  /> 
+	</td>
+</tr>
+<tr>
+<th valign="top"><span class="red">*</span>优惠券活动说明：</th>
+<td><textarea class="px" id="info" name="info" style="width: 400px; height: 125px;"><?php echo ($vo["info"]); ?></textarea>
+活动说明. </td>
+</tr>
+<tr>
+<th><span class="red">*</span>兑换券使用说明：</th>
+<td><textarea id="aginfo" class="px" name="aginfo" style="width: 400px; height: 125px;"><?php echo ($vo["aginfo"]); ?></textarea>用户获取优惠券后显示的提示信息
+</td>
+</tr>
+</tbody>
+</table>
+ </div> 
+  
+<!--活动结束-->
+<div class="cLineB"><h4>活动结束内容</h4></div> 
+<div class="msgWrap bgfc">
+ 
+  	<table class="userinfoArea" style=" margin: 0;" border="0" cellspacing="0" cellpadding="0" width="100%">
+  		<tbody>
+  			<tr>
+  				<th valign="top"><span class="red">*</span>活动结束公告主题：</th>
+  				<td><input type="input" class="px" id="endtite" value="<?php echo ($vo["endtite"]); ?>" name="endtite" style="width:400px">
+  					<br>
+  					请不要多于50字! </td>
+  				<td rowspan="4" valign="top"><div style="margin-left:20px"><img id="end" src="<?php echo C('site_url');?>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-end.jpg" width="373px"> <br>
+  					<input class="px" name="endpicurl" onchange="document.getElementById('end').src=this.value;" value="<?php if($vo['zjpic'] == ''): echo C('site_url');?>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-end.jpg<?php else: ?>{picms:$vo.endpicurl}<?php endif; ?>" style="width:363px;">
+  					<br>
+  					填写活动结束图片网址 </div></td>
+  				</tr>
+  			<tr>
+  				<th valign="top">活动结束说明：</th>
+  				<td valign="top"><textarea class="px" id="endinfo" name="endinfo" style="width: 400px; height: 125px;"><?php echo ($vo["endinfo"]); ?></textarea>活动结束显示
+  				 </td>
+  				</tr>
+  			</tbody>
+  		</table>
+  </div> 
+  
+  
+<!--奖项设置-->
+<div class="cLineB">
+          	<h4>优惠券设置</h4></div> 
+<div class="msgWrap bgfc">
 
-        <div class="clr"></div>
-      </div>
-    </div>
-  </div>
-  <script>
+<table class="userinfoArea" style=" margin: 0;" border="0" cellspacing="0" cellpadding="0" width="100%"><tbody>
+<tr>
+<th valign="top"><span class="red">*</span>优惠券名称1：</th>
+<td><input type="input" class="px" id="fist" name="fist" value="<?php echo ($vo["fist"]); ?>" style="width:250px">
+请不要多于50字! </td>
+  <td rowspan="9" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<th valign="top"><span class="red">*</span>优惠券数量：</th>
+<td><input type="input" class="px" id="fistnums" name="fistnums" value="<?php echo ($vo["fistnums"]); ?>" style="width:60px">
+</td>
+                                    </tr>
+<tr>
+<th valign="top">优惠券名称2：</th>
+<td><input type="input" class="px" id="second" name="second" value="<?php echo ($vo["second"]); ?>" style="width:250px">
+请不要多于50字! </td>
+                                        </tr>
+<tr>
+<th valign="top">优惠券数量：</th>
+<td><input type="input" class="px" id="secondnums" name="secondnums" value="<?php echo ($vo["secondnums"]); ?>" style="width:60px">
+</td>
+                                        </tr>
+<tr>
+<th valign="top">优惠券名称3：</th>
+<td><input type="input" class="px" id="third" name="third" value="<?php echo ($vo["third"]); ?>" style="width:250px">
+请不要多于50字! </td>
+                                        </tr>
+<tr>
+<th valign="top">优惠券数量：</th>
+<td><input type="input" class="px" id="thirdnums" name="thirdnums" value="<?php echo ($vo["thirdnums"]); ?>" style="width:60px">
+ </td>
 
-function checkAll(form, name) {
-for(var i = 0; i < form.elements.length; i++) {
-var e = form.elements[i];
-if(e.name.match(name)) {
-e.checked = form.elements['chkall'].checked;
-}
-}
-}
+  </tbody>
 
-
-  </script>
-  <!--底部-->
-  	</div>
+<tbody>
+<tr>
+<th valign="top"><span class="red">*</span>预计活动的人数：</th>
+<td><input type="input" class="px" id="allpeople" name="allpeople"   value="<?php echo ($vo["allpeople"]); ?>" style="width:150px"/>  预估活动人数直接影响抽奖概率：中奖概率 = 奖品总数/(预估活动人数*每人抽奖次数) 如果要确保任何时候都100%中奖建议设置为1人参加!<span class='red'>如果要确保任何时候都100%中奖建议设置为1人参加!并且奖项只设置一等奖.</span></td>
+  </tr>
+<tr>
+<th valign="top"><span class="red">*</span>每人最多允许抽奖次数：</th>
+<td><input type="input" class="px" id="canrqnums" name="canrqnums"   value="<?php echo ($vo["canrqnums"]); ?>" style="width:150px"/>
+必须1-5之间的数字</td>
+ </tr>
+                                        
+<tr>
+<th valign="top">SN码生成设置：</th>
+<td>
+    <input class="radio" type="radio" checked name="snimport" value="0">自动生成  
+    <input class="radio" type="radio" name="snimport" value="1">手动生成(SN码管理)
+</td> 
+</tr>
+<tr>
+<th>&nbsp;</th>
+<td><button type="submit" name="button" class="btnGreen">保存</button>　<a href="" class="btnGray vm">取消</a>　<span class="red">请确认功能管理已开启优惠券功能</span></td>
+                                    </tr>
+</tbody>
+</table>
+</div> 
+</div>
+</form>
 
 	<div style="clear:both;"></div>
 </div>

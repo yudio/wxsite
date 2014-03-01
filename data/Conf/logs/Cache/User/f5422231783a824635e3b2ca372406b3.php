@@ -344,101 +344,83 @@ window.onload =getHost;
 	</div>
 	<div id="Content" >
 	</div>
+<link rel="stylesheet" href="./tpl/static/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="./tpl/static/kindeditor/plugins/code/prettify.css" />
+<script src="./tpl/static/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="./tpl/static/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="./tpl/static/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script>
+
+var editor;
+KindEditor.ready(function(K) {
+editor = K.create('#info', {
+resizeType : 1,
+allowPreviewEmoticons : false,
+allowImageUpload : false,
+items : [
+'source','undo','redo','copy','plainpaste','wordpaste','clearhtml','quickformat','selectall','fullscreen','fontname', 'fontsize','subscript','superscript','indent','outdent','|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline','hr',
+ '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+'insertunorderedlist', '|', 'emoticons', 'link', 'unlink','baidumap']
+});
+});
+</script>
+<script src="<?php echo RES;?>/js/date/WdatePicker.js"></script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+          <div class="cLineB"><h4>发布会员特权 <span class="FAQ">填写一些长期不变的会员卡优惠特权信息</span></h4><a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:-27px">返回</a></div>
          
-          <div class="cLineB">
-              <h4 class="left">自定义回复信息</h4>
-              <div class="clr"></div>
+          <form method="post" action="" enctype="multipart/form-data">
+          <div class="msgWrap form">
+            <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tbody>
+				<tr>
+              		<th>特权名称：</th>
+              		<td><input type="input" class="px" id="title" value="" name="title" style="width:400px;"> </td>
+              		</tr>
+				<tr>
+              		<th>选择人群：</th>
+              		<td>
+						<label><input name="group" type="radio" id="CheckboxGroup1_0" value="1" checked="checked">所有会员</label>　
+						<label><input type="radio" name="group" value="2" id="CheckboxGroup1_1">普通会员</label>　
+						<label><input type="radio" name="group" value="3" id="CheckboxGroup1_2">银卡会员</label>
+						<label><input type="radio" name="group" value="4" id="CheckboxGroup1_3">金卡会员</label>
+						<label><input type="radio" name="group" value="5" id="CheckboxGroup1_4">钻石会员</label>
+					</td>
+              	</tr>              	
+			  <tr>
+			<th>有效期：</th>
+			<td><label>
+			<input name="type" type="radio" id="RadioGroup1_1" onclick="document.getElementById('cktime').style.display='none';" value="1" checked="checked">
+			无时间期限</label>　
+			<label>
+			<input name="type" type="radio" id="RadioGroup1_0" onclick="document.getElementById('cktime').style.display='';;" value="0">
+			选择时间期限</label>
+			</td>
+		</tr>
+		<tr id="cktime" style="display:none">
+		<th></th>
+		<td>
+			<input type="input" class="px" id="statdate" value="" onClick="WdatePicker()" name="statdate"> （含）到 
+			<input type="input" class="px" id="enddate" name="enddate" value="" onClick="WdatePicker()">（含）
+		</td>
+		</tr>
+              	<tr>
+              		<th valign="top">使用说明：</th>
+              		<td><textarea name="info" id="info" rows="5" style="width: 410px; height: 250px; border:1px solid #ccc ;">   </textarea></td>
+              	</tr>
+              	<tr>
+					<th></th>
+					<td>
+						<button type="submit" name="button" class="btnGreen">保存</button>　
+						<a href="javascript:history.go(-1);" class="btnGray vm">取消</a>
+					</td>
+				</tr>
+              	</tbody>
+            </table>
+            
           </div>
-          <div class="cLine">
-              <div class="pageNavigator left">
-  <a href='<?php echo U("Text/add");?>' title='新增文本自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/text.png" class="vm" />新增文本自定义回复</a>　
-  <a href='<?php echo U("Img/add");?>' title='新增图文自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/pic.png" class="vm" />新增图文自定义回复</a>　
-              
-            </div>
+          </form>
           
-            <div class="clr"></div>
-          </div>
-          <div class="msgWrap">
-            <TABLE class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
-              <THEAD>
-                <TR>
-					
-					<TH class="keywords">关键词</TH>
-					<TH class="answer">回答</TH>
-                    <TH  class="category" >分类</TH>
-                    <TH class="time">浏览次数</TH>
-					<TH class="time">时间</TH>
-					<TH class="edit norightborder">操作</TH>
-                </TR>
-              </THEAD>
-              <TBODY>
-                <TR></TR>
-				<?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                  
-                  <td><?php echo ($vo["keyword"]); ?></td>
-                  <td><div class="cateimg"><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_small" title="图文自定义内容" <?php if($vo['pic']): ?>style="width:150px;height:90px"<?php endif; ?>><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_big2" title="图文自定义内容"><?php echo ($vo["text"]); ?></div></td>
-                  <td><?php echo ($vo["classname"]); ?></td>
-                  <td><?php echo ($vo["click"]); ?></td>
-                    <td><?php echo date('Y-m-d',$vo['updatetime']); ?></td>
-                   
-                   <td class="norightborder">
-				   <!--a target="ddd" href="<?php echo U('Wap/Index/content',array('token'=>$_SESSION['token'],'id'=>$vo['id']));?>">查看</a-->
-				   <a href="<?php echo U('Img/edit',array('id'=>$vo['id']));?>" title="编辑图文自定义回复">编辑</a>
-				   <a href="<?php echo ($vo["tiaourl"]); ?>" title="查看">查看</a>
-				   <a href="<?php echo U('Img/del',array('id'=>$vo['id']));?>">删除</a></td>
-          
-                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                              
-              </TBODY>
-            </TABLE>
-
-           <script>
-   function checkvotethis() {
-var aa=document.getElementsByName('del_id[]');
-var mnum = aa.length;
-j=0;
-for(i=0;i<mnum;i++){
-if(aa[i].checked){
-j++;
-}
-}
-if(j>0) {
-document.getElementById('info').submit();
-} else {
-alert('未选中任何文章或回复！')
-}
-}
-
-   </script>
-          </div>
-          <div class="cLine">
-            <div class="pageNavigator right">
-                 <div class="pages"><?php echo ($page); ?></div>
-              </div>
-            <div class="clr"></div>
-          </div>
         </div>
-
-        <div class="clr"></div>
-      </div>
-    </div>
-  </div>
-  <script>
-
-function checkAll(form, name) {
-for(var i = 0; i < form.elements.length; i++) {
-var e = form.elements[i];
-if(e.name.match(name)) {
-e.checked = form.elements['chkall'].checked;
-}
-}
-}
-
-
-  </script>
-  <!--底部-->
-  	</div>
 
 	<div style="clear:both;"></div>
 </div>

@@ -343,102 +343,90 @@ window.onload =getHost;
 		</div>
 	</div>
 	<div id="Content" >
-	</div>
+	</div>  
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
          
           <div class="cLineB">
-              <h4 class="left">自定义回复信息</h4>
+              <h4 class="left">会员优惠卷管理</h4>
+               
               <div class="clr"></div>
           </div>
           <div class="cLine">
-              <div class="pageNavigator left">
-  <a href='<?php echo U("Text/add");?>' title='新增文本自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/text.png" class="vm" />新增文本自定义回复</a>　
-  <a href='<?php echo U("Img/add");?>' title='新增图文自定义回复' class='btnGrayS vm bigbtn'><img src="<?php echo RES;?>/images/pic.png" class="vm" />新增图文自定义回复</a>　
-              
-            </div>
-          
-            <div class="clr"></div>
+			<div class="pageNavigator left">
+				<a href="<?php echo U('Member_card/privilege',array('token'=>$token));?>" title="查看会员特权" class="btnGrayS vm bigbtn">
+					<img src="<?php echo RES;?>/images/cart_info/power1.png" width="24px" class="vm">查看员特权
+				</a>
+			　<a href="<?php echo U('Member_card/coupon_add',array('token'=>$token));?>" title="发布优惠券" class="btnGrayS vm bigbtn">
+				<img src="<?php echo RES;?>/images/cart_info/power2.png" width="24px" class="vm">发布优惠券
+			  </a>　
+				<a class="btnGrayS vm bigbtn" href="<?php echo U('Member_card/integral',array('token'=>$token));?>" title="查看礼品券">
+					<img src="<?php echo RES;?>/images/cart_info/power3.png" width="24px" class="vm">查看礼品券
+				</a>　
+			</div>
+			<a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:10px">返回</a>          
+			<div class="clr"></div>
           </div>
           <div class="msgWrap">
-            <TABLE class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
-              <THEAD>
-                <TR>
-					
-					<TH class="keywords">关键词</TH>
-					<TH class="answer">回答</TH>
-                    <TH  class="category" >分类</TH>
-                    <TH class="time">浏览次数</TH>
-					<TH class="time">时间</TH>
-					<TH class="edit norightborder">操作</TH>
-                </TR>
-              </THEAD>
-              <TBODY>
-                <TR></TR>
-				<?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                  
-                  <td><?php echo ($vo["keyword"]); ?></td>
-                  <td><div class="cateimg"><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_small" title="图文自定义内容" <?php if($vo['pic']): ?>style="width:150px;height:90px"<?php endif; ?>><img <?php if(empty($vo['pic'])): ?>src="<?php echo RES;?>/images/pic.png"<?php else: ?>src="<?php echo ($vo["pic"]); ?>"<?php endif; ?> class="cateimg_big2" title="图文自定义内容"><?php echo ($vo["text"]); ?></div></td>
-                  <td><?php echo ($vo["classname"]); ?></td>
-                  <td><?php echo ($vo["click"]); ?></td>
-                    <td><?php echo date('Y-m-d',$vo['updatetime']); ?></td>
-                   
-                   <td class="norightborder">
-				   <!--a target="ddd" href="<?php echo U('Wap/Index/content',array('token'=>$_SESSION['token'],'id'=>$vo['id']));?>">查看</a-->
-				   <a href="<?php echo U('Img/edit',array('id'=>$vo['id']));?>" title="编辑图文自定义回复">编辑</a>
-				   <a href="<?php echo ($vo["tiaourl"]); ?>" title="查看">查看</a>
-				   <a href="<?php echo U('Img/del',array('id'=>$vo['id']));?>">删除</a></td>
-          
+          <form method="post" action="index.php?ac=importtxt&amp;id=9878&amp;wxid=gh_423dwjkewad" id="info">
+          <input name="delall" type="hidden" value="del">
+           <input name="wxid" type="hidden" value="gh_423dwjkewad">
+            <table class="ListProduct" border="0" cellspacing="0" cellpadding="0" width="100%">
+              <thead>
+                <tr>
+					<th class="select">选择</th>
+					<th class="answer">标题</th>
+					<th class="category">会员级别</th>
+					<th class="time">创建时间</th>
+					<th class="time">过期时间</th>
+					<th class="edit norightborder">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php if(is_array($data_vip)): $i = 0; $__LIST__ = $data_vip;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data_vip): $mod = ($i % 2 );++$i;?><tr>
+					  <td>  <input type="checkbox" name="del_id[]" value="" class="checkitem"></td>
+					  <td><div class="answer_text"><?php echo ($data_vip["title"]); ?></div></td>
+					  <td>
+						<?php switch($data_vip["group"]): case "1": ?>普通会员<?php break;?>
+							<?php case "2": ?>银卡会员<?php break;?> 
+							<?php case "3": ?>金卡会员<?php break;?> 
+							<?php case "4": ?>钻石卡会员<?php break; endswitch;?>					  
+					  </td>
+					  <td><?php if($data_vip['type'] == 1): ?>无时间限制<?php else: echo (date('Y-m-d',$data_vip["statdate"])); endif; ?></td>
+					  <td><?php if($data_vip['type'] == 1): ?>无时间限制<?php else: echo (date('Y-m-d',$data_vip["enddate"])); endif; ?></td>
+					  <td class="norightborder">
+						<!--a href="">使用统计</a--> 
+						<a href="<?php echo U('Member_card/coupon_edit',array('id'=>$data_vip['id']));?>">编辑</a> <a href="<?php echo U('Member_card/coupon_del',array('id'=>$data_vip['id']));?>">删除</a>
+					  </td>
                 </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                              
-              </TBODY>
-            </TABLE>
-
-           <script>
-   function checkvotethis() {
-var aa=document.getElementsByName('del_id[]');
-var mnum = aa.length;
-j=0;
-for(i=0;i<mnum;i++){
-if(aa[i].checked){
-j++;
-}
-}
-if(j>0) {
-document.getElementById('info').submit();
-} else {
-alert('未选中任何文章或回复！')
-}
-}
-
-   </script>
+      			 
+              </tbody>
+            </table>
+           </form> 
+			<script>
+			   function checkvotethis() {
+					var aa=document.getElementsByName('del_id[]');
+					var mnum = aa.length;
+					j=0;
+					for(i=0;i<mnum;i++){
+					if(aa[i].checked){
+					j++;
+					}
+					}
+					if(j>0) {
+					document.getElementById('info').submit();
+					} else {
+					alert('未选中内容！')
+					}
+				}
+			</script>
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages"><?php echo ($page); ?></div>
-              </div>
+                 <div class="pages"></div>
+             </div>
             <div class="clr"></div>
           </div>
         </div>
-
-        <div class="clr"></div>
-      </div>
-    </div>
-  </div>
-  <script>
-
-function checkAll(form, name) {
-for(var i = 0; i < form.elements.length; i++) {
-var e = form.elements[i];
-if(e.name.match(name)) {
-e.checked = form.elements['chkall'].checked;
-}
-}
-}
-
-
-  </script>
-  <!--底部-->
-  	</div>
 
 	<div style="clear:both;"></div>
 </div>

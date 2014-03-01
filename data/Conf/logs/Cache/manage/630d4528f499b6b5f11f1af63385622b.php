@@ -1,28 +1,28 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
     <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all"/>
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all"/>
+    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
     <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-    <link rel="shortcut icon" href="{np::RES}/img/favicon.ico"/>
+    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico"/>
     <!--[if lte IE 9]>
-    <script src="{np::RES}/src/watermark.js"></script><![endif]-->
+    <script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
     <!--[if IE 7]>
-    <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/><![endif]-->
+    <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/><![endif]-->
 </head>
 <body>
 <div id="main">
@@ -101,7 +101,7 @@
     <td>会员默认项</td>
     <td>
         <label class="checkbox">
-            <input type="checkbox"  name="name_is_edit" value="1" <if condition="$info.name_is_edit eq 1">checked="checked"</if>>可修改
+            <input type="checkbox"  name="name_is_edit" value="1" <?php if($info["name_is_edit"] == 1): ?>checked="checked"<?php endif; ?>>可修改
         </label>
     </td>
 </tr>
@@ -118,7 +118,7 @@
     <td>
 
         <label class="checkbox">
-            <input type="checkbox"  <if condition="$info.phone_is_edit eq 1">checked="checked"</if> name="phone_is_edit" value="1">可修改
+            <input type="checkbox"  <?php if($info["phone_is_edit"] == 1): ?>checked="checked"<?php endif; ?> name="phone_is_edit" value="1">可修改
         </label>
     </td>
 </tr>
@@ -132,9 +132,9 @@
         <input name="" type="text" disabled="disabled" class="wizard-ignore" value="请选择您的生日" readonly="readonly"></td>
     <td>会员默认项</td>
     <td><label class="checkbox">
-        <input type="checkbox"  <if condition="$info.birthday_is_must eq 1">checked="checked"</if> name="birthday_is_must" value="1">领卡必填
+        <input type="checkbox"  <?php if($info["birthday_is_must"] == 1): ?>checked="checked"<?php endif; ?> name="birthday_is_must" value="1">领卡必填
     </label><label class="checkbox">
-        <input type="checkbox"  <if condition="$info.birthday_is_edit eq 1">checked="checked"</if> name="birthday_is_edit" value="1">可修改
+        <input type="checkbox"  <?php if($info["birthday_is_edit"] == 1): ?>checked="checked"<?php endif; ?> name="birthday_is_edit" value="1">可修改
     </label></td>
 </tr>
 
@@ -146,7 +146,7 @@
         <input name="" type="text" disabled="disabled" class="wizard-ignore" value="请选择您的性别" readonly="readonly"></td>
     <td>会员默认项</td>
     <td><label class="checkbox">
-        <input type="checkbox" <if condition="$info.gender_is_must eq 1">checked="checked"</if> name="gender_is_must" value="1">领卡必填
+        <input type="checkbox" <?php if($info["gender_is_must"] == 1): ?>checked="checked"<?php endif; ?> name="gender_is_must" value="1">领卡必填
     </label></td>
 </tr>
 
@@ -158,7 +158,7 @@
         <input name="" type="text" disabled="disabled" class="wizard-ignore" value="请输入您的地址" readonly="readonly"></td>
     <td>会员默认项</td>
     <td><label class="checkbox">
-        <input type="checkbox" <if condition="$info.address_is_must eq 1">checked="checked"</if> name="address_is_must" value="1">领卡必填
+        <input type="checkbox" <?php if($info["address_is_must"] == 1): ?>checked="checked"<?php endif; ?> name="address_is_must" value="1">领卡必填
     </label>
     </td>
 </tr>
@@ -377,7 +377,7 @@
 </table>
 
 <div class="form-actions">
-    <input type="hidden" name="id" value="{np:$info.id}"/>
+    <input type="hidden" name="id" value="<?php echo ($info["id"]); ?>"/>
     <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
     <button type="button" class="btn" onclick="window.location='picture-text-repaly.html'">取消</button>
 </div>

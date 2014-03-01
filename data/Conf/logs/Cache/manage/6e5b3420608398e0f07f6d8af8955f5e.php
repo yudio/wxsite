@@ -1,4 +1,4 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,31 +6,31 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
         <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
-        <link rel="shortcut icon" href="img/favicon.ico?v=2014-02-24-1" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap_min.css?2014-02-24-1" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/bootstrap_responsive_min.css?2014-02-24-1" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/style.css?2014-02-24-1" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/todc_bootstrap.css?2014-02-24-1" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/themes.css?2014-02-24-1" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/inside.css?2014-02-24-1" media="all" />
-		<script type="text/javascript" src="src/jQuery.js?2014-02-24-1"></script>
-		<script type="text/javascript" src="src/bootstrap_min.js?2014-02-24-1"></script>
-		<script type="text/javascript" src="src/inside.js?2014-02-24-1"></script>
-		<script type="text/javascript" src="src/plugins/validation/jquery_validate_min.js?2014-02-24-1"></script>
-		<script type="text/javascript" src="src/plugins/validation/jquery_validate_methods.js?2014-02-24-1"></script>
-		<script type="text/javascript" src="src/plugins/form/jquery_form_min.js?2014-02-24-1"></script>
+        <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all" />
+		<script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+		<script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+		<script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
+		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
+		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
 		<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
         <!--[if IE 7]>
-            <link href="css/font_awesome_ie7.css?v=2014-02-24-1" rel="stylesheet" />
+            <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet" />
         <![endif]-->
         <!--[if lte IE 8]>
-            <script src="js/excanvas_min.js?v=2014-02-24-1"></script>
+            <script src="js/excanvas_min.js"></script>
         <![endif]-->
         <!--[if lte IE 9]>
-            <script src="js/watermark.js?v=2014-02-24-1"></script>
+            <script src="js/watermark.js"></script>
         <![endif]-->
     </head>
-      <script src="templates/kindeditor/kindeditor-min.js"></script>
+      <script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js"></script>
     <div id="main">
         <div class="container-fluid">
 
@@ -46,13 +46,13 @@
 
                         <div class="box-content">
                             <ul class="nav nav-tabs">
-                                <li><a href="/newmembercard/addcard?aid=73272">卡片设置</a> </li>
-                                <li><a href="/Newmembertrade/DefineMemberFields?aid=73272">会员资料设置</a></li>
-                                <li><a href="/newmembercard/listmemberprivilege?aid=73272">会员卡特权</a></li>
-                                <li><a href="/newmembercard/Listprogram?aid=73272">业务关联</a></li>
+                                <li><a href="/npManage/member/addcard.act">卡片设置</a> </li>
+                                <li><a href="/npManage/member/memberFields.act">会员资料设置</a></li>
+                                <li><a href="/npManage/member/listmemberprivilege.act">会员卡特权</a></li>
+                                <li><a href="/npManage/member/listprogram.act">业务关联</a></li>
                                 <li class="active"><a href="javascript:;">等级设置</a></li>
                             </ul> 
-                            <form action="/newmembercard/setGrade" method="post" class="form-horizontal form-validate">
+                            <form action="/npManage/member/setCardLevel.act" method="post" class="form-horizontal form-validate">
                             
                                     
                             
