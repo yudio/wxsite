@@ -159,6 +159,7 @@ class MemberAction extends UserAction{
             }
             $psarr = $_REQUEST['ps'];
             foreach($add as $key=>$vo){
+                $data['id']     = $vo['id'];//新增ID自增
                 $data['cname']  = $vo['name'];
                 $data['bscore'] = $vo['startjf'];
                 $data['escore'] = $vo['endjf'];
@@ -166,11 +167,14 @@ class MemberAction extends UserAction{
                 $data['type']   = 1;
                 $this->updatecardlevel($data);
             }
+            $this->ajaxReturn(array('errno'=>'0','error'=>'更新成功！','url'=>'/npManage/member/setCardLevel.act'),'JSON');
         }
         //$id = $this->_get('id','intval');
         if (session('token')){
-            $info = $db->where(array('token'=>session('token')))->find();
+            $info = $db->where(array('token'=>session('token'),'type'=>0))->find();
             $this->assign('info',$info);
+            $list = $db->where(array('token'=>session('token'),'type'=>1))->select();
+            $this->assign('list',$list);
         }
         $this->display();
     }
@@ -181,15 +185,15 @@ class MemberAction extends UserAction{
                 $db->save();
                 return true;
             }else{
-                return $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
             }
         }else{
-            if (!$data['escore']){$data['escore']==0;}
+            if (!$data['escore']){$data['escore']=0;}
             if ($db->create($data)){
                 $db->add();
                 return true;
             }else{
-                return $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
+                $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
             }
         }
     }

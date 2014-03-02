@@ -36,7 +36,7 @@ class IndexAction extends BaseAction{
 
 		$wxuser=D('Wxuser')->where($where)->find();
         if (!$this->token){
-            $this->token = $wxuser->token;
+            $this->token = $wxuser['token'];
         }
 		$this->weixinUser=$wxuser;
 		
@@ -117,7 +117,7 @@ class IndexAction extends BaseAction{
 	public function lists(){
 		$where['token']=$this->token;
 		$db=D('Img');	
-		if($_GET['p']==false){
+		if($_GET['pageNum']==false){
 			$pageNum=1;
 		}else{
             $pageNum=$_GET['pageNum'];
@@ -126,18 +126,18 @@ class IndexAction extends BaseAction{
 		$count=$db->where($where)->count();	
 		$pageSize=8;	
 		$pagecount=ceil($count/$pageSize);
-		if($pageNum > $count){$pageNum=$pagecount;}
+		if($pageNum > $pagecount){$pageNum=$pagecount;}
 		if($pageNum >=1){$pageNum=($pageNum-1)*$pageSize;}
 		if($pageNum==false){$pageNum=0;}
 		$info=$db->where($where)->order('createtime DESC')->limit("{$pageNum},".$pageSize)->select();
 		$info=$this->convertLinks($info);
-		$this->assign('page',$pagecount);
+		$this->assign('pageCount',$pagecount);
 		$this->assign('pageNum',$pageNum);
 		$this->assign('info',$info);
 		$this->assign('copyright',$this->copyright);
         dump($info);
 		if ($count==1){
-			$this->content($info[0]['id']);
+			$this->detail($info[0]['id']);
 			exit();
 		}
 		$this->display($this->wxuser['tpllistname']);
