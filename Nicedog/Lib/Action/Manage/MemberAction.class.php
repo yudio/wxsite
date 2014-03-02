@@ -159,7 +159,6 @@ class MemberAction extends UserAction{
             }
             $psarr = $_REQUEST['ps'];
             foreach($add as $key=>$vo){
-                $data['id']     = "";//新增ID自增
                 $data['cname']  = $vo['name'];
                 $data['bscore'] = $vo['startjf'];
                 $data['escore'] = $vo['endjf'];
