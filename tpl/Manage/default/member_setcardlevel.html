@@ -82,34 +82,36 @@
                                     </tbody>
                                     
                                     <tfoot>
+                                    <volist name="list" id="vo">
                                     <tr>
                                         <td>
-                                            <input type="text" name="cname[6896]" id="cname[6896]" value="te1" class="input-medium " data-rule-required="true"></td>
+                                            <input type="text" name="ps[{np:$vo.id}][cname]" id="ps[{np:$vo.id}][cname]" value="{np:$vo.cname}" class="input-medium " data-rule-required="true"></td>
                                         <td>
-                                            <input type="text" name="bscore[6896]" id="bscore[6896]" class="input-mini star" value="0" data-rule-required="true" data-rule-number="true">
+                                            <input type="text" name="ps[{np:$vo.id}][bscore]" id="ps[{np:$vo.id}][bscore]" class="input-mini star" value="{np:$vo.bscore}" data-rule-required="true" data-rule-number="true">
                                             -
-                                            <input type="text" name="escore[6896]" id="escore[6896]" value="10" class="input-mini end" data-rule-required="true" data-rule-number="true"></td>
+                                            <input type="text" name="ps[{np:$vo.id}][escore]" id="ps[{np:$vo.id}][escore]" value="{np:$vo.escore}" class="input-mini end" data-rule-required="true" data-rule-number="true"></td>
                                         <td>
-                                            <input type="text" name="zk[6896]" id="zk[6896]" class="input-mini" data-rule-required="true" data-rule-integer="true" data-rule-range="[1,100]" value="100"><span class="help-inline">%</span>
+                                            <input type="text" name="ps[{np:$vo.id}][zk]" id="ps[{np:$vo.id}][zk]" class="input-mini" data-rule-required="true" data-rule-integer="true" data-rule-range="[1,100]" value="{np:$vo.zk}"><span class="help-inline">%</span>
                                         </td>
-                                        <td><a href="javascript:G.ui.tips.confirm('确定删除？','/newmembercard/delGrade?aid=78071&id=6896');">删除</a></td>
+                                        <td><a href="javascript:G.ui.tips.confirm('确定删除？','/npManage/member/delLevel.act?id={np:$vo.escore}');">删除</a></td>
                                     </tr>
+                                    </volist>
                                     <tr>
 
                                         <td>
-                                            <input type="text" name="sxname" id="sxname" value="" class="input-medium "
+                                            <input type="text" name="sxname" id="sxname" value="{np:$info.cname}" class="input-medium "
                                                    data-rule-required="true"/></td>
                                         <td>
-                                            <input type="text" name="sxstarjf" id="sxstarjf" value=""
+                                            <input type="text" name="sxstarjf" id="sxstarjf" value="{np:$info.bscore}"
                                                    class="input-mini endstar" data-rule-required="true"
                                                    data-rule-integer="true"/>
                                             -不限
                                         </td>
                                         <td>
-                                            <input type="text" name="sxzk" id="sxzk" value="" class="input-mini"
+                                            <input type="text" name="sxzk" id="sxzk" value="{np:$info.zk}" class="input-mini"
                                                    data-rule-required="true" data-rule-integer="true"
                                                    data-rule-range="[1,100]"/><span class="help-inline">%</span>
-                                            <input type="hidden" name="zid" id="zid" value="">
+                                            <input type="hidden" name="zid" id="zid" value="{np:$info.id}">
                                         </td>
                                         <td></td>
                                     </tr>
