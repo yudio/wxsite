@@ -4,3 +4,5 @@
 *.log
 
 *.log
+
+data/Conf/logs/Cache/＊.php
