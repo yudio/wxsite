@@ -1,4 +1,3 @@
-
 .idea/workspace.xml
 
 *.log
@@ -6,3 +5,5 @@
 *.log
 
 data/Conf/logs/Cache/＊.php
+
+Uploads/*
