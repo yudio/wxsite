@@ -11,12 +11,12 @@
     <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/template/zepto.js"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/template/swipe.js"></script>
-    <title>微盟</title>
+    <title>奈斯伙伴</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
           name="viewport">
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
+    <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
+    <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
     <!-- Mobile Devices Support @begin -->
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -222,7 +222,7 @@
             </a>
         </li>
         <li>
-            <a href="http://api.map.baidu.com/marker?location=39.892963,116.313504&title=微盟&name=微盟&content=上海市杨浦区五角场&output=html&src=weiba|weiweb">
+            <a href="http://api.map.baidu.com/marker?location=39.892963,116.313504&title=奈斯伙伴&name=奈斯伙伴&content=上海市杨浦区五角场&output=html&src=weiba|weiweb">
                 <dl class="tbox">
                     <dd>
                         <span class="icon-location-arrow"></span>
