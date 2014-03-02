@@ -133,6 +133,7 @@ class MemberAction extends UserAction{
     }
 
     public function setCardLevel(){
+        C('TOKEN_ON',false);
         $db = M('Member_card_level');
         $data = array();
         if (IS_POST){
