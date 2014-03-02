@@ -1,0 +1,432 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+    <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all"/>
+    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+    <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico"/>
+    <!--[if lte IE 9]>
+    <script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]>
+    <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/><![endif]-->
+</head>
+<body>
+<div id="main">
+<div class="container-fluid">
+
+<div class="row-fluid">
+<div class="span12">
+<div class="box">
+<div class="box-title">
+    <div class="span10">
+        <h3><i class="icon-edit"></i>会员卡设置</h3>
+    </div>
+    <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+</div>
+<div class="box-content">
+<ul class="nav nav-tabs">
+    <li><a href="/npManage/member/addcard.act">卡片设置</a></li>
+    <li class="active"><a href="javascript:;">会员资料设置</a></li>
+    <li><a href="/npManage/member/listmemberprivilege.act">会员卡特权</a></li>
+    <li><a href="/npManage/member/listprogram.act">业务关联</a></li>
+    <li><a href="/npManage/member/setcardlevel.act">等级设置</a></li>
+</ul>
+<form action="/npManage/member/addmemfields.act" method="post" class='form-horizontal form-validate'>
+<input type="hidden" name="aid" id="aid" value="73272"/>
+
+<div class="alert">填写你要收集的会员内容！会员默认选项不可以修改删除！</div>
+
+<script>
+    function dodelit(i) {
+        document.getElementById("txt" + i).value = "";
+        document.getElementById("value" + i).value = "";
+        if (i != 1) {
+            document.getElementById("trtxt" + i).style.display = "none";
+            document.getElementById("add" + i).style.display = "";
+        }
+    }
+    function doaddit(i) {
+        document.getElementById('trtxt' + i).style.display = "";
+        document.getElementById('add' + i).style.display = "none";
+    }
+    function sdodelit(i) {
+        document.getElementById("select" + i).value = "";
+        document.getElementById("svalue" + i).value = "";
+        if (i != 1) {
+            document.getElementById("strtxt" + i).style.display = "none";
+            document.getElementById("sadd" + i).style.display = "";
+        }
+    }
+    function sdoaddit(i) {
+        document.getElementById('strtxt' + i).style.display = "";
+        document.getElementById('sadd' + i).style.display = "none";
+    }
+</script>
+
+<table class="table table-bordered table-hover dataTable">
+<thead>
+
+<tr>
+    <th>字段类型</th>
+    <th>字段名称</th>
+    <th>初始内容</th>
+    <th>操作</th>
+    <th>选择项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>单行文字：</td>
+    <td>
+        <input name="name" type="text" disabled="disabled" class="wizard-ignore" value="联系人" readonly="readonly">
+    </td>
+    <td>
+        <input name="name_content" type="text" disabled="disabled" class="wizard-ignore" value="请输入您的名字"
+               readonly="readonly">
+    </td>
+    <td>会员默认项</td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox"  name="name_is_edit" value="1" <?php if($info["name_is_edit"] == 1): ?>checked="checked"<?php endif; ?>>可修改
+        </label>
+    </td>
+</tr>
+
+<tr>
+    <td>单行文字：</td>
+    <td>
+        <input name="phone" type="text" disabled="disabled" class="wizard-ignore" value="手机号码" readonly="readonly"></td>
+    <td>
+        <input name="phone_content" type="text" disabled="disabled" class="wizard-ignore" value="请输入您的手机号码"
+               readonly="readonly"></td>
+
+    <td>会员默认项</td>
+    <td>
+
+        <label class="checkbox">
+            <input type="checkbox"  <?php if($info["phone_is_edit"] == 1): ?>checked="checked"<?php endif; ?> name="phone_is_edit" value="1">可修改
+        </label>
+    </td>
+</tr>
+
+<tr>
+    <td>单行文字：</td>
+    <td>
+        <input name="birthday" type="text" disabled="disabled" class="wizard-ignore" value="生日" readonly="readonly">
+    </td>
+    <td>
+        <input name="" type="text" disabled="disabled" class="wizard-ignore" value="请选择您的生日" readonly="readonly"></td>
+    <td>会员默认项</td>
+    <td><label class="checkbox">
+        <input type="checkbox"  <?php if($info["birthday_is_must"] == 1): ?>checked="checked"<?php endif; ?> name="birthday_is_must" value="1">领卡必填
+    </label><label class="checkbox">
+        <input type="checkbox"  <?php if($info["birthday_is_edit"] == 1): ?>checked="checked"<?php endif; ?> name="birthday_is_edit" value="1">可修改
+    </label></td>
+</tr>
+
+<tr>
+    <td>单行文字：</td>
+    <td>
+        <input name="" type="text" disabled="disabled" class="wizard-ignore" value="性别" readonly="readonly"></td>
+    <td>
+        <input name="" type="text" disabled="disabled" class="wizard-ignore" value="请选择您的性别" readonly="readonly"></td>
+    <td>会员默认项</td>
+    <td><label class="checkbox">
+        <input type="checkbox" <?php if($info["gender_is_must"] == 1): ?>checked="checked"<?php endif; ?> name="gender_is_must" value="1">领卡必填
+    </label></td>
+</tr>
+
+<tr>
+    <td>单行文字：</td>
+    <td>
+        <input name="" type="text" disabled="disabled" class="wizard-ignore" value="地址" readonly="readonly"></td>
+    <td>
+        <input name="" type="text" disabled="disabled" class="wizard-ignore" value="请输入您的地址" readonly="readonly"></td>
+    <td>会员默认项</td>
+    <td><label class="checkbox">
+        <input type="checkbox" <?php if($info["address_is_must"] == 1): ?>checked="checked"<?php endif; ?> name="address_is_must" value="1">领卡必填
+    </label>
+    </td>
+</tr>
+
+<tr id="trtxt1" style="display: none;">
+    <td>单行文字：</td>
+    <td>
+        <input type="hidden" name="txt_id[]" value=""/>
+        <input type="text" name="txt1" id="txt1" value="" class="valid"></td>
+    <td>
+        <input name="value1" id="value1" type="text" value="" class="valid"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="add2" href="javascript:doaddit(2)" style="">添加</a>　<a
+                href="javascript:dodelit(1)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_must1" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_update1" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="trtxt2" style="display: none;">
+    <td>单行文字：</td>
+    <td>
+        <input type="hidden" name="txt_id[]" value=""/>
+        <input type="text" name="txt2" id="txt2" value="" class="valid"></td>
+    <td>
+        <input name="value2" id="value2" type="text" value="" class="valid"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="add3" href="javascript:doaddit(3)" style="">添加</a>　<a
+                href="javascript:dodelit(2)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_must2" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_update2" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="trtxt3" style="display: none;">
+    <td>单行文字：</td>
+    <td>
+        <input type="hidden" name="txt_id[]" value=""/>
+        <input type="text" name="txt3" id="txt3" value="" class="valid"></td>
+    <td>
+        <input name="value3" id="value3" type="text" value="" class="valid"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="add4" href="javascript:doaddit(4)" style="">添加</a>　<a
+                href="javascript:dodelit(3)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_must3" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_update3" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="trtxt4" style="display: none;">
+    <td>单行文字：</td>
+    <td>
+        <input type="hidden" name="txt_id[]" value=""/>
+        <input type="text" name="txt4" id="txt4" value="" class="valid"></td>
+    <td>
+        <input name="value4" id="value4" type="text" value="" class="valid"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="add5" href="javascript:doaddit(5)" style="">添加</a>　<a
+                href="javascript:dodelit(4)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_must4" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_update4" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="trtxt5" style="display: none;">
+    <td>单行文字：</td>
+    <td>
+        <input type="hidden" name="txt_id[]" value=""/>
+        <input type="text" name="txt5" id="txt5" value="" class="valid"></td>
+    <td>
+        <input name="value5" id="value5" type="text" value="" class="valid"></td>
+
+    <td>
+        <p><a href="javascript:dodelit(5)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_must5" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="txt_is_update5" value="1">可修改
+        </label>
+    </td>
+</tr>
+
+<tr id="strtxt1" style="display: none;">
+    <td width="120">下拉框1：</td>
+    <td>
+        <input type="hidden" name="select_id[]" value=""/>
+        <input type="text" name="select1" value="" id="select1"></td>
+    <td>
+        <input name="svalue1" id="svalue1" type="text" value="" placeholder="选择1|选择2|选择3"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="sadd2" href="javascript:sdoaddit(2)">添加</a>　<a
+                href="javascript:sdodelit(1)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_must1" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_update1" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="strtxt2" style="display: none">
+    <td width="120">下拉框2：</td>
+    <td>
+        <input type="hidden" name="select_id[]" value=""/>
+        <input type="text" name="select2" value="" id="select2"></td>
+    <td>
+        <input name="svalue2" id="svalue2" type="text" value="" placeholder="选择1|选择2|选择3"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="sadd3" href="javascript:sdoaddit(3)">添加</a>　<a
+                href="javascript:sdodelit(2)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_must2" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_update2" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="strtxt3" style="display: none">
+    <td width="120">下拉框3：</td>
+    <td>
+        <input type="hidden" name="select_id[]" value=""/>
+        <input type="text" name="select3" value="" id="select3"></td>
+    <td>
+        <input name="svalue3" id="svalue3" type="text" value="" placeholder="选择1|选择2|选择3"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="sadd4" href="javascript:sdoaddit(4)">添加</a>　<a
+                href="javascript:sdodelit(3)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_must3" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_update3" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="strtxt4" style="display: none">
+    <td width="120">下拉框4：</td>
+    <td>
+        <input type="hidden" name="select_id[]" value=""/>
+        <input type="text" name="select4" value="" id="select4"></td>
+    <td>
+        <input name="svalue4" id="svalue4" type="text" value="" placeholder="选择1|选择2|选择3"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="sadd5" href="javascript:sdoaddit(5)">添加</a>　<a
+                href="javascript:sdodelit(4)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_must4" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_update4" value="1">可修改
+        </label>
+    </td>
+</tr>
+<tr id="strtxt5" style="display: none">
+    <td width="120">下拉框5：</td>
+    <td>
+        <input type="hidden" name="select_id[]" value=""/>
+        <input type="text" name="select5" value="" id="select5"></td>
+    <td>
+        <input name="svalue5" id="svalue5" type="text" value="" placeholder="选择1|选择2|选择3"></td>
+
+    <td>
+        <p><a class="btnGrayS vm" id="sadd6" href="javascript:sdoaddit(6)">添加</a>　<a
+                href="javascript:sdodelit(5)">删除</a></p>
+    </td>
+    <td>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_must5" value="1">领卡必填
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" checked="checked" name="is_update5" value="1">可修改
+        </label>
+    </td>
+</tr>
+</tbody>
+</table>
+
+<div class="form-actions">
+    <input type="hidden" name="id" value="<?php echo ($info["id"]); ?>"/>
+    <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+    <button type="button" class="btn" onclick="window.location='picture-text-repaly.html'">取消</button>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#cname").keyup(function () {
+            $("div.mc-name").text($(this).val())
+        });
+        $("#cname_color").change(function () {
+            $("div.mc-name").css("color", $(this).val())
+        });
+        $("#numbercolor").change(function () {
+            $("div.mc-number").css("color", $(this).val())
+        });
+        $("#bg_bg_color").change(function () {
+            var v = $(this).val();
+            $("div.img-preview-bg").css("color", v)
+            $("pre.mc-content").css("color", v)
+        });
+        $("#select_bg").change(function () {
+            var v = $(this).val();
+            if (v.length > 0) {
+                $("img.i-img").attr("src", v)
+                $("#card_bg").val(v);
+            }
+        });
+        $("#description").keyup(function () {
+            $("pre.mc-content").text($(this).val())
+        })
+        $("#select_bg_bg").change(function () {
+            var v = $(this).val();
+            if (v.length > 0) {
+                $("img.i-img-bg").attr("src", v)
+                $("#card_bg_bg").val(v);
+            }
+
+        });
+    });
+</script>
+
+</body>
+</html>
