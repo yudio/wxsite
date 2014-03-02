@@ -48,7 +48,7 @@ class IndexAction extends BaseAction{
 			$this->wecha_id=$_SESSION['wecha_id'];
 		}
 		//获取分类信息Classify
-        $classify=M('Classify')->where(array('token'=>$this->_get('token'),'status'=>1))->order('sorts desc')->select();
+        $classify=M('Classify')->where(array('token'=>$this->token,'status'=>1))->order('sorts desc')->select();
         $classify=$this->convertLinks($classify);//加外链等信息
         //获取用户组ID
 		$gid=D('Users')->field('gid')->find($wxuser['uid']);
@@ -115,28 +115,29 @@ class IndexAction extends BaseAction{
 	}
 	
 	public function lists(){
-		$where['wxname']=$this->_get('wxname','trim');
+		$where['token']=$this->token;
 		$db=D('Img');	
 		if($_GET['p']==false){
-			$page=1;
+			$pageNum=1;
 		}else{
-			$page=$_GET['p'];			
+            $pageNum=$_GET['pageNum'];
 		}		
 		$where['classid']=$this->_get('classid','intval');
 		$count=$db->where($where)->count();	
 		$pageSize=8;	
 		$pagecount=ceil($count/$pageSize);
-		if($page > $count){$page=$pagecount;}
-		if($page >=1){$p=($page-1)*$pageSize;}
-		if($p==false){$p=0;}
-		$res=$db->where($where)->order('createtime DESC')->limit("{$p},".$pageSize)->select();
-		$res=$this->convertLinks($res);
+		if($pageNum > $count){$pageNum=$pagecount;}
+		if($pageNum >=1){$pageNum=($pageNum-1)*$pageSize;}
+		if($pageNum==false){$pageNum=0;}
+		$info=$db->where($where)->order('createtime DESC')->limit("{$pageNum},".$pageSize)->select();
+		$info=$this->convertLinks($info);
 		$this->assign('page',$pagecount);
-		$this->assign('p',$page);
-		$this->assign('res',$res);
+		$this->assign('pageNum',$pageNum);
+		$this->assign('info',$info);
 		$this->assign('copyright',$this->copyright);
+        dump($info);
 		if ($count==1){
-			$this->content($res[0]['id']);
+			$this->content($info[0]['id']);
 			exit();
 		}
 		$this->display($this->wxuser['tpllistname']);

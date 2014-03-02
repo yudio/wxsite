@@ -93,16 +93,16 @@
                                 <div class="control-group">
                                     <label for="introduction" class="control-label">简介：</label>
                                     <div class="controls">
-                                        <textarea id="description" name="info" data-rule-required="true" data-rule-maxlength="200" style="width: 580px; height: 100px">{np:$info.info}</textarea><span class="maroon">*</span>
+                                        <textarea id="introduction" name="info" data-rule-required="true" data-rule-maxlength="200" style="width: 580px; height: 100px">{np:$info.info}</textarea><span class="maroon">*</span>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label for="title" class="control-label">所属类别：</label>
+                                    <label for="article_class" class="control-label">所属类别：</label>
                                     <div class="controls">
                                         <select name="article_class" class="chosen-select input-medium" data-nosearch="true" id="article_class">
-                                           <option value="0">根分类</option>
+                                           <option value="0" <if condition="$vo.classid eq 0">selected="selected"</if>>根分类</option>
                                            <volist name="classinfo" id="val">
-                                               <option value="{np:$val.id},{np:$val.name}" <if condition="$val.id eq $vo.id">selected="selected"</if>{np:$val.name}</option>
+                                               <option value="{np:$val.id},{np:$val.name}" <if condition="$val.id eq $vo.classid">selected="selected"</if>>{np:$val.name}</option>
                                            </volist>
                                         </select>
                                     </div>
