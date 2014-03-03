@@ -56,11 +56,11 @@
                                     <label class="control-label">关键词类型：</label>
                                     <div class="controls">
                                         <label class="radio">
-                                            <input type="radio" name="match_type"value="1"  <?php if($info["type"] == 1): ?>checked="checked"<?php endif; ?> >
+                                            <input type="radio" name="match_type"value="1"  <?php if($info["match_type"] == 1): ?>checked="checked"<?php endif; ?> >
                                             完全匹配，用户输入的和此关键词一样才会触发!
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="match_type" value="2"  <?php if($info["type"] == 2): ?>checked="checked"<?php endif; ?> >
+                                            <input type="radio" name="match_type" value="2"  <?php if($info["match_type"] == 2): ?>checked="checked"<?php endif; ?> >
                                             包含匹配 (只要用户输入的文字包含本关键词就触发！
                                         </label>
                                     </div>
