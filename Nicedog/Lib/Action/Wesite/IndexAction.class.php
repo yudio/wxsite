@@ -35,8 +35,8 @@ class IndexAction extends BaseAction{
         }
 
 		$wxuser=D('Wxuser')->where($where)->find();
-        if (!$this->token){
-            $this->token = $wxuser->token;
+        if (!isset($this->token)){
+            $this->token = $wxuser['token'];
         }
 		$this->weixinUser=$wxuser;
 		
@@ -48,7 +48,7 @@ class IndexAction extends BaseAction{
 			$this->wecha_id=$_SESSION['wecha_id'];
 		}
 		//获取分类信息Classify
-        $classify=M('Classify')->where(array('token'=>$this->_get('token'),'status'=>1))->order('sorts desc')->select();
+        $classify=M('Classify')->where(array('token'=>$this->token,'status'=>1))->order('sorts desc')->select();
         $classify=$this->convertLinks($classify);//加外链等信息
         //获取用户组ID
 		$gid=D('Users')->field('gid')->find($wxuser['uid']);
@@ -82,6 +82,8 @@ class IndexAction extends BaseAction{
 
         $this->assign('classify',$this->classify);
         $this->assign('wxuser',$this->wxuser);
+
+       // dump($this->classify);
 	}
 	
 	
@@ -101,7 +103,7 @@ class IndexAction extends BaseAction{
 			exit();
 		}
 		//
-		$where['token']=$this->_get('token');
+		$where['token']=$this->token;;
         LOG::write($this->_get('wechatid'),LOG::ERR);
 		//dump($where);
 		//	$where['status']=1;  幻灯片Flash
@@ -170,7 +172,6 @@ class IndexAction extends BaseAction{
 	}
 	/**
 	 * 获取链接
-	 *
 	 * @param unknown_type $url
 	 * @return unknown
 	 */
