@@ -59,12 +59,23 @@ class UsersAction extends BaseAction{
 	
 	public function checkreg(){
 		$db=D('Users');
+        $code=$this->_post('captcha','intval,md5',0);
+        if($code != $_SESSION['verify']){
+            $this->error('验证码错误','/npHome/Index/reg.act');
+        }
+        $condition['username'] = $this->_post('username');
+        $condition['email'] = $this->_post('email');
+        $condition['_logic'] = 'OR';
+        $user = $db->where($condition)->find();
+        if ($user){
+            $this->error('用户名或邮箱已注册！','/npHome/Index/reg.act');
+        }
 		$info=M('User_group')->find(1);
 		if($db->create()){
 			$id=$db->add();
 			if($id){				
 				if(C('ischeckuser')!='true'){
-					$this->success('注册成功,请联系在线客服审核帐号',U('User/Index/index'));exit;
+					$this->success('注册成功,请联系在线客服审核帐号','npManage/account/index.act');exit;
 				}
 				$viptime=time()+3*24*3600;
 				$db->where(array('id'=>$id))->save(array('viptime'=>$viptime));
@@ -75,33 +86,20 @@ class UsersAction extends BaseAction{
 				session('connectnum',0);
 				session('activitynum',0);
 				session('gname',$info['name']);
-				// $smtpserver = C('email_server'); 
-				// $port = C('email_port');
-				// $smtpuser = C('email_user');
-				// $smtppwd = C('email_pwd');
-				// $mailtype = "TXT";
-				// $sender = C('email_user');
-				// $smtp = new Smtp($smtpserver,$port,true,$smtpuser,$smtppwd,$sender); 
-				// $to = $list['email']; 
-				// $subject = C('reg_email_title');
-				// $code = C('site_url').U('User/Index/checkFetchPass?uid='.$list['id'].'&code='.md5($list['id'].$list['password'].$list['email']));
-				// $fetchcontent = C('reg_email_content');
-				// $fetchcontent = str_replace('{username}',$where['username'],$fetchcontent);
-				// $fetchcontent = str_replace('{time}',date('Y-m-d H:i:s',$_SERVER['REQUEST_TIME']),$fetchcontent);
-				// $fetchcontent = str_replace('{code}',$code,$fetchcontent);
-				// $body=$fetchcontent;
-				//$body = iconv('UTF-8','gb2312',$fetchcontent);
-				// $send=$smtp->sendmail($to,$sender,$subject,$body,$mailtype);
 			    
-				$this->success('注册成功',U('User/Index/index'));
+				$this->success('注册成功','npManage/Account/main.act');
 			}else{
-				$this->error('注册失败',U('Index/reg'));
+				$this->error('注册失败','/npHome/Index/reg.act');
 			}
 		}else{
-			$this->error($db->getError(),U('Index/reg'));
+			$this->error($db->getError(),'/npHome/Index/reg.act');
 		}
 	}
-	
+
+    public function verify(){
+        Image::buildImageVerify();
+    }
+
 	public function checkpwd(){
 
 		$where['username']=$this->_post('username');

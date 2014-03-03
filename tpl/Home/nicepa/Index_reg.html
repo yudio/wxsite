@@ -1,0 +1,121 @@
+<include file="Public:header"/>
+
+<div class="Public-content clearfix">
+    <div class="Public">
+        <h1 class="Public-h1">注册</h1>
+
+        <div class="Public-box clearfix">
+            <div class="reg-wrapper2">
+                <form id="regform" class="form-horizontal" method="post" action="/npHome/Users/checkreg.act">
+                    <div class="control-group">
+                        <label class="control-label" for="username">用户名</label>
+
+                        <div class="controls">
+                            <input type="text" name="username" id="username">
+                            <span class="maroon">*</span><span
+                                class="help-inline">长度为6~16位字符，可以为“数字/字母/中划线/下划线”组成</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">设置密码</label>
+
+                        <div class="controls">
+                            <input type="password" name="password" id="password">
+                            <span class="maroon">*</span><span class="help-inline">长度为6~16位字符</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="repassword">确认密码</label>
+
+                        <div class="controls">
+                            <input type="password" name="repassword" id="repassword">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="location_p">详细地址</label>
+
+                        <div class="controls">
+                            <select name="location_p" id="location_p"></select>
+                            <select name="location_c" id="location_c"></select>
+                            <select name="location_a" id="location_a"></select>
+                            <script type="text/javascript">
+                                new PCAS('location_p', 'location_c', 'location_a', '', '', '');
+                            </script>
+                        </div>
+                    </div>
+                    <div class="control-group" style="display:none;">
+                        <label class="control-label" for="address"></label>
+
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" name="address" id="address"
+                                   data-rule-required="true" value="" style="width:426px;"/>
+                            <span class="maroon">*</span><span class="help-inline">详细地址：xx路xx号</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="mobile">手机</label>
+
+                        <div class="controls">
+                            <input type="text" name="mobile" id="mobile">
+                            <span class="maroon">*</span><span class="help-inline">请输入正确的手机号码</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="email">邮箱</label>
+
+                        <div class="controls">
+                            <input type="text" name="email" id="email">
+                            <span class="maroon">*</span><span class="help-inline">邮箱将与支付及优惠相关，请填写正确的邮箱</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="qq">QQ</label>
+
+                        <div class="controls">
+                            <input type="text" name="qq" id="qq">
+                        </div>
+                    </div>
+                    <div class="control-group" style="display: none;">
+                        <label class="control-label" for="invite_code">邀请码</label>
+
+                        <div class="controls">
+                            <input type="text" name="invite_code" readonly id="invite_code"
+                                   value="48e4e74db53195615096c5d2c6f12d3f">
+                            <span class="maroon">*</span><span class="help-inline">请输入32位邀请码</span><span
+                                class="help-inline"><a
+                                href="http://wpa.qq.com/msgrd?v=3&uin=4006305400&site=qq&menu=yes"
+                                style="color:#54c11a;" target="_blank">如果没有邀请码，联系客服</a></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="captcha">验证码</label>
+
+                        <div class="controls">
+                            <input type="text" name="captcha" id="captcha" maxlength="4">
+                            <span class="maroon">*</span>
+		      <span name="show_captcha" id="show_captcha">
+				<img title="看不清？点击更换" style="cursor: pointer;" src="/npHome/Users/verify.act" id="imgCheckB" width="60"
+                     height="20" border="1">
+	      	  </span>
+                            <script type="text/javascript">
+                                function refresh() {
+                                    var randomRZ = Math.random();
+                                    $("#imgCheckB").attr("src", "/npHome/Users/verify.act?rz=" + randomRZ);
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" id="reg-btn" class="btn-register" style="display:none;"></button>
+                            <button type="button" class="btn-register"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="Public:footer"/>

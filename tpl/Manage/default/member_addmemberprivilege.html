@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html>
     <include file="member:header"/>
-         <script src="/templates/kindeditor/kindeditor-min.js"></script>
+
+
+    <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
     <div id="main">
         <div class="container-fluid">
 
@@ -17,24 +19,32 @@
                         </div>
 
                         <div class="box-content">
-                            <form action="/newmembercard/AddMemberPrivilege" method="post" class="form-horizontal form-validate">
-                            	<input type="hidden" name="aid" value="73272">
-                            	<input type="hidden" name="id" value="">
+                            <form action="/npManage/member/addmemberprivilege.act?id={np:$info.id}" method="post" class="form-horizontal form-validate">
+
                                 <div class="control-group">
                                     <label for="keyword" class="control-label">标题：</label>
                                     <div class="controls">
-                                        <input type="text" name="title" id="short_title" value="" class="input-large" data-rule-required="true" data-rule-maxlength="30" />
+                                        <input type="text" name="title" id="short_title" value="{np:$info.title}" class="input-large" data-rule-required="true" data-rule-maxlength="30" />
                                         <span class="help-inline">不超过30个字符</span>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">适用人群</label>
+
                                     <div class="controls">
-                                       
-                                            <label class="radio inline">
-                                                <input type="checkbox" name="crowd_type[]" value="0"  />所有会员
-                                            </label>
-                                                                                </div>
+
+                                        <label class="radio inline">
+                                            <input type="checkbox" name="crowd_type[]" value="0"
+                                            <if condition="$info.crowd_type eq '0'">checked="checked"</if>
+                                            />所有会员
+
+                                        </label>
+                                        <label class="radio inline">
+                                            <volist name="levels" id="le">
+                                                <input type="checkbox" name="crowd_type[]" value="{np:$le.id}" <if condition="in_array($le.id,explode(',',$info.crowd_type))"></if> />{np:$le.cname}
+                                            </volist>
+                                        </label>
+                                    </div>
                                 </div>
                               
                                 <div class="control-group">
@@ -51,11 +61,12 @@
                                 <div class="control-group">
                                     <label class="control-label" for="content">使用说明</label>
                                     <div class="controls">
-                                        <textarea class="input-large" name="content" id="info" data-rule-required="true"  ></textarea> 
+                                        <textarea class="input-large" name="content" id="info" data-rule-required="true"  >{np:$info.content}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-actions">
+                                    <input type="hidden" name="id" value="{np:$info.id}"/>
                                     <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
                                     <button type="button" class="btn" onclick="Javascript:window.history.go(-1)">取消</button>
 

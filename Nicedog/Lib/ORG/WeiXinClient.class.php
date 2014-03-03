@@ -170,8 +170,9 @@ class WeiXinClient
     public function getNickName(){
         if (!$this->setdata){$this->getSetting();}
         if (!$this->nkname){
-            preg_match('/"nickname">(\w*)<\/a>/i',$this->setdata,$nicknames);
+            preg_match('/"nickname">(.+)<\/a>/i',$this->setdata,$nicknames);
             $this->nkname = $nicknames[1];
+            //LOG::write('getNickName'.$this->setdata,LOG::ERR);
         }
         return $this->nkname;
     }

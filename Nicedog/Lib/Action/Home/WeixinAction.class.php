@@ -10,6 +10,11 @@ class WeixinAction extends Action
     public function index()
     {
         $this->token = $this->_get('token');
+        $db = M('Wxuser');
+        $wxuser = $db->where(array('token'=>$this->token))->find();
+        if (!$wxuser){
+            return "";
+        }
         $weixin = new Wechat($this->token);
         $data = $weixin->request();
         $this->data = $weixin->request();
