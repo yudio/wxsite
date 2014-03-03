@@ -4,12 +4,12 @@
 
 *.log
 
-data/Conf/logs/Cache/＊.php
-data/Conf/logs/Cache/Home/＊.php
-data/Conf/logs/Cache/manage/＊.php
-data/Conf/logs/Cache/System/＊.php
-data/Conf/logs/Cache/User/＊.php
-data/Conf/logs/Cache/Wap/＊.php
-data/Conf/logs/Cache/Wesite/＊.php
+data/Conf/logs/Cache/*.php
+data/Conf/logs/Cache/Home/*.php
+data/Conf/logs/Cache/manage/*.php
+data/Conf/logs/Cache/System/*.php
+data/Conf/logs/Cache/User/*.php
+data/Conf/logs/Cache/Wap/*.php
+data/Conf/logs/Cache/Wesite/*.php
 
 Uploads/*
