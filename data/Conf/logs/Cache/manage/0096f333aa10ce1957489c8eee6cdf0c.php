@@ -92,7 +92,8 @@
                                         <td>
                                             <input type="text" name="ps[<?php echo ($vo["id"]); ?>][zk]" id="ps[<?php echo ($vo["id"]); ?>][zk]" class="input-mini" data-rule-required="true" data-rule-integer="true" data-rule-range="[1,100]" value="<?php echo ($vo["zk"]); ?>"><span class="help-inline">%</span>
                                         </td>
-                                        <td><a href="javascript:G.ui.tips.confirm('确定删除？','/npManage/member/delLevel.act?id=<?php echo ($vo["escore"]); ?>');">删除</a></td>
+                                        <td><input type="hidden" name="ps[<?php echo ($vo["id"]); ?>][id]" value="<?php echo ($vo["id"]); ?>"/>
+                                            <a href="javascript:G.ui.tips.confirm('确定删除？','/npManage/member/delcardlevel.act?id=<?php echo ($vo["id"]); ?>');">删除</a></td>
                                     </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                                     <tr>
 

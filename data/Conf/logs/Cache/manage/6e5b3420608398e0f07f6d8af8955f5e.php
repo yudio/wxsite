@@ -48,8 +48,7 @@
                             <ul class="nav nav-tabs">
                                 <li><a href="/npManage/member/addcard.act">卡片设置</a> </li>
                                 <li><a href="/npManage/member/memberFields.act">会员资料设置</a></li>
-                                <li><a href="/npManage/member/listmemberprivilege.act">会员卡特权</a></li>
-                                <li><a href="/npManage/member/listprogram.act">业务关联</a></li>
+                                <li><a href="/npManage/member/listprivilege.act">会员卡特权</a></li>
                                 <li class="active"><a href="javascript:;">等级设置</a></li>
                             </ul> 
                             <form action="/npManage/member/setCardLevel.act" method="post" class="form-horizontal form-validate">
@@ -92,7 +91,8 @@
                                         <td>
                                             <input type="text" name="ps[<?php echo ($vo["id"]); ?>][zk]" id="ps[<?php echo ($vo["id"]); ?>][zk]" class="input-mini" data-rule-required="true" data-rule-integer="true" data-rule-range="[1,100]" value="<?php echo ($vo["zk"]); ?>"><span class="help-inline">%</span>
                                         </td>
-                                        <td><a href="javascript:G.ui.tips.confirm('确定删除？','/npManage/member/delLevel.act?id=<?php echo ($vo["escore"]); ?>');">删除</a></td>
+                                        <td><input type="hidden" name="ps[<?php echo ($vo["id"]); ?>][id]" value="<?php echo ($vo["id"]); ?>"/>
+                                            <a href="javascript:G.ui.tips.confirm('确定删除？','/npManage/member/delcardlevel.act?id=<?php echo ($vo["id"]); ?>');">删除</a></td>
                                     </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                                     <tr>
 

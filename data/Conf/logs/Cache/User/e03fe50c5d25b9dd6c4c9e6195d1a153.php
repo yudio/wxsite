@@ -343,148 +343,85 @@ window.onload =getHost;
 		</div>
 	</div>
 	<div id="Content" >
-	</div> 
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/cymain.css" />
-<script src="/tpl/static/artDialog/jquery.artDialog.js?skin=default"></script>
-<script src="/tpl/static/artDialog/plugins/iframeTools.js"></script>
- <link rel="stylesheet" href="<?php echo STATICS;?>/kindeditor/themes/default/default.css" />
-<link rel="stylesheet" href="<?php echo STATICS;?>/kindeditor/plugins/code/prettify.css" />
-<script src="<?php echo STATICS;?>/kindeditor/kindeditor.js" type="text/javascript"></script>
-<script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
-<script src="<?php echo STATICS;?>/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
-<script type="text/javascript" src="<?php echo RES;?>/js/formCheck/formcheck.js"> </script>
-<script>
+	</div>
 
-var editor;
-KindEditor.ready(function(K) {
-editor = K.create('#intro', {
-resizeType : 1,
-allowPreviewEmoticons : false,
-allowImageUpload : false,
-items : [
-'source','undo','clearhtml','hr',
-'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-'insertunorderedlist', '|', 'emoticons', 'image','link', 'unlink','baidumap','lineheight','table','anchor','preview','print','template','code','cut']
-});
-
-});
-</script>
 <div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
-<div class="cLineB">
-<h4 class="left">公司信息</h4>
-<div class="searchbar right">
-<form method="post" action="">
+          <div class="cLineB"><h4>商家开卡配置 <span class="FAQ">卡号自定义啦</span> <strong>本月可创建 <span style="color:red"><?php echo ($count); ?></span> 张，剩余<span style="color:red"><?php echo ($cancrnum); ?></span>张</strong></h4><a href="javascript:history.go(-1);" class="right btnGrayS vm" style="margin-top:-27px">返回</a></div>
+         
+          <form method="post" action="">
+          <div class="msgWrap form">
+            <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tbody>
+  <tr>
+              		<th>卡号英文编号：</th>
+              		<td><input type="input" class="px" id="title" value="" name="title" style="width:200px;"> 例：<font style="color:red">BSD</font>-65535 <font style="color:red">BSD</font>就是英文编号</td>
+              		</tr>
+  <tr>
+              		<th >选择人群：</th>
+              		<td>
+						<label><input name="group" type="radio" value="1" checked="checked">所有会员</label>　
+						<label><input type="radio" name="group" value="2">普通会员</label>　
+						<label><input type="radio" name="group" value="3">银卡会员</label>
+						<label><input type="radio" name="group" value="4">金卡会员</label>
+						<label><input type="radio" name="group" value="5">钻石会员</label>
+					</td>
+              		</tr>
 
-<script>
-function selectall(name) {
-	var checkItems=$('.cbitem');
-	if ($("#check_box").attr('checked')==false) {
-		$.each(checkItems, function(i,val){
-			val.checked=false;
-		});
-		
-	} else {
-		$.each(checkItems, function(i,val){
-			val.checked=true;
-		});
-	}
-}
-function setlatlng(longitude,latitude){
-	art.dialog.data('longitude', longitude);
-	art.dialog.data('latitude', latitude);
-	// 此时 iframeA.html 页面可以使用 art.dialog.data('test') 获取到数据，如：
-	// document.getElementById('aInput').value = art.dialog.data('test');
-	art.dialog.open('<?php echo U('Map/setLatLng',array('token'=>$token,'id'=>$id));?>',{lock:false,title:'设置经纬度',width:600,height:400,yesText:'关闭',background: '#000',opacity: 0.87});
-}
+
+
+              	<tr>
+<th>卡号生成范围：</th>
+<td>
+	起始卡号：&nbsp;
+	<input type="input" class="px" id="stat" value="" onClick="WdatePicker()" name="stat">&nbsp;到
+	<input type="input" class="px" id="enddate" value="" name="end" onClick="WdatePicker()">&nbsp;结束卡号.
+	<font style="color:red">最小起始卡为:1,最大结束卡号为:65535,
+  <br />例如输入1到100那么就会创建99张会员卡</font>
+</td>
+</tr>
+
+</tr>
+
+<tr>
+	<th valign="top">使用说明：</th>
+	<td>
+			在此说明生成会员卡的说明，每次最多生成100张，请及时关注，会员卡是否被领取完了,全部被发放后请再次生成。
+	</td>
+</tr>
+<tr>
+	<th></th>
+	<td><button type="submit" id="button" name="button" class="btnGreen">保存</button>　<a href="javascript:history.go(-1);" class="btnGray vm">取消</a></td>
+</tr>
+ </tbody>
+</table>
+            
+          </div>
+          </form>
+          
+        </div>
+<script  type="text/javascript" charset="utf-8">
+
+  function inputchek(obj){
+    var reg = new RegExp("^[0-9]*[1-9]*$");
+    if(!reg.test(obj.value)){
+        alert("请输入大于零的整数!");
+    }
+   
+    if(obj.value > 65535){
+        alert("请不要输入大于 65535 的整数!");
+    }
+   
+  }
+
+  $("#stat").focusout(function(event) {
+      inputchek(this);
+  });
+  $("#enddate").focusout(function(event) {
+      inputchek(this);
+  });
+
 </script>
-<?php if(($parentid != '0') and ($parentid != '')): ?><a href="<?php echo U('Product/cats',array('token'=>$token,'parentid'=>$parentCat['parentid']));?>" class="btnGreen" style="margin-top:-27px">返回上</a><?php endif; ?>
-</form>
-</div>
-<div class="clr"></div>
-</div>
 
-<!--tab start-->
-<div class="tab">
-<ul>
-<li class="<?php if($isBranch != 1): ?>current<?php endif; ?> tabli" id="tab0"><a href="<?php echo U('Company/index',array('token'=>$token));?>">公司信息</a></li>
-<li class="<?php if($isBranch == 1): ?>current<?php endif; ?> tabli" id="tab2"><a href="<?php echo U('Company/branches',array('token'=>$token,'isBranch'=>1));?>">分支机构</a></li>
-</ul>
-</div>
-<!--tab end-->
-<div class="msgWrap">
- <form class="form" method="post" id="form" action=""> 
-<?php if($isUpdate == 1): ?><input type="hidden" name="id" value="<?php echo ($set["id"]); ?>" /><?php endif; ?>
-<input type="hidden" name="discount" id="discount" value="<?php echo ($set["discount"]); ?>" />
-    <div class="msgWrap bgfc"> 
-     <table class="userinfoArea" style=" margin:0;" border="0" cellspacing="0" cellpadding="0" width="100%"> 
-      <tbody> 
-       <tr> 
-        <th><span class="red">*</span>名称：</th> 
-        <td><input type="text" id="name" name="name" value="<?php echo ($set["name"]); ?>" class="px require" style="width:400px;" /></td>
-       </tr>
-       <tr> 
-        <th><span class="red">*</span>简称：</th> 
-        <td><input type="text" id="shortname" name="shortname" value="<?php echo ($set["shortname"]); ?>" class="px require" style="width:400px;" /></td>
-       </tr>
-       <tr> 
-        <th><span class="red">*</span>电话：</th> 
-        <td><input type="text" id="tel" name="tel" value="<?php echo ($set["tel"]); ?>" class="px require" style="width:400px;" /></td>
-       </tr> 
-       <tr> 
-        <th><span class="red">*</span>手机：</th> 
-        <td><input type="text" id="mp" name="mp" value="<?php echo ($set["mp"]); ?>" class="px require" style="width:400px;" /></td>
-       </tr> 
-       <tr> 
-        <th><span class="red">*</span>地址：</th> 
-        <td><input type="text" id="address" name="address" value="<?php echo ($set["address"]); ?>" class="px require" style="width:400px;" /></td>
-       </tr> 
-       <tr> 
-        <th><span class="red">*</span>Logo地址：</th> 
-        <td><input type="text" id="logourl" name="logourl" value="<?php echo ($set["logourl"]); ?>" class="px require" style="width:400px;" /></td>
-       </tr>
-        <tr> 
-        <th><span class="red">*</span>经纬度：</th> 
-        <td>经度 <input type="text" id="longitude"  name="longitude" size="14" class="px" value="<?php echo ($set["longitude"]); ?>" /> 纬度 <input type="text"  name="latitude" size="14" id="latitude" class="px" value="<?php echo ($set["latitude"]); ?>" /> <a href="###" onclick="setlatlng($('#longitude').val(),$('#latitude').val())">在地图中查看/设置</a></td>
-       </tr>
-       <tr> 
-        <th><span class="red"></span>顺序：</th> 
-        <td><input type="text" id="taxis" name="taxis" value="<?php echo ($set["taxis"]); ?>" class="px require" style="width:100px;" /></td>
-       </tr>
-        <TR>
-                  <TH valign="top"><label for="info">图文详细页内容：</label></TH>
-                  <TD><textarea name="intro" id="intro"  rows="5" style="width:590px;height:360px"><?php echo ($set["intro"]); ?></textarea></TD>
-                </TR>  
-       <tr>         
-       <th>&nbsp;</th>
-       <td>
-       <?php if($isBranch == 1): ?><input type="hidden" name="isbranch" value="1" /><?php endif; ?>
-      <input type="hidden" name="token" value="<?php echo $token;?>" />
-       <button type="submit" name="button" class="btnGreen">保存</button></td> 
-       </tr> 
-      </tbody> 
-     </table> 
-     </div>
-    
-   </form> 
-
-
-</div>
-<div class="cLine">
-
-<div class="clr"></div>
-</div>
-</div>
-<script language="javascript">
-$(function(){
-
-	$("#form").valid([
-	{ name:"name",simple:"名称",require:true},
-	{ name:"mp",type:"mobile",message:"手机号输入不正确"}
-	
-	],true,true);
-
-})
-</script>
 
 	<div style="clear:both;"></div>
 </div>

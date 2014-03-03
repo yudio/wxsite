@@ -31,19 +31,18 @@
                 <div class="box">
                     <div class="box-title">
                         <div class="span8">
-                            <h3><i class="icon-table"></i>自定义图文回复信息</h3>
+                            <h3><i class="icon-table"></i>自定义文本回复信息</h3>
                         </div>
                         <div class="span4">
                             <div class="form-horizontal">
-                                <input type="text" id="keyword-input" class="input-small-z" value=""
-                                       placeholder="请输入关键词">
+                                <input type="text" id="keyword-input" class="input-small-z" placeholder="请输入关键词">
                                 <select name="type" class="input-small" id="select_type">
                                     <option selected="selected" value="0">全部</option>
                                     <option value="1">完全匹配</option>
                                     <option value="2">包含匹配</option>
                                 </select>
                                 <button class="btn" id="btn_search">查询</button>
-
+                                <input type="hidden" name="aid" id="aid" value="72040">
 
                             </div>
                         </div>
@@ -52,17 +51,12 @@
                     <div class="box-content nozypadding">
                         <div class="row-fluid">
                             <div class="span8 control-group">
-                                <div class="span5">
-                                    <a class="btn" href="/npManage/reply/addnews.act"><i class="icon-plus"></i>添加</a>
+                                <div class="span3">
+                                    <a class="btn" href="/npManage/reply/addtext.act"><i class="icon-plus"></i>添加</a>
                                     <a class="btn" href="javascript:location.reload();"><i class="icon-refresh"></i></a>
-                                    <select name="cate" class="input-medium" style="margin:1px 20px 0" id="cate">
-                                        <option value="0">根分类</option>
-                                        <option value='209425'>&nbsp;&nbsp;&nbsp;&nbsp;test1</option>
-                                        <option value='209427'>&nbsp;&nbsp;&nbsp;&nbsp;test2</option>
-                                    </select>
                                 </div>
 
-                                <div class="span4 datatabletool">
+                                <div class="span9 datatabletool">
 
                                     <div class="btn-group">
                                         <a class="btn" style="display:none;" title="批量导入文本"><i
@@ -94,46 +88,41 @@
                         </div>
 
                         <div class="row-fluid dataTables_wrapper">
-                            <form method="post" action="" id="listForm">
-                                <table id="listTable"
-                                       class="table table-hover table-nomargin table-bordered usertable dataTable">
-                                    <thead>
-                                    <tr>
-                                        <th class='with-checkbox'>
-                                            <input type="checkbox" class="check_all"></th>
-                                        <th>关键词</th>
-                                        <th>回答</th>
-                                        <th>匹配类型</th>
-                                        <th>时间</th>
-                                        <th>排序id</th>
-                                        <th>操作</th>
-                                    </tr>
+                            <table id="listTable"
+                                   class="table table-hover table-nomargin table-bordered usertable dataTable">
+                                <thead>
+                                <tr>
+                                    <th class='with-checkbox'>
+                                        <input type="checkbox" class="check_all"></th>
+                                    <th>关键词</th>
+                                    <th>回答</th>
+                                    <th>匹配类型</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
 
-                                    </thead>
-                                    <tbody>
-                                    <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                                        <td class="with-checkbox">
-                                            <input type="checkbox" name="check" value="">
-                                        </td>
-                                        <td><?php echo ($vo["keyword"]); ?></td>
-                                        <td><?php echo ($vo["title"]); ?></td>
-                                        <td><?php if($vo["type"] == 1): ?><span class="label label-satgreen">模糊</span><?php else: ?><span class="label label-satgreen">完全</span><?php endif; ?></td>
-                                        <td><?php echo (date("Y-m-d",$vo["updatetime"])); ?></td>
-                                        <td><?php echo ($vo["sort"]); ?></td>
-                                        <td class='hidden-480'>
-                                            <a href="#" class="btn" style="display:none;" rel="tooltip" title="View"><i
-                                                    class="icon-search"></i></a>
-                                            <a href="/npManage/reply/addnews.act?id=<?php echo ($vo["id"]); ?>" class="btn" rel="tooltip"
-                                               title="Edit"><i class="icon-edit"></i></a>
-                                            <a href="javascript:void(0);" class="btn" rel="tooltip" title="Delete"
-                                               attr="delnews_<?php echo ($vo["id"]); ?>"><i class="icon-remove"></i></a>
-                                        </td>
-                                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                                </thead>
+                                <tbody>
+                                <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                                    <td class="with-checkbox">
+                                        <input type="checkbox" name="check" value="">
+                                    </td>
+                                    <td><?php echo ($vo["keyword"]); ?></td>
+                                    <td><?php echo ($vo["text"]); ?></td>
+                                    <td><?php if($vo["type"] == 1): ?><span class="label label-satgreen">完全</span><?php else: ?><span class="label label-satgreen">模糊</span><?php endif; ?></td>
+                                    <td>2014-02-22</td>
+                                    <td class='hidden-480'>
+                                        <a href="#" style="display:none;" class="btn" rel="tooltip" title="View"><i
+                                                class="icon-search"></i></a>
+                                        <a href="/npManage/reply/addtext.act?id=<?php echo ($vo["id"]); ?>" class="btn" rel="tooltip"
+                                           title="Edit"><i class="icon-edit"></i></a>
+                                        <a href="javascript:void(0);" class="btn" rel="tooltip" title="Delete"
+                                           attr="deltext_<?php echo ($vo["id"]); ?>"><i class="icon-remove"></i></a>
+                                    </td>
+                                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                                </tbody>
 
-                                    </tbody>
-
-                                </table>
-                            </form>
+                            </table>
 
                             <div class="dataTables_paginate paging_full_numbers"><span>       </span></div>
                         </div>
@@ -144,11 +133,12 @@
         </div>
     </div>
 </div>
+
 <script>
     $(function () {
-        var delNews = function (event) {
+        var delText = function (event) {
             if (confirm("您确定要删除吗?")) {
-                $.post('/npManage/reply/newsdel.act', {id: event.data.id}, function (data) {
+                $.post('/npManage/reply/textdel.act', {id: event.data.id}, function (data) {
                     if (data.errno == 0) {
                         location.reload();
                     } else {
@@ -161,9 +151,9 @@
             }
         };
 
-        $("a[attr^='delnews_']").each(function () {
+        $("a[attr^='deltext_']").each(function () {
             var tmp = $(this).attr('attr').split('_');
-            $(this).bind("click", {id: tmp[1]}, delNews);
+            $(this).bind("click", {id: tmp[1]}, delText);
         });
 
 
@@ -175,11 +165,10 @@
             }
             var id = new Array();
             check.each(function (i) {
-
                 id[i] = $(this).val();
             });
 
-            $.post('/wechat/delnewsbatch', {tid: id, aid: $('#aid').val()}, function (data) {
+            $.post('/wechat/deltextbatch', {tid: id, aid: $('#aid').val()}, function (data) {
                 if (data.errno == 0) {
                     location.reload();
                 } else {
@@ -198,7 +187,7 @@
                 $('#keyword-input').focus();
                 return false;
             }
-            window.location.href = '/npManage/reply/newslist.act?type=' + $('#select_type').val() + '&keywords=' + keywords;
+            window.location.href = '/npManage/reply/textlist.act?type=' + $('#select_type').val() + '&keywords=' + keywords;
 
         });
 
@@ -208,13 +197,6 @@
                 return false;
             }
         });
-
-        $("#cate").change(function () {
-            window.location.href = '/wechat/replynews/aid/' + $('#aid').val() + '/cate/' + $('#cate').val();
-
-        });
-
-
     });
 </script>
 </body>

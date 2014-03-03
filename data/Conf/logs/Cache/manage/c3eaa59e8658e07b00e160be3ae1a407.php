@@ -2,36 +2,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-        <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
-        <link rel="shortcut icon" href="img/favicon.ico<?php echo RES;?>/src/" />
-				<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/page/wx_vip.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all" />
-		<script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
-		<script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
-		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
-		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
-		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
-		<script type="text/javascript" src="<?php echo RES;?>/src/plugins/jscolor/jscolor.js"></script>
-		<script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
-		<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-        <!--[if IE 7]>
-            <link href="<?php echo RES;?>/css/font_awesome_ie7.css<?php echo RES;?>/src/" rel="stylesheet" />
-        <![endif]-->
-        <!--[if lte IE 8]>
-            <script src="<?php echo RES;?>/js/excanvas_min.js<?php echo RES;?>/src/"></script>
-        <![endif]-->
-        <!--[if lte IE 9]>
-            <script src="<?php echo RES;?>/js/watermark.js<?php echo RES;?>/src/"></script>
-        <![endif]-->
-    </head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+    <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <link rel="shortcut icon" href="img/favicon.ico<?php echo RES;?>/src/" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/page/wx_vip.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/plugins/daterangepicker/daterangepicker.css" media="all" />
+
+    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/jscolor/jscolor.js"></script>
+    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/daterangepicker/moment_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/daterangepicker/daterangepicker.js"></script>
+    <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+    <!--[if IE 7]>
+    <link href="<?php echo RES;?>/css/font_awesome_ie7.css<?php echo RES;?>/src/" rel="stylesheet" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="<?php echo RES;?>/js/excanvas_min.js<?php echo RES;?>/src/"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="<?php echo RES;?>/js/watermark.js<?php echo RES;?>/src/"></script>
+    <![endif]-->
+</head>
         <script type="text/javascript">
         $(document).ready(function () {
         	$("div.mc-name").css("color", $('#cname_color').val());
@@ -88,6 +92,9 @@
                 }
 
             });
+
+            //重载初值
+            $("pre.mc-content").text('<?php echo ($info["instructions"]); ?>')
         });
     </script>
     <body>
@@ -106,8 +113,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="javascript:;">卡片设置</a> </li>
                                 <li><a href="/npManage/member/memberFields.act">会员资料设置</a></li>
-                                <li><a href="/npManage/member/listmemberprivilege.act">会员卡特权</a></li>
-                                <li><a href="/npManage/member/listprogram.act">业务关联</a></li>
+                                <li><a href="/npManage/member/listprivilege.act">会员卡特权</a></li>
                                 <li><a href="/npManage/member/setcardlevel.act">等级设置</a></li>
                             </ul>
                             <form action="/npManage/member/addcard.act" method="post" class='form-horizontal form-validate'>
@@ -356,7 +362,7 @@
                                                 会员卡使用说明
                                             </label>
                                             <div class="controls">
-                                                <textarea id="description" rows="5" name="instructions" class="input-xlarge" value="<?php echo ($info["instructions"]); ?>" data-rule-required="true" data-rule-maxlength="500"></textarea>
+                                                <textarea id="description" rows="5" name="instructions" class="input-xlarge" data-rule-required="true" data-rule-maxlength="500"><?php echo ($info["instructions"]); ?></textarea>
                                             </div>
                                        </div>
                                     </div>

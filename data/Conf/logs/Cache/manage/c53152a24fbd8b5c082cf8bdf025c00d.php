@@ -41,8 +41,7 @@
 <ul class="nav nav-tabs">
     <li><a href="/npManage/member/addcard.act">卡片设置</a></li>
     <li class="active"><a href="javascript:;">会员资料设置</a></li>
-    <li><a href="/npManage/member/listmemberprivilege.act">会员卡特权</a></li>
-    <li><a href="/npManage/member/listprogram.act">业务关联</a></li>
+    <li><a href="/npManage/member/listprivilege.act">会员卡特权</a></li>
     <li><a href="/npManage/member/setcardlevel.act">等级设置</a></li>
 </ul>
 <form action="/npManage/member/addmemfields.act" method="post" class='form-horizontal form-validate'>
