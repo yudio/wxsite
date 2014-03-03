@@ -4,7 +4,7 @@ class AccountAction extends UserAction{
     private $token;
     public function _initialize() {
         parent::_initialize();
-        $this->token=$this->_session('token');
+        //$this->token=$this->_session('token');
     }
 
     public function main(){
@@ -138,6 +138,7 @@ class AccountAction extends UserAction{
         $wxclient = new WeiXinClient(array('account'=>$_POST['wxaccount'],'password'=>md5($_POST['wxpwd']),'temp_path'=>THINK_PATH));
         $loginret = $wxclient->login();
         if ($loginret!="true"){
+            LOG::write($loginret,LOG::ERR);
             $ret =    json_decode($loginret,1);
             $retcode = $ret['ErrCode'];
             switch ($retcode){
@@ -161,20 +162,20 @@ class AccountAction extends UserAction{
         $_POST['wxid'] = $wxclient->getwxid();
         $_POST['weixin'] = $wxclient->getWxName();
         $_POST['wxname'] = $wxclient->getNickName();
+        LOG::write('WXNAME:'.$_POST['wxname'],LOG::ERR);
         $_POST['wxfakeid'] = $wxclient->getFakeId();
         $_POST['wxaccount'] = $_POST['wxaccount'];
         $_POST['wxpwd'] = $_POST['wxpwd'];
         $_POST['token'] = $this->genToken();
         $_POST['type'] = '8,服务';
+        //创建用户图片空间
+        $picpath = 'Uploads/'.md5($_POST['token']);
+        $dir            =   dirname($picpath);
+        LOG::write('创建用户图片空间'.$dir,LOG::ERR);
+        if (!is_dir($dir)) mkdir($dir,0755,true);
         $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
         $_POST['headerpic'] = '/'.$picpath;
         file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($wxclient->getFakeId()));
-        $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
-        $ret = $wxclient->bindUrlDev($tokenurl,$_POST['token']);
-        LOG::write($wxclient->getWxName(),LOG::ERR);
-        if ($ret['ret']>0){
-            $this->ajaxReturn($ret,'JSON');
-        }
         //ddump($_POST);
         $db=D('Wxuser');//->where(array('token'=>session('token'),'wxid'=>$wxclient->getwxid()))->find();
         if($db->create()===false){
@@ -184,6 +185,11 @@ class AccountAction extends UserAction{
         }else{
             $id=$db->add();
             if($id){
+                $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
+                $ret = $wxclient->bindUrlDev($tokenurl,$_POST['token']);
+                if ($ret['ret']>0){
+                    $this->ajaxReturn($ret,'JSON');
+                }
                 M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->setInc('wechat_card_num');
                 $this->addfc();
                 //jsret {"errno":0,"error":"信息","pid":69535}
@@ -205,7 +211,6 @@ class AccountAction extends UserAction{
     public function addwxuser(){
         $db = D('Wxuser');
         if (IS_POST){
-            $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
             $id = $this->_post('id');
             if ($id){//更新操作
                 if ($db->create()){
@@ -217,6 +222,7 @@ class AccountAction extends UserAction{
                 }
             }else{
                 $_POST['token'] = $this->genToken();
+                $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
                 if ($db->create()){
                     $id = $db->add();
                     M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->setInc('wechat_card_num');
@@ -244,8 +250,7 @@ class AccountAction extends UserAction{
         $where['id']=$this->_get('id','intval');
         $where['uid']=session('uid');
         if($db->where($where)->delete()){
-            LOG::write('/npManage/account/index.act',LOG::ERR);
-            redirect('/npManage/account/index.act');
+            redirect('/npManage/account/index.act',0);
         }else{
             LOG::write('ajaxReturn',LOG::ERR);
             $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');

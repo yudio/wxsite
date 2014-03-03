@@ -1,4 +1,4 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,28 +6,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
 	<meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/emotion.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/plugins/chosen/chosen.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css" media="all" />
-<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-<script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
-<script type="text/javascript" src="{np::STATICS}/inside.js"></script>
-<script type="text/javascript" src="{np::RES}/src/emotion.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/chosen/chosen_jquery_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/app/resource.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/emotion.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/plugins/chosen/chosen.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/resource.css" media="all" />
+<script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+<script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/emotion.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/plugins/chosen/chosen_jquery_min.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
+<script type="text/javascript" src="<?php echo RES;?>/src/app/resource.js"></script>
 <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-	<link rel="shortcut icon" href="{np::RES}/img/favicon.ico" />
-    <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
-	<!--[if IE 7]><link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+	<link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
+	<!--[if IE 7]><link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
 </head>
 <body>
 	   <div id="main">
@@ -49,18 +49,18 @@
 								                                <div class="control-group">
                                     <label for="keyword" class="control-label">关键词：</label>
                                     <div class="controls">
-                                        <input type="text" name="keyword" id="keyword" value="{np:$info.keyword}" data-rule-required="true" data-rule-maxlength="30" class="input-xlarge" title="多个关键词请用空格格开：例如: 美丽 漂亮 好看"><br>多个关键词请用空格格开：例如: 美丽 漂亮 好看
+                                        <input type="text" name="keyword" id="keyword" value="<?php echo ($info["keyword"]); ?>" data-rule-required="true" data-rule-maxlength="30" class="input-xlarge" title="多个关键词请用空格格开：例如: 美丽 漂亮 好看"><br>多个关键词请用空格格开：例如: 美丽 漂亮 好看
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">关键词类型：</label>
                                     <div class="controls">
                                         <label class="radio">
-                                            <input type="radio" name="match_type"value="1"  <if condition="$info.match_type eq 1">checked="checked"</if> >
+                                            <input type="radio" name="match_type"value="1"  <?php if($info["match_type"] == 1): ?>checked="checked"<?php endif; ?> >
                                             完全匹配，用户输入的和此关键词一样才会触发!
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="match_type" value="2"  <if condition="$info.match_type eq 2">checked="checked"</if> >
+                                            <input type="radio" name="match_type" value="2"  <?php if($info["match_type"] == 2): ?>checked="checked"<?php endif; ?> >
                                             包含匹配 (只要用户输入的文字包含本关键词就触发！
                                         </label>
                                     </div>
@@ -68,7 +68,7 @@
 							                                <div class="control-group">
                                     <label for="title" class="control-label">标题：</label>
                                     <div class="controls">
-                                        <input type="text" name="title" id="title" value="{np:$info.title}" data-rule-required="true" data-rule-maxlength="100" class="input-xlarge">
+                                        <input type="text" name="title" id="title" value="<?php echo ($info["title"]); ?>" data-rule-required="true" data-rule-maxlength="100" class="input-xlarge">
                                         <span class="maroon">*</span>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                                 <div class="control-group">
                                     <label for="picurl" class="control-label">排序id：</label>
                                     <div class="controls">
-                                       <input type="text" ata-rule-number="true" class="input-mini" value="{np:$info.sort|default="0"}" size="3" name="sort_id"><span style="color:red;" class="help-inline">(id越大，在所属官网分类文章列表中显示越靠前)</span>
+                                       <input type="text" ata-rule-number="true" class="input-mini" value="<?php echo (($info["sort"])?($info["sort"]):"0"); ?>" size="3" name="sort_id"><span style="color:red;" class="help-inline">(id越大，在所属官网分类文章列表中显示越靠前)</span>
 
                                     </div>
                                 </div>
@@ -84,8 +84,8 @@
                                 <div class="control-group">
                                     <label for="picurl" class="control-label">图文封面：</label>
                                     <div class="controls">
-											<img id="thumb_img" src="{np:$info.pic}" style="max-height:100px;" />
-                                            <input id="thumb" type="text" name="pic" value="{np:$info.pic}" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
+											<img id="thumb_img" src="<?php echo ($info["pic"]); ?>" style="max-height:100px;" />
+                                            <input id="thumb" type="text" name="pic" value="<?php echo ($info["pic"]); ?>" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
                                                                                 <span class="help-inline"><a class="btn" id="insertimage">选择图文封面</a></span>  建议大小(宽720高400)
                                     </div>
                                 </div>
@@ -93,17 +93,15 @@
                                 <div class="control-group">
                                     <label for="introduction" class="control-label">简介：</label>
                                     <div class="controls">
-                                        <textarea id="introduction" name="info" data-rule-required="true" data-rule-maxlength="200" style="width: 580px; height: 100px">{np:$info.info}</textarea><span class="maroon">*</span>
+                                        <textarea id="introduction" name="info" data-rule-required="true" data-rule-maxlength="200" style="width: 580px; height: 100px"><?php echo ($info["info"]); ?></textarea><span class="maroon">*</span>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label for="article_class" class="control-label">所属类别：</label>
                                     <div class="controls">
                                         <select name="article_class" class="chosen-select input-medium" data-nosearch="true" id="article_class">
-                                           <option value="0" <if condition="$vo.classid eq 0">selected="selected"</if>>根分类</option>
-                                           <volist name="classinfo" id="val">
-                                               <option value="{np:$val.id},{np:$val.name}" <if condition="$val.id eq $vo.classid">selected="selected"</if>>{np:$val.name}</option>
-                                           </volist>
+                                           <option value="0" <?php if($vo["classid"] == 0): ?>selected="selected"<?php endif; ?>>根分类</option>
+                                           <?php if(is_array($classinfo)): $i = 0; $__LIST__ = $classinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><option value="<?php echo ($val["id"]); ?>,<?php echo ($val["name"]); ?>" <?php if($val["id"] == $vo.classid): ?>selected="selected"<?php endif; ?>><?php echo ($val["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -112,11 +110,11 @@
                                     <label for="showpic" class="control-label">详细页显示图文封面：</label>
                                     <div class="controls">
                                         <label class="radio inline">
-                                            <input type="radio" name="showpic"  value="1" <if condition="$info.showpic eq 1">checked="checked"</if> >
+                                            <input type="radio" name="showpic"  value="1" <?php if($info["showpic"] == 1): ?>checked="checked"<?php endif; ?> >
                                             是
                                         </label>
                                         <label class="radio inline">
-                                            <input type="radio" name="showpic" value="0" <if condition="$info.showpic eq 0">checked="checked"</if> >
+                                            <input type="radio" name="showpic" value="0" <?php if($info["showpic"] == 0): ?>checked="checked"<?php endif; ?> >
                                             否
                                         </label>
                                     </div>
@@ -124,12 +122,12 @@
                                 <div class="control-group">
                                     <label for="picurl" class="control-label">图文详细页内容：</label>
                                     <div class="controls">
-                                        <textarea name="reply_content" id="content" style="width: 700px; height: 300px; visibility: hidden;">{np:$info.info}</textarea>
+                                        <textarea name="reply_content" id="content" style="width: 700px; height: 300px; visibility: hidden;"><?php echo ($info["info"]); ?></textarea>
                                     </div>
 									<script>var editor1;</script>
-                                    <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
-                                    <script src="{np::STATICS}/kindeditor/kindeditor.config.js"></script>
-                                    <script src="{np::STATICS}/kindeditor/kindeditor.config-upfile.js"></script>
+                                    <script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js"></script>
+                                    <script src="<?php echo STATICS;?>/kindeditor/kindeditor.config.js"></script>
+                                    <script src="<?php echo STATICS;?>/kindeditor/kindeditor.config-upfile.js"></script>
                                 </div>
 
 								<div class="control-group">
@@ -137,15 +135,13 @@
                                     <div class="controls">
                                         <table class="dataTable-mini" id="more_graphics_table">
                                             <tbody>
-                                            <volist name="news" id="vo">
-                                            <tr id="more_graphics_tabletr{np:$vo.id}"><td>
-                                                <input type="hidden" value="{np:$vo.id}" name="votetouser[0][]">{np:$vo.title}</td>
+                                            <?php if(is_array($news)): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr id="more_graphics_tabletr<?php echo ($vo["id"]); ?>"><td>
+                                                <input type="hidden" value="<?php echo ($vo["id"]); ?>" name="votetouser[0][]"><?php echo ($vo["title"]); ?></td>
                                                 <td>
                                                     <a class="btn btn-mini del" href="javascript:void(0)"><i class="icon-remove"></i>
                                                     </a>
                                                 </td>
-                                            </tr>
-                                            </volist>
+                                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                                             </tbody>
                                         </table>
                                         <button type="button" rel="more_graphics_table" class="btn add-on">添加</button><span style="color:red;" class="help-inline">最多添加9个</span>
@@ -450,7 +446,7 @@
 
 
                                 <div class="form-actions">
-									<input type="hidden" name="id" id="tid" value="{np:$info.id}">
+									<input type="hidden" name="id" id="tid" value="<?php echo ($info["id"]); ?>">
                                     <button type="submit" class="btn btn-primary" id="bsubmit">保存</button>
 									<a class="btn" href="Javascript:window.history.go(-1)">取消</a>
 									

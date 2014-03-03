@@ -55,7 +55,7 @@ class IndexAction extends BaseAction{
 		$this->userGroup=M('User_group')->where(array('id'=>$gid['gid']))->find();
 		$this->copyright=$this->userGroup['iscopyright'];
 		
-		$this->classify=$classify;
+		$this->classify=$this->getTypeUrl($classify);
         $wxuser['color_id']=intval($wxuser['color_id']);
 		$this->wxuser=$wxuser;
         //旧版门店Company
@@ -82,8 +82,6 @@ class IndexAction extends BaseAction{
 
         $this->assign('classify',$this->classify);
         $this->assign('wxuser',$this->wxuser);
-
-       // dump($this->classify);
 	}
 	
 	
@@ -112,33 +110,32 @@ class IndexAction extends BaseAction{
 		$count=count($flash);
 		$this->assign('flash',$flash);
 		$this->assign('num',$count);
-        //print_r($this->tpl);
 		$this->display($this->wxuser['tpltypename']);
 	}
 	
 	public function lists(){
-		$where['wxname']=$this->_get('wxname','trim');
+		$where['token']=$this->token;
 		$db=D('Img');	
-		if($_GET['p']==false){
-			$page=1;
+		if($_GET['pageNum']==false){
+			$pageNum=1;
 		}else{
-			$page=$_GET['p'];			
+            $pageNum=$_GET['pageNum'];
 		}		
 		$where['classid']=$this->_get('classid','intval');
 		$count=$db->where($where)->count();	
 		$pageSize=8;	
 		$pagecount=ceil($count/$pageSize);
-		if($page > $count){$page=$pagecount;}
-		if($page >=1){$p=($page-1)*$pageSize;}
-		if($p==false){$p=0;}
-		$res=$db->where($where)->order('createtime DESC')->limit("{$p},".$pageSize)->select();
-		$res=$this->convertLinks($res);
-		$this->assign('page',$pagecount);
-		$this->assign('p',$page);
-		$this->assign('res',$res);
+		if($pageNum > $pagecount){$pageNum=$pagecount;}
+		if($pageNum >=1){$pageNum=($pageNum-1)*$pageSize;}
+		if($pageNum==false){$pageNum=0;}
+		$info=$db->where($where)->order('createtime DESC')->limit("{$pageNum},".$pageSize)->select();
+		$info=$this->getTypeUrl($info);
+		$this->assign('pageCount',$pagecount);
+		$this->assign('pageNum',$pageNum);
+		$this->assign('info',$info);
 		$this->assign('copyright',$this->copyright);
 		if ($count==1){
-			$this->content($res[0]['id']);
+			$this->detail($info[0]['id']);
 			exit();
 		}
 		$this->display($this->wxuser['tpllistname']);
@@ -170,8 +167,30 @@ class IndexAction extends BaseAction{
 		$this->assign('num',$count);
 		$this->display('ty_index');
 	}
+
+    /*
+     *
+     * 生成对应链接
+     */
+    public function getTypeUrl($arr){
+        if ($arr==false){return false;}
+        foreach($arr as $key=>&$vo){
+            switch ($vo['type']){
+                case 'article':
+                    //   /wesite/test/lists?show=1&classid=325
+                    $vo['url'] = "/wesite/{$this->wxname}/lists?classid={$vo['id']}";
+                    break;
+                default:
+                    $vo['url'] = "/wesite/{$this->wxname}/detail?id={$vo['id']}";
+            }
+
+        }
+        return $arr;
+    }
+
 	/**
 	 * 获取链接
+	 *
 	 * @param unknown_type $url
 	 * @return unknown
 	 */

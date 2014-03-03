@@ -26,12 +26,12 @@ class ImgModel extends Model{
 	}
 	//获取分类ID
 	public function getclassid(){
-		$id=explode(',',$_POST['classid']);
+		$id=explode(',',$_POST['article_class']);
 		return $id[0];
 	}
 	//获取分类名字
 	public function getclassname(){
-		$id=explode(',',$_POST['classid']);
+		$id=explode(',',$_POST['article_class']);
         if ($id[0]==0){
             return "根分类";
         }

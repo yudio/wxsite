@@ -11,12 +11,12 @@
     <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/template/zepto.js"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/template/swipe.js"></script>
-    <title>微盟</title>
+    <title>奈斯伙伴</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
           name="viewport">
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
+    <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
+    <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
     <!-- Mobile Devices Support @begin -->
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -101,174 +101,6 @@
                 </dl>
             </a>
         </li><?php endforeach; endif; else: echo "" ;endif; ?>
-        <li>
-            <a href="/wesite/<?php echo ($wxname); ?>/lists?classid=0&wecha_id=<?php echo ($wecha_id); ?>">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-trophy"></span>
-                    </dd>
-                    <dd>
-                        <label>测试列表</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=13860&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-bullhorn"></span>
-                    </dd>
-                    <dd>
-                        <label>升级公告</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=859&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-rss-sign"></span>
-                    </dd>
-                    <dd>
-                        <label>微盟动态</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=14655&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-gittip"></span>
-                    </dd>
-                    <dd>
-                        <label>放松一下</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=8867&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-star"></span>
-                    </dd>
-                    <dd>
-                        <label>行业方案</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=8869&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-indent-right"></span>
-                    </dd>
-                    <dd>
-                        <label>业务模块</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/userinfo/index?id=162&pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-credit-card"></span>
-                    </dd>
-                    <dd>
-                        <label>微信会员卡</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=8870&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-user"></span>
-                    </dd>
-                    <dd>
-                        <label>互动推广</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=861&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-globe"></span>
-                    </dd>
-                    <dd>
-                        <label>渠道代理</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="tel:4006305400">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-phone"></span>
-                    </dd>
-                    <dd>
-                        <label>一键拨号</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="http://api.map.baidu.com/marker?location=39.892963,116.313504&title=微盟&name=微盟&content=上海市杨浦区五角场&output=html&src=weiba|weiweb">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-location-arrow"></span>
-                    </dd>
-                    <dd>
-                        <label>一键导航</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/Webmessage/Comment?wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&wxid=f156221f78685b7f7be1be1e4ad0d9f0&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-edit"></span>
-                    </dd>
-                    <dd>
-                        <label>在线留言</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="/weisite/list?pid=1071&bid=5&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&ltid=853&wxref=mp.weixin.qq.com">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-group"></span>
-                    </dd>
-                    <dd>
-                        <label>关于微盟</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
-        <li>
-            <a href="http://www.weimob.com/weisite/detail/pid/1071/bid/5/did/1613/from/list">
-                <dl class="tbox">
-                    <dd>
-                        <span class="icon-comments-alt"></span>
-                    </dd>
-                    <dd>
-                        <label>联系我们</label>
-                    </dd>
-                </dl>
-            </a>
-        </li>
     </ul>
 </section>
 </div>

@@ -125,14 +125,65 @@ class MemberAction extends UserAction{
         }
         $this->display('memberfields');
     }
-    public function listmemberprivilege(){
-        $db   = M('Member_card_privilege');
+    //会员特权
+    public function listprivilege(){
+        $db   = M('MemberPrivilege');
         $info = $db->where(array('token'=>session('token')))->select();
+        $time = time();
+        foreach($info as $key=>&$vo){
+            if ($vo['etime']<$time){
+                $vo['flag']  =  '已结束';  //已结束
+                $vo['label'] = '';
+            }else if ($vo['btime']>$time){
+                $vo['flag']  =  '未开始';  //未开始
+                $vo['label'] = 'label-satgreen';
+            }else{
+                $vo['flag']  =  '进行中';  //进行中
+                $vo['label'] = 'label-lightred';
+            }
+        }
+        //dump($info);
         $this->assign('info',$info);
+        $this->display();
+    }
+    public function addmemberprivilege(){
+        $db = D('MemberPrivilege');
+        if (IS_POST){
+            $_POST['token'] = session('token');
+            $id = $this->_post('id');
+            if ($id){//更新操作
+                if ($db->create()){
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/listprivilege.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                }
+            }else{
+                if ($db->create()){
+                    $id = $db->add();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/listprivilege.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
+                }
+            }
+        }
+        //$id = $this->_get('id','intval');
+        if (session('token')){
+            $info = $db->where(array('token'=>session('token')))->find();
+            $this->assign('info',$info);
+            $levels = M('Member_card_level')->field('id,cname')->where(array('token'=>session('token')))->select();
+            $this->assign('levels',$levels);
+        }
+        /*if ($info['crowd_type']!='0'&&$info['crowd_type']){
+            $where['id'] = array('in',$info['crowd_type']);
+            $levels = M('Member_card_level')->field('id,cname')->where($where)->select();
+            $this->assign('levels',$levels);
+        }*/
         $this->display();
     }
 
     public function setCardLevel(){
+        //C('TOKEN_ON',false);
         $db = M('Member_card_level');
         $data = array();
         if (IS_POST){
@@ -158,22 +209,39 @@ class MemberAction extends UserAction{
                 $this->updatecardlevel($data);
             }
             $psarr = $_REQUEST['ps'];
-            foreach($add as $key=>$vo){
-                $data['id']     = "";//新增ID自增
-                $data['cname']  = $vo['name'];
-                $data['bscore'] = $vo['startjf'];
-                $data['escore'] = $vo['endjf'];
+            foreach($psarr as $key=>$vo){
+                $data['id']     = $vo['id'];//新增ID自增
+                $data['cname']  = $vo['cname'];
+                $data['bscore'] = $vo['bscore'];
+                $data['escore'] = $vo['escore'];
                 $data['zk']     = $vo['zk'];
                 $data['type']   = 1;
                 $this->updatecardlevel($data);
             }
+            $this->ajaxReturn(array('errno'=>'0','error'=>'更新成功！','url'=>'/npManage/member/setCardLevel.act'),'JSON');
         }
         //$id = $this->_get('id','intval');
         if (session('token')){
-            $info = $db->where(array('token'=>session('token')))->find();
+            $info = $db->where(array('token'=>session('token'),'type'=>0))->find();
             $this->assign('info',$info);
+            $list = $db->where(array('token'=>session('token'),'type'=>1))->select();
+            $this->assign('list',$list);
         }
+        //dump($list);
         $this->display();
+    }
+
+    public function delcardlevel(){
+        $db = M('Member_card_level');
+        $id = $this->_get('id','intval');
+        LOG::write('delcardlevel:'.$id,LOG::ERR);
+        $level = $db->where(array('token'=>session('token'),'uid'=>session('uid'),'id'=>$id))->find();
+        if ($level){
+            $db->where(array('id'=>$id))->delete();
+            $this->success('删除成功！','/npManage/member/setCardLevel.act');
+        }else{
+            $this->error('该记录不存在或已经删除！','/npManage/member/setCardLevel.act');
+        }
     }
     public function updatecardlevel($data){
         $db = M('Member_card_level');
@@ -182,15 +250,15 @@ class MemberAction extends UserAction{
                 $db->save();
                 return true;
             }else{
-                return $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
             }
         }else{
-            if (!$data['escore']){$data['escore']==0;}
+            if (!$data['escore']){$data['escore']=0;}
             if ($db->create($data)){
                 $db->add();
                 return true;
             }else{
-                return $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
+                $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
             }
         }
     }

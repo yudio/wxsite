@@ -13,8 +13,8 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
           name="viewport">
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
+    <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
+    <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
     <!-- Mobile Devices Support @begin -->
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -168,223 +168,25 @@
 <section>
 <div>
 <ul class="list_ul">
-<li>
-    <a href="/weisite/detail?pid=1071&bid=5&did=1587&wechatid=osXr8jseQvrR20652rDRTnw-JjjQ&from=list&wxref=mp.weixin.qq.com"
+
+<?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+    <a href="<?php echo ($vo["url"]); ?>"
        class="tbox">
         <dd>
             <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/2e/cd/2b/image/20130823/20130823212705_98469.jpg"/>
+                <img src="<?php echo ($vo["pic"]); ?>"/>
             </div>
         </dd>
         <dt>
             <hgroup>
-                <h1>微盟成功案例</h1>
+                <h1><?php echo ($vo["info"]); ?></h1>
 
-                <h2>微盟，自开放运营以来，一个月内商户突破一万。微盟正走入每一个商家品牌公众号。</h2>
+                <h2><?php echo ($vo["text"]); ?></h2>
             </hgroup>
         </dt>
     </a>
-</li>
-<li>
-    <a href="/wesite/<?php echo ($wxname); ?>/detail?id=0&token=<?php echo ($token); ?>&wecha_id=<?php echo ($wecha_id); ?>"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011152730_11927.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>测试单页</h1>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
 
-                <h2>详细内容</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=3427&bid=5231&wechatid=o5JGbjuf9xfGBB41DySka4SVOGs0&from=1"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011152625_29396.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>上海复大医院</h1>
-
-                <h2>上海复大医院</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=616&bid=1488&wechatid=ouHGIjnUJMdDdjbEhIJ0SDdgV8r8&from=1"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011153315_83089.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>韩国艺匠婚纱摄影</h1>
-
-                <h2>韩国艺匠婚纱摄影</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=2806&bid=6169&wechatid=o5h_HjrwBuUMU8DrJay4e_AREn5s&from=1"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011160824_48377.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>BBOSS至尊party</h1>
-
-                <h2>BBOSS至尊party</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home/pid/278/bid/645/wechatid/oKvTnjgldiUWdYZ5K8LQ5ZKdxdHQ" class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011153042_34574.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>angel with us咖啡厅</h1>
-
-                <h2>angelwithus</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.4213945.com/mobile/main.aspx" class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011152849_71360.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>麦兜点点</h1>
-
-                <h2>麦兜点点</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=5236&bid=10726&wechatid=ospGBjhDYhG9USredsDnVhSthjec" class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011165225_93190.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>黔香阁</h1>
-
-                <h2>黔香阁</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=5848&bid=11891&wechatid=o18Qqt_M8flDbZkZgh3DVSYA0pWk&from=1&from=timeline&isappinstalled=0"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011164955_93334.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>西安倾国倾城国际私属俱乐部</h1>
-
-                <h2>西安倾国倾城国际私属俱乐部</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=5881&bid=11930&wechatid=okMwqt6cBpHo4B43yCR9-G1MAmAc&from=1&from=timeline&isappinstalled=0&from=timeline&isappinstalled=0"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011164834_48106.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>珍皮士包袋</h1>
-
-                <h2>珍皮士包袋</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=1729&bid=3960&wechatid=ohda9jtgYGw4F0WavLqeGSU39_QI&from=1"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011162323_70965.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>爱女神3D婚纱摄影</h1>
-
-                <h2>爱女神3D婚纱摄影</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://www.weimob.com/weisite/home?pid=2546&bid=5629&wechatid=oLQmljrkqP7ljcdfo5GJMgWAXwSI&from=1"
-       class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011162112_61496.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>沃尔沃宁波丰颐</h1>
-
-                <h2>沃尔沃宁波丰颐</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
-<li>
-    <a href="http://novitawap.brandsh.cn/" class="tbox">
-        <dd>
-            <div>
-                <img src="http://www.weimob.com/templates/kindeditor/attached/1c/38/3c/image/20131011/20131011161949_79073.jpg"/>
-            </div>
-        </dd>
-        <dt>
-            <hgroup>
-                <h1>诺维达</h1>
-
-                <h2>诺维达</h2>
-            </hgroup>
-        </dt>
-    </a>
-</li>
 </ul>
 </div>
 </section>
