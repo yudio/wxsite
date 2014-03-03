@@ -1,0 +1,33 @@
+<section>
+	<div>
+		<ul class="list_ul">
+            <volist name="classify" id="vo" mod="5">
+                <if condition="$i eq 0">
+                <eq name="mod" value="0">
+                    </li>
+                    <li class="box">
+                </eq>
+                <else/>
+                    <eq name="mod" value="0">
+                        <li class="box">
+                    </eq>
+                </if>
+                <eq name="mod" value="3">
+                    </li>
+                    <li class="box">
+                </eq>
+                    <dl>
+                        <a href="{np:$vo.url}">
+                            <dd>
+                                <div>
+                                    <span class="{np:$vo.icon}"></span>
+                                </div>
+                            </dd>
+                            <dt>{np:$vo.name}</dt>
+                        </a>
+                    </dl>
+            </volist>
+            </li>
+		</ul>
+	</div>
+</section>

@@ -35,7 +35,7 @@ class IndexAction extends BaseAction{
         }
 
 		$wxuser=D('Wxuser')->where($where)->find();
-        if (!$this->token){
+        if (!isset($this->token)){
             $this->token = $wxuser['token'];
         }
 		$this->weixinUser=$wxuser;
@@ -101,7 +101,7 @@ class IndexAction extends BaseAction{
 			exit();
 		}
 		//
-		$where['token']=$this->_get('token');
+		$where['token']=$this->token;;
         LOG::write($this->_get('wechatid'),LOG::ERR);
 		//dump($where);
 		//	$where['status']=1;  幻灯片Flash
