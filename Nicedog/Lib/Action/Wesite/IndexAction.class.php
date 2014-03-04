@@ -109,7 +109,7 @@ class IndexAction extends BaseAction{
 		$count=count($flash);
 		$this->assign('flash',$flash);
 		$this->assign('num',$count);
-		$this->display($this->wxuser['tpltypename']);
+		$this->display($this->wxuser['tpltypename'].':'.$this->wxuser['tpltypeid']);
 	}
 	
 	public function lists(){
@@ -137,7 +137,7 @@ class IndexAction extends BaseAction{
 			$this->detail($info[0]['id']);
 			exit();
 		}
-		$this->display($this->wxuser['tpllistname']);
+		$this->display($this->wxuser['tpllistname'].':'.$this->wxuser['tpllistid']);
 	}
 	
 	public function detail($contentid=0){
@@ -154,7 +154,7 @@ class IndexAction extends BaseAction{
 		$this->assign('res',$res);			//内容详情;
 		$this->assign('copyright',$this->copyright);	//版权是否显示
         LOG::write('图文手机页面:WAP/Index/'.$this->wxuser['tplcontentname'],LOG::ERR);
-		$this->display($this->wxuser['tplcontentname']);
+		$this->display($this->wxuser['tplcontentname'].':'.$this->wxuser['tplcontentid']);
 	}
 	
 	public function flash(){

@@ -1,43 +1,43 @@
 <!--幻灯片管理-->
-<div style="-webkit-transform:translate3d(0,0,0);">
-	<div id="banner_box" class="box_swipe">
-		<ul>
-			<volist name="flash" id="vo">
-				<li>
-					<if condition="$vo.url eq ''">
-						<a onclick="return false;">
-					<else/>
-							<a href="{np:$vo.url}">
-					</if>
-						<img src="{np:$vo.img}" alt="1" style="width:100%;" />
-					</a>
-				</li>
-			</volist>
-		</ul>
-		<if condition="$num gt 1">
-			<ol>
-				<volist name="flash" id="vo">
-					<if condition="$i eq 1">
-						<li class="on"></li>
-						<else />
-						<li></li>
-					</if>
-				</volist>
-			</ol>
-		</if>
-	</div>
-</div>
-<if condition="$num gt 1">
-<script>
-	$(function(){
-		new Swipe(document.getElementById('banner_box'), {
-			speed:500,
-			auto:3000,
-			callback: function(){
-				var lis = $(this.element).next("ol").children();
-				lis.removeClass("on").eq(this.index).addClass("on");
-			}
-		});
-	});
-</script>
-</if>
+    <div style="-webkit-transform:translate3d(0,0,0);">
+        <div id="banner_box" class="box_swipe">
+            <ul>
+                <volist name="flash" id="vo">
+                    <li>
+                        <if condition="$vo.url eq ''">
+                            <a onclick="return false;">
+                        <else/>
+                                <a href="{np:$vo.url}">
+                        </if>
+                            <img src="{np:$vo.img}" alt="1" style="width:100%;" />
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+            <if condition="$num gt 1">
+                <ol>
+                    <volist name="flash" id="vo">
+                        <if condition="$i eq 1">
+                            <li class="on"></li>
+                            <else />
+                            <li></li>
+                        </if>
+                    </volist>
+                </ol>
+            </if>
+        </div>
+    </div>
+    <if condition="$num gt 1">
+    <script>
+        $(function(){
+            new Swipe(document.getElementById('banner_box'), {
+                speed:500,
+                auto:3000,
+                callback: function(){
+                    var lis = $(this.element).next("ol").children();
+                    lis.removeClass("on").eq(this.index).addClass("on");
+                }
+            });
+        });
+    </script>
+    </if>
