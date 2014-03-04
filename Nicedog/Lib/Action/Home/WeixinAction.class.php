@@ -921,11 +921,11 @@ class WeixinAction extends Action
                 'text'
             );
         } else {
-
+            $wxuser = M('Wxuser')->field('id')->where(array('token'=>$this->token))->find();
             if ($home['apiurl'] == false) {
-                $url = rtrim(C('site_url'), '/') . '/index.php?g=Wap&m=Index&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'];
+                $url = rtrim(C('site_url'), '/') . '/wesite/'.$wxuser['id'].'/index?token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'];
             } else {
-                $url = $home['apiurl'];
+                $url = $home['homeurl'];
             }
         }
 

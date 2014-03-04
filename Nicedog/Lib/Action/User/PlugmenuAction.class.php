@@ -15,7 +15,7 @@ class PlugmenuAction extends UserAction{
 			$this->display();
 		}
 	}
-	
+
 }
 
 

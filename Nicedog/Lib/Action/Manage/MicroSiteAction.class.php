@@ -37,16 +37,17 @@ class MicroSiteAction extends UserAction{
      * 获取接口地址
      */
     public function getAPIAddr(){
-        return array('url'=>CURL_SITE.'/wechat/'.session('token').'?wechatid=fromUsername','token'=>session('token'));
+        return array('url'=>CURL_SITE.'/wechat/'.session('token'),'token'=>session('token'));
     }
     //微官网配置
     public function set(){
-        $home=$this->home_db->where(array('token'=>session('token')))->find();
+        $db   = D('Home');
+        $home=$db->where(array('token'=>session('token')))->find();
         if(IS_POST){
             if($home==false){
                 //$this->all_insert('Home','/set');
                 $_POST['wxkey'] = mb_strtoupper($_POST['wxkey'],'UTF-8');
-                $db   = D('Home');
+                $_POST['smart_branch'] = $this->_post('smart_branch','htmlspecialchars');
                 if ($db->create() === false) {
                     $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');//error($db->getError());
                 } else {
@@ -55,15 +56,16 @@ class MicroSiteAction extends UserAction{
                     $data['pid']     = $id;
                     $data['module']  = 'Home';
                     $data['token']   = session('token');
-                    $data['keyword'] = $_POST['info'];
+                    $data['keyword'] = $_POST['wxkey'];
                     M('Keyword')->add($data);
                     $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/set.act'),'JSON');
                 }
             }else{
                 $_POST['wxkey'] = mb_strtoupper($_POST['wxkey'],'UTF-8');
                 $_POST['id']=$home['id'];
+                //过滤htmlspecialchars
+                $_POST['smart_branch'] = $this->_post('smart_branch','htmlspecialchars');
                 //$this->all_save('Home','/set');
-                $db   = D('Home');
                 if ($db->create() === false) {
                     $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');//error($db->getError());
                 } else {
@@ -71,12 +73,14 @@ class MicroSiteAction extends UserAction{
                     $data['pid']    = $_POST['id'];
                     $data['module'] = 'Home';
                     $data['token']  = session('token');
-                    $da['keyword']  = $_POST['info'];
+                    $da['keyword']  = $_POST['wxkey'];
                     M('Keyword')->where($data)->save($da);
                     $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/set.act'),'JSON');
                 }
             }
         }else{
+            $wxuser = M('Wxuser')->field('id,wxname')->where(array('token'=>session('token')))->find();
+            $this->assign('wxuser',$wxuser);
             $this->assign('home',$home);
             $this->display();
         }
@@ -248,7 +252,69 @@ class MicroSiteAction extends UserAction{
      *
      * plugmenu
      */
+    public function plugmenu(){
+        $db = D('Plugmenu');
+        $homedb = M('Home');
+        $info = $db->where(array('token'=>session('token')))->select();
+        $home = $homedb->field('id,plugmenu,plugmenucolor,copyright')->where(array('token'=>session('token')))->find();
+        $this->assign('home',$home);
+        $this->assign('info',$info);
+        $this->display();
 
+    }
+    public function addplugmenu(){
+        $db = D('Plugmenu');
+        if (IS_POST){
+            $id = $this->_post('id');
+            $types = explode(',',$_POST['type']);
+            $_POST['type'] = $types[0];
+            $_POST['typename'] = $types[1];
+            if ($id){//更新操作
+                if ($db->create()){
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');
+                }
+            }else{
+                if ($db->create()){
+                    $id = $db->add();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                }
+            }
+        }
+        $id = $this->_get('id','intval');
+        if ($id){
+            $info = $db->where(array('id'=>$id))->find();
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+
+    public function updateplugmenu(){
+        $db = M('Home');
+        if (IS_POST){
+            $home = $db->field('id')->where(array('token'=>session('token')))->find();
+            if (!home){
+                $this->error('请先设置微官网','/npManage/microsite/set.act');
+            }
+            $data = array();
+            $data['id'] = $home['id'];
+            $data['plugmenu'] = $this->_post('plugmenu');
+            $data['plugmenucolor'] = $this->_post('plugmenucolor');
+            $data['copyright'] = $this->_post('copyright');
+            if($db->data($data)->save()){
+                $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
+            }else{
+                $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+            }
+
+
+        }
+
+    }
 
 }
 

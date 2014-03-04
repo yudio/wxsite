@@ -16,6 +16,7 @@ class IndexAction extends BaseAction{
 	public $homeInfo;
     //wxnmae
     public $wxname;
+    public $wxuid;
 
 	public function _initialize(){
 		parent::_initialize();
@@ -25,20 +26,18 @@ class IndexAction extends BaseAction{
 			echo '此功能只能在微信浏览器中使用';exit;
 		}
 
-        $this->wxname = $this->_get('wxname','trim');
-        $where = array();
-        if(!$this->wxname){
-            $this->token=$this->_get('token','trim');
-            $where['token']=$this->token;
-        }else{
-            $where['wxname'] = $this->wxname;
+        //$this->wxname = $this->_get('wxname','trim');
+        $this->wxuid    = $this->_get('wxuid',intval);
+        if (!$this->wxuid){
+            echo '该微官网不存在！';exit;
         }
 
-		$wxuser=D('Wxuser')->where($where)->find();
+		$wxuser=D('Wxuser')->where(array('id'=>$this->wxuid))->find();
         if (!isset($this->token)){
             $this->token = $wxuser['token'];
         }
-		$this->weixinUser=$wxuser;
+		$this->weixinUser = $wxuser;
+        $this->wxname     = $wxuser['wxname'];
 		
 		if (isset($_GET['wecha_id'])&&$_GET['wecha_id']){
 			$_SESSION['wecha_id']=$_GET['wecha_id'];

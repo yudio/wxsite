@@ -104,7 +104,7 @@ $(document).ready(function(){
                             <div class="tab-content">
                                 <div class="tab-pane in active" id="menu">
                                     <div class="span12 control-group">
-                                        <a class="btn" href="/microsite/Plugmenued/aid/72040"><i class="icon-plus"></i>新增快捷菜单</a>
+                                        <a class="btn" href="/npManage/microsite/addplugmenu.act"><i class="icon-plus"></i>新增快捷菜单</a>
                                     </div>
                                     <table id="listTable" class="table table-bordered table-hover dataTable ajax-checkbox" ajax-url="/microsite/plugmenu_show" ajax-length="0">
                                         <thead>
@@ -118,110 +118,126 @@ $(document).ready(function(){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                                                    </tbody>
+                                        <volist name="info" id="vo">
+                                        <tr>
+                                            <td>
+                                                <i class="{np:$vo.icon} ico-views tile-themed"></i>
+                                            </td>
+                                            <td>{np:$vo.name}</td>
+                                            <td>{np:$vo.typename}</td>
+                                            <td>{np:$vo.order}</td>
+                                            <td>
+                                                <input type="checkbox" name="show" data-id="{np:$vo.id}" <if condition="$vo.is_show eq 1">checked="checked"</if>>
+                                            </td>
+                                            <td>
+                                                <a href="/npManage/microsite/addplugmenu.act?id={np:$vo.id}" class="btn" rel="tooltip" title="编辑"><i class="icon-edit"></i></a>
+                                                <a href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/microsite/plugmenu.act?id={np:$vo.id}');" class="btn" rel="tooltip" title="删除"><i class="icon-remove"></i></a>
+                                            </td>
+                                        </tr>
+                                        </volist>
+                                        </tbody>
                                     </table>
                                 </div>
 								<div class="tab-pane fade" id="color">
-									<form action="/microsite/plugmenu" method="post" class="form-horizontal form-validate">
-										<input type="hidden" name="aid" value="72040"/>
-										<input type="hidden" name="id" value="20315"/>
+									<form action="/npManage/microsite/updateplugmenu.act" method="post" class="form-horizontal form-validate">
 										<table>
 											<tbody>
 												<tr style="height:60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="0"  />样式0
+															<input type="radio" name="plugmenu" value="0" <if condition="$home.plugmenu eq 0">checked="checked"</if> />样式0
 														</label>
 													</td>
 													<td>
-														<div class="plug-menu" id="plugmenucolor" style="background-color:#B70000;"><span></span></div>
+														<div class="plug-menu" id="plugmenucolor" style="background-color:{np:$home.plugmenucolor|default='#B70000'};"><span></span></div>
 													</td>
 													<td>
 														<strong>请选择快捷菜单的颜色：</strong>
-																												<input type="text" name="namecolor" id="themeStyle" value="#B70000" class="color" style="width: 55px; background-image: none; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" onblur="document.getElementById('plugmenucolor').style.backgroundColor=document.getElementById('themeStyle').value;">
+														<input type="text" name="plugmenucolor" id="themeStyle" value="{np:$home.plugmenucolor|default='#B70000'}" class="color" style="width: 55px; background-image: none; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" onblur="document.getElementById('plugmenucolor').style.backgroundColor=document.getElementById('themeStyle').value;">
 													</td>
 												</tr>
 												<tr style="height:60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="1"  />样式1
+															<input type="radio" name="plugmenu" value="1"  <if condition="$home.plugmenu eq 1">checked="checked"</if>  />样式1
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b_1.jpg?v=SOURCEVERSON" style="width:255px; height:44px;" />
+														<img src="{np::RES}/img/plugmenu/plugmenu_b_1.jpg?v=SOURCEVERSON" style="width:255px; height:44px;" />
 													</td>
 												</tr>
 												<tr style="height: 60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="2"  />样式2
+															<input type="radio" name="plugmenu" value="2"  <if condition="$home.plugmenu eq 2">checked="checked"</if>  />样式2
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
+														<img src="{np::RES}/img/plugmenu/plugmenu_b.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
 													</td>
 												</tr>
 												<tr style="height: 60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="3" checked="checked" />样式3
+															<input type="radio" name="plugmenu" value="3"  <if condition="$home.plugmenu eq 3">checked="checked"</if>  />样式3
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b3.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
+														<img src="{np::RES}/img/plugmenu/plugmenu_b3.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
 													</td>
 												</tr>
 												<tr style="height: 60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="4"  />样式4
+															<input type="radio" name="plugmenu" value="4"  <if condition="$home.plugmenu eq 4">checked="checked"</if>  />样式4
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b4.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
+														<img src="{np::RES}/img/plugmenu/plugmenu_b4.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
 													</td>
 												</tr>
 												<tr style="height: 60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="5"  />样式5
+															<input type="radio" name="plugmenu" value="5"  <if condition="$home.plugmenu eq 5">checked="checked"</if>  />样式5
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b5.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
+														<img src="{np::RES}/img/plugmenu/plugmenu_b5.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
 													</td>
 												</tr>
 												<tr style="height: 60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="6"  />样式6
+															<input type="radio" name="plugmenu" value="6"   <if condition="$home.plugmenu eq 6">checked="checked"</if> />样式6
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b6.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
+														<img src="{np::RES}/img/plugmenu/plugmenu_b6.png?v=SOURCEVERSON" style="width:255px; height:44px;" />
 													</td>
 												</tr>
 												<tr style="height: 60px;">
 													<td>
 														<label class="radio">
-															<input type="radio" name="homemenu" value="7"  />样式7
+															<input type="radio" name="plugmenu" value="7"   <if condition="$home.plugmenu eq 7">checked="checked"</if> />样式7
 														</label>
 													</td>
 													<td colspan="2">
-														<img src="img/plugmenu/plugmenu_b7.png?v=SOURCEVERSON" style="width:57px; height:280px;" />
-														<span class="help-inline">此导航仅支持模板：微盟推荐</span>
+														<img src="{np::RES}/img/plugmenu/plugmenu_b7.png?v=SOURCEVERSON" style="width:57px; height:280px;" />
+														<span class="help-inline">此导航仅支持模板：奈斯推荐</span>
 													</td>
 												</tr>
 												<tr>
 													<td align="left"><strong>设置页面版权：</strong></td>
 													<td align="left" colspan="2">
-														<input type="text" id="copyright" name="copyright" value="乌龟背上看江山6" class="input-xlarge">
+														<input type="text" id="copyright" name="copyright" value="{np:$home.copyright|default='Nicepa版权所有'}" class="input-xlarge">
 														<span class="help-inline"></span>
 													</td>
 												</tr>
 											</tbody>
 										</table>
 										<div class="form-actions">
+                                            <input type="hidden" name="homeid" value="{np:$home.id}"/>
 											<button type="submit" class="btn btn-primary">保存</button>
 											<button type="button" class="btn" onclick="window.history.go(-1)">取消</button>
 										</div>

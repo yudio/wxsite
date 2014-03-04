@@ -7,7 +7,7 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 RewriteRule ^wechat/(.+)$ index.php/api/$1 [NE]
-RewriteRule ^wesite/(.+)/(.+)$ index.php?g=Wesite&m=Index&a=$2&wxname=$1&%{QUERY_STRING} [NE]
+RewriteRule ^wesite/(.+)/(.+)$ index.php?g=Wesite&m=Index&a=$2&wxuid=$1&%{QUERY_STRING} [NE]
 RewriteRule ^wewap/(.+)/(.+)/(.+)$ index.php?g=wap&m=$2&a=$3&wxname=$1&%{QUERY_STRING} [NE]
 RewriteRule ^np(.+)/(.+)/(.+)\.act$ index.php?g=$1&m=$2&a=$3&%{QUERY_STRING}  [L,NE]
 
