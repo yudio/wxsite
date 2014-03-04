@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
     <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
@@ -298,12 +298,12 @@
     <div class="controls">
         <select name="animation" id="select_animation" class="input-medium">
             <option value="0">关闭开场动画</option>
-            <option value="6">宝马动画</option>
-            <option value="4" selected="selected">左右展开</option>
-            <option value="5">上下展开</option>
-            <!--											<option value="1" --><!-->4</option>-->
-            <!--											<option value="2" --><!-->5</option>-->
-            <!--											<option value="3" --><!-->6</option>-->
+            <option value="6" <?php if($home["animation"] == 6): ?>selected="selected"<?php endif; ?>>宝马动画</option>
+            <option value="4" <?php if($home["animation"] == 4): ?>selected="selected"<?php endif; ?>>左右展开</option>
+            <option value="5" <?php if($home["animation"] == 5): ?>selected="selected"<?php endif; ?>>上下展开</option>
+            <option value="3" <?php if($home["animation"] == 3): ?>selected="selected"<?php endif; ?>>黄色2秒</option>
+            <option value="2" <?php if($home["animation"] == 2): ?>selected="selected"<?php endif; ?>>红色2秒</option>
+            <option value="1" <?php if($home["animation"] == 1): ?>selected="selected"<?php endif; ?>>绿色2秒</option>
         </select>
     </div>
 </div>
@@ -312,21 +312,21 @@
 
     <div class="controls">
         <select name="bg_animation" id="bg_animation" class="input-medium">
-            <option value="0">关闭背景动画</option>
-            <option value="2">雪花</option>
-            <option value="1">玫瑰</option>
-            <option value="9">秋天落叶</option>
-            <option value="10" selected="selected">红枫叶</option>
-            <option value="11">绿色花朵</option>
-            <option value="12">红色花朵</option>
-            <option value="13">橙色花朵</option>
-            <option value="14">蓝色花朵</option>
-            <option value="3">白色霓虹点</option>
-            <option value="4">橙色霓虹点</option>
-            <option value="5">粉色霓虹点</option>
-            <option value="6">黄色霓虹点</option>
-            <option value="7">蓝色霓虹点</option>
-            <option value="8">紫色霓虹点</option>
+            <option value="0" <?php if($home["bg_animation"] == 0): ?>selected="selected"<?php endif; ?>>关闭背景动画</option>
+            <option value="15" <?php if($home["bg_animation"] == 15): ?>selected="selected"<?php endif; ?>>雪花</option>
+            <option value="13" <?php if($home["bg_animation"] == 13): ?>selected="selected"<?php endif; ?>>玫瑰</option>
+            <option value="7" <?php if($home["bg_animation"] == 7): ?>selected="selected"<?php endif; ?>>秋天落叶</option>
+            <option value="8" <?php if($home["bg_animation"] == 8): ?>selected="selected"<?php endif; ?>>红枫叶</option>
+            <option value="9" <?php if($home["bg_animation"] == 9): ?>selected="selected"<?php endif; ?>>绿色花朵</option>
+            <option value="10" <?php if($home["bg_animation"] == 10): ?>selected="selected"<?php endif; ?>>红色花朵</option>
+            <option value="11" <?php if($home["bg_animation"] == 11): ?>selected="selected"<?php endif; ?>>橙色花朵</option>
+            <option value="12" <?php if($home["bg_animation"] == 12): ?>selected="selected"<?php endif; ?>>蓝色花朵</option>
+            <option value="1" <?php if($home["bg_animation"] == 1): ?>selected="selected"<?php endif; ?>>白色霓虹点</option>
+            <option value="2" <?php if($home["bg_animation"] == 2): ?>selected="selected"<?php endif; ?>>橙色霓虹点</option>
+            <option value="3" <?php if($home["bg_animation"] == 3): ?>selected="selected"<?php endif; ?>>粉色霓虹点</option>
+            <option value="4" <?php if($home["bg_animation"] == 4): ?>selected="selected"<?php endif; ?>>黄色霓虹点</option>
+            <option value="5" <?php if($home["bg_animation"] == 5): ?>selected="selected"<?php endif; ?>>蓝色霓虹点</option>
+            <option value="6" <?php if($home["bg_animation"] == 6): ?>selected="selected"<?php endif; ?>>紫色霓虹点</option>
         </select>
     </div>
 </div>
