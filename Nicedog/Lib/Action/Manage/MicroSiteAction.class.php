@@ -152,12 +152,25 @@ class MicroSiteAction extends UserAction{
      */
     public function classify(){
         $db=D('Classify');
-        $where['uid']=session('uid');
         $where['token']=session('token');
+        $where['category_id'] = array('eq',0);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
         $info=$db->where($where)->order('sorts')->limit($page->firstRow.','.$page->listRows)->select();
+        foreach($info as $key=>&$vo){
+            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts')->select();
+            $vo['sub'] = $list;
+        }
         $this->assign('page',$page->show());
+        $this->assign('info',$info);
+        $this->display();
+    }
+
+    public function addclassify(){
+        $db=D('Classify');
+        $where['token']=session('token');
+        $where['category_id'] = 0; // 取一级分类
+        $info = $db->where($where)->order('sorts')->select();
         $this->assign('info',$info);
         $this->display();
     }

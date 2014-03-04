@@ -170,9 +170,9 @@ class AccountAction extends UserAction{
         $_POST['type'] = '8,服务';
         //创建用户图片空间
         $picpath = 'Uploads/'.md5($_POST['token']);
-        $dir            =   dirname($picpath);
-        LOG::write('创建用户图片空间'.$dir,LOG::ERR);
-        if (!is_dir($dir)) mkdir($dir,0755,true);
+        //$dir            =   dirname($picpath);
+        //LOG::write('创建用户图片空间'.$dir,LOG::ERR);
+        //if (!is_dir($dir)) mkdir($dir,0755,true);
         $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
         $_POST['headerpic'] = '/'.$picpath;
         file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($wxclient->getFakeId()));
@@ -183,6 +183,7 @@ class AccountAction extends UserAction{
             $this->ajaxReturn($data,'JSON');
             //return $db->getError();
         }else{
+            $_POST['type']  = 1;
             $id=$db->add();
             if($id){
                 $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
@@ -222,6 +223,7 @@ class AccountAction extends UserAction{
                 }
             }else{
                 $_POST['token'] = $this->genToken();
+                $_POST['type']  = 1;
                 $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
                 if ($db->create()){
                     $id = $db->add();

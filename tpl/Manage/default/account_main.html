@@ -10,19 +10,8 @@
     <!-- Apple devices fullscreen -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <base target="mainFrame" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/index.css?2014-02-17-2" media="all" />
-	<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-17-2" media="all" />
-	<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-17-2" media="all" />
-	<link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-17-2" media="all" />
-	<link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-02-17-2" media="all" />
-	<script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-02-17-2"></script>
+    <include file="account:header"/>
 	<script type="text/javascript" src="{np::RES}/src/application.js?2014-02-17-2"></script>
-	<script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-02-17-2"></script>
-	<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-    <!--[if IE 7]>
-       <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" />
-    <![endif]-->
-    <link rel="shortcut icon" href="{np::RES}/img/favicon.ico" />
 	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{np::RES}/src/excanvas_min.js"></script><![endif]-->
 
 </head>
@@ -31,19 +20,19 @@
     <div id="navigation">
         <div class="container-fluid">
             <div>
-                <a href="/wechat/main" target="_self" id="brand"></a>
-                <a href="/wechat/main" target="_self" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+                <a href="/npManage/Account/main.act" target="_self" id="brand"></a>
+                <a href="/npManage/Account/main.act" target="_self" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
             </div>
             <ul class='main-nav'>
                 <li class='active'>
-                    <a href="/wechat/main" target="_self">
+                    <a href="/npManage/Account/main.act" target="_self">
                         <span>管理平台</span>
                     </a>
                 </li>
 
                 <li style="display:none;"><a href="/webabout/packageintr">套餐介绍</a></li>
-                <li><a href="/webabout/features">功能介绍</a> </li>
-                <li><a href="/webabout/userguide">使用指南</a></li>
+                <li><a href="/npManage/Account/features.act">功能介绍</a> </li>
+                <li><a href="/npManage/Account/userguide.act">使用指南</a></li>
 
                 <li style="display:none;">
                     <a href="javascript:void(0)" data-toggle="dropdown" class='dropdown-toggle' data-hover="dropdown">
@@ -63,10 +52,10 @@
                 </a>
                     <ul class="dropdown-menu">
 
-                        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=4006305400&site=qq&menu=yes" target="_blank">在线客服</a></li>
+                        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=24757856&site=qq&menu=yes" target="_blank">在线客服</a></li>
                         
-                        <li><a href="/webabout/about">关于我们</a></li>
-                        <li><a href="/webabout/help">常见问题</a></li>
+                        <li><a href="/npManage/Account/about.act">关于我们</a></li>
+                        <li><a href="/npManage/Account/qa.act">常见问题</a></li>
                         
 
                     </ul>
@@ -131,19 +120,19 @@
                 </div>
                 <ul class="subnav-menu" style="display: block">
                     <li >
-                        <a href="{np::U('Manage/account/user')}">商户信息</a>
+                        <a href="/npManage/account/user.act">商户信息</a>
                     </li>
 					<li >
-						<a href="{np::U('Manage/account/payment')}">支付方式管理</a>
+						<a href="/npManage/account/payment.act">支付方式管理</a>
 					</li>
                     <li>
-                        <a href="{np::U('Manage/account/chgpwd')}">修改密码</a>
+                        <a href="/npManage/account/chgpwd.act">修改密码</a>
                     </li>
                     <li class="active">
-                        <a href="{np::U('Manage/account/index')}">公众帐号管理</a>
+                        <a href="/npManage/account/index.act">公众帐号管理</a>
                     </li>
                     <li>
-                        <a href="{np::U('Manage/account/service')}">增值服务</a>
+                        <a href="/npManage/account/service.act">增值服务</a>
                     </li>
                 </ul>
             </div>
@@ -154,7 +143,7 @@
         <div class="right">
             <div class="main">
 
-                <iframe frameborder="0" id="mainFrame" name="mainFrame" src="{np::U('Manage/Account/index')}" style="background: url('http://stc.weimob.com/img/loading.gif') center no-repeat"></iframe>
+                <iframe frameborder="0" id="mainFrame" name="mainFrame" src="/npManage/Account/index.act" style="background: url('{np::RES}/img/loading.gif') center no-repeat"></iframe>
 
             </div>
         </div>

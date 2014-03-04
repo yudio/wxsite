@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
     <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="{np::RES}/img/favicon.ico?v=2014-02-20-1"/>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico?v=2014-02-20-1"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all"/>
@@ -96,7 +96,7 @@
                                 <volist name="info" id="vo">
                                 <tr>
                                     <td>{np:$vo.name}</td>
-                                    <td><i class="{np:$vo.icon}"></i></td>
+                                    <td><if condition="$vo.img eq ''"><i class="{np:$vo.icon}"></i><else/><img src="{np:$vo.img}" style="max-height:50px;"></if></td>
                                     <td><if condition="$vo.status eq '1'"><span class="label label-satgreen">显示</span><else/>隐藏</if></td>
                                     <td>{np:$vo.sorts}</td>
                                     <td>{np:$vo.type}</td>
@@ -105,6 +105,19 @@
                                             href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/microsite/classify_del.act?id={np:$vo.id}');"
                                             class="btn">删除</a></td>
                                 </tr>
+                                    <volist name="vo['sub']" id="subvo">
+                                        <tr>
+                                            <td><i class="board"></i>{np:$subvo.name}</td>
+                                            <td><if condition="$subvo.img eq ''"><i class="{np:$subvo.icon}"></i><else/><img src="{np:$subvo.img}" style="max-height:50px;"></if></td>
+                                            <td><if condition="$subvo.status eq '1'"><span class="label label-satgreen">显示</span><else/>隐藏</if></td>
+                                            <td>{np:$subvo.sorts}</td>
+                                            <td>{np:$subvo.type}</td>
+                                            <td>{np:$subvo.info}</td>
+                                            <td><a href="/npManage/microsite/editclassify.act?id={np:$subvo.id}" class="btn">编辑</a><a
+                                                    href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/microsite/classify_del.act?id={np:$subvo.id}');"
+                                                    class="btn">删除</a></td>
+                                        </tr>
+                                    </volist>
                                 </volist>
                             </table>
                         </div>

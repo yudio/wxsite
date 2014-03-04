@@ -72,10 +72,7 @@ class WeixinAction extends Action
                     if ($infot['url'] != false) {
                         $url = $infot['url'];
                     } else {
-                        $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array(
-                                'token' => $this->token,
-                                'id' => $infot['id']
-                            ));
+                        $url = rtrim(C('site_url'), '/') . '/wesite/detail?id='.$infot['id'];
                     }
                     $return[] = array(
                         $infot['title'],

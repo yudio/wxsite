@@ -177,10 +177,10 @@ class IndexAction extends BaseAction{
             switch ($vo['type']){
                 case 'article':
                     //   /wesite/test/lists?show=1&classid=325
-                    $vo['url'] = "/wesite/{$this->wxname}/lists?classid={$vo['id']}";
+                    $vo['url'] = "/wesite/{$this->wxuid}/lists?classid={$vo['id']}";
                     break;
                 default:
-                    $vo['url'] = "/wesite/{$this->wxname}/detail?id={$vo['id']}";
+                    $vo['url'] = "/wesite/{$this->wxuid}/detail?id={$vo['id']}";
             }
 
         }

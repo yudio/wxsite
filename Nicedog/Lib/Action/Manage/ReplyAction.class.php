@@ -206,6 +206,7 @@ class ReplyAction extends UserAction
     public function newslist(){
         $type = $this->_get('type');
         $keys = $this->_get('keywords');
+        $classid = $this->_get('classid');
         $db=D('Img');
         //$where['uid']=session('uid');
         $where['token']=session('token');
@@ -215,6 +216,7 @@ class ReplyAction extends UserAction
             $where['type'] = array('LT','3');
         }
         if ($keys){$where['keyword'] = array('like','%'.$keys.'%');}
+        if ($classid){$where['classid'] = array('eq',$classid);}
         $count=$db->where($where)->count();
         $page=new Page($count,25);
         $info=$db->where($where)->order('createtime DESC')->limit($page->firstRow.','.$page->listRows)->select();

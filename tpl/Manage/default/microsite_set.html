@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
     <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="{np::RES}/img/favicon.ico"/>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all"/>
@@ -298,12 +298,12 @@
     <div class="controls">
         <select name="animation" id="select_animation" class="input-medium">
             <option value="0">关闭开场动画</option>
-            <option value="6">宝马动画</option>
-            <option value="4" selected="selected">左右展开</option>
-            <option value="5">上下展开</option>
-            <!--											<option value="1" --><!-->4</option>-->
-            <!--											<option value="2" --><!-->5</option>-->
-            <!--											<option value="3" --><!-->6</option>-->
+            <option value="6" <if condition="$home.animation eq 6">selected="selected"</if>>宝马动画</option>
+            <option value="4" <if condition="$home.animation eq 4">selected="selected"</if>>左右展开</option>
+            <option value="5" <if condition="$home.animation eq 5">selected="selected"</if>>上下展开</option>
+            <option value="3" <if condition="$home.animation eq 3">selected="selected"</if>>黄色2秒</option>
+            <option value="2" <if condition="$home.animation eq 2">selected="selected"</if>>红色2秒</option>
+            <option value="1" <if condition="$home.animation eq 1">selected="selected"</if>>绿色2秒</option>
         </select>
     </div>
 </div>
@@ -312,21 +312,21 @@
 
     <div class="controls">
         <select name="bg_animation" id="bg_animation" class="input-medium">
-            <option value="0">关闭背景动画</option>
-            <option value="2">雪花</option>
-            <option value="1">玫瑰</option>
-            <option value="9">秋天落叶</option>
-            <option value="10" selected="selected">红枫叶</option>
-            <option value="11">绿色花朵</option>
-            <option value="12">红色花朵</option>
-            <option value="13">橙色花朵</option>
-            <option value="14">蓝色花朵</option>
-            <option value="3">白色霓虹点</option>
-            <option value="4">橙色霓虹点</option>
-            <option value="5">粉色霓虹点</option>
-            <option value="6">黄色霓虹点</option>
-            <option value="7">蓝色霓虹点</option>
-            <option value="8">紫色霓虹点</option>
+            <option value="0" <if condition="$home.bg_animation eq 0">selected="selected"</if>>关闭背景动画</option>
+            <option value="15" <if condition="$home.bg_animation eq 15">selected="selected"</if>>雪花</option>
+            <option value="13" <if condition="$home.bg_animation eq 13">selected="selected"</if>>玫瑰</option>
+            <option value="7" <if condition="$home.bg_animation eq 7">selected="selected"</if>>秋天落叶</option>
+            <option value="8" <if condition="$home.bg_animation eq 8">selected="selected"</if>>红枫叶</option>
+            <option value="9" <if condition="$home.bg_animation eq 9">selected="selected"</if>>绿色花朵</option>
+            <option value="10" <if condition="$home.bg_animation eq 10">selected="selected"</if>>红色花朵</option>
+            <option value="11" <if condition="$home.bg_animation eq 11">selected="selected"</if>>橙色花朵</option>
+            <option value="12" <if condition="$home.bg_animation eq 12">selected="selected"</if>>蓝色花朵</option>
+            <option value="1" <if condition="$home.bg_animation eq 1">selected="selected"</if>>白色霓虹点</option>
+            <option value="2" <if condition="$home.bg_animation eq 2">selected="selected"</if>>橙色霓虹点</option>
+            <option value="3" <if condition="$home.bg_animation eq 3">selected="selected"</if>>粉色霓虹点</option>
+            <option value="4" <if condition="$home.bg_animation eq 4">selected="selected"</if>>黄色霓虹点</option>
+            <option value="5" <if condition="$home.bg_animation eq 5">selected="selected"</if>>蓝色霓虹点</option>
+            <option value="6" <if condition="$home.bg_animation eq 6">selected="selected"</if>>紫色霓虹点</option>
         </select>
     </div>
 </div>
