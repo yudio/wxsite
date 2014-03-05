@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
     <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico?v=2014-02-20-1"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico?v=2014-02-20-1"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
@@ -33,7 +33,7 @@
     <![endif]-->
 </head>
 <!--
-<script src="http://api.map.baidu.com/api?key=24ffad3855e675265336a4cfb46d32b4&v=1.1&services=true" type="text/javascript"></script>-->
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript"></script>-->
 <script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js?v=2014-02-20-1"></script>
 <script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js?v=2014-02-20-1"></script>
 <script src="<?php echo STATICS;?>/kindeditor/kindeditor.config-upfile.js?v=2014-02-20-1"></script>
@@ -80,8 +80,7 @@
     <div class="controls">
         <select id="category_id" name="category_id" class="input-medium valid">
             <option value="0">根分类</option>
-            <option value='209425'>&nbsp;&nbsp;&nbsp;&nbsp;test1</option>
-            <option value='209427'>&nbsp;&nbsp;&nbsp;&nbsp;test2</option>
+            <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value='<?php echo ($vo["id"]); ?>'>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
         </select>
     </div>
 </div>

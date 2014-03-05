@@ -21,7 +21,7 @@
 <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
 <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
 <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-	<link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico" />
+	<link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico" />
     <!--[if lte IE 9]><script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
 	<!--[if IE 7]><link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
 </head>

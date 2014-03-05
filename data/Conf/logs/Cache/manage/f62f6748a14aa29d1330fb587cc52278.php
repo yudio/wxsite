@@ -15,7 +15,7 @@
     <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
     <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
     <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico"/>
     <!--[if lte IE 9]>
     <script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
     <!--[if IE 7]>

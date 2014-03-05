@@ -3,25 +3,26 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+        <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
     <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico" />
     <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
     <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/tongji/highcharts.js"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/tongji/wm_charts.js"></script>
-    <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico"/>
+    <title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
     <!--[if lte IE 9]>
     <script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
     <!--[if IE 7]>
     <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/><![endif]-->
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/tongji/highcharts.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/tongji/wm_charts.js"></script>
 </head>
 <body>
 
