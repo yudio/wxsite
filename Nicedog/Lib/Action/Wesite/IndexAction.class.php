@@ -114,13 +114,21 @@ class IndexAction extends BaseAction{
 	
 	public function lists(){
 		$where['token']=$this->token;
+        $classid = $this->_get('classid','intval');
+        //子分类则加载频道模版
+        $subclass = M('Classify')->where(array('category_id'=>$classid))->order('sorts')->select();
+        if ($subclass){
+            $this->assign('subclassify',$subclass);
+            $this->display($this->wxuser['tplchname'].':'.$this->wxuser['tplchid']);
+        }
+
 		$db=D('Img');	
 		if($_GET['pageNum']==false){
 			$pageNum=1;
 		}else{
             $pageNum=$_GET['pageNum'];
 		}		
-		$where['classid']=$this->_get('classid','intval');
+		$where['classid']=$classid;
 		$count=$db->where($where)->count();	
 		$pageSize=8;	
 		$pagecount=ceil($count/$pageSize);
