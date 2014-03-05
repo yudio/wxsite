@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
     <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico?v=2014-02-20-1"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
@@ -30,19 +30,19 @@
     <script type="text/javascript" src="<?php echo STATICS;?>/inside.js?2014-02-20-1"></script>
     <title><?php echo C('site_title');?> <?php echo C('site_name');?></title>
     <!--[if IE 7]>
-    <link href="<?php echo RES;?>/css/font_awesome_ie7.css?v=2014-02-20-1" rel="stylesheet"/>
+    <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="<?php echo RES;?>/js/excanvas_min.js?v=2014-02-20-1"></script>
+    <script src="<?php echo RES;?>/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="<?php echo RES;?>/js/watermark.js?v=2014-02-20-1"></script>
+    <script src="<?php echo RES;?>/js/watermark.js"></script>
     <![endif]-->
 </head>
 <link href="<?php echo STATICS;?>/kindeditor/themes/default/default.css" rel="stylesheet"/>
 <script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js"></script>
 <script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/wm-xin-a/mini_audio_player/miniplayer.css?v=2014-02-20-1"
+<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/wm-xin-a/mini_audio_player/miniplayer.css"
       media="all"/>
 <body>
 <div id="main">
@@ -61,7 +61,7 @@
                     return;
                 }
                 var left = ($(window.parent.parent).width() - 450) / 2;
-                window.open("http://yudio.xicp.net/wechat/<?php echo ($token); ?>?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+                window.open("<?php echo C('site_url');?>/wechat/<?php echo ($token); ?>?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
             });
         </script>
     </div>
@@ -90,10 +90,10 @@
 
     <div class="controls">
         <label class="radio">
-            <input type="radio" name="matchtype" checked="checked"/>完全匹配（用户输入的和此关键词一样才会触发!）
+            <input type="radio" name="matchtype" value="0" <?php if($home["matchtype"] == 0): ?>checked="checked"<?php endif; ?>/>完全匹配（用户输入的和此关键词一样才会触发!）
         </label>
         <label class="radio ">
-            <input type="radio" name="matchtype"/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
+            <input type="radio" name="matchtype" value="1" <?php if($home["matchtype"] == 1): ?>checked="checked"<?php endif; ?>/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
         </label>
     </div>
 </div>
@@ -111,7 +111,7 @@
     <div class="controls">
         <img class="thumb_img" src="<?php echo (($home['picurl'])?($home['picurl']):RES."/img/default/official.jpg"); ?>" style="max-height:100px;"/>
         <input id="thumb" type="text" name="picurl" class="hide"
-               value="<?php echo ($home['picurl']); ?>"/>
+               value="<?php echo (($home['picurl'])?($home['picurl']):RES."/img/default/official.jpg"); ?>"/>
 										<span class="help-inline">
                                             <button class="btn select_img" type="button">选择封面</button>
 											<span class="help-inline">建议尺寸：宽720像素，高400像素</span>
@@ -131,7 +131,7 @@
 
     <div class="controls">
         <img class="thumb_img" src="<?php echo (($home['mslogo'])?($home['mslogo']):RES."/img/default/official.jpg"); ?>" style="max-height:100px;"/>
-        <input type="text" name="mslogo" class="hide" value="<?php echo ($home['mslogo']); ?>"/>
+        <input type="text" name="mslogo" class="hide" value="<?php echo (($home['mslogo'])?($home['mslogo']):RES."/img/default/official.jpg"); ?>"/>
 										<span class="help-inline">
                                             <button class="btn select_img" type="button">选择logo</button>
 											<span class="help-inline">建议尺寸：宽420像素，高60像素的png图片</span>
@@ -142,10 +142,10 @@
     <label class="control-label" for="bg_img">官网背景</label>
 
     <div class="controls">
-        <img class="gwbg thumb_img" src="<?php echo (($home['show_bg_img'])?($home['show_bg_img']):RES."/img/template/lib/home-default10.jpg"); ?>"
+        <img class="gwbg thumb_img" src="<?php echo (($home['bg_img'])?($home['bg_img']):RES."/img/template/lib/home-default10.jpg"); ?>"
              style="max-height: 100px;"/>
-        <input class="input-xlarge" type="text" name="show_bg_img" id="bg_img"
-               value="<?php echo ($home['show_bg_img']); ?>" style="display: none;"/>
+        <input class="input-xlarge" type="text" name="bg_img" id="bg_img"
+               value="<?php echo (($home['bg_img'])?($home['bg_img']):RES."/img/template/lib/home-default10.jpg"); ?>" style="display: none;"/>
                                         <span class="help-inline">
                                             <button class="btn select_img" type="button">自定义</button>
                                             建议大小(宽640高960)
@@ -156,30 +156,30 @@
     <label class="control-label" for="select_bg">选择已有的官网背景</label>
 
     <div class="controls">
-        <select name="bg_img" id="select_bg" class="input-medium">
+        <select name="select_bg_img" id="select_bg" class="input-medium">
             <option value="">选择官网背景图片</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default9.jpg?v=2014-02-20-1">01</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default10.jpg?v=2014-02-20-1">02</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default11.jpg?v=2014-02-20-1">03</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default12.jpg?v=2014-02-20-1">04</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default13.jpg?v=2014-02-20-1">05</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default14.jpg?v=2014-02-20-1">06</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default15.jpg?v=2014-02-20-1">07</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default1.jpg?v=2014-02-20-1">08</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default2.jpg?v=2014-02-20-1">09</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default3.jpg?v=2014-02-20-1">10</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default4.jpg?v=2014-02-20-1">11</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default5.jpg?v=2014-02-20-1">12</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default6.jpg?v=2014-02-20-1">13</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default7.jpg?v=2014-02-20-1">14</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default8.jpg?v=2014-02-20-1">15</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default16.jpg?v=2014-02-20-1">16</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default17.jpg?v=2014-02-20-1">17</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default18.jpg?v=2014-02-20-1">18</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default19.jpg?v=2014-02-20-1">19</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default20.jpg?v=2014-02-20-1">20</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default21.jpg?v=2014-02-20-1">21</option>
-            <option value="<?php echo RES;?>/img/template/lib/home-default22.jpg?v=2014-02-20-1">22</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default9.jpg">01</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default10.jpg">02</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default11.jpg">03</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default12.jpg">04</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default13.jpg">05</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default14.jpg">06</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default15.jpg">07</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default1.jpg">08</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default2.jpg">09</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default3.jpg">10</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default4.jpg">11</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default5.jpg">12</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default6.jpg">13</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default7.jpg">14</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default8.jpg">15</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default16.jpg">16</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default17.jpg">17</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default18.jpg">18</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default19.jpg">19</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default20.jpg">20</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default21.jpg">21</option>
+            <option value="<?php echo RES;?>/img/template/lib/home-default22.jpg">22</option>
         </select>
         <span class="help-inline">以预览背景图为标准</span>
     </div>
@@ -278,15 +278,15 @@
 
     <div class="controls ">
         <label class="checkbox inline">
-            <input type="checkbox" name="comment" value="1" checked="checked"/>
+            <input type="checkbox" name="comment" value="1" <?php if($home["comment"] == 1): ?>checked="checked"<?php endif; ?>/>
             开启素材图文评论
         </label>
         <label class="checkbox inline">
-            <input type="checkbox" name="play_img" value="1" checked="checked"/>
+            <input type="checkbox" name="play_img" value="1" <?php if($home["play_img"] == 1): ?>checked="checked"<?php endif; ?>/>
             开启背景图片
         </label>
         <label class="checkbox inline">
-            <input type="checkbox" name="play_audio" value="1" checked="checked"/>
+            <input type="checkbox" name="play_audio" value="1" <?php if($home["play_audio"] == 1): ?>checked="checked"<?php endif; ?>/>
             开启背景音乐
         </label>
         <span class="help-inline">(只有开启背景音乐或图片前台页面才会显示或播放)</span>
@@ -298,12 +298,12 @@
     <div class="controls">
         <select name="animation" id="select_animation" class="input-medium">
             <option value="0">关闭开场动画</option>
-            <option value="6">宝马动画</option>
-            <option value="4" selected="selected">左右展开</option>
-            <option value="5">上下展开</option>
-            <!--											<option value="1" --><!-->4</option>-->
-            <!--											<option value="2" --><!-->5</option>-->
-            <!--											<option value="3" --><!-->6</option>-->
+            <option value="6" <?php if($home["animation"] == 6): ?>selected="selected"<?php endif; ?>>宝马动画</option>
+            <option value="4" <?php if($home["animation"] == 4): ?>selected="selected"<?php endif; ?>>左右展开</option>
+            <option value="5" <?php if($home["animation"] == 5): ?>selected="selected"<?php endif; ?>>上下展开</option>
+            <option value="3" <?php if($home["animation"] == 3): ?>selected="selected"<?php endif; ?>>黄色2秒</option>
+            <option value="2" <?php if($home["animation"] == 2): ?>selected="selected"<?php endif; ?>>红色2秒</option>
+            <option value="1" <?php if($home["animation"] == 1): ?>selected="selected"<?php endif; ?>>绿色2秒</option>
         </select>
     </div>
 </div>
@@ -312,21 +312,21 @@
 
     <div class="controls">
         <select name="bg_animation" id="bg_animation" class="input-medium">
-            <option value="0">关闭背景动画</option>
-            <option value="2">雪花</option>
-            <option value="1">玫瑰</option>
-            <option value="9">秋天落叶</option>
-            <option value="10" selected="selected">红枫叶</option>
-            <option value="11">绿色花朵</option>
-            <option value="12">红色花朵</option>
-            <option value="13">橙色花朵</option>
-            <option value="14">蓝色花朵</option>
-            <option value="3">白色霓虹点</option>
-            <option value="4">橙色霓虹点</option>
-            <option value="5">粉色霓虹点</option>
-            <option value="6">黄色霓虹点</option>
-            <option value="7">蓝色霓虹点</option>
-            <option value="8">紫色霓虹点</option>
+            <option value="0" <?php if($home["bg_animation"] == 0): ?>selected="selected"<?php endif; ?>>关闭背景动画</option>
+            <option value="15" <?php if($home["bg_animation"] == 15): ?>selected="selected"<?php endif; ?>>雪花</option>
+            <option value="13" <?php if($home["bg_animation"] == 13): ?>selected="selected"<?php endif; ?>>玫瑰</option>
+            <option value="7" <?php if($home["bg_animation"] == 7): ?>selected="selected"<?php endif; ?>>秋天落叶</option>
+            <option value="8" <?php if($home["bg_animation"] == 8): ?>selected="selected"<?php endif; ?>>红枫叶</option>
+            <option value="9" <?php if($home["bg_animation"] == 9): ?>selected="selected"<?php endif; ?>>绿色花朵</option>
+            <option value="10" <?php if($home["bg_animation"] == 10): ?>selected="selected"<?php endif; ?>>红色花朵</option>
+            <option value="11" <?php if($home["bg_animation"] == 11): ?>selected="selected"<?php endif; ?>>橙色花朵</option>
+            <option value="12" <?php if($home["bg_animation"] == 12): ?>selected="selected"<?php endif; ?>>蓝色花朵</option>
+            <option value="1" <?php if($home["bg_animation"] == 1): ?>selected="selected"<?php endif; ?>>白色霓虹点</option>
+            <option value="2" <?php if($home["bg_animation"] == 2): ?>selected="selected"<?php endif; ?>>橙色霓虹点</option>
+            <option value="3" <?php if($home["bg_animation"] == 3): ?>selected="selected"<?php endif; ?>>粉色霓虹点</option>
+            <option value="4" <?php if($home["bg_animation"] == 4): ?>selected="selected"<?php endif; ?>>黄色霓虹点</option>
+            <option value="5" <?php if($home["bg_animation"] == 5): ?>selected="selected"<?php endif; ?>>蓝色霓虹点</option>
+            <option value="6" <?php if($home["bg_animation"] == 6): ?>selected="selected"<?php endif; ?>>紫色霓虹点</option>
         </select>
     </div>
 </div>
@@ -341,8 +341,8 @@
     <label class="control-label" for="sites">首页地址：</label>
 
     <div class="controls" style="padding-top:4px;">
-        <span class="copy_text">http://yudio.xicp.net/wechat.wx/vostqw1393042012?wechatid=fromUsername</span>
-        <input type="hidden" name="home_url" id="sites" value="/wechat.wx/<?php echo ($home['token']); ?>?wechatid=fromUsername"
+        <span class="copy_text"><?php echo C('site_url');?>/wesite/<?php echo ($wxuser["id"]); ?>/index</span>
+        <input type="hidden" name="homeurl" id="sites" value="<?php echo C('site_url');?>/wesite/<?php echo ($wxuser["id"]); ?>/index"
                class="input-xlarge"/>
     </div>
 </div>
@@ -376,7 +376,7 @@
                 }
 
                 if (browser.versions.mobile &amp;&amp; !browser.versions.iPad) {
-                    this.location = "http://yudio.xicp.net/wechat.wx/vostqw1393042012?wechatid=fromUsername";
+                    this.location = "<?php echo C('site_url');?>/wesite/<?php echo ($wxuser["id"]); ?>/index";
                 }
             </script>
         </textarea>
