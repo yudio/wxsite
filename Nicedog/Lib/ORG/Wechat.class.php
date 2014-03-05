@@ -82,8 +82,25 @@ class Wechat
     {
         $data = array($_GET['timestamp'], $_GET['nonce'], $token);
         $sign = $_GET['signature'];
-        sort($data);
+        sort($data,SORT_STRING);
         $signature = sha1(implode($data));
         return $signature === $sign;
     }
+    /**
+     * $signature = $_GET["signature"];
+    $timestamp = $_GET["timestamp"];
+    $nonce = $_GET["nonce"];
+
+    $token = TOKEN;
+    $tmpArr = array($token, $timestamp, $nonce);
+    sort($tmpArr, SORT_STRING);
+    $tmpStr = implode( $tmpArr );
+    $tmpStr = sha1( $tmpStr );
+
+    if( $tmpStr == $signature ){
+    return true;
+    }else{
+    return false;
+    }
+     */
 }

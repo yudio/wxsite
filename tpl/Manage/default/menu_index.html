@@ -261,9 +261,9 @@
 
         $("#remove_menu").click(function () {
             G.ui.tips.confirm_flag('确定要撤销您的自定义菜单吗？', function () {
-                $.get('/wechat/removemenu/aid/' + $('#aid').val(), {}, function (d) {
+                $.get('/npManage/menu/remove.act' + $('#aid').val(), {}, function (d) {
                     $.fallr('hide');
-                    //G.logic.form.tip(d);
+                    G.logic.form.tip(d);
                     alert(d.error);
                 }, 'json');
             });
