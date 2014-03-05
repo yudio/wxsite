@@ -72,8 +72,12 @@ class IndexAction extends BaseAction{
 		$this->assign('copyright',$this->copyright);
 		//plugmenus
 		$plugMenus=$this->_getPlugMenu();
-		$this->assign('plugmenus',$plugMenus);
-		$this->assign('showPlugMenu',count($plugMenus));
+		$this->assign('oldplugmenus',$plugMenus);
+		$this->assign('showOldPlugMenu',count($plugMenus));
+        //newplugmenus
+        $plugMenus=$this->getPlugMenu();
+        $this->assign('plugmenus',$plugMenus);
+        $this->assign('showPlugMenu',count($plugMenus));
         //wxname&token&wecha_id
         $this->assign('wxname',$this->wxname);
         $this->assign('token',$this->token);
@@ -285,6 +289,15 @@ class IndexAction extends BaseAction{
 		}
 		return $arr;
 	}
+
+    public function getPlugMenu(){
+        $db = M('Plugmenu');
+        $plugmenus = $db->where(array('token'=>$this->token,'is_show'=>1))->order('order asc')->select();
+        if ($plugmenus){
+
+        }
+
+    }
 	public function _getPlugMenu(){
 		$company_db=M('company');
 		$this->company=$company_db->where(array('token'=>$this->token,'isbranch'=>0))->find();

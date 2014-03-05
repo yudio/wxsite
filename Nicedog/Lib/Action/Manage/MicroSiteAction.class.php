@@ -267,7 +267,7 @@ class MicroSiteAction extends UserAction{
      * plugmenu
      */
     public function plugmenu(){
-        $db = D('Plugmenu');
+        $db = M('Plugmenu');
         $homedb = M('Home');
         $info = $db->where(array('token'=>session('token')))->select();
         $home = $homedb->field('id,plugmenu,plugmenucolor,copyright')->where(array('token'=>session('token')))->find();
@@ -277,12 +277,13 @@ class MicroSiteAction extends UserAction{
 
     }
     public function addplugmenu(){
-        $db = D('Plugmenu');
+        $db = M('Plugmenu');
         if (IS_POST){
             $id = $this->_post('id');
             $types = explode(',',$_POST['type']);
             $_POST['type'] = $types[0];
             $_POST['typename'] = $types[1];
+            $_POST['token']    = session('token');
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
