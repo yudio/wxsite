@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/template/weimob-ui-1-1.css?2014-02-26-2" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/template/common.css?2014-02-26-2" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/template/list-4.css?2014-02-26-2" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/template/menu-3.css?2014-02-26-2" media="all" />
+		<script type="text/javascript" src="src/jQuery.js?2014-02-26-2"></script>
+		<script type="text/javascript" src="src/template/swipe.js?2014-02-26-2"></script>
+		<script type="text/javascript" src="src/template/zepto.js?2014-02-26-2"></script>
+		<title>最新媒体报道</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+        <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+        <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+        <!-- Mobile Devices Support @begin -->
+            <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+            <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+            <meta content="no-cache" http-equiv="pragma">
+            <meta content="0" http-equiv="expires">
+            <meta content="telephone=no, address=no" name="format-detection">
+            <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- Mobile Devices Support @end -->
+        <link rel="shortcut icon" href="img/favicon.ico" />
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+        <link rel="stylesheet" type="text/css" href="wm-xin-a/font-awesome.css?v=2014022716" media="all" />
+		<div class="weimob-page">
+			<article id="shareCover" class="share" onclick="$('#shareCover').toggleClass('on')">
+				<table>
+					<tr>
+						<td colspan="2"  style="text-align:right;">
+							<img src="img/share_1.png?v=2014-02-26-2" style="width:120px!important;" />
+							<img src="img/share_2.png?v=2014-02-26-2" style="width:30px!important;" />
+						</td>
+					</tr>
+					<tr>
+						<td style="width:50%;">
+							<img src="img/share_4.png?v=2014-02-26-2" />
+							<div>发送给朋友</div>
+						</td>
+						<td>
+							<img src="img/share_3.png?v=2014-02-26-2" />
+							<div>分享到朋友圈</div>
+						</td>
+					</tr>
+				</table>
+			</article>
+			<div class="plug-div model1">
+				<div id="plug-phone" class="plug-phone">
+					<div>
+						<a href="javascript:;" onclick="window.history.go(-1);" class="icon-chevron-sign-left"><label>返回</label></a>
+					</div>
+					<div>
+						<a href="tel:0760-89896666" class="icon-phone"><label>联系电话</label></a>
+					</div>
+					<div>
+						<a href="http://api.map.baidu.com/marker?location=22.515,113.352989&title=中山雅居乐剑桥郡&name=中山雅居乐剑桥郡&content=广东省中山市博爱一路&output=html&src=weiba|weiweb" class="icon-map-marker"><label>地址导航</label></a>
+					</div>
+					<div>
+						<a href="/weisite/home?pid=21094&bid=38887&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&wxref=mp.weixin.qq.com" class="icon-home"><label>首页</label></a>
+					</div>
+					<div>
+						<a href="javascript:$('#shareCover').toggleClass('on');" class="icon-share"><label>分享</label></a>
+					</div>
+				</div>
+			</div>
+
+			<!--分享前控制-->
+			<script>
+				document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+					window.shareData = {
+						"imgUrl": "/img/template/lib/home-300300.jpg?v=2013-11-25-1?=2013-11-25-1",
+						"timeLineLink": "http://www.weimob.com/weisite/list?pid=21094&bid=38887&wechatid=fromUsername&ltid=54288&wxref=mp.weixin.qq.com",
+						"sendFriendLink": "http://www.weimob.com/weisite/list?pid=21094&bid=38887&wechatid=fromUsername&ltid=54288&wxref=mp.weixin.qq.com",
+						"weiboLink": "http://www.weimob.com/weisite/list?pid=21094&bid=38887&wechatid=fromUsername&ltid=54288&wxref=mp.weixin.qq.com",
+						"tTitle": "最新媒体报道",
+						"tContent": "最新媒体报道",
+						"fTitle": "最新媒体报道",
+						"fContent": "最新媒体报道",
+						"wContent": "最新媒体报道"
+					};
+
+					// 发送给好友
+					WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+						WeixinJSBridge.invoke('sendAppMessage', {
+							"img_url": window.shareData.imgUrl,
+							"img_width": "640",
+							"img_height": "640",
+							"link": window.shareData.sendFriendLink,
+							"desc": window.shareData.fContent,
+							"title": window.shareData.fTitle
+						}, function (res) {
+							_report('send_msg', res.err_msg);
+						})
+					});
+
+					// 分享到朋友圈
+					WeixinJSBridge.on('menu:share:timeline', function (argv) {
+						WeixinJSBridge.invoke('shareTimeline', {
+							"img_url": window.shareData.imgUrl,
+							"img_width": "640",
+							"img_height": "640",
+							"link": window.shareData.timeLineLink,
+							"desc": window.shareData.tContent,
+							"title": window.shareData.tTitle
+						}, function (res) {
+							_report('timeline', res.err_msg);
+						});
+					});
+
+					// 分享到微博
+					WeixinJSBridge.on('menu:share:weibo', function (argv) {
+						WeixinJSBridge.invoke('shareWeibo', {
+							"content": window.shareData.wContent,
+							"url": window.shareData.weiboLink,
+						}, function (res) {
+							_report('weibo', res.err_msg);
+						});
+					});
+				}, false)
+			</script>
+	        <div class="weimob-content">
+            <div class="weimob-list">
+                <a href="/weisite/detail?pid=21094&bid=38887" class="weimob-list-box">
+					<div class="weimob-list-sau">
+						<span class="mday">
+							<b class="day">10</b>/12</span>
+						<span class="years">2013</span>
+					</div>
+					<div class="weimob-list-item">
+						<div class="weimob-list-item-line">
+							<div class="weimob-list-item-title">中山商报12月6日报道</div>
+							<div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131210/20131210173148_43379.jpg"/></div>
+							<div class="weimob-list-item-summary">中山商报12月6日报道，博爱西RBD上的城市新名片，目前已有上万人到访、上千人认筹。</div>
+						</div>
+						 <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+					 </div>
+                 </a>
+                 <a href="/weisite/detail?pid=21094&bid=38887&did=98504&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&from=list" class="weimob-list-box">
+                        <div class="weimob-list-sau">
+                            <span class="mday">
+                                <b class="day">10</b>/12</span>
+                            <span class="years">2013</span>
+                        </div>
+                        <div class="weimob-list-item">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">中山日报12月5日报道</div>
+                                <div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131210/20131210151127_49677.jpg"/></div>
+                                <div class="weimob-list-item-summary">中山日报12月5日报道</div>
+                            </div>
+                             <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+                         </div>
+                    </a>
+                    <a href="/weisite/detail?pid=21094&bid=38887&did=98675&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&from=list&wxref=" class="weimob-list-box">
+                        <div class="weimob-list-sau">
+                            <span class="mday">
+                                <b class="day">10</b>/12</span>
+                            <span class="years">2013</span>
+                        </div>
+                        <div class="weimob-list-item">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">南方日报12月4日报道</div>
+                                <div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131210/20131210154134_71384.jpg"/></div>
+                                <div class="weimob-list-item-summary">南方日报12月4日报道，雅居乐·剑桥郡启动开放10日，上万人到访超1000人认筹。</div>
+                            </div>
+                             <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+                         </div>
+                    </a>
+                    <a href="/weisite/detail?pid=21094&bid=38887&did=77657&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&from=list&wxref=" class="weimob-list-box">
+                        <div class="weimob-list-sau">
+                            <span class="mday">
+                                <b class="day">29</b>/11</span>
+                            <span class="years">2013</span>
+                        </div>
+                        <div class="weimob-list-item">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">南方日报报道</div>
+                                <div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131129/20131129214115_42036.jpg"/></div>
+                                <div class="weimob-list-item-summary">南方日报讯 昨天下午，《十八届三中全会经济走势点点读暨“新岐江·新生活”中山城市发展论坛》在雅居乐·剑桥郡销售中心举行，该论坛由南方日报社主办，中山市家具商会、中山市江西商会、中山市湖北商会、中山市湖南商会、中山市西区商会。</div>
+                            </div>
+                             <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+                         </div>
+                    </a>
+                    <a href="/weisite/detail?pid=21094&bid=38887&did=77696&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&from=list&wxref=" class="weimob-list-box">
+                        <div class="weimob-list-sau">
+                            <span class="mday">
+                                <b class="day">29</b>/11</span>
+                            <span class="years">2013</span>
+                        </div>
+                        <div class="weimob-list-item">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">中山日报报道</div>
+                                <div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131129/20131129215946_38477.jpg"/></div>
+                                <div class="weimob-list-item-summary">中山日报11月19日讯，2007年以来，西区吸引了大批品牌开发商进驻，雅居乐、奥园、广百……大型开发商选择了西区，也改变了西区的居住方式。</div>
+                            </div>
+                             <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+                         </div>
+                    </a>
+                    <a href="/weisite/detail?pid=21094&bid=38887&did=77690&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&from=list&wxref=" class="weimob-list-box">
+                        <div class="weimob-list-sau">
+                            <span class="mday">
+                                <b class="day">29</b>/11</span>
+                            <span class="years">2013</span>
+                        </div>
+                        <div class="weimob-list-item">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">中山商报报道</div>
+                                <div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131129/20131129214747_38481.jpg"/></div>
+                                <div class="weimob-list-item-summary">中山商报讯，城市门户，中山形象 生活向西，岐江西岸展现现代都会魅力。</div>
+                            </div>
+                             <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+                         </div>
+                    </a>
+                    <a href="/weisite/detail?pid=21094&bid=38887&did=77700&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&from=list&wxref=" class="weimob-list-box">
+                        <div class="weimob-list-sau">
+                            <span class="mday">
+                                <b class="day">29</b>/11</span>
+                            <span class="years">2013</span>
+                        </div>
+                        <div class="weimob-list-item">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">售楼现场最新活动报道</div>
+                                <div class="weimob-list-item-img"><img src="http://img.weimob.com/static/b3/7e/90/image/20131129/20131129220438_88895.jpg"/></div>
+                                <div class="weimob-list-item-summary">售楼现场最新活动报道</div>
+                            </div>
+                             <div class="weimob-list-more"><div class="weimob-list-item-more">阅读全文</div><div class="weimob-list-item-more-icon icon-arrow-r"></div></div>
+                         </div>
+                    </a>
+              </div>
+        </div>
+    </div> 
+	<footer style="overflow:visible;">
+			<div class="weimob-copyright" style="padding-bottom:50px;">
+				<a href="/weisite/home?pid=21094&bid=38887&wechatid=oi2Zot3eGpdjYbzyypJi0yXe7WVE&wxref=mp.weixin.qq.com">© 中山雅居乐剑桥郡</a>
+			</div>
+			<span class="weimob-support" style="display:none;">©微盟提供</span>
+	</footer>
+	<div mark="stat_code" style="width:0px; height:0px; display:none;"></div>
+</body>
+</html>

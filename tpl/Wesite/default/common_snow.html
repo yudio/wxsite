@@ -1,0 +1,15 @@
+ <if condition="($homeInfo.bg_animation neq 0) AND( $homeInfo.bg_animation neq 15) ">
+	<script type="text/javascript">
+		var urls = ['{np::RES}/img/template/lib/flash{np:$homeInfo.bg_animation}.png']
+	</script>
+	<script type="text/javascript" src="{np::RES}/src/template/snower1.js"></script>
+<elseif condition="$homeInfo.bg_animation neq 0" />
+	<script type="text/javascript">
+		var urls = new Array();
+		urls.push('{np::RES}/img/template/lib/v57_snow1.png');
+		urls.push('{np::RES}/img/template/lib/v57_snow2.png');
+		urls.push('{np::RES}/img/template/lib/v57_snow3.png');
+		urls.push('{np::RES}/img/template/lib/v57_snow4.png');
+	</script>
+	<script type="text/javascript" src="{np::RES}/src/template/snower2.js"></script>
+</if>

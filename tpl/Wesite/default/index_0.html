@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <if condition="$homeInfo.bg_animation neq 0">
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/snower.css" media="all"/>
+        </if>
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-0.css" media="all" />
+        <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+        <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+        <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+        <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+        <title>{np:$homeInfo.title}</title>
+        <include file="common:meta"/>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+        <if condition="$homeInfo.animation neq 0">
+            <iframe id="iframe_screen" src="{np::RES}/Animation/animaid/{np:$homeInfo.animation}.htm" frameborder="0"></iframe>
+        </if>
+        <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+        <div class="weimob-page" style="display:block; padding-bottom:55px;">
+		<!--幻灯片管理-->
+        <include file="common:banner"/>
+        <!--
+        <div style="-webkit-transform:translate3d(0,0,0);">
+            <div id="banner_box" class="box_swipe">
+                <ul>
+                    <li>
+                        <a onclick="return false;">
+                            <img src="{np::RES}/img/template/lib/default-slide.jpg?=2014-02-26-2" alt="ddd" style="width:100%;" />
+                        </a>
+                    </li>
+                </ul>
+                <ol>
+                    <li class="on"></li>
+                </ol>
+            </div>
+        </div>
+		<script>
+		$(function(){
+			new Swipe(document.getElementById('banner_box'), {
+				speed:500,
+				auto:3000,
+				callback: function(){
+					var lis = $(this.element).next("ol").children();
+					lis.removeClass("on").eq(this.index).addClass("on");
+				}
+			});
+		});
+	    </script>
+        -->
+        <header>
+            <include file="common:snow"/>
+        </header>
+        <!--用户分类管理-->
+		<div class="weimob-content">
+            <div class="weimob-list">
+                <volist name="classify" id="vo" mod="5">
+                    <a href="{np:$vo.url}" class="weimob-list-item">
+                        <div class="weimob-list-item-bg">
+                            <div>
+                                <img src="{np:$vo.img}" alt="{np:$vo.desc}" style="width:100%;" />
+                            </div>
+                            <div class="weimob-list-item-box">
+                                <div class="weimob-list-item-line">
+                                    <div class="weimob-list-item-title">{np:$vo.name}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </volist>
+                <!--
+                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com" class="weimob-list-item">
+                <div class="weimob-list-item-bg">
+                        <div>
+                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="3" style="width:100%;" />
+                        </div>
+                        <div class="weimob-list-item-box">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com" class="weimob-list-item">
+                    <div class="weimob-list-item-bg">
+                        <div>
+                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="4" style="width:100%;" />
+                        </div>
+                        <div class="weimob-list-item-box">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">4</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com" class="weimob-list-item">
+                    <div class="weimob-list-item-bg">
+                        <div>
+                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="5" style="width:100%;" />
+                        </div>
+                        <div class="weimob-list-item-box">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">5</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com" class="weimob-list-item">
+                    <div class="weimob-list-item-bg">
+                        <div>
+                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="1" style="width:100%;" />
+                        </div>
+                        <div class="weimob-list-item-box">
+                            <div class="weimob-list-item-line">
+                                <div class="weimob-list-item-title">1</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>-->
+            </div>
+        </div>
+    </div>
+    <!--if 后台设置导航-->
+    <include file="common:nav"/>
+    <!--end if-->
+
+    <!--分享前控制-->
+    <include file="common:share"/>
+    <!--share-->
+    <include file="common:footer"/>
+	</body>
+</html>
+
