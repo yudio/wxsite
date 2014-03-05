@@ -23,41 +23,13 @@
         <div class="weimob-page" style="display:block; padding-bottom:55px;">
 		<!--幻灯片管理-->
         <include file="common:banner"/>
-        <!--
-        <div style="-webkit-transform:translate3d(0,0,0);">
-            <div id="banner_box" class="box_swipe">
-                <ul>
-                    <li>
-                        <a onclick="return false;">
-                            <img src="{np::RES}/img/template/lib/default-slide.jpg?=2014-02-26-2" alt="ddd" style="width:100%;" />
-                        </a>
-                    </li>
-                </ul>
-                <ol>
-                    <li class="on"></li>
-                </ol>
-            </div>
-        </div>
-		<script>
-		$(function(){
-			new Swipe(document.getElementById('banner_box'), {
-				speed:500,
-				auto:3000,
-				callback: function(){
-					var lis = $(this.element).next("ol").children();
-					lis.removeClass("on").eq(this.index).addClass("on");
-				}
-			});
-		});
-	    </script>
-        -->
         <header>
             <include file="common:snow"/>
         </header>
         <!--用户分类管理-->
 		<div class="weimob-content">
             <div class="weimob-list">
-                <volist name="classify" id="vo" mod="5">
+                <volist name="classify" id="vo">
                     <a href="{np:$vo.url}" class="weimob-list-item">
                         <div class="weimob-list-item-bg">
                             <div>
@@ -71,55 +43,6 @@
                         </div>
                     </a>
                 </volist>
-                <!--
-                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com" class="weimob-list-item">
-                <div class="weimob-list-item-bg">
-                        <div>
-                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="3" style="width:100%;" />
-                        </div>
-                        <div class="weimob-list-item-box">
-                            <div class="weimob-list-item-line">
-                                <div class="weimob-list-item-title">3</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com" class="weimob-list-item">
-                    <div class="weimob-list-item-bg">
-                        <div>
-                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="4" style="width:100%;" />
-                        </div>
-                        <div class="weimob-list-item-box">
-                            <div class="weimob-list-item-line">
-                                <div class="weimob-list-item-title">4</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com" class="weimob-list-item">
-                    <div class="weimob-list-item-bg">
-                        <div>
-                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="5" style="width:100%;" />
-                        </div>
-                        <div class="weimob-list-item-box">
-                            <div class="weimob-list-item-line">
-                                <div class="weimob-list-item-title">5</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com" class="weimob-list-item">
-                    <div class="weimob-list-item-bg">
-                        <div>
-                            <img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="1" style="width:100%;" />
-                        </div>
-                        <div class="weimob-list-item-box">
-                            <div class="weimob-list-item-line">
-                                <div class="weimob-list-item-title">1</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>-->
             </div>
         </div>
     </div>
