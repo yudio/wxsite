@@ -3,19 +3,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+        <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
     <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico" />
     <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/inside.js"></script>
-    <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-    <link rel="shortcut icon" href="http://stc.weimob.com/img/favicon.ico"/>
+    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+    <title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
     <!--[if lte IE 9]>
     <script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
     <!--[if IE 7]>
@@ -40,7 +41,7 @@
                         <div class="row-fluid">
                             <div class="span8 control-group">
 
-                                <a class="btn" href="<?php if($gwxnum > $uwxnum): ?>npManage/account/autobind.act<?php else: ?>javascript:alert('配额不足，请升级！');<?php endif; ?>"><i class="icon-plus"></i>添加公众帐号</a>
+                                <a class="btn" href="<?php if($gwxnum > $uwxnum): ?>/npManage/account/autobind.act<?php else: ?>javascript:alert('配额不足，请升级！');<?php endif; ?>"><i class="icon-plus"></i>添加公众帐号</a>
                                 <a href="http://wpa.qq.com/msgrd?v=3&uin=4006305400&site=qq&menu=yes" target="_blank"
                                    class="btn btn-warning" style="cursor:pointer">微助手</a>
                             </div>
@@ -86,7 +87,7 @@
                                         </td>
                                         <td align="center">
                                             <p><?php if($_SESSION['gid']>1){echo $_SESSION['gid']-1;}else{echo 0;} ?>
-                                                <a   href="<?php echo U('Alipay/index');?>" id="smemberss" class="green"><em>升降级</em></a></p>
+                                                <a   href="#" id="smemberss" class="green"><em>升降级</em></a></p>
 
                                         </td>
                                         <td>

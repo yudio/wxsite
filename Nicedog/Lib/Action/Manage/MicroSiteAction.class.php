@@ -235,23 +235,23 @@ class MicroSiteAction extends UserAction{
         switch ($key) {
             case 'home':
                 $data['tpltypeid'] = $value;
-                $data['tpltypename'] = $value.'_index';
+                $data['tpltypename'] = 'index';
                 break;
             case 'channel':
                 $data['tplchid'] = $value;
-                $data['tplchname'] = $value.'_ch';
+                $data['tplchname'] = 'channel';
                 break;
             case 'list':
                 $data['tpllistid'] = $value;
-                $data['tpllistname'] = $value.'_list';
+                $data['tpllistname'] = 'list';
                 break;
             case 'detail':
                 $data['tplcontentid'] = $value;
-                $data['tplcontentname'] = $value.'_detail';
+                $data['tplcontentname'] = 'detail';
                 break;
             case 'menu':
                 $data['tplmenuid'] = $value;
-                $data['tplmenuname'] = $value.'_menu';
+                $data['tplmenuname'] = 'menu';
                 break;
         }
         $where['token'] = session('token');

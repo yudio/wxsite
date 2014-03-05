@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
     <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico?v=2014-02-20-1"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico?v=2014-02-20-1"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
@@ -95,7 +95,7 @@
                                 </thead>
                                 <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                                     <td><?php echo ($vo["name"]); ?></td>
-                                    <td><i class="<?php echo ($vo["icon"]); ?>"></i></td>
+                                    <td><?php if($vo["img"] == ''): ?><i class="<?php echo ($vo["icon"]); ?>"></i><?php else: ?><img src="<?php echo ($vo["img"]); ?>" style="max-height:50px;"><?php endif; ?></td>
                                     <td><?php if($vo["status"] == '1'): ?><span class="label label-satgreen">显示</span><?php else: ?>隐藏<?php endif; ?></td>
                                     <td><?php echo ($vo["sorts"]); ?></td>
                                     <td><?php echo ($vo["type"]); ?></td>
@@ -103,7 +103,18 @@
                                     <td><a href="/npManage/microsite/editclassify.act?id=<?php echo ($vo["id"]); ?>" class="btn">编辑</a><a
                                             href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/microsite/classify_del.act?id=<?php echo ($vo["id"]); ?>');"
                                             class="btn">删除</a></td>
-                                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                                </tr>
+                                    <?php if(is_array($vo['sub'])): $i = 0; $__LIST__ = $vo['sub'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$subvo): $mod = ($i % 2 );++$i;?><tr>
+                                            <td><i class="board"></i><?php echo ($subvo["name"]); ?></td>
+                                            <td><?php if($subvo["img"] == ''): ?><i class="<?php echo ($subvo["icon"]); ?>"></i><?php else: ?><img src="<?php echo ($subvo["img"]); ?>" style="max-height:50px;"><?php endif; ?></td>
+                                            <td><?php if($subvo["status"] == '1'): ?><span class="label label-satgreen">显示</span><?php else: ?>隐藏<?php endif; ?></td>
+                                            <td><?php echo ($subvo["sorts"]); ?></td>
+                                            <td><?php echo ($subvo["type"]); ?></td>
+                                            <td><?php echo ($subvo["info"]); ?></td>
+                                            <td><a href="/npManage/microsite/editclassify.act?id=<?php echo ($subvo["id"]); ?>" class="btn">编辑</a><a
+                                                    href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/microsite/classify_del.act?id=<?php echo ($subvo["id"]); ?>');"
+                                                    class="btn">删除</a></td>
+                                        </tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
                             </table>
                         </div>
                     </div>
