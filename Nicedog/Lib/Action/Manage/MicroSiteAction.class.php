@@ -11,7 +11,7 @@ class MicroSiteAction extends UserAction{
     private $home_db;
     public function _initialize() {
         parent::_initialize();
-        $this->token=$this->_session('token');
+        $this->token=session('token');
         $this->home_db=M('home');
     }
     /*
@@ -44,6 +44,7 @@ class MicroSiteAction extends UserAction{
         $db   = D('Home');
         $home=$db->where(array('token'=>session('token')))->find();
         if(IS_POST){
+            $_POST['token'] = $this->token;
             if($home==false){
                 //$this->all_insert('Home','/set');
                 $_POST['wxkey'] = mb_strtoupper($_POST['wxkey'],'UTF-8');
