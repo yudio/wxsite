@@ -14,7 +14,9 @@ class WxService
             $url_get='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$apidata['appid'].'&secret='.$apidata['appsecret'];
             $json = "";
             if (!isset($apidata['appaccess'])||(time()-intval($apidata['updatetime'])>7200)){
-                $json=json_decode($this->curlGet($url_get));
+                $res = $this->curlGet($url_get);
+                Log::write('WxService结果'.$res.'APPID'.$apidata['appid'].'|'.$apidata['appsecret'],Log::ERR);
+                $json=json_decode($res);
                 if ($json->access_token){
                     $this->appaccess   = $json->access_token;
                     $this->apptime     = time();
@@ -151,11 +153,11 @@ class WxService
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $tmpInfo = curl_exec($ch);
+        //LOG::write('curlPost Result:'.$tmpInfo,LOG::ERR);
         if (curl_errno($ch)) {
-            return false;
+            return curl_error($ch);
         }else{
-
-            return true;
+            return $tmpInfo;
         }
     }
     function curlGet($url){
@@ -172,6 +174,7 @@ class WxService
         curl_setopt($ch, CURLOPT_POSTFIELDS, "");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $temp = curl_exec($ch);
+        //LOG::write('curlGet Result:'.$temp,LOG::ERR);
         return $temp;
     }
 }

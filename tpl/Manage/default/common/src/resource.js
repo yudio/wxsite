@@ -528,7 +528,7 @@ Builder.prototype._loadBaidu_map = function () {
                         //			alert(result.address)				
                         //	window.external.setaddress(result.address);//setarrea(result.address);//
                         //marker1.setPoint(new BMap.Point(e.point.lng,e.point.lat));        // 移动标注
-                        marker2.setPoint(new BMap.Point(e.point.lng, e.point.lat));
+                        marker2.setPosition(new BMap.Point(e.point.lng, e.point.lat));
                         map.panTo(new BMap.Point(e.point.lng, e.point.lat));
                         //window.external.setlngandlat(e.point.lng,e.point.lat);
                     }
@@ -545,7 +545,7 @@ Builder.prototype._loadBaidu_map = function () {
                         //	window.external.setaddress(result.address);//setarrea(result.address);//
                         //alert(point.lng + "  ddd " + point.lat);
                         //marker1.setPoint(new BMap.Point(cp.lng,cp.lat));        // 移动标注
-                        marker2.setPoint(new BMap.Point(cp.lng, cp.lat));
+                        marker2.setPosition(new BMap.Point(cp.lng, cp.lat));
                         map.panTo(new BMap.Point(cp.lng, cp.lat));
                         //window.external.setlngandlat(cp.lng,cp.lat);
                     }
@@ -555,9 +555,9 @@ Builder.prototype._loadBaidu_map = function () {
             map.addEventListener("dragging", function showInfo() {
                 var cp = map.getCenter();
                 //marker1.setPoint(new BMap.Point(cp.lng,cp.lat));        // 移动标注
-                marker2.setPoint(new BMap.Point(cp.lng, cp.lat));
+                marker2.setPosition(new BMap.Point(cp.lng, cp.lat));
                 map.panTo(new BMap.Point(cp.lng, cp.lat));
-                map.centerAndZoom(marker2.getPoint(), map.getZoom());
+                map.centerAndZoom(marker2.getPosition(), map.getZoom());
             });
 
 
@@ -577,13 +577,13 @@ Builder.prototype._loadBaidu_map = function () {
         myGeo.getPoint(city, function (point) {
             if (point) {
                 //marker1.setPoint(new BMap.Point(point.lng,point.lat));        // 移动标注
-                marker2.setPoint(new BMap.Point(point.lng, point.lat));
+                marker2.setPosition(new BMap.Point(point.lng, point.lat));
                 //window.external.setlngandlat(marker2.getPoint().lng,marker2.getPoint().lat);
                 //alert(point.lng + "  ddd " + point.lat);
                 document.getElementById('lat').value = point.lat;
                 document.getElementById('lng').value = point.lng;
-                map.panTo(new BMap.Point(marker2.getPoint().lng, marker2.getPoint().lat));
-                map.centerAndZoom(marker2.getPoint(), map.getZoom());
+                map.panTo(new BMap.Point(marker2.getPosition().lng, marker2.getPosition().lat));
+                map.centerAndZoom(marker2.getPosition(), map.getZoom());
             }
         });//({},province)
         //var citys = new BMap.LocalSearch(map, { renderOptions: { map: map, autoViewport: true } });
@@ -601,10 +601,10 @@ Builder.prototype._loadBaidu_map = function () {
     function initarreawithpoint(lng, lat) {
         window.setTimeout(function () {
             //marker1.setPoint(new BMap.Point(lng,lat));        // 移动标注
-            marker2.setPoint(new BMap.Point(lng, lat));
+            marker2.setPosition(new BMap.Point(lng, lat));
             //window.external.setlngandlat(lng,lat);
             map.panTo(new BMap.Point(lng, lat));
-            map.centerAndZoom(marker2.getPoint(), map.getZoom());
+            map.centerAndZoom(marker2.getPosition(), map.getZoom());
         }, 2000);
     }
     $("#suggestId").change(function () { loadmap(); })

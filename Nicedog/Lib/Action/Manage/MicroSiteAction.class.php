@@ -278,14 +278,31 @@ class MicroSiteAction extends UserAction{
     }
     public function addplugmenu(){
         $db = M('Plugmenu');
+        C('TOKEN_ON',false);
         if (IS_POST){
             $id = $this->_post('id');
-            $types = explode(',',$_POST['type']);
-            $_POST['type'] = $types[0];
-            $_POST['typename'] = $types[1];
+            //$types = explode(',',$_POST['type']);
+            $_POST['type'] = $this->_post('type');
+            $_POST['typename'] = C('plugmenu_typemap')[$_POST['type']];
+            $_POST['uid']    = session('uid');
             $_POST['token']    = session('token');
+            $_POST['url'] = TypeLink::getTypeLink($_POST,'Plugmenu');
             if ($id){//更新操作
                 if ($db->create()){
+                    C('TOKEN_ON',false);
+                    $data['pid'] = $id;
+                    $data['module'] = 'Plugmenu';
+                    $newdb = D('Typelink');
+                    $tlink = $newdb->field('id')->where($data)->find();
+                    $data  = $_POST;
+                    $data['pid'] = $id;
+                    $data['module'] = 'Plugmenu';
+                    $data['id']     = $tlink['id'];
+                    if ($newdb->create($data)){
+                        $newdb->save();
+                    }else{
+                        dump($newdb->getError());
+                    }
                     $db->save();
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
                 }else{
@@ -294,6 +311,16 @@ class MicroSiteAction extends UserAction{
             }else{
                 if ($db->create()){
                     $id = $db->add();
+                    C('TOKEN_ON',false);
+                    $data = $_POST;
+                    $data['pid'] = $id;
+                    $data['module'] = 'Plugmenu';
+                    $newdb = D('Typelink');
+                    if ($newdb->create($data)){
+                        $newdb->add();
+                    }else{
+                        dump($newdb->getError());
+                    }
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -303,9 +330,22 @@ class MicroSiteAction extends UserAction{
         $id = $this->_get('id','intval');
         if ($id){
             $info = $db->where(array('id'=>$id))->find();
+            $plugmens = M('Typelink')->where(array('pid'=>$id,'module'=>'Plugmenu'))->find();
+            if ($plugmens){
+                $info = array_merge($plugmens,$info);
+            }
             $this->assign('info',$info);
         }
+        $this->assign('typelist',C('plugmenu_typelist'));
         $this->display();
+    }
+    public function delplugmenu(){
+        $back=M('Plugmenu')->where(array('token'=>session('token'),'id'=>$this->_get('id')))->delete();
+        if($back==true){
+            $this->success('删除成功','/npManage/microsite/plugmenu.act');
+        }else{
+            $this->error('删除失败','/npManage/microsite/plugmenu.act');
+        }
     }
 
     public function updateplugmenu(){

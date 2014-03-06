@@ -267,9 +267,10 @@ class ReplyAction extends UserAction
             }
         }
         $class=M('Classify')->field('id,name')->where(array('token'=>session('token')))->select();
-        if(!$class){
-            $this->ajaxReturn(array('errno'=>'0','error'=>'请先添加分类信息！','/npManage/microsite/classify.act'),'JSON');
-        }
+        /*if(!$class){
+            //$this->ajaxReturn(array('errno'=>'0','error'=>'请先添加分类信息！','/npManage/microsite/classify.act'),'JSON');
+            $this->error('请先添加分类信息！','/npManage/microsite/classify.act');
+        }*/
         $this->assign('classinfo',$class);
         //dump($info);
         $this->display();
