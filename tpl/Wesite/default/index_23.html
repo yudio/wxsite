@@ -1,54 +1,52 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <include file="common:snowcss"/>
-        <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-19.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-23.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
 		<script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
 		<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
 		<script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
 		<script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
-        <title>{np:$homeInfo.title}</title>
+		<title>{np:$homeInfo.title}</title>
         <include file="common:meta"/>
     </head>
     <body onselectstart="return true;" ondragstart="return false;">
-    <include file="common:iframe"/>
-    <div class="body">
+        	<include file="common:iframe"/>
+
+<div class="body" style="padding-bottom:50px;">
     <!--幻灯片管理-->
 	<include file="common:banner"/>
     <br/>
     <header>
         <div class="snower">
-            <include file="common:snow"/>
+           <include file="common:snow"/>
         </div>
     </header>
 	<section>
-            <a href="tel:021-2222222" class="link_tel icon-phone">021-2222222</a>
-    </section>
+		<a href="tel:021-2222222" class="link_tel icon-phone">021-2222222</a>
+	</section>
 	<!--用户分类管理-->
-    <section>
-        <ul class="list_ul">
-            <volist name="classify" id="vo">
-                <li>
-                    <a href="{np:$vo.url}">
-                        <figure>
-                            <div>
-                                <img src="{np:$vo.img}"/>
-                            </div>
-                            <figcaption>
-                                {np:$vo.name}
-                            <p></p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </li>
-            </volist>
-        </ul>
-    </section>
-    </div>
+		<section>
+			<ul class="list_font">
+                <volist name="classify" id="vo">
+                        <li style="background:#dadada;">
+                            <a href="{np:$vo.url}">
+                                <div><span class="{np:$vo.icon}"></span></div>
+                                <div>
+                                    <p>{np:$vo.name}</p>
+                                </div>
+                            </a>
+                        </li>
+                </volist>
+            </ul>
+		</section>
+	</div>
+
     <!--导航菜单后台设置的快捷菜单-->
     <include file="common:nav"/>
     <!--分享前控制-->
