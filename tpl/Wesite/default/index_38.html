@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <include file="common:snowcss"/>
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-38.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+		<script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+		<title>{np:$homeInfo.title}</title>
+        <include file="common:meta"/>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+    <include file="common:iframe"/>
+	<div class="body">
+	<!--幻灯片管理-->
+	<include file="common:banner"/>
+	<br/>
+	<header>
+        <div class="snower">
+           <include file="common:snow"/>
+        </div>
+    </header> 			
+	<!--用户分类管理-->
+	<section>
+		<div id="navList_box" class="box_swipe">
+			<ul>
+			<volist name="classify" id="vo">
+				<if condition="$i % 4 eq 1">
+					<li>
+				</if>
+				<a href="{np:$vo.href}" class="weimob-list-item">
+					<span class="{np:$vo.icon}"></span>
+						<img src="{np:$vo.img}" alt="{np:$vo.name}" />
+					<div>{np:$vo.name}</div>
+				</a>
+				<if condition="($i % 4 eq 0) OR($i eq count($classify)) ">
+					</li>
+				</if>
+			</volist>
+			</ul>
+						<!--
+																	<li>
+																				<a href="tel:010-12312312" class="weimob-list-item">
+														<span class="icon-globe"></span>
+							<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="2" />
+							<div>2</div>
+						</a>
+																															<a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com" class="weimob-list-item">
+														<span class="icon-smile"></span>
+							<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="3" />
+							<div>3</div>
+						</a>
+																															<a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com" class="weimob-list-item">
+														<span class="icon-smile"></span>
+							<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="4" />
+							<div>4</div>
+						</a>
+																															<a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com" class="weimob-list-item">
+														<span class="icon-smile"></span>
+							<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="5" />
+							<div>5</div>
+						</a>
+												</li>
+																							<li>
+																				<a href="/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com" class="weimob-list-item">
+														<span class="icon-smile"></span>
+							<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" alt="1" />
+							<div>1</div>
+						</a>-->
+				
+				<ol>
+					<a href="javascript:navList_box.prev();">&nbsp;</a>
+					<a href="javascript:navList_box.next();">&nbsp;</a>
+				</ol>
+		</div>
+	</section>
+		<script>
+			$(document).ready(function(){
+				window.navList_box = new Swipe(document.getElementById('navList_box'), {auto:0});
+			});
+		</script>
+	</div>        			
+	<include file="common:footer"/>
+	</body>
+</html>
+

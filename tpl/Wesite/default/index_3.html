@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/snower.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-3.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+
+<div class="weimob-page" style="display:block; padding-bottom:56px;">
+    <include file="common:banner"/>
+    <br/><header>
+    <div class="snower">
+        <include file="common:snow"/>
+    </div>
+</header>
+    <!--用户分类管理-->
+    <div class="weimob-content">
+        <div class="weimob-list">
+            <volist name="classify" id="vo">
+                <if condition="($i%4 eq 1) AND (floor($i/4)%2 eq 0)">
+                <a class="list-item _C0 _L0" href="{np:$vo.url}">
+                <elseif condition="($i%4 eq 1) AND (floor($i/4)%2 eq 1)"/>
+                    <a class="list-item _C0 _L1" href="{np:$vo.url}">
+                <else/>
+                    <a class="list-item _C<?php echo (($i-1)%4); ?>" href="{np:$vo.url}">
+                </if>
+                <div class="item-title"><div class="title-text">{np:$vo.name}</div></div>
+                <div class="item-image" style="background-image: url({np:$vo.img})">
+                    <if condition="$i%4 eq 1">
+                        <div class="item_title2"></div>
+                    <else/>
+                        <div class="item-image"></div>
+                    </if>
+                </div>
+                </a>
+            </volist>
+        </div>
+    </div>
+</div>
+
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

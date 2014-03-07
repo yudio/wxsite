@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-63.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/player_min.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<style>
+    .body{
+        max-width:640px;
+        margin:auto;
+        min-height:100%;
+        background-color:#e1e0de;
+        position:relative;
+        background:url('{np:$homeInfo.bg_img}') no-repeat 0 0;
+        -webkit-background-size:100% 100%;
+    }
+</style>
+<script>
+    $().ready(function(){
+        playbox.init("playbox");
+    });
+</script>
+<div class="body">
+    <section>
+        <header>
+            <div class="snower">
+                <include file="common:snow"/>
+            </div>
+        </header>
+        <div class="header2">
+        <div>
+            <a href="javascript:;" id="playbox" class="btn_music" onclick="playbox.init(this).play();" ontouchstart="event.stopPropagation();"></a>
+            <audio id="audio" loop src="{np:$homeInfo.bg_audio}" style="pointer-events:none;display:none;width:0!important;height:0!important;"></audio>
+        </div>
+        </div>
+        <div>
+            <ul class="list_ul">
+                <volist name="classify" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}">
+                            <span class="{np:$vo.icon}"></span>
+                            {np:$vo.name}</a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+</div>
+<include file="common:footer"/>
+</body>
+</html>
+<script>
+
+

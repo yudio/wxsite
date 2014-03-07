@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/snower.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-11.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<style>
+    .body{
+        max-width:640px;
+        margin:auto;
+        min-height:100%;
+        background-color:#f4f4f4;
+        position:relative;
+        background:url('{np:$homeInfo.bg_img}') no-repeat 0 0;
+        background-size:100% 100%;
+    }
+</style>
+
+<div class="body">
+    <!--用户分类管理-->
+    <section>
+        <ul class="card_lol" style="display:block; padding-bottom:50px;">
+            <volist name="classify" id="vo">
+                <li>
+                    <a href="{np:$vo.url}">
+                        <label>{np:$vo.name}</label>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </section>
+</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

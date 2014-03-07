@@ -5,7 +5,7 @@
     <include file="common:snowcss"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-13.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-15.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
     <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
     <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <include file="common:iframe"/>
-<div class="body" style="padding-bottom:52px;">
+<div class="body">
     <include file="common:banner"/>
     <br/>
     <header>
@@ -24,40 +24,28 @@
             <include file="common:snow"/>
         </div>
     </header>
-    <section>
-        <a href="tel:021-2222222" class="link_tel icon-phone">021-2222222</a>
-    </section>
     <!--用户分类管理-->
     <section>
         <ul class="list_font">
             <volist name="classify" id="vo">
-                <if condition="$i%4 eq 1">
-                    <li style="background-color:#d87570;">
-                        <elseif condition="$i%4 eq 2"/>
-                    <li style="background-color:#bc4040;">
-                        <elseif condition="$i%4 eq 3"/>
-                    <li style="background-color:#6f9e98;">
-                        <else/>
-                    <li style="background-color:#b2cebf;">
-                </if>
-                <a href="{np:$vo.url}">
-                    <div><span class="{np:$vo.icon}"></span></div>
-                    <div>
-                        <p>{np:$vo.name}</p>
-                    </div>
-                </a>
+                <li>
+                    <a href="{np:$vo.url}">
+                        <div><span class="{np:$vo.icon}"></span></div>
+                        <div>
+                            <p>{np:$vo.name}</p>
+                        </div>
+                    </a>
                 </li>
             </volist>
-
         </ul>
     </section>
-
     <!--导航菜单后台设置的快捷菜单-->
     <include file="common:nav"/>
     <!--分享前控制-->
     <include file="common:share"/>
+
 </div>
-    <include file="common:footer"/>
+<include file="common:footer"/>
 </body>
 </html>
 

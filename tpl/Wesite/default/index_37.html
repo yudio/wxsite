@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <include file="common:snowcss"/>
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-37.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+		<script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+		<title>{np:$homeInfo.title}</title>
+        <include file="common:meta"/>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+	<include file="common:iframe"/>
+	<style>
+		.wrapper {
+			position:relative;
+			max-width:640px;
+			margin:auto;
+			display: block;
+			background:url('{np:$homeInfo.bg_img}') no-repeat 0;
+			background-size: 100% 100%;
+		}
+	</style>
+	<script>
+		var evtName = "ontouchstart" in window?"touchstart":"mouseover";
+		var evtName1 = "ontouchstart" in window?"touchend":"mouseout";
+		window.addEventListener("DOMContentLoaded", function(){
+			var nav_list = document.getElementById("nav_list");
+			console.log(nav_list);
+			var navEvt = {
+				handleEvent: function(e){
+					console.log(e.type);
+					if("A" == e.target.tagName){
+						if(evtName == e.type){
+							e.target.className = "on";
+						}else{
+							e.target.className = "";
+						}
+					}
+				}
+			}
+			nav_list.addEventListener(evtName, navEvt, false);
+			nav_list.addEventListener(evtName1, navEvt, false);
+		}, false);
+	</script>
+
+
+<div class="wrapper" id="container">
+	<header>
+        <div class="snower">
+           <include file="common:snow"/>
+        </div>
+    </header>  
+	<div id="J_Taojia" class="taoplus">
+		<div id="nav_list" class="circle">
+			<div class="tpicons">
+				<ul>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--导航菜单后台设置的快捷菜单-->
+	<include file="common:nav"/>
+	<!--分享前控制-->
+	<include file="common:share"/>
+</div>
+	<include file="common:footer"/>
+</body>
+</html>
+
