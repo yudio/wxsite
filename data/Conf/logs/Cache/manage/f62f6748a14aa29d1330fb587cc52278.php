@@ -52,10 +52,10 @@
                     <div class="box-content nozypadding">
                         <div class="row-fluid">
                             <div class="span8 control-group">
-                                <div class="span5">
+                                <div class="span5" >
                                     <a class="btn" href="/npManage/reply/addnews.act"><i class="icon-plus"></i>添加</a>
                                     <a class="btn" href="javascript:location.reload();"><i class="icon-refresh"></i></a>
-                                    <select name="cate" class="input-medium" style="margin:1px 20px 0" id="cate">
+                                    <select name="cate" class="input-medium" style="display: none;margin:1px 20px 0" id="cate">
                                         <option value="0">根分类</option>
                                         <option value='209425'>&nbsp;&nbsp;&nbsp;&nbsp;test1</option>
                                         <option value='209427'>&nbsp;&nbsp;&nbsp;&nbsp;test2</option>

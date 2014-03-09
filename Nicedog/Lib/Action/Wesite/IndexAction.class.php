@@ -122,6 +122,7 @@ class IndexAction extends BaseAction{
         //子分类则加载频道模版
         $subclass = M('Classify')->where(array('category_id'=>$classid))->order('sorts')->select();
         if ($subclass){
+            $subclass=$this->getTypeUrl($subclass);
             $this->assign('subclassify',$subclass);
             $this->display($this->wxuser['tplchname'].':'.$this->wxuser['tplchid']);
         }
@@ -292,7 +293,7 @@ class IndexAction extends BaseAction{
 
     public function getPlugMenu(){
         $db = M('Plugmenu');
-        $plugmenus = $db->where(array('token'=>$this->token,'is_show'=>1))->order('sort asc')->select();
+        $plugmenus = $db->where(array('token'=>$this->token,'is_show'=>1))->order('order asc')->select();
         if ($plugmenus){
 
         }

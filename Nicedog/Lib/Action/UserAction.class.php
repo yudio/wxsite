@@ -16,7 +16,7 @@ class UserAction extends BaseAction{
 			}
 		}
         if (session('token')){
-            $wecha=M('Wxuser')->field('wxname,wxid,headerpic,weixin')->where(array('token'=>session('token'),'uid'=>session('uid')))->find();
+            $wecha=M('Wxuser')->field('id,wxname,wxid,headerpic,weixin')->where(array('token'=>session('token'),'uid'=>session('uid')))->find();
             $this->assign('wecha',$wecha);
             $this->assign('token',session('token'));
         }

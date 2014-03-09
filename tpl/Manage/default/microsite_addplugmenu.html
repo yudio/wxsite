@@ -12,14 +12,14 @@
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap_button.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css?2014-03-07" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
     <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
     <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/resource.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/resource.js?2014-03-07"></script>
     <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
     <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
     <!--[if IE 7]>
@@ -111,19 +111,12 @@
 </div>
 <div id="res_block">
 <div class="control-group">
-    <label class="control-label">回复类型:：</label>
+    <label class="control-label">回复类型</label>
     <div class="controls">
         <select id="type" class="input-medium" name="type">
-            <option value="link,链接" <if condition="$info.type eq 'link'">selected="selected"</if>>链接</option>
-            <option value="tel,电话" <if condition="$info.type eq 'tel'">selected="selected"</if>>电话</option>
-            <option value="map,导航" <if condition="$info.type eq 'map'">selected="selected"</if>>导航</option>
-            <option value="activity,活动" <if condition="$info.type eq 'activity'">selected="selected"</if>>活动</option>
-            <option value="business,业务模块" <if condition="$info.type eq 'business'">selected="selected"</if>>业务模块</option>
-            <option value="car,微汽车" <if condition="$info.type eq 'car'">selected="selected"</if>>微汽车</option>
-            <option value="estate,微房产" <if condition="$info.type eq 'estate'">selected="selected"</if>>微房产</option>
-            <option value="food,微餐饮" <if condition="$info.type eq 'food'">selected="selected"</if>>微餐饮</option>
-            <option value="shop,微商城" <if condition="$info.type eq 'shop'">selected="selected"</if>>微商城</option>
-            <option value="tg,微团购" <if condition="$info.type eq 'tg'">selected="selected"</if>>微团购</option>
+            <volist name="typelist" id="vo">
+                <option value="{np:$vo.value}" <if condition="$info['type'] eq $vo['value']">selected="selected"</if> >{np:$vo.name}</option>
+            </volist>
         </select>
     </div>
 </div>
@@ -131,7 +124,7 @@
     <div class="control-group">
         <label class="control-label" for="source_url">页面URL</label>
         <div class="controls">
-            <input type="text" id="source_url" value="" class="input-xlarge" name="link" data-rule-required="true" data-rule-url="true" />
+            <input type="text" id="source_url" value="{np:$info.link}" class="input-xlarge" name="link" data-rule-required="true" data-rule-url="true" />
             <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的URL格式)</span>
         </div>
     </div>
@@ -140,7 +133,7 @@
     <div class="control-group">
         <label class="control-label" for="tel">电话号码</label>
         <div class="controls">
-            <input type="text" id="tel" class="input-large" name="tel" value="" data-rule-required="true" />
+            <input type="text" id="tel" class="input-large" name="tel" value="{np:$info.tel}" data-rule-required="true" />
             <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的号码)</span>
         </div>
     </div>
@@ -319,7 +312,7 @@
         <label class="control-label" for="suggestId">经纬度</label>
         <div class="controls">
             <div class="input-append">
-                <input type="text" id="suggestId" name="place" value="" class="input-xlarge" data-rule-required="true" />
+                <input type="text" id="suggestId" name="place" value="{np:$info.place}" class="input-xlarge" data-rule-required="true" />
                 <button class="btn" type="button" id="positioning">搜索</button>
             </div>
             <span class="maroon">注意：这个只是模糊定位，准确位置请地图上标注!</span>
@@ -327,8 +320,8 @@
                 <i class="icon-spinner icon-spin icon-large"></i>地图加载中...
             </div>
             <div id="r-result">
-                <input type="text" id="lng" name="lng" value="" />
-                <input type="text" id="lat" name="lat" value="" />
+                <input type="text" id="lng" name="lng" value="{np:$info.lng}" />
+                <input type="text" id="lat" name="lat" value="{np:$info.lat}" />
             </div>
         </div>
     </div>
@@ -406,86 +399,4 @@
         }
     };
 </script>
-<script type="text/javascript">
-    (function() {
-        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
-        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
-    })();
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
-    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
-        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
-        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
-        wmShare.src += shareToPlatform + '&pid=&sendFriendLink=' + encodeURIComponent(sendFriendLink);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
-    }
-    function getShareApiRouter(){
-        var str_domain = location.href.split('/',4)[2];
-        var tj_domain = '127.0.0.1';
-        switch(str_domain){
-            case 'www.weimob.com':
-                tj_domain = 'tj.weimob.com';
-                break;
-            case '112.124.28.82':
-                tj_domain = '112.124.28.82:400';
-                break;
-        }
-        return tj_domain;
-    }
-    if(typeof(window.shareData) == 'undefined'){
-        window.shareData = {
-            "imgUrl": "",
-            "timeLineLink": "http://www.weimob.com/microsite/Plugmenued?aid=80322",
-            "sendFriendLink": "http://www.weimob.com/microsite/Plugmenued?aid=80322",
-            "weiboLink": "http://www.weimob.com/microsite/Plugmenued?aid=80322",
-            "tTitle": document.title,
-            "tContent": document.title,
-            "fTitle": document.title,
-            "fContent": document.title,
-            "wContent": document.title
-        }
-    }
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            WeixinJSBridge.invoke('sendAppMessage', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.sendFriendLink,
-                "desc": window.shareData.fContent,
-                "title": window.shareData.fTitle
-            }, function (res) {
-                weimobAfterShare("",window.shareData.sendFriendLink,'appmessage');
-                _report('send_msg', res.err_msg);
-            })
-        });
-
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.timeLineLink,
-                "desc": window.shareData.tContent,
-                "title": window.shareData.tTitle
-            }, function (res) {
-                weimobAfterShare("",window.shareData.timeLineLink,'timeline');
-                _report('timeline', res.err_msg);
-            });
-        });
-
-        // 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-            WeixinJSBridge.invoke('shareWeibo', {
-                "content": window.shareData.wContent,
-                "url": window.shareData.weiboLink,
-            }, function (res) {
-                weimobAfterShare("",window.shareData.weiboLink,'weibo');
-                _report('weibo', res.err_msg);
-            });
-        });
-    }, false);
-</script></html>
+</html>

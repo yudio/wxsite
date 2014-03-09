@@ -1,18 +1,14 @@
 <section>
-	<div class="plug-div">
-		<div id="plug-phone" class="plug-phone">
-			<input type="checkbox" id="plug-btn" class="plug-menu" style="background-color:#B70000;" />
-				<div style="background-color:#B70000; ">
-					<a href="tel:0760-89896666" class="icon-phone"></a>
-				</div>
-				<div style="background-color:#B70000; ">
-					<a href="http://api.map.baidu.com/marker?location=22.515,113.352989&title=中山雅居乐剑桥郡&name=中山雅居乐剑桥郡&content=广东省中山市博爱一路&output=html&src=weiba|weiweb" class="icon-map-marker"></a>
-				</div>
-				<div style="background-color:#B70000; ">
-					<a href="http://www.agile.com.cn" class="icon-globe "></a>
-				</div>
-		</div>
-	</div>
+    <div class="plug-div">
+        <div id="plug-phone" class="plug-phone">
+            <input type="checkbox" id="plug-btn" class="plug-menu" style="background-color:{np:$homeInfo.plugmenucolor};"/>
+            <volist name="plugmenus" id="vo">
+                <div style="background-color:{np:$homeInfo.plugmenucolor}; ">
+                    <a href="{np:$vo.url}" class="{np:$vo.icon}"></a>
+                </div>
+            </volist>
+        </div>
+    </div>
 </section>
 <script>
 	window.addEventListener("DOMContentLoaded", function(){
