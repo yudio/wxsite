@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-2.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
     <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-    <title>{np:$homeInfo.title}</title>
+    <title>1</title>
     <include file="common:meta"/>
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
@@ -17,7 +17,7 @@
         <nav>
             <ul class="top_menu">
                 <li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
-                <li onclick="location.href=''"><span class="icon-home"></span></li>
+                <li onclick="location.href='/weisite/home?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&wxref=mp.weixin.qq.com'"><span class="icon-home"></span></li>
                 <li onclick="$('#menu_font').toggleClass('hidden');">
                     <span class="icon-list-ul"></span>
                     <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
@@ -46,24 +46,25 @@
             </ul>
         </nav>
     </div>
-
-    <!--
-    分享前控制
-    -->
     <script>
-
     </script>
     <div class="weimob-content">
-        <div class="weimob-list">
-            <volist name="info" id="vo">
+        <volist name="info" id="vo">
+            <div class="weimob-list">
                 <a class="weimob-list-item" href="{np:$vo.url}">
                     <div class="weimob-list-item-line">
                         <div class="weimob-list-item-title">{np:$vo.title}</div>
+                        <div class="weimob-list-item-summary">{np:$vo.createtime}</div>
+                        <div class="weimob-list-item-img"><img src="{np:$vo.pic}"/></div>
+                        <div class="weimob-list-item-summary">{np:$vo.info}</div>
                     </div>
-                    <div class="weimob-list-item-icon-two icon-arrow-r" style="display:none;"></div>
+                    <div class="weimob-list-more">
+                        <div class="weimob-list-item-more">阅读全文</div>
+                        <div class="weimob-list-item-more-icon icon-arrow-r"></div>
+                    </div>
                 </a>
-            </volist>
-        </div>
+            </div>
+        </volist>
     </div>
 </div>
 <include file="common:footer"/>

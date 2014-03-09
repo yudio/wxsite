@@ -283,7 +283,8 @@ class MicroSiteAction extends UserAction{
             $id = $this->_post('id');
             //$types = explode(',',$_POST['type']);
             $_POST['type'] = $this->_post('type');
-            $_POST['typename'] = C('plugmenu_typemap')[$_POST['type']];
+            $typemap = C('plugmenu_typemap');
+            $_POST['typename'] = $typemap[$_POST['type']];
             $_POST['uid']    = session('uid');
             $_POST['token']    = session('token');
             $_POST['url'] = TypeLink::getTypeLink($_POST,'Plugmenu');
