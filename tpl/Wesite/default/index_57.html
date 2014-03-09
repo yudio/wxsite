@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-57.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/audio.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+    <div class="body">
+        <section>
+            <div>
+                <header>
+                    <div class="snower">
+                       <include file="common:snow"/>
+                    </div>
+                </header>
+                <div class="header2">
+                <!--幻灯片管理-->
+                <include file="common:banner"/>
+                <a href="tel:021-2222222" class="tel">电话:021-2222222<span class="icon-phone">&nbsp;</span></a>
+
+            </div>
+                <script>
+                    window.addEventListener("DOMContentLoaded", function(){
+                        playbox.init("playbox");
+                    }, false);
+                </script>
+                <span id="playbox" class="btn_music" onclick="playbox.init(this).play();">
+                    <audio src="{np:$homeInfo.bg_audio}" loop id="audio"></audio>
+                </span>
+                <ul class="list_ul">
+                    <volist name="classify" id="vo">
+                        <li>
+                            <a href="{np:$vo.url}" class="box">
+                                <div>
+                                    <img src="{np:$vo.img}" />
+                                </div>
+                                <div>
+                                    <p>{np:$vo.name}</p>
+                                </div>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!--导航菜单后台设置的快捷菜单-->
+    <include file="common:nav"/>
+    <!--分享前控制-->
+    <include file="common:share"/>
+   <include file="common:footer"/>
+</body>
+</html>
+

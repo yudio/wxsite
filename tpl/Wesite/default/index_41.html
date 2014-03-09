@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <include file="common:snowcss"/>
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-41.css" media="all" />
+		<script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+		<title>{np:$homeInfo.title}</title>
+        <include file="common:meta"/>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+	<include file="common:iframe"/>
+<style type="text/css">
+.body{
+	display:block;
+		background:url('{np:$homeInfo.bg_img}') no-repeat center 0;
+		background-size:100% 100%;
+}
+</style>
+<div class="body">
+	<header>
+        <div class="snower">
+           <include file="common:snow"/>
+        </div>
+    </header>  
+	<section>
+		<ul class="list_ul">
+            <volist name="classify" id="vo">
+                <if condition="$i % 3 eq 1">
+                    <li class="box">
+                </if>
+                <if condition="($i % 3 gt 0) AND ($i % 3 lt 3)">
+                    <a href="{np:$vo.url}" >
+                        <label>{np:$vo.name}<small></small></label>
+                        <span class="{np:$vo.icon}"></span>
+                    </a>
+                </if>
+                <if condition="($i%3 eq 2)OR(($i eq count($classify)) AND (count($classify) lt 3))OR((count($classify)%3  gt 0)AND(count($classify)%3  lt 3))">
+                    </li>
+                </if>
+                <if condition="($i % 3 eq 0)AND (count($classify) gt 0)">
+                    <li class="box">
+                        <a href="{np:$vo.url}" >
+                            <div class="imgBox fl">
+                                <img src="{np:$vo.img}" />
+                            </div>
+                            <label>{np:$vo.name}<small></small></label>
+                        </a>
+                    </li>
+                </if>
+            </volist>
+            <!--
+			<li class="box">
+			<a href="/Webestate/Index?pid=81238&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&wxref=mp.weixin.qq.com" >		
+				<label>6<small></small></label>
+				<span class="icon-smile"></span>
+			</a>
+			<a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233949&wxref=mp.weixin.qq.com" >							
+				<label>7<small></small></label>
+					<span class="icon-smile"></span>
+				</a>
+			</li>
+			<li class="box">							
+				<a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233951&wxref=mp.weixin.qq.com" >			
+					<div class="imgBox fl">
+						<img src="{np::RES}//img/template/lib/home-150150.jpg?v=2014-02-26-2?=2014-02-26-2" />
+					</div>
+					<label>8<small></small></label>
+				</a>
+			</li>
+			<li class="box">							
+				<a href="/weisite/" >			
+					<label>9<small></small></label>
+					<span class="icon-smile"></span>
+				</a>
+				<a href="tel:010-12312312" >			
+					<label>2<small></small></label>
+					<span class="icon-globe"></span>
+				</a>
+			</li>
+			<li class="box">							
+				<a href="" >				
+					<div class="imgBox fl">
+						<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+					</div>
+					<label>3<small></small></label>
+				</a>
+			</li>
+			<li class="box">							
+				<a href="wxref=mp.weixin.qq.com" >			
+				<label>4<small></small></label>
+					<span class="icon-smile"></span>
+				</a>
+				<a href="/weisite/wxref=mp.weixin.qq.com" >			
+				<label>5<small></small></label>
+					<span class="icon-smile"></span>
+				</a>
+			</li>
+			<li class="box">							
+				<a href="t4&categoryid=232943&wxref=mp.weixin.qq.com" >	
+					<div class="imgBox fl">
+						<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+					</div>
+					<label>1<small></small></label>
+				</a>
+			</li>
+			-->
+		<ul>
+	</section>
+</div>
+    <!--导航菜单后台设置的快捷菜单-->
+    <include file="common:nav"/>
+    <!--分享前控制-->
+	<include file="common:share"/>
+    <include file="common:footer"/>
+	</body>
+</html>
+

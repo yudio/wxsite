@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-55.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/audio.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<div class="body">
+    <header>
+        <div class="snower">
+           <include file="common:snow"/>
+        </div>
+    </header>
+    <script>
+    window.addEventListener("DOMContentLoaded", function(){
+        playbox.init("playbox");
+    }, false);
+</script>
+    <span id="playbox" style="right:10px;left:inherit;" class="btn_music" onclick="playbox.init(this).play();">
+        <audio src="{np:$homeInfo.bg_audio}" loop id="audio"></audio></span>
+    <section>
+        <div>
+            <div class="header2">
+                <hgroup>
+                    <h2>{np:$homeInfo.title}</h2>
+                    <h4>{np:$homeInfo.info}</h4>
+                </hgroup>
+                <figure style="background-image:url('{np:$homeInfo.bg_img}');">&nbsp;</figure>
+
+            </div>
+            <ul class="list_ul">
+                <volist name="classify" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}"
+                           style="background-image:url('{np:$vo.img}');">
+                            <label>{np:$vo.name}</label>
+                        </a>
+                        <i></i>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

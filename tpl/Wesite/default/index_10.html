@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-10.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="comon:iframe"/>
+<script>
+    $(function(){
+        var img = new Image();
+        img.src = "res/1.png";
+        console.log(img);
+        new Swipe(document.getElementById('topList_box'), {
+            speed:500,
+            auto:3000,
+            callback: function(){
+                var lis = $(this.element).next("ol").children();
+                lis.removeClass("on").eq(this.index).addClass("on");
+            },
+            callback2: function(){
+                console.log("user op");
+            }
+        });
+    });
+</script>
+
+<div class="body">
+    <include file="common:banner"/>
+    <br/><header>
+    <div class="snower">
+        <include file="common:snow"/>
+    </div>
+</header> 	<section>
+    <ul class="card_lol">
+        <volist name="classify" id="vo">
+            <li>
+                <a href="{np:$vo.url}">
+                    <img src="{np:$vo.img}" alt="{np:$vo.name}"/>
+                    <label>{np:$vo.name}</label>
+                </a>
+           </li>
+        </volist>
+    </ul>
+</section>
+</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

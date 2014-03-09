@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-47.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<div class="body">
+    <!--幻灯片管理-->
+    <include file="common:banner"/>
+    <br/>
+    <header>
+        <div class="snower">
+            <include file="common:snow"/>
+        </div>
+    </header> 	<section>
+    <div>
+        <ul class="list_ul">
+            <volist name="classify" id="vo" mod="5">
+                <if condition="$i eq 1">
+                    <eq name="mod" value="0">
+                        </li>
+                        <li class="box">
+                    </eq>
+                    <else/>
+                    <eq name="mod" value="0">
+                        <li class="box">
+                    </eq>
+                </if>
+                <eq name="mod" value="3">
+                    </li>
+                    <li class="box">
+                </eq>
+                <dl>
+                    <a href="{np:$vo.url}">
+                        <dd>
+                            <div>
+                                <span class="{np:$vo.icon}"></span>
+                            </div>
+                        </dd>
+                        <dt>{np:$vo.name}</dt>
+                    </a>
+                </dl>
+            </volist>
+            </li>
+        </ul>
+    </div>
+</section>
+</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

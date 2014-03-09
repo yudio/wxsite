@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <include file="common:snowcss"/>
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-36.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+		<script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/jquery-min-1.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/template/jquery_easing.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/template/com_clanmo_gallery_min.js"></script>
+		<script type="text/javascript" src="{np::RES}/src/swipe.js"></script>
+		<title>{np:$homeInfo.title}</title>
+        <include file="common:meta"/>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+     <include file="common:iframe"/>
+	<script type="text/javascript">var isTablet = false;</script>
+
+	<div class="header">
+		<div class="logo">
+			<img src="{mp:$homeInfo.mslogo}" width="213" height="29" alt="" style="width:auto!important; max-width:213px;" />
+		</div>
+	</div>
+    <span class="gradient_h_wbw"></span>
+    <div class="top">
+        <header>
+            <div class="snower">
+               <include file="common:snow"/>
+            </div>
+        </header>
+        <div class="stage_container relative">
+                <article id="indicator_36eea047" class="indicator" data-maxBullets="8">
+                    <span class="ind_a"></span>
+                    <span ></span>
+                </article>
+                <div id="stage_36eea047" class="ofh">
+                    <ul class="list_ul_scroll">
+                        <volist name="flash" id="vo">
+                            <li data-itemid="$i" >
+                                <a onclick="return false;">
+                                    <img src="{np:$vo.img}" data-touchable="touchable"/>
+                                    <div>
+                                        <h3>{np:$vo.name}</h3>
+                                        <p></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+        </div>
+	</div>
+	<div class="main" style="padding-top:10px; padding-bottom:50px;">
+        <!--用户分类管理-->
+		<ul class="list_ul_common">
+            <volist name="classify" id="vo">
+                <li>
+                    <a href="{np:$vo.url}">
+                        <div><p>{np:$vo.name}</p></div>
+                    </a>
+                </li>
+            </volist>
+		</ul>
+	</div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        new Swipe(document.getElementById('stage_36eea047'), {
+            speed:500,
+            auto:3000,
+            callback: function(){
+                var lis = $("#indicator_36eea047 span");
+                lis.removeClass("ind_a").eq(this.index).addClass("ind_a");
+            }
+        });
+    });
+    </script>
+
+    <!--导航菜单后台设置的快捷菜单-->
+    <include file="common:nav"/>
+    <!--分享前控制-->
+     <include file="common:share"/>
+	<include file="common:footer"/>
+	</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-65.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<div class="body">
+    <header>
+        <div>
+            <img src="{np::RES}/img/template/lib/v80_4.jpg"  style="width:100%;" />
+        </div>
+    </header>
+    <section class="section_body">
+        <header>
+            <div class="snower">
+               <include file="common:snow"/>
+            </div>
+        </header>
+        <script>
+        $(function(){
+            window.swiper_2 = new Swipe(document.getElementById('list_uls'), {
+                speed:500,
+                // auto:3000,
+                callback: function(){
+                    var lis = $("#nav_for_list_ul li");
+                    lis.removeClass("on").eq(this.index).addClass("on");
+                }
+            });
+        });
+    </script>
+        <div id="list_uls" class="list_uls box_swipe">
+            <ul>
+                <li style="width: 270px; display: table-cell; vertical-align: top;">
+                    <volist name="classify" id="vo">
+                        <a href="{np:$vo.url}">
+                            <label><small>{np:$vo.name}</small></label>
+                            <span class="{np:$vo.icon}"></span>
+                        </a>
+                    </volist>
+                </li>
+            </ul>
+        </div>
+        <ul id="nav_for_list_ul" class="nav_for_list_ul">
+            <li class="on"></li>
+        </ul>
+    </section>
+    <div>
+        <img src="{np::RES}/img/template/lib/v80_6.jpg?v=2014-02-26-2"  style="width:100%;" />
+    </div>
+    <!--导航菜单后台设置的快捷菜单-->
+    <include file="common:nav"/>
+
+    <!--分享前控制-->
+    <include file="common:share"/>
+</div>
+    <include file="common:footer"/>
+</body>
+</html>
+

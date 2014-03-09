@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/snower.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-43.css" media="all" />
+        <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+        <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+        <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+        <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+        <title>{np:$homeInfo.title}</title>
+        <include file="common:meta"/>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+    <include file="common:iframe"/>
+    <style type="text/css">
+    .body{
+        display:block;
+        background:#e9e9e9;
+            background:url('{np:$homeInfo.bg_img}');
+        }
+    </style>
+    <div class="body">
+        <section>
+        <include file="common:banner"/>
+        <br/>
+        <header>
+            <div class="snower">
+                <script type="text/javascript">var urls = ['{np::RES}/img/template/lib/v56_petal.png']</script>
+                <script type="text/javascript" src="{np::RES}/src/template/snower1.js"></script>
+            </div>
+        </header>
+        <div>
+            <ul class="list_ul">
+                <volist name="classify" id="vo">
+                    <if condition="($i gt 0)AND($i lt 9 ) ">
+                        <if condition="$i % 4 eq 1">
+                            <li class="box">
+                        </if>
+                        <dl>
+                            <a href="{np:$vo.url}">
+                                <dd>
+                                    <div>
+                                        <span class="{np:$vo.icon}"></span>
+                                    </div>
+                                </dd>
+                                <dt>{np:$vo.name}</dt>
+                            </a>
+                        </dl>
+                        <if condition="($i eq count($classify)) OR($i%4 eq 0) ">
+                            </li>
+                        </if>
+                    </if>
+                </volist>
+            </ul>
+            </div>
+            <if condition="count($classify) gt 8">
+            <div>
+                <ul class="list_card">
+                    <volist name="classify" id="vo">
+                        <if condition="$i gt 8">
+                            <if condition="$i % 2 eq 1">
+                                <li class="box">
+                            </if>
+                            <dl>
+                                <a href="{np:$vo.url}">
+                                    <dd>
+                                        <div>
+                                            <span class="{np:$vo.icon}"></span>
+                                        </div>
+                                    </dd>
+                                    <dt>{np:$vo.name}</dt>
+                                </a>
+                            </dl>
+                            <if condition="($i eq count($classify)) OR($i%2 eq 0) ">
+                                </li>
+                            </if>
+                        </if>
+                    </volist>
+                </ul>
+            </div>
+            </if>
+        </section>
+    </div>
+    <!--导航菜单后台设置的快捷菜单-->
+    <include file="common:nav"/>
+    <!--分享前控制-->
+    <include file="common:share"/>
+    <include file="common:footer"/>
+    </body>
+</html>
+

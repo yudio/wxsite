@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-56.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/audio.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+    <div class="body">
+        <section>
+            <div>
+                <script>
+                    window.addEventListener("DOMContentLoaded", function(){
+                        playbox.init("playbox");
+                    }, false);
+                </script>
+                <span id="playbox" class="btn_music" onclick="playbox.init(this).play();">
+                    <audio src="{np:$homeInfo.bg_audio}" loop id="audio"></audio>
+                </span>
+                <header>
+                    <div class="snower">
+                       <include file="common:snow"/>
+                    </div>
+                </header>
+                <div class="header2">
+                <!--幻灯片管理-->
+                <include file="common:banner"/>
+                <a href="tel:021-2222222" class="tel">电话:021-2222222<span class="icon-phone">&nbsp;</span></a>
+            </div>
+                <!--
+                <ul class="list_ul" style="clear:both;">
+                    <li >
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233948&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>6</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-150150.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li style="direction:rtl;">
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233949&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>7</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-150150.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233951&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>8</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-150150.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li style="direction:rtl;">
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233952&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>9</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-150150.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="tel:010-12312312"
+                           class="box">
+                            <div>
+                                <p class="icon-globe"></p>
+                                <p>2</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li style="direction:rtl;">
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>3</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>4</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li style="direction:rtl;">
+                        <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>5</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com"
+                           class="box">
+                            <div>
+                                <p class="icon-smile"></p>
+                                <p>1</p>
+                            </div>
+                            <div>
+                                <img src="http://stc.weimob.com//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" />
+                            </div>
+                        </a>
+                    </li>
+                </ul>-->
+
+                <ul class="list_ul" style="clear:both;">
+                    <volist name="classify" id="vo" mod="2">
+                        <if condition="$i %2 eq 1">
+                            <li >
+                                <a href="{np:$vo.url}" class="box">
+                                    <div>
+                                        <p class="{np:$vo.icon}"></p>
+                                        <p>{np:$vo.name}</p>
+                                    </div>
+                                    <div>
+                                        <img src="{np:$vo.img}" />
+                                    </div>
+                                </a>
+                            </li>
+                        <else/>
+                            <li style="direction:rtl;">
+                                <a href="{np:$vo.url}"
+                                   class="box">
+                                    <div>
+                                        <p class="{np:$vo.icon}"></p>
+                                        <p>{np:$vo.name}</p>
+                                    </div>
+                                    <div>
+                                        <img src="{np:$vo.img}" />
+                                    </div>
+                                </a>
+                            </li>
+                        </if>
+                    </volist>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!--导航菜单后台设置的快捷菜单-->
+    <include file="common:nav"/>
+
+    <!--分享前控制-->
+    <include file="common:share"/>
+    <include file="common:footer"/>
+</body>
+</html>
+

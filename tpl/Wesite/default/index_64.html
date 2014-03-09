@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-64.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/player_min.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<style>
+    .body{
+        display:block;
+        background:url("{np:$homeInfo.bg_img}") no-repeat center 0;
+        background-size:100% 100%;
+        padding-top:230px;
+        -webkit-box-sizing:border-box;
+    }
+</style>
+<div class="body">
+    <section>
+        <header>
+            <div class="snower">
+                <include file="common:snow"/>
+            </div>
+        </header>
+        <div class="header2">
+        <script>
+            $().ready(function(){
+                playbox.init("playbox");
+            });
+        </script>
+        <div>
+            <a href="javascript:void(0);" id="playbox" class="btn_music" onclick="playbox.init(this).play();" ontouchstart="event.stopPropagation();"></a>
+            <audio id="audio" loop src="{np:$homeInfo.bg_audio}" style="pointer-events:none;display:none;width:0!important;height:0!important;"></audio>
+        </div>
+    </div>
+        <script>
+            $(function(){
+                window.swiper_2 = new Swipe(document.getElementById('list_uls'), {
+                    speed:500,
+                    // auto:3000,
+                    callback: function(){
+                        var lis = $("#nav_for_list_ul li");
+                        lis.removeClass("on").eq(this.index).addClass("on");
+                    }
+                });
+            });
+        </script>
+        <div id="list_uls" class="list_uls box_swipe">
+            <ul>
+                <li>
+                    <volist name="classify" id="vo">
+                        <a href="{np:$vo.url}">
+                            <label><small>{np:$vo.name}</small></label>
+                            <span class="{np:$vo.icon}"></span>
+                        </a>
+                    </volist>
+                </li>
+            </ul>
+        </div>
+        <ul id="nav_for_list_ul" class="nav_for_list_ul">
+            <li class="on"></li>
+        </ul>
+    </section>
+</div>
+<include file="common:footer"/>
+</body>
+</html>
+

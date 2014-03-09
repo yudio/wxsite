@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/snower.css" media="all" />
+        <include file="common:snowcss"/>
 		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-35.css" media="all" />
@@ -17,11 +17,11 @@
     <body onselectstart="return true;" ondragstart="return false;">
     <include file="common:iframe"/>
 	<style>
-		.body{
-			display:block;
-			background:url('{np:$homeInfo.bg_img}') no-repeat 0 0;
-			background-size:100% 100%;
-		}
+	.body{
+		display:block;
+		background:url('{np:$homeInfo.bg_img}') no-repeat 0 0;
+		background-size:100% 100%;
+	}
 	</style>
 
 <div class="body">
