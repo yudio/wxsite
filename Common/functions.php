@@ -716,3 +716,24 @@ function send_http_status($code) {
         header('Status:'.$code.' '.$_status[$code]);
     }
 }
+
+
+/*
+ *
+ * 无模块访问
+ */
+
+function __hack_module(){
+    LOG::write('__hack_module',LOG::ERR);
+    echo "你访问的模块不存在!";
+}
+
+/*
+ *
+ * 无方法访问
+ */
+
+function __hack_action(){
+    LOG::write('__hack_action',LOG::ERR);
+    echo "你访问的方法不存在!";
+}

@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+    <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css?2014-03-07-1" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::RES}/src/inside.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/fileupload/bootstrap_fileupload_min.js?2014-03-07-1"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <link rel="shortcut icon" href="{np::RES}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<div id="main">
+<div class="container-fluid">
+
+<div class="row-fluid">
+<div class="span12">
+
+<div class="box">
+<div class="box-title">
+    <div class="span7">
+        <h3><i class="icon-table"></i>大转盘SN码发放管理</h3>
+    </div>
+    <div class="span5">
+        <form action="/Weactivity/SnCode" method="get" class="form-horizontal">
+            <input type="hidden" name="aid" value="12405">
+            <input type="hidden" name="ac" value="Bigwheel">
+            <input type="hidden" name="pid" value="84870">
+            <input type="text" id="keyword-input" name="keywords" class="input-small-z" placeholder="请输入关键词" data-rule-required="true" />
+            <select name="type" class="input-medium">
+                <option value="number">手机号查询</option>
+                <option value="sn_code">SN码查询</option>
+            </select>
+            <select name="state" class="input-small">
+                <option value="">全部</option>
+                <option value="1">未发放</option>
+                <option value="2">已发放</option>
+                <option value="3">已消费</option>
+            </select>
+            <button class="btn">查询</button>
+        </form>
+    </div>
+</div>
+
+<div class="box-content">
+
+<div class="row-fluid">
+    <div class="span8 control-group">
+        <a class="btn" data-toggle="modal" href="#myModal"><i class="icon-plus"></i>增加SN码数量</a>
+        <a class="btn" href="/Weactivity/ExportSn?aid=12405&ac=Bigwheel&pid=84870&tp=number&keyword=&state=">
+            <i class="icon-download-alt"></i>导出SN码和兑奖信息</a>
+        <a class="btn" href="/Weactivity/SnCode?aid=12405&ac=Bigwheel&pid=84870&tp=number&state=2">已发放</a>
+        <a class="btn" href="/Weactivity/SnCode?aid=12405&ac=Bigwheel&pid=84870&tp=number&state=3">已消费</a>
+
+    </div>
+</div>
+
+<div class="alert">
+    本次活动奖品总数：个　 　抽中未兑换：1个　　抽中已兑换：1个
+</div>
+<p>
+    领取规则先到先得！
+
+</p>
+<div class="row-fluid dataTables_wrapper">
+    <form action="/plus/formajax.php" method="post" class="form-horizontal">
+        <table id="listTable" class="table table-bordered table-hover  dataTable">
+
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>SN码</th>
+                <th>奖品类别</th>
+                <th>状态</th>
+                <th>领取者手机号</th>
+                <th>领取者微信码</th>
+                <th>中奖时间</th>
+                <th>使用时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <volist name="list" id="vo">
+            <tr>
+                <td>{np:$i}</td>
+                <td>{np:$vo.sncode}</td>
+                <td>{np:$vo.type}</td>
+                <td><if condition="$vo.status eq 1">未领取<elseif condition="$vo.status eq 2"/>已发放<else/>已经消费</if></td>
+                <td>{np:$vo.phone}</td>
+                <td>{np:$vo.wechaname}</td>
+                <td><notempty name="$vo.updatetime">{np:$vo.updatetime|date='Y-m-d H:i:s',###}</notempty></td>
+                <td><notempty name="$vo.usetime">{np:$vo.usetime|date='Y-m-d H:i:s',###}</notempty></td>
+                <td>
+                    <div class="btn-group">
+                        <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="icon-cog"></i>操作 <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-primary">
+                            <!-- <li>
+                                <a href="/Weactivity/Snstate?id=12356742&pid=84870&aid=12405&ac=Bigwheel&state=1">还未发放</a>
+                            </li> -->
+                            <li>
+                                <a href="/Weactivity/Snstate?id=12356742&pid=84870&aid=12405&ac=Bigwheel&state=2">已经被抽中</a>
+                            </li>
+                            <li>
+                                <a href="/Weactivity/Snstate?id=12356742&pid=84870&aid=12405&ac=Bigwheel&state=3">已经兑奖</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            </volist>
+            </tbody>
+        </table>
+    </form>
+    <div class="dataTables_paginate paging_full_numbers"><span>       </span></div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="add_sn" action="/Weactivity/AddSnNum" method="post" class="form-horizontal">
+                <input type="hidden" name="pid" value="84870">
+                <input type="hidden" name="ac" value="Bigwheel">
+                <input type="hidden" name="aid" value="12405">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="icon-plus"></i>增加SN码数量</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-hover  dataTable">
+                        <tbody>
+                        <tr>
+                            <td>一等奖
+
+                            </td>
+                            <td class="inline">
+                                <input type="text" class="input-mini num" value="0" id="fistnums" name="one" data-rule-number="true" data-rule-range="[0,1000]" />
+                                小于1000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>二等奖
+
+                            </td>
+                            <td>
+                                <input type="text" class="input-mini num" value="0" id="secondnums" name="two" data-rule-number="true" data-rule-range="[0,1000]" />
+                                小于1000
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>三等奖
+
+                            </td>
+                            <td>
+                                <input type="text" class="input-mini num" value="0" id="thirdnums" name="three" data-rule-number="true" data-rule-range="[0,1000]" />
+                                小于1000
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>四等奖
+
+                            </td>
+                            <td>
+                                <input type="text" class="input-mini num" value="0" id="jpnums4" name="four" data-rule-number="true" data-rule-range="[0,1000]" />
+                                小于1000
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>五等奖
+
+                            </td>
+                            <td>
+                                <input type="text" class="input-mini num" value="0" id="jpnums5" name="five" data-rule-number="true" data-rule-range="[0,1000]" />
+                                小于1000
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>六等奖
+
+                            </td>
+                            <td>
+                                <input type="text" class="input-mini num" value="0" id="jpnums6" name="six" data-rule-number="true" data-rule-range="[0,1000]" />
+                                小于1000
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="_sb">提交</button>
+                </div>
+            </form>
+            <script type="text/javascript">
+                $("#_sb").click(function () {
+                    if ($("#add_sn").valid()) {
+                        var num = 0;
+                        $(".num").each(function (index) {
+                            num += parseInt($(this).val())
+                        })
+                        if (num>0) {
+                            $('#add_sn').submit();
+                        }
+                    };
+                });
+
+
+
+            </script>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="Form1" action="/Weactivity/Import" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <input type="hidden" name="aid" value="12405">
+                <input type="hidden" name="ac" value="Bigwheel">
+                <input type="hidden" name="pid" value="84870">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="icon-plus"></i>导入SN码</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">每次最多导入500条记录，超过500条的记录不处理 SN 码是唯一身份码 因此在一次活动中SN不可重复，重复的系统自动忽略！导入完成系统会自动纠正每个奖项的数量!文件大小不要超过1M</div>
+                    <p>
+                        <label> <a href="{np::RES}/img/SNCODE.csv" target="_blank" class="green">下载模板文件SNCODE.csv</a></label>
+                    </p>
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <span class="btn btn-file"><span class="fileupload-new">选择文件</span><span class="fileupload-exists">更改</span><input type="file" name="files"  /></span>
+                        <span class="fileupload-preview"></span>
+                        <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary"  >提交</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+</body>
+</html>
