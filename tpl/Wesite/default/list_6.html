@@ -12,40 +12,9 @@
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <div class="weimob-page">
-    <div style="height:35px!important;"></div>
-    <div class="top_bar">
-        <nav>
-            <ul class="top_menu">
-                <li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
-                <li onclick="location.href='/weisite/home?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&wxref=mp.weixin.qq.com'"><span class="icon-home"></span></li>
-                <li onclick="$('#menu_font').toggleClass('hidden');">
-                    <span class="icon-list-ul"></span>
-                    <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
-                        <li>
-                            <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232943&wxref=mp.weixin.qq.com" class="icon-smile">
-                                1									</a>
-                        </li>
-                        <li>
-                            <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232946&wxref=mp.weixin.qq.com" class="icon-globe">
-                                2									</a>
-                        </li>
-                        <li>
-                            <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com" class="icon-smile">
-                                3									</a>
-                        </li>
-                        <li>
-                            <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com" class="icon-smile">
-                                4									</a>
-                        </li>
-                        <li>
-                            <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com" class="icon-smile">
-                                5									</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <!--公共导航 start-->
+    <include file="common:menu"/>
+    <!--公共导航end-->
     <script>
     </script>
     <div class="weimob-content">

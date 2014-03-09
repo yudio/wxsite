@@ -12,27 +12,9 @@
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <div class="weimob-page">
-    <div style="height:35px!important;"></div>
-    <div class="top_bar">
-        <nav>
-            <ul class="top_menu">
-                <li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
-                <li onclick="location.href='{np:$homeInfo.homeurl}'"><span class="icon-home"></span></li>
-                <li onclick="$('#menu_font').toggleClass('hidden');">
-                    <span class="icon-list-ul"></span>
-                    <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
-                        <volist name="classify" id="vo">
-                            <li>
-                                <a href="{np:$vo.url}" class="{np:$vo.icon}">
-                                    {np:$vo.name}
-                                </a>
-                            </li>
-                        </volist>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <!--公共导航 start-->
+    <include file="common:menu"/>
+    <!--公共导航end-->
     <script>
     </script>
     <div class="weimob-content">
