@@ -293,10 +293,8 @@ class IndexAction extends BaseAction{
 
     public function getPlugMenu(){
         $db = M('Plugmenu');
-        $plugmenus = $db->where(array('token'=>$this->token,'is_show'=>1))->order('order asc')->select();
-        if ($plugmenus){
-
-        }
+        $plugmenus = $db->where(array('token'=>$this->token,'is_show'=>1))->limit(5)->order('sort asc')->select();
+        return $plugmenus;
 
     }
 	public function _getPlugMenu(){

@@ -1,3 +1,4 @@
+<if condition="$homeInfo.plugmenu eq 0">
 <section>
     <div class="plug-div">
         <div id="plug-phone" class="plug-phone">
@@ -11,15 +12,189 @@
     </div>
 </section>
 <script>
-	window.addEventListener("DOMContentLoaded", function(){
-		btn = document.getElementById("plug-btn");
-		btn.onclick = function(){
-			var divs = document.getElementById("plug-phone").querySelectorAll("div");
-			var className = className=this.checked?"on":"";
-			for(i = 0;i<divs.length; i++){
-				divs[i].className = className;
-			}
-			document.getElementById("plug-wrap").style.display = "on" == className? "block":"none";
-		}
-	}, false);
+    window.addEventListener("DOMContentLoaded", function(){
+        btn = document.getElementById("plug-btn");
+        btn.onclick = function(){
+            var divs = document.getElementById("plug-phone").querySelectorAll("div");
+            var className = className=this.checked?"on":"";
+            for(i = 0;i<divs.length; i++){
+                divs[i].className = className;
+            }
+            document.getElementById("plug-wrap").style.display = "on" == className? "block":"none";
+        }
+    }, false);
 </script>
+<elseif condition="($homeInfo.plugmenu eq 1)AND(count($plugmenus) gt 0)"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/menu-3.css" media="all"/>
+<section>
+    <div class="plug-div model1">
+        <div id="plug-phone" class="plug-phone">
+            <volist name="plugmenus" id="vo">
+                <div>
+                    <a href="{np:$vo.url}" class="{np:$vo.icon}">
+                        <label>{np:$vo.name}</label>
+                    </a>
+                </div>
+            </volist>
+            <div>
+                <a href="javascript:$('#shareCover').toggleClass('on');" class="icon-share"><label>分享</label></a>
+            </div>
+        </div>
+</section>
+<elseif condition="($homeInfo.plugmenu eq 2)AND(count($plugmenus) gt 0)"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-2.css" media="all"/>
+<div class="top_bar footer_bar" style="-webkit-transform:translate3d(0,0,0)">
+    <nav>
+        <ul class="top_menu">
+            <li onclick="location.reload();"><span></span></li>
+            <volist name="plugmenus" id="vo">
+                <li>
+                    <a href="{np:$vo.url}">
+                        <span class="{np:$vo.icon}"></span><label class="homemenu_text">{np:$vo.name}</label>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </nav>
+</div>
+<elseif condition="($homeInfo.plugmenu eq 3)AND(count($plugmenus) gt 0)"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-3.css" media="all"/>
+<div class="top_bar footer_bar">
+    <section>
+        <div class="nav_7">
+            <ul class="box">
+                <volist name="plugmenus" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}">
+                            <span class="span_style">{np:$vo.name}</span>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+</div>
+<elseif condition="($homeInfo.plugmenu eq 4)AND(count($plugmenus) gt 0)"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-4.css" media="all"/>
+<script>
+    window.addEventListener("DOMContentLoaded", function(){
+        var nav = document.querySelectorAll(".nav_8")[0];
+
+        var evts = {
+            handleEvent: function(evt){
+                if("A" == evt.target.nodeName){
+                    evt.target.classList.toggle("active");
+                }
+            }
+        }
+        nav.addEventListener("mousedown", evts, false);
+        nav.addEventListener("mouseup", evts, false);
+        nav.addEventListener("touchstart", evts, false);
+        nav.addEventListener("touchend", evts, false);
+    });
+</script>
+<div class="top_bar footer_bar">
+    <section>
+        <div class="nav_8">
+            <ul class="box">
+                <volist name="plugmenus" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}" >
+                            <p class="{np:$vo.icon}"></p>
+                            <span>{np:$vo.name}</span>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+</div>
+<elseif condition="($homeInfo.plugmenu eq 5)AND(count($plugmenus) gt 0)"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-5.css" media="all"/>
+<script>
+    window.addEventListener("DOMContentLoaded", function(){
+        var nav = document.querySelectorAll(".nav_9")[0];
+
+        var evts = {
+            handleEvent: function(evt){
+                if("A" == evt.target.nodeName){
+                    evt.target.classList.toggle("active");
+                }
+            }
+        }
+        nav.addEventListener("mousedown", evts, false);
+        nav.addEventListener("mouseup", evts, false);
+        nav.addEventListener("touchstart", evts, false);
+        nav.addEventListener("touchend", evts, false);
+    });
+</script>
+<div class="top_bar footer_bar">
+    <section>
+        <div class="nav_9">
+            <ul class="box">
+                <if condition="count($plugmenus) lt 3">
+                    <volist name="plugmenus" id="vo">
+                        <li>
+                            <a href="{np:$vo.url}">
+                                <p class="{np:$vo.icon}"></p>
+                                <span>{np:$vo.name}</span>
+                            </a>
+                        </li>
+                    </volist>
+                </if>
+                <if condition="count($plugmenus) gt 2">
+                    <li>
+                        <a href="{np:$homeInfo.homeurl}" class="home">
+                        </a>
+                    </li>
+                    <volist name="plugmenus" id="vo">
+                        <if condition="$i gt 2">
+                            <li>
+                                <a href="{np:$vo.url}">
+                                    <p class="{np:$vo.icon}"></p>
+                                    <span>{np:$vo.name}</span>
+                                </a>
+                            </li>
+                        </if>
+                    </volist>
+                </if>
+            </ul>
+        </div>
+    </section>
+</div>
+<elseif condition="($homeInfo.plugmenu eq 6)AND(count($plugmenus) gt 0)"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-6.css" media="all"/>
+<script>
+    window.addEventListener("DOMContentLoaded", function(){
+        var nav = document.querySelectorAll(".nav_10")[0];
+
+        var evts = {
+            handleEvent: function(evt){
+                if("A" == evt.target.nodeName){
+                    evt.target.classList.toggle("active");
+                }
+            }
+        }
+        nav.addEventListener("mousedown", evts, false);
+        nav.addEventListener("mouseup", evts, false);
+        nav.addEventListener("touchstart", evts, false);
+        nav.addEventListener("touchend", evts, false);
+    });
+</script>
+<div class="top_bar footer_bar">
+    <section>
+        <div class="nav_10">
+            <ul class="box">
+                <volist name="plugmenus" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}">
+                            <p class="{np:$vo.icon}"></p>
+                            <span>{np:$vo.name}</span>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+</div>
+</if>

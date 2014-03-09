@@ -37,21 +37,13 @@
                 <a href="javascript:document.getElementById('body2').classList.toggle('on');" class="a_aside"></a>
             </nav>
             <ul>
-                <li>
-                    <a href="http://baidu.com">
-                        <span class="icon-bullhorn"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://baidu.com">
-                        <span class="icon-bullhorn"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="tel:021-2222222">
-                        <span class="icon-bullhorn"></span>
-                    </a>
-                </li>
+                <volist name="plugmenus" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}">
+                            <span class="{np:$vo.icon}"></span>
+                        </a>
+                    </li>
+                </volist>
             </ul>
         </aside>
         <section>
