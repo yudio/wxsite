@@ -281,10 +281,10 @@ class MicroSiteAction extends UserAction{
         C('TOKEN_ON',false);
         if (IS_POST){
             $id = $this->_post('id');
-            //$types = explode(',',$_POST['type']);
+            //$types = explode(',',$_POST['type']);   外链映射
             $_POST['type'] = $this->_post('type');
             $_POST['typename'] = C('plugmenu_typemap')[$_POST['type']];
-            $_POST['uid']    = session('uid');
+            $_POST['uid']    = session('wxid');
             $_POST['token']    = session('token');
             $_POST['url'] = TypeLink::getTypeLink($_POST,'Plugmenu');
             if ($id){//更新操作
@@ -336,7 +336,10 @@ class MicroSiteAction extends UserAction{
             }
             $this->assign('info',$info);
         }
+        //加载外链配置
         $this->assign('typelist',C('plugmenu_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         $this->display();
     }
     public function delplugmenu(){

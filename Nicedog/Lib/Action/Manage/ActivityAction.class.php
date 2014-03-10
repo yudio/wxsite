@@ -56,6 +56,30 @@ class ActivityAction extends UserAction{
         $this->display();
     }
 
+    public function getActivityJSON(){
+        LOG::write('getActivityJSON',LOG::ERR);
+        $act= $this->_post('action');
+        $type = $this->_post('type');
+        if ($type=='lottery'){
+            $db = M('Lottery');
+            $where['token'] = session('token');
+            $time = time();
+            $where['stime'] = array('lt',$time);
+            $where['etime'] = array('gt',$time);
+            $where['status'] = 1;
+            $list = $db->where($where)->select();
+            if($list){
+                foreach($list as &$vo){
+                    $vo['start_time'] = date('Y-m-d H:i:s',$vo['stime']);
+                    $vo['end_time'] = date('Y-m-d H:i:s',$vo['etime']);
+                }
+                $this->ajaxReturn(array('success'=>true,'counts'=>count($list),'data'=>$list),'JSON');
+            }
+        }
+
+        $this->ajaxReturn(array('success'=>true,'counts'=>0,'data'=>array()),'JSON');
+    }
+
     public function lotteryList(){
         $db = M('Lottery');
         $user=M('Users')->field('gid,activitynum')->where(array('id'=>session('uid')))->find();

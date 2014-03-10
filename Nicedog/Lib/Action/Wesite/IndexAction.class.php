@@ -154,7 +154,7 @@ class IndexAction extends BaseAction{
 	}
 	
 	public function detail($contentid=0){
-        $where['wxname']=$this->_get('wxname','trim');
+        $where['token']=$this->token;
 		$db=M('Img');
 		if (!$contentid){
 			$contentid=intval($_GET['id']);
@@ -162,11 +162,10 @@ class IndexAction extends BaseAction{
 		$where['id']=array('neq',$contentid);
 		$lists=$db->where($where)->limit(5)->order('updatetime')->select();
 		$where['id']=$contentid;
-		$res=$db->where($where)->find();
+		$info=$db->where($where)->find();
 		$this->assign('lists',$lists);		//列表信息
-		$this->assign('res',$res);			//内容详情;
+		$this->assign('info',$info);			//内容详情;
 		$this->assign('copyright',$this->copyright);	//版权是否显示
-        LOG::write('图文手机页面:WAP/Index/'.$this->wxuser['tplcontentname'],LOG::ERR);
 		$this->display($this->wxuser['tplcontentname'].':'.$this->wxuser['tplcontentid']);
 	}
 	

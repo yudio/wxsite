@@ -23,6 +23,30 @@ return array (
         'food' => '微餐饮',
         'shop' => '微商城',
         'tg' => '微团购',
+    ),
+    'businesslist' => array(
+        array('value'=>'official', 'name'=> '微官网'),
+        array('value'=>'vipcard', 'name'=> '会员卡'),
+        array('value'=>'message', 'name'=> '微留言'),
+        array('value'=>'albums', 'name'=> '微相册'),
+        array('value'=>'buy', 'name'=> '微商城'),
+        //'reservation' => '微预约',
+        //'medical'     => '微医疗',
+        //'hotels'      => '微酒店',
+        //'survey'      => '微调研',
+        //'invitation'  => '微喜帖',
+        //'food'        => '微餐饮',
+        //'estate'      => '微房产',
+        //'tourism'     => '微旅游',
+    ),
+    'activitylist' => array(
+        array('value'=>'coupons', 'name'=> '优惠券'),
+        array('value'=>'scratchcard', 'name'=> '刮刮卡'),
+        array('value'=>'lottery', 'name'=> '大转盘'),
+        //array('value'=>'15', 'name'=> '一战到底'),
+        //array('value'=>'17', 'name'=> '微商城'),
+        //array('value'=>'20', 'name'=> '微投票'),
+        //array('value'=>'100', 'name'=> '圣诞活动'),
     )
 
 );

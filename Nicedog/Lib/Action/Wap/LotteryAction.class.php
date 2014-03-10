@@ -1,13 +1,13 @@
 <?php
 class LotteryAction extends BaseAction{
 	public function index(){
-		$agent = $_SERVER['HTTP_USER_AGENT']; 
+		/*$agent = $_SERVER['HTTP_USER_AGENT'];
 		if(!strpos($agent,"icroMessenger")) {
 			echo '此功能只能在微信浏览器中使用';exit;
-		}
+		}*/
 		$token		= $this->_get('token');
 		$wecha_id	= $this->_get('wecha_id');
-		$id 		= $this->_get('id');
+		$id 		= $this->_get('actid');
 		
 		$redata		= M('Lottery_record');
 		$where 		= array('token'=>$token,'wecha_id'=>$wecha_id,'lid'=>$id);

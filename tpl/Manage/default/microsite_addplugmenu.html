@@ -12,14 +12,14 @@
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap_button.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css?2014-03-07" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
     <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
     <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/resource.js?2014-03-07"></script>
+    <script type="text/javascript" src="{np::RES}/src/resource.js"></script>
     <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
     <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
     <!--[if IE 7]>
@@ -240,19 +240,9 @@
     <label class="control-label">业务类型:</label>
     <div class="controls">
         <select id="business_func" name="business_type" class="input-medium">
-            <option value="official" data-list="false" >微官网</option>
-            <option value="vipcard" data-list="false" >会员卡</option>
-            <option value="reservation" data-list="true" >微预约</option>
-            <option value="medical" data-list="false" >微医疗</option>
-            <option value="hotels" data-list="true" >微酒店</option>
-            <option value="message" data-list="false" >微留言</option>
-            <option value="albums" data-list="false"  >微相册</option>
-            <option value="survey" data-list="true"  >微调研</option>
-            <option value="invitation" data-list="true" >微喜帖</option>
-            <option value="buy"  disabled="disabled">微商城</option>
-            <option value="food"  disabled="disabled">微餐饮</option>
-            <option value="estate"  disabled="disabled">微房产</option>
-            <option value="tourism"  disabled="disabled">微旅游</option>
+            <volist name="businesslist" id="vo">
+                <option value="{np:$vo.value}" data-list="false" <if condition="$info['business_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+            </volist>
         </select>
     </div>
     <div class="margin-top" style="display:none;">
@@ -279,13 +269,9 @@
     <label class="control-label">活动类型:</label>
     <div class="controls">
         <select id="act" name="activity_type" onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
-            <option value="17" selected="selected">微投票</option>
-            <option value="11" >优惠券</option>
-            <option value="12" >刮刮卡</option>
-            <option value="13" >大转盘</option>
-            <option value="15" >一战到底</option>
-            <option value="20" >砸金蛋</option>
-            <option value="100" >圣诞活动</option>
+            <volist name="activitylist" id="vo">
+                <option value="{np:$vo.value}" data-list="false" <if condition="$info['activity_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+            </volist>
         </select>
     </div>
     <div  class="margin-top" id="activity_select_box" >
