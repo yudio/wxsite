@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/peak-0.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
     <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-    <title>6</title>
+    <title>{np:$info.title}</title>
     <include file="common:meta"/>
     <style>
         img{max-width:100%!important;}
@@ -20,30 +20,20 @@
 <include file="common:menu"/>
 <!--公共导航end-->
 <div class="weimob-content">
-    <h3>6</h3>
-    <div class="pub_time">{}</div>
-    <div class="head_logo" onclick="location.href='/weisite/home?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&wxref=mp.weixin.qq.com'">
+    <h3>{np:$info.title}</h3>
+    <div class="pub_time">{np:$info.createtime|date='Y-m-d',###}</div>
+    <div class="head_logo" onclick="location.href='{np:$homeInfo.homeurl}'">
         <div>
-            <span style="background-image:url('http://annchen.oss.aliyuncs.com/weixinface/d5/c7/7c/d5c77c6af693226fbe56d4d5ef442cf7.jpg');"></span>
+            <span style="background-image:url('{np:$wxuser.headerpic}');"></span>
         </div>
         <div style="width:100%;">
-            <label>乌龟背上看江山</label>
-            <div style="color:#ccc;">wuguidejiangshan</div>
+            <label>{np:$wxuser.wxname}</label>
+            <div style="color:#ccc;">{np:$wxuser.weixin}</div>
         </div>
     </div>
-    <div><img src="http://img.weimob.com/static/c3/c8/cb/image/20140304/20140304141936_17603.png" style="width:100%;"/></div>
-    <article><p>
-        6awfdasdfadfadf
-    </p>
-        <p>
-            adfasdf
-        </p>
-        <p>
-            adfasdf
-        </p>
-        <p>
-            adfadsf
-        </p></article>
+    <div><img src="{np:$info.pic}" style="width:100%;"/></div>
+    <article>
+        {np:$info.text}
 </div>
 <section style="width:95%; margin:0px auto;">
     <div id="mcover" onclick="document.getElementById('mcover').style.display='';" style="display:none;">
@@ -86,93 +76,9 @@
 </div>
 
 <!--分享前控制-->
-<script>
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        window.shareData = {
-            "imgUrl": "http://img.weimob.com/static/c3/c8/cb/image/20140304/20140304141936_17603.png",
-            "timeLineLink": "http://www.weimob.com/weisite/detail?pid=81238&bid=168275&did=316718&wechatid=fromUsername&from=list&wxref=mp.weixin.qq.com",
-            "sendFriendLink": "http://www.weimob.com/weisite/detail?pid=81238&bid=168275&did=316718&wechatid=fromUsername&from=list&wxref=mp.weixin.qq.com",
-            "weiboLink": "http://www.weimob.com/weisite/detail?pid=81238&bid=168275&did=316718&wechatid=fromUsername&from=list&wxref=mp.weixin.qq.com",
-            "tTitle": "6",
-            "tContent": "<p>
-            6awfdasdfadfadf
-                    </p>
-                <p>
-                adfasdf
-        </p>
-                <p>
-                adfasdf
-        </p>
-                <p>
-                adfadsf
-        </p>",
-        "fTitle": "6",
-                "fContent": "<p>
-        6awfdasdfadfadf
-        </p>
-                <p>
-                adfasdf
-        </p>
-                <p>
-                adfasdf
-        </p>
-                <p>
-                adfadsf
-        </p>",
-        "wContent": "<p>
-        6awfdasdfadfadf
-        </p>
-                <p>
-                adfasdf
-        </p>
-                <p>
-                adfasdf
-        </p>
-                <p>
-                adfadsf
-        </p>"
-    };
-
-    // 发送给好友
-    WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-        WeixinJSBridge.invoke('sendAppMessage', {
-            "img_url": window.shareData.imgUrl,
-            "img_width": "640",
-            "img_height": "640",
-            "link": window.shareData.sendFriendLink,
-            "desc": window.shareData.fContent,
-            "title": window.shareData.fTitle
-        }, function (res) {
-            _report('send_msg', res.err_msg);
-        })
-    });
-
-    // 分享到朋友圈
-    WeixinJSBridge.on('menu:share:timeline', function (argv) {
-        WeixinJSBridge.invoke('shareTimeline', {
-            "img_url": window.shareData.imgUrl,
-            "img_width": "640",
-            "img_height": "640",
-            "link": window.shareData.timeLineLink,
-            "desc": window.shareData.tContent,
-            "title": window.shareData.tTitle
-        }, function (res) {
-            _report('timeline', res.err_msg);
-        });
-    });
-
-    // 分享到微博
-    WeixinJSBridge.on('menu:share:weibo', function (argv) {
-        WeixinJSBridge.invoke('shareWeibo', {
-            "content": window.shareData.wContent,
-            "url": window.shareData.weiboLink,
-        }, function (res) {
-            _report('weibo', res.err_msg);
-        });
-    });
-    }, false)
-</script>
+<include file="share:script2"/>
 </div>
 <include file="common:footer"/>
 </body>
+<include file="share:script1"/>
 </html>
