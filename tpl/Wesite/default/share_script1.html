@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "{np:$info.pic}",
+            "timeLineLink": "{np:$info.url}",
+            "sendFriendLink": "{np:$info.url}",
+            "weiboLink": "{np:$info.url}",
+            "tTitle": "{np:$info.title}",
+            "tContent": "{np:$info.text}",
+            "fTitle": "{np:$info.title}",
+            "fContent": "{np:$info.text}",
+            "wContent": "{np:$info.text}"
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        //分享给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("{np:$wxuser.token}",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        //分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                weimobAfterShare("{np:$wxuser.token}",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink,
+            }, function (res) {
+                weimobAfterShare("{np:$wxuser.token}",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
