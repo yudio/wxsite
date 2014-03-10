@@ -47,7 +47,31 @@ return array (
         //array('value'=>'17', 'name'=> '微商城'),
         //array('value'=>'20', 'name'=> '微投票'),
         //array('value'=>'100', 'name'=> '圣诞活动'),
-    )
+    ),
+    'img_typelist' => array(
+        array('value'=>'link', 'name'=> '链接'),
+        array('value'=>'tel', 'name' => '电话'),
+        array('value'=>'map', 'name' => '导航'),
+        array('value'=>'activity', 'name' => '活动'),
+        array('value'=>'business', 'name' => '业务模块'),
+        /*array('value'=>'car', 'name' => '微汽车'),
+        array('value'=>'estate', 'name' => '微房产'),
+        array('value'=>'food', 'name' => '微餐饮'),
+        array('value'=>'shop', 'name' => '微商城'),
+        array('value'=>'tg', 'name' => '微团购'),*/
+    ),
+    'img_typemap' => array(
+        'link'=> '链接',
+        'tel' => '电话',
+        'map' => '导航',
+        'activity' => '活动',
+        'business' => '业务模块',
+        'car' => '微汽车',
+        'estate' => '微房产',
+        'food' => '微餐饮',
+        'shop' => '微商城',
+        'tg' => '微团购',
+    ),
 
 );
 

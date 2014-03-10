@@ -9,7 +9,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 
-<title>{np:$Dazpan.title}</title>
+<title>{np:$lottery.title}</title>
 <link href="{np::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
 <style>
 .footFix{width:100%;text-align:center;position:fixed;left:0;bottom:0;z-index:99;}
@@ -62,7 +62,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
     loadingObj.show();   
 </script>
 
-<if condition="$Dazpan['end'] eq 1">
+<if condition="$lottery['status'] eq 2">
     <div class="activity-lottery-end" >
     <div  class="main" >
     <div class="banner"><img src="{np::RES}/css/guajiang/images/activity-lottery-end2.jpg" /></div>
@@ -71,7 +71,7 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
             <div class="box">
                 <div class="title-red">活动结束说明：</div>
                 <div class="Detail">
-                <p> {np:$Dazpan.endinfo} </p>
+                <p> {np:$lottery.end_info} </p>
                 </div>
             </div>
         </div>
@@ -95,12 +95,12 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
         <div class="Detail">    
             <p>你中了：<span class="red" id="prizetype" >   </span></p>
             <p>兑奖SN码：<span class="red" id="sncode" ></span></p>
-            <p class="red" id="red">{np:$Dazpan.sttxt}</p>
+            <p class="red" id="red">{np:$lottery.content}</p>
             <p>
             <input name=""  class="px" id="tel" value="" type="text" placeholder="请输入您的手机号">
             <input name=""  class="px" id="wechaname" value="" type="text" placeholder="请输入您的姓名">
-            <input name=""  id="wechaid" value="{np:$Dazpan.wecha_id}" type="hidden">
-            <input name=""  id="lid" value="{np:$Dazpan.lid}" type="hidden">
+            <input name=""  id="wechaid" value="{np:$record.wecha_id}" type="hidden">
+            <input name=""  id="lid" value="{np:$record.lid}" type="hidden">
             <input name=""  id="winprize" value="" type="hidden">
             </p>
             <p>
@@ -109,41 +109,41 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
         </div>
     </div>
 </div>
-<if condition="$Dazpan['end'] eq 5">
+<if condition="$record['islottery'] eq 1">
  <div  class="main" >
     <div class="content" style=" margin-top:10px">
         <div class="boxcontent boxyellow">
             <div class="box">
                 <div class="title-red">恭喜:</div>
                 <div class="Detail">
-                <p> 尊敬的:<font color='red'>{np:$Dazpan.uname} </font>,您已经中了<font color='red'> {np:$Dazpan.prize} </font> ,您的领奖序列号:<font color='red'> {np:$Dazpan.sn} </font>请您牢记及尽快与我们联系</p>
+                <p> 尊敬的:<font color='red'>{np:$record.wecha_name} </font>,您已经中了<font color='red'> {np:$record.prize} </font> ,您的领奖序列号:<font color='red'> {np:$record.sn} </font>请您牢记及尽快与我们联系</p>
                 </div>
             </div>
         </div>
     </div>
     </div>
 </if>
-<if condition="$Dazpan['On'] eq 1">
+<if condition="$record['islottery'] eq 0">
 <div class="boxcontent boxyellow">
     <div class="box">
     <div class="title-green"><span>奖项设置：</span></div>
          <div class="Detail">
-		 <p>每人最多允许抽奖次数:{np:$Dazpan.canrqnums}<if condition="$Dazpan.usenums gt 0"> - 已抽取 <span class="red" id="usenums">{np:$Dazpan.usenums}</span> 次</if></p>
-             <p>一等奖: {np:$Dazpan.fist}  <if condition="$Dazpan['displayjpnums'] eq 1">奖品数量: {np:$Dazpan.fistnums}</if></p>
-              <if condition="$Dazpan['second'] neq ''">
-                <p>二等奖: {np:$Dazpan.second}<if condition="$Dazpan['displayjpnums'] eq 1">奖品数量: {np:$Dazpan.secondnums}</if></p>
+		 <p>每人最多允许抽奖次数:{np:$lottery.total_num}<if condition="$record.usenums gt 0"> - 已抽取 <span class="red" id="usenums">{np:$record.usenums}</span> 次</if></p>
+             <p>一等奖: {np:$lottery.l_name_one}  <if condition="$lottery['display_nums'] eq 1">奖品数量: {np:$lottery.l_num_one}</if></p>
+              <if condition="$lottery['l_name_two'] neq ''">
+                <p>二等奖: {np:$lottery.l_name_two}<if condition="$lottery['display_nums'] eq 1">奖品数量: {np:$lottery.l_num_two}</if></p>
               </if>             
-            <if condition="$Dazpan['third'] neq ''">
-                <p>三等奖: {np:$Dazpan.third} <if condition="$Dazpan['displayjpnums'] eq 1">奖品数量: {np:$Dazpan.thirdnums}</if></p>
+            <if condition="$lottery['l_name_three'] neq ''">
+                <p>三等奖: {np:$lottery.l_name_three} <if condition="$lottery['display_nums'] eq 1">奖品数量: {np:$lottery.l_num_three}</if></p>
             </if>
-            <if condition="$Dazpan['four'] neq ''">
-                <p>四等奖: {np:$Dazpan.four}  <if condition="$Dazpan['displayjpnums'] eq 1">奖品数量: {np:$Dazpan.fournums}</if></p>
+            <if condition="$lottery['l_name_four'] neq ''">
+                <p>四等奖: {np:$lottery.l_name_four}  <if condition="$lottery['display_nums'] eq 1">奖品数量: {np:$lottery.l_num_four}</if></p>
             </if>
-            <if condition="$Dazpan['five'] neq ''">
-                <p>五等奖: {np:$Dazpan.five}  <if condition="$Dazpan['displayjpnums'] eq 1">奖品数量: {np:$Dazpan.fivenums}</if></p>
+            <if condition="$lottery['l_name_five'] neq ''">
+                <p>五等奖: {np:$lottery.l_name_five}  <if condition="$lottery['display_nums'] eq 1">奖品数量: {np:$lottery.l_num_five}</if></p>
             </if>
-            <if condition="$Dazpan['six'] neq ''">
-                <p>六等奖: {np:$Dazpan.six}   <if condition="$Dazpan['displayjpnums'] eq 1">奖品数量: {np:$Dazpan.sixnums}</if></p>
+            <if condition="$lottery['l_name_six'] neq ''">
+                <p>六等奖: {np:$lottery.l_name_six}   <if condition="$lottery['display_nums'] eq 1">奖品数量: {np:$lottery.l_num_six}</if></p>
             </if>
         </div>
 </div>
@@ -152,9 +152,9 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
     <div class="box">
         <div class="title-green">活动说明：</div>
         <div class="Detail">
-        <p>{np:$Dazpan.info}</p>
-        <p>活动时间:{np:$Dazpan.statdate|date="Y-m-d",###}至{np:$Dazpan.enddate|date="Y-m-d",###}</p>
-        <p><strong>{np:$Dazpan.txt}</strong></p>
+        <p>{np:$lottery.info}</p>
+        <p>活动时间:{np:$lottery.stime|date="Y-m-d",###}至{np:$lottery.etime|date="Y-m-d",###}</p>
+        <p><strong>{np:$lottery.ticket_info}</strong></p>
         </div>
     </div>
 </div>
@@ -259,8 +259,8 @@ $(function() {
     $("#inner").click(function() {
 
         if (running) return;
-        if (count >= {np:$Dazpan.canrqnums}) {
-            alert("Oh~No~您已经抽了{np:$Dazpan.canrqnums} 次奖,不能再抽了,下次再来吧!");
+        if (count >= {np:$lottery.total_num}) {
+            alert("Oh~No~您已经抽了{np:$lottery.total_num} 次奖,不能再抽了,下次再来吧!");
             return
         }
 
@@ -270,14 +270,14 @@ $(function() {
         }
 
        $.ajax({
-         url     : "index.php?g=Wap&m=Lottery&a=getajax",
+         url     : "/npWap/Lottery/getajax.act",
          dataType: "json",
          type    : "POST",
          data    : {
-            token  : "{np:$Dazpan.token}",
-            oneid  : "{np:$Dazpan.wecha_id}",
-            id     : {np:$Dazpan.lid},
-            rid    : {np:$Dazpan.rid}
+            token  : "{np:$lottery.token}",
+            oneid  : "{np:$record.wecha_id}",
+            id     : {np:$lottery.id},
+            rid    : {np:$record.id}
          },
          beforeSend : function(){
             running = true;
@@ -295,8 +295,8 @@ $(function() {
                     return
             }
             if (backdata.norun == 2) {  
-                    alert("您已经抽了"+backdata.canrqnums+"次奖,不能再抽了,下次再来吧!");
-                    count = backdata.canrqnums;
+                    alert("您已经抽了"+backdata.totalnum+"次奖,不能再抽了,下次再来吧!");
+                    count = backdata.totalnum;
                     clearInterval(timer);
                     return
             }
@@ -370,7 +370,7 @@ function() {
         prizetype:prizetype,
         action: "add"
     };
-    $.post('index.php?g=Wap&m=Lottery&a=add', submitData,
+    $.post('/npWap/Lottery/add.act', submitData,
     function(data) {
         if (data.success == true) {
             alert(data.msg);

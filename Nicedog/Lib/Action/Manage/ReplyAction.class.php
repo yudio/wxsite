@@ -225,19 +225,44 @@ class ReplyAction extends UserAction
         $this->display();
     }
     public function addnews(){
+        C('TOKEN_ON',false);
         $db = D('Img');
         if (IS_POST){
             $id = $this->_post('id');
             $subnews = implode(',',$_REQUEST['votetouser'][0]);
             $_POST['news'] = $subnews;
+            //外链配置
+            $_POST['type'] = $this->_post('type');
+            $typemap = C('img_typemap');
+            $_POST['typename'] = $typemap[$_POST['type']];
+            $_POST['uid']    = session('wxid');
+            $_POST['token']    = session('token');
+            $_POST['url'] = TypeLink::getTypeLink($_POST,'Img');
+            LOG::write('URL'.$_POST['url'],LOG::ERR);
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
+                    //关键字应答
                     $data['pid']    = $id;
                     $data['module'] = 'Img';
                     $data['token']  = session('token');
                     $da['keyword']  = $_POST['keyword'];
                     M('Keyword')->where($data)->save($da);
+                    //外链配置
+                    C('TOKEN_ON',false);
+                    $newdb = D('Typelink');
+                    $tlink = $newdb->field('id')->where($data)->find();
+                    $data  = $_POST;
+                    $data['pid'] = $id;
+                    $data['module'] = 'Img';
+                    $data['id']     = $tlink['id'];
+                    if ($newdb->create($data)){
+                        $newdb->save();
+                    }else{
+                        LOG::write('addnews|save'.$newdb->getError(),LOG::ERR);
+                    }
+                    //更新
+                    $db->save();
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/reply/newslist.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -245,11 +270,23 @@ class ReplyAction extends UserAction
             }else{
                 if ($db->create()){
                     $id = $db->add();
+                    //关键字应答
                     $data['pid']     = $id;
                     $data['module']  = 'Img';
                     $data['token']   = session('token');
                     $data['keyword'] = $_POST['keyword'];
                     M('Keyword')->add($data);
+                    //外链配置
+                    C('TOKEN_ON',false);
+                    $data = $_POST;
+                    $data['pid'] = $id;
+                    $data['module'] = 'Img';
+                    $newdb = D('Typelink');
+                    if ($newdb->create($data)){
+                        $newdb->add();
+                    }else{
+                        LOG::write('addnews|add'.$newdb->getError(),LOG::ERR);
+                    }
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/reply/newslist.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -272,6 +309,10 @@ class ReplyAction extends UserAction
             $this->error('请先添加分类信息！','/npManage/microsite/classify.act');
         }*/
         $this->assign('classinfo',$class);
+        //加载外链配置
+        $this->assign('typelist',C('img_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         //dump($info);
         $this->display();
     }
