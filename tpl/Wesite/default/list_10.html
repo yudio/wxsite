@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-10.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>1</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="body">
+    <!--公共导航 start-->
+    <include file="common:menu"/>
+    <!--公共导航end-->
+    <script>
+    </script>
+    <section>
+        <div>
+            <ul class="list_ul">
+                <volist name="info" id="vo">
+                    <li>
+                        <a href="{np:$vo.url}"  class="tbox">
+                            <dd>
+                                <div>
+                                    <img src="{np:$vo.pic}" />
+                                </div>
+                            </dd>
+                            <dt>
+                                <hgroup>
+                                    <h1>{np:$vo.title}</h1>
+                                    <h2>{np:$vo.info}</h2>
+                                </hgroup>
+                            </dt>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </section>
+</div>
+<include file="common:footer"/>
+</body>
+</html>
+

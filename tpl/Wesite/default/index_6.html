@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/snower.css" media="all" />
+    <include file="common:snowcss"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-6.css" media="all" />
@@ -27,173 +27,54 @@
     <div id="weimob-content" class="weimob-content">
         <div class="list-box">
             <div>
-                <ul>
-                    <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233948&wxref=mp.weixin.qq.com'">
-                        <span class="icon-smile"><img src="{np::RES}/img/template/lib/rect.png?v=2014-02-26-2" onload="this.style.height=(this.width-2.5)+'px';" alt="6" /></span>
-                    </li>
-
-                    <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233949&wxref=mp.weixin.qq.com'">
-                        <span class="icon-smile"><img src="{np::RES}/img/template/lib/rect.png?v=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="7" /></span>
-                    </li>
-
-                    <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233951&wxref=mp.weixin.qq.com'">
-                        <span class="icon-smile"><img src="{np::RES}/img/template/lib/rect.png?v=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="8" /></span>
-                    </li>
-
-                    <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=233952&wxref=mp.weixin.qq.com'">
-                        <span class="icon-smile"><img src="{np::RES}/img/template/lib/rect.png?v=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="9" /></span>
-                    </li>
-
-                    <li onclick="location.href='tel:010-12312312'">
-                                    <span>
-										<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="2" />
-									</span>
-                    </li>
-                </ul>
-                <ul>
-                    <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com'" style="width:50%">
-                                    <span>
-										<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="3" />
-									</span>
-                    </li>
-
-                    <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com'" style="width:50%">
-                                    <span>
-										<img src="{np::RES}//img/template/lib/home-300300.jpg?v=2014-02-26-2?=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="4" />
-									</span>
-                    </li>
-                    <ul>
+                <volist name="classify" id="vo">
+                    <if condition="$i%7 eq 1">
                         <ul>
-                            <li onclick="location.href='/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com'">
-                                <span class="icon-smile"><img src="{np::RES}/img/template/lib/rect.png?v=2014-02-26-2" onload="this.style.height=(this.width-2.5)+'px';" alt="5" /></span>
-                            </li>
-
-                            <li onclick="location.href='/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com'">
-                                <span class="icon-smile"><img src="{np::RES}/img/template/lib/rect.png?v=2014-02-26-2" onload="this.style.height=(this.width)+'px';" alt="1" /></span>
-                            </li>
-
-
-
+                        <li onclick="location.href='{np:$vo.url}'">
+                            <span class="{np:$vo.icon}"><img src="{np::RES}/img/template/lib/rect.png" onload="this.style.height=(this.width-2.5)+'px';" alt="{np:$vo.name}" style="height: 272.5px;"></span>
+                        </li>
+                    </if>
+                    <if condition="($i%7 gt 1) AND ($i%7 lt 5)">
+                        <li onclick="location.href='{np:$vo.url}'">
+                            <span class="{np:$vo.icon}">
+                                <img src="{np::RES}/img/template/lib/rect.png   " onload="this.style.height=(this.width)+'px';" alt="{np:$vo.name}" style="height: 133px;">
+                            </span>
+                        </li>
+                    </if>
+                    <if condition="$i%7 eq 5">
+                        <li onclick="location.href='{np:$vo.url}'">
+                            <span>
+                                <img src="{np:$vo.img}" onload="this.style.height=(this.width)+'px';" alt="{np:$vo.name}" style="height: 133px;">
+                            </span>
+                        </li>
+                    </if>
+                    <if condition="($i%7 eq 5)OR($i%7 eq count($classify))">
                         </ul>
+                    </if>
+                    <if condition="$i%7 eq 6">
                         <ul>
-
-                            <ul>
+                    </if>
+                    <if condition="($i%7 gt 5)AND($i%7 lt 8)">
+                    <li onclick="location.href='{np:$vo.url}'" style="width:50%">
+                        <span>
+                            <img src="{np:$vo.img}" onload="this.style.height=(this.width)+'px';" alt="8" style="height: 275px;">
+                        </span>
+                    </li>
+                    </if>
+                    <if condition="($i%7 eq 0)OR((count($classify) eq 7)AND($i gt 5))">
+                        </ul>
+                    </if>
+                </volist>
             </div>
         </div>
     </div>
 </div>
-
-<!--
-导航菜单
-   后台设置的快捷菜单
--->
-
-<!--
-分享前控制
--->
-<script type="text/javascript">
-    window.shareData = {
-        "imgUrl": "http://img.weimob.com/static/f8/d9/cd/image/20140228/20140228120634_68690.jpg",
-        "timeLineLink": "http://www.weimob.com/weisite/home?pid=81238&bid=168275&wechatid=fromUsername&wxref=mp.weixin.qq.com",
-        "sendFriendLink": "http://www.weimob.com/weisite/home?pid=81238&bid=168275&wechatid=fromUsername&wxref=mp.weixin.qq.com",
-        "weiboLink": "http://www.weimob.com/weisite/home?pid=81238&bid=168275&wechatid=fromUsername&wxref=mp.weixin.qq.com",
-        "tTitle": "1",
-        "tContent": "永嘉天地住宅面积为六万平方米，其余的商业配套建筑以及写字楼等，主要户型为92㎡-120㎡。",
-        "fTitle": "1",
-        "fContent": "永嘉天地住宅面积为六万平方米，其余的商业配套建筑以及写字楼等，主要户型为92㎡-120㎡。",
-        "wContent": "永嘉天地住宅面积为六万平方米，其余的商业配套建筑以及写字楼等，主要户型为92㎡-120㎡。"
-    };
-</script>
-<footer style="overflow:visible;">
-    <div class="weimob-copyright" style="padding-bottom:50px;">
-        <a href="/weisite/home?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&wxref=mp.weixin.qq.com">© 永嘉天地</a>
-    </div>
-    <span class="weimob-support" style="display:none;">©微盟提供</span>
-</footer>
-<div mark="stat_code" style="width:0px; height:0px; display:none;">
-</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
 </body>
-<script type="text/javascript">
-    (function() {
-        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
-        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
-    })();
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
-    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
-        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
-        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
-        wmShare.src += shareToPlatform + '&pid=81238&sendFriendLink=' + encodeURIComponent(sendFriendLink);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
-    }
-    function getShareApiRouter(){
-        var str_domain = location.href.split('/',4)[2];
-        var tj_domain = '127.0.0.1';
-        switch(str_domain){
-            case 'www.weimob.com':
-                tj_domain = 'tj.weimob.com';
-                break;
-            case '112.124.28.82':
-                tj_domain = '112.124.28.82:400';
-                break;
-        }
-        return tj_domain;
-    }
-    if(typeof(window.shareData) == 'undefined'){
-        window.shareData = {
-            "imgUrl": "",
-            "timeLineLink": "http://www.weimob.com/weisite/home?_tj_twtype=16&_tj_pid=81238&_tt=1&_tj_graphicid=20315&_tj_title=1&_tj_keywords=%E9%A6%96%E9%A1%B5&pid=81238&bid=168275&wechatid=fromUsername&from=1&wxref=mp.weixin.qq.com",
-            "sendFriendLink": "http://www.weimob.com/weisite/home?_tj_twtype=16&_tj_pid=81238&_tt=1&_tj_graphicid=20315&_tj_title=1&_tj_keywords=%E9%A6%96%E9%A1%B5&pid=81238&bid=168275&wechatid=fromUsername&from=1&wxref=mp.weixin.qq.com",
-            "weiboLink": "http://www.weimob.com/weisite/home?_tj_twtype=16&_tj_pid=81238&_tt=1&_tj_graphicid=20315&_tj_title=1&_tj_keywords=%E9%A6%96%E9%A1%B5&pid=81238&bid=168275&wechatid=fromUsername&from=1&wxref=mp.weixin.qq.com",
-            "tTitle": document.title,
-            "tContent": document.title,
-            "fTitle": document.title,
-            "fContent": document.title,
-            "wContent": document.title
-        }
-    }
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            WeixinJSBridge.invoke('sendAppMessage', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.sendFriendLink,
-                "desc": window.shareData.fContent,
-                "title": window.shareData.fTitle
-            }, function (res) {
-                weimobAfterShare("oU9WbuBSeQ96mHOsEeWhVL8H57t4",window.shareData.sendFriendLink,'appmessage');
-                _report('send_msg', res.err_msg);
-            })
-        });
-
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.timeLineLink,
-                "desc": window.shareData.tContent,
-                "title": window.shareData.tTitle
-            }, function (res) {
-                weimobAfterShare("oU9WbuBSeQ96mHOsEeWhVL8H57t4",window.shareData.timeLineLink,'timeline');
-                _report('timeline', res.err_msg);
-            });
-        });
-
-        // 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-            WeixinJSBridge.invoke('shareWeibo', {
-                "content": window.shareData.wContent,
-                "url": window.shareData.weiboLink,
-            }, function (res) {
-                weimobAfterShare("oU9WbuBSeQ96mHOsEeWhVL8H57t4",window.shareData.weiboLink,'weibo');
-                _report('weibo', res.err_msg);
-            });
-        });
-    }, false);
-</script></html>
+<include file="share:script1"/>
+</html>
 

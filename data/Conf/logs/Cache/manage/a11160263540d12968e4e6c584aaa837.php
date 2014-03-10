@@ -69,7 +69,7 @@
                                     }
 
                                     var left = ($(window.parent.parent).width() - 450) / 2;
-                                    window.open("http://yudio.xicp.net/wechat.wx/<?php echo ($token); ?>?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+                                    window.open("<?php echo C('site_url');?>/wechat/<?php echo ($token); ?>", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
                                 });
                             </script>
                         </div>

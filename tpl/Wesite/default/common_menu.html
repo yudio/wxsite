@@ -1,0 +1,351 @@
+<?php $menu_index=6;?>
+<if condition="$menu_index eq 0">
+<div style="height:35px!important;"></div>
+<div class="top_bar">
+    <nav>
+        <ul class="top_menu">
+            <li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
+            <li onclick="location.href='{np:$homeInfo.homeurl}'"><span class="icon-home"></span></li>
+            <li onclick="$('#menu_font').toggleClass('hidden');">
+                <span class="icon-list-ul"></span>
+                <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+                    <volist name="classify" id="vo">
+                        <li>
+                            <a href="{np:$vo.url}" class="{np:$vo.icon}">
+                                {np:$vo.name}
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<elseif condition="$menu_index eq 1"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/menu-1.css" media="all" />
+<div class="top_bar footer_bar">
+    <nav>
+        <ul class="top_menu">
+            <li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
+            <li onclick="location.href='{np:$homeInfo.homeurl}'"><span class="icon-home"></span></li>
+            <li onclick="$('#menu_font').toggleClass('hidden');">
+                <span class="icon-list-ul"></span>
+                <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+                    <volist name="classify" id="vo">
+                        <li>
+                            <a href="{np:$vo.url}" class="{np:$vo.icon}">
+                                {np:$vo.name}
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<elseif condition="$menu_index eq 2"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/menu-2.css" media="all" />
+<footer class="nav_footer">
+    <ul class="box">
+        <li><a href="javascript:history.go(-1);">返回</a></li>
+        <li><a href="javascript:history.go(1);">前进</a></li>
+        <li><a href="{np:$homeInfo.homeurl}">首页</a></li>
+        <li><a href="javascript:location.reload();">刷新</a></li>
+    </ul>
+</footer>
+<elseif condition="$menu_index eq 3"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/menu-3.css" media="all" />
+<article id="shareCover" class="share" onclick="$('#shareCover').toggleClass('on')">
+    <table>
+        <tr>
+            <td colspan="2"  style="text-align:right;">
+                <img src="{np::RES}/img/share_1.png" style="width:120px!important;" />
+                <img src="{np::RES}/img/share_2.png" style="width:30px!important;" />
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%;">
+                <img src="{np::RES}/img/share_4.png?v=2014-02-26-2" />
+                <div>发送给朋友</div>
+            </td>
+            <td>
+                <img src="{np::RES}/img/share_3.png?v=2014-02-26-2" />
+                <div>分享到朋友圈</div>
+            </td>
+        </tr>
+    </table>
+</article>
+<div class="plug-div model1">
+    <div id="plug-phone" class="plug-phone">
+        <div>
+            <a href="javascript:;" onclick="window.history.go(-1);" class="icon-chevron-sign-left"><label>返回</label></a>
+        </div>
+        <div>
+            <a href="{np:$homeInfo.homeurl}" class="icon-home"><label>首页</label></a>
+        </div>
+        <div>
+            <a href="javascript:$('#shareCover').toggleClass('on');" class="icon-share"><label>分享</label></a>
+        </div>
+    </div>
+</div>
+<elseif condition="$menu_index eq 4"/>
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-4.css" media="all" />
+<article id="shareCover" class="toshare" onclick="$('#shareCover').toggleClass('on')">
+    <table>
+        <tr>
+            <td colspan="2"  style="text-align:right;">
+                <img src="{np::RES}/img/share_1.png" style="width:120px!important;" />
+                <img src="{np::RES}/img/share_2.png" style="width:30px!important;" />
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%;">
+                <img src="{np::RES}/img/share_4.png" />
+                <div>发送给朋友</div>
+            </td>
+            <td>
+                <img src="{np::RES}/img/share_3.png" />
+                <div>分享到朋友圈</div>
+            </td>
+        </tr>
+    </table>
+</article>
+<script>
+    window.addEventListener("DOMContentLoaded", function(){
+        var nav = document.querySelectorAll(".nav_8")[0];
+
+        var evts = {
+            handleEvent: function(evt){
+                if("A" == evt.target.nodeName){
+                    evt.target.classList.toggle("active");
+                }
+            }
+        }
+        nav.addEventListener("mousedown", evts, false);
+        nav.addEventListener("mouseup", evts, false);
+        nav.addEventListener("touchstart", evts, false);
+        nav.addEventListener("touchend", evts, false);
+    });
+</script>
+<div class="top_bar footer_bar">
+    <section>
+        <div class="nav_8">
+            <ul class="box">
+                <li>
+                    <a href="javascript:history.go(-1);">
+                        <p class="back2"></p>
+                        <span>返回</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{np:$homeInfo.homeurl}">
+                        <p class="home"></p>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:$('#shareCover').toggleClass('on');">
+                        <p class="share"></p>
+                        <span>分享</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<elseif condition="$menu_index eq 5"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-5.css" media="all" />
+    <article id="shareCover" class="toshare" onclick="$('#shareCover').toggleClass('on')">
+        <table>
+            <tr>
+                <td colspan="2"  style="text-align:right;">
+                    <img src="{np::RES}/img/share_1.png?v=2014-02-26-2" style="width:120px!important;" />
+                    <img src="{np::RES}/img/share_2.png?v=2014-02-26-2" style="width:30px!important;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:50%;">
+                    <img src="{np::RES}/img/share_4.png?v=2014-02-26-2" />
+                    <div>发送给朋友</div>
+                </td>
+                <td>
+                    <img src="{np::RES}/img/share_3.png?v=2014-02-26-2" />
+                    <div>分享到朋友圈</div>
+                </td>
+            </tr>
+        </table>
+    </article>
+    <script>
+        window.addEventListener("DOMContentLoaded", function(){
+            var nav = document.querySelectorAll(".nav_9")[0];
+
+            var evts = {
+                handleEvent: function(evt){
+                    if("A" == evt.target.nodeName){
+                        evt.target.classList.toggle("active");
+                    }
+                }
+            }
+            nav.addEventListener("mousedown", evts, false);
+            nav.addEventListener("mouseup", evts, false);
+            nav.addEventListener("touchstart", evts, false);
+            nav.addEventListener("touchend", evts, false);
+        });
+    </script>
+    <div class="top_bar footer_bar">
+        <section>
+            <div class="nav_9">
+                <ul class="box">
+                    <li>
+                        <a href="javascript:history.go(-1);">
+                            <p class="back2"></p>
+                            <span>返回</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{np:$homeInfo.url}" class="home">
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:$('#shareCover').toggleClass('on');">
+                            <p class="share"></p>
+                            <span>分享</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <elseif condition="$menu_index eq 6"/>
+        <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-6.css" media="all" />
+        <article id="shareCover" class="toshare" onclick="$('#shareCover').toggleClass('on')">
+            <table>
+                <tr>
+                    <td colspan="2"  style="text-align:right;">
+                        <img src="{np::RES}/img/share_1.png" style="width:120px!important;" />
+                        <img src="{np::RES}/img/share_2.png" style="width:30px!important;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">
+                        <img src="{np::RES}/img/share_4.png" />
+                        <div>发送给朋友</div>
+                    </td>
+                    <td>
+                        <img src="{np::RES}/img/share_3.png" />
+                        <div>分享到朋友圈</div>
+                    </td>
+                </tr>
+            </table>
+        </article>
+        <script>
+            window.addEventListener("DOMContentLoaded", function(){
+                var nav = document.querySelectorAll(".nav_10")[0];
+
+                var evts = {
+                    handleEvent: function(evt){
+                        if("A" == evt.target.nodeName){
+                            evt.target.classList.toggle("active");
+                        }
+                    }
+                }
+                nav.addEventListener("mousedown", evts, false);
+                nav.addEventListener("mouseup", evts, false);
+                nav.addEventListener("touchstart", evts, false);
+                nav.addEventListener("touchend", evts, false);
+            });
+        </script>
+        <div class="top_bar footer_bar">
+            <section>
+                <div class="nav_10">
+                    <ul class="box">
+                        <li>
+                            <a href="javascript:history.go(-1);">
+                                <p class="back2"></p>
+                                <span>返回</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{np:$homeInfo.homeurl}">
+                                <p class="home"></p>
+                                <span>首页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:$('#shareCover').toggleClass('on');">
+                                <p class="share"></p>
+                                <span>分享</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <elseif condition="$menu_index eq 7"/>
+            <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-menu-8.css" media="all" />
+            <script>
+                window.addEventListener("DOMContentLoaded", function(){
+                    var nav = document.getElementById("nav_10");
+
+                    var evts = {
+                        handleEvent: function(evt){
+                            if("A" == evt.target.nodeName){
+                                evt.target.classList.toggle("on");
+                            }
+                        }
+                    }
+                    nav.addEventListener("mousedown", evts, false);
+                    nav.addEventListener("mouseup", evts, false);
+                    nav.addEventListener("touchstart", evts, false);
+                    nav.addEventListener("touchend", evts, false);
+                });
+            </script>
+            <article id="shareCover" class="share" onclick="$('#shareCover').toggleClass('on')">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align:right;">
+                            <img src="{np::RES}/img/share_1.png" style="width:120px!important;" />
+                            <img src="{np::RES}/img/share_2.png" style="width:30px!important;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;">
+                            <img src="{np::RES}/img/share_4.png" />
+                            <div>发送给朋友</div>
+                        </td>
+                        <td>
+                            <img src="{np::RES}/img/share_3.png" />
+                            <div>分享到朋友圈</div>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+            <nav class="nav_10" style="height:50px;">
+                <ul id="nav_10" class="box">
+                    <li>
+                        <a href="javascript:window.history.go(-1);">
+                            <span class="back">&nbsp;</span>
+                            <label>返回</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{np:$homeInfo.homeurl}">
+                            <span class="home">&nbsp;</span>
+                            <label>主页</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:$('#shareCover').toggleClass('on');">
+                            <span class="share1">&nbsp;</span>
+                            <label>分享</label>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <style>
+                footer {
+                    display:none;
+                }
+            </style>
+</if>

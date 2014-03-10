@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/car_reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-8.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <title>1</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+
+
+<div class="body">
+    <!--公共导航 start-->
+    <include file="common:menu"/>
+    <!--公共导航end-->
+    <script>
+    </script>
+    <volist name="info" id="vo">
+        <if condition="$i eq 1">
+            <header>
+                <div class="head_news">
+                    <a href="{np:$vo.url}">
+                        <ul>
+                            <li><img src="{np:$vo.pic}" style="width:100%; max-height:400px;" /></li>
+                        </ul>
+                        <ol>{np:$vo.title}</ol>
+                    </a>
+                </div>
+            </header>
+        </if>
+        <if condition="$i eq 2">
+            <section>
+                <ul class="list_ul list_ul_news">
+        </if>
+        <if condition="$i gt 1">
+            <li>
+                <a class="tbox" href="{np:$vo.url}">
+                    <div>
+                        <img src="{np:$vo.pic}" style="width:60px!important; height:60px;"/>
+                    </div>
+                    <div>
+                        <p>{np:$vo.title}</p>
+                        <p>{np:$vo.createtime|date='Y-m-d',###}</p>
+                    </div>
+                </a>
+            </li>
+        </if>
+        <if condition="($i gt 1) AND ($i eq count($info))">
+            </ul>
+            </section>
+        </if>
+
+    </volist>
+</div>
+<include file="common:footer"/>
+</body>
+</html>
+

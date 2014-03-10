@@ -1,324 +1,933 @@
-<!DOCTYPE>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-  <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
-  <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico?v=2014-02-20-1" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-02-20-1" media="all" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css?2014-02-20-1" media="all" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css?2014-02-20-1" media="all" />
-  <link rel="stylesheet" type="text/css" href="{np::RES}/css/official.css?2014-02-20-1" media="all" />
-  <script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-02-20-1"></script>
-  <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-02-20-1"></script>
-  <script type="text/javascript" src="{np::STATICS}/inside.js?2014-02-20-1"></script>
-  <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title><!--[if IE 7]>
-            <link href="{np::RES}/css/font_awesome_ie7.css?v=2014-02-20-1" rel="stylesheet" />
-        <![endif]-->
-  <!--[if lte IE 8]>
-            <script src="{np::RES}/js/excanvas_min.js?v=2014-02-20-1"></script>
-        <![endif]-->
-  <!--[if lte IE 9]>
-            <script src="{np::RES}/js/watermark.js?v=2014-02-20-1"></script>
-        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="奈斯、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+    <meta name="Description" content="奈斯，国内最大的微信公众智能服务平台，奈斯八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <link rel="shortcut icon" href="{np::RES}/img/favicon.ico1" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/official.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/inside.js"></script>
+    <title>奈斯（Weimob）—国内最大的微信公众服务平台</title>
+    <!--[if IE 7]>
+    <link href="{np::RES}/css/font_awesome_ie7.css1" rel="stylesheet" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="{np::RES}/js/excanvas_min.js1"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="{np::RES}/js/watermark.js1"></script>
+    <![endif]-->
 </head>
-
 <body>
-  <div id="main">
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <div class="box">
-            <div class="box-title">
-              <div class="span12">
-                <h3>模板管理</h3><a class="btn preview pull-right btn-success" href="javascript:;">微官网预览</a>
-				<script type="text/javascript">
-				$("a.preview").click(function () {
-						if ($.browser.msie) {
-								alert("不支持在IE浏览器下预览，建议使用谷歌浏览器或者360极速浏览器或者直接在微信上预览。");
-								return;
-						}
-						var left = ($(window.parent.parent).width() - 450) / 2;
-						window.open("/wechat.wx/{np:$token}?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
-				});
-                </script>
-              </div>
-            </div>
-
-            <div class="box-content">
-              <ul class="nav nav-tabs">
-                <li class="active"><a href="#column" data-toggle="tab">栏目首页模板风格</a></li>
-
-                <li><a href="#channel" data-toggle="tab">频道模板风格</a></li>
-
-                <li><a href="#list" data-toggle="tab">图文列表模板风格</a></li>
-
-                <li><a href="#detailed" data-toggle="tab">图文详细页模板</a></li>
-
-                <li><a href="#menu" data-toggle="tab">菜单导航模板</a></li>
-
-                <li><a href="#color" data-toggle="tab" style="display:none;">颜色选择</a></li>
-              </ul>
-
-              <div class="tab-content">
-                <div class="tab-pane fade active in" id="column">
-                  <!--
-                                                                                <ul class="nav nav-tabs nav-tabs-google" style="border-bottom:none">
-                                                                                                <li class="active">
-                                                                                                        <a href="/Microsite/Template?aid=72040&label=0">热门推荐</a>
-                                                                                                </li>
-                                                                                                                                                                                        <li >
-                                                                                                        <a href="/Microsite/Template?aid=72040&label=1">经典大方</a>
-                                                                                                </li>
-                                                                                                                                                                                        <li >
-                                                                                                        <a href="/Microsite/Template?aid=72040&label=2">简约时尚</a>
-                                                                                                </li>
-                                                                                                                                                                                        <li >
-                                                                                                        <a href="/Microsite/Template?aid=72040&label=3">五彩斑斓</a>
-                                                                                                </li>
-                                                                                                                                                                                        <li >
-                                                                                                        <a href="/Microsite/Template?aid=72040&label=4">个性定制</a>
-                                                                                                </li>
-                                                                                                                                                                                        <li >
-                                                                                                        <a href="/Microsite/Template?aid=72040&label=5">VIP尊享</a>
-                                                                                                </li>
-                                                                                        </ul>
-                                                                                        -->
-
-                  <ul class="cateradio unstyled">
-                    <li class="active free"><label><img src="{np::RES}/img/template/home-13.png?v=7" alt="TOP1" title="TOP1" /> <input type="radio" name="home" value="13" checked="checked" /> <span style='font-weight:bold;'>TOP1</span></label></li>
-
-                    <li class="">
-                      <div class="mbtip">
-                        图标式模板，背景在微官网的首页幻灯片里添加，建议尺寸为960*640或近似等比例图；分类图标请选择系统图标。
-                      </div><label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-38.png?v=7" alt="TOP2" title="TOP2" /> <input type="radio" name="home" value="38" disabled="disabled" /> <span style='font-weight:bold;'>TOP2</span></label>
-
-                      <div style="padding:5px 0px 10px;">
-                        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">行业热度：</label>
-                      </div>
-                    </li>
-
-                    <li class="free">
-                      <div class="mbtip">
-                        左右图文式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片建议使用450*300或近似等比例图片，请不要使用高度大于或接近于宽度的图片。
-                      </div><label><img src="{np::RES}/img/template/home-3.png?v=7" alt="TOP3" title="TOP3" /> <input type="radio" name="home" value="3" /> <span style='font-weight:bold;'>TOP3</span></label>
-                    </li>
-
-                    <li class=""><label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-32.png?v=7" alt="TOP4" title="TOP4" /> <input type="radio" name="home" value="32" disabled="disabled" /> <span style='font-weight:bold;'>TOP4</span></label></li>
-
-                    <li class="free"><label><img src="{np::RES}/img/template/home-16.png?v=7" alt="TOP5" title="TOP5" /> <input type="radio" name="home" value="16" /> <span style='font-weight:bold;'>TOP5</span></label></li>
-
-                    <li class="">
-                      <div class="mbtip">
-                        图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。
-                      </div><label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-28.png?v=7" alt="TOP6" title="TOP6" /> <input type="radio" name="home" value="28" disabled="disabled" /> <span style='font-weight:bold;'>TOP6</span></label>
-                    </li>
-
-                    <li class="">
-                      <div class="mbtip">
-                        图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。
-                      </div><label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-26.png?v=7" alt="TOP7" title="TOP7" /> <input type="radio" name="home" value="26" disabled="disabled" /> <span style='font-weight:bold;'>TOP7</span></label>
-                    </li>
-
-                    <li class="">
-                      <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-39.png?v=7" alt="TOP8" title="TOP8" /> <input type="radio" name="home" value="39" disabled="disabled" /> <span style='font-weight:bold;'>TOP8</span></label>
-
-                      <div style="padding:5px 0px 10px;">
-                        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">行业热度：</label>
-                      </div>
-                    </li>
-
-                    <li class=""><label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-14.png?v=7" alt="TOP9" title="TOP9" /> <input type="radio" name="home" value="14" disabled="disabled" /> <span style='font-weight:bold;'>TOP9</span></label></li>
-
-                    <li class=""><label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');"><img src="{np::RES}/img/template/home-17.png?v=7" alt="TOP10" title="TOP10" /> <input type="radio" name="home" value="17" disabled="disabled" /> <span style='font-weight:bold;'>TOP10</span></label></li>
-                  </ul>
-                </div>
-
-                <div class="tab-pane fade" id="channel">
-                  <ul class="cateradio">
-                    <li><label><img src="{np::RES}/img/template/home-65.png?v=7" alt="模板0" title="模板0" /> <input type="radio" name="channel" value="home-65" />频道0</label></li>
-
-                    <li><label><img src="{np::RES}/img/template/home-64.png?v=7" alt="模板1" title="模板1" /> <input type="radio" name="channel" value="home-64" />频道1</label></li>
-
-                    <li>
-                      <div class="mbtip">
-                        图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。
-                      </div><label><img src="{np::RES}/img/template/home-28.png?v=7" alt="模板2" title="模板2" /> <input type="radio" name="channel" value="home-28" />频道2</label>
-                    </li>
-
-                    <li class="active">
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/home-13.png?v=7" alt="模板3" title="模板3" /> <input type="radio" name="channel" value="home-13" checked="checked" />频道3</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/home-14.png?v=7" alt="模板4" title="模板4" /> <input type="radio" name="channel" value="home-14" />频道4</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip">
-                        左右双栏模版，顶部幻灯片尺寸为640*320或近似等比例图片，如使用正方形图片会使得页面不美观；分类图片建议使用300*200或近似等比例图片，使用宽度小于高度的(如200*300)尺寸图片将使页面惨不忍睹。
-                      </div><label><img src="{np::RES}/img/template/home-0.png?v=3" alt="模板5" title="模板5" /> <input type="radio" name="channel" value="home-0" />频道5</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip">
-                        左右双栏模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片建议使用300*300或近似等比例图片。
-                      </div><label><img src="{np::RES}/img/template/home-2.png?v=7" alt="模板6" title="模板6" /> <input type="radio" name="channel" value="home-2" />频道6</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip">
-                        图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用系统提供的图标。
-                      </div><label><img src="{np::RES}/img/template/home-4.png?v=7" alt="模板7" title="模板7" /> <input type="radio" name="channel" value="home-4" />频道7</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip">
-                        图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用系统提供的图标。
-                      </div><label><img src="{np::RES}/img/template/home-23.png?v=7" alt="模板8" title="模板8" /> <input type="radio" name="channel" value="home-23" />频道8</label>
-                    </li>
-
-                    <li><label><img src="{np::RES}/img/template/home-29.png?v=7" alt="模板9" title="模板9" /> <input type="radio" name="channel" value="home-29" />频道9</label></li>
-
-                    <li><label><img src="{np::RES}/img/template/home-15.png?v=7" alt="模板10" title="模板10" /> <input type="radio" name="channel" value="home-15" />频道10</label></li>
-
-                    <li><label><img src="{np::RES}/img/template/home-16.png?v=7" alt="模板11" title="模板11" /> <input type="radio" name="channel" value="home-16" />频道11</label></li>
-
-                    <li><label><img src="{np::RES}/img/template/home-1.png?v=7" alt="模板12" title="模板12" /> <input type="radio" name="channel" value="home-1" />频道12</label></li>
-                  </ul>
-                </div>
-
-                <div class="tab-pane fade" id="list">
-                  <ul class="cateradio">
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-12.png?v=7" alt="模板0" title="模板0" /> <input type="radio" name="list" value="12" />列表0</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-11.png?v=7" alt="模板1" title="模板1" /> <input type="radio" name="list" value="11" />列表1</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-10.png?v=7" alt="模板2" title="模板2" /> <input type="radio" name="list" value="10" />列表2</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-9.png?v=7" alt="模板3" title="模板3" /> <input type="radio" name="list" value="9" />列表3</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-8.png?v=7" alt="模板4" title="模板4" /> <input type="radio" name="list" value="8" />列表4</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-2.png?v=7" alt="模板5" title="模板5" /> <input type="radio" name="list" value="2" />列表5</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-1.png?v=7" alt="模板6" title="模板6" /> <input type="radio" name="list" value="1" />列表6</label>
-                    </li>
-
-                    <li class="active">
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-0.png?v=7" alt="模板7" title="模板7" /> <input type="radio" name="list" value="0" checked="checked" />列表7</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-3.png?v=7" alt="模板8" title="模板8" /> <input type="radio" name="list" value="3" />列表8</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-4.png?v=7" alt="模板9" title="模板9" /> <input type="radio" name="list" value="4" />列表9</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-5.png?v=7" alt="模板10" title="模板10" /> <input type="radio" name="list" value="5" />列表10</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-6.png?v=7" alt="模板11" title="模板11" /> <input type="radio" name="list" value="6" />列表11</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/list-7.png?v=7" alt="模板12" title="模板12" /> <input type="radio" name="list" value="7" />列表12</label>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tab-pane fade" id="detailed">
-                  <ul class="cateradio">
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/detail-5.png?v=7" alt="模板5" title="模板5" /> <input type="radio" name="detail" value="5" />详情5</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/detail-4.png?v=7" alt="模板4" title="模板4" /> <input type="radio" name="detail" value="4" />详情4</label>
-                    </li>
-
-                    <li class="active">
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/detail-0.png?v=7" alt="模板0" title="模板0" /> <input type="radio" name="detail" value="0" checked="checked" />详情0</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/detail-1.png?v=7" alt="模板1" title="模板1" /> <input type="radio" name="detail" value="1" />详情1</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/detail-2.png?v=7" alt="模板2" title="模板2" /> <input type="radio" name="detail" value="2" />详情2</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/detail-3.png?v=7" alt="模板3" title="模板3" /> <input type="radio" name="detail" value="3" />详情3</label>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tab-pane fade" id="menu">
-                  <ul class="cateradio">
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-7.png?v=7" alt="模板7" title="模板7" /> <input type="radio" name="menu" value="7" />详情0</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-4.png?v=7" alt="模板4" title="模板4" /> <input type="radio" name="menu" value="4" />详情1</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-5.png?v=7" alt="模板5" title="模板5" /> <input type="radio" name="menu" value="5" />详情2</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-6.png?v=7" alt="模板6" title="模板6" /> <input type="radio" name="menu" value="6" />详情3</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-0.png?v=7" alt="模板0" title="模板0" /> <input type="radio" name="menu" value="0" />详情4</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-1.png?v=7" alt="模板1" title="模板1" /> <input type="radio" name="menu" value="1" />详情5</label>
-                    </li>
-
-                    <li>
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-2.png?v=7" alt="模板2" title="模板2" /> <input type="radio" name="menu" value="2" />详情6</label>
-                    </li>
-
-                    <li class="active">
-                      <div class="mbtip" style="display:none;"></div><label><img src="{np::RES}/img/template/menu-3.png?v=7" alt="模板3" title="模板3" /> <input type="radio" name="menu" value="3" checked="checked" />详情7</label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div id="main">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<div class="box">
+<div class="box-title">
+    <div class="span12">
+        <h3><i class="icon-edit"></i>模板管理</h3>
+        <a class="btn preview pull-right btn-success" href="javascript:;">微官网预览</a>
+        <script type="text/javascript">
+            $("a.preview").click(function () {
+                if ($.browser.msie) {
+                    alert("不支持在IE浏览器下预览，建议使用谷歌浏览器或者360极速浏览器或者直接在微信上预览。");
+                    return;
+                }
+                var left = ($(window.parent.parent).width() - 450) / 2;
+                window.open("/wechat.wx/{np:$token}?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+            });
+        </script>
     </div>
-  </div>
-  <script type="text/javascript">
+</div>
+<div class="box-content">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#column" data-toggle="tab">栏目首页模板风格</a></li>
+    <li><a href="#channel" data-toggle="tab">频道模板风格</a></li>
+    <li><a href="#list" data-toggle="tab">图文列表模板风格</a></li>
+    <li><a href="#detailed" data-toggle="tab">图文详细页模板</a></li>
+    <li><a href="#menu" data-toggle="tab">菜单导航模板</a></li>
+    <li><a href="#color" data-toggle="tab" style="display:none;">颜色选择</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade active in" id="column">
+<ul class="nav nav-tabs nav-tabs-google" style="border-bottom:none">
+    <li class="active">
+        <a href="#HOTS" data-toggle="pill">热门推荐</a>
+    </li>
+    <li >
+        <a href="#CLASSICS" data-toggle="pill">经典大方</a>
+    </li>
+    <li >
+        <a href="#FASHIONS" data-toggle="pill">简约时尚</a>
+    </li>
+    <li >
+        <a href="#COLORS" data-toggle="pill">五彩斑斓</a>
+    </li>
+    <li>
+        <a href="#CHARACTERS" data-toggle="pill">个性定制</a>
+    </li>
+    <li >
+        <a  href="#VIPS" data-toggle="pill">VIP尊享</a>
+    </li>
+</ul>
+<!--1-->
+<ul id="HOTS" class="cateradio unstyled">
+    <li class="free">
+        <label>
+            <img src="{np::RES}/img/template/home-13.png" alt="TOP1" title="TOP1">
+            <input type="radio" name="home" value="13">
+            <span style="font-weight:bold;">TOP1</span>																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模板，背景在微官网的首页幻灯片里添加，建议尺寸为960*640或近似等比例图；分类图标请选择系统图标。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-38.png" alt="TOP2" title="TOP2">
+            <input type="radio" name="home" value="38" disabled="disabled">
+            <span style="font-weight:bold;">TOP2</span>																															<div style="padding:5px 0px 10px;">
+            行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+        </div>
+        </label>
+    </li>
+    <li class="free">
+        <div class="mbtip">左右图文式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片建议使用450*300或近似等比例图片，请不要使用高度大于或接近于宽度的图片。</div>
+        <label>
+            <img src="{np::RES}/img/template/home-3.png" alt="TOP3" title="TOP3">
+            <input type="radio" name="home" value="3">
+            <span style="font-weight:bold;">TOP3</span>																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-32.png" alt="TOP4" title="TOP4">
+            <input type="radio" name="home" value="32" disabled="disabled">
+            <span style="font-weight:bold;">TOP4</span>																													</label>
+    </li>
+    <li class="free">
+        <label>
+            <img src="{np::RES}/img/template/home-16.png" alt="TOP5" title="TOP5">
+            <input type="radio" name="home" value="16">
+            <span style="font-weight:bold;">TOP5</span>																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-28.png" alt="TOP6" title="TOP6">
+            <input type="radio" name="home" value="28" disabled="disabled">
+            <span style="font-weight:bold;">TOP6</span>																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-26.png" alt="TOP7" title="TOP7">
+            <input type="radio" name="home" value="26" disabled="disabled">
+            <span style="font-weight:bold;">TOP7</span>																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-39.png" alt="TOP8" title="TOP8">
+            <input type="radio" name="home" value="39" disabled="disabled">
+            <span style="font-weight:bold;">TOP8</span>																															<div style="padding:5px 0px 10px;">
+            行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+        </div>
+        </label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-14.png" alt="TOP9" title="TOP9">
+            <input type="radio" name="home" value="14" disabled="disabled">
+            <span style="font-weight:bold;">TOP9</span>																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-17.png" alt="TOP10" title="TOP10">
+            <input type="radio" name="home" value="17" disabled="disabled">
+            <span style="font-weight:bold;">TOP10</span>																													</label>
+    </li>
+</ul>
+<!--2-->
+<ul id="CLASSICS" class="cateradio unstyled" style="display: none">
+    <li class="active free">
+        <div class="mbtip">左右双栏模版，顶部幻灯片尺寸为640*320或近似等比例图片，如使用正方形图片会使得页面不美观；分类图片建议使用300*200或近似等比例图片，使用宽度小于高度的(如200*300)尺寸图片将使页面惨不忍睹。</div>
+        <label>
+            <img src="{np::RES}/img/template/home-0.png" alt="模板0" title="模板0">
+            <input type="radio" name="home" value="0" checked="checked">
+            模板0																													</label>
+    </li>
+    <li class="free">
+        <label>
+            <img src="{np::RES}/img/template/home-16.png" alt="模板1" title="模板1">
+            <input type="radio" name="home" value="16">
+            模板1																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用系统提供的图标。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-4.png" alt="模板2" title="模板2">
+            <input type="radio" name="home" value="4" disabled="disabled">
+            模板2																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-28.png" alt="模板3" title="模板3">
+            <input type="radio" name="home" value="28" disabled="disabled">
+            模板3																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-48.png" alt="模板4" title="模板4">
+            <input type="radio" name="home" value="48" disabled="disabled">
+            模板4																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模板，logo图标为微官网设置内的官网logo，建议尺寸比例为1:1，格式为png，建议背景为已有官网背景。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-49.png" alt="模板5" title="模板5">
+            <input type="radio" name="home" value="49" disabled="disabled">
+            模板5																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模板，第一行字为官网标题，第二行字为微官网设置的图文消息简介，需开启背景图片，建议背景为已有官网背景。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-51.png" alt="模板6" title="模板6">
+            <input type="radio" name="home" value="51" disabled="disabled">
+            模板6																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-11.png" alt="模板7" title="模板7">
+            <input type="radio" name="home" value="11" disabled="disabled">
+            模板7																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-17.png" alt="模板8" title="模板8">
+            <input type="radio" name="home" value="17" disabled="disabled">
+            模板8																													</label>
+    </li>
+</ul>
+<!--3-->
+<ul id="FASHIONS" class="cateradio unstyled" style="display: none">
+    <li class="free">
+        <label>
+            <img src="{np::RES}/img/template/home-31.png" alt="模板0" title="模板0">
+            <input type="radio" name="home" value="31">
+            模板0																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-27.png" alt="模板1" title="模板1">
+            <input type="radio" name="home" value="27" disabled="disabled">
+            模板1																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-30.png" alt="模板2" title="模板2">
+            <input type="radio" name="home" value="30" disabled="disabled">
+            模板2																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-32.png" alt="模板3" title="模板3">
+            <input type="radio" name="home" value="32" disabled="disabled">
+            模板3																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-33.png" alt="模板4" title="模板4">
+            <input type="radio" name="home" value="33" disabled="disabled">
+            模板4																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-34.png" alt="模板5" title="模板5">
+            <input type="radio" name="home" value="34" disabled="disabled">
+            模板5																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-35.png" alt="模板6" title="模板6">
+            <input type="radio" name="home" value="35" disabled="disabled">
+            模板6																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图片式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片，分类图片为分类封面，建议尺寸300*300，或宽高比例为1:1的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-45.png" alt="模板7" title="模板7">
+            <input type="radio" name="home" value="45" disabled="disabled">
+            模板7																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-46.png" alt="模板8" title="模板8">
+            <input type="radio" name="home" value="46" disabled="disabled">
+            模板8																													</label>
+    </li>
+</ul>
+<!--4-->
+<ul id="COLORS" class="cateradio unstyled" style="display: none">
+    <li class="free">
+        <label>
+            <img src="{np::RES}/img/template/home-13.png" alt="模板0" title="模板0">
+            <input type="radio" name="home" value="13">
+            模板0																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">左右双栏模版，顶部幻灯片尺寸为640*320或近似等比例图片，如使用正方形图片会使得页面不美观；分类图片建议使用300*200或近似等比例图片，使用宽度小于高度的(如200*300)尺寸图片将使页面惨不忍睹。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-5.png" alt="模板1" title="模板1">
+            <input type="radio" name="home" value="5" disabled="disabled">
+            模板1																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-14.png" alt="模板2" title="模板2">
+            <input type="radio" name="home" value="14" disabled="disabled">
+            模板2																													</label>
+    </li>
+    <li class="">
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-15.png" alt="模板3" title="模板3">
+            <input type="radio" name="home" value="15" disabled="disabled">
+            模板3																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-22.png" alt="模板4" title="模板4">
+            <input type="radio" name="home" value="22" disabled="disabled">
+            模板4																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-23.png" alt="模板5" title="模板5">
+            <input type="radio" name="home" value="23" disabled="disabled">
+            模板5																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-25.png" alt="模板6" title="模板6">
+            <input type="radio" name="home" value="25" disabled="disabled">
+            模板6																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-26.png" alt="模板7" title="模板7">
+            <input type="radio" name="home" value="26" disabled="disabled">
+            模板7																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+            <img src="{np::RES}/img/template/home-47.png" alt="模板8" title="模板8">
+            <input type="radio" name="home" value="47" disabled="disabled">
+            模板8																													</label>
+    </li>
+</ul>
+<!--5-->
+<ul id="CHARACTERS" class="cateradio unstyled" style="display: none">
+    <li class="free">
+        <div class="mbtip">左右图文式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片建议使用450*300或近似等比例图片，请不要使用高度大于或接近于宽度的图片。</div>
+        <label>
+            <img src="{np::RES}/img/template/home-3.png" alt="模板0" title="模板0"/>
+            <input type="radio" name="home" value="3" >
+            模板0																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">列表式图片模版，缩略图建议使用150*150或近似尺寸比例的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-1.png" alt="模板1" title="模板1"/>
+            <input type="radio" name="home" value="1" disabled="disabled" >
+            模板1																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">左右双栏模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片建议使用300*300或近似等比例图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-2.png" alt="模板2" title="模板2"/>
+            <input type="radio" name="home" value="2" disabled="disabled" >
+            模板2																													</label>
+    </li>
+    <li class="active">
+        <div class="mbtip">“1+2*2”式模版，顶部幻灯片尺寸为640*320或近似等比例图片，分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-6.png" alt="模板3" title="模板3"/>
+            <input type="radio" name="home" value="6" disabled="disabled" checked="checked">
+            模板3																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">文字标签式模版，顶部幻灯片尺寸为640*320或近似等比例图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-7.png" alt="模板4" title="模板4"/>
+            <input type="radio" name="home" value="7" disabled="disabled" >
+            模板4																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用系统提供的图标。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-8.png" alt="模板5" title="模板5"/>
+            <input type="radio" name="home" value="8" disabled="disabled" >
+            模板5																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-18.png" alt="模板6" title="模板6"/>
+            <input type="radio" name="home" value="18" disabled="disabled" >
+            模板6																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-19.png" alt="模板7" title="模板7"/>
+            <input type="radio" name="home" value="19" disabled="disabled" >
+            模板7																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-20.png" alt="模板8" title="模板8"/>
+            <input type="radio" name="home" value="20" disabled="disabled" >
+            模板8																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-21.png" alt="模板9" title="模板9"/>
+            <input type="radio" name="home" value="21" disabled="disabled" >
+            模板9																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-24.png" alt="模板10" title="模板10"/>
+            <input type="radio" name="home" value="24" disabled="disabled" >
+            模板10																													</label>
+    </li>
+    <li class="">
+        <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+        <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，<br />请升级体验。');">
+            <img src="{np::RES}/img/template/home-29.png" alt="模板11" title="模板11"/>
+            <input type="radio" name="home" value="29" disabled="disabled" >
+            模板11																													</label>
+    </li>
+</ul>
+<!--6-->
+<ul id="VIPS" class="cateradio unstyled" style="display: none">
+<li class="new">
+    <div class="mbtip">图标式模板，背景图片建议上传尺寸为宽640*高960或近似等比例的图片；支持背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-65.png" alt="新年专用" title="新年专用">
+        <input type="radio" name="home" value="65" disabled="disabled">
+        新年专用																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="new">
+    <div class="mbtip">图标式模板，背景图片建议上传尺寸为宽640*高960或近似等比例的图片；支持背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-64.png" alt="圣诞专用" title="圣诞专用">
+        <input type="radio" name="home" value="64" disabled="disabled">
+        圣诞专用																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="new">
+    <div class="mbtip">图标式模板，背景图片建议上传尺寸为宽640*高960或近似等比例的图片；支持背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-63.png" alt="杂志风" title="杂志风">
+        <input type="radio" name="home" value="63" disabled="disabled">
+        杂志风																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图标式模板，顶部幻灯片建议上传尺寸为宽640*高320或近似等比例的图片；支持背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-62.png" alt="杂志风2" title="杂志风2">
+        <input type="radio" name="home" value="62" disabled="disabled">
+        杂志风2																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部图片为幻灯片第一张，建议上传尺寸为宽640*高320或近似等比例的图片；二级分类图片建议上传尺寸为宽182*高137或近似等比例的图片，支持二级分类、一键拨号、背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-61.png" alt="二级分类" title="二级分类">
+        <input type="radio" name="home" value="61" disabled="disabled">
+        二级分类																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="new">
+    <div class="mbtip">图标式模板，顶部图片为幻灯片第一张，建议上传尺寸为宽640*高320或近似等比例的图片；支持二级分类、一键拨号、背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-60.png" alt="二级分类" title="二级分类">
+        <input type="radio" name="home" value="60" disabled="disabled">
+        二级分类																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部图片为幻灯片第一张，建议上传尺寸为宽640*高320或近似等比例的图片；圈内为微官网logo，建议png格式的1:1图片；二级分类图片建议上传尺寸为宽182*高137或近似等比例的图片，支持二级分类、一键拨号、背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-59.png" alt="二级分类" title="二级分类">
+        <input type="radio" name="home" value="59" disabled="disabled">
+        二级分类																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="new">
+    <div class="mbtip">图标式模板，顶部图片为幻灯片第一张，建议上传尺寸为宽640*高320或近似等比例的图片；支持一键拨号、背景音乐</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-58.png" alt="浪漫简约" title="浪漫简约">
+        <input type="radio" name="home" value="58" disabled="disabled">
+        浪漫简约																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部幻灯片建议上传尺寸为宽640*高320或近似等比例的图片；支持一键拨号、背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-57.png" alt="个性时尚" title="个性时尚">
+        <input type="radio" name="home" value="57" disabled="disabled">
+        个性时尚																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部幻灯片建议上传尺寸为宽640*高320或近似等比例的图片；分类图片建议上传尺寸为宽396*高284或近似等比例的图片，支持背景音乐、一键拨号。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-56.png" alt="个性时尚2" title="个性时尚2">
+        <input type="radio" name="home" value="56" disabled="disabled">
+        个性时尚2																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部圈内为微官网logo，建议上传比例1:1的图片，各分类图片建议尺寸为1:1的等比图片，支持背景音乐、一键拨号。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-55.png" alt="个性时尚1" title="个性时尚1">
+        <input type="radio" name="home" value="55" disabled="disabled">
+        个性时尚1																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部图片为幻灯片第一张，建议上传尺寸为宽640*高320或近似等比例的图片；分类图片建议尺寸宽640*高176或等比例图片，支持背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-54.png" alt="微旅游" title="微旅游">
+        <input type="radio" name="home" value="54" disabled="disabled">
+        微旅游																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图片式模板，顶部图片为幻灯片第一张，建议上传尺寸为宽640*高320或近似等比例的图片；分类图片建议尺寸宽285*高213或等比例图片，支持背景音乐。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-53.png" alt="微旅游" title="微旅游">
+        <input type="radio" name="home" value="53" disabled="disabled">
+        微旅游																													</label>
+</li>
+<li class="new">
+    <div class="mbtip">图标式模板，顶部幻灯片只支持一张，为首页幻灯片的第一张，建议上传图片的尺寸为宽640*高320或近似等比例的图片；切换导航在快捷与版权设置，首页一键拨号为快捷里设置的号码</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-52.png" alt="奈斯推荐" title="奈斯推荐">
+        <input type="radio" name="home" value="52" disabled="disabled">
+        奈斯推荐																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">微汽车专属模板，需要在微汽车模块的车系管理中设置车系简称，以及在微官网幻灯片上添加模板简介。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-36.png" alt="微汽车" title="微汽车">
+        <input type="radio" name="home" value="36" disabled="disabled">
+        微汽车																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">汽车行业专属模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片，幻灯下4个图标为分类管理的前4个分类，后面分类依次展示，图片建议尺寸为宽310*高130或等比例图片，logo图标为官网logo，需等比尺寸的png格式图片。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-40.png" alt="微汽车" title="微汽车">
+        <input type="radio" name="home" value="40" disabled="disabled">
+        微汽车																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">杂志式模板，支持整屏上下切换，各页面为各个分类，可点击文字进入内页；页面标题为分类名称，标题下的文字为分类描述，页面背景为分类封面，建议尺寸：宽640像素，高960像素。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-50.png" alt="微汽车" title="微汽车">
+        <input type="radio" name="home" value="50" disabled="disabled">
+        微汽车																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">微房产专属模板，需要将微官网分类名与圆环上的分类名一一对应；模板背景图片在微官网设置中添加。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-37.png" alt="微房产" title="微房产">
+        <input type="radio" name="home" value="37" disabled="disabled">
+        微房产																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">图标式模板，背景在微官网的首页幻灯片里添加，建议尺寸为960*640或近似等比例图；分类图标请选择系统图标。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-38.png" alt="微房产" title="微房产">
+        <input type="radio" name="home" value="38" disabled="disabled">
+        微房产																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-39.png" alt="微生活" title="微生活">
+        <input type="radio" name="home" value="39" disabled="disabled">
+        微生活																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">图片式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片，分类图片为分类封面，建议尺寸宽150*150或等比例图片</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-10.png" alt="微医疗" title="微医疗">
+        <input type="radio" name="home" value="10" disabled="disabled">
+        微医疗																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">图标式模板，支持背景图片，需开启背景图片，建议尺寸为宽640*高960或等比例图片，分类图片尺寸建议宽140*高85或等比例的图片。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-41.png" alt="微餐饮" title="微餐饮">
+        <input type="radio" name="home" value="41" disabled="disabled">
+        微餐饮																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">图标式模板，按分类顺序依次展现，有图片显示的分类，图片尺寸建议为宽150*85高或的等比例图片。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-42.png" alt="微餐饮" title="微餐饮">
+        <input type="radio" name="home" value="42" disabled="disabled">
+        微餐饮																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">支持二级分类，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片，幻灯下4个图标为分类管理的前4个分类，图标下第一块内容为第五个分类的分类封面、分类名称及子分类名称，建议尺寸300*300或1:1图片，下面依次类推。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-44.png" alt="电商" title="电商">
+        <input type="radio" name="home" value="44" disabled="disabled">
+        电商																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">&gt;图标式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片，分类前8个为图标及文字展示，后面分类为图片展示，建议尺寸为宽150*高90或等比例图片。</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-43.png" alt="电商" title="电商">
+        <input type="radio" name="home" value="43" disabled="disabled">
+        电商																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+<li class="">
+    <div class="mbtip">图片式模板，顶部幻灯片建议尺寸为宽640*高320或近似等比例的图片，文字为分类名称及分类描述，名称建议4个字符，描述限制10个字符以内；图片为分类封面，建议尺寸为宽165*高100或近似等比例图片</div>
+    <label onclick="G.ui.tips.err('仅限增强版、至尊版和行业版可以使用，&lt;br /&gt;请升级体验。');">
+        <img src="{np::RES}/img/template/home-12.png" alt="电商" title="电商">
+        <input type="radio" name="home" value="12" disabled="disabled">
+        电商																															<div style="padding:5px 0px 10px;">
+        行业热度：<span style="color:red;"><i class="icon-star"></i><i class="icon-star"></i></span>
+    </div>
+    </label>
+</li>
+</ul>
+
+</div>
+<div class="tab-pane fade" id="channel">
+    <ul class="cateradio">
+        <li >
+            <label>
+                <img src="{np::RES}/img/template/home-65.png" alt="模板0" title="模板0" />
+                <input type="radio" name="channel" value="home-65" >频道0											</label>
+        </li>
+        <li >
+            <label>
+                <img src="{np::RES}/img/template/home-64.png" alt="模板1" title="模板1" />
+                <input type="radio" name="channel" value="home-64" >频道1											</label>
+        </li>
+        <li >
+            <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用正方形尺寸的图片。</div>
+            <label>
+                <img src="{np::RES}/img/template/home-28.png" alt="模板2" title="模板2" />
+                <input type="radio" name="channel" value="home-28" >频道2											</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/home-13.png" alt="模板3" title="模板3" />
+                <input type="radio" name="channel" value="home-13" >频道3											</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/home-14.png" alt="模板4" title="模板4" />
+                <input type="radio" name="channel" value="home-14" >频道4											</label>
+        </li>
+        <li >
+            <div class="mbtip">左右双栏模版，顶部幻灯片尺寸为640*320或近似等比例图片，如使用正方形图片会使得页面不美观；分类图片建议使用300*200或近似等比例图片，使用宽度小于高度的(如200*300)尺寸图片将使页面惨不忍睹。</div>
+            <label>
+                <img src="{np::RES}/img/template/home-0.png?v=3" alt="模板5" title="模板5" />
+                <input type="radio" name="channel" value="home-0" >频道5											</label>
+        </li>
+        <li >
+            <div class="mbtip">左右双栏模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片建议使用300*300或近似等比例图片。</div>
+            <label>
+                <img src="{np::RES}/img/template/home-2.png" alt="模板6" title="模板6"/>
+                <input type="radio" name="channel" value="home-2" >频道6											</label>
+        </li>
+        <li >
+            <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用系统提供的图标。</div>
+            <label>
+                <img src="{np::RES}/img/template/home-4.png" alt="模板7" title="模板7"/>
+                <input type="radio" name="channel" value="home-4" >频道7											</label>
+        </li>
+        <li class="active">
+            <div class="mbtip">图标式模版，顶部幻灯片建议使用尺寸为640*320或近似等比例图片；分类图片请使用系统提供的图标。</div>
+            <label>
+                <img src="{np::RES}/img/template/home-23.png" alt="模板8" title="模板8"/>
+                <input type="radio" name="channel" value="home-23" checked="checked">频道8											</label>
+        </li>
+        <li >
+            <label>
+                <img src="{np::RES}/img/template/home-29.png" alt="模板9" title="模板9"/>
+                <input type="radio" name="channel" value="home-29" >频道9											</label>
+        </li>
+        <li >
+            <label>
+                <img src="{np::RES}/img/template/home-15.png" alt="模板10" title="模板10"/>
+                <input type="radio" name="channel" value="home-15" >频道10											</label>
+        </li>
+        <li >
+            <label>
+                <img src="{np::RES}/img/template/home-16.png" alt="模板11" title="模板11"/>
+                <input type="radio" name="channel" value="home-16" >频道11											</label>
+        </li>
+        <li >
+            <label>
+                <img src="{np::RES}/img/template/home-1.png" alt="模板12" title="模板12"/>
+                <input type="radio" name="channel" value="home-1" >频道12											</label>
+        </li>
+    </ul>
+</div>
+<div class="tab-pane fade" id="list">
+    <ul class="cateradio">
+        <li class="active">
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-12.png" alt="模板0" title="模板0"/>
+                <input type="radio" name="list" value="12" checked="checked">列表0                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-11.png" alt="模板1" title="模板1"/>
+                <input type="radio" name="list" value="11" >列表1                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-10.png" alt="模板2" title="模板2"/>
+                <input type="radio" name="list" value="10" >列表2                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-9.png" alt="模板3" title="模板3"/>
+                <input type="radio" name="list" value="9" >列表3                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-8.png" alt="模板4" title="模板4"/>
+                <input type="radio" name="list" value="8" >列表4                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-2.png" alt="模板5" title="模板5"/>
+                <input type="radio" name="list" value="2" >列表5                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-1.png" alt="模板6" title="模板6"/>
+                <input type="radio" name="list" value="1" >列表6                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-0.png" alt="模板7" title="模板7"/>
+                <input type="radio" name="list" value="0" >列表7                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-3.png" alt="模板8" title="模板8"/>
+                <input type="radio" name="list" value="3" >列表8                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-4.png" alt="模板9" title="模板9"/>
+                <input type="radio" name="list" value="4" >列表9                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-5.png" alt="模板10" title="模板10"/>
+                <input type="radio" name="list" value="5" >列表10                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-6.png" alt="模板11" title="模板11"/>
+                <input type="radio" name="list" value="6" >列表11                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/list-7.png" alt="模板12" title="模板12"/>
+                <input type="radio" name="list" value="7" >列表12                                                </label>
+        </li>
+    </ul>
+</div>
+<div class="tab-pane fade" id="detailed">
+    <ul class="cateradio">
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/detail-5.png" alt="模板5" title="模板5"/>
+                <input type="radio" name="detail" value="5" >详情5                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/detail-4.png" alt="模板4" title="模板4"/>
+                <input type="radio" name="detail" value="4" >详情4                                                </label>
+        </li>
+        <li class="active">
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/detail-0.png" alt="模板0" title="模板0"/>
+                <input type="radio" name="detail" value="0" checked="checked">详情0                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/detail-1.png" alt="模板1" title="模板1"/>
+                <input type="radio" name="detail" value="1" >详情1                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/detail-2.png" alt="模板2" title="模板2"/>
+                <input type="radio" name="detail" value="2" >详情2                                                </label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/detail-3.png" alt="模板3" title="模板3"/>
+                <input type="radio" name="detail" value="3" >详情3                                                </label>
+        </li>
+    </ul>
+</div>
+<div class="tab-pane fade" id="menu">
+    <ul class="cateradio">
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-7.png" alt="模板7" title="模板7"/>
+                <input type="radio" name="menu" value="7" >详情0												</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-4.png" alt="模板4" title="模板4"/>
+                <input type="radio" name="menu" value="4" >详情1												</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-5.png" alt="模板5" title="模板5"/>
+                <input type="radio" name="menu" value="5" >详情2												</label>
+        </li>
+        <li class="active">
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-6.png" alt="模板6" title="模板6"/>
+                <input type="radio" name="menu" value="6" checked="checked">详情3												</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-0.png" alt="模板0" title="模板0"/>
+                <input type="radio" name="menu" value="0" >详情4												</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-1.png" alt="模板1" title="模板1"/>
+                <input type="radio" name="menu" value="1" >详情5												</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-2.png" alt="模板2" title="模板2"/>
+                <input type="radio" name="menu" value="2" >详情6												</label>
+        </li>
+        <li >
+            <div class="mbtip" style="display:none;"></div>
+            <label>
+                <img src="{np::RES}/img/template/menu-3.png" alt="模板3" title="模板3"/>
+                <input type="radio" name="menu" value="3" >详情7												</label>
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script>
     $(function () {
         $("div.tab-pane input[type='radio']").click(function () {
             var $this = $(this), $key = $this.attr("name"), $value = $this.val();
@@ -331,18 +940,25 @@
                 }
             }, 'json');
         })
+        $('a[data-toggle="pill"]').on('shown', function (e) {
+            e.target // 激活的选项卡
+            e.relatedTarget // 上一个选项卡
+            var current_ID = $(e.target).attr("href");
+            var last_ID = $(e.relatedTarget).attr("href");
+            $(""+current_ID).show();
+            $(""+last_ID).hide();
+        })
     })
-  </script>
-  <script type="text/javascript">
-                window.document.onkeydown = function(e) {
-                        if ('' == document.activeElement.id) {
-                                var e=e || event;
-  　                              var currKey=e.keyCode || e.which || e.charCode;
-                                if (8 == currKey) {
-                                        return false;
-                                }
-                        }
-                };
-  </script>
-</body>
+</script>
+<script>
+    window.document.onkeydown = function(e) {
+        if ('' == document.activeElement.id) {
+            var e=e || event;
+　 				var currKey=e.keyCode || e.which || e.charCode;
+            if (8 == currKey) {
+                return false;
+            }
+        }
+    };
+</script>
 </html>

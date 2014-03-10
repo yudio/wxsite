@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-5.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <title>1</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="weimob-page">
+    <!--公共导航 start-->
+    <include file="common:menu"/>
+    <!--公共导航end-->
+    <script>
+    </script>
+    <div class="weimob-content">
+        <div class="weimob-list">
+            <volist name="info" id="vo">
+                <a class="weimob-list-item" href="{np:$vo.url}">
+                    <div class="weimob-list-item-title">{np:$vo.title}</div>
+                    <div class="weimob-list-item-image" style="background-image:url('{np:$vo.pic}')"></div>
+                    <div class="weimob-list-item-line">
+                        <div class="weimob-list-item-summary">{np:$vo.info}</div>
+                    </div>
+                    <div class="weimob-list-item-icon icon-arrow-r"></div>
+                </a>
+            </volist>
+        </div>
+    </div>
+</div>
+<include file="common:footer"/>
+</body>
+</html>
+

@@ -47,7 +47,7 @@ class IndexAction extends BaseAction{
 			$this->wecha_id=$_SESSION['wecha_id'];
 		}
 		//获取分类信息Classify
-        $classify=M('Classify')->where(array('token'=>$this->token,'status'=>1))->order('sorts desc')->select();
+        $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts desc')->select();
         $classify=$this->convertLinks($classify);//加外链等信息
         //获取用户组ID
 		$gid=D('Users')->field('gid')->find($wxuser['uid']);
@@ -122,39 +122,44 @@ class IndexAction extends BaseAction{
         //子分类则加载频道模版
         $subclass = M('Classify')->where(array('category_id'=>$classid))->order('sorts')->select();
         if ($subclass){
+            $flash=M('Flash')->where($where)->select();
+            $flash=$this->convertLinks($flash);
+            $count=count($flash);
+            $this->assign('flash',$flash);
+            $this->assign('num',$count);
             $subclass=$this->getTypeUrl($subclass);
             $this->assign('subclassify',$subclass);
             $this->display($this->wxuser['tplchname'].':'.$this->wxuser['tplchid']);
+        }else{
+            $db=D('Img');
+            if($_GET['pageNum']==false){
+                $pageNum=1;
+            }else{
+                $pageNum=$_GET['pageNum'];
+            }
+            $where['classid']=$classid;
+            $count=$db->where($where)->count();
+            $pageSize=8;
+            $pagecount=ceil($count/$pageSize);
+            if($pageNum > $pagecount){$pageNum=$pagecount;}
+            if($pageNum >=1){$pageNum=($pageNum-1)*$pageSize;}
+            if($pageNum==false){$pageNum=0;}
+            $info=$db->where($where)->order('createtime DESC')->limit("{$pageNum},".$pageSize)->select();
+            $info=$this->getTypeUrl($info);
+            $this->assign('pageCount',$pagecount);
+            $this->assign('pageNum',$pageNum);
+            $this->assign('info',$info);
+            $this->assign('copyright',$this->copyright);
+            if ($count==1){
+                $this->detail($info[0]['id']);
+                exit();
+            }
+            $this->display($this->wxuser['tpllistname'].':'.$this->wxuser['tpllistid']);
         }
-
-		$db=D('Img');	
-		if($_GET['pageNum']==false){
-			$pageNum=1;
-		}else{
-            $pageNum=$_GET['pageNum'];
-		}		
-		$where['classid']=$classid;
-		$count=$db->where($where)->count();	
-		$pageSize=8;	
-		$pagecount=ceil($count/$pageSize);
-		if($pageNum > $pagecount){$pageNum=$pagecount;}
-		if($pageNum >=1){$pageNum=($pageNum-1)*$pageSize;}
-		if($pageNum==false){$pageNum=0;}
-		$info=$db->where($where)->order('createtime DESC')->limit("{$pageNum},".$pageSize)->select();
-		$info=$this->getTypeUrl($info);
-		$this->assign('pageCount',$pagecount);
-		$this->assign('pageNum',$pageNum);
-		$this->assign('info',$info);
-		$this->assign('copyright',$this->copyright);
-		if ($count==1){
-			$this->detail($info[0]['id']);
-			exit();
-		}
-		$this->display($this->wxuser['tpllistname'].':'.$this->wxuser['tpllistid']);
 	}
 	
-	public function detail($contentid=0){
-        $where['token']=$this->token;
+	/*public function detail($contentid=0){
+        $where['wxname']=$this->_get('wxname','trim');
 		$db=M('Img');
 		if (!$contentid){
 			$contentid=intval($_GET['id']);
@@ -162,12 +167,29 @@ class IndexAction extends BaseAction{
 		$where['id']=array('neq',$contentid);
 		$lists=$db->where($where)->limit(5)->order('updatetime')->select();
 		$where['id']=$contentid;
-		$info=$db->where($where)->find();
+		$res=$db->where($where)->find();
 		$this->assign('lists',$lists);		//列表信息
-		$this->assign('info',$info);			//内容详情;
+		$this->assign('res',$res);			//内容详情;
 		$this->assign('copyright',$this->copyright);	//版权是否显示
+        LOG::write('图文手机页面:WAP/Index/'.$this->wxuser['tplcontentname'],LOG::ERR);
 		$this->display($this->wxuser['tplcontentname'].':'.$this->wxuser['tplcontentid']);
-	}
+	}*/
+    public function detail($contentid=0){
+        $where['token']=$this->token;
+        $db=M('Img');
+        if (!$contentid){
+            $contentid=intval($_GET['id']);
+        }
+        $where['id']=array('neq',$contentid);
+        $lists=$db->where($where)->limit(5)->order('updatetime')->select();
+        $where['id']=$contentid;
+        $info=$db->where($where)->find();
+        //$info=$this->getTypeUrl($info);     //获取图文链接
+        $this->assign('lists',$lists);		//列表信息
+        $this->assign('info',$info);			//内容详情;
+        $this->assign('copyright',$this->copyright);	//版权是否显示
+        $this->display($this->wxuser['tplcontentname'].':'.$this->wxuser['tplcontentid']);
+    }
 	
 	public function flash(){
 		$where['token']=$this->_get('token','trim');
