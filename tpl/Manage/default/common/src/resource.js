@@ -322,8 +322,8 @@ Builder.prototype._loadAct = function () {
     var t = $target.find("#act").val();
 
 	if (100 != t) { // 圣诞活动特殊处理 @annchen
-		$.post("/microsite/getactivity", {
-			action: "",
+		$.post("/npManage/Activity/getActivityJSON.act", {
+            action: "",
 			action: "getAct",
 			wuid: data.wuid,
 			type: t
@@ -338,7 +338,7 @@ Builder.prototype._loadAct = function () {
 						var item = data[i];
 						cont.push('<tr data-type="' + t + '" data-id="' + item.id + '" class="data-row">');
 						cont.push('<td class="with-checkbox"><input type="radio" name="activity_value" class="act-sel" value="' + item.id + '"/></td>');
-						cont.push('<td class="title">' + item.a_name + "</td>");
+						cont.push('<td class="title">' + item.title + "</td>");
 						cont.push('<td class="keyword">' + item.keyword + "</td>");
 						cont.push("<td>" + item.start_time + "~" + item.end_time + "</td>");
 						cont.push("</tr>")

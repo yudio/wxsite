@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-	<meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <meta content="{np::C('Keywords')}" name="Keywords">
+	<meta content="{np::C('Description')}" name="Description">
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
@@ -23,7 +23,7 @@
 <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/chosen/chosen_jquery_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/app/resource.js"></script>
+<script type="text/javascript" src="{np::RES}/src/resource.js"></script>
 <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
 	<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
@@ -101,7 +101,7 @@
                                 <div class="control-group">
                                     <label for="picurl" class="control-label">图文详细页内容：</label>
                                     <div class="controls">
-                                        <textarea name="reply_content" id="content" style="width: 700px; height: 300px; visibility: hidden;">{np:$info.text}</textarea>
+                                        <textarea name="text" id="content" style="width: 700px; height: 300px; visibility: hidden;">{np:$info.text}</textarea>
                                     </div>
 									<script>var editor1;</script>
                                     <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>

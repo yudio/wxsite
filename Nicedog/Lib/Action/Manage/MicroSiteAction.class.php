@@ -337,7 +337,10 @@ class MicroSiteAction extends UserAction{
             }
             $this->assign('info',$info);
         }
+        //加载外链配置
         $this->assign('typelist',C('plugmenu_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         $this->display();
     }
     public function delplugmenu(){
@@ -349,6 +352,16 @@ class MicroSiteAction extends UserAction{
         }
     }
 
+    public function plugmenu_show(){
+        $db = M('Plugmenu');
+        $data['id'] = $this->_post('id','intval');
+        $data['is_show'] = $this->_post('ck','intval');
+        if ($db->save($data)){
+            $this->ajaxReturn(array('errno'=>'0','error'=>'更新成功'),'JSON');
+        }else{
+            $this->ajaxReturn(array('errno'=>'1','error'=>'更新失败'),'JSON');
+        }
+    }
     public function updateplugmenu(){
         $db = M('Home');
         if (IS_POST){
@@ -373,6 +386,3 @@ class MicroSiteAction extends UserAction{
     }
 
 }
-
-
-?>

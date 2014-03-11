@@ -4,8 +4,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-        <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+        <meta name="Keywords" content="{np::C('Keywords')}" />
+        <meta name="Description" content="{np::C('Description')}" />
         <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico?v=2014-02-20-1" />
         <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all" />
 		<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all" />
@@ -49,7 +49,7 @@
 	display:block;
 	width:28px;
 	height:28px;
-	background:url({np:RES}/img/plugmenu/plugmenu.png) no-repeat;
+	background:url({np::RES}/img/plugmenu/plugmenu.png) no-repeat;
 	-moz-background-size:28px 28px;
 	-o-background-size:28px 28px;
 	-webkit-background-size:28px 28px;
@@ -106,7 +106,7 @@ $(document).ready(function(){
                                     <div class="span12 control-group">
                                         <a class="btn" href="/npManage/microsite/addplugmenu.act"><i class="icon-plus"></i>新增快捷菜单</a>
                                     </div>
-                                    <table id="listTable" class="table table-bordered table-hover dataTable ajax-checkbox" ajax-url="/microsite/plugmenu_show" ajax-length="0">
+                                    <table id="listTable" class="table table-bordered table-hover dataTable ajax-checkbox" ajax-url="/npManage/microsite/plugmenu_show.act" ajax-length="0">
                                         <thead>
                                             <tr>
                                                 <th>图标</th>
@@ -125,7 +125,7 @@ $(document).ready(function(){
                                             </td>
                                             <td>{np:$vo.name}</td>
                                             <td>{np:$vo.typename}</td>
-                                            <td>{np:$vo.order}</td>
+                                            <td>{np:$vo.sort}</td>
                                             <td>
                                                 <input type="checkbox" name="show" data-id="{np:$vo.id}" <if condition="$vo.is_show eq 1">checked="checked"</if>>
                                             </td>
@@ -258,11 +258,13 @@ $(document).ready(function(){
 			var _pli = $this.parents("li");
 			_pli.siblings().removeClass("active")
 			_pli.addClass("active");
-			$.post('/microsite/template/aid/72040', { key: $key, value: $value }, function(rs){
-				if(200 != rs.code){
-					G.ui.tips.err(rs.error);
-				}
-			}, 'json');
+            if ($key=='plugmenu'){
+                $.post('/npManage/microsite/updateplugmenu.act?id={np:$home.id}', { plugmenu : $value }, function(rs){
+                    if(200 != rs.code){
+                        G.ui.tips.err(rs.error);
+                    }
+                }, 'json');
+            }
 		})
 	})
 </script>	<script>

@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-	<meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <meta content="{np::C('Keywords')}" name="Keywords">
+	<meta content="{np::C('Description')}" name="Description">
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
@@ -23,7 +23,7 @@
 <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/chosen/chosen_jquery_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/app/resource.js"></script>
+<script type="text/javascript" src="{np::RES}/src/resource.js"></script>
 <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
 	<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
@@ -124,7 +124,7 @@
                                 <div class="control-group">
                                     <label for="picurl" class="control-label">图文详细页内容：</label>
                                     <div class="controls">
-                                        <textarea name="reply_content" id="content" style="width: 700px; height: 300px; visibility: hidden;">{np:$info.info}</textarea>
+                                        <textarea name="text" id="content" style="width: 700px; height: 300px; visibility: hidden;">{np:$info.text}</textarea>
                                     </div>
 									<script>var editor1;</script>
                                     <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
@@ -161,7 +161,7 @@
                                     </div>
                                 </div>
 
-                                <script src="http://api.map.baidu.com/api?key=24ffad3855e675265336a4cfb46d32b4&v=1.1&services=true" type="text/javascript" type="text/javascript"></script>
+                                <script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
 
                                <div id="res_block">
                                     <div class="control-group">
@@ -169,16 +169,9 @@
                                         <div class="controls">
                                             <select id="type" name="type" class="input-medium">
                                              <option value="0">请选择</option>
-                                                <option value="link" >链接</option>
-                                                <option value="map" >导航</option>
-                                                <option value="activity" >活动</option>
-                                                <option value="business" >业务模块</option>
-                                                <option value="car" >微汽车</option>
-                                                <option value="estate" >微房产</option>
-                                                <option value="food" >微餐饮</option>
-                                                <option value="vshop" >微商城</option>
-                                                <option value="vlife" >微生活</option>
-                                                <option value="vtg" >微团购</option>
+                                             <volist name="typelist" id="vo">
+                                             <option value="{np:$vo.value}" <if condition="$info['type'] eq $vo['value']">selected="selected"</if> >{np:$vo.name}</option>
+                                             </volist>
                                             </select>
                                         </div>
                                     </div>
@@ -195,7 +188,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="source_url">页面URL</label>
                                             <div class="controls">
-                                                <input type="text" id="source_url" value="" class="input-xlarge" name="source_url" data-rule-required="true" data-rule-url="true" />
+                                                <input type="text" id="source_url" value="" class="input-xlarge" name="link" data-rule-required="true" data-rule-url="true" />
                                                 <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的URL格式)</span>
                                             </div>
                                         </div>
@@ -214,80 +207,57 @@
                                     <div id="r_business" class="control-group r-module hide">
                                         <label class="control-label">业务类型:</label>
                                         <div class="controls">
-                                            <select id="business_func" name="business_func">
-                                                <option value="14" data-list="" >会员卡</option>
-                                                <option value="16" data-list="" >微官网</option>
-                                                <option value="17" data-list="" >微医疗</option>
-                                                <option value="18" data-list="1" >微预约</option>
-                                                <option value="20" data-list="1" >微调研</option>
-                                                <option value="21" data-list="1" >微酒店</option>
-                                                <option value="101" data-list="" >微留言</option>
-                                                <option value="102" data-list="" >微相册</option>
-                                                <option value="103" data-list="1" >微喜贴</option>
-                                                <option value="5001" data-list="" >领取彩票</option>
-
+                                            <select id="business_func" name="business_type" class="input-medium">
+                                                <volist name="businesslist" id="vo">
+                                                    <option value="{np:$vo.value}" data-list="false" <if condition="$info['business_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+                                                </volist>
                                             </select>
                                         </div>
-
-                                        <div class="margin-top hide">
-                                            <label class="control-label">业务选择:</label>
+                                        <div class="margin-top" style="display:none;">
+                                            <label class="control-label">业务:</label>
                                             <div class="controls">
                                                 <table class="table table-bordered">
                                                     <thead>
-                                                        <tr>
-                                                            <th></th>
-                                                            <th>业务标题</th>
-                                                            <th>触发关键词</th>
-                                                            <th style="display:none;">业务时间</th>
-                                                        </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>业务标题</th>
+                                                        <th>触发关键词</th>
+                                                        <th>时间段</th>
+                                                    </tr>
                                                     </thead>
-
-
                                                     <tbody>
                                                     </tbody>
-
-
-
-
-
                                                 </table>
-                                                <div class="text-center no-record" style="display:block">没有正在进行中的业务</div>
+                                                <div class="record hide"><a href="javascript:;" id="more_activity">加载更多业务...</a></div>
+                                                <div class="text-center no-record" style="display:none;">没有正在进行中的业务</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="r_activity" class="control-group r-module hide">
+                                    <div id="r_activity" class="control-group r-module hide"  >
                                         <label class="control-label">活动类型:</label>
                                         <div class="controls">
-                                            <select id="act" name="act">
-                                                <option value="11" data-list="1"  >刮刮卡</option>
-                                                <option value="12" data-list="1"  >优惠券</option>
-                                                <option value="13" data-list="1"  >大转盘</option>
-                                                <option value="15" data-list="1"  >微投票</option>
-                                                <option value="19" data-list="1"  >一战到底</option>
-                                                <option value="27" data-list="1"  >砸金蛋</option>
-                                                <option value="5002" data-list=""  >圣诞活动</option>
+                                            <select id="act" name="activity_type" onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
+                                                <volist name="activitylist" id="vo">
+                                                    <option value="{np:$vo.value}" data-list="false" <if condition="$info['activity_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+                                                </volist>
                                             </select>
                                         </div>
-
-                                        <div class="margin-top ">
+                                        <div  class="margin-top" id="activity_select_box" >
                                             <label class="control-label">活动选择:</label>
                                             <div class="controls">
                                                 <table class="table table-bordered">
                                                     <thead>
-                                                        <tr>
-                                                            <th></th>
-                                                            <th>活动标题</th>
-                                                            <th>触发关键词</th>
-                                                            <th>活动时间</th>
-                                                        </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>活动标题</th>
+                                                        <th>触发关键词</th>
+                                                        <th>活动时间</th>
+                                                    </tr>
                                                     </thead>
-
-                                                    <tbody>
-                                                    </tbody>
-
                                                 </table>
-                                                <div class="record hide"><a href="javascript:;" id="more_activity">加载更多活动...</a></div>
                                                 <div class="text-center no-record" style="display:block">没有正在进行中的活动</div>
+
+                                                <div class="record hide"><a href="javascript:;" id="more_activity">加载更多活动...</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -296,20 +266,18 @@
                                             <label class="control-label" for="suggestId">经纬度</label>
                                             <div class="controls">
                                                 <div class="input-append">
-                                                    <input type="text" id="suggestId" class="input-xlarge" value="" name="place" data-rule-required="true" />
+                                                    <input type="text" id="suggestId" name="place" value="{np:$info.place}" class="input-xlarge" data-rule-required="true" />
                                                     <button class="btn" type="button" id="positioning">搜索</button>
                                                 </div>
-
                                                 <span class="maroon">注意：这个只是模糊定位，准确位置请地图上标注!</span>
                                                 <div id="l-map">
                                                     <i class="icon-spinner icon-spin icon-large"></i>地图加载中...
                                                 </div>
                                                 <div id="r-result">
-                                                    <input type="hidden" id="lng" name="lng" value="" /><input type="hidden" id="lat" name="lat" value=""/>
+                                                    <input type="text" id="lng" name="lng" value="{np:$info.lng}" />
+                                                    <input type="text" id="lat" name="lat" value="{np:$info.lat}" />
                                                 </div>
-
                                             </div>
-
                                         </div>
                                     </div>
 
@@ -453,7 +421,7 @@
 									<input type="hidden" name="id" id="tid" value="{np:$info.id}">
                                     <button type="submit" class="btn btn-primary" id="bsubmit">保存</button>
 									<a class="btn" href="Javascript:window.history.go(-1)">取消</a>
-									
+
                                 </div>
 
                         </div>
