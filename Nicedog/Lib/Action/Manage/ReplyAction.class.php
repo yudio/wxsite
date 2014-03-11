@@ -98,7 +98,7 @@ class ReplyAction extends UserAction
 
     public function subscribenews(){
         $db  = D('Img');
-        $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'type'=>'3'))->find();
+        $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'match_type'=>'3'))->find();
         $this->assign('info',$res);
         $this->display();
     }
@@ -111,7 +111,7 @@ class ReplyAction extends UserAction
             //$_POST['info']=strip_tags($this->_post('info'),'<a> <p> <br>');
             //dump($_POST['info']);
             $db   = D('Img');
-            $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'type'=>'3'))->find();
+            $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'match_type'=>'3'))->find();
             if ($res == false) {
                 if ($db->create()){
                     $db->add();
@@ -352,7 +352,9 @@ class ReplyAction extends UserAction
         $where['type']   = array('lt',3);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
+        $info = array();
         $info=$db->where($where)->order('createtime DESC')->limit($page->firstRow.','.$page->listRows)->select();
+        //LOG::write('SQL:'.$db->getLastSql(),LOG::ERR);
         //$this->assign('page',$page->show());
         //$this->assign('info',$info);
         $this->ajaxReturn(array('count'=>$count,'list'=>$info),'JSON');

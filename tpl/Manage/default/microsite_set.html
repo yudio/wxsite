@@ -28,7 +28,7 @@
             src="{np::RES}/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js?2014-02-20-1"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/zeroclipboard/zeroclipboard_min.js?2014-02-20-1"></script>
     <script type="text/javascript" src="{np::STATICS}/inside.js?2014-02-20-1"></script>
-    <title>{np::C('site_title')} {np::C('site_name')}</title>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
     <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
@@ -61,7 +61,7 @@
                     return;
                 }
                 var left = ($(window.parent.parent).width() - 450) / 2;
-                window.open("{np::C('site_url')}/wechat/{np:$token}?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+                window.open("{np::C('site_url')}/wesite/{np:$wecha['id']}/index?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
             });
         </script>
     </div>

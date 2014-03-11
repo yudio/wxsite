@@ -24,7 +24,7 @@
 <script type="text/javascript" src="{np::RES}/src/plugins/chosen/chosen_jquery_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/resource.js"></script>
-<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+<title>{np::C('site_name')}—{np::C('site_title')}</title>
 	<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
 	<!--[if IE 7]><link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
@@ -151,7 +151,7 @@
                                         <button type="button" rel="more_graphics_table" class="btn add-on">添加</button><span style="color:red;" class="help-inline">最多添加9个</span>
                                     </div>
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" style="display: none;">
                                     <label for="picurl" class="control-label">推荐阅读：</label>
                                     <div class="controls">
                                         <table class="dataTable-mini" id="more_recommended_table">
