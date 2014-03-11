@@ -1,121 +1,154 @@
-<include file="Public:header"/>
 
-<div class="Public-content clearfix">
-    <div class="Public">
-        <h1 class="Public-h1">注册</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="keywords" content="{np::C('Keywords')}" />
+<meta name="description" content="{np::C('Description')}" />
+<!-- Mobile Devices Support @begin -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- apple devices fullscreen -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <div class="Public-box clearfix">
-            <div class="reg-wrapper2">
-                <form id="regform" class="form-horizontal" method="post" action="/npHome/Users/checkreg.act">
-                    <div class="control-group">
-                        <label class="control-label" for="username">用户名</label>
+<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/reg/reg.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::RES}/css/reg/style.css" media="all" />
+<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+<script type="text/javascript" src="{np::RES}/src/utils/bootstrap.js"></script>
+<script type="text/javascript" src="{np::RES}/src/utils/omvalidate.js"></script>
+<script type="text/javascript" src="{np::RES}/src/reg/reg.js"></script>
+<script type="text/javascript" src="{np::RES}/src/www/placeholder.js"></script>
+<!--[if IE 6]><script src="{np::RES}/src/js/DD_belatedPNG.js" type="text/javascript"></script><![endif]-->
+ 
+<title>注册-奈斯伙伴</title>
+        <!--[if IE 7]>
+            <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" />
+        <![endif]-->
+        <!--[if lte IE 8]>
+            <script src="{np::RES}/src/excanvas_min.js"></script>
+        <![endif]-->
+        <!--[if lte IE 9]>
+            <script src="{np::RES}/src/watermark.js"></script>
+        <![endif]-->
+    </head>
+    
+	<div class="header">
+	</div>
+	<div class="mainbody">
+		<div class="top">
 
-                        <div class="controls">
-                            <input type="text" name="username" id="username">
-                            <span class="maroon">*</span><span
-                                class="help-inline">长度为6~16位字符，可以为“数字/字母/中划线/下划线”组成</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="password">设置密码</label>
-
-                        <div class="controls">
-                            <input type="password" name="password" id="password">
-                            <span class="maroon">*</span><span class="help-inline">长度为6~16位字符</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="repassword">确认密码</label>
-
-                        <div class="controls">
-                            <input type="password" name="repassword" id="repassword">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="location_p">详细地址</label>
-
-                        <div class="controls">
-                            <select name="location_p" id="location_p"></select>
-                            <select name="location_c" id="location_c"></select>
-                            <select name="location_a" id="location_a"></select>
-                            <script type="text/javascript">
-                                new PCAS('location_p', 'location_c', 'location_a', '', '', '');
-                            </script>
-                        </div>
-                    </div>
-                    <div class="control-group" style="display:none;">
-                        <label class="control-label" for="address"></label>
-
-                        <div class="controls">
-                            <input type="text" class="input-xlarge" name="address" id="address"
-                                   data-rule-required="true" value="" style="width:426px;"/>
-                            <span class="maroon">*</span><span class="help-inline">详细地址：xx路xx号</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="mobile">手机</label>
-
-                        <div class="controls">
-                            <input type="text" name="mobile" id="mobile">
-                            <span class="maroon">*</span><span class="help-inline">请输入正确的手机号码</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="email">邮箱</label>
-
-                        <div class="controls">
-                            <input type="text" name="email" id="email">
-                            <span class="maroon">*</span><span class="help-inline">邮箱将与支付及优惠相关，请填写正确的邮箱</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="qq">QQ</label>
-
-                        <div class="controls">
-                            <input type="text" name="qq" id="qq">
-                        </div>
-                    </div>
-                    <div class="control-group" style="display: none;">
-                        <label class="control-label" for="invite_code">邀请码</label>
-
-                        <div class="controls">
-                            <input type="text" name="invite_code" readonly id="invite_code"
-                                   value="48e4e74db53195615096c5d2c6f12d3f">
-                            <span class="maroon">*</span><span class="help-inline">请输入32位邀请码</span><span
-                                class="help-inline"><a
-                                href="http://wpa.qq.com/msgrd?v=3&uin=4006305400&site=qq&menu=yes"
-                                style="color:#54c11a;" target="_blank">如果没有邀请码，联系客服</a></span>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label" for="captcha">验证码</label>
-
-                        <div class="controls">
-                            <input type="text" name="captcha" id="captcha" maxlength="4">
-                            <span class="maroon">*</span>
-		      <span name="show_captcha" id="show_captcha">
-				<img title="看不清？点击更换" style="cursor: pointer;" src="/npHome/Users/verify.act" id="imgCheckB" width="60"
-                     height="20" border="1">
-	      	  </span>
-                            <script type="text/javascript">
-                                function refresh() {
-                                    var randomRZ = Math.random();
-                                    $("#imgCheckB").attr("src", "/npHome/Users/verify.act?rz=" + randomRZ);
-                                }
-                            </script>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <button type="submit" id="reg-btn" class="btn-register" style="display:none;"></button>
-                            <button type="button" class="btn-register"></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <div id="hd" class="clearfix">
+            <div class="logo"><a href="/" hidefocus="true" onfocus="this.blur();"></a></div>
         </div>
-    </div>
-</div>
 
-<include file="Public:footer"/>
+        <div class="info">
+        <span><a href="/" target="_blank" title="首页" hidefocus="true" onfocus="this.blur();">首页</a></span>
+        <span class="split">|</span>
+        <span><a href="/index.php?m=Index&a=login" class="registerNew" title="登录" hidefocus="true" onfocus="this.blur();">登录</a></span>
+    </div>
+    <div style="clear:both;"></div>
+		</div>
+     <div class="reg-wrapper2">
+	<form id="regform" class="form-horizontal" action="#" method="post">
+		  <div class="control-group error">
+		    <label class="control-label" for="username">用户名</label>
+		    <div class="controls">
+		      <input type="text" name="username" id="username" title="请输入用户名">
+		      <span class="maroon">*</span><span class="help-inline">长度为6~16位字符，可以为“数字/字母/中划线/下划线”组成</span>
+		    </div>
+		  </div>
+		  <div class="control-group error">
+		    <label class="control-label" for="password">设置密码</label>
+		    <div class="controls">
+		      <input type="password" name="password" id="password"  title="请输入密码">
+		      <span class="maroon">*</span><span class="help-inline">长度为6~16位字符</span>
+		    </div>
+		  </div>
+		  <div class="control-group error">
+		    <label class="control-label" for="repassword">确认密码</label>
+		    <div class="controls">
+		      <input type="password" name="repassword" id="repassword"  title="请输入密码">
+		    </div>
+		  </div>
+            <div class="control-group">
+                <label class="control-label" for="province">详细地址</label>
+                <div class="controls">
+                    <select name="province" id="province"></select>
+                    <select name="city" id="city"></select>
+                    <select name="areaid" id="areaid"></select>
+		    <script src="common/src/region_select.js"></script>
+                    <script type="text/javascript">
+                          new PCAS('province', 'city', 'areaid', '', '', '');
+                    </script>
+                </div>
+            </div>
+            
+            <div class="control-group error">
+		    <label class="control-label" for="mobile">手机</label>
+		    <div class="controls">
+		      <input type="text" name="mobile" id="mobile"  title="请输入手机">
+		      <span class="maroon">*</span><span class="help-inline">请输入正确的手机号码</span>
+		    </div>
+		  </div>
+		  <div class="control-group error">
+		    <label class="control-label" for="email">邮箱</label>
+		    <div class="controls">
+		      <input type="text" name="email" id="email" title="请输入邮箱">
+		      <span class="maroon">*</span><span class="help-inline">忘记密码会用到邮箱，请填写正确的邮箱</span>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="qq">QQ</label>
+		    <div class="controls">
+		      <input type="text" name="qq" id="qq">
+		    </div>
+		  </div>
+		 
+                    <div class="control-group">
+		    <label class="control-label" for="randcode">验证码</label>
+		    <div class="controls">
+		      <input type="text" name="captcha" id="captcha" maxlength="4"   title="请输入验证码">
+		      <span class="maroon">*</span>
+		      <span name="show_captcha" id="show_captcha" >
+				<img title="看不清？点击更换" id="imgCheckB" style="cursor: pointer;" onclick="javascript:refresh();" src="/index.php?g=admin&m=Admin&a=verify" width="60" height="20" border="0">
+	      	  </span>
+		    </div>
+		  </div>
+
+		  
+		  <div class="control-group">
+		  	<div class="controls">
+			    <button type="submit" id="reg-btn" class="btn-register"   style="display:"></button>
+                            <button type="button" class="btn-register" onclick="validityInvitecode(this); return false;" style="display:none;"></button>
+		  	</div>
+		  </div>
+		<input type="hidden" name="__hash__" value="b85d4c81d87f062f6e811230b18a0bc6_88f00fbb74570c03e66bb78b7821bbc4" /></form>
+     </div>
+	</div>
+
+<script type="text/javascript">
+	$(function(){
+	    $('#username').focus();
+
+	});
+function refresh()
+{
+        var randomRZ = Math.random();
+        $("#imgCheckB").attr("src", "/index.php?g=Admin&m=Admin&a=verify&rz=" + randomRZ);
+}
+  function validityInvitecode(obj){
+        obj = $(obj);
+        obj.attr('disabled', 'true');
+        $.post('/index.php?g=Admin&m=Admin&a=checkverify&vcode='+$('#captcha').val(), function(rs){
+	 
+            alert(rs);
+            $('#reg-btn').click();
+            obj.removeAttr('disabled');
+        }, 'json');
+	 
+    }
+ 
+</script></html>
