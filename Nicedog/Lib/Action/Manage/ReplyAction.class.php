@@ -352,7 +352,9 @@ class ReplyAction extends UserAction
         $where['type']   = array('lt',3);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
+        $info = array();
         $info=$db->where($where)->order('createtime DESC')->limit($page->firstRow.','.$page->listRows)->select();
+        //LOG::write('SQL:'.$db->getLastSql(),LOG::ERR);
         //$this->assign('page',$page->show());
         //$this->assign('info',$info);
         $this->ajaxReturn(array('count'=>$count,'list'=>$info),'JSON');

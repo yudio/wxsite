@@ -659,7 +659,7 @@ class WeixinAction extends Action
                         $imgmsg['title'],
                         $imgmsg['text'],
                         $imgmsg['pic'],
-                        $this->getRelatedImg($imgmsg)
+                        C('site_url').$imgmsg['url'],//$this->getRelatedImg($imgmsg)
                     );
                     $back = array();
                     if($imgmsg['news']){
@@ -667,14 +667,14 @@ class WeixinAction extends Action
                         $back = $img_db->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($backwhere)->select();
                     }
                     foreach ($back as $keya => $infot) {
-                        $url = $this->getRelatedImg($infot);
+                        //$url = $this->getRelatedImg($infot);
                         //这里修改过
                         LOG::write('图文'.$infot['id'],LOG::ERR);
                         $return[] = array(
                             $infot['title'],
                             $infot['text'],
                             $infot['pic'],
-                            $url
+                            C('site_url').$infot,
                         );
                     }
                     return array(
@@ -1420,7 +1420,7 @@ class WeixinAction extends Action
         $data['year'] = date('Y');
         $data['month'] = date('m');
         $data['day'] = date('d');
-        $data['token'] = $this->token;
+        $data['token'] = $this->e;
         $mysql = M('Requestdata');
         $check = $mysql->field('id')->where($data)->find();
         if ($check == false) {
