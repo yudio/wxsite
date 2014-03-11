@@ -46,8 +46,8 @@ class WeixinAction extends Action
             $follow_data['follow_to_id'] = $data['ToUserName'];
             $follow_data['follow_time'] = $data['CreateTime'];
             $foloow_lists = M('Follow')->add($follow_data);
-
             $this->requestdata('follownum');
+
             $data = M('Areply')->field('home,keyword,content')->where(array(
                 'token' => $this->token
             ))->find();

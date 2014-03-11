@@ -24,7 +24,7 @@
 <script type="text/javascript" src="{np::RES}/src/plugins/chosen/chosen_jquery_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
 <script type="text/javascript" src="{np::RES}/src/resource.js"></script>
-<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+<title>{np::C('site_name')}—{np::C('site_title')}</title>
 	<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
 	<!--[if IE 7]><link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
@@ -138,7 +138,7 @@
                                     <div class="control-group">
                                         <label class="control-label">图文外链类型:</label>
                                         <div class="controls">
-                                            <select id="type" name="match_type" class="input-medium">
+                                            <select id="type" name="type" class="input-medium">
                                              <option value="0">请选择</option>
                                                 <option value="link" >链接</option>
                                                 <option value="map" >导航</option>
@@ -422,9 +422,9 @@
 
                                 <div class="form-actions">
 									<input type="hidden" name="id" id="id" value="{np:$info.id}">
-                                    <input type="hidden" name="type" id="imgtype" value="3">
+                                    <input type="hidden" name="match_type" id="imgtype" value="3">
                                     <button type="submit" class="btn btn-primary" id="bsubmit">保存</button>
-																		 <button type="button" class="btn" onclick="window.location='/wechat/replysubscribe/aid/72040'"> 切换到文字模式 </button>
+									<button type="button" class="btn" onclick="window.location='/npManage/reply/subscribe.act'"> 切换到文字模式 </button>
 									
                                 </div>
 
