@@ -63,9 +63,12 @@ class UsersAction extends BaseAction{
 	}
 	
 	public function checkreg(){
+        C('TOKEN_ON',false);
 		$db=D('Users');
         $code=$this->_post('captcha','intval,md5',0);
         if($code != $_SESSION['verify']){
+            echo '5';
+            exit;
             $this->error('验证码错误','/npHome/Index/reg.act');
         }
         $condition['username'] = $this->_post('username');
@@ -73,14 +76,19 @@ class UsersAction extends BaseAction{
         $condition['_logic'] = 'OR';
         $user = $db->where($condition)->find();
         if ($user){
-            $this->error('用户名或邮箱已注册！','/npHome/Index/reg.act');
+            echo '2';
+            exit;
+            $this->ajaxReturn(array('errno'=>'100','error'=>'用户名或邮箱已注册！'),'JSON');
         }
 		$info=M('User_group')->find(1);
 		if($db->create()){
 			$id=$db->add();
 			if($id){				
 				if(C('ischeckuser')!='true'){
-					$this->success('注册成功,请联系在线客服审核帐号','npManage/account/index.act');exit;
+                    echo '4';
+                    exit;
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'注册成功,请联系在线客服审核帐号！','url'=>'/'),'JSON');
+					//$this->success('注册成功,请联系在线客服审核帐号','');exit;
 				}
 				$viptime=time()+3*24*3600;
 				$db->where(array('id'=>$id))->save(array('viptime'=>$viptime));
@@ -91,18 +99,32 @@ class UsersAction extends BaseAction{
 				session('connectnum',0);
 				session('activitynum',0);
 				session('gname',$info['name']);
-			    
-				$this->success('注册成功','npManage/Account/main.act');
+                echo '1';
+                exit;
+                $this->ajaxReturn(array('errno'=>'0','error'=>'注册成功！','url'=>'/npManage/Account/main.act'),'JSON');
+				//$this->success('注册成功','npManage/Account/main.act');
 			}else{
-				$this->error('注册失败','/npHome/Index/reg.act');
+                $this->ajaxReturn(array('errno'=>'101','error'=>'注册失败！','url'=>'//npHome/Index/reg.act'),'JSON');
+                //$this->error('注册失败','/npHome/Index/reg.act');
 			}
 		}else{
-			$this->error($db->getError(),'/npHome/Index/reg.act');
+            LOG::write('Home-Users-reg:'.$db->getError(),LOG::ERR);
+            $this->ajaxReturn(array('errno'=>'101','error'=>'内部错误，请稍后重试！','url'=>'//npHome/Index/reg.act'),'JSON');
+			//$this->error($db->getError(),'/npHome/Index/reg.act');
 		}
 	}
 
     public function verify(){
+        import('ORG.Util.Image');
         Image::buildImageVerify();
+    }
+    public function checkverify(){
+        $code=$this->_post('vcode','intval,md5',0);
+        if($code != $_SESSION['verify']){
+            $this->ajaxReturn(array('errno'=>'100','error'=>'验证码错误'));
+        }else{
+            $this->ajaxReturn(array('errno'=>'0'));
+        }
     }
 
 	public function checkpwd(){

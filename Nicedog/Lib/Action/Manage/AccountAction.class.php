@@ -210,6 +210,7 @@ class AccountAction extends UserAction{
      * 手动绑定公众号
      */
     public function addwxuser(){
+        C('TOKEN_ON',false);
         $db = D('Wxuser');
         if (IS_POST){
             $id = $this->_post('id');
@@ -223,7 +224,8 @@ class AccountAction extends UserAction{
                 }
             }else{
                 $_POST['token'] = $this->genToken();
-                $_POST['type']  = 1;
+                if (!$_POST['type']){ $_POST['type'] = '0,选择类型';}
+                //$_POST['type']  = 1;
                 $tokenurl = C('site_url').'/wechat/'.$_POST['token'];
                 if ($db->create()){
                     $id = $db->add();

@@ -13,25 +13,25 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/reg/reg.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/reg/style.css" media="all" />
-<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-<script type="text/javascript" src="{np::RES}/src/utils/bootstrap.js"></script>
-<script type="text/javascript" src="{np::RES}/src/utils/omvalidate.js"></script>
-<script type="text/javascript" src="{np::RES}/src/reg/reg.js"></script>
-<script type="text/javascript" src="{np::RES}/src/www/placeholder.js"></script>
-<!--[if IE 6]><script src="{np::RES}/src/js/DD_belatedPNG.js" type="text/javascript"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/reg/reg.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/reg/style.css" media="all" />
+<script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/utils/bootstrap.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/utils/omvalidate.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/reg/reg.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/www/placeholder.js"></script>
+<!--[if IE 6]><script src="{np::STATICS}/src/js/DD_belatedPNG.js" type="text/javascript"></script><![endif]-->
  
 <title>注册-奈斯伙伴</title>
         <!--[if IE 7]>
-            <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" />
+            <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" />
         <![endif]-->
         <!--[if lte IE 8]>
-            <script src="{np::RES}/src/excanvas_min.js"></script>
+            <script src="{np::STATICS}/src/excanvas_min.js"></script>
         <![endif]-->
         <!--[if lte IE 9]>
-            <script src="{np::RES}/src/watermark.js"></script>
+            <script src="{np::STATICS}/src/watermark.js"></script>
         <![endif]-->
     </head>
     
@@ -78,10 +78,10 @@
                 <div class="controls">
                     <select name="province" id="province"></select>
                     <select name="city" id="city"></select>
-                    <select name="areaid" id="areaid"></select>
-		    <script src="common/src/region_select.js"></script>
+                    <select name="town" id="town"></select>
+		    <script src="{np::STATICS}/src/region_select.js"></script>
                     <script type="text/javascript">
-                          new PCAS('province', 'city', 'areaid', '', '', '');
+                          new PCAS('province', 'city', 'town', '', '', '');
                     </script>
                 </div>
             </div>
@@ -113,7 +113,7 @@
 		      <input type="text" name="captcha" id="captcha" maxlength="4"   title="请输入验证码">
 		      <span class="maroon">*</span>
 		      <span name="show_captcha" id="show_captcha" >
-				<img title="看不清？点击更换" id="imgCheckB" style="cursor: pointer;" onclick="javascript:refresh();" src="/index.php?g=admin&m=Admin&a=verify" width="60" height="20" border="0">
+				<img title="看不清？点击更换" id="imgCheckB" style="cursor: pointer;" onclick="javascript:refresh();" src="/npHome/Users/verify.act" width="60" height="20" border="0">
 	      	  </span>
 		    </div>
 		  </div>
@@ -121,11 +121,11 @@
 		  
 		  <div class="control-group">
 		  	<div class="controls">
-			    <button type="submit" id="reg-btn" class="btn-register"   style="display:"></button>
-                            <button type="button" class="btn-register" onclick="validityInvitecode(this); return false;" style="display:none;"></button>
+			    <button type="submit" id="reg-btn" class="btn-register"  ></button>
+                <button type="button" class="btn-register" onclick="validityInvitecode(this); return false;" style="display:none;"></button>
 		  	</div>
 		  </div>
-		<input type="hidden" name="__hash__" value="b85d4c81d87f062f6e811230b18a0bc6_88f00fbb74570c03e66bb78b7821bbc4" /></form>
+		</form>
      </div>
 	</div>
 
@@ -137,16 +137,18 @@
 function refresh()
 {
         var randomRZ = Math.random();
-        $("#imgCheckB").attr("src", "/index.php?g=Admin&m=Admin&a=verify&rz=" + randomRZ);
+        $("#imgCheckB").attr("src", "/npHome/Users/verify.act?rz=" + randomRZ);
 }
   function validityInvitecode(obj){
         obj = $(obj);
         obj.attr('disabled', 'true');
-        $.post('/index.php?g=Admin&m=Admin&a=checkverify&vcode='+$('#captcha').val(), function(rs){
-	 
-            alert(rs);
-            $('#reg-btn').click();
-            obj.removeAttr('disabled');
+        $.post('/npHome/Users/checkverify&vcode='+$('#captcha').val(), function(rs){
+	        if (rs.errno==0){
+                $('#reg-btn').click();
+                obj.removeAttr('disabled');
+            }else{
+                alert(rs.error);
+            }
         }, 'json');
 	 
     }
