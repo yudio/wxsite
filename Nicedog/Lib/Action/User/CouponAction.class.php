@@ -52,7 +52,12 @@ class CouponAction extends UserAction{
 						$data1['module']='Lottery';
 						$data1['token']=session('token');
 						$data1['keyword']=$this->_post('keyword');
-						M('Keyword')->add($data1);
+                        $data1['match_type'] = 1;
+                        $keymatch = Keyword::select($data);
+                        if (count($keymatch)>1){
+                            $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                        }
+                        Keyword::update($data1,'Lottery');
 						$user=M('Users')->where(array('id'=>session('uid')))->setInc('activitynum');
 						$this->success('活动创建成功',U('Coupon/index'));
 					}else{

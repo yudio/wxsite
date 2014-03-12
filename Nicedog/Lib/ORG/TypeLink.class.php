@@ -32,14 +32,14 @@ class TypeLink{
                  case 'business':
                      switch ($arr['business_type']){
                          case 'official':
-                             $arr['url'] = '/wesite/'.$arr['uid'].'/index?wecha_id=FromUserName';
+                             $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
                          case 'vipcard'://会员卡
                              break;
                      }
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$arr['uid']}/detail?id={$arr['id']}";
+                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/detail?id={$arr['id']}";
              }
          }
          if ($module=='Img'){
@@ -64,24 +64,24 @@ class TypeLink{
                  case 'business':
                      switch ($arr['business_type']){
                          case 'official':
-                             $arr['url'] = '/wesite/'.$arr['uid'].'/index?wecha_id=FromUserName';
+                             $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
                          case 'vipcard'://会员卡
                              break;
                      }
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$arr['uid']}/detail?id={$arr['id']}";
+                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/detail?id={$arr['id']}";
              }
          }
          if ($module=='Classify'){
              switch ($arr['type']){
                  case 'article':
                      //   /wesite/test/lists?show=1&classid=325
-                     $arr['url'] = "/wesite/{$arr['uid']}/lists?classid={$arr['id']}";
+                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/lists?classid={$arr['id']}";
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$arr['uid']}/detail?id={$arr['id']}";
+                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/lists?classid={$arr['id']}";
              }
          }
 

@@ -90,10 +90,10 @@
 
     <div class="controls">
         <label class="radio">
-            <input type="radio" name="matchtype" value="0" <if condition="$home.matchtype eq 0">checked="checked"</if>/>完全匹配（用户输入的和此关键词一样才会触发!）
+            <input type="radio" name="match_type" value="1" <if condition="$home.match_type eq 1">checked="checked"</if>/>完全匹配（用户输入的和此关键词一样才会触发!）
         </label>
         <label class="radio ">
-            <input type="radio" name="matchtype" value="1" <if condition="$home.matchtype eq 1">checked="checked"</if>/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
+            <input type="radio" name="match_type" value="2" <if condition="$home.match_type eq 2">checked="checked"</if>/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
         </label>
     </div>
 </div>

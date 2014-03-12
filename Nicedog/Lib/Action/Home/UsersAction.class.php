@@ -26,6 +26,11 @@ class UsersAction extends BaseAction{
 			session('activitynum',$res['activitynum']);
 			session('viptime',$res['viptime']);
 			session('gname',$info['name']);
+            //为每个用户建立一个上传目录
+            //$picpath = 'Uploads/image/'.md5($res['id']).'/';
+            //$dir            =   dirname($picpath);
+            //LOG::write('创建用户图片空间'.is_dir($picpath),LOG::ERR);
+            //if (!is_dir($picpath)) mkdir($picpath,0755,true);
 			//每个月第一次登陆数据清零
 			$now=time();
 			$month=date('m',$now);
@@ -52,7 +57,7 @@ class UsersAction extends BaseAction{
             $this->ajaxReturn($ret,'JSON');
 		}else{
 			//$this->error('帐号密码错误',U('Index/login'));
-            $ret = array('errno'=>'0','error'=>'帐号密码错误','url_route'=>U('Index/login'));
+            $ret = array('errno'=>'0','error'=>'帐号密码错误','url_route'=>'/');
             $this->ajaxReturn($ret,'JSON');
         }
 	}

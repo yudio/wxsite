@@ -41,6 +41,7 @@ class MicroSiteAction extends UserAction{
     }
     //微官网配置
     public function set(){
+        C('TOKEN_ON',false);
         $db   = D('Home');
         $home=$db->where(array('token'=>session('token')))->find();
         if(IS_POST){
@@ -53,12 +54,17 @@ class MicroSiteAction extends UserAction{
                     $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');//error($db->getError());
                 } else {
                     $_POST['token'] = session('token');
+                    $data['pid']     = 0;
+                    $data['token']   = session('token');
+                    $data['keyword'] = $this->_post('wxkey');
+                    $data['match_type'] = $this->_post('match_type','intval');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
                     $id = $db->add();
                     $data['pid']     = $id;
-                    $data['module']  = 'Home';
-                    $data['token']   = session('token');
-                    $data['keyword'] = $_POST['wxkey'];
-                    M('Keyword')->add($data);
+                    Keyword::update($data,'Home');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/set.act'),'JSON');
                 }
             }else{
@@ -70,12 +76,16 @@ class MicroSiteAction extends UserAction{
                 if ($db->create() === false) {
                     $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');//error($db->getError());
                 } else {
+                    $data['pid']    = $this->_post('id','intval');
+                    $data['token']   = session('token');
+                    $data['keyword'] = $this->_post('wxkey');
+                    $data['match_type'] = $this->_post('match_type','intval');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
                     $id = $db->save();
-                    $data['pid']    = $_POST['id'];
-                    $data['module'] = 'Home';
-                    $data['token']  = session('token');
-                    $da['keyword']  = $_POST['wxkey'];
-                    M('Keyword')->where($data)->save($da);
+                    Keyword::update($data,'Home');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/set.act'),'JSON');
                 }
             }
@@ -287,14 +297,14 @@ class MicroSiteAction extends UserAction{
             $_POST['typename'] = $typemap[$_POST['type']];
             $_POST['uid']    = session('uid');
             $_POST['token']    = session('token');
-            $_POST['url'] = TypeLink::getTypeLink($_POST,'Plugmenu');
             if ($id){//更新操作
+                $_POST['url'] = TypeLink::getTypeLink($_POST,'Plugmenu');
                 if ($db->create()){
-                    C('TOKEN_ON',false);
-                    $data['pid'] = $id;
-                    $data['module'] = 'Plugmenu';
+                    //外链设置START
+                    $where['pid'] = $id;
+                    $where['module'] = 'Plugmenu';
                     $newdb = D('Typelink');
-                    $tlink = $newdb->field('id')->where($data)->find();
+                    $tlink = $newdb->field('id')->where($where)->find();
                     $data  = $_POST;
                     $data['pid'] = $id;
                     $data['module'] = 'Plugmenu';
@@ -304,6 +314,7 @@ class MicroSiteAction extends UserAction{
                     }else{
                         dump($newdb->getError());
                     }
+                    //外链设置END
                     $db->save();
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
                 }else{
@@ -312,8 +323,12 @@ class MicroSiteAction extends UserAction{
             }else{
                 if ($db->create()){
                     $id = $db->add();
-                    C('TOKEN_ON',false);
                     $data = $_POST;
+                    $_POST['id']  = $id;
+                    $url = TypeLink::getTypeLink($_POST,'Plugmenu');
+                    $db->save(array('id'=>$id,'url'=>$url));       //生成URL
+                    //外链设置START
+                    $data['url'] = $url;
                     $data['pid'] = $id;
                     $data['module'] = 'Plugmenu';
                     $newdb = D('Typelink');
@@ -322,6 +337,7 @@ class MicroSiteAction extends UserAction{
                     }else{
                         dump($newdb->getError());
                     }
+                    //外链设置END
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');

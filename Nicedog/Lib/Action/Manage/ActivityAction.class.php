@@ -17,18 +17,23 @@ class ActivityAction extends UserAction{
 
     //大转盘
     public function addLottery(){
+        C('TOKEN_ON',false);
         $db = D('Lottery');
         if (IS_POST){
             $id = $this->_post('id','intval');
             if ($id){//更新操作
                 LOG::write('Lottery save',LOG::ERR);
                 if ($db->create()){
-                    $db->save();
                     $data['pid']    = $id;
-                    $data['module'] = 'Lottery';
+                    $data['keyword'] = $this->_post('keyword');
                     $data['token']  = session('token');
-                    $da['keyword']  = $_POST['keyword'];
-                    M('Keyword')->where($data)->save($da);
+                    $data['match_type']  = 1;
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    $db->save();
+                    Keyword::update($data,'Lottery');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/activity/lotteryList.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -36,12 +41,17 @@ class ActivityAction extends UserAction{
             }else{
                 LOG::write('Lottery add'.$_POST['time'],LOG::ERR);
                 if ($db->create()){
+                    $data['pid']     = 0;
+                    $data['keyword'] = $this->_post('keyword');
+                    $data['token']  = session('token');
+                    $data['match_type']  = 1;
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
                     $id = $db->add();
                     $data['pid']     = $id;
-                    $data['module']  = 'Lottery';
-                    $data['token']   = session('token');
-                    $data['keyword'] = $_POST['keyword'];
-                    M('Keyword')->add($data);
+                    Keyword::update($data,'Lottery');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/activity/lotteryList.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
