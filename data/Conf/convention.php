@@ -9,7 +9,7 @@ return  array(
     'APP_SUB_DOMAIN_DEPLOY' => false,   // 是否开启子域名部署
     'APP_SUB_DOMAIN_RULES'  => array(), // 子域名部署规则
     'APP_SUB_DOMAIN_DENY'   => array(), //  子域名禁用列表
-    'APP_GROUP_LIST'        => 'Home,System,User,Wap',      // 项目分组设定,多个组之间用逗号分隔,例如'Home,Admin'
+    'APP_GROUP_LIST'        => 'Home,System,User,Wap,Manage,Wesite',      // 项目分组设定,多个组之间用逗号分隔,例如'Home,Admin'
     'ACTION_SUFFIX'         =>  '', // 操作方法后缀
 
     /* Cookie设置 */

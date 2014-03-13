@@ -5,6 +5,7 @@ class UsersAction extends BaseAction{
 	}
 
 	public function checklogin(){
+        C('TOKEN_ON',false);
 		$db=D('Users');
 		$where['username']=$this->_post('username','trim');
 		

@@ -23,7 +23,7 @@ class UserAction extends BaseAction{
 		//
 		$this->assign('userinfo',$userinfo);
 		if(session('uid')==false){
-			$this->redirect('/npHome/Index/login.act');
+			$this->redirect('/npHome/Index/index.act');
 		}
 	}
 }
