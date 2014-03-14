@@ -28,10 +28,13 @@ class UsersAction extends BaseAction{
 			session('viptime',$res['viptime']);
 			session('gname',$info['name']);
             //为每个用户建立一个上传目录
-            //$picpath = 'Uploads/image/'.md5($res['id']).'/';
-            //$dir            =   dirname($picpath);
-            //LOG::write('创建用户图片空间'.is_dir($picpath),LOG::ERR);
-            //if (!is_dir($picpath)) mkdir($picpath,0755,true);
+            $picpath = dirname(__FILE__).'/../../../../Uploads/userShare/'.substr(md5($res['id']),16).'/';
+            //$picpath            =   realpath($picpath);
+            LOG::write('创建用户图片空间|'.$picpath,LOG::ERR);
+            if (!is_dir($picpath)) {
+                mkdir($picpath,0777,true);
+                chmod($picpath,0777);
+            }
 			//每个月第一次登陆数据清零
 			$now=time();
 			$month=date('m',$now);

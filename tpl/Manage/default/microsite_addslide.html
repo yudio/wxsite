@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="Keywords" content="{np::C('Keywords')}"/>
     <meta name="Description" content="{np::C('Description')}"/>
-    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico?v=2014-02-20-1"/>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all"/>
@@ -23,19 +23,45 @@
     <script type="text/javascript" src="{np::STATICS}/inside.js?2014-02-20-1"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
-    <link href="{np::RES}/css/font_awesome_ie7.css?v=2014-02-20-1" rel="stylesheet"/>
+    <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="{np::RES}/js/excanvas_min.js?v=2014-02-20-1"></script>
+    <script src="{np::RES}/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="{np::RES}/js/watermark.js?v=2014-02-20-1"></script>
+    <script src="{np::RES}/js/watermark.js"></script>
     <![endif]-->
 </head>
-<script src="{np::STATICS}/kindeditor/kindeditor-min.js?v=2014-02-20-1"></script>
-<script src="{np::STATICS}/kindeditor/lang/zh_CN.js?v=2014-02-20-1"></script>
-<script src="{np::STATICS}/kindeditor/kindeditor.config-upfile.js?v=2014-02-20-1"></script>
-<link href="{np::STATICS}/kindeditor/themes/default/default.css?v=2014-02-20-1" rel="stylesheet"/>
+<script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" >
+    KindEditor.ready(function (K) {
+        var editor = K.editor({
+            themeType: "simple",
+            allowFileManager: true
+
+        });
+        K('#insertimage').click(function () {
+            editor.loadPlugin('smimage', function () {
+                editor.plugin.imageDialog({
+                    imageUrl: K('#thumb').val(),
+                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                    clickFn: function (url, title, width, height, border, align) {
+                        K('#thumb').val(url);
+                        if (K('#thumb_img')) {
+                            K('#thumb').hide();
+                            K('#thumb_img').attr('src', url);
+                            K('#thumb_img').show().css('display','inline');
+                        }
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+<link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet"/>
 <body>
 <div id="main">
 <div class="container-fluid">

@@ -6,28 +6,28 @@
     <meta name="Keywords" content="{np::C('Keywords')}"/>
     <meta name="Description" content="{np::C('Description')}"/>
     <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/plugins/datepicker/datepicker.css?2014-02-20-1"
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/plugins/datepicker/datepicker.css"
           media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/plugins/daterangepicker/daterangepicker.css?2014-02-20-1"
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/plugins/daterangepicker/daterangepicker.css"
           media="all"/>
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js?2014-02-20-1"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript"
-            src="{np::RES}/src/plugins/validation/jquery_validate_methods.js?2014-02-20-1"></script>
+            src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
     <script type="text/javascript"
-            src="{np::RES}/src/plugins/mini_audio_player/jquery_jplayer_min.js?2014-02-20-1"></script>
+            src="{np::RES}/src/plugins/mini_audio_player/jquery_jplayer_min.js"></script>
     <script type="text/javascript"
-            src="{np::RES}/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/zeroclipboard/zeroclipboard_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::STATICS}/inside.js?2014-02-20-1"></script>
+            src="{np::RES}/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/zeroclipboard/zeroclipboard_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
     <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/>
@@ -109,7 +109,7 @@
     <label class="control-label" for="cover">图文消息封面</label>
 
     <div class="controls">
-        <img class="thumb_img" src="{np:$home['picurl']|default=RES."/img/default/official.jpg"}" style="max-height:100px;"/>
+        <img class="thumb_img" src="{np:$home['picurl']|default=SITE_URL.RES."/img/default/official.jpg"}" style="max-height:100px;"/>
         <input id="thumb" type="text" name="picurl" class="hide"
                value="{np:$home['picurl']|default=RES."/img/default/official.jpg"}"/>
 										<span class="help-inline">
