@@ -71,7 +71,7 @@
         //map.centerAndZoom(point,12);  
 
 
-        //myGeo.getPoint(city, function(point){ 
+        //myGeo.getPosition(city, function(point){ 
         if (point) {
             //window.external.setlngandlat(point.lng,point.lat);
             //alert(point.lng + "  ddd " + point.lat);
@@ -113,10 +113,10 @@
                     if (result) {
                         $('suggestId').value = result.address;
                         //$('city').value = result.city;
-                        //			alert(result.address)				
+                        //			alert(result.address)
                         //	window.external.setaddress(result.address);//setarrea(result.address);//
-                        //marker1.setPoint(new BMap.Point(e.point.lng,e.point.lat));        // 移动标注
-                        marker2.setPoint(new BMap.Point(e.point.lng, e.point.lat));
+                        //marker1.setPosition(new BMap.Point(e.point.lng,e.point.lat));        // 移动标注
+                        marker2.setPosition(new BMap.Point(e.point.lng, e.point.lat));
                         map.panTo(new BMap.Point(e.point.lng, e.point.lat));
                         //window.external.setlngandlat(e.point.lng,e.point.lat);
                     }
@@ -132,8 +132,8 @@
                         document.getElementById('lng').value = cp.lng;
                         //	window.external.setaddress(result.address);//setarrea(result.address);//
                         //alert(point.lng + "  ddd " + point.lat);
-                        //marker1.setPoint(new BMap.Point(cp.lng,cp.lat));        // 移动标注
-                        marker2.setPoint(new BMap.Point(cp.lng, cp.lat));
+                        //marker1.setPosition(new BMap.Point(cp.lng,cp.lat));        // 移动标注
+                        marker2.setPosition(new BMap.Point(cp.lng, cp.lat));
                         map.panTo(new BMap.Point(cp.lng, cp.lat));
                         //window.external.setlngandlat(cp.lng,cp.lat);
                     }
@@ -142,10 +142,10 @@
 
             map.addEventListener("dragging", function showInfo() {
                 var cp = map.getCenter();
-                //marker1.setPoint(new BMap.Point(cp.lng,cp.lat));        // 移动标注
-                marker2.setPoint(new BMap.Point(cp.lng, cp.lat));
+                //marker1.setPosition(new BMap.Point(cp.lng,cp.lat));        // 移动标注
+                marker2.setPosition(new BMap.Point(cp.lng, cp.lat));
                 map.panTo(new BMap.Point(cp.lng, cp.lat));
-                map.centerAndZoom(marker2.getPoint(), map.getZoom());
+                map.centerAndZoom(marker2.getPosition(), map.getZoom());
             });
 
 
@@ -164,14 +164,14 @@
         // 将结果显示在地图上，并调整地图视野  
         myGeo.getPoint(city, function (point) {
             if (point) {
-                //marker1.setPoint(new BMap.Point(point.lng,point.lat));        // 移动标注
-                marker2.setPoint(new BMap.Point(point.lng, point.lat));
-                //window.external.setlngandlat(marker2.getPoint().lng,marker2.getPoint().lat);
+                //marker1.setPosition(new BMap.Point(point.lng,point.lat));        // 移动标注
+                marker2.setPosition(new BMap.Point(point.lng, point.lat));
+                //window.external.setlngandlat(marker2.getPosition().lng,marker2.getPosition().lat);
                 //alert(point.lng + "  ddd " + point.lat);
                 document.getElementById('lat').value = point.lat;
                 document.getElementById('lng').value = point.lng;
-                map.panTo(new BMap.Point(marker2.getPoint().lng, marker2.getPoint().lat));
-                map.centerAndZoom(marker2.getPoint(), map.getZoom());
+                map.panTo(new BMap.Point(marker2.getPosition().lng, marker2.getPosition().lat));
+                map.centerAndZoom(marker2.getPosition(), map.getZoom());
             }
         });//({},province)
         //var citys = new BMap.LocalSearch(map, { renderOptions: { map: map, autoViewport: true } });
@@ -188,11 +188,11 @@
 
     function initarreawithpoint(lng, lat) {
         window.setTimeout(function () {
-            //marker1.setPoint(new BMap.Point(lng,lat));        // 移动标注
-            marker2.setPoint(new BMap.Point(lng, lat));
+            //marker1.setPosition(new BMap.Point(lng,lat));        // 移动标注
+            marker2.setPosition(new BMap.Point(lng, lat));
             //window.external.setlngandlat(lng,lat);
             map.panTo(new BMap.Point(lng, lat));
-            map.centerAndZoom(marker2.getPoint(), map.getZoom());
+            map.centerAndZoom(marker2.getPosition(), map.getZoom());
         }, 2000);
     }
     $("#suggestId").change(function () { loadmap(); })

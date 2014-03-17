@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/onlinebooking.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/weimob-ui-1-1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/common.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <title>{np:$wxname}</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Mobile Devices Support @end -->
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <style>
+        img{max-width:100%!important;}
+    </style>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<body id="onlinebooking-list">
+<div class="qiandaobanner">
+    <a href="javascript:;">
+        <img src="{np::STATICS}/img/head_pic.jpg">
+</div>
+<div class="cardexplain">
+    <!--普通用户登">
+    </a>
+</div>
+<div class="cardexplain"> 
+
+<!--超过预订时间3天后自动删掉预订记录，免得占服务器资源！-->
+
+    <ul class="round">
+        <volist name="list" id="vo">
+            <li class="title">
+                <span>{np:$vo.createtime|date='m月d日',###}订单详情<em class="no"><if condition="$vo['status'] eq 0">等待客服回电<elseif condition="$vo['status'] eq 1"/>已确认<else/>已拒绝</if></em></span>
+
+            </li>
+            <li>
+                <div class="text">
+                    <p>联系人：{np:$vo.contact}</p>
+
+                    <p>联系电话：{np:$vo.contacttel}</p>
+
+                    <p>预约时间 ：{np:$vo.dateline} {np:$vo.timepart}</p>
+
+                    <p>提交时间：{np:$vo.createtime|date='Y-m-d',###}</p>
+
+                    <p>备注：{np:$vo.remark}</p>
+                    <if condition="$vo['status'] eq 0">
+                    <div class="footReturn">
+                        <a id="" style="color:#fff;" class="submit"
+                           href="/reserve/{np:$wxuid}/detail?id={np:$vo.id}&rid={np:$vo.rid}&wecha_id={np:$wecha_id}">修改订单 </a>
+                    </div>
+                    </if>
+                </div>
+            </li>
+        </volist>
+
+    </ul>
+
+
+    <!--页码-->
+</div>
+
+<script>
+
+</script>
+
+<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a href="/weisite/home?pid=92741&bid=191686&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&wxref=mp.weixin.qq.com">©samon</a></footer>
+</body>        		<div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+<script type="text/javascript">
+
+</script>
+</html>

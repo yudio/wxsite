@@ -43,7 +43,7 @@ Builder.prototype.init = function () {
     $("#r_activity").add("#r_business").add("#r_car").add("#r_estate").delegate("tr.data-row", "click", function () {
         $(this).closest("table").find("tr").removeClass("selected");
         $(this).addClass("selected").find(".act-sel").attr("checked", "checked")
-    }); 
+    });
     $("form button[type='submit']").click(function () {
         return self.getResult() || false;
     })
@@ -57,7 +57,7 @@ Builder.prototype.getResult = function () {
     var $target = $("#" + opt.id);
     var module = $target.find("#type").val();
     var data = null;
-   
+
     switch (module) {
         case "text":
             var v = $("textarea[name='replyText']").val();
@@ -93,14 +93,14 @@ Builder.prototype.getResult = function () {
         case "activity":
             var $selected = $("#r_activity .selected");
 
-			// 活动中的圣诞活动特殊处理 @annchen
-			var check_root = $target.find("#act").val();
-			if (100 == check_root) {
-				data = {
-					type: module
-				}
-				break;
-			}
+            // 活动中的圣诞活动特殊处理 @annchen
+            var check_root = $target.find("#act").val();
+            if (100 == check_root) {
+                data = {
+                    type: module
+                }
+                break;
+            }
 
             if ($selected.length == 0) {
                 alert("请至少选择一个正在进行中的活动。")
@@ -174,7 +174,7 @@ Builder.prototype.getResult = function () {
                 }
 
             }
-            break; 
+            break;
         default:
             data = {
                 type: module
@@ -223,7 +223,7 @@ Builder.prototype._loadBusiness = function () {
     if (tt) {
         $("#r_business div.margin-top").show();
         //var top = 0;
-        $.post("/microsite/getbusiness", {
+        $.post("/npManage/business/getBusinessJSON.act", {
             action: "",
             action: "getbus",
             wuid: data.wuid,
@@ -239,7 +239,7 @@ Builder.prototype._loadBusiness = function () {
                         var item = data[i];
                         cont.push('<tr data-type="' + t + '" data-id="' + item.id + '" class="data-row">');
                         cont.push('<td class="with-checkbox"><input type="radio" name="business_value" class="act-sel" value="' + item.id + '"/></td>');
-                        cont.push('<td class="title">' + item.a_name + "</td>");
+                        cont.push('<td class="title">' + item.title + "</td>");
                         cont.push('<td class="keyword">' + item.keyword + "</td>");
                         cont.push("<td>" + item.start_time + "~" + item.end_time + "</td>");
                         cont.push("</tr>")
@@ -263,13 +263,13 @@ Builder.prototype._loadBusiness = function () {
 
 
 };
-Builder.prototype._loadCar = function () { 
+Builder.prototype._loadCar = function () {
     var self = this;
     var opt = this.option;
     var $target = $("#" + opt.id);
     var data = Resource.instance[opt.id].result;
     var select = $target.find("#car_func");
-    var t = select.val(); 
+    var t = select.val();
     var tt = select.find("option:selected").data("list");
     if (tt) {
         $("#r_car div.margin-top").show();
@@ -321,44 +321,44 @@ Builder.prototype._loadAct = function () {
     var data = Resource.instance[opt.id].result;
     var t = $target.find("#act").val();
 
-	if (100 != t) { // 圣诞活动特殊处理 @annchen
-		$.post("/npManage/activity/getActivityJSON.act", {
+    if (100 != t) { // 圣诞活动特殊处理 @annchen
+        $.post("/npManage/Activity/getActivityJSON.act", {
             action: "",
-			action: "getAct",
-			wuid: data.wuid,
-			type: t
-		}, function (result) {
-			if (result.success) {
-				var data = result.data;
-				$("#r_activity tr.data-row").remove();
-				if (data.length > 0) {
-					$("#r_activity .no-record").hide();
-					var cont = [];
-					for (var i = 0; i < data.length; i++) {
-						var item = data[i];
-						cont.push('<tr data-type="' + t + '" data-id="' + item.id + '" class="data-row">');
-						cont.push('<td class="with-checkbox"><input type="radio" name="activity_value" class="act-sel" value="' + item.id + '"/></td>');
-						cont.push('<td class="title">' + item.title + "</td>");
-						cont.push('<td class="keyword">' + item.keyword + "</td>");
-						cont.push("<td>" + item.start_time + "~" + item.end_time + "</td>");
-						cont.push("</tr>")
-					}
-					$("#r_activity table").append(cont.join(""))
-					top += data.length;
-				} else {
-					$("#r_activity .no-record").show()
-				}
-				if (result.count > 10 && top < result.count) {
-					$("#r_activity .record").show()
-				} else {
-					$("#r_activity .record").hide()
-				}
-			}
-		}, "json");
-	}
+            action: "getAct",
+            wuid: data.wuid,
+            type: t
+        }, function (result) {
+            if (result.success) {
+                var data = result.data;
+                $("#r_activity tr.data-row").remove();
+                if (data.length > 0) {
+                    $("#r_activity .no-record").hide();
+                    var cont = [];
+                    for (var i = 0; i < data.length; i++) {
+                        var item = data[i];
+                        cont.push('<tr data-type="' + t + '" data-id="' + item.id + '" class="data-row">');
+                        cont.push('<td class="with-checkbox"><input type="radio" name="activity_value" class="act-sel" value="' + item.id + '"/></td>');
+                        cont.push('<td class="title">' + item.title + "</td>");
+                        cont.push('<td class="keyword">' + item.keyword + "</td>");
+                        cont.push("<td>" + item.start_time + "~" + item.end_time + "</td>");
+                        cont.push("</tr>")
+                    }
+                    $("#r_activity table").append(cont.join(""))
+                    top += data.length;
+                } else {
+                    $("#r_activity .no-record").show()
+                }
+                if (result.count > 10 && top < result.count) {
+                    $("#r_activity .record").show()
+                } else {
+                    $("#r_activity .record").hide()
+                }
+            }
+        }, "json");
+    }
 
 };
-Builder.prototype._loadEstate =function () { 
+Builder.prototype._loadEstate =function () {
     var self = this;
     var opt = this.option;
     var $target = $("#" + opt.id);
@@ -455,10 +455,10 @@ Builder.prototype._loadBaidu_map = function () {
         var geolocation = new BMap.Geolocation();
         geolocation.getCurrentPosition(function (r) {
             if (this.getStatus() == BMAP_STATUS_SUCCESS) {
-                //var mk = new BMap.Marker(r.point);  
-                //map.addOverlay(mk);  
-                // point = r.point;  
-                //map.panTo(r.point); 
+                //var mk = new BMap.Marker(r.point);
+                //map.addOverlay(mk);
+                // point = r.point;
+                //map.panTo(r.point);
 
                 var point = new BMap.Point(r.point.lng, r.point.lat);
                 marker1 = new BMap.Marker(point);        // 创建标注
@@ -480,10 +480,10 @@ Builder.prototype._loadBaidu_map = function () {
     }
     function doit(point) {
 
-        //map.centerAndZoom(point,12);  
+        //map.centerAndZoom(point,12);
 
 
-        //myGeo.getPoint(city, function(point){ 
+        //myGeo.getPoint(city, function(point){
         if (point) {
             //window.external.setlngandlat(point.lng,point.lat);
             //alert(point.lng + "  ddd " + point.lat);
@@ -506,7 +506,7 @@ Builder.prototype._loadBaidu_map = function () {
 
 
 
-            marker2 = new BMap.Marker(point);        // 创建标注  
+            marker2 = new BMap.Marker(point);        // 创建标注
             var opts = {
                 width: 220,     // 信息窗口宽度 220-730
                 height: 60,     // 信息窗口高度 60-650
@@ -525,10 +525,10 @@ Builder.prototype._loadBaidu_map = function () {
                     if (result) {
                         $('suggestId').value = result.address;
                         //$('city').value = result.city;
-                        //			alert(result.address)				
+                        //			alert(result.address)
                         //	window.external.setaddress(result.address);//setarrea(result.address);//
                         //marker1.setPoint(new BMap.Point(e.point.lng,e.point.lat));        // 移动标注
-                        marker2.setPoint(new BMap.Point(e.point.lng, e.point.lat));
+                        marker2.setPosition(new BMap.Point(e.point.lng, e.point.lat));
                         map.panTo(new BMap.Point(e.point.lng, e.point.lat));
                         //window.external.setlngandlat(e.point.lng,e.point.lat);
                     }
@@ -545,7 +545,7 @@ Builder.prototype._loadBaidu_map = function () {
                         //	window.external.setaddress(result.address);//setarrea(result.address);//
                         //alert(point.lng + "  ddd " + point.lat);
                         //marker1.setPoint(new BMap.Point(cp.lng,cp.lat));        // 移动标注
-                        marker2.setPoint(new BMap.Point(cp.lng, cp.lat));
+                        marker2.setPosition(new BMap.Point(cp.lng, cp.lat));
                         map.panTo(new BMap.Point(cp.lng, cp.lat));
                         //window.external.setlngandlat(cp.lng,cp.lat);
                     }
@@ -555,9 +555,9 @@ Builder.prototype._loadBaidu_map = function () {
             map.addEventListener("dragging", function showInfo() {
                 var cp = map.getCenter();
                 //marker1.setPoint(new BMap.Point(cp.lng,cp.lat));        // 移动标注
-                marker2.setPoint(new BMap.Point(cp.lng, cp.lat));
+                marker2.setPosition(new BMap.Point(cp.lng, cp.lat));
                 map.panTo(new BMap.Point(cp.lng, cp.lat));
-                map.centerAndZoom(marker2.getPoint(), map.getZoom());
+                map.centerAndZoom(marker2.getPosition(), map.getZoom());
             });
 
 
@@ -573,17 +573,17 @@ Builder.prototype._loadBaidu_map = function () {
         //var province = document.getElementById('city').value;
         var city = document.getElementById('suggestId').value;
         var myCity = new BMap.LocalCity();
-        // 将结果显示在地图上，并调整地图视野  
+        // 将结果显示在地图上，并调整地图视野
         myGeo.getPoint(city, function (point) {
             if (point) {
                 //marker1.setPoint(new BMap.Point(point.lng,point.lat));        // 移动标注
-                marker2.setPoint(new BMap.Point(point.lng, point.lat));
+                marker2.setPosition(new BMap.Point(point.lng, point.lat));
                 //window.external.setlngandlat(marker2.getPoint().lng,marker2.getPoint().lat);
                 //alert(point.lng + "  ddd " + point.lat);
                 document.getElementById('lat').value = point.lat;
                 document.getElementById('lng').value = point.lng;
-                map.panTo(new BMap.Point(marker2.getPoint().lng, marker2.getPoint().lat));
-                map.centerAndZoom(marker2.getPoint(), map.getZoom());
+                map.panTo(new BMap.Point(marker2.getPosition().lng, marker2.getPosition().lat));
+                map.centerAndZoom(marker2.getPosition(), map.getZoom());
             }
         });//({},province)
         //var citys = new BMap.LocalSearch(map, { renderOptions: { map: map, autoViewport: true } });
@@ -601,10 +601,10 @@ Builder.prototype._loadBaidu_map = function () {
     function initarreawithpoint(lng, lat) {
         window.setTimeout(function () {
             //marker1.setPoint(new BMap.Point(lng,lat));        // 移动标注
-            marker2.setPoint(new BMap.Point(lng, lat));
+            marker2.setPosition(new BMap.Point(lng, lat));
             //window.external.setlngandlat(lng,lat);
             map.panTo(new BMap.Point(lng, lat));
-            map.centerAndZoom(marker2.getPoint(), map.getZoom());
+            map.centerAndZoom(marker2.getPosition(), map.getZoom());
         }, 2000);
     }
     $("#suggestId").change(function () { loadmap(); })
@@ -626,8 +626,8 @@ window.ICON = function () {
     });
     $.each(list_all, function (k, v) {
         s2 += tmp.format(v);
-    }) 
-   $("#ico_hot").html(ul.format(s));
+    })
+    $("#ico_hot").html(ul.format(s));
     $("#ico_all").html(ul.format(s2));
     $(".sel-icon").click(function () {
         $(".icons-cont").toggle();

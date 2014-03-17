@@ -36,6 +36,9 @@ class TypeLink{
                              break;
                          case 'vipcard'://会员卡
                              break;
+                         case 'reservation':
+                             $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
+                             break;
                      }
                      break;
                  default:
@@ -67,6 +70,9 @@ class TypeLink{
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
                          case 'vipcard'://会员卡
+                             break;
+                         case 'reservation':
+                             $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
                              break;
                      }
                      break;
