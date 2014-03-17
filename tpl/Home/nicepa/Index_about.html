@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        奈斯伙伴-微信营销领导品牌|微信商城系统|微信智能系统|湖南省微时代科技有限公司
+    </title>
+    <meta name="keywords" content="{np::C('Keywords')}" />
+    <meta name="description" content="{np::C('Description')}" />
+    <link href="{np::STATICS}/css/base.css" type="text/css" rel="stylesheet" />
+    <script type='text/javascript' src='{np::STATICS}/src/jQuery.js'></script>
+    <link  type="text/css" href="{np::STATICS}/css/index/HaedMenu.css" rel="stylesheet" />
+</head>
+<body id="w-body" class="w-login-bg">
+<div class="w-doc">
+    <div class="w-top">
+        <div class="w-head">
+            <!--<a class="w-apply" href="/npHome/Index/reg.act"></a>-->
+            <div class="w-wrap">
+                <a class="w-logo w-left" href="http://www.nicepa.cn"></a>
+                <div class="w-head-line w-left">
+                </div>
+                <div style="width:660px;float:right;margin-top:20px;">
+                    <ul class="w-menu Menu">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/npHome/index/function.act">产品功能</a></li>
+                        <li><a href="/npHome/index/business.act">招商加盟</a></li>
+                        <li><a href="/npHome/index/contact.act">联系我们</a></li>
+                        <li><a href="/npHome/index/about.act" class="hover">关于奈斯</a></li>
+                    </ul>
+                    <div class="account">
+                        <a href="/npHome/Index/reg.act" class="btn-reg btn0" target="_black">注册</a>
+                        <a href="javascript:;" class="btn-login btn0" onclick="loginBox.toggle(this, event);">登录</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="w-topspace">
+    </div>
+    <!--loginbox-->
+    <div id="loginBox" class="">
+        <div class="login-panel">
+            <h3>登录</h3>
+            <div class="login-mod">
+                <div class="login-err-panel dn" id="err_area">
+                    <span class="icon-wrapper"><i class="icon24-login err" style="margin-top:-.2em;*margin-top:0;"></i></span>
+                    <span id="err_tips"></span>
+                </div>
+                <form class="login-form" id="login-form">
+                    <div class="login-un">
+                        <span class="icon-wrapper"><i class="icon24-login un"></i></span>
+                        <input type="text" id="username" placeholder="奈斯帐号">
+                    </div>
+                    <div class="login-pwd">
+                        <span class="icon-wrapper"><i class="icon24-login pwd"></i></span>
+                        <input type="password" id="password" placeholder="密码">
+                    </div>
+                </form>
+                <div class="login-help-panel">
+                    <a id="rememberPwd" class="login-remember-pwd" href="javascript:;">
+                        <input type="checkbox" id="rememberPwdIcon">记住帐号
+                    </a>
+                    <a class="login-forget-pwd" href="#">忘记密码？</a>
+                    <a class="login-forget-pwd" href="/npHome/Index/reg.act">新用户注册</a>
+                </div>
+                <div class="login-btn-panel">
+                    <a class="login-btn" title="点击登录" href="javascript:;" id="login_button" onclick="login();">登录</a>
+                </div>
+            </div>
+        </div>
+        <div class="login-cover" onclick="loginBox.toggle(this, event);"></div>
+    </div>
+    <!--loginbox-->
+    <div id="content">
+        <div class="content_c">
+            <div id="leftcolumn">
+                <div class="module-aboutusmenu icon">
+                    <h2>关于奈斯</h2>
+                    <ul class="help-menu" id="aboutusmenu">
+                        <li class="active">
+                            <a href="Index_about.html">
+                                <span>关于我们</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="Index_contact.html">
+                                <span>联系我们</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="clr"></div>
+            </div>
+
+            <div id="maincolumn">
+                <div class="sheet">
+                    <div class="right_content">
+                        <h3><span style="font-family:'Microsoft YaHei';font-size:18px;font-weight:normal;">公司介绍</span></h3>
+                        <p >&nbsp;&nbsp;奈斯伙伴信息技术有限公司成立于2013年11月，是一家专业提供微平台运营、微网站建设、微商城整合、自媒体平台运营等业务软件开发服务公司。我们的初创人员主要来自IT、网络以及咨询等行业。经营的理念和原则是‘把客户的事当自己的事办’，以客户的立场和需要开发产品。
+                        </p>
+                        <h3><span style="font-size:18px;font-weight:normal;font-family:'Microsoft YaHei';">发展方向</span></h3>
+                        <p>&nbsp;&nbsp;积聚一个行业，为用户提供可以解决实际问题的软件，让使用软件的人工作、生活的更开心。</p>
+                        <h3><span style="font-size:18px;">开发原则</span></h3>
+                        <p><b>节约客户投资：</b>用电子方式完成更多的业务，减少设备和耗材的投入。<br>
+                            <b>管理简单：</b>用自动化技术替代手工维护；加倍冗余的性能确保系统稳定性；不吝啬在升级迁移功能上的开发工作。<br>
+                            <b>打包服务：</b>凡是客户觉得不便利的，就请交给我们来处理。向海底捞学习！</p>
+                        <h3><span style="font-size:18px;">我们的产品</span></h3>
+                        <p >&nbsp;&nbsp;微信公众号运营平台、微商城。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+    <!--------官方微信start----------->
+    <div class="erwei" title="微信扫一扫">
+        <span class="guanfanweixin">订阅号</span>
+        <div class="erwei_big">
+            <p>
+                奈斯伙伴公众平台</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var erwei_time = null;
+            $(".erwei").hover(function () {
+                $(".lxb-container").css("z-index", "1")
+                $(".erwei_big").show();
+            }).mouseleave(function () {
+                        erwei_time = setTimeout(function () {
+                            $(".erwei_big").hide();
+                        }, 0);
+                    });
+            $(".erwei_big").mouseenter(function () {
+                if (erwei_time) {
+                    clearTimeout(erwei_time);
+                }
+            }).mouseleave(function () {
+                        erwei_time = setTimeout(function () {
+                            $(".erwei_big").hide();
+                        }, 0);
+                    });
+
+            var erwei_timefuwu = null;
+            $(".fuwuerwei").hover(function () {
+                $(".lxb-container").css("z-index", "1")
+                $(".fuwuerwei_big").show();
+            }).mouseleave(function () {
+                        erwei_timefuwu = setTimeout(function () {
+                            $(".fuwuerwei_big").hide();
+                        }, 0);
+                    });
+            $(".fuwuerwei_big").mouseenter(function () {
+                if (erwei_timefuwu) {
+                    clearTimeout(erwei_timefuwu);
+                }
+            }).mouseleave(function () {
+                        erwei_timefuwu = setTimeout(function () {
+                            $(".fuwuerwei_big").hide();
+                        }, 0);
+                    });
+        });
+    </script>
+    <!--------官方微信end----------->
+
+
+    <!--底部,start -->
+    <include file="index:footer"/>
+    <!--底部,end -->
+</div>
+</body>
+</html>
