@@ -148,6 +148,29 @@ class BusinessAction extends UserAction{
         }
     }
 
+    public function myReserve(){
+        $db = M('ReserveRecord');
+        $pointstart = mktime (0,0,0,date("m")-2,date("d")-1,  date("Y"));
+        $lastmonth = mktime (0,0,0,date("m")-1,date("d"),  date("Y"));
+        $thisday   = mktime(0,0,0,date('m'),date('d'),date('Y'));
+        $lastday   = mktime(0,0,0,date('m'),date('d')-1,date('Y'));
+        $today     = time();
+        $list = $db->query("select count(*) as num,DATE_FORMAT(FROM_UNIXTIME(a.createtime),'%Y-%m-%d') as e,round((a.createtime-{$lastmonth})/24/3600) as day from __TABLE__ a where a.createtime > {$lastmonth} and a.createtime < {$today} and a.token = '{$_SESSION['token']}' group by e order by e");
+        $tonum = $db->query("select count(*) as num from __TABLE__ a where a.createtime > {$thisday} and a.token = '{$_SESSION['token']}'");
+        $lanum = $db->query("select count(*) as num from __TABLE__ a where a.createtime > {$lastday} and a.token = '{$_SESSION['token']}'");
+        $total = $db->where(array('token'=>session('token'),'del_flag'=>'0'))->count();
+        $num  = round(($today-$lastmonth)/24/3600);
+        $this->assign('pointstart',$pointstart);
+        $this->assign('start',$lastmonth);
+        $this->assign('today',$today);
+        $this->assign('list',$list);
+        $this->assign('num',$num);
+        $this->assign('tonum',$tonum[0]['num']);//今日新增预约
+        $this->assign('lanum',$lanum[0]['num']-$tonum[0]['num']);
+        $this->assign('total',$total);
+        $this->display();
+    }
+
 
     //获取外链
     public function getBusinessJSON(){
@@ -160,10 +183,12 @@ class BusinessAction extends UserAction{
             $where['status'] = 0;
             $list = $db->where($where)->select();
             if($list){
-                /*foreach($list as &$vo){
-                    $vo['start_time'] = date('Y-m-d H:i:s',$vo['stime']);
-                    $vo['end_time'] = date('Y-m-d H:i:s',$vo['etime']);
-                }*/
+                foreach($list as &$vo){
+                    if ($vo['stime']&&$vo['etime']){
+                        $vo['start_time'] = date('Y-m-d H:i:s',$vo['stime']);
+                        $vo['end_time'] = date('Y-m-d H:i:s',$vo['etime']);
+                    }
+                }
                 $this->ajaxReturn(array('success'=>true,'counts'=>count($list),'data'=>$list),'JSON');
             }
         }

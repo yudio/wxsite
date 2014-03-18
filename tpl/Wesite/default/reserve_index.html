@@ -11,8 +11,8 @@
     <title>{np:$wxname}</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
     <!-- Mobile Devices Support @begin -->
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -36,13 +36,13 @@
     </script>
 </div>
 <div class="qiandaobanner">
-    <img src="{np::STATICS}/img/head_pic.jpg">
+    <img src="{np:$info.headpic}">
 </div>
 <div class="cardexplain">
     <!--普通用户登录时显示-->
     <ul class="round">
         <li>
-            <a href="/Webreserve/ReserveMyBook/wechatid//rid/8241" onclick="$('.masklayer').addClass('on');return false;" ><span>{np:$info.typename}<em class="ok">0</em></span></a>
+            <a href="/reserve/{np:$wxuid}/showlist?rid={np:$info.id}&wecha_id={np:$wecha_id}" onclick="$('.masklayer').addClass('on');return false;" ><span>{np:$info.typename}<em class="ok">{np:$count}</em></span></a>
         </li>
     </ul>
     <!--后台可控制是否显示-->
@@ -208,56 +208,8 @@
 //$("#windowcenter").hide("slow");
         setTimeout('$("#windowcenter").slideUp(500)',4000);
     }
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        window.shareData = {
-            "imgUrl": "{np::STATICS}/img/head_pic.jpg",
-            "timeLineLink": "http://www.weimob.com/webreserve/ReserveBook?rid=8241&wechatid=fromUsername",
-            "sendFriendLink": "http://www.weimob.com/webreserve/ReserveBook?rid=8241&wechatid=fromUsername",
-            "weiboLink": "http://www.weimob.com/webreserve/ReserveBook?rid=8241&wechatid=fromUsername",
-            "tTitle": "预约标题 i",
-            "tContent": "预约订单详情",
-            "fTitle": "预约标题 i",
-            "fContent": "预约订单详情",
-            "wContent": "预约订单详情"
-        };
-// 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            WeixinJSBridge.invoke('sendAppMessage', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.sendFriendLink,
-                "desc": window.shareData.fContent,
-                "title": window.shareData.fTitle
-            }, function (res) {
-                _report('send_msg', res.err_msg);
-            })
-        });
-// 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.timeLineLink,
-                "desc": window.shareData.tContent,
-                "title": window.shareData.tTitle
-            }, function (res) {
-                _report('timeline', res.err_msg);
-            });
-        });
-// 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-            WeixinJSBridge.invoke('shareWeibo', {
-                "content": window.shareData.wContent,
-                "url": window.shareData.weiboLink,
-            }, function (res) {
-                _report('weibo', res.err_msg);
-            });
-        });
-    }, false)
 </script>
-<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a href="/weisite/home?pid=91126&bid=188877&wechatid=fromUsername&wxref=mp.weixin.qq.com">©{np:$info.wxname}</a></footer>
+<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a href="/wesite/{np:$wxuid}/index?wecha_id={np:$wecha_id}">©{np:$wxname}</a></footer>
 </body> <div mark="stat_code" style="width:0px; height:0px; display:none;">
 </div>
 </body>

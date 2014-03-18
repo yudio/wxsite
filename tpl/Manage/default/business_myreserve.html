@@ -3,133 +3,133 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-	<meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap_min.css?2014-02-25-5" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/bootstrap_responsive_min.css?2014-02-25-5" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/style.css?2014-02-25-5" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/todc_bootstrap.css?2014-02-25-5" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/themes.css?2014-02-25-5" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/inside.css?2014-02-25-5" media="all" />
-	<script type="text/javascript" src="src/jQuery.js?2014-02-25-5"></script>
-	<script type="text/javascript" src="src/bootstrap_min.js?2014-02-25-5"></script>
-	<script type="text/javascript" src="src/plugins/highcharts/highcharts.js?2014-02-25-5"></script>
-	<script type="text/javascript" src="src/plugins/highcharts/highcharts_more.js?2014-02-25-5"></script>
-	<script type="text/javascript" src="src/inside.js?2014-02-25-5"></script>
-	<title>微盟开发</title>
-	<link rel="shortcut icon" href="img/favicon.ico" />
-    <!--[if lte IE 9]><script src="src/watermark.js"></script><![endif]-->
-	<!--[if IE 7]><link href="css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/highcharts/highcharts_more.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
 </head>
 <body>
-	<style>
-       body{font-family:微软雅黑,宋体,Arial,sans-serif}h1,h2,h3,h4,h5,h6{padding:0;margin:0}.row{width:950px;margin:20px 0 30px 20px;position:relative}.area{border:1px solid #cdced0;width:700px}#memberChart{height:250px;width:100%}#snConsumeChart{height:250px;width:100%}#memberRight{width:200px}.total{border-top:1px solid #cdced0;padding:7px 0 7px 15px}.right{position:absolute;top:0;right:15px;border:1px solid #cdced0;height:286px;width:210px;text-align:center;background-color:#eeeff1}.sep{height:1px;background-color:#cdced0}.txt-1{padding:15px;color:#1f4171}.txt-2{padding:5px;color:#ff7900;font-weight:normal}.txt-3{padding:5px;padding-bottom:20px;color:#beaa8f;font-weight:normal}.txt-4{position:relative;top:6px;left:-20px;color:#2d3645}.count-1{padding-top:25px;color:#ff7900}.count-2{margin-top:20px;color:#beaa8f}.start-time{margin-right:10px}.end-time{margin-left:10px;margin-right:5px}.info-block{text-align:center}
-    </style>
+<style>
+    body{font-family:微软雅黑,宋体,Arial,sans-serif}h1,h2,h3,h4,h5,h6{padding:0;margin:0}.row{width:950px;margin:20px 0 30px 20px;position:relative}.area{border:1px solid #cdced0;width:700px}#memberChart{height:250px;width:100%}#snConsumeChart{height:250px;width:100%}#memberRight{width:200px}.total{border-top:1px solid #cdced0;padding:7px 0 7px 15px}.right{position:absolute;top:0;right:15px;border:1px solid #cdced0;height:286px;width:210px;text-align:center;background-color:#eeeff1}.sep{height:1px;background-color:#cdced0}.txt-1{padding:15px;color:#1f4171}.txt-2{padding:5px;color:#ff7900;font-weight:normal}.txt-3{padding:5px;padding-bottom:20px;color:#beaa8f;font-weight:normal}.txt-4{position:relative;top:6px;left:-20px;color:#2d3645}.count-1{padding-top:25px;color:#ff7900}.count-2{margin-top:20px;color:#beaa8f}.start-time{margin-right:10px}.end-time{margin-left:10px;margin-right:5px}.info-block{text-align:center}
+</style>
 
 <body>
-    <div id="main">
-        <div class="container-fluid">
+<div id="main">
+    <div class="container-fluid">
 
-            <div class="row-fluid">
-                <div class="span12">
+        <div class="row-fluid">
+            <div class="span12">
 
-                    <div class="box">
-                        <div class="box-title">
+                <div class="box">
+                    <div class="box-title">
 
-                            <h3><i class="icon-table"></i>我的预约</h3>
+                        <h3><i class="icon-table"></i>我的预约</h3>
 
 
-                        </div>
+                    </div>
 
-                        <div class="box-content">
-                            <div class="row">
-                                <div class="area">
-                                    <div id="memberChart">
-                                    </div>
-                                    <div class="total">
-                                        <span class="start-time">2014-01-24</span>
-                                        到<span class="end-time">2014-02-25</span>
-                                        共新增0名会员
-                                    </div>
+                    <div class="box-content">
+                        <div class="row">
+                            <div class="area">
+                                <div id="memberChart">
                                 </div>
-                                <div class="right">
-                                    <h4 class="txt-1">新增会员</h4>
-                                    <div class="sep sep1"></div>
-                                    <h1 class="count-1">0</h1>
-                                    <h4 class="txt-2">今日新增会员</h4>
-                                    <h1 class="count-2">0</h1>
-                                    <h4 class="txt-3">昨日新增会员</h4>
-                                    <div class="sep sep2"></div>
-                                    <span class="txt-4">目前会员共计12549人</span>
+                                <div class="total">
+                                    <span class="start-time">{np:$start|date='Y-m-d',###}</span>
+                                    到<span class="end-time">{np:$today|date='Y-m-d',###}</span>
+                                    共新增0名预约
                                 </div>
                             </div>
+                            <div class="right">
+                                <h4 class="txt-1">新增预约</h4>
+                                <div class="sep sep1"></div>
+                                <h1 class="count-1">{np:$tonum}</h1>
+                                <h4 class="txt-2">今日新增预约</h4>
+                                <h1 class="count-2">{np:$lanum}</h1>
+                                <h4 class="txt-3">昨日新增预约</h4>
+                                <div class="sep sep2"></div>
+                                <span class="txt-4">目前预约共计{np:$total}单</span>
+                            </div>
+                        </div>
 
-                            <script type="text/javascript">
-                                $(function () {
-                                    new Highcharts.Chart({
-                                        chart: {
-                                            renderTo: 'memberChart',
-                                            type: 'line',
-                                            marginRight: 30,
-                                            marginBottom: 25
-                                        },
-                                        title: {
-                                            text: '最近一月新增预约趋势图',
-                                            align: 'left'
-                                        },
-                                        xAxis: {
-                                            type: 'datetime',
-                                            labels: {
-                                                formatter: function () {
-                                                    return getFormatDate(this.value);
-                                                },
-                                                style: {
-                                                    color: '#2f7ed8'
-                                                }
-                                            },
-                                            gridLineWidth: 1,
-                                            tickInterval: 7 * 24 * 3600 * 1000// one week
-                                        },
-                                        yAxis: {
-                                            title: {
-                                                text: '<span>最近一月新增预约趋势图</span>'
-                                            },
-                                            plotLines: [{
-                                                value: 0,
-                                                width: 1,
-                                                color: '#808080'
-                                            }],
-                                            min: 0
-                                        },
-                                        tooltip: {
+                        <script type="text/javascript">
+                            $(function () {
+                                new Highcharts.Chart({
+                                    chart: {
+                                        renderTo: 'memberChart',
+                                        type: 'line',
+                                        marginRight: 30,
+                                        marginBottom: 25
+                                    },
+                                    title: {
+                                        text: '最近一月新增预约趋势图',
+                                        align: 'left'
+                                    },
+                                    xAxis: {
+                                        type: 'datetime',
+                                        labels: {
                                             formatter: function () {
-                                                return getFormatDate(this.x) + ': <span style="color:red">' + this.y + '人<span>';
+                                                return getFormatDate(this.value);
+                                            },
+                                            style: {
+                                                color: '#2f7ed8'
                                             }
                                         },
-                                        series: [{
-                                            name: "新增会员人数",
-                                            data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,Y],
-                                            pointStart: Date.UTC(2013,12,24),
-                                            pointInterval: 24 * 3600 * 1000 // one day
+                                        gridLineWidth: 1,
+                                        tickInterval: 7 * 24 * 3600 * 1000// one week
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: '<span>最近一月新增预约趋势图</span>'
+                                        },
+                                        plotLines: [{
+                                            value: 0,
+                                            width: 1,
+                                            color: '#808080'
                                         }],
-                                        legend: { enabled: false }
-                                    });
-
-
-                                    function getFormatDate(v) {
-                                        var d = new Date(v);
-                                        return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
-                                    }
+                                        min: 0
+                                    },
+                                    tooltip: {
+                                        formatter: function () {
+                                            return getFormatDate(this.x) + ': <span style="color:red">' + this.y + '单<span>';
+                                        }
+                                    },
+                                    series: [{
+                                        name: "新增预约人数",
+                                        data: [<?php $j=0; for($i=0;$i<intval($num+1);$i++){  if ($list[$j]&&$list[$j]['day']==($i-1)){ echo $list[$j]['num'];$j++;}else{ echo '0';} if ($i!=($num)){ echo ',';}    } ?>],
+                                        pointStart: Date.UTC({np:$pointstart|date='Y,m,d',###}),
+                                        pointInterval: 24 * 3600 * 1000 // one day
+                                    }],
+                                    legend: { enabled: false }
                                 });
-                            </script>
-                        </div>
+
+
+                                function getFormatDate(v) {
+                                    var d = new Date(v);
+                                    return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+                                }
+                            });
+                        </script>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>
 
 </body>
 </body>

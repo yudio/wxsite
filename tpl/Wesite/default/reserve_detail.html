@@ -12,8 +12,8 @@
     <title>{np:$wxname}</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
     <!-- Mobile Devices Support @begin -->
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -31,7 +31,7 @@
 <body onselectstart="return true;" ondragstart="return false;">
 <body id="onlinebooking-no">
 <div class="qiandaobanner">
-    <a href="javascript:;"><img src="{np::STATICS}/img/head_pic.jpg"></a>
+    <a href="javascript:;"><img src="{np:$info.headpic}"></a>
 </div>
 <div class="cardexplain">
     <!--粉丝填写过的信息的，直接就显示名字电话，粉丝没有填写过信息的话，这里就直接留空让粉丝填写-->
@@ -294,7 +294,7 @@
     }, false)
 </script>
 
-<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a href="/weisite/home?pid=92741&bid=191686&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&wxref=mp.weixin.qq.com">©samon</a></footer>
+<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a href="/wesite/{np:$wxuid}/index?wecha_id={np:$wecha_id}">©{np:$wxname}</a></footer>
 </body>        		<div mark="stat_code" style="width:0px; height:0px; display:none;">
 </div>
 </body>

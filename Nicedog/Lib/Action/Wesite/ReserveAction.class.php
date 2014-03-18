@@ -33,7 +33,7 @@ class ReserveAction extends BaseAction{
         $this->wxname     = $wxuser['wxname'];
 
         $this->wecha_id	= $this->_get('wecha_id');
-        if (!$this->wecha_id){
+        if (!$this->wecha_id||$this->wecha_id=='FromUserName'){
             $this->wecha_id='0';
         }
         $this->assign('wxname',$this->wxname);
@@ -45,8 +45,9 @@ class ReserveAction extends BaseAction{
         $db = D('Reserve');
         $rid = $this->_get('rid','intval');
         $info = $db->where(array('token'=>$this->token,'id'=>$rid))->find();
-
+        $count = M('ReserveRecord')->where(array('token'=>$this->token,'rid'=>$rid,'wecha_id'=>$this->wecha_id))->count();
         $this->assign('info',$info);
+        $this->assign('count',$count);
         $this->display();
     }
 
@@ -60,14 +61,44 @@ class ReserveAction extends BaseAction{
             $id = $this->_post('id','intval');
             $rid = $this->_post('rid','intval');
             $wecha_id = $this->_post('wecha_id');
+            $_POST['token'] = $this->token;
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
                     $this->ajaxReturn(array('errno'=>'0','msg'=>'预约成功！','url'=>'/reserve/'.$this->wxuid.'/showlist?rid='.$rid.'&wecha_id='.$wecha_id),'JSON');
                 }else{
-                    $this->ajaxReturn(array('errno'=>'101','msg'=>$db->getError()),'JSON');
+                    $this->ajaxReturn(array('errno'=>'101','msg'=>'空操作'),'JSON');
+                    LOG::write('Reserve|submit'.$db->getError(),LOG::ERR);
                 }
             }else{
+                $info = M('Reserve')->where(array('id'=>$rid))->find();
+                if (!$info){
+                    $this->ajaxReturn(array('errno'=>'101','msg'=>'该预约已结束或删除！'),'JSON');
+                }else{
+                    $time = time();
+                    if ($info['type']==1){
+                        if ($info['stime']>time()||$info['etime']<time()){
+                            $this->ajaxReturn(array('errno'=>'101','msg'=>'该预约已过期！'),'JSON');
+                        }
+                    }
+                    if ($info['type']==2){
+                        $where['createtime'] = array('lt',$time);                                      //小于现在
+                        $where['createtime'] = array('gt',mktime(0,0,0,date('m'),date('d'),date('Y')));//大于今天
+                        $where['rid'] = $rid;
+                        $num = $db->where(array())->count();
+                        if ($num=$info['allnums']){
+                            $this->ajaxReturn(array('errno'=>'101','msg'=>'今日已经预约满额！'),'JSON');
+                        }
+                    }
+                    if ($info['type']==3){
+                        $where['rid'] = $rid;
+                        $num = $db->where(array())->count();
+                        if ($num=$info['allnums']){
+                            $this->ajaxReturn(array('errno'=>'101','msg'=>'全部预约已经满额！'),'JSON');
+                        }
+                    }
+                }
+
                 $_POST['createtime'] = time();
                 $_POST['del_flag']   = 0;
                 $_POST['status']     = 0;
@@ -88,7 +119,9 @@ class ReserveAction extends BaseAction{
         $where['rid']      = $rid;
         $where['wecha_id'] = $this->wecha_id;
         $list = $db->where($where)->select();
+        $info = M('Reserve')->where('id='.$rid)->find();
         $this->assign('list',$list);
+        $this->assign('info',$info);
         $this->display();
     }
 

@@ -84,11 +84,11 @@ class MenuAction extends UserAction{
 
             $jsondata = array();
 
-            $class=M('Wxmenu')->where(array('token'=>$_SESSION['token'],'parent_id'=>0))->limit(3)->order('sort desc')->select();
+            $class=M('Wxmenu')->where(array('token'=>$_SESSION['token'],'parent_id'=>0))->limit(3)->order('sort asc')->select();
             //主菜单
             //dump($class);
             foreach($class as $key=>$vo){
-                $subclass=M('Wxmenu')->where(array('token'=>$_SESSION['token'],'parent_id'=>$vo['id']))->limit(5)->order('sort desc')->select();
+                $subclass=M('Wxmenu')->where(array('token'=>$_SESSION['token'],'parent_id'=>$vo['id']))->limit(5)->order('sort asc')->select();
                 //子菜单
                 if($subclass!=false){
                     $subdata = array();

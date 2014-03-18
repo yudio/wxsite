@@ -393,7 +393,8 @@ class MicroSiteAction extends UserAction{
             if($db->data($data)->save()){
                 $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
             }else{
-                $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
+                $this->ajaxReturn(array('errno'=>'100','error'=>'更新完成！'),'JSON');
+                LOG::write('updateplugmenu'.$db->getError(),LOG::ERR);
             }
 
 

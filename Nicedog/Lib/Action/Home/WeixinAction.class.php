@@ -637,7 +637,7 @@ class WeixinAction extends Action
                     $img_db = M('Img');
                     //多图文关联
                     $like['id']    = $res['pid'];
-                    $imgmsg = $img_db->field('id,text,pic,url,title,news')->where($like)->find();
+                    $imgmsg = $img_db->field('id,info,pic,url,title,news')->where($like)->find();
                     LOG::write('图文'.$imgmsg['id'],LOG::INFO);
                     //替代wecha_id
                     $imgmsg['url'] = @ereg_replace('FromUserName',$this->data['FromUserName'],$imgmsg['url']);
@@ -646,12 +646,12 @@ class WeixinAction extends Action
                     $back = array();
                     if($imgmsg['news']){
                         $backwhere['id'] = array('in',$imgmsg['news']);
-                        $back = $img_db->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($backwhere)->select();
+                        $back = $img_db->field('id,info,pic,url,title')->limit(9)->order('id desc')->where($backwhere)->select();
                     }
                     foreach ($back as $keya => $infot) {
                         LOG::write('图文'.$infot['id'],LOG::INFO);
                         $infot['url'] = @ereg_replace('FromUserName',$this->data['FromUserName'],$infot['url']);
-                        $return[] = array($infot['title'],$infot['text'],$infot['pic'],C('site_url').$infot['url']);
+                        $return[] = array($infot['title'],$infot['info'],$infot['pic'],C('site_url').$infot['url']);
                     }
                     return array(
                         $return,
@@ -681,6 +681,21 @@ class WeixinAction extends Action
                     return array(
                         htmlspecialchars_decode($info['text']),
                         'text'
+                    );
+                    break;
+                case 'Reserve':
+                    LOG::write('匹配关键字:'.$key,LOG::INFO);
+                    $info = M('Reserve')->find($res['pid']);
+                    return array(
+                        array(
+                            array(
+                                $info['title'],
+                                $info['info'],
+                                $info['picurl'],
+                                C('site_url')."/reserve/{$this->wxuid}/index?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}"
+                            )
+                        ),
+                        'news'
                     );
                     break;
                 case 'Product':
