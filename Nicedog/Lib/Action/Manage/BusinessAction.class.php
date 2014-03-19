@@ -171,6 +171,189 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
+    //微相册管理
+    public function albumset(){
+        $db = M('AlbumSet');
+        if (IS_POST){
+            $id = $this->_post('id','intval');
+            $_POST['token'] = session('token');
+            if ($id){
+                $db->data($_POST)->save();
+                $this->ajaxReturn(array('errno'=>'0','error'=>'设置成功','url'=>'/npManage/business/albumset.act'),'JSON');
+            }else{
+                $db->data($_POST)->add();
+                $this->ajaxReturn(array('errno'=>'0','error'=>'设置成功','url'=>'/npManage/business/albumset.act'),'JSON');
+            }
+        }
+        $info = $db->where(array('token'=>session('token')))->find();
+        if ($info){
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+    public function albumlist(){
+        $db = D('Album');
+        $list = $db->where(array('token'=>session('token')))->order('sort desc')->select();
+        foreach($list as &$vo){
+            $vo['count'] = M('AlbumImg')->where(array('pid'=>$vo['id'],'status'=>'0'))->count();
+        }
+        $this->assign('list',$list);
+        $this->display();
+    }
+
+    public function albumupload(){
+        $db = D('Album');
+        if (IS_POST){
+            $ids = $_REQUEST['photoid'];
+            for($i=0;$i<count($ids);$i++){
+                $data['id'] = $ids[$i];
+                $data['title'] = $_REQUEST['title'][$data['id']];
+                $data['desc'] = $_REQUEST['description'][$data['id']];
+                $data['sort'] = $i;
+                M('AlbumImg')->data($data)->save();
+            }
+            $this->ajaxReturn(array('errno'=>'0','error'=>'更新成功！','url'=>'/npManage/business/albumlist.act'),'JSON');
+        }
+        $pid = $this->_get('pid','intval');
+        $info = $db->find($pid);
+        $list = M('AlbumImg')->where(array('pid'=>$pid))->order('sort')->select();
+        $this->assign('list',$list);
+        $this->assign('info',$info);
+        $this->display();
+    }
+
+    public function albumimgadd(){
+        import('ORG.Net.UploadFile');
+        $upload = new UploadFile();// 实例化上传类
+        $upload->maxSize  = 3145728 ;// 设置附件上传大小
+        $upload->allowExts  = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->savePath =  dirname(__FILE__).'/../../../../Uploads/userShare/'.substr(md5(session('uid')),16).'/album/';// 设置附件上传目录
+        //设置需要生成缩略图，仅对图像文件有效
+        $upload->thumb = true;
+        // 设置引用图片类库包路径
+        $upload->imageClassPath = '@.ORG.Image';
+        //设置需要生成缩略图的文件后缀
+        $upload->thumbPrefix = 'm_';  //生产2张缩略图
+        //设置缩略图最大宽度
+        $upload->thumbMaxWidth = '400';
+        //设置缩略图最大高度
+        $upload->thumbMaxHeight = '400';
+        //设置命名规则
+        $upload->saveRule = uniqid;
+        if(!$upload->upload()) {// 上传错误提示错误信息
+            $this->ajaxReturn(array('result'=>'FAIL','message'=>'上传文件失败!MSG:'.$upload->getErrorMsg()),'JSON');
+        }else{// 上传成功 获取上传文件信息
+            $info =  $upload->getUploadFileInfo();
+            /*import("@.ORG.Image");
+            Image::water($info[0]['savepath'] . 'm_' . $info[0]['savename'], '/thinkphp/examples/File/Tpl/Public/Images/logo2.png');
+            */
+
+        }
+        // 保存表单数据 包括附件数据
+        $db = M('AlbumImg');
+        $data['token'] = session('token');
+        $data['pid']   = $this->_post('pid');
+        $data['filename'] = $info[0]['name'];
+        $data['title']    = explode('.',$info[0]['name'],2)[0];
+        $data['desc']     = '';
+        $data['filetype'] = $info[0]['extension'];
+        $data['createtime'] = time();
+        $data['sort']      = 0;
+        $data['status']    = 0;
+        $data['thumb']     = C('site_url').'/Uploads/userShare/'.substr(md5(session('uid')),16).'/album/m_'.$info[0]['savename'];
+        $data['imgurl']    = C('site_url').'/Uploads/userShare/'.substr(md5(session('uid')),16).'/album/'.$info[0]['savename'];
+        $id = $db->data($data)->add();
+        if ($id){
+            $this->ajaxReturn(array('result'=>'SUCCESS','image'=>array('id'=>$id,'url'=>$data['imgurl'],'thm_url'=>$data['thumb'],'title'=>$data['title'],'content'=>'')),'JSON');
+        }else{
+            $this->ajaxReturn(array('result'=>'FAIL','message'=>'文件写入失败!MSG:'.$db->getError()),'JSON');
+        }
+    }
+
+    public function albumimgdel($id=0){
+        $db = M('AlbumImg');
+        if (!$id){
+            $id = $this->_post('id','intval');
+        }
+        $info = $db->where(array('token'=>session('token'),'id'=>$id))->find();
+        if ($info){
+            $db->where('id='.$id)->delete();
+            //文件删除处理
+            $path = dirname(__FILE__).'/../../../../Uploads/userShare/'.substr(md5(session('uid')),16).'/album/';
+            @unlink($path.basename($info['imgurl']));
+            @unlink($path.basename($info['thumb']));
+        }else{
+            LOG::write('微相册删除文件失败'.$info['imgurl'],LOG::ERR);
+        }
+    }
+
+    public function albumdel(){
+        $db = M('Album');
+        $id = $this->_get('id','intval');
+        $info = $db->where(array('token'=>session('token'),'id'=>$id))->find();
+        if ($info){
+            $db->where('id='.$id)->delete();
+            //删除关键字关联
+            $data['pid'] = $id;
+            $data['token'] = session('token');
+            KeyWord::delete($data,'Album');
+            $list = M('AlbumImg')->field('id')->where('pid='.$id)->select();
+            foreach($list as $vo){
+                $this->albumimgdel($vo['id']);
+            }
+            $this->ajaxReturn(array('errno'=>'0'),'JSON');
+        }else{
+            $this->ajaxReturn(array('errno'=>'1'),'JSON');
+            LOG::write('微相册删除文件失败'.$info['imgurl'],LOG::ERR);
+        }
+    }
+
+    public function albumadd(){
+        $db = D('Album');
+        if (IS_POST){
+            $id = $this->_post('id','intval');
+            if ($id){
+                if ($db->create()){
+                    $data['pid']    = $id;
+                    $data['keyword'] = $this->_post('keyword');
+                    $data['token']  = session('token');
+                    $data['match_type']  = 1;
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    $db->save();
+                    Keyword::update($data,'Album');
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'设置成功','url'=>'/npManage/business/albumlist.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');
+                }
+            }else{
+                if ($db->create()){
+                    $data['pid']     = 0;
+                    $data['keyword'] = $this->_post('keyword');
+                    $data['token']  = session('token');
+                    $data['match_type']  = 1;
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    $id = $db->add();
+                    $data['pid']     = $id;
+                    Keyword::update($data,'Album');
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'设置成功','url'=>'/npManage/business/albumlist.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');
+                }
+            }
+        }
+        $id = $this->_get('id','intval');
+        if ($id){
+            $info = $db->find($id);
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
 
     //获取外链
     public function getBusinessJSON(){

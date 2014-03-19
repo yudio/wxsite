@@ -55,6 +55,17 @@ class KeyWord{
         return array();
     }
 
+    static public function delete($data,$module){
+        $db = M('Keyword');
+        $delwhere['pid']    = $data['pid'];
+        $delwhere['module'] = $module;
+        $delwhere['token']  = $data['token'];
+        $keys = $db->where($delwhere)->find();
+        if ($keys){
+            $msg = $db->where($delwhere)->delete();
+        }
+    }
+
 
 }
 

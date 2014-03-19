@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/album.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/zeroclipboard/zeroclipboard_min.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+
+<div id="main">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span12">
+                            <h3><i class="icon-cog"></i>微相册设置</h3>
+
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <form action="/npManage/business/albumset.act" method="post" class="form-horizontal form-validate">
+                            <input type="hidden" name="id" value="{np:$info.id}" />
+                            <input type="hidden" name="type" value="{np:$info.type|default='1'}" />
+                            <div class="control-group">
+                                <label class="control-label" for="cover">相册头部图片</label>
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.headpic|default=C('site_url').STATICS.'/img/albums_head_url.jpg'}" style="max-height: 70px;" />
+                                    <input class="hide" type="text" name="headpic" value="{np:$info.headpic|default=STATICS.'/img/albums_head_url.jpg'}" />
+                                        <span class="help-inline">
+                                            <button class="btn select_img" type="button">选择图片</button>
+                                        </span>
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">请选择尺寸720x150左右的图片,大小不超过300k</span>
+                                </div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label class="control-label" for="sites">相册展示方式：</label>
+                                <div class="controls">
+                                    <label class="radio inline">
+                                        <input type="radio" name="show_type" value="1" <empty name="info">checked</empty> <if condition="$info.show_type eq 1">checked</if>/>瀑布流
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="show_type" value="2"  <if condition="$info.show_type eq 2">checked</if>  />单行
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="show_type" value="3" <if condition="$info.show_type eq 3">checked</if>/>双排
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">外链地址：</label>
+                                <div class="controls">
+                                    <span class="copy_text">{np::C('site_url')}/album/{np:$wecha['id']}/index?wecha_id=FromUserName</span>
+                                </div>
+
+                            </div>
+                            <link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
+                            <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+                            <script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+                            <script>
+                                KindEditor.ready(function (K) {
+
+                                    var editor = K.editor({
+                                        themeType: "simple",
+                                        allowFileManager: true
+                                    });
+                                    $('button.select_img').live("click",function (e) {
+                                        editor.loadPlugin('smimage', function () {
+                                            editor.plugin.imageDialog({
+                                                imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                                                userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                                                clickFn: function (url, title, width, height, border, align) {
+                                                    var $input = $(e.target).parent().prevAll("input[type=text]")
+                                                    $input.val(url)
+                                                    $input.hide();
+                                                    var t_img = $(e.target).parent().prevAll(".thumb_img:first");
+                                                    if (t_img.length == 0) {
+                                                        var tmp = '<img class="thumb_img" src="{0}" style="max-height: 100px;">';
+                                                        $input.before(tmp.format(url))
+                                                    } else {
+                                                        t_img.attr("src", url);
+                                                    }
+
+                                                    editor.hideDialog();
+                                                }
+                                            });
+                                        });
+                                    });
+                                });
+                            </script>
+                            <div class="form-actions">
+                                <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></body>
+<script type="text/javascript">
+</script>
+</html>

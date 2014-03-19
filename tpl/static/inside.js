@@ -9,9 +9,9 @@ var G = {
     util: {},
     data: {},
     domain: {
-        w: 'yudio.xicp.net',
-        t: 'http://yudio.xicp.net',
-        k: 'http://yudio.xicp.net/tpl/static/wm-xin-a'
+        w: 'localhost',
+        t: 'http://localhost/tpl/static',
+        k: 'http://localhost/tpl/static/wx-xin-a'
     },
     set: {
         KindEditor_seting: {

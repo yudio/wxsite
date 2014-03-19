@@ -106,8 +106,7 @@ class WeixinAction extends Action
         LOG::write("TOKEN OPEN",LOG::INFO);
         $Pin = new GetPin();
         $open = M('Token_open')->where(array('token' => $this->_get('token')))->find();
-        $this->fun = $open['queryname'];
-        $datafun = explode(',', $open['queryname']);
+        $this->fun = $open['queryname'];        $datafun = explode(',', $open['queryname']);
         $tags = $this->get_tags($key);
         $back = explode(',', $tags);
         foreach ($back as $keydata => $data) { //开放功能模块过滤
@@ -207,12 +206,6 @@ class WeixinAction extends Action
                     break;
                 case '会员':
                     return $this->member();
-                    break;
-                case '3g相册':
-                    return $this->xiangce();
-                    break;
-                case '相册':
-                    return $this->xiangce();
                     break;
                 // case '留言':
                 // return $this->liuyan();
@@ -631,6 +624,10 @@ class WeixinAction extends Action
         }
         if ($res != false) {
             switch ($res['module']) {
+                case 'Home':
+                    LOG::write('匹配微官网',LOG::INFO);
+                    return $this->shouye();
+                    break;
                 case 'Img':
                     LOG::write('组装多图文'.$key,LOG::INFO);
                     $this->requestdata('imgnum');
@@ -693,6 +690,21 @@ class WeixinAction extends Action
                                 $info['info'],
                                 $info['picurl'],
                                 C('site_url')."/reserve/{$this->wxuid}/index?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}"
+                            )
+                        ),
+                        'news'
+                    );
+                    break;
+                case 'Album':
+                    LOG::write('匹配相册:'.$key,LOG::INFO);
+                    $info = M('Album')->find($res['pid']);
+                    return array(
+                        array(
+                            array(
+                                $info['title'],
+                                $info['info'],
+                                $info['picurl'],
+                                C('site_url')."/album/{$this->wxuid}/showlist?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}"
                             )
                         ),
                         'news'
@@ -896,9 +908,7 @@ class WeixinAction extends Action
 
     function shouye()
     {
-        $home = M('Home')->where(array(
-            'token' => $this->token
-        ))->find();
+        $home = M('Home')->where(array('token' => $this->token))->find();
         if ($home == false) {
             return array(
                 '商家未做首页配置，请稍后再试',
@@ -906,10 +916,10 @@ class WeixinAction extends Action
             );
         } else {
             $wxuser = M('Wxuser')->field('id')->where(array('token'=>$this->token))->find();
-            if ($home['apiurl'] == false) {
+            if ($home['homeurl'] == false) {
                 $url = rtrim(C('site_url'), '/') . '/wesite/'.$wxuser['id'].'/index?token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'];
             } else {
-                $url = $home['homeurl'];
+                $url = @ereg_replace('FromUserName',$this->data['FromUserName'],$home['homeurl']);;
             }
         }
 

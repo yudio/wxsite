@@ -2,7 +2,7 @@
 return array (
   'site_name' => '奈斯伙伴(NicePa)',
   'site_title' => '国内最大的微信公众服务平台',
-  'site_url' => 'http://yudio.xicp.net',
+  'site_url' => 'http://localhost',
   'site_my' => 'nicepa',
   'ischeckuser' => 'true',
   'ipc' => '',

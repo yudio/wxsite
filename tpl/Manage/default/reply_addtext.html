@@ -61,7 +61,7 @@
 
     <div class="controls">
         <label class="radio">
-            <input id="radio1" type="radio" name="match_type" value="1" <if condition="$info.match_type eq 1">checked="checked"</if> >
+            <input id="radio1" type="radio" name="match_type" value="1" <empty name="info">checked</empty> <if condition="$info.match_type eq 1">checked="checked"</if> >
             完全匹配，用户输入的和此关键词一样才会触发!
         </label>
         <label class="radio">

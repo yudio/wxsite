@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://nicepa.cn/npManage/reply/addnews.act?id=84 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+	<meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="bootstrap_min(1).css" media="all">
+<link rel="stylesheet" type="text/css" href="bootstrap_responsive_min(1).css" media="all">
+<link rel="stylesheet" type="text/css" href="style(1).css" media="all">
+<link rel="stylesheet" type="text/css" href="todc_bootstrap.css" media="all">
+<link rel="stylesheet" type="text/css" href="themes(1).css" media="all">
+<link rel="stylesheet" type="text/css" href="inside.css" media="all">
+<link rel="stylesheet" type="text/css" href="emotion.css" media="all">
+<link rel="stylesheet" type="text/css" href="chosen.css" media="all">
+<link rel="stylesheet" type="text/css" href="resource.css" media="all">
+<script type="text/javascript" src="jQuery(1).js"></script>
+<script type="text/javascript" src="bootstrap_min(2).js"></script><style type="text/css">.dropdown-submenu:hover>.dropdown-menu{display:none}</style>
+<script type="text/javascript" src="inside.js"></script>
+<script type="text/javascript" src="emotion.js"></script>
+<script type="text/javascript" src="jquery_validate_min.js"></script>
+<script type="text/javascript" src="jquery_validate_methods.js"></script>
+<script type="text/javascript" src="chosen_jquery_min.js"></script>
+<script type="text/javascript" src="jquery_form_min.js"></script>
+<script type="text/javascript" src="resource.js"></script>
+<title>奈斯伙伴(NicePa)—国内最大的微信公众服务平台</title>
+	<link rel="shortcut icon" href="http://nicepa.cn/tpl/static/img/favicon.ico">
+    <!--[if lte IE 9]><script src="/./tpl/Manage/default/common/src/watermark.js"></script><![endif]-->
+	<!--[if IE 7]><link href="/./tpl/Manage/default/common/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+<link href="http://nicepa.cn/tpl/static/kindeditor/themes/default/default.css" rel="stylesheet"><link href="http://nicepa.cn/tpl/static/kindeditor/themes/simple/simple.css" rel="stylesheet"></head>
+<body>
+	   <div id="main">
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="box">
+                        <div class="box-title">
+                            <div class="span10">
+                                <h3><i class="icon-edit"></i>
+编辑图文自定义内容</h3>
+                            </div>
+                            <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+                        </div>
+
+                        <div class="box-content">
+					<form action="http://nicepa.cn/npManage/reply/addnews.act" method="post" class="form-horizontal form-validate" novalidate="novalidate">
+								                                <div class="control-group">
+                                    <label for="keyword" class="control-label">关键词：</label>
+                                    <div class="controls">
+                                        <input type="text" name="keyword" id="keyword" value="联系我们" data-rule-required="true" data-rule-maxlength="30" class="input-xlarge" title="多个关键词请用空格格开：例如: 美丽 漂亮 好看"><br>多个关键词请用空格格开：例如: 美丽 漂亮 好看
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">关键词类型：</label>
+                                    <div class="controls">
+                                        <label class="radio">
+                                            <input type="radio" name="match_type" value="1" checked="checked">
+                                            完全匹配，用户输入的和此关键词一样才会触发!
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="match_type" value="2">
+                                            包含匹配 (只要用户输入的文字包含本关键词就触发！
+                                        </label>
+                                    </div>
+                                </div>
+							                                <div class="control-group">
+                                    <label for="title" class="control-label">标题：</label>
+                                    <div class="controls">
+                                        <input type="text" name="title" id="title" value="联系我们" data-rule-required="true" data-rule-maxlength="100" class="input-xlarge">
+                                        <span class="maroon">*</span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="picurl" class="control-label">排序id：</label>
+                                    <div class="controls">
+                                       <input type="text" ata-rule-number="true" class="input-mini" value="0" size="3" name="sort_id"><span style="color:red;" class="help-inline">(id越大，在所属官网分类文章列表中显示越靠前)</span>
+
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="picurl" class="control-label">图文封面：</label>
+                                    <div class="controls">
+											<img id="thumb_img" src="5327e70337001.jpg" style="max-height:100px;">
+                                            <input id="thumb" type="text" name="pic" value="http://nicepa.cn/Uploads/userShare/bb1864cdee4d3d6e/image/20140318/5327e70337001.jpg" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true">
+                                                                                <span class="help-inline"><a class="btn" id="insertimage">选择图文封面</a></span>  建议大小(宽720高400)
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="introduction" class="control-label">简介：</label>
+                                    <div class="controls">
+                                        <textarea id="introduction" name="info" data-rule-required="true" data-rule-maxlength="200" style="width: 580px; height: 100px">奈斯伙伴联系方式</textarea><span class="maroon">*</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="article_class" class="control-label">所属类别：</label>
+                                    <div class="controls">
+                                        <select name="article_class" class="chosen-select input-medium chzn-done" data-nosearch="true" id="article_class" style="display: none;">
+                                           <option value="0" selected="selected">根分类</option>
+                                           <option value="333,公司简介">公司简介</option><option value="334,新闻中心">新闻中心</option><option value="335,产品介绍">产品介绍</option><option value="336,关于我们">关于我们</option>                                        </select><div id="article_class_chzn" class="chzn-container chzn-container-single chzn-container-single-nosearch" style="width: 150px;" title=""><a href="javascript:void(0)" class="chzn-single" tabindex="-1"><span>根分类</span><div><b></b></div></a><div class="chzn-drop" style="left: -9000px; width: 148px; top: 31px;"><div class="chzn-search"><input type="text" autocomplete="off" style="width: 113px;"></div><ul class="chzn-results"><li id="article_class_chzn_o_0" class="active-result result-selected" style="">根分类</li><li id="article_class_chzn_o_1" class="active-result" style="">公司简介</li><li id="article_class_chzn_o_2" class="active-result" style="">新闻中心</li><li id="article_class_chzn_o_3" class="active-result" style="">产品介绍</li><li id="article_class_chzn_o_4" class="active-result" style="">关于我们</li></ul></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="showpic" class="control-label">详细页显示图文封面：</label>
+                                    <div class="controls">
+                                        <label class="radio inline">
+                                            <input type="radio" name="showpic" value="1">
+                                            是
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="showpic" value="0" checked="checked">
+                                            否
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="picurl" class="control-label">图文详细页内容：</label>
+                                    <div class="controls">
+                                        <div class="ke-container ke-container-simple" style="width: 700px;"><div style="display:block;" class="ke-toolbar" unselectable="on"><span class="ke-outline ke-on ke-selected" data-name="source" title="HTML代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-source" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline ke-disabled" data-name="undo" title="后退(Ctrl+Z)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-undo" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="redo" title="前进(Ctrl+Y)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-redo" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline ke-disabled" data-name="preview" title="预览" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-preview" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="print" title="打印(Ctrl+P)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-print" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="template" title="插入模板" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-template" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="cut" title="剪切(Ctrl+X)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-cut" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="copy" title="复制(Ctrl+C)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-copy" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="paste" title="粘贴(Ctrl+V)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-paste" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="plainpaste" title="粘贴为无格式文本" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-plainpaste" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="wordpaste" title="从Word粘贴" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-wordpaste" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline ke-disabled" data-name="justifyleft" title="左对齐" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyleft" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="justifycenter" title="居中" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifycenter" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="justifyright" title="右对齐" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyright" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="justifyfull" title="两端对齐" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyfull" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="insertorderedlist" title="编号" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertorderedlist" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="insertunorderedlist" title="项目符号" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertunorderedlist" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="indent" title="增加缩进" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-indent" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="outdent" title="减少缩进" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-outdent" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="subscript" title="下标" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-subscript" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="superscript" title="上标" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-superscript" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="clearhtml" title="清理HTML代码" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-clearhtml" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="quickformat" title="一键排版" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-quickformat" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="selectall" title="全选(Ctrl+A)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-selectall" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="fullscreen" title="全屏显示(Esc)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fullscreen" unselectable="on"></span></span><div class="ke-hr"></div><span class="ke-outline ke-disabled" data-name="formatblock" title="段落" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-formatblock" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="fontname" title="字体" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontname" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="fontsize" title="文字大小" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontsize" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline ke-disabled" data-name="forecolor" title="文字颜色" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-forecolor" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="hilitecolor" title="文字背景" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hilitecolor" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="bold" title="粗体(Ctrl+B)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-bold" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="italic" title="斜体(Ctrl+I)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-italic" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="underline" title="下划线(Ctrl+U)" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-underline" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="strikethrough" title="删除线" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-strikethrough" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="lineheight" title="行距" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-lineheight" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="removeformat" title="删除格式" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-removeformat" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline ke-disabled" data-name="image" title="图片" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="table" title="表格" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-table" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="hr" title="插入横线" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hr" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="emoticons" title="插入表情" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-emoticons" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="baidumap" title="百度地图" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-baidumap" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="code" title="插入程序代码" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-code" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="pagebreak" title="插入分页符" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-pagebreak" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="link" title="超级链接" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="unlink" title="取消超级链接" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-unlink" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="music" title="undefined" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-music" unselectable="on"></span></span><span class="ke-outline ke-disabled" data-name="video" title="undefined" unselectable="on" style="opacity: 0.5;"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-video" unselectable="on"></span></span></div><div style="display: block; height: 238px;" class="ke-edit"><iframe class="ke-edit-iframe" hidefocus="true" frameborder="0" style="width: 100%; height: 238px; display: none;"></iframe><textarea class="ke-edit-textarea valid" hidefocus="true" style="width: 100%; height: 238px; display: block;"></textarea></div><div class="ke-statusbar"><span class="ke-inline-block ke-statusbar-center-icon"></span><span class="ke-inline-block ke-statusbar-right-icon"></span></div></div><textarea name="text" id="content" style="width: 700px; height: 300px; visibility: hidden; display: none;">&lt;p&gt;
+	联系电话：0591-87580191
+&lt;/p&gt;
+&lt;p&gt;
+	地址： 福州市晋安区华林路338号锦绣福城14-804
+&lt;/p&gt;
+&lt;p&gt;
+	邮箱：admin@nicepa.cn
+&lt;/p&gt;
+&lt;p&gt;
+	官网：nicepa.cn
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;span style="white-space:nowrap;"&gt;http://j.map.baidu.com/qoW_q&lt;/span&gt;
+&lt;/p&gt;</textarea>
+                                    </div>
+									<script>var editor1;</script>
+                                    <script src="kindeditor-min.js"></script>
+                                    <script src="kindeditor.config.js"></script>
+                                    <script type="text/javascript">
+                                        KindEditor.ready(function (K) {
+                                            var editor = K.editor({
+                                                themeType: "simple",
+                                                allowFileManager: true
+
+                                            });
+                                            K('#insertimage').click(function () {
+                                                editor.loadPlugin('smimage', function () {
+                                                    editor.plugin.imageDialog({
+                                                        imageUrl: K('#thumb').val(),
+                                                        userRoot: 'bb1864cdee4d3d6e',
+                                                        clickFn: function (url, title, width, height, border, align) {
+                                                            K('#thumb').val(url);
+                                                            if (K('#thumb_img')) {
+                                                                K('#thumb').hide();
+                                                                K('#thumb_img').attr('src', url);
+                                                                K('#thumb_img').show().css('display','inline');
+                                                            }
+                                                            editor.hideDialog();
+                                                        }
+                                                    });
+                                                });
+                                            });
+                                        });
+
+                                    </script>
+                                </div>
+
+								<div class="control-group">
+                                    <label for="picurl" class="control-label">多图文：</label>
+                                    <div class="controls">
+                                        <table class="dataTable-mini" id="more_graphics_table">
+                                            <tbody>
+                                                                                        </tbody>
+                                        </table>
+                                        <button type="button" rel="more_graphics_table" class="btn add-on">添加</button><span style="color:red;" class="help-inline">最多添加9个</span>
+                                    </div>
+                                </div>
+                                <div class="control-group" style="display: none;">
+                                    <label for="picurl" class="control-label">推荐阅读：</label>
+                                    <div class="controls">
+                                        <table class="dataTable-mini" id="more_recommended_table">
+										                                        </table>
+                                        <button type="button" rel="more_recommended_table" class="btn add-on">添加</button><span style="color:red;" class="help-inline">最多添加9个</span>
+
+                                    </div>
+                                </div>
+
+                                <script src="getscript" type="text/javascript"></script>
+
+                               <div id="res_block">
+                                    <div class="control-group">
+                                        <label class="control-label">图文外链类型:</label>
+                                        <div class="controls">
+                                            <select id="type" name="type" class="input-medium">
+                                             <option value="0">请选择</option>
+                                             <option value="link">链接</option><option value="tel">电话</option><option value="map">导航</option><option value="activity">活动</option><option value="business">业务模块</option>                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="r_article" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label"></label>
+                                            <div class="controls">
+                                                <span class="maroon">分类添加成功后 请添加图文选择此分类 将会列表显示</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="r_link" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label" for="source_url">页面URL</label>
+                                            <div class="controls">
+                                                <input type="text" id="source_url" value="" class="input-xlarge" name="link" data-rule-required="true" data-rule-url="true">
+                                                <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的URL格式)</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="r_tel" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label" for="tel">电话号码</label>
+                                            <div class="controls">
+                                                <input type="text" id="tel" value="" class="input-large" name="tel" data-rule-required="true" data-rule-phone="true">
+                                                <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的号码)</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="r_business" class="control-group r-module hide">
+                                        <label class="control-label">业务类型:</label>
+                                        <div class="controls">
+                                            <select id="business_func" name="business_type" class="input-medium">
+                                                <option value="official" data-list="false">微官网</option><option value="vipcard" data-list="false">会员卡</option><option value="message" data-list="false">微留言</option><option value="albums" data-list="false">微相册</option><option value="buy" data-list="false">微商城</option><option value="reservation" data-list="false">微预约</option>                                            </select>
+                                        </div>
+                                        <div class="margin-top" style="display:none;">
+                                            <label class="control-label">业务:</label>
+                                            <div class="controls">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>业务标题</th>
+                                                        <th>触发关键词</th>
+                                                        <th>时间段</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                                <div class="record hide"><a href="javascript:;" id="more_activity">加载更多业务...</a></div>
+                                                <div class="text-center no-record" style="display:none;">没有正在进行中的业务</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="r_activity" class="control-group r-module hide">
+                                        <label class="control-label">活动类型:</label>
+                                        <div class="controls">
+                                            <select id="act" name="activity_type" onchange="if (100 == $(this).val()) {$(&#39;#activity_select_box&#39;).hide(); } else {$(&#39;#activity_select_box&#39;).show(); };">
+                                                <option value="coupons" data-list="false">优惠券</option><option value="scratchcard" data-list="false">刮刮卡</option><option value="lottery" data-list="false">大转盘</option>                                            </select>
+                                        </div>
+                                        <div class="margin-top" id="activity_select_box">
+                                            <label class="control-label">活动选择:</label>
+                                            <div class="controls">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>活动标题</th>
+                                                        <th>触发关键词</th>
+                                                        <th>活动时间</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                                <div class="text-center no-record" style="display:block">没有正在进行中的活动</div>
+
+                                                <div class="record hide"><a href="javascript:;" id="more_activity">加载更多活动...</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="r_map" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label" for="suggestId">经纬度</label>
+                                            <div class="controls">
+                                                <div class="input-append">
+                                                    <input type="text" id="suggestId" name="place" value="" class="input-xlarge" data-rule-required="true">
+                                                    <button class="btn" type="button" id="positioning">搜索</button>
+                                                </div>
+                                                <span class="maroon">注意：这个只是模糊定位，准确位置请地图上标注!</span>
+                                                <div id="l-map">
+                                                    <i class="icon-spinner icon-spin icon-large"></i>地图加载中...
+                                                </div>
+                                                <div id="r-result">
+                                                    <input type="text" id="lng" name="lng" value="">
+                                                    <input type="text" id="lat" name="lat" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div id="r_car" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label" for="suggestId">功能模块</label>
+                                            <div class="controls">
+                                               <select id="car_func" name="r_car_function">
+
+                                                <option value="2001" data-list="">最新资讯</option>
+                                                <option value="2002" data-list="">全部车型</option>
+                                                <option value="2003" data-list="">联系销售</option>
+                                                <option value="2004" data-list="">预约试驾</option>
+                                                <option value="2005" data-list="">预约保养</option>
+                                                <option value="2006" data-list="">实用工具</option>
+                                                <option value="2007" data-list="">车主关怀</option>
+
+                                            </select>
+                                            </div>
+                                            <div class="margin-top hide">
+                                            <label class="control-label">业务选择:</label>
+                                            <div class="controls">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>预约标题</th>
+                                                            <th>触发关键词</th>
+                                                            <th>预约时间</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                    </tbody>
+
+
+
+
+
+                                                </table>
+                                                <div class="text-center no-record" style="display:block">没有正在进行中的预约</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="r_estate" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label" for="suggestId">功能模块</label>
+                                            <div class="controls">
+                                               <select id="estate_func" name="r_estate_function">
+
+                                                <option value="1001" data-list="">楼盘简介</option>
+                                                <option value="1002" data-list="">精美相册</option>
+                                                <option value="1003" data-list="">楼盘印象</option>
+                                                <option value="1004" data-list="">360全景</option>
+
+                                            </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div id="r_food" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label class="control-label" for="suggestId">功能模块</label>
+                                            <div class="controls">
+                                               <select id="food_func" name="r_food_function">
+
+                                                <option value="3001" data-list="">选择门店</option>
+                                                <option value="3002" data-list="">全部菜品</option>
+                                                <option value="3003" data-list="">套餐选择</option>
+                                                <option value="3004" data-list="">我的菜单</option>
+                                                <option value="3005" data-list="">我的订单</option>
+
+                                            </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div id="r_vshop" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label for="suggestId" class="control-label">功能模块</label>
+                                            <div class="controls">
+                                                <select name="r_vshop_function" id="vshop_func">
+                                                <option value="4001" data-list="">首页</option>
+                                                <option value="4002" data-list="">会员中心</option>
+                                                <option value="4003" data-list="">购物车</option>
+                                                <option value="4004" data-list="">品牌介绍</option>
+                                                <option value="4005" data-list="">全部分类</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div id="r_vtg" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label for="suggestId" class="control-label">功能模块</label>
+                                            <div class="controls">
+                                                <select name="r_vtg_function" id="vtg_func">
+                                                <option value="6001" data-list="">首页</option>
+                                                <option value="6002" data-list="">团购券</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div id="r_vlife" class="control-group r-module hide">
+                                        <div class="control-group">
+                                            <label for="suggestId" class="control-label">功能模块</label>
+                                            <div class="controls">
+                                                <select name="r_vlife_function" id="vlife_func">
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                <div class="form-actions">
+									<input type="hidden" name="id" id="tid" value="84">
+                                    <button type="submit" class="btn btn-primary" id="bsubmit">保存</button>
+									<a class="btn" href="Javascript:window.history.go(-1)">取消</a>
+
+                                </div>
+
+                        </div>
+                    </form></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title"><i class="icon-table"></i>选择图文集</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row-fluid">
+                            图文标题：<input name="key" id="key" type="text" class="input-medium" placeholder="输入标题进行查找">
+
+                            <select name="classid" id="classid" class="input-medium">
+                                <option value="0" selected="selected">根分类</option>
+                            </select>
+                            <button type="button" class="btn" id="_soso"><strong>查找</strong></button>
+                        </div>
+                        <p></p>
+
+                        <div class="row-fluid">
+                            <input type="checkbox" id="chkall" name="chkall">
+                            全选　共有 <span class="red" id="count_num">0</span> 条符合条件
+                            <button type="button" class="btn btn-mini" id="p_page"><strong>上一页</strong></button>
+                            <span id="p_page_str">第1页/共1页</span>
+                            <button type="button" class="btn btn-mini" id="n_page"><strong>下一页</strong></button>
+                            <ul class="unstyled list-li-border" id="data-list"></ul>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                    </div>
+
+<script type="text/javascript">
+
+                    $(document).ready(function () {
+
+
+                        var resource = Resource.create();
+                        var ins = Resource.instance['res_block'];
+                        ins.result = ins.result || {};
+                        ins.result.aid = 72040;
+
+ 
+
+
+
+                        var _pdata_table_id;
+                        var _isoso = false;
+                        $("#chkall").click(function () {
+                            var $idsCheck = $("#data-list input[name='check']")
+                            var $this = $(this);
+                            if ($this.attr("checked")) {
+                                $idsCheck.attr("checked", true);
+                            } else {
+                                $idsCheck.attr("checked", false);
+                            }
+                            $idsCheck.each(function () {
+                                _tr($(this));
+                            });
+
+                        });
+                        $("#_soso").click(function () { _isoso = true; $("#_soso").attr("disabled", ""); _page(1) });
+                        $("#classid").change(function () { _this_page = 1; _page(1) });
+                        $("#data-list input[name='check']").live("click", function () { _tr($(this)); });
+                        var _tr = function (_t) {
+                            var $this = _t;
+                            var $title = $this.attr("t");
+                            var $id = $this.val();
+                            var $selecttr = $("#" + _pdata_table_id + "tr" + $id + "");
+                            if ($this.attr("checked")) {
+                                if ($selecttr.length == 0 && $("#" + _pdata_table_id + " tr").length < 9) {
+                                    var t = (_pdata_table_id == "more_graphics_table") ? "votetouser[0][]" : "votetouser[1][]";
+                                    var _trtmp = "<tr id='" + _pdata_table_id + "tr" + $id + "'><td><input type='hidden' name='" + t + "'  value='" + $id + "' />" + $title + "</td><td><a href='javascript:void(0)' class='btn btn-mini del'><i class='icon-remove'></i></a></td></tr>";
+                                    $("#" + _pdata_table_id + "").append(_trtmp);
+                                }
+
+                            } else {
+                                $selecttr.remove();
+                            }
+                        }
+                        //删除
+                        $("table.dataTable-mini .del").live("click", function () {
+                            $(this).parent().parent().remove();
+                        });
+                        $("button.add-on").click(function (e) {
+                            e.preventDefault();
+                            _pdata_table_id = $(this).attr("rel");
+                            $('#myModal').modal('show');
+                            $("#chkall").attr("checked", false);
+                            _page(1);
+                        });
+                        $("#p_page").click(function () {
+                            if (_this_page - 1 > 0) {
+                                _this_page--;
+                                _page(_this_page);
+                            }
+                        });
+                        $("#n_page").click(function () {
+                            if (_this_page + 1 <= _this_page_count) {
+                                _this_page++;
+                                _page(_this_page);
+                            }
+                        });
+                        var _this_page = 1;//当前页
+                        var _this_page_count = 0;//总页数
+                        var _page = function (_index) {
+                            var key;
+                            if (_isoso) {
+                                key = $("#key").val();
+                            }
+                            var classid = $("#classid").val();
+                            $.get("/npManage/reply/getjsonnews.act", {"key": key, "classid": classid, "page": _index, "aid":$('#aid').val(), "tid":$('#tid').val() }, function (data, textStatus) {
+                                $("#data-list").html("");
+                                //console.log(data.list);
+                                $.each(data.list, function (index, item) {
+                                    //console.log(index);
+                                    var _li_tmp = '<li> <label> <input type="checkbox" name="check" t="' + item.title + '" value="' + item.id + '" />  ' + item.title + '</label></li>';
+                                    $("#data-list").append(_li_tmp);
+
+                                });
+                                _this_page_count = data.count;
+                                $("#count_num").text(_this_page_count * 9);
+                                $("#p_page_str").text("第" + _this_page + "页/共" + _this_page_count + "页");
+                                $("#_soso").removeAttr("disabled")
+                            }, "json");
+                        }
+
+                    })
+
+                </script>
+				
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div><div id="fallr-overlay"></div></body></html>

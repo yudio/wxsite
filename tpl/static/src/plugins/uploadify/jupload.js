@@ -33,12 +33,12 @@ function ipostSortInit() {
 function addFile(image) {
     var el = $('<li class="post file" data-post-id="' + image.id + '">'
          + '<input type="hidden" value="' + image.id + '" name="photoid[]">'
-		 + '<input type="hidden" value="' + image.url + '" name="url[' + image.id + '][]">'
+		 + '<input type="hidden" value="' + image.url + '" name="url[' + image.id + ']">'
 		+ '<a class="thumb" href="' + image.url + '" target="_blank" title="点击查看原图，拖动排序" style="background-image:url(' + image.thm_url + ')"><span class="file-thumb-title">上传成功</span></a>'//this.thumb
 		//+ '<p class="file-name">' + image.title + '<span class="file-info">' + (json ? json.warning || json.message : '') + '</span></p>'//this.info
 		+ '<dl class="form data">'
-			+ '<dt>标题</dt><dd class="title"><input type="text" class="text" placeholder="无标题请留空" name="title[' + image.id + '][]" value="' + (image.title || '') + '" /></dd>' //this.title
-			+ '<dt>描述</dt><dd class="description"><textarea name="description[' + image.id + '][]">' + image.content + '</textarea></dd>'
+			+ '<dt>标题</dt><dd class="title"><input type="text" class="text" placeholder="无标题请留空" name="title[' + image.id + ']" value="' + (image.title || '') + '" /></dd>' //this.title
+			+ '<dt>描述</dt><dd class="description"><textarea name="description[' + image.id + ']">' + image.content + '</textarea></dd>'
 			//+ '<dt class="tags">标签</dt><dd class="tags"><input type="text" class="text" placeholder="多个标签之间用空格分隔" name="images[' + image.id + '][tags]" /></dd>'
 		+ '</dl>'
 		+ '<ul class="action">'
