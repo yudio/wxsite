@@ -315,6 +315,9 @@ class IndexAction extends BaseAction{
     public function getPlugMenu(){
         $db = M('Plugmenu');
         $plugmenus = $db->where(array('token'=>$this->token,'is_show'=>1))->limit(5)->order('sort asc')->select();
+        foreach($plugmenus as &$vo){
+            $vo['url'] = @ereg_replace('FromUserName',$this->wecha_id,$vo['url']);
+        }
         return $plugmenus;
 
     }

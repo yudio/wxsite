@@ -475,17 +475,17 @@
     </div>
 <script type="text/javascript">
         $(function () {
-			/*var rid = $("#rid").val();
+			var rid = $("#id").val();
 			if(rid.length > 0){
 				var op = { 
-					lat: "",
-					lng: "",
-					adr: ""
+					lat: "{np:$info.lat}",
+					lng: "{np:$info.lng}",
+					adr: "{np:$info.place}"
 				};
 				baidu_map(op);
 			}else{
 				baidu_map();
-			}*/
+			}
             baidu_map();
         });
 

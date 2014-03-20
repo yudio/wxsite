@@ -39,6 +39,9 @@ class TypeLink{
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
                              break;
+                         case 'albums':
+                             $arr['url'] = '/album/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
+                             break;
                      }
                      break;
                  default:
@@ -73,6 +76,9 @@ class TypeLink{
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
+                             break;
+                         case 'albums':
+                             $arr['url'] = '/album/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
                      }
                      break;

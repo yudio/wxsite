@@ -80,7 +80,7 @@
                                             <div class="control-group">
                                                 <label for="keyword" class="control-label">关键词：</label>
                                                 <div class="controls">
-                                                    <input type="text" name="keyword" id="keyword" value="大转盘" class="input-xlarge" data-rule-required="true" /><span class="maroon">*</span><span class="help-inline">多个关键字请用空格隔开，用户输入此关键词将会触发此活动。</span>
+                                                    <input type="text" name="keyword" id="keyword" value="{np:$info.keyword}" class="input-xlarge" data-rule-required="true" /><span class="maroon">*</span><span class="help-inline">多个关键字请用空格隔开，用户输入此关键词将会触发此活动。</span>
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -99,7 +99,7 @@
                                             <div class="control-group">
                                                 <label for="sttxt" class="control-label">简介：</label>
                                                 <div class="controls">
-                                                    <textarea class="input-xlarge" id="sttxt" name="content" data-rule-required="true"></textarea>
+                                                    <textarea class="input-xlarge" id="sttxt" name="content" data-rule-required="true">{np:$info.content|default='幸运大转盘活动开始了'}</textarea>
                                                     <span class="maroon">*</span>
                                                 </div>
                                             </div>
@@ -133,9 +133,10 @@
                                         <div class="span4">
 
                                             <div>
-                                                <img id="pic" src="{np:$info.start_picurl|default=RES.'/img/web_bb/activity/activity-lottery-start.jpg'}" />
+                                                <img id="pic" src="{np:$info.start_picurl|default=C('site_url').RES.'/img/web_bb/activity/activity-lottery-start.jpg'}" />
                                                 <p></p>
-                                                <input class="input-xlarge" name="start_picurl" type="text" value="{np:$info.start_picurl|default=RES.'/img/web_bb/activity/activity-lottery-start.jpg'}" onchange="document.getElementById('pic').src = this.value;"  readonly /> <span class="help-inline"><a class="btn insertimage">选择图片</a></span>
+                                                <input class="input-xlarge" name="start_picurl" type="text" value="{np:$info.start_picurl|default=C('site_url').RES.'/img/web_bb/activity/activity-lottery-start.jpg'}" onchange="document.getElementById('pic').src = this.value;"  readonly />
+                                                <span class="help-inline"><a class="btn insertimage">选择图片</a></span>
                                                 <p>填写活动开始图片网址</p>
                                             </div>
 
@@ -190,9 +191,9 @@
                                     </div>
                                     <div class="span4">
                                         <div>
-                                            <img id="end" src="{np:$info.end_picurl|default=RES.'/img/web_bb/activity/activity-lottery-end.jpg'}" />
+                                            <img id="end" src="{np:$info.end_picurl|default=C('site_url').RES.'/img/web_bb/activity/activity-lottery-end.jpg'}" />
                                             <p></p>
-                                            <input class="input-xlarge" type="text" name="end_picurl" value="{np:$info.end_picurl|default=RES.'/img/web_bb/activity/activity-lottery-end.jpg'}" onchange="document.getElementById('end').src=this.value;" readonly />
+                                            <input class="input-xlarge" type="text" name="end_picurl" value="{np:$info.end_picurl|default=C('site_url').RES.'/img/web_bb/activity/activity-lottery-end.jpg'}" onchange="document.getElementById('end').src=this.value;" readonly />
                                             <span class="help-inline"><a class="btn insertimage">选择图片</a></span>
                                             <p>填写活动结束图片网址</p>
                                         </div>
@@ -231,42 +232,42 @@
                                     <div class="control-group">
                                         <label for="one" class="control-label">一等奖奖品设置：</label>
                                         <div class="controls">
-                                            <input type="text" name="l_name_one" id="one" class="input-xlarge" data-rule-required="true" data-rule-maxlength="50" /><span class="maroon">*</span>
+                                            <input type="text" name="l_name_one" id="one" value="{np:$info.l_name_one}" class="input-xlarge" data-rule-required="true" data-rule-maxlength="50" /><span class="maroon">*</span>
                                             <span class="help-inline">请不要多于50字! </span>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="onenum" class="control-label">一等奖奖品数量：</label>
                                         <div class="controls">
-                                            <input type="text" name="l_num_one" id="onenum" class="input-mini" data-rule-required="true" data-rule-number="true" /><span class="maroon">*</span>
+                                            <input type="text" name="l_num_one" id="onenum" value="{np:$info.l_num_one}" class="input-mini" data-rule-required="true" data-rule-number="true" /><span class="maroon">*</span>
                                         <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="second" class="control-label">二等奖奖品设置：</label>
                                         <div class="controls">
-                                            <input type="text" name="l_name_two" id="second" class="input-xlarge" data-rule-maxlength="50" />
+                                            <input type="text" name="l_name_two" id="second" value="{np:$info.l_name_two}" class="input-xlarge" data-rule-maxlength="50" />
                                         <span class="help-inline">请不要多于50字! </span>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="secondnums" class="control-label">二等奖奖品数量：</label>
                                         <div class="controls">
-                                            <input type="text" name="l_num_two" id="secondnums" class="input-mini" data-rule-number="true" />
+                                            <input type="text" name="l_num_two" id="secondnums" value="{np:$info.l_num_two}" class="input-mini" data-rule-number="true" />
                                         <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="third" class="control-label">三等奖奖品设置：</label>
                                         <div class="controls">
-                                            <input type="text" name="l_name_three" id="third" class="input-xlarge" data-rule-maxlength="50" />
+                                            <input type="text" name="l_name_three" id="third" value="{np:$info.l_name_three}" class="input-xlarge" data-rule-maxlength="50" />
                                         <span class="help-inline">请不要多于50字! </span>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="thirdnums" class="control-label">三等奖奖品数量：</label>
                                         <div class="controls">
-                                            <input type="text" name="l_num_three" id="thirdnums" class="input-mini" data-rule-number="true" />
+                                            <input type="text" name="l_num_three" id="thirdnums" value="{np:$info.l_num_three}" class="input-mini" data-rule-number="true" />
                                         <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
                                         </div>
                                     </div>
@@ -281,42 +282,42 @@
                                         <div class="control-group">
                                             <label for="jp4" class="control-label">四等奖奖品设置：</label>
                                             <div class="controls">
-                                                <input type="text" name="l_name_four" id="jp4" class="input-xlarge" data-rule-maxlength="50" />
+                                                <input type="text" name="l_name_four" id="jp4" value="{np:$info.l_name_four}" class="input-xlarge" data-rule-maxlength="50" />
                                             <span class="help-inline">请不要多于50字! </span>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label for="jp4nums" class="control-label">四等奖奖品数量：</label>
                                             <div class="controls">
-                                                <input type="text" name="l_num_four" id="jp4nums" class="input-mini" data-rule-number="true" />
+                                                <input type="text" name="l_num_four" id="jp4nums" value="{np:$info.l_num_four}" class="input-mini" data-rule-number="true" />
                                            <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label for="jp5" class="control-label">五等奖奖品设置：</label>
                                             <div class="controls">
-                                                <input type="text" name="l_name_five" id="jp5" class="input-xlarge" data-rule-maxlength="50" />
+                                                <input type="text" name="l_name_five" id="jp5" value="{np:$info.l_name_five}" class="input-xlarge" data-rule-maxlength="50" />
                                             <span class="help-inline">请不要多于50字! </span>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label for="jp5nums" class="control-label">五等奖奖品数量：</label>
                                             <div class="controls">
-                                                <input type="text" name="l_num_five" id="jp5nums" class="input-mini" data-rule-number="true" />
+                                                <input type="text" name="l_num_five" id="jp5nums" value="{np:$info.l_num_five}" class="input-mini" data-rule-number="true" />
                                             <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label for="jp6" class="control-label">六等奖奖品设置：</label>
                                             <div class="controls">
-                                                <input type="text" name="l_name_six" id="jp6" class="input-xlarge" data-rule-maxlength="50" />
+                                                <input type="text" name="l_name_six" id="jp6" value="{np:$info.l_name_six}" class="input-xlarge" data-rule-maxlength="50" />
                                             <span class="help-inline">请不要多于50字! </span>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label for="jp6nums" class="control-label">六等奖奖品数量：</label>
                                             <div class="controls">
-                                                <input type="text" name="l_num_six" id="jp6nums" class="input-mini" data-rule-number="true" />
+                                                <input type="text" name="l_num_six" id="jp6nums" value="{np:$info.l_num_six}" class="input-mini" data-rule-number="true" />
                                             <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
                                             </div>
                                         </div>
@@ -340,7 +341,7 @@
                                     <div class="control-group">
                                         <label for="total_num" class="control-label">每人最多允许抽奖总次数：</label>
                                         <div class="controls">
-                                            <input type="text" name="total_num" id="total_num" class="input-xlarge" value="1" data-rule-maxlength="15" />
+                                            <input type="text" name="total_num" id="total_num" class="input-xlarge" value="{np:$info.total_num}" data-rule-maxlength="15" />
                                             <span class="help-inline">必须大于0小于30 推荐只设置1次!
                                             </span>
                                         </div>
@@ -348,7 +349,7 @@
                                     <div class="control-group">
                                         <label for="day_num" class="control-label">每人每天最多抽奖次数：</label>
                                         <div class="controls">
-                                            <input type="text" name="day_num" id="day_num" class="input-xlarge" value="0" data-rule-maxlength="15" />
+                                            <input type="text" name="day_num" id="day_num" class="input-xlarge" value="{np:$info.day_num}" data-rule-maxlength="15" />
                                             <span class="help-inline"> 必须小于总抽奖次数！ 0 为不限制 抽完总数就不能抽了! 可以抽奖天数 = 总数/每天抽奖次数!
                                             </span>
                                         </div>
@@ -356,7 +357,7 @@
                                     <div class="control-group">
                                         <label for="password" class="control-label">兑奖密码：</label>
                                         <div class="controls">
-                                            <input type="text" name="password" id="password" class="input-xlarge" data-rule-maxlength="15" />
+                                            <input type="text" name="password" id="password" value="{np:$info.password}" class="input-xlarge" data-rule-maxlength="15" />
                                             <span class="help-inline">消费确认密码长度小于15位 不设置密码,兑奖页面的密码输入框则不出现
                                             </span>
                                         </div>
@@ -414,7 +415,7 @@
                                                 显示
                                             </label>
                                             <label class="radio inline">
-                                                <input type="radio" name="display_nums" value="2" <if condition="$info.display_nums eq 1">checked="checked"</if>/>
+                                                <input type="radio" name="display_nums" value="2" <empty name="info">checked</empty><if condition="$info.display_nums eq 2">checked="checked"</if>/>
                                                 不显示
                                             </label>
                                             
@@ -427,6 +428,7 @@
                                 <div class="span12">
                                     <div class="form-actions">
                                         <input type="hidden" name="type" value="{np:$info.type|default='1'}"/>
+                                        <input type="hidden" name="id" value="{np:$info.id}"/>
                                         <input type="reset" class="btn" value="Back" id="back" />
                                         <input type="submit" class="btn btn-primary" value="Submit" id="next" />
                                     </div>
@@ -460,6 +462,7 @@
                                     editor1.loadPlugin('smimage', function () {
                                         editor1.plugin.imageDialog({
                                             imageUrl: $(e.target).parent().prev().val(),
+                                            userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                                             clickFn: function (url, title, width, height, border, align) {
                                                 $(e.target).parent().prev().val(url);
                                                 editor1.hideDialog();

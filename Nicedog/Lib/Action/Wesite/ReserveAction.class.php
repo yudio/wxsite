@@ -85,14 +85,14 @@ class ReserveAction extends BaseAction{
                         $where['createtime'] = array('lt',$time);                                      //小于现在
                         $where['createtime'] = array('gt',mktime(0,0,0,date('m'),date('d'),date('Y')));//大于今天
                         $where['rid'] = $rid;
-                        $num = $db->where(array())->count();
+                        $num = $db->where($where)->count();
                         if ($num=$info['allnums']){
                             $this->ajaxReturn(array('errno'=>'101','msg'=>'今日已经预约满额！'),'JSON');
                         }
                     }
                     if ($info['type']==3){
                         $where['rid'] = $rid;
-                        $num = $db->where(array())->count();
+                        $num = $db->where($where)->count();
                         if ($num=$info['allnums']){
                             $this->ajaxReturn(array('errno'=>'101','msg'=>'全部预约已经满额！'),'JSON');
                         }

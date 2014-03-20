@@ -22,6 +22,7 @@ KindEditor.plugin('mp3', function (K) {
 
 	self.plugin.imageDialog = function(options) {
 		var mp3Url = options.mp3Url,
+            userRoot = K.undef(options.userRoot,'public'),
 			imageWidth = K.undef(options.imageWidth, ''),
 			imageHeight = K.undef(options.imageHeight, ''),
 			imageTitle = K.undef(options.imageTitle, ''),
@@ -66,7 +67,7 @@ KindEditor.plugin('mp3', function (K) {
 			//local upload - start
 			'<div class="tab2" style="display:none;">',
 			'<iframe name="' + target + '" style="display:none;"></iframe>',
-			'<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' + target + '" action="' + K.addParam(uploadJson, 'dir=mp3') + '">',
+			'<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' + target + '" action="' + K.addParam(uploadJson, 'dir=media&userRoot='+userRoot) + '">',
 			//file
 			'<div class="ke-dialog-row">',
 			hiddenElements.join(''),

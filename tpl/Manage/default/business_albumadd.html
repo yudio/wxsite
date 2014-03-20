@@ -63,7 +63,7 @@
                                 <label for="kw_pic" class="control-label">图文封面：</label>
                                 <div class="controls">
                                     <img class="thumb_img" src="{np:$info.picurl|default=C('site_url').STATICS.'/img/albums_kw_headpic.jpg'}" style="max-height: 100px;">
-                                    <input id="picurl" type="text" name="picurl" class="hide input-xlarge" readonly="" data-rule-required="true" data-rule-url="true" value="{np:$info.picurl|default=STATICS.'/img/albums_kw_headpic.jpg'}" />
+                                    <input id="picurl" type="text" name="picurl" class="hide input-xlarge" readonly="" data-rule-required="true" data-rule-url="true" value="{np:$info.picurl|default=C('site_url').STATICS.'/img/albums_kw_headpic.jpg'}" />
 										<span class="help-inline">
 											<button class="btn select_img" type="button">选择封面</button></span>
                                     <span class="maroon">*</span>
@@ -75,7 +75,7 @@
                                 <label for="picurl" class="control-label">相册封面图：</label>
                                 <div class="controls">
                                     <img class="thumb_img" src="{np:$info.headpic|default=C('site_url').STATICS.'/img/albums_head.jpg'}" style="max-height: 100px;">
-                                    <input id="picurl" type="text" name="headpic" class="hide input-xlarge" readonly="" data-rule-required="true" data-rule-url="true"  value="{np:$info.headpic|default=STATICS.'/img/albums_head.jpg'}"/>
+                                    <input id="picurl" type="text" name="headpic" class="hide input-xlarge" readonly="" data-rule-required="true" data-rule-url="true"  value="{np:$info.headpic|default=C('site_url').STATICS.'/img/albums_head.jpg'}"/>
                                         
                                         <span class="help-inline">
                                             <button class="btn select_img" type="button">选择封面</button></span>
