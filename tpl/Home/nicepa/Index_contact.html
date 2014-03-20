@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+		联系我们-奈斯伙伴信息技术有限公司
+    </title>
+    <meta name="keywords" content="{np::C('Keywords')}">
+    <meta name="description" content="{np::C('Description')}">
+    <link href="{np::STATICS}/css/base.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <link type="text/css" href="{np::STATICS}/css/index/HaedMenu.css" rel="stylesheet">
+	<script src="http://api.map.baidu.com/api?key=&v=1.1&services=true" type="text/javascript"></script>
+</head>
+<body id="w-body" class="w-login-bg">
+<div class="w-doc">
+<div class="w-top">
+    <div class="w-head">
+        <!--<a class="w-apply" href="/npHome/Index/reg.act"></a>-->
+        <div class="w-wrap">
+            <a class="w-logo w-left" href="http://www.nicepa.cn"></a>
+            <div class="w-head-line w-left">
+            </div>
+            <div style="width:660px;float:right;margin-top:20px;">
+               <ul class="w-menu Menu">
+                   <li><a href="/">首页</a></li>
+                   <li><a href="/npHome/index/function.act">产品功能</a></li>
+                   <li><a href="/npHome/index/business.act">招商加盟</a></li>
+                   <li><a href="/npHome/index/contact.act" class="hover">联系我们</a></li>
+                   <li><a href="/npHome/index/about.act">关于奈斯</a></li>
+                </ul>
+                <div class="account">
+                    <a href="/npHome/Index/reg.act" class="btn-reg btn0" target="_black">注册</a>
+                    <a href="javascript:;" class="btn-login btn0" onclick="loginBox.toggle(this, event);">登录</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="w-topspace">
+</div>
+<!--loginbox-->
+<div id="loginBox" class="">
+    <div class="login-panel">
+        <h3>登录</h3>
+        <div class="login-mod">
+            <div class="login-err-panel dn" id="err_area">
+                <span class="icon-wrapper"><i class="icon24-login err" style="margin-top:-.2em;*margin-top:0;"></i></span>
+                <span id="err_tips"></span>
+            </div>
+            <form class="login-form" id="login-form">
+                <div class="login-un">
+                    <span class="icon-wrapper"><i class="icon24-login un"></i></span>
+                    <input type="text" id="username" placeholder="奈斯帐号">
+                </div>
+                <div class="login-pwd">
+                    <span class="icon-wrapper"><i class="icon24-login pwd"></i></span>
+                    <input type="password" id="password" placeholder="密码">
+                </div>
+            </form>
+            <div class="login-help-panel">
+                <a id="rememberPwd" class="login-remember-pwd" href="javascript:;">
+                    <input type="checkbox" id="rememberPwdIcon">记住帐号
+                </a>
+                <a class="login-forget-pwd" href="#">忘记密码？</a>
+                <a class="login-forget-pwd" href="/npHome/Index/reg.act">新用户注册</a>
+            </div>
+            <div class="login-btn-panel">
+                <a class="login-btn" title="点击登录" href="javascript:;" id="login_button" onclick="login();">登录</a>
+            </div>
+        </div>
+    </div>
+    <div class="login-cover" onclick="loginBox.toggle(this, event);"></div>
+</div>
+<!--loginbox-->
+<div id="content">
+	<div class="content_c">
+		<div id="leftcolumn">
+				<div class="module-aboutusmenu icon">
+				<h2>关于奈斯</h2>
+				<ul class="help-menu" id="aboutusmenu">
+					<li>
+						<a href="Index_about.html">
+							<span>关于我们</span>
+						</a>
+					</li>
+				  
+					<li class="active">
+						<a href="Index_contact.html">
+							<span>联系我们</span>
+						</a>
+					</li>
+				  
+				</ul>		
+			</div>
+			<div class="clr"></div>
+		</div>
+				
+		<div id="maincolumn">
+			<div class="sheet">
+							<div class="right_content">
+								<h3>公司地图</h3>
+							<div style="width: 650px; height: 300px; border: 1px solid #ccc;" id="dituContent"></div>
+							<br>
+							<h3>地址</h3>
+							<p style="height:80px;margin-bottom:20px;">
+								<img src="{np::STATICS}/img/www/index1/address.png" width="80" height="80" alt="" border="0" style="float:left;">
+								<span style="float:left;margin-left:10px;margin-right:40px;padding-top:8px;">
+								<span style="line-height:1.5em;">
+								福州奈斯伙伴信息技术有限公司<br>
+								<span style="line-height:1.5em;">
+								公司地址：福州市鼓楼区华林路338号锦绣福城东区14层804D 
+								<br>
+								</span>
+								</span>
+								</span>
+							</p>
+							<h3>电话</h3>
+							<p style="height:80px;margin-bottom:20px;">
+								<img src="{np::STATICS}/img/www/index1/phone.png" width="80" height="80" align="left" alt="" border="0">
+								<span style="line-height:1.5em;float:left;margin-left:10px;margin-right:40px;padding-top:10px;">
+								 固定电话：0591-87580191 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>
+								 产品咨询：181-0598-5533 QQ 3370641
+								<br>
+								 客户服务：QQ:515700954
+								</span></p>
+							<h3>Mail</h3>
+							<p style="height:80px;margin-bottom:20px;">
+								<img src="{np::STATICS}/img/www/index1/mail.png" width="80" height="80" align="left" alt="" border="0"><span style="line-height:1.5em;float:left;margin-left:10px;margin-right:40px;padding-top:10px;"> 
+								 购买软件：buy@nicepa.cn<br>
+								 技术支持：support@nicepa.cn<br>
+								 商务合作：business@nicepa.cn<br>
+								<br>
+								</span> 							
+							</p>
+							</div>
+						</div>	
+		</div>
+	</div>		
+	<div class="clr"></div>
+</div>
+ <style type="text/css">
+.section p{padding-top:0;margin-top:0; font-size:16px;/*text-indent: 2em;*/}
+.ListProduct th, .ListProduct td{ text-align:center}
+<!--引用百度地图API-->
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+    .title_gzciya {
+    background: none repeat scroll 0 0 #E8E8E8;
+    color: #444444;
+    cursor: pointer;
+    font-family: '微软雅黑','黑体','宋体';
+    font-size: 14px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 10px;
+    padding-left: 45px;
+    width: 869px;
+}
+</style>
+<!---百度地图开始--->
+   <script type="text/javascript">
+       //创建和初始化地图函数：
+       function initMap() {
+           createMap(); //创建地图
+           setMapEvent(); //设置地图事件
+           addMapControl(); //向地图添加控件
+           addMarker(); //向地图中添加marker
+       }
+
+       //创建地图函数：
+       function createMap() {
+           var map = new BMap.Map("dituContent"); //在百度地图容器中创建一个地图
+           var point = new BMap.Point(119.185441, 25.821245); //定义一个中心点坐标
+           map.centerAndZoom(point, 16); //设定地图的中心点和坐标并将地图显示在地图容器中
+           window.map = map; //将map变量存储在全局
+       }
+
+       //地图事件设置函数：
+       function setMapEvent() {
+           map.enableDragging(); //启用地图拖拽事件，默认启用(可不写)
+           map.enableScrollWheelZoom(); //启用地图滚轮放大缩小
+           map.enableDoubleClickZoom(); //启用鼠标双击放大，默认启用(可不写)
+           map.enableKeyboard(); //启用键盘上下左右键移动地图
+       }
+
+       //地图控件添加函数：
+       function addMapControl() {
+           //向地图中添加缩放控件
+           var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+           map.addControl(ctrl_nav);
+           //向地图中添加比例尺控件
+           var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+           map.addControl(ctrl_sca);
+       }
+
+       //标注点数组
+       var markerArr = [{ title: "福州奈斯伙伴信息技术有限公司", content: "地址：福州市鼓楼区华林路338号锦绣福城东区14#804D", point: "119.321669|26.110565", isOpen: 1, icon: { w: 23, h: 25, l: 46, t: 21, x: 9, lb: 12} }
+ ];
+       //创建marker
+       function addMarker() {
+           for (var i = 0; i < markerArr.length; i++) {
+               var json = markerArr[i];
+               var p0 = json.point.split("|")[0];
+               var p1 = json.point.split("|")[1];
+               var point = new BMap.Point(p0, p1);
+               var iconImg = createIcon(json.icon);
+               var marker = new BMap.Marker(point, { icon: iconImg });
+               var iw = createInfoWindow(i);
+               var label = new BMap.Label(json.title, { "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20) });
+               marker.setLabel(label);
+               map.addOverlay(marker);
+               label.setStyle({
+                   borderColor: "#808080",
+                   color: "#333",
+                   cursor: "pointer"
+               });
+
+               (function () {
+                   var index = i;
+                   var _iw = createInfoWindow(i);
+                   var _marker = marker;
+                   _marker.addEventListener("click", function () {
+                       this.openInfoWindow(_iw);
+                   });
+                   _iw.addEventListener("open", function () {
+                       _marker.getLabel().hide();
+                   })
+                   _iw.addEventListener("close", function () {
+                       _marker.getLabel().show();
+                   })
+                   label.addEventListener("click", function () {
+                       _marker.openInfoWindow(_iw);
+                   })
+                   if (!!json.isOpen) {
+                       label.hide();
+                       _marker.openInfoWindow(_iw);
+                   }
+               })()
+           }
+       }
+       //创建InfoWindow
+       function createInfoWindow(i) {
+           var json = markerArr[i];
+           var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>" + json.content + "</div>");
+           return iw;
+       }
+       //创建一个Icon
+       function createIcon(json) {
+           var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
+           return icon;
+       }
+
+       initMap(); //创建和初始化地图
+                    </script>
+   
+    <!--contact us,end -->
+    
+
+<!--------官方微信start----------->
+<div class="erwei" title="微信扫一扫">
+    <span class="guanfanweixin">订阅号</span>
+    <div class="erwei_big" style="display: none;">
+        <p>
+            奈斯伙伴公众平台</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var erwei_time = null;
+        $(".erwei").hover(function () {
+            $(".lxb-container").css("z-index", "1")
+            $(".erwei_big").show();
+        }).mouseleave(function () {
+                    erwei_time = setTimeout(function () {
+                        $(".erwei_big").hide();
+                    }, 0);
+                });
+        $(".erwei_big").mouseenter(function () {
+            if (erwei_time) {
+                clearTimeout(erwei_time);
+            }
+        }).mouseleave(function () {
+                    erwei_time = setTimeout(function () {
+                        $(".erwei_big").hide();
+                    }, 0);
+                });
+
+        var erwei_timefuwu = null;
+        $(".fuwuerwei").hover(function () {
+            $(".lxb-container").css("z-index", "1")
+            $(".fuwuerwei_big").show();
+        }).mouseleave(function () {
+                    erwei_timefuwu = setTimeout(function () {
+                        $(".fuwuerwei_big").hide();
+                    }, 0);
+                });
+        $(".fuwuerwei_big").mouseenter(function () {
+            if (erwei_timefuwu) {
+                clearTimeout(erwei_timefuwu);
+            }
+        }).mouseleave(function () {
+                    erwei_timefuwu = setTimeout(function () {
+                        $(".fuwuerwei_big").hide();
+                    }, 0);
+                });
+    });
+</script>
+<!--------官方微信end----------->
+
+
+<!--底部,start -->
+<include file="index:footer"/>
+<!--底部,end -->
+</div>
+</body>
+</html>

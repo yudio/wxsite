@@ -22,6 +22,7 @@ KindEditor.plugin('smimage', function (K) {
 
 	self.plugin.imageDialog = function(options) {
 		var imageUrl = options.imageUrl,
+            userRoot = K.undef(options.userRoot,'public'),
 			imageWidth = K.undef(options.imageWidth, ''),
 			imageHeight = K.undef(options.imageHeight, ''),
 			imageTitle = K.undef(options.imageTitle, ''),
@@ -66,7 +67,7 @@ KindEditor.plugin('smimage', function (K) {
 			//local upload - start
 			'<div class="tab2" style="display:none;">',
 			'<iframe name="' + target + '" style="display:none;"></iframe>',
-			'<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' + target + '" action="' + K.addParam(uploadJson, 'dir=image') + '">',
+			'<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' + target + '" action="' + K.addParam(uploadJson, 'dir=image&userRoot='+userRoot) + '">',
 			//file
 			'<div class="ke-dialog-row">',
 			hiddenElements.join(''),
@@ -216,6 +217,7 @@ KindEditor.plugin('smimage', function (K) {
 					self.plugin.filemanagerDialog({
 						viewType : 'VIEW',
 						dirName : 'image',
+                        userRoot: userRoot,
 						clickFn: function (url, title) { 
 							if (self.dialogs.length > 1) {
 								K('[name="url"]', div).val(url);

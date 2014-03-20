@@ -66,7 +66,33 @@
                                     <link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
                                     <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
                                     <script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
-                                    <script src="{np::STATICS}/kindeditor/kindeditor.config-upfile.js"></script>
+                                    <script type="text/javascript" >
+                                        KindEditor.ready(function (K) {
+                                            var editor = K.editor({
+                                                themeType: "simple",
+                                                allowFileManager: true
+
+                                            });
+                                            K('#insertimage').click(function () {
+                                                editor.loadPlugin('smimage', function () {
+                                                    editor.plugin.imageDialog({
+                                                        imageUrl: K('#thumb').val(),
+                                                        userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                                                        clickFn: function (url, title, width, height, border, align) {
+                                                            K('#thumb').val(url);
+                                                            if (K('#thumb_img')) {
+                                                                K('#thumb').hide();
+                                                                K('#thumb_img').attr('src', url);
+                                                                K('#thumb_img').show().css('display','inline');
+                                                            }
+                                                            editor.hideDialog();
+                                                        }
+                                                    });
+                                                });
+                                            });
+                                        });
+
+                                    </script>
                                 </div>
                             </div>
                             <div class="control-group">

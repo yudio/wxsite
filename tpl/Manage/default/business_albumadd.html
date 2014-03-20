@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+    <meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css?2014-03-07-1" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/zeroclipboard/zeroclipboard_min.js?2014-03-07-1"></script>
+    <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+
+<body>
+<div id="main">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span10">
+                            <h3><i class="icon-edit"></i>创建相册</h3>
+                        </div>
+                        <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+                    </div>
+                    <div class="box-content">
+                        <form action="" method="post" class="form-horizontal form-validate">
+                            <input type="hidden" name="id" id="id" value="{np:$info.id}"/>
+                            <div class="control-group">
+                                <label for="title" class="control-label">相册名称：</label>
+                                <div class="controls">
+                                    <input type="text" name="title" id="title" class="input-large" data-rule-required="true" data-rule-maxlength="20" value="{np:$info.title}"/>
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">尽量简单，不要超过20字.</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="keyword" class="control-label">相册关键字：</label>
+                                <div class="controls">
+                                    <input type="text" name="keyword" id="keyword" class="input-large" data-rule-required="true" data-rule-maxlength="20" value="{np:$info.keyword}"/>
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">如有多个关键字请用空格隔开</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="kw_pic" class="control-label">图文封面：</label>
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.picurl|default=C('site_url').STATICS.'/img/albums_kw_headpic.jpg'}" style="max-height: 100px;">
+                                    <input id="picurl" type="text" name="picurl" class="hide input-xlarge" readonly="" data-rule-required="true" data-rule-url="true" value="{np:$info.picurl|default=STATICS.'/img/albums_kw_headpic.jpg'}" />
+										<span class="help-inline">
+											<button class="btn select_img" type="button">选择封面</button></span>
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">请选择尺寸720x400左右的图片</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="picurl" class="control-label">相册封面图：</label>
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.headpic|default=C('site_url').STATICS.'/img/albums_head.jpg'}" style="max-height: 100px;">
+                                    <input id="picurl" type="text" name="headpic" class="hide input-xlarge" readonly="" data-rule-required="true" data-rule-url="true"  value="{np:$info.headpic|default=STATICS.'/img/albums_head.jpg'}"/>
+                                        
+                                        <span class="help-inline">
+                                            <button class="btn select_img" type="button">选择封面</button></span>
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">请选择尺寸600x450左右的图片,大小不超过300k</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="activityname" class="control-label">排序：</label>
+                                <div class="controls">
+                                    <input type="text" name="sort" id="sort" class="input-large" data-rule-required="true" data-rule-maxlength="20" value="{np:$info.sort|default='0'}"/>
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">数字越大越靠前</span>
+                                </div>
+                            </div>
+                            <link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
+                            <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+                            <script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+                            <script>
+                                KindEditor.ready(function (K) {
+
+                                    var editor = K.editor({
+                                        themeType: "simple",
+                                        allowFileManager: true
+                                    });
+                                    $('button.select_img').live("click",function (e) {
+                                        editor.loadPlugin('smimage', function () {
+                                            editor.plugin.imageDialog({
+                                                imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                                                userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                                                clickFn: function (url, title, width, height, border, align) {
+                                                    var $input = $(e.target).parent().prevAll("input[type=text]")
+                                                    $input.val(url)
+                                                    $input.hide();
+                                                    var t_img = $(e.target).parent().prevAll(".thumb_img:first");
+                                                    if (t_img.length == 0) {
+                                                        var tmp = '<img class="thumb_img" src="{0}" style="max-height: 100px;">';
+                                                        $input.before(tmp.format(url))
+                                                    } else {
+                                                        t_img.attr("src", url);
+                                                    }
+
+                                                    editor.hideDialog();
+                                                }
+                                            });
+                                        });
+                                    });
+                                });
+                            </script>
+                            <div class="control-group">
+                                <label for="note" class="control-label">相册介绍 ：</label>
+                                <div class="controls">
+                                    <textarea name="info" rows="7" id="note" class="input-xxlarge" data-rule-maxlength="150">{np:$info.info}</textarea>
+                                    <span class="help-inline">请简单描述相册内容(非必填)，尽量控制在150文字以内.</span>
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="summary" class="control-label">前台是否显示：</label>
+                                <div class="controls">
+                                    <label class="radio inline">
+                                        <input name="display" type="radio" value="0" <empty name="info">checked</empty> <if condition="$info.display eq 0">checked</if>>
+                                        显示此相册</label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="display" value="1" <if condition="$info.display eq 1">checked</if>>
+                                        不显示此相册
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+                                <button type="button" class="btn" onclick="window.location='/npManage/business/albumlist.act'">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body></body>
+<script type="text/javascript">
+</script>
+</html>

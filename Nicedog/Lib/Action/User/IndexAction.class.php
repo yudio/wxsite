@@ -64,27 +64,18 @@ class IndexAction extends UserAction{
 		$this->all_save('Wxuser');
 	}
 
-    public function test(){
-        $wxclient = new WeiXinClient(array('account'=>'yudio@hotmail.com','password'=>md5('samon1')));
-        //;
-        //print_r($wxclient->getContact());
-        //preg_match('/totalCount : \'(.*)\'/Us',$wxclient->getContact(),$res);
-        //print_r($wxclient->getNickName());
-        dump($wxclient->login());
-        //print_r($wxclient->getSetting());
-        //print_r($wxclient->getLatestMsgs());
-        //dump($wxclient->getwxid());
-        //dump($wxclient->getWxName());
-        //dump($wxclient->getNickName());
-        //dump($wxclient->getFakeId());
 
+    public function test(){
+        $res =Email::think_send_mail('yudio@qq.com','Samon','测试邮件第三封','由nicepa.cn发送给你的邮件，请查收！');
+        dump($res);
         exit;
-        //print_r($wxclient->getContact());
     }
 
 
 
-	public function insert(){
+
+
+    public function insert(){
 		$data=M('User_group')->field('wechat_card_num')->where(array('id'=>session('gid')))->find();
 		$users=M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->find();
 		if($users['wechat_card_num']<$data['wechat_card_num']){

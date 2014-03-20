@@ -62,6 +62,7 @@ class ReplyAction extends UserAction
      * 关注文本回复
      */
     public function subscribe(){
+        C('TOKEN_ON',false);
         $db  = D('Areply');
         $res = $db->where(array('uid'=>session('uid'),'token'=>session('token')))->find();
         $this->assign('info',$res);
@@ -97,6 +98,7 @@ class ReplyAction extends UserAction
 
 
     public function subscribenews(){
+        C('TOKEN_ON',false);
         $db  = D('Img');
         $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'match_type'=>'3'))->find();
         $this->assign('info',$res);
@@ -104,6 +106,7 @@ class ReplyAction extends UserAction
     }
 
     public function subsnewsupdate(){
+            C('TOKEN_ON',false);
             //$pat = "/<(\/?)(script|i?frame|style|html|body|title|font|strong|span|div|marquee|link|meta|\?|\%)([^>]*?)>/isU";
             //添加图文是保留格式
             $pat = "/<(\/?)(script|i?frame|style|html|body|title|marquee|link|meta|\?|\%)([^>]*?)>/isU";
@@ -151,29 +154,39 @@ class ReplyAction extends UserAction
         $this->display();
     }
     public function addtext(){
+        C('TOKEN_ON',false);
         $db = D('Text');
         if (IS_POST){
             $id = $this->_post('id');
             if ($id){//更新操作
                 if ($db->create()){
-                    $db->save();
                     $data['pid']    = $id;
-                    $data['module'] = 'Text';
+                    $data['match_type'] = $this->_post('match_type');
                     $data['token']  = session('token');
-                    $da['keyword']  = $_POST['keyword'];
-                    M('Keyword')->where($data)->save($da);
+                    $data['keyword']  = $this->_post('keyword');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！','url'=>'/npManage/reply/addtext.act?id='.$id),'JSON');
+                    }
+                    $db->save();
+                    Keyword::update($data,'Text');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/reply/textlist.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
                 }
             }else{
                 if ($db->create()){
+                    $data['pid']     = 0;
+                    $data['match_type'] = $this->_post('match_type');
+                    $data['token']  = session('token');
+                    $data['keyword']  = $this->_post('keyword');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
                     $id = $db->add();
                     $data['pid']     = $id;
-                    $data['module']  = 'Text';
-                    $data['token']   = session('token');
-                    $data['keyword'] = $_POST['keyword'];
-                    M('Keyword')->add($data);
+                    Keyword::update($data,'Text');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/reply/textlist.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -235,21 +248,23 @@ class ReplyAction extends UserAction
             $_POST['type'] = $this->_post('type');
             $typemap = C('img_typemap');
             $_POST['typename'] = $typemap[$_POST['type']];
-            $_POST['uid']    = session('wxid');
+            $_POST['uid']    = session('uid');
             $_POST['token']    = session('token');
-            $_POST['url'] = TypeLink::getTypeLink($_POST,'Img');
             LOG::write('URL'.$_POST['url'],LOG::ERR);
             if ($id){//更新操作
+                $_POST['url'] = TypeLink::getTypeLink($_POST,'Img');
                 if ($db->create()){
-                    $db->save();
                     //关键字应答
                     $data['pid']    = $id;
-                    $data['module'] = 'Img';
+                    $data['match_type'] = $this->_post('match_type','intval');
                     $data['token']  = session('token');
-                    $da['keyword']  = $_POST['keyword'];
-                    M('Keyword')->where($data)->save($da);
+                    $data['keyword']  = $this->_post('keyword');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    Keyword::update($data,'Img');
                     //外链配置
-                    C('TOKEN_ON',false);
                     $newdb = D('Typelink');
                     $tlink = $newdb->field('id')->where($data)->find();
                     $data  = $_POST;
@@ -269,16 +284,24 @@ class ReplyAction extends UserAction
                 }
             }else{
                 if ($db->create()){
-                    $id = $db->add();
                     //关键字应答
-                    $data['pid']     = $id;
-                    $data['module']  = 'Img';
-                    $data['token']   = session('token');
-                    $data['keyword'] = $_POST['keyword'];
-                    M('Keyword')->add($data);
+                    $data['pid']     = 0;
+                    $data['match_type'] = $this->_post('match_type','intval');
+                    $data['token']  = session('token');
+                    $data['keyword']  = $this->_post('keyword');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    $id = $db->add();
+                    $data['pid']      = $id;
+                    Keyword::update($data,'Img');
                     //外链配置
-                    C('TOKEN_ON',false);
                     $data = $_POST;
+                    $_POST['id'] = $id;
+                    $url = TypeLink::getTypeLink($_POST,'Img');
+                    $db->save(array('id'=>$id,'url'=>$url));  //生成URL
+                    $data['url'] = $url;
                     $data['pid'] = $id;
                     $data['module'] = 'Img';
                     $newdb = D('Typelink');
@@ -349,12 +372,12 @@ class ReplyAction extends UserAction
         $where['uid']    = session('uid');
         $where['token']  = session('token');
         $where['id']     = array('neq',$this->_get('tid'));
-        $where['type']   = array('lt',3);
+        $where['match_type']   = array('lt',3);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
         $info = array();
         $info=$db->where($where)->order('createtime DESC')->limit($page->firstRow.','.$page->listRows)->select();
-        //LOG::write('SQL:'.$db->getLastSql(),LOG::ERR);
+        LOG::write('SQL:'.$db->getLastSql(),LOG::ERR);
         //$this->assign('page',$page->show());
         //$this->assign('info',$info);
         $this->ajaxReturn(array('count'=>$count,'list'=>$info),'JSON');

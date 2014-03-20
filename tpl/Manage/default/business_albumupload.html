@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+    <meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstr
+		ap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/uploadify/uploadify.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/jquery_ui_custom.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/uploadify/jquery_uploadify.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/uploadify/jupload.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+
+<body>
+<div id="main">
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <h3><i class="icon-picture"></i>上传图片<small>拖拽图片可排序(图片大小不超过300k,50张上限)</small></h3>
+                        <a class="btn pull-right" href="Javascript:window.history.go(-1)">返回</a>
+
+                    </div>
+
+                    <div class="box-content">
+
+                        <form action="" method="post" class="form-horizontal form-validate">
+                            <input type="hidden" name="flag" value="1"/>
+                            <input type="hidden" name="pid"  value="{np:$info.id}"/>
+                            <div id="upimg_main">
+
+                                <input id="file_upload" type="file" />
+                                <ul class="ipost-list ui-sortable" id="fileList">
+                                    <volist name="list" id="vo">
+                                        <li class="post file" data-post-id="{np:$vo.id}">
+                                            <input type="hidden" value="{np:$vo.id}" name="photoid[]">
+                                            <input type="hidden" value="{np:$vo.imgurl}" name="url[{np:$vo.id}]">
+                                            <a class="thumb" href="{np:$vo.imgurl}" target="_blank" title="点击查看原图，拖动排序"
+                                                style="background-image:url({np:$vo.thumb})"><span
+                                                class="file-thumb-title">上传成功</span></a>
+                                            <dl class="form data">
+                                                <dt>标题</dt>
+                                                <dd class="title"><input type="text" class="text" name="title[{np:$vo.id}]" value="{np:$vo.title}">
+                                                </dd>
+                                                <dt>描述</dt>
+                                                <dd class="description"><textarea name="description[{np:$vo.id}]">{np:$vo.desc|default=''}</textarea></dd>
+                                            </dl>
+                                            <ul class="action">
+                                                <li class="delete"><a class="ir">删除</a></li>
+                                                <li class="sort"><a class="ir">排序</a></li>
+                                            </ul>
+                                        </li>
+                                    </volist>
+                                </ul>
+                                <div id="file_upload_queue" class="uploadifyQueue">
+                                </div>
+
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        initUpload($("#file_upload"), 50,{
+                                            'type_id': 1,
+                                            'pid':{np:$info.id}
+                                        },"/npManage/business/albumimgadd.act","/npManage/business/albumimgdel.act","{np::STATICS}/swf/uploadify.swf");
+                                        imgSelectorInit();
+                                        ipostSortInit();
+                                        if ($("#fileList li").length > 0) {
+                                            if ($("#bsubmit").length == 0) { $('#file_upload-button').parent().add("#upimg_main").append('   <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn">保存</button>') }
+                                        }
+//											  if ((/Firefox/i.test(navigator.userAgent))) {
+//													G.ui.tips.info("您当前使用的是firefox浏览器 暂时不兼容此上传 .请使用其他浏览器来上传图片");
+//													$("#file_upload-button").addClass("disabled").attr("style", "z-index: 999;")
+//											}
+
+                                    });
+
+                                </script>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</body>
+<script type="text/javascript">
+</script>
+</html>

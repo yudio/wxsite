@@ -241,7 +241,7 @@
     <div class="controls">
         <select id="business_func" name="business_type" class="input-medium">
             <volist name="businesslist" id="vo">
-                <option value="{np:$vo.value}" data-list="false" <if condition="$info['business_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+                <option value="{np:$vo.value}" data-list="{np:$vo.list}" <if condition="$info['business_type'] eq $vo['value']">selected</if>>{np:$vo.name}</option>
             </volist>
         </select>
     </div>

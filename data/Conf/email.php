@@ -10,4 +10,14 @@ return array (
       这一封是来自远方的信,目的是测试找回您遗失的密码.
 
 请将以下网址复制到浏览器进行验证 {code} 进行验证! ^_^',
+    'THINK_EMAIL' => array(
+        'SMTP_HOST'   => 'smtp.163.com', //SMTP服务器
+        'SMTP_PORT'   => '465', //SMTP服务器端口
+        'SMTP_USER'   => 'kjyudio@163.com', //SMTP服务器用户名
+        'SMTP_PASS'   => 'yudioo', //SMTP服务器密码
+        'FROM_EMAIL'  => 'kjyudio@163.com', //发件人EMAIL
+        'FROM_NAME'   => 'ThinkPHP', //发件人名称
+        'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
+        'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
+    ),
 );

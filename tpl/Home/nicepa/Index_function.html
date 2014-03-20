@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        产品功能-{np::C('site_name')}—{np::C('site_title')}
+    </title>
+    <meta name="keywords" content="{np::C('Keywords')}" />
+    <meta name="description" content="{np::C('Description')}" />
+    <link href="{np::STATICS}/css/base.css" type="text/css" rel="stylesheet" />
+    <script type='text/javascript' src='{np::STATICS}/src/jQuery.js'></script>
+    <link  type="text/css" href="{np::STATICS}/css/index/HaedMenu.css" rel="stylesheet" />
+</head>
+<body id="w-body" class="w-login-bg">
+<div class="w-doc">
+<div class="w-top">
+    <div class="w-head">
+        <a class="w-apply" href="/npHome/Index/reg.act"></a>
+        <div class="w-wrap">
+            <a class="w-logo w-left" href="http://www.nicepa.cn"></a>
+            <div class="w-head-line w-left">
+            </div>
+            <div style="width:660px;float:right;margin-top:20px;">
+                <ul class="w-menu Menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/npHome/index/function.act" class="hover">产品功能</a></li>
+                    <li><a href="/npHome/index/business.act" >招商加盟</a></li>
+                    <li><a href="/npHome/index/contact.act">联系我们</a></li>
+                    <li><a href="/npHome/index/about.act">关于奈斯</a></li>
+                </ul>
+                <div class="account">
+                    <a href="/npHome/Index/reg.act" class="btn-reg btn0" target="_black">注册</a>
+                    <a href="javascript:;" class="btn-login btn0" onclick="loginBox.toggle(this, event);">登录</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="w-topspace">
+</div>
+<!--loginbox-->
+<div id="loginBox" class="">
+    <div class="login-panel">
+        <h3>登录</h3>
+        <div class="login-mod">
+            <div class="login-err-panel dn" id="err_area">
+                <span class="icon-wrapper"><i class="icon24-login err" style="margin-top:-.2em;*margin-top:0;"></i></span>
+                <span id="err_tips"></span>
+            </div>
+            <form class="login-form" id="login-form">
+                <div class="login-un">
+                    <span class="icon-wrapper"><i class="icon24-login un"></i></span>
+                    <input type="text" id="username" placeholder="奈斯帐号">
+                </div>
+                <div class="login-pwd">
+                    <span class="icon-wrapper"><i class="icon24-login pwd"></i></span>
+                    <input type="password" id="password" placeholder="密码">
+                </div>
+            </form>
+            <div class="login-help-panel">
+                <a id="rememberPwd" class="login-remember-pwd" href="javascript:;">
+                    <input type="checkbox" id="rememberPwdIcon">记住帐号
+                </a>
+                <a class="login-forget-pwd" href="#">忘记密码？</a>
+                <a class="login-forget-pwd" href="/npHome/Index/reg.act">新用户注册</a>
+            </div>
+            <div class="login-btn-panel">
+                <a class="login-btn" title="点击登录" href="javascript:;" id="login_button" onclick="login();">登录</a>
+            </div>
+        </div>
+    </div>
+    <div class="login-cover" onclick="loginBox.toggle(this, event);"></div>
+</div>
+<!--loginbox-->
+<style>
+.zs_banner{width:100%; height:420px; background:url({np::STATICS}/img/www/index1/service/banner_bg.png) repeat-x;}
+.zs_bannerbox{width:1130px; margin:0 auto; padding:20px;}
+.wwz_bannerbox{width:1170px; margin:0 auto; padding-top:10px;}
+.TabContent{width:auto;background:#fff;margin:0px auto;}
+.wrap{width:1170px; margin:0 auto;}
+.minisitelink{width:1155px; margin:20px auto 0}
+.minisitelink a{width:150px; float:left; margin-right:5px; margin-bottom:5px; padding:5px; text-align:center; line-height:30px; font-size:14px;}
+.minisitelink a:link,.minisitelink a:visited{background-color:#ccc; color:#333}
+.minisitelink a:hover,.minisitelink a:active{background-color:#43ba1f; color:#FFF}
+</style>
+ <div class="zs_banner">
+	<div class="wwz_bannerbox"><img src="{np::STATICS}/img/www/index1/service/hangye.png" usemap="#Map" border="0">
+		<map name="Map" id="Map">
+		<area shape="rect" coords="790,316,1020,365" href="reg.act">
+			<!--<area shape="rect" coords="624,201,856,252" href="javascript:alert('ddd');">-->
+		</map>
+	</div>
+</div>
+<!--header banner-->
+<div class="TabContent">
+    <div id="myTab0_Content0">
+        <div class="minisitelink">
+            <a href="#2">微官网</a>
+            <a href="#8">微报名</a>
+            <a href="#15">微汽车-车主关怀</a>
+            <a href="#4">微游戏</a>
+            <a href="#9">微投票</a>
+            <a href="#16">微订单-酒店</a>
+            <a href="#18">微商城</a>
+            <a href="#17">微团购</a>
+            <a href="#" target="_blank">微上墙</a>
+            <a href="#" target="_blank">微喜帖</a>
+            <a href="#" target="_blank">微相册</a>
+            <a href="#3">微会员</a>
+            <a href="#16">微汽车-试驾</a>
+            <a href="#16">微汽车-保养</a>
+            <a href="#16">微订单-课程</a>
+            <a href="#3">会员管理</a>
+            <a href="#16">微订单-KTV</a>
+            <a href="#n5">微外卖</a>
+            <a href="#16">微订单-餐厅</a>
+            <a href="#16">微订单-图书</a>
+            <a href="#16">微订单-美容</a>
+            <a href="#14">微彩票</a>
+            <a href="#n6">微请柬</a>
+            <a href="#5">优惠券</a>
+            <a href="#n4">微调研</a>
+            <a href="#n1">答题闯关</a>
+            <a href="#n3">微直播</a>
+            <a href="#n2">微名片</a>
+            <a href="#n7">微信支付</a>
+            <a href="#n8">微现场</a>
+        </div>	
+        <div class="wrap">
+            <p align="center"><a name="1" id="1"></a><img src="{np::STATICS}/img/www/index1/service/1.jpg"></p>
+            <p align="center"><a name="2" id="2"></a><img src="{np::STATICS}/img/www/index1/service/2.jpg"></p>
+            <p align="center"><a name="3" id="3"></a><img src="{np::STATICS}/img/www/index1/service/3.jpg"></p>
+            <p align="center"><a name="4" id="4"></a><img src="{np::STATICS}/img/www/index1/service/4.jpg"></p>
+            <p align="center"><a name="5" id="5"></a><img src="{np::STATICS}/img/www/index1/service/5.jpg"></p>
+            <p align="center"><a name="6" id="6"></a><img src="{np::STATICS}/img/www/index1/service/6.jpg"></p>
+            <p align="center"><a name="7" id="7"></a><img src="{np::STATICS}/img/www/index1/service/7.jpg"></p>
+            <p align="center"><a name="8" id="8"></a><img src="{np::STATICS}/img/www/index1/service/8.jpg"></p>
+            <p align="center"><a name="9" id="9"></a><img src="{np::STATICS}/img/www/index1/service/9.jpg"></p>
+            <p align="center"><a name="11" id="11"></a><img src="{np::STATICS}/img/www/index1/service/11.jpg"></p>
+            <p align="center"><a name="12" id="12"></a><img src="{np::STATICS}/img/www/index1/service/12.jpg"></p>
+            <p align="center"><a name="15" id="15"></a><img src="{np::STATICS}/img/www/index1/service/15.jpg"></p>
+            <p align="center"><a name="16" id="16"></a><img src="{np::STATICS}/img/www/index1/service/16.jpg"></p>
+            <p align="center"><a name="17" id="17"></a><img src="{np::STATICS}/img/www/index1/service/17.jpg"></p>
+            <p align="center"><a name="18" id="18"></a><img src="{np::STATICS}/img/www/index1/service/18.jpg"></p>
+            <p align="center"><a name="n1" id="n1"></a><img src="{np::STATICS}/img/www/index1/service/n1.jpg"></p>
+            <p align="center"><a name="n2" id="n2"></a><img src="{np::STATICS}/img/www/index1/service/n2.jpg"></p>
+            <p align="center"><a name="n3" id="n3"></a><img src="{np::STATICS}/img/www/index1/service/n3.jpg"></p>
+            <p align="center"><a name="n4" id="n4"></a><img src="{np::STATICS}/img/www/index1/service/n4.jpg"></p>
+            <p align="center"><a name="n5" id="n5"></a><img src="{np::STATICS}/img/www/index1/service/n5.jpg"></p>
+            <p align="center"><a name="n6" id="n6"></a><img src="{np::STATICS}/img/www/index1/service/n6.jpg"></p>
+            <p align="center"><a name="n7" id="n7"></a><img src="{np::STATICS}/img/www/index1/service/n7.jpg"></p>
+            <p align="center"><a name="n8" id="n8"></a><a href="javascript:alert('暂未开通');" target="_blank"><img src="{np::STATICS}/img/www/index1/service/n8.jpg"></a></p>
+        </div>
+	</div>
+</div>
+<!--------官方微信start----------->
+<div class="erwei" title="微信扫一扫">
+    <span class="guanfanweixin">订阅号</span>
+    <div class="erwei_big">
+        <p>
+            奈斯伙伴公众平台</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var erwei_time = null;
+        $(".erwei").hover(function () {
+            $(".lxb-container").css("z-index", "1")
+            $(".erwei_big").show();
+        }).mouseleave(function () {
+                    erwei_time = setTimeout(function () {
+                        $(".erwei_big").hide();
+                    }, 0);
+                });
+        $(".erwei_big").mouseenter(function () {
+            if (erwei_time) {
+                clearTimeout(erwei_time);
+            }
+        }).mouseleave(function () {
+                    erwei_time = setTimeout(function () {
+                        $(".erwei_big").hide();
+                    }, 0);
+                });
+
+        var erwei_timefuwu = null;
+        $(".fuwuerwei").hover(function () {
+            $(".lxb-container").css("z-index", "1")
+            $(".fuwuerwei_big").show();
+        }).mouseleave(function () {
+                    erwei_timefuwu = setTimeout(function () {
+                        $(".fuwuerwei_big").hide();
+                    }, 0);
+                });
+        $(".fuwuerwei_big").mouseenter(function () {
+            if (erwei_timefuwu) {
+                clearTimeout(erwei_timefuwu);
+            }
+        }).mouseleave(function () {
+                    erwei_timefuwu = setTimeout(function () {
+                        $(".fuwuerwei_big").hide();
+                    }, 0);
+                });
+    });
+</script>
+<!--------官方微信end----------->
+
+
+<!--底部,start -->
+    <include file="index:footer"/>
+<!--底部,end -->
+</div>
+</body>
+</html>

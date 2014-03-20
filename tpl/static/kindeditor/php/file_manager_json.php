@@ -13,9 +13,9 @@ $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 //根目录路径，可以指定绝对路径，比如 /var/www/attached/
-$root_path = '/Library/WebServer/Documents/Uploads/';
+$root_path = $php_path . '../../../../Uploads/userShare/'.$_GET['userRoot'].'/';
 //根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
-$root_url = 'http://yudio.xicp.net/Uploads/';
+$root_url = 'http://'.$_SERVER['HTTP_HOST'].'/Uploads/userShare/'.$_GET['userRoot'].'/';
 //图片扩展名
 $ext_arr = array('gif', 'jpg', 'jpeg', 'png', 'bmp');
 

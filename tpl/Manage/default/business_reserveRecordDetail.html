@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+    <meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstr
+		ap_responsive_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap_button.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css?2014-03-07-1" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js?2014-03-07-1"></script>
+    <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+
+<body class="theme-satgreen">
+<div id="main">
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span12">
+
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span10">
+                            <h3><i class="icon-edit"></i>预订单详情</h3>
+                        </div>
+                        <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+                    </div>
+
+                    <div class="box-content">
+                        <form action="/plus/formajax.php" method="post" class="form-horizontal form-validate">
+                            <div class="control-group">
+                                <label class="control-label" for="username">订单号</label>
+                                <div class="controls">{np:$info.id}</div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username">真实姓名</label>
+                                <div class="controls">{np:$info.contact}</div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username">电话</label>
+                                <div class="controls">{np:$info.contacttel}</div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username"></label>
+                                <div class="controls">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="username"></label>
+                                <div class="controls">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username">预订日期</label>
+                                <div class="controls">{np:$info.dateline} {np:$info.timepart}</div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username">提交时间</label>
+                                <div class="controls">{np:$info.createtime|date='Y-m-d H:i:s',###}</div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username">订单状态</label>
+                                <div class="controls">
+                                    <if condition="$info['status'] eq 0"><span class="label">等待客服回电</span></if>
+                                    <if condition="$info['status'] eq 1"><span class="label label-satgreen">已确认</span></if>
+                                    <if condition="$info['status'] eq 2"><span class="label label-lightred">已拒绝</span></if>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="username">备注</label>
+                                <div class="controls">{np:$info.remark|default='备注信息为空'}</div>
+                            </div>
+                            <div class="form-actions">
+
+                                <button class="btn" type="button" onclick="Javascript:window.history.go(-1);">返回</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body></body>
+<script type="text/javascript">
+
+    
+</script>
+</html>

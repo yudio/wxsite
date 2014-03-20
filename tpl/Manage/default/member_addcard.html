@@ -166,7 +166,6 @@
                                             <link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
                                                 <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
                                                 <script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
-                                                <script src="{np::STATICS}/kindeditor/kindeditor.config-upfile.js"></script>
                                                 <script type="text/javascript">
                                                     KindEditor.ready(function (K) {
                                                         var editor = K.editor({
@@ -176,7 +175,7 @@
                                                         $('a.insertimage').add("button.insertimage").click(function (e) {
                                                             editor.loadPlugin('smimage', function () {
                                                                 var $input = $(e.target).prev();
-                                                                //console.log($input);
+                                                                userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                                                                 editor.plugin.imageDialog({
                                                                     imageUrl: $input ? $input.val() : "",
                                                                     clickFn: function (url, title, width, height, border, align) {
@@ -193,7 +192,7 @@
                                                         })
 
                                                     });
-                                                    
+
                                                 </script>
 
                                         </div>

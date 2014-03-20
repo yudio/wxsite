@@ -12,6 +12,11 @@ RewriteRule ^wesite/(.+)/(.+)$ index.php?g=Wesite&m=Index&a=$2&wxuid=$1&%{QUERY_
 RewriteRule ^wewap/(.+)/(.+)/(.+)$ index.php?g=wap&m=$2&a=$3&wxname=$1&%{QUERY_STRING} [L]
 RewriteRule ^np(.+)/(.+)/(.+)\.act$ index.php?g=$1&m=$2&a=$3&%{QUERY_STRING}  [L,NE]
 
+#微预约
+RewriteRule ^reserve/(.+)/(.+)$ index.php?g=Wesite&m=reserve&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
+#微相册
+RewriteRule ^album/(.+)/(.+)$ index.php?g=Wesite&m=album&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
+
 
 
 #http://serverName/appName/?m=module&a=action&id=1

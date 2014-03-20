@@ -5,6 +5,7 @@ class UsersAction extends BaseAction{
 	}
 
 	public function checklogin(){
+        C('TOKEN_ON',false);
 		$db=D('Users');
 		$where['username']=$this->_post('username','trim');
 		
@@ -26,6 +27,14 @@ class UsersAction extends BaseAction{
 			session('activitynum',$res['activitynum']);
 			session('viptime',$res['viptime']);
 			session('gname',$info['name']);
+            //为每个用户建立一个上传目录
+            $picpath = dirname(__FILE__).'/../../../../Uploads/userShare/'.substr(md5($res['id']),16).'/';
+            //$picpath            =   realpath($picpath);
+            LOG::write('创建用户图片空间|'.$picpath,LOG::ERR);
+            if (!is_dir($picpath)) {
+                mkdir($picpath,0777,true);
+                chmod($picpath,0777);
+            }
 			//每个月第一次登陆数据清零
 			$now=time();
 			$month=date('m',$now);
@@ -52,15 +61,18 @@ class UsersAction extends BaseAction{
             $this->ajaxReturn($ret,'JSON');
 		}else{
 			//$this->error('帐号密码错误',U('Index/login'));
-            $ret = array('errno'=>'0','error'=>'帐号密码错误','url_route'=>U('Index/login'));
+            $ret = array('errno'=>'0','error'=>'帐号密码错误','url_route'=>'/');
             $this->ajaxReturn($ret,'JSON');
         }
 	}
 	
 	public function checkreg(){
+        C('TOKEN_ON',false);
 		$db=D('Users');
         $code=$this->_post('captcha','intval,md5',0);
         if($code != $_SESSION['verify']){
+            echo '5';
+            exit;
             $this->error('验证码错误','/npHome/Index/reg.act');
         }
         $condition['username'] = $this->_post('username');
@@ -68,14 +80,19 @@ class UsersAction extends BaseAction{
         $condition['_logic'] = 'OR';
         $user = $db->where($condition)->find();
         if ($user){
-            $this->error('用户名或邮箱已注册！','/npHome/Index/reg.act');
+            echo '2';
+            exit;
+            $this->ajaxReturn(array('errno'=>'100','error'=>'用户名或邮箱已注册！'),'JSON');
         }
 		$info=M('User_group')->find(1);
 		if($db->create()){
 			$id=$db->add();
 			if($id){				
 				if(C('ischeckuser')!='true'){
-					$this->success('注册成功,请联系在线客服审核帐号','npManage/account/index.act');exit;
+                    echo '4';
+                    exit;
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'注册成功,请联系在线客服审核帐号！','url'=>'/'),'JSON');
+					//$this->success('注册成功,请联系在线客服审核帐号','');exit;
 				}
 				$viptime=time()+3*24*3600;
 				$db->where(array('id'=>$id))->save(array('viptime'=>$viptime));
@@ -86,18 +103,32 @@ class UsersAction extends BaseAction{
 				session('connectnum',0);
 				session('activitynum',0);
 				session('gname',$info['name']);
-			    
-				$this->success('注册成功','npManage/Account/main.act');
+                echo '1';
+                exit;
+                $this->ajaxReturn(array('errno'=>'0','error'=>'注册成功！','url'=>'/npManage/Account/main.act'),'JSON');
+				//$this->success('注册成功','npManage/Account/main.act');
 			}else{
-				$this->error('注册失败','/npHome/Index/reg.act');
+                $this->ajaxReturn(array('errno'=>'101','error'=>'注册失败！','url'=>'//npHome/Index/reg.act'),'JSON');
+                //$this->error('注册失败','/npHome/Index/reg.act');
 			}
 		}else{
-			$this->error($db->getError(),'/npHome/Index/reg.act');
+            LOG::write('Home-Users-reg:'.$db->getError(),LOG::ERR);
+            $this->ajaxReturn(array('errno'=>'101','error'=>'内部错误，请稍后重试！','url'=>'//npHome/Index/reg.act'),'JSON');
+			//$this->error($db->getError(),'/npHome/Index/reg.act');
 		}
 	}
 
     public function verify(){
+        import('ORG.Util.Image');
         Image::buildImageVerify();
+    }
+    public function checkverify(){
+        $code=$this->_post('vcode','intval,md5',0);
+        if($code != $_SESSION['verify']){
+            $this->ajaxReturn(array('errno'=>'100','error'=>'验证码错误'));
+        }else{
+            $this->ajaxReturn(array('errno'=>'0'));
+        }
     }
 
 	public function checkpwd(){
