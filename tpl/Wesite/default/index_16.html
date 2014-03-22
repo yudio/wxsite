@@ -21,53 +21,26 @@
     <include file="common:banner"/>
     <br/>
     <header>
-        <include file="common:snow"/>
+        <div class="snower">
+            <include file="common:snow"/>
+        </div>
     </header>
     <!--用户分类管理-->
     <section>
         <ul class="list_font">
-            <li>
-                <a href="tel:010-12312312">
-                    <div><span class="icon-globe"></span></div>
-                    <div>
-                        <p>2</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com">
-                    <div><span class="icon-smile"></span></div>
-                    <div>
-                        <p>3</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com">
-                    <div><span class="icon-smile"></span></div>
-                    <div>
-                        <p>4</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com">
-                    <div><span class="icon-smile"></span></div>
-                    <div>
-                        <p>5</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com">
-                    <div><span class="icon-smile"></span></div>
-                    <div>
-                        <p>1</p>
-                    </div>
-                </a>
-            </li>
+            <volist name="classify" id="vo">
+                <li>
+                    <a href="{np:$vo.url}">
+                        <div><span class="{np:$vo.icon}"></span></div>
+                        <div>
+                            <p>{np:$vo.name}</p>
+                        </div>
+                    </a>
+                </li>
+            </volist>
         </ul>
     </section>
+    
     <include file="common:nav"/>
     <!--分享前控制-->
     <include file="common:share"/>
