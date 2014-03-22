@@ -3,48 +3,81 @@
 <head>
     <meta charset="utf-8" />
     <include file="common:snowcss"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-16.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
-    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/home-16.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/template/zepto.js"></script>
     <title>{np:$homeInfo.title}</title>
-    <include file="common:iframe"/>
+    <include file="common:meta"/>
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <include file="common:iframe"/>
+
 <div class="body" style="padding-bottom:52px;">
     <include file="common:banner"/>
     <br/>
     <header>
-        <div class="snower">
-            <include file="common:snow"/>
-        </div>
+        <include file="common:snow"/>
     </header>
     <!--用户分类管理-->
     <section>
         <ul class="list_font">
-            <volist name="classify" id="vo">
-                <li>
-                    <a href="{np:$vo.url}">
-                        <div><span class="{np:$vo.icon}"></span></div>
-                        <div>
-                            <p>{np:$vo.name}</p>
-                        </div>
-                    </a>
-                </li>
-            </volist>
+            <li>
+                <a href="tel:010-12312312">
+                    <div><span class="icon-globe"></span></div>
+                    <div>
+                        <p>2</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232948&wxref=mp.weixin.qq.com">
+                    <div><span class="icon-smile"></span></div>
+                    <div>
+                        <p>3</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232950&wxref=mp.weixin.qq.com">
+                    <div><span class="icon-smile"></span></div>
+                    <div>
+                        <p>4</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/weisite/list?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&ltid=232952&wxref=mp.weixin.qq.com">
+                    <div><span class="icon-smile"></span></div>
+                    <div>
+                        <p>5</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/weisite/channel?pid=81238&bid=168275&wechatid=oU9WbuBSeQ96mHOsEeWhVL8H57t4&categoryid=232943&wxref=mp.weixin.qq.com">
+                    <div><span class="icon-smile"></span></div>
+                    <div>
+                        <p>1</p>
+                    </div>
+                </a>
+            </li>
         </ul>
     </section>
-<!--导航菜单后台设置的快捷菜单-->
-<include file="common:nav"/>
-<!--分享前控制-->
-<include file="common:share"/>
+    <include file="common:nav"/>
+    <!--分享前控制-->
+    <include file="common:share"/>
 </div>
-<include file="common:footer"/>
+<footer style="overflow:visible;">
+    <div class="weimob-copyright">
+        <a href="{np:$homeInfo.homeurl}" style="color:#fff;">© {np:$homeInfo.copyright}</a>
+    </div>
+    <span class="weimob-support" style="display:none;">{np::C('copyright')}</span>
+</footer>
 </body>
 </html>
 
