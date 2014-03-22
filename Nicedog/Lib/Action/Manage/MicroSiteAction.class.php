@@ -54,6 +54,7 @@ class MicroSiteAction extends UserAction{
             $where['month'] = $period;
             $where['year']  = date('Y');
             $where['token'] = session('token');
+            $where['module'] = array('exp','is null');
             $list = $db->where($where)->order('day')->select();
             LOG::write('XML:'.$db->getError(),LOG::ERR);
             $this->assign('list',$list);
@@ -65,6 +66,7 @@ class MicroSiteAction extends UserAction{
             $where['month'] = $period;
             $where['year']  = date('Y');
             $where['token'] = session('token');
+            $where['module'] = array('exp','is null');
             $list = $db->where($where)->order('day')->select();
             LOG::write('XML:'.$db->getError(),LOG::ERR);
             $this->assign('list',$list);

@@ -16,7 +16,8 @@ RewriteRule ^np(.+)/(.+)/(.+)\.act$ index.php?g=$1&m=$2&a=$3&%{QUERY_STRING}  [L
 RewriteRule ^reserve/(.+)/(.+)$ index.php?g=Wesite&m=reserve&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 #微相册
 RewriteRule ^album/(.+)/(.+)$ index.php?g=Wesite&m=album&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
-
+#微相册
+RewriteRule ^Webmessage/(.+)/(.+)$ index.php?g=Wesite&m=comment&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
 
 #http://serverName/appName/?m=module&a=action&id=1

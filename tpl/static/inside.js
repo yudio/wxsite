@@ -11,7 +11,7 @@ var G = {
     domain: {
         w: 'localhost',
         t: 'http://localhost/tpl/static',
-        k: 'http://localhost/tpl/static/wx-xin-a'
+        k: 'http://localhost/tpl/static/wm-xin-a'
     },
     set: {
         KindEditor_seting: {

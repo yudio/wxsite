@@ -718,6 +718,22 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
+                case 'Comment':
+                    LOG::write('匹配留言板:'.$key,LOG::INFO);
+                    $this->trackdata('Comment');//REQUEST
+                    $info = M('Comment')->find($res['pid']);
+                    return array(
+                        array(
+                            array(
+                                $info['msg_name'],
+                                $info['msg_name'],
+                                $info['picurl'],
+                                C('site_url')."/Webmessage/{$this->wxuid}/comment?wecha_id={$this->data['FromUserName']}"
+                            )
+                        ),
+                        'news'
+                    );
+                    break;
                 case 'Product':
                     $this->requestdata('other');
                     $pro = M('Product')->where(array(

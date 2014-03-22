@@ -1,0 +1,239 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/message.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/jquery.min.js"></script>
+    <title>{np:$info.msg_name}</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="http://stc.weimob.com/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="http://stc.weimob.com/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="eric.wu" name="author">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#showcard1").click(function () {
+                var btn = $(this);
+                var wxname = $("#wxname1").val();
+                if (wxname  == '') {
+                    alert("请输入昵称");
+                    return;
+                }
+                var info = $("#info1").val();
+                if (info == '') {
+                    alert("请输入内容");
+                    return;
+                }
+                var submitData = {
+                    nickname:wxname,
+                    content: info,
+                    action: "setly"
+                };
+                $.post('/Webmessage/{np:$wxuid}/submit?wecha_id={np:$wecha_id}', submitData,
+                        function(data) {
+                            if (data.success == true) {
+                                alert(data.msg);
+                                setTimeout('window.location.href=location.href',1000);
+                                return;
+                            } else {}
+                        },
+                        "json")
+            });
+            //
+            $("#showcard2").click(function () {
+                var btn = $(this);
+                var wxname = $("#wxname2").val();
+                if (wxname  == '') {
+                    alert("请输入昵称");
+                    return;
+                }
+                var info = $("#info2").val();
+                if (info == '') {
+                    alert("请输入内容");
+                    return;
+                }
+                var submitData = {
+                    nickname:wxname,
+                    content: info,
+                    action: "setly"
+                };
+                $.post('/Webmessage/{np:$wxuid}/submit?wecha_id={np:$wecha_id}', submitData,
+                        function(data) {
+                            if (data.success == true) {
+                                alert(data.msg);
+                                setTimeout('window.location.href=location.href',1000);
+                                return;
+                            } else {}
+                        },
+                        "json")
+            });
+            //
+            $(".hhsubmit").click(function () {
+                var objid = $(this).attr("date");
+                var info = $(".hly"+objid).val();
+                if (info == '') {
+                    alert("请输入内容");
+                    return;
+                }
+                var submitData = {
+                    nickname:'{np:$user.nickname}',
+                    fid:objid,
+                    content: info,
+                    action: "setly"
+                };
+                $.post('/Webmessage/{np:$wxuid}/submit?wecha_id={np:$wecha_id}', submitData,
+                        function(data) {
+                            if (data.success == true) {
+                                alert(data.msg);
+                                setTimeout('window.location.href=location.href',1000);
+                                return;
+                            } else {}
+                        },
+                        "json")
+            });
+            //
+            $(".hfinfo").click(function () {
+                var objid = $(this).attr("date");
+                $(".hhly"+objid).slideToggle();
+            });
+            //
+            $(".hhbt").click(function () {
+                var objid = $(this).attr("date");
+                $(".hhly"+objid).slideToggle();
+            });
+            //
+            $("#windowclosebutton").click(function () {
+                $("#windowcenter").slideUp(500);
+            });
+            //
+            $("#alertclose").click(function () {
+                $("#windowcenter").slideUp(500);
+            });
+        });
+        //
+        function alert(title){
+            window.scrollTo(0, -1);
+            $("#windowcenter").slideToggle("slow");
+            $("#txt").html(title);
+            setTimeout(function(){$("#windowcenter").slideUp(500);},4000);
+        }
+        //
+        $(document).ready(function(){
+            $(".first1").click(function(){
+                $(".ly1").slideToggle();
+            });
+            $(".first2").click(function(){
+                $(".ly2").slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<body id="message" onselectstart="return true;" ondragstart="return false;">
+<div class="container">
+    <div class="qiandaobanner">
+        <a href="javascript:history.go(-1);">
+            <img src="{np:$info.headpic}" style="width:100%;" />
+        </a>
+    </div>
+
+    <div class="cardexplain">
+        <div class="window" id="windowcenter">
+            <div id="title" class="wtitle">操作提示<span class="close" id="alertclose"></span></div>
+            <div class="content">
+                <div id="txt"></div>
+            </div>
+        </div>
+
+        <div class="history">
+            <div class="history-date">
+                <ul>
+                    <a><h2 class="first first1" style="position: relative;">请点击留言</h2></a>
+                    <!--<li class="nob  mb"><div class="beizhu">留言审核通过后才会显示在留言墙上！</div></li>-->
+                    <li class="green bounceInDown nob ly1" style="display:none">
+                        <dl>
+                            <dt>
+                                <input name="wxname" type="text" class="px" id="wxname1" value="{np:$user.nickname}" placeholder="请输入您的昵称">
+                            </dt>
+                            <dt>
+                                <textarea name="info" class="pxtextarea" style=" height:60px;" id="info1" placeholder="请输入留言"></textarea>
+                            </dt>
+                            <dt><a id="showcard1" class="submit" href="javascript:void(0)">提交留言</a></dt>
+                        </dl>
+                    </li>
+                    <volist name="list" id="vo">
+                    <li class="green bounceInDown">
+                        <h3>
+                            <!--<img src="http://www.apiwx.com/index/images/logo100x100.jpg">-->
+                            {np:$vo.nickname}<span>{np:$vo.createtime|date='Y-m-d H:i:s',###}</span>
+
+                            <div class="clr"></div>
+                        </h3>
+                        <dl>
+                            <dt class="hfinfo" date="{np:$vo.id}">{np:$vo.content}</dt>
+                        </dl>
+                        <dl class="huifu">
+                            <dt>
+									<span>
+										<a class="hhbt czan" date="{np:$vo.id}" href="javascript:void(0)">回复</a>
+										<p style="display:none;" class="hhly{np:$vo.id}">
+                                            <textarea name="info" class="pxtextarea hly{np:$vo.id}"></textarea>
+                                            <a class="hhsubmit submit" date="{np:$vo.id}" href="javascript:void(0)">确定</a>
+                                        </p>
+									</span>
+                            </dt>
+                        </dl>
+                        <notempty name="vo['msglist']">
+                            <dl class="huifu">
+                            <volist name="vo['msglist']" id="msg">
+                                <dt><span>{np:$msg.nickname}回复：{np:$msg.content}</span></dt>
+                            </volist>
+                            </dl>
+                        </notempty>
+                    </li>
+                    </volist>
+                    <li class="green bounceInDown nob ly2" style="display:none">
+                        <dl>
+                            <dt>
+                                <input name="wxname" type="text" class="px" id="wxname2" value="{np:$user.nickname}" placeholder="请输入您的昵称">
+                            </dt>
+                            <dt>
+                                <textarea name="info" class="pxtextarea" style=" height:60px;" id="info2" placeholder="请输入留言"></textarea>
+                            </dt>
+                            <dt>
+                                <a id="showcard2" class="submit" href="javascript:void(0)">提交留言</a>
+                            </dt>
+                        </dl>
+                    </li>
+
+
+                    <a><h2 class="first first2" style="position: relative;">请点击留言</h2></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+</script>
+<include file="Wesite:footer"/>
+
+</body>
+</html>
