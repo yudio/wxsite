@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+	<meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/chosen/chosen.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/zeroclipboard/zeroclipboard_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
+	<title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+	<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+	<!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+	<div class="container-fluid" id="content">
+
+    <div id="main">
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="box">
+                        <div class="box-title">
+                            <div class="span10">
+                                <h3><i class="icon-edit"></i>留言板配置</h3>
+                            </div>
+                            <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+                        </div>
+                        <div class="box-content">
+                            <form action="/npManage/business/msgset.act" method="POST" class='form-horizontal form-validate'>
+                                <div class="control-group">
+                                    <label for="wxname" class="control-label">触发关键字：</label>
+                                    <div class="controls">
+                                        <input type="text" name="keyword" id="wxname" value="{np:$info.keyword}" data-rule-required="true"> <span class="maroon">*</span><span class="help-inline">如有多个关键字请用空格隔开，用户输入此关键词将会触发此活动。</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="title">
+                                        显示名称</label>
+                                    <div class="controls">
+                                        <input type="text" name="msg_name" value="{np:$info.msg_name}" id="title" data-rule-required="true" data-rule-maxlength="30" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">图文封面:</label>
+                                    <div class="controls">
+                                        <img class="thumb_img" src="{np:$info.picurl|default=C('site_url').STATICS.'/img/message/twfm.jpg'}" style="max-height: 100px;">
+                                        <input id="picurl" type="text" style="display:none;" name="picurl" value="{np:$info.picurl|default=C('site_url').STATICS.'/img/message/twfm.jpg'}" class="input-xlarge" readonly="">
+                                                    <span class="maroon">*</span>
+                                                    <span class="help-inline">
+                                                        <button class="btn select_img" type="button">选择封面</button></span>
+
+                                        <span class="help-inline">
+                                                （尺寸：宽720像素，高400像素） 小于200k
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="fanslocal">
+                                        头部图片</label>
+                                                                        <div class="controls">
+                                        <img class="thumb_img" src="{np:$info.headpic|default=C('site_url').STATICS.'/img/message/mpic.jpg'}" style="max-height: 70px;">
+                                        <input id="picurl" type="text" style="display:none;" name="headpic" class="input-xlarge" value="{np:$info.headpic|default=C('site_url').STATICS.'/img/message/mpic.jpg'}" readonly="" data-rule-url="true" />
+                                        <span class="help-inline">
+                                            <button class="btn select_img" type="button">选择图片</button></span>
+                                    </div>
+                                                                    </div>
+
+                                <link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
+                                <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+                                <script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+                                <script type="text/javascript" >
+                                    KindEditor.ready(function (K) {
+                                        var editor = K.editor({
+                                            themeType: "simple",
+                                            allowFileManager: true
+
+                                        });
+                                        K('#insertimage').click(function () {
+                                            editor.loadPlugin('smimage', function () {
+                                                editor.plugin.imageDialog({
+                                                    imageUrl: K('#thumb').val(),
+                                                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                                                    clickFn: function (url, title, width, height, border, align) {
+                                                        K('#thumb').val(url);
+                                                        if (K('#thumb_img')) {
+                                                            K('#thumb').hide();
+                                                            K('#thumb_img').attr('src', url);
+                                                            K('#thumb_img').show().css('display','inline');
+                                                        }
+                                                        editor.hideDialog();
+                                                    }
+                                                });
+                                            });
+                                        });
+                                    });
+
+                                </script>
+                                <div class="control-group">
+                                    <label class="control-label" for="title">
+                                        是否开放留言板</label>
+                                    <div class="controls">
+                                        <label class="radio inline">
+                                            <input name="audit"  type="radio" value="1" <empty name="info">checked</empty><if condition="$info.audit eq 1">checked</if>>
+                                            需审核</label>
+                                        <label class="radio inline">
+                                            <input type="radio"  name="audit" value="2" <if condition="$info.audit eq 2">checked</if>>
+                                            无需审核
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="openid">
+                                        管理员Openid</label>
+                                    <div class="controls">
+                                        <div class="input-append"><input type="text" name="adminopenid" id="openid" /><button class="btn addopenid" type="button"><i class="icon-plus"></i>添加</button></div>
+										<span class="help-inline">在留言板提交留言,然后在“留言列表”中找到自己的openid并在这里添加为管理</span>
+                                        
+                                        <ul class="unstyled margin-top10 openidlist" style="width:300px">
+                                            <foreach name="list" item="vo">
+                                                <li>{$vo} <input type="hidden" name="openidlist[]" value="{$vo}"/> <a class="btn btn-mini pull-right del"><i class="icon-remove"></i></a> </li>
+                                            </foreach>
+                                        </ul>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $("ul.openidlist li a.del").live("click", function () {
+                                                    $(this).parents("li").remove();
+                                                });
+                                                $("button.addopenid").click(function () { 
+                                                    var $openid = $("#openid"), $openidval = $openid.val().trim();
+                                                   
+                                                    if ($openidval.length == 0) {
+                                                        G.ui.tips.info("请输入管理员Openid");
+                                                    } else {
+                                                        var tmp = '<li>{0}<input type="hidden" name="openidlist[]" value="{0}"/>  <a class="btn btn-mini pull-right del"><i class="icon-remove"></i></a> </li>';
+                                                        $("ul.openidlist").append(tmp.format($openidval));
+                                                    }
+                                                })
+                                            })
+                                        </script>
+                                    </div>
+                                </div>
+                                   <div class="control-group">
+                                    <label class="control-label" for="title">
+                                        留言板外链地址</label>
+                                    <div class="controls">
+                                       <span class="copy_text">{np::C('site_url')}/Webmessage/{np:$wecha.id}/comment?wechatid=FromUserName</span>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <input type="hidden" name="id" value="{np:$info.id}"/>
+                                    <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+                                    <button type="button" class="btn" onclick="window.location='/npManage/business/msgset.act'">取消</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></body>
+</html>

@@ -16,7 +16,10 @@ class BusinessAction extends UserAction{
         }*/
     }
 
-    //预约管理
+    //====预约管理====
+    /*
+     * 预约列表
+     */
     public function reserveList(){
         $db = M('Reserve');
         /*$user=M('Users')->field('gid,activitynum')->where(array('id'=>session('uid')))->find();
@@ -28,7 +31,9 @@ class BusinessAction extends UserAction{
         $this->assign('list',$list);
         $this->display();
     }
-
+    /*
+     * 新增预约
+     */
     public function addReserve(){
         $db = D('Reserve');
         if (IS_POST){
@@ -78,6 +83,9 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
+    /*
+     * 删除预约
+     */
     public function delReserve(){
         $where['id']=$this->_get('id','intval');
         $where['token']=session('token');
@@ -92,6 +100,9 @@ class BusinessAction extends UserAction{
         }
     }
 
+    /*
+     * 预约记录列表
+     */
     public function reserveRecordList(){
         $db = M('ReserveRecord');
         $where['rid'] = $this->_get('rid','intval');
@@ -113,6 +124,9 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
+    /*
+     * 预约记录详细页
+     */
     public function reserveRecordDetail(){
         $db = M('ReserveRecord');
         $where['id'] = $this->_get('id','intval');
@@ -121,6 +135,9 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
+    /*
+     * 审核预约记录
+     */
     public function updateReserveRecord(){
         $db = M('ReserveRecord');
         $where['id'] = $this->_get('id','intval');
@@ -136,6 +153,9 @@ class BusinessAction extends UserAction{
         }
     }
 
+    /*
+     * 删除预约记录
+     */
     public function delReserveRecord(){
         $db = M('ReserveRecord');
         $where['id'] = $this->_get('id','intval');
@@ -148,6 +168,9 @@ class BusinessAction extends UserAction{
         }
     }
 
+    /*
+     * 预约统计
+     */
     public function myReserve(){
         $db = M('ReserveRecord');
         $pointstart = mktime (0,0,0,date("m")-2,date("d")-1,  date("Y"));
@@ -171,7 +194,10 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
-    //微相册管理
+    //====微相册管理====
+    /*
+     * 相册设置
+     */
     public function albumset(){
         $db = M('AlbumSet');
         if (IS_POST){
@@ -191,6 +217,9 @@ class BusinessAction extends UserAction{
         }
         $this->display();
     }
+    /*
+     * 相册管理列表
+     */
     public function albumlist(){
         $db = D('Album');
         $list = $db->where(array('token'=>session('token')))->order('sort desc')->select();
@@ -201,6 +230,9 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
+    /*
+     * 相册图片管理
+     */
     public function albumupload(){
         $db = D('Album');
         if (IS_POST){
@@ -222,6 +254,9 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
+    /*
+     * 相册图片上传
+     */
     public function albumimgadd(){
         import('ORG.Net.UploadFile');
         $upload = new UploadFile();// 实例化上传类
@@ -270,6 +305,9 @@ class BusinessAction extends UserAction{
         }
     }
 
+    /*
+     * 相册图片删除
+     */
     public function albumimgdel($id=0){
         $db = M('AlbumImg');
         if (!$id){
@@ -287,6 +325,9 @@ class BusinessAction extends UserAction{
         }
     }
 
+    /*
+     * 相册删除
+     */
     public function albumdel(){
         $db = M('Album');
         $id = $this->_get('id','intval');
@@ -308,6 +349,9 @@ class BusinessAction extends UserAction{
         }
     }
 
+    /*
+     * 新增相册
+     */
     public function albumadd(){
         $db = D('Album');
         if (IS_POST){
@@ -356,7 +400,150 @@ class BusinessAction extends UserAction{
         $this->display();
     }
 
-    //获取外链
+    //====微留言====
+    /*
+     * 留言板设置
+     */
+    public function msgset(){
+        $db = M('CommentSet');
+        if (IS_POST){
+            $id = $this->_post('id','intval');
+            $_POST['token'] = session('token');
+            $openids = $_REQUEST['openidlist'];
+            $_POST['openids'] = implode(',',$openids)||'';
+            if ($id){
+                if ($db->create()){
+                    $data['pid']    = $id;
+                    $data['keyword'] = $this->_post('keyword');
+                    $data['token']  = session('token');
+                    $data['match_type']  = 1;
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    $db->save();
+                    Keyword::update($data,'Comment');
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'设置成功','url'=>'/npManage/business/msgset.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');
+                }
+            }else{
+                if ($db->create()){
+                    $data['pid']     = 0;
+                    $data['keyword'] = $this->_post('keyword');
+                    $data['token']  = session('token');
+                    $data['match_type']  = 1;
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
+                    $id = $db->add();
+                    $data['pid']     = $id;
+                    Keyword::update($data,'Comment');
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'设置成功','url'=>'/npManage/business/msgset.act'),'JSON');
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');
+                }
+            }
+        }
+        $info = $db->where(array('token'=>session('token')))->find();
+        if ($info){
+            $ids = explode(',',$info['openids']);
+            $this->assign('list',$list);
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+
+    /**
+     * 留言列表
+     */
+    public function msgList(){
+        $db = M('Comment');
+        $list=M('Comment')->where(array('token'=>session('token'),'status'=>array('neq',3)))->select();
+        $this->assign('count',count($list));
+        $this->assign('list',$list);
+        $this->display();
+    }
+    /*
+     * 留言操作|删除或屏蔽
+     */
+    public function msgUpdate(){
+        $db = M('Comment');
+        $id = $this->_get('id','intval');
+        $op = $this->_get('op');
+        $info = $db->find($id);
+        if (!$info){
+            $this->error('该记录不存在','/npManage/business/msgList.act');
+        }
+        if ($op=='del'){
+            $db->where(array('id'=>$id))->delete();
+            $this->success('删除成功','/npManage/business/msgList.act');
+        }else if ($op=='black'){
+            //屏蔽用户
+            $user = M('CommentUser')->where(array('token'=>$info['token'],'wecha_id'=>$info['wecha_id']))->find();
+            M('CommentUser')->data(array('id'=>$user['id'],'status'=>0,'updatetime'=>time()))->save();
+            $db->where(array('token'=>$info['token'],'wecha_id'=>$info['wecha_id'],'status'=>1))->data(array('status'=>3))->save();
+            $this->success('加入黑名单成功','/npManage/business/msgList.act');
+        }
+    }
+    /*
+     * 批量操作
+     */
+    public function msgBatch(){
+        $db = M('Comment');
+        $tid = $_REQUEST['tid'];
+        $op = $this->_post('op');
+        $tid = implode(',',$tid);
+        $where['id']    = array('in',$tid);
+        $where['token'] = session('token');
+        if ($op=='del'){
+            $db->where($where)->delete();
+            $this->ajaxReturn(array('errno'=>'0','error'=>'批量删除成功!','url'=>'/npManage/business/msgList.act'),'JSON');
+        }else if ($op=='audit'){
+            $res = $db->where($where)->save(array('status'=>1));
+            $this->ajaxReturn(array('errno'=>'0','error'=>'批量更新成功!','url'=>'/npManage/business/msgList.act'),'JSON');
+        }
+    }
+    /**
+     * 黑名单列表
+     */
+    public function msgBlack(){
+        $db = M('CommentUser');
+        $list=M('CommentUser')->where(array('token'=>session('token'),'status'=>0))->select();
+        $this->assign('count',count($list));
+        $this->assign('list',$list);
+        $this->display();
+    }
+    /*
+     * 取消拉黑
+     */
+    public function msgBlackOp(){
+        $db = M('CommentUser');
+        $op = $this->_get('op');
+        if ($op=='blackdel'){
+            $id = $this->_get('id','intval');
+            $db->where(array('id'=>$id))->save(array('status'=>1));
+            $user = $db->find($id);
+            M('Comment')->where(array('token'=>$user['token'],'wecha_id'=>$user['wecha_id'],'status'=>3))->data(array('status'=>1))->save();
+            $this->success('取消成功','/npManage/business/msgBlack.act');
+        }else if ($op=='batch'){
+            $tid = $_REQUEST['tid'];
+            $tid = implode(',',$tid);
+            $where['id'] = array('in',$tid);
+            $where['token'] = session('token');
+            $db->where($where)->save(array('status'=>1,'updatetime'=>time()));
+            $userlist = $db->where($where)->select();
+            foreach($userlist as $user){
+                M('Comment')->where(array('token'=>$user['token'],'wecha_id'=>$user['wecha_id'],'status'=>3))->data(array('status'=>1))->save();
+            }
+            $this->ajaxReturn(array('errno'=>'0','error'=>'取消成功!','url'=>'/npManage/business/msgBlack.act'),'JSON');
+        }
+    }
+
+
+
+    //====获取外链====
     public function getBusinessJSON(){
         LOG::write('getBusinessJSON',LOG::ERR);
         $act= $this->_post('action');

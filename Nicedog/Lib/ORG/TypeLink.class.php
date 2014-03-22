@@ -42,6 +42,9 @@ class TypeLink{
                          case 'albums':
                              $arr['url'] = '/album/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
+                         case 'message':
+                             $arr['url'] = '/Webmessage/'.$_SESSION['wxid'].'/comment?wecha_id=FromUserName';
+                             break;
                      }
                      break;
                  default:
@@ -79,6 +82,9 @@ class TypeLink{
                              break;
                          case 'albums':
                              $arr['url'] = '/album/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
+                             break;
+                         case 'message':
+                             $arr['url'] = '/Webmessage/'.$_SESSION['wxid'].'/comment?wecha_id=FromUserName';
                              break;
                      }
                      break;
