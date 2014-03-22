@@ -29,12 +29,8 @@
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <body id="onlinebooking">
-<div class="masklayer" ontouchmove="return true;" onclick="$(this).toggleClass('on');">
-    <script>
-        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android");
-        document.write(isAndroid>-1?"<img src='{np::STATICS}/img/instruction_android.png' alt='' style='width: auto!important;'/>":"<img src='{np::STATICS}/img/instruction_iphone.png' alt='' style='width: auto!important;'/>");
-    </script>
-</div>
+
+
 <div class="qiandaobanner">
     <img src="{np:$info.headpic}">
 </div>
@@ -42,7 +38,7 @@
     <!--普通用户登录时显示-->
     <ul class="round">
         <li>
-            <a href="/reserve/{np:$wxuid}/showlist?rid={np:$info.id}&wecha_id={np:$wecha_id}" onclick="$('.masklayer').addClass('on');return false;" ><span>{np:$info.typename}<em class="ok">{np:$count}</em></span></a>
+            <a href="/reserve/{np:$wxuid}/showlist?rid={np:$info.id}&wecha_id={np:$wecha_id}"  ><span>{np:$info.typename}<em class="ok">{np:$count}</em></span></a>
         </li>
     </ul>
     <!--后台可控制是否显示-->
@@ -118,7 +114,7 @@
         </form>
     </ul>
     <div class="footReturn">
-        <input id="showcard" class="submit" value="提交消息" type="button" onclick="$('.masklayer').addClass('on');return false;" >
+        <input id="showcard" class="submit" value="提交消息" type="button"  >
         <div class="window" id="windowcenter">
             <div id="title" class="wtitle">操作提示<span class="close" id="alertclose"></span></div>
             <div class="content">

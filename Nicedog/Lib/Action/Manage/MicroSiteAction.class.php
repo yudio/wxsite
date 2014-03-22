@@ -34,6 +34,48 @@ class MicroSiteAction extends UserAction{
     }
     /*
      *
+     * 运营图表
+     */
+    public function stat(){
+        $month = $this->_get('period','intval');
+        if (!$month){
+            $month = date('m');
+        }
+        $this->assign('month',$month);
+        $this->display();
+    }
+    public function getStatXML(){
+        $db = M('Requestdata');
+        $period = $this->_get('period','intval');
+        $type = $this->_get('type');
+        $time = mktime(0,0,1,$period,date('d'),date('Y'));
+        $tcount = date('t',$time);
+        if ($type=='req'){
+            $where['month'] = $period;
+            $where['year']  = date('Y');
+            $where['token'] = session('token');
+            $list = $db->where($where)->order('day')->select();
+            LOG::write('XML:'.$db->getError(),LOG::ERR);
+            $this->assign('list',$list);
+            $this->assign('tcount',$tcount);
+            $this->assign('head',date('Y').'-'.$period.'月请求曲线');
+            $this->display('reqxml','utf-8','application/xml');
+        }
+        if ($type=='user'){
+            $where['month'] = $period;
+            $where['year']  = date('Y');
+            $where['token'] = session('token');
+            $list = $db->where($where)->order('day')->select();
+            LOG::write('XML:'.$db->getError(),LOG::ERR);
+            $this->assign('list',$list);
+            $this->assign('tcount',$tcount);
+            $this->assign('head',date('Y').'-'.$period.'用户曲线');
+            $this->display('userxml','utf-8','application/xml');
+        }
+
+    }
+    /*
+     *
      * 获取接口地址
      */
     public function getAPIAddr(){

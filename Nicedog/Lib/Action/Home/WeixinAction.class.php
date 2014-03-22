@@ -5,6 +5,7 @@ class WeixinAction extends Action
     private $token;
     private $wxuid;
     private $fun;
+    private $wecha_id;
     private $data = array();
     private $my = '奈斯伙伴';
 
@@ -21,6 +22,7 @@ class WeixinAction extends Action
         $weixin = new Wechat($this->token);
         $data = $weixin->request();
         $this->data = $weixin->request();
+        $this->wecha_id = $data['FromUserName'];
         $this->my = C('site_my');
         list($content, $type) = $this->reply($data);
         //测试接口记录
@@ -50,7 +52,7 @@ class WeixinAction extends Action
             $follow_data['follow_to_id'] = $data['ToUserName'];
             $follow_data['follow_time'] = $data['CreateTime'];
             $foloow_lists = M('Follow')->add($follow_data);
-            $this->requestdata('follownum');
+            $this->requestdata('follownum');//REQUEST
 
             $autoreply = M('Areply')->field('home,keyword,content,default_reply_flag')->where(array('token' => $this->token))->find();
 
@@ -91,7 +93,7 @@ class WeixinAction extends Action
             $follow_data['follow_to_id'] = $data['ToUserName'];
             $foloow_del = M('Follow')->where($follow_data)->delete();
             //取消关注
-            $this->requestdata('unfollownum');
+            $this->requestdata('unfollownum');//REQUEST
         }
         $key = $data['Content'];   //提取关键字匹配
         //主页过滤
@@ -116,7 +118,6 @@ class WeixinAction extends Action
                 if ($string == 'fujin') {
                     $this->recordLastRequest($key);
                 }
-                $this->requestdata('textnum');
                 if ($check['connectnum'] != 1) {
                     $return = C('connectout');
                     continue;
@@ -129,8 +130,10 @@ class WeixinAction extends Action
         LOG::write("RETURN VALUE",LOG::INFO);
         if (!empty($return)) {
             if (is_array($return)) {
+                $this->trackdata('Token_open');
                 return $return;
             } else {
+                $this->trackdata('textnum');//REQUEST
                 return array(
                     $return,
                     'text'
@@ -140,6 +143,7 @@ class WeixinAction extends Action
             LOG::write("Location_X",LOG::INFO);
             if ($this->data['Location_X']) {
                 $this->recordLastRequest($this->data['Location_Y'] . ',' . $this->data['Location_X'], 'location');
+                $this->trackdata('Location');
                 return $this->map($this->data['Location_X'], $this->data['Location_Y']);
             }
             if (!(strpos($key, '开车去') === FALSE) || !(strpos($key, '坐公交') === FALSE) || !(strpos($key, '步行去') === FALSE)) {
@@ -154,6 +158,7 @@ class WeixinAction extends Action
                     $latLng = explode(',', $loctionInfo['keyword']);
                     return $this->map($latLng[1], $latLng[0]);
                 }
+                $this->trackdata('Location');//REQUEST
                 return array(
                     '请发送您所在的位置',
                     'text'
@@ -622,15 +627,16 @@ class WeixinAction extends Action
             $where['match_type'] = 1;
             $res = M('Keyword')->where($where)->find();
         }
-        if ($res != false) {
+        if ($res) {
             switch ($res['module']) {
                 case 'Home':
                     LOG::write('匹配微官网',LOG::INFO);
+                    $this->trackdata('Home');//REQUEST
                     return $this->shouye();
                     break;
                 case 'Img':
                     LOG::write('组装多图文'.$key,LOG::INFO);
-                    $this->requestdata('imgnum');
+                    $this->requestdata('imgnum');//REQUEST
                     $img_db = M('Img');
                     //多图文关联
                     $like['id']    = $res['pid'];
@@ -673,7 +679,7 @@ class WeixinAction extends Action
                     break;
                 case 'Text':
                     LOG::write('匹配关键字:'.$key,LOG::INFO);
-                    $this->requestdata('textnum');
+                    $this->requestdata('textnum');//REQUEST
                     $info = M('Text')->order('id desc')->find($res['pid']);
                     return array(
                         htmlspecialchars_decode($info['text']),
@@ -682,6 +688,7 @@ class WeixinAction extends Action
                     break;
                 case 'Reserve':
                     LOG::write('匹配关键字:'.$key,LOG::INFO);
+                    $this->trackdata('Reserve');//REQUEST
                     $info = M('Reserve')->find($res['pid']);
                     return array(
                         array(
@@ -697,6 +704,7 @@ class WeixinAction extends Action
                     break;
                 case 'Album':
                     LOG::write('匹配相册:'.$key,LOG::INFO);
+                    $this->trackdata('Album');//REQUEST
                     $info = M('Album')->find($res['pid']);
                     return array(
                         array(
@@ -728,6 +736,7 @@ class WeixinAction extends Action
                     );
                     break;
                 case 'Xitie':
+                    $this->trackdata('Xitie');//REQUEST
                     $this->requestdata('other');
                     $pro = M('Xitie')->where(array(
                         'id' => $res['pid']
@@ -779,6 +788,7 @@ class WeixinAction extends Action
                     );
                     break;
                 case 'Lottery':
+                    $this->trackdata('Lottery');//REQUEST
                     $this->requestdata('other');
                     $info = M('Lottery')->find($res['pid']);
                     if ($info == false || $info['status'] == 3) {
@@ -812,7 +822,7 @@ class WeixinAction extends Action
                         $title = $info['end_title'];
                         $info = $info['end_info'];
                     }
-                    $url = "/npWap/{$model}/index.act?actid={$id}&token={$this->token}&wecha_id={$this->data['FromUserName']}";
+                    $url = C('site_url')."/npWap/{$model}/index.act?actid={$id}&token={$this->token}&wecha_id={$this->data['FromUserName']}";
 
                         /*C('site_url') . U('Wap/' . $model . '/index', array(
                             'token' => $this->token,
@@ -846,6 +856,7 @@ class WeixinAction extends Action
                     );
             }
         } else {
+            $this->trackdata('UNMATCH');//REQUEST
             if (!strpos($this->fun, 'liaotian')) {
                 $other = M('Other')->where(array(
                     'token' => $this->token
@@ -1418,7 +1429,8 @@ class WeixinAction extends Action
         $data['year'] = date('Y');
         $data['month'] = date('m');
         $data['day'] = date('d');
-        $data['token'] = $this->e;
+        $data['token'] = $this->token;
+        $data['wecha_id'] = $this->wecha_id;
         $mysql = M('Requestdata');
         $check = $mysql->field('id')->where($data)->find();
         if ($check == false) {
@@ -1427,6 +1439,23 @@ class WeixinAction extends Action
             $mysql->add($data);
         } else {
             $mysql->where($data)->setInc($field);
+        }
+    }
+    public function trackdata($module){
+        $data['year'] = date('Y');
+        $data['month'] = date('m');
+        $data['day'] = date('d');
+        $data['token'] = $this->token;
+        $data['wecha_id'] = $this->wecha_id;
+        $data['module'] = $module;
+        $mysql = M('Requestdata');
+        $check = $mysql->field('id')->where($data)->find();
+        if ($check == false) {
+            $data['time'] = time();
+            $data['click']  = 1;
+            $mysql->add($data);
+        } else {
+            $mysql->where($data)->setInc('click');
         }
     }
 

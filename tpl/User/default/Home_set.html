@@ -15,6 +15,7 @@
 			editor.loadPlugin('smimage', function() {
 				editor.plugin.imageDialog({
                     imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16); ?>',
 					fileUrl : K('#pic').val(),
 					/*clickFn : function(url, title) {
 						if(url.indexOf("http") > -1){

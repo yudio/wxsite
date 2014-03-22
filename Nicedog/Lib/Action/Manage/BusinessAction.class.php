@@ -155,7 +155,7 @@ class BusinessAction extends UserAction{
         $thisday   = mktime(0,0,0,date('m'),date('d'),date('Y'));
         $lastday   = mktime(0,0,0,date('m'),date('d')-1,date('Y'));
         $today     = time();
-        $list = $db->query("select count(*) as num,DATE_FORMAT(FROM_UNIXTIME(a.createtime),'%Y-%m-%d') as e,round((a.createtime-{$lastmonth})/24/3600) as day from __TABLE__ a where a.createtime > {$lastmonth} and a.createtime < {$today} and a.token = '{$_SESSION['token']}' group by e order by e");
+        $list = $db->query("select count(*) as num,DATE_FORMAT(FROM_UNIXTIME(a.createtime),'%Y-%m-%d') as e,floor((a.createtime-{$lastmonth})/24/3600) as day from __TABLE__ a where a.createtime > {$lastmonth} and a.createtime < {$today} and a.token = '{$_SESSION['token']}' group by e order by e");
         $tonum = $db->query("select count(*) as num from __TABLE__ a where a.createtime > {$thisday} and a.token = '{$_SESSION['token']}'");
         $lanum = $db->query("select count(*) as num from __TABLE__ a where a.createtime > {$lastday} and a.token = '{$_SESSION['token']}'");
         $total = $db->where(array('token'=>session('token'),'del_flag'=>'0'))->count();
@@ -312,6 +312,7 @@ class BusinessAction extends UserAction{
         $db = D('Album');
         if (IS_POST){
             $id = $this->_post('id','intval');
+            $_POST['token'] = session('token');
             if ($id){
                 if ($db->create()){
                     $data['pid']    = $id;

@@ -26,9 +26,13 @@
                             <img src="{np:$user.headerpic}" style="width: 88px; height: 88px" class="img-rounded"></dt>
                         <dd>
                             <p><strong>{np:$user.wxname}</strong>：<b class="text-warning">体验版</b> <a
-                                    href="http://wpa.qq.com/msgrd?v=3&uin={np:$user.wxfakeid}&site=qq&menu=yes"
+                                    href="http://wpa.qq.com/msgrd?v=3&uin=24757856&site=qq&menu=yes"
                                     target="_blank"><i class="icon-arrow-up" title="升级"></i>升级</a> <a
-                                    href="/wechat/menuset?aid=72040"><i></i>订阅号</a></p>
+                                    href="/npManage/account/type.act"><i></i>
+                                <if condition="$user.type eq 1">订阅号</if>
+                                <if condition="$user.type eq 2">认证订阅号</if>
+                                <if condition="$user.type eq 3">服务号</if>
+                                <if condition="$user.type eq 4">认证服务号</if></a></p>
 
 
                             <table class="table noborder">

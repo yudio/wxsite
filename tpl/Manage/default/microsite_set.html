@@ -209,6 +209,7 @@
                 editor.loadPlugin('smimage', function () {
                     editor.plugin.imageDialog({
                         imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                        userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                         clickFn: function (url, title, width, height, border, align) {
                             var $input = $(e.target).parent().prevAll("input[type=text]")
                             $input.val(url)
@@ -230,6 +231,7 @@
                 editor.loadPlugin('mp3', function () {
                     editor.plugin.imageDialog({
                         mp3Url: $(e.target).parent().prevAll("input[type=text]").val(),
+                        userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                         clickFn: function (url, title, width, height, border, align) {
                             _mp3_i++;
                             var $input = $(e.target).parent().prevAll("input[type=hidden]")
