@@ -27,7 +27,9 @@
         </header>
         <div class="content">
             <p style="white-space: pre-line;">
+                <if condidtion="$info.showpic eq 1">
                 <img src="{np:$info.pic}" style="width:100%;"/><br />
+                </if>
             {np:$info.text}
         </div>
     </article>
@@ -55,22 +57,7 @@
         </div>
     </div>
 </section>
-<!-- UY BEGIN -->
-<div id="uyan_frame" style="width:95%; margin:0px auto;"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1865161"></script>
-<!-- UY END -->
-<style>
-    .ujian-uyan{
-        display:none;
-    }
-</style>
-<script>
-    $(document).ready(function(){
-        setInterval(function(){
-            $('.ujian-uyan').next().remove();
-        }, 1000);
-    });
-</script>
+<include file="common:comment"/>
 <div style="padding-bottom:0!important;">
     <a href="javascript:window.scrollTo(0,0);" style="font-size:12px;margin:5px auto;display:block;color:#fff;text-align:center;line-height:35px;background:#333;margin-bottom:-10px;">返回顶部</a>
 </div>
