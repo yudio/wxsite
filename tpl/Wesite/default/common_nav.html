@@ -1,5 +1,5 @@
-<if condition="count($plugmenus) gt 0">
 <if condition="$homeInfo.plugmenu eq 0">
+<if condition="count($plugmenus) gt 0">
 <section>
     <div class="plug-div">
         <div id="plug-phone" class="plug-phone">
@@ -25,6 +25,7 @@
         }
     }, false);
 </script>
+</if>
 <elseif condition="($homeInfo.plugmenu eq 1)AND(count($plugmenus) gt 0)"/>
 <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/menu-3.css" media="all"/>
 <section>
@@ -198,5 +199,4 @@
         </div>
     </section>
 </div>
-</if>
 </if>
