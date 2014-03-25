@@ -1,0 +1,17 @@
+<if condition="$homeInfo.comment eq 1">
+<div id="uyan_frame" style="width:95%; margin:0px auto;"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1865161"></script>
+<!-- UY END -->
+<style>
+	.ujian-uyan{
+		display:none;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		setInterval(function(){
+			$('.ujian-uyan').next().remove();
+		}, 1000);
+	});
+</script>
+</if>

@@ -3,19 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <include file="common:snowcss"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-16.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
-    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/template/home-16.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/template/zepto.js"></script>
     <title>{np:$homeInfo.title}</title>
-    <include file="common:iframe"/>
+    <include file="common:meta"/>
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <include file="common:iframe"/>
+
 <div class="body" style="padding-bottom:52px;">
     <include file="common:banner"/>
     <br/>
@@ -39,12 +40,17 @@
             </volist>
         </ul>
     </section>
-<!--导航菜单后台设置的快捷菜单-->
-<include file="common:nav"/>
-<!--分享前控制-->
-<include file="common:share"/>
+    
+    <include file="common:nav"/>
+    <!--分享前控制-->
+    <include file="common:share"/>
 </div>
-<include file="common:footer"/>
+<footer style="overflow:visible;">
+    <div class="weimob-copyright">
+        <a href="{np:$homeInfo.homeurl}" style="color:#fff!important;">© {np:$homeInfo.copyright}</a>
+    </div>
+    <span class="weimob-support" style="display:none;">{np::C('copyright')}</span>
+</footer>
 </body>
 </html>
 
