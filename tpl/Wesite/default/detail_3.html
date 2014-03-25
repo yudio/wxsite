@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/peak-3.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <title>{np:$info.title}</title>
+    <include file="common:meta"/>
+    <style>
+        img{max-width:100%!important;}
+    </style>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="body" style="padding-bottom:60px;">
+    <include file="common:menu"/>
+    <section class="news_article">
+        <header>
+            <h3 style="font-size:14px;">{np:$info.title}</h3>
+            <small class="gray">{np:$info.createtime|date='Y-m-d',###}</small>
+        </header>
+        <article>
+            <if condition="$info['showpic'] eq 1">
+            <p>
+                <img src="{np:$info.pic}" style="width:100%;"/>
+            <p>
+            </if>
+            {np:$info.text}
+        </article>
+    </section>
+    <section style="width:95%; margin:0px auto;">
+        <div id="mcover" onclick="document.getElementById('mcover').style.display='';" style="display:none;">
+            <img src="{np::RES}/img/guide.png">
+        </div>
+        <div class="text" id="content">
+            <div id="mess_share">
+                <div id="share_1">
+                    <button class="button2" onclick="document.getElementById('mcover').style.display='block';">
+                        <img src="{np::RES}/img/icon_msg.png">&nbsp;发送给朋友
+                    </button>
+                </div>
+                <div id="share_2">
+                    <button class="button2" onclick="document.getElementById('mcover').style.display='block';">
+                        <img src="{np::RES}/img/icon_timeline.png">&nbsp;分享到朋友圈
+                    </button>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </section>
+
+    <include file="common:comment"/>
+
+    <div style="padding-bottom:0!important;">
+        <a href="javascript:window.scrollTo(0,0);" style="font-size:12px;margin:5px auto;display:block;color:#fff;text-align:center;line-height:35px;background:#333;margin-bottom:-10px;">返回顶部</a>
+    </div>
+    <!--分享前控制-->
+    <include file="share:script2"/>
+</div>
+<include file="common:footer"/>
+</body>
+<include file="share:script1"/>
+</html>
