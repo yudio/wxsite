@@ -8,9 +8,10 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="alist">
 	  <tr>
 		<td width="70">ID</td>
-		<td width="150">用户组名称</td>
-		<td width="150">价格</td>
-		<td >自义定图文条数</td>
+		<td width="100">用户组名称</td>
+		<td width="50">价格</td>
+		<td width="50">文字条数</td>
+        <td width="50">图文条数</td>
 		<td width="100">请求次数</td>
 		<td width="150">是否显示版权</td>
 		<td width="150">活动创建次数</td>
@@ -23,6 +24,7 @@
 				<td >{np:$vo.name}</td>
 				<td >{np:$vo['price']}</td>
 				<td >{np:$vo.diynum}</td>
+                <td >{np:$vo.imgnum}</td>
 				<td align='center'>{np:$vo.connectnum}</td>
 				<td align='center'><if condition="$vo['iscopyright'] eq 1">是<else/>否</if></td>
 				<td align='center'>{np:$vo.activitynum}</td>

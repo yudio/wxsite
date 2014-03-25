@@ -67,11 +67,19 @@ class IndexAction extends UserAction{
 
     public function test(){
 
-
+/*
         $head = date('Y').'-'.date('m').'月请求曲线';
         $this->assign('head',$head);
         //header('Content-Type:text/xml; charset=utf-8');
         $this->display('test','utf-8','text/xml');
+*/
+        try{
+            $msg = Email::think_send_mail('samon@nicepa.cn','大客户','奈斯伙伴系统邮箱','系统信息发送成功，请登录nicepa.cn获取详细内容!');
+        }catch (Exception $e){
+            echo $e->getMessage();
+        }
+        echo $msg;
+
     }
 
 

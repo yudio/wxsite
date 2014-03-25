@@ -23,6 +23,64 @@ class TokenAction extends BackAction{
 		
 		
 	}
+
+    /* ========权限设置部分======== */
+    //权限浏览
+    public function access(){
+        $wxuid = $this->_get('wxuid','intval',0);
+        if(!$wxuid) $this->error('参数错误!');
+
+        $Tree = new Tree();
+        $Tree->icon = array('&nbsp;&nbsp;&nbsp;│ ','&nbsp;&nbsp;&nbsp;├─ ','&nbsp;&nbsp;&nbsp;└─ ');
+        $Tree->nbsp = '&nbsp;&nbsp;&nbsp;';
+
+        $NodeDB = D('WxuserNode');
+        $node = $NodeDB->getAllNode();
+
+        $AccessDB = D('WxuserAccess');
+        $access = $AccessDB->getAllAccess('','wxuid,node_id,pid,level');
+
+
+        foreach ($node as $n=>$t) {
+            $node[$n]['checked'] = ($AccessDB->is_checked($t,$wxuid,$access))? ' checked' : '';
+            $node[$n]['depth'] = $AccessDB->get_level($t['id'],$node);
+            $node[$n]['pid_node'] = ($t['pid'])? ' class="tr lt child-of-node-'.$t['pid'].'"' : '';
+        }
+        $str  = "<tr id='node-\$id' \$pid_node>
+                    <td style='padding-left:30px;'>\$spacer<input type='checkbox' name='nodeid[]' value='\$id' class='radio' level='\$depth' \$checked onclick='javascript:checknode(this);'/ > \$title (\$name)</td>
+                </tr>";
+
+        $Tree->init($node);
+        $html_tree = $Tree->get_tree(0, $str);
+        $this->assign('html_tree',$html_tree);
+
+        $this->display();
+    }
+
+    //权限编辑
+    public function access_edit(){
+        $wxuid = $this->_post('wxuid','intval',0);
+        $nodeid = $_REQUEST['nodeid'];
+        if(!$wxuid) $this->error('参数错误!');
+        $AccessDB = D('WxuserAccess');
+        if (is_array($nodeid) && count($nodeid) > 0) {  //提交得有数据，则修改原权限配置
+            $AccessDB -> delAccess(array('wxuid'=>$wxuid));  //先删除原用户组的权限配置
+            $NodeDB = D('WxuserNode');
+            $node = $NodeDB->getAllNode();
+
+            foreach ($node as $_v) $node[$_v[id]] = $_v;
+            foreach($nodeid as $k => $node_id){
+                $data[$k] = $AccessDB -> get_nodeinfo($node_id,$node);
+                $data[$k]['wxuid'] = $wxuid;
+            }
+            $AccessDB->addAll($data);   // 重新创建角色的权限配置
+        } else {    //提交的数据为空，则删除权限配置
+            $AccessDB -> delAccess(array('wxuid'=>$wxuid));
+        }
+        $this->assign("jumpUrl",U('Token/access',array('wxuid'=>$wxuid)));
+        $this->success('设置成功！');
+    }
+
 	public function del(){
 		$id=$this->_get('id','intval',0);
 		$wx=M('Wxuser')->where(array('id'=>$id))->find();

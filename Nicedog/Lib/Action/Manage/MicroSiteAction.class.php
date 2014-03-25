@@ -25,8 +25,25 @@ class MicroSiteAction extends UserAction{
         if($info==false||$info['token']!==$token){
             $this->error('非法操作','/');
         }
+        $access = M('WxuserAccess')->field('node_id')->where(array('wxuid'=>$info['id']))->order('pid')->select();
+        $menu = M('WxuserNode')->where(array('status'=>1,'pid'=>1))->select();
+        foreach($menu as $key=>&$vo){
+            LOG::write('IN_ARRAY'.$vo['id'],LOG::ERR);
+            if (!in_array(array('node_id'=>$vo['id']),$access)){
+                unset($menu[$key]);
+            }
+            $submenu = M('WxuserNode')->where(array('status'=>1,'pid'=>$vo['id']))->select();
+            foreach($submenu as $ki=>$vi){
+                if (!in_array(array('node_id'=>$vi['id']),$access)){
+                    unset($submenu[$ki]);
+                }
+            }
+            $vo['submenu'] = $submenu;
+        }
+        //dump($menu);
         session('token',$token);
         session('wxid',$info['id']);
+        $this->assign('menu',$menu);
         $this->assign('token',session('token'));
         $this->assign('info',$info);
         //

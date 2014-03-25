@@ -187,6 +187,17 @@ class ReplyAction extends UserAction
                     $id = $db->add();
                     $data['pid']     = $id;
                     Keyword::update($data,'Text');
+                    //文本请求数
+                    $cond['uid']   = session('uid');
+                    $cond['token'] = session('token');
+                    $cond['year']  = date('Y');
+                    $cond['month'] = date('m');
+                    $userinfo = M('WxuserInfo')->field('textnum,textall')->where($cond)->find();
+                    if ($userinfo['textnum']<$userinfo['textall']){
+                        M('WxuserInfo')->where($cond)->setInc('textnum');
+                    }else{
+                        $this->ajaxReturn(array('errno'=>'100','error'=>'文本自定义超出限制！'),'JSON');
+                    }
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/reply/textlist.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -206,6 +217,12 @@ class ReplyAction extends UserAction
         $db = D('Text');
         if(D('Text')->where($where)->delete()){
             M('Keyword')->where(array('pid'=>$where['id'],'token'=>session('token'),'module'=>'Text'))->delete();
+            //文本请求数
+            $cond['uid']   = session('uid');
+            $cond['token'] = session('token');
+            $cond['year']  = date('Y');
+            $cond['month'] = date('m');
+            M('WxuserInfo')->where($cond)->setDec('textnum');
             $this->ajaxReturn(array('errno'=>'0','error'=>'成功！'),'JSON');
         }else{
             $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -310,6 +327,17 @@ class ReplyAction extends UserAction
                     }else{
                         LOG::write('addnews|add'.$newdb->getError(),LOG::ERR);
                     }
+                    //图文请求数
+                    $cond['uid']   = session('uid');
+                    $cond['token'] = session('token');
+                    $cond['year']  = date('Y');
+                    $cond['month'] = date('m');
+                    $userinfo = M('WxuserInfo')->field('imgnum,imgall')->where($cond)->find();
+                    if ($userinfo['imgnum']<$userinfo['imgall']){
+                        M('WxuserInfo')->where($cond)->setInc('imgnum');
+                    }else{
+                        $this->ajaxReturn(array('errno'=>'100','error'=>'图文自定义超出限制！'),'JSON');
+                    }
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/reply/newslist.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -345,6 +373,12 @@ class ReplyAction extends UserAction
         $db = D('Img');
         if(D('Img')->where($where)->delete()){
             M('Keyword')->where(array('pid'=>$where['id'],'token'=>session('token'),'module'=>'Img'))->delete();
+            //图文请求数
+            $cond['uid']   = session('uid');
+            $cond['token'] = session('token');
+            $cond['year']  = date('Y');
+            $cond['month'] = date('m');
+            M('WxuserInfo')->where($cond)->setDec('imgnum');
             $this->ajaxReturn(array('errno'=>'0','error'=>'成功！'),'JSON');
         }else{
             $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');

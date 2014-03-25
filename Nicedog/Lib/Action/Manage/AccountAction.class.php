@@ -29,6 +29,27 @@ class AccountAction extends UserAction{
         $count=$db->where($where)->count();
         $page=new Page($count,25);
         $info=$db->where($where)->limit($page->firstRow.','.$page->listRows)->select();
+        foreach($info as &$vo){
+            $cond['pid']   = $vo['id'];
+            $cond['token'] = $vo['token'];
+            $cond['year']  = date('Y');
+            $cond['month'] = date('m');
+            $userinfo = M('WxuserInfo')->where($cond)->find();
+            if (!$userinfo){
+                $userinfo = M('WxuserInfo')->where(array('token'=>$this->token))->order('year desc,month desc')->find();
+                if (!$userinfo){
+                    //初始化数据
+                    $this->addPrivilege(array('id'=>$vo['id'],'token'=>$vo['token']));
+                }else{
+                    $userinfo['year']  = date('Y');
+                    $userinfo['month'] = date('m');
+                    unset($userinfo['id']);
+                    $rid = M('WxuserInfo')->data($userinfo)->add();
+                    $userinfo = M('WxuserInfo')->find($rid);
+                }
+            }
+            $vo['numinfo'] = $userinfo;
+        }
         $data=M('User_group')->field('wechat_card_num')->where(array('id'=>session('gid')))->find();
         $users=M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->find();
         $this->assign('uwxnum',$users['wechat_card_num']);
@@ -101,7 +122,7 @@ class AccountAction extends UserAction{
         if($pwd!=false&&$newpass!=false){
             $pwd=md5($pwd);
             $user = M('Users')->where(array('id'=>$_SESSION['uid']))->find();
-            LOG::write('DATA:'.$user['password'],LOG::ERR);
+            //LOG::write('DATA:'.$user['password'],LOG::INFO);
             if ($pwd!=$user['password']){
                 $this->ajaxReturn(array('error'=>'原密码错误！'),'JSON');
             }
@@ -193,6 +214,7 @@ class AccountAction extends UserAction{
                 }
                 M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->setInc('wechat_card_num');
                 $this->addfc();
+                $this->addPrivilege(array('id'=>$id,'token'=>$_POST['token']));//添加用户权限信息
                 //jsret {"errno":0,"error":"信息","pid":69535}
                 $data=array('errno'=>'0','error'=>'操作成功','pid'=>session('uid'),'tip'=>"<h5>复制此处token和url到腾讯平台绑定</h5><p>URL:<input style='width:300px'  value='{$tokenurl}'/> </p><p>token:{$_POST['token']}</p>");
                 $this->ajaxReturn($data,'JSON');
@@ -231,6 +253,7 @@ class AccountAction extends UserAction{
                     $id = $db->add();
                     M('Users')->field('wechat_card_num')->where(array('id'=>session('uid')))->setInc('wechat_card_num');
                     $this->addfc();
+                    $this->addPrivilege(array('id'=>$id,'token'=>$_POST['token']));
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/account/index.act','tip'=>"<h5>复制此处token和url到腾讯平台绑定</h5><p>URL:<input style='width:300px'  value='{$tokenurl}'/> </p><p>token:{$_POST['token']}</p>"),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -254,6 +277,7 @@ class AccountAction extends UserAction{
         $where['id']=$this->_get('id','intval');
         $where['uid']=session('uid');
         if($db->where($where)->delete()){
+            M('Users')->where(array('id'=>session('uid')))->setDec('wechat_card_num');
             redirect('/npManage/account/index.act',0);
         }else{
             LOG::write('ajaxReturn',LOG::ERR);
@@ -277,6 +301,37 @@ class AccountAction extends UserAction{
         $open['queryname']=rtrim($queryname,',');
         $token_open->data($open)->add();
     }
+    /*
+     * 添加用户限制INFO
+     */
+    public function addPrivilege($user){
+        $db=M('WxuserInfo');
+        $data['uid']   = session('uid');
+        $data['token'] = $user['token'];
+        $data['pid']   = $user['id'];
+        $data['updatetime'] = time();
+        $data['validtime']  = $data['updatetime'] + 3*24*3600;
+        $data['month']      = date('m');
+        $data['year']       = date('Y');
+        //用户组
+        $group=M('User_group')->where(array('id'=>session('gid')))->find();
+        $data['textnum'] = 0;$data['imgnum'] = 0;$data['videonum'] = 0;$data['requestnum'] = 0;$data['monthnum'] = 0;
+        $data['textall'] = $group['diynum'];$data['imgall'] = $group['imgnum'];$data['videonum'] = $data['videonum'];
+        $data['requestall'] = 12*$group['connectnum'];$data['monthall'] = $group['connectnum'];
+        $db->data($data)->add();
+        //菜单权限
+        $cond['level'] = array('lt',session('gid'));
+        $nodes = M('WxuserNode')->where($cond)->select();
+        $data = array();
+        foreach($nodes as $key=>$vo){
+            $data[$key]['node_id'] = $vo['id'];
+            $data[$key]['pid']     = $vo['pid'];
+            $data[$key]['level']     = $vo['level'];
+            $data[$key]['module']     = $vo['name'];
+            $data[$key]['role_id']     = $user['id'];
+        }
+        M('WxuserAccess')->addAll($data);
+    }
 
     /*
      *
@@ -284,6 +339,12 @@ class AccountAction extends UserAction{
      */
     public function home(){
         $user = M('Wxuser')->where(array('token'=>session('token')))->find();
+        $where['pid']   = $user['id'];
+        $where['token'] = $user['token'];
+        $where['year']  = date('Y');
+        $where['month'] = date('m');
+        $userinfo = M('WxuserInfo')->where($where)->find();
+        $this->assign('userinfo',$userinfo);
         $this->assign('user',$user);
         $this->display();
     }

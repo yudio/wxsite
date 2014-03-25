@@ -1440,6 +1440,7 @@ class WeixinAction extends Action
         return $data;
     }
 
+    //基本模块请求数据
     public function requestdata($field)
     {
         $data['year'] = date('Y');
@@ -1457,6 +1458,7 @@ class WeixinAction extends Action
             $mysql->where($data)->setInc($field);
         }
     }
+    //业务模块请求数据
     public function trackdata($module){
         $data['year'] = date('Y');
         $data['month'] = date('m');
@@ -1474,6 +1476,36 @@ class WeixinAction extends Action
             $mysql->where($data)->setInc('click');
         }
     }
+    /*
+         * 添加用户限制INFO
+         */
+    public function addLimit(){
+        $db=M('WxuserInfo');
+        $data['token'] = $this->token;
+        $data['month']      = date('m');
+        $data['year']       = date('Y');
+        $userinfo = $db->where($data)->find();
+        if (!$userinfo){
+            //获取最近的历史数据
+            $userinfo = $db->where(array('token'=>$this->token))->order('year desc,month desc')->find();
+            $userinfo['monthnum'] = 1;
+            $userinfo['requestnum']++;
+            $userinfo['month']    = date('m');
+            $userinfo['year']     = date('Y');
+            unset($userinfo['id']);
+            $db->data($userinfo)->add();
+            return true;
+        }else{
+            if ($userinfo['monthnum']<$userinfo['monthall']){
+                $db->where($data)->setInc('requestnum');
+                $db->where($data)->setInc('monthnum');
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
 
     function baike($name)
     {
