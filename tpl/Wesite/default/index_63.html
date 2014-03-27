@@ -17,6 +17,7 @@
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <include file="common:iframe"/>
+<if condition="$homeInfo['play_img'] eq 1">
 <style>
     .body{
         max-width:640px;
@@ -28,6 +29,7 @@
         -webkit-background-size:100% 100%;
     }
 </style>
+</if>
 <script>
     $().ready(function(){
         playbox.init("playbox");

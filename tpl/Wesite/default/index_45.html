@@ -16,6 +16,7 @@
     </head>
     <body onselectstart="return true;" ondragstart="return false;">
     <include file="common:iframe"/>
+    <if condition="$homeInfo['play_img'] eq 1">
 	<style type="text/css">
 	.body{
 		display:block;
@@ -23,6 +24,7 @@
 			background:url('{np:$homeInfo.bg_img}');
 		}
 	</style>
+    </if>
     <div class="body">
         <!--幻灯片管理-->
         <include file="common:banner"/>
