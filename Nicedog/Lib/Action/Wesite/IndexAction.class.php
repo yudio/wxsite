@@ -47,7 +47,7 @@ class IndexAction extends BaseAction{
 			$this->wecha_id=$_SESSION['wecha_id'];
 		}
 		//获取分类信息Classify
-        $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts desc')->select();
+        $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts asc,id asc')->select();
         $classify=$this->convertLinks($classify);//加外链等信息
         //获取用户组ID
 		$gid=D('Users')->field('gid')->find($wxuser['uid']);

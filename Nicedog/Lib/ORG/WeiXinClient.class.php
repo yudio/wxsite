@@ -324,7 +324,8 @@ class WeiXinClient
     */
     public function bindUrlDev($devurl, $devtoken)
     {
-        $url = "https://mp.weixin.qq.com/cgi-bin/callbackprofile?t=ajax-response&token={$this->webToken}&lang=zh_CN";
+        //$url = "https://mp.weixin.qq.com/cgi-bin/callbackprofile?t=ajax-response&token={$this->webToken}&lang=zh_CN";
+        $url = "https://mp.weixin.qq.com/advanced/callbackprofile?t=ajax-response&token={$this->webToken}&lang=zh_CN";
         $re = $this->req->submit($url, array('url' => $devurl, 'callback_token' => $devtoken), $this->cookie);
         $result = json_decode($re['body'], 1);
         if (!$result) {

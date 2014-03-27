@@ -228,9 +228,9 @@ class MicroSiteAction extends UserAction{
         $where['category_id'] = array('eq',0);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
-        $info=$db->where($where)->order('sorts')->limit($page->firstRow.','.$page->listRows)->select();
+        $info=$db->where($where)->order('sorts asc,id asc')->limit($page->firstRow.','.$page->listRows)->select();
         foreach($info as $key=>&$vo){
-            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts')->select();
+            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts asc,id asc')->select();
             $vo['sub'] = $list;
         }
         $this->assign('page',$page->show());

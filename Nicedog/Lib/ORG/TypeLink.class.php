@@ -55,11 +55,9 @@ class TypeLink{
              LOG::write('TL:'.$arr['type'],LOG::ERR);
              switch ($arr['type']){
                  case 'link':
-                     //   /wesite/test/lists?show=1&classid=325
                      $arr['url'] = $arr['link'];
                      break;
                  case 'tel':
-                     //   /wesite/test/lists?show=1&classid=325
                      $arr['url'] = 'tel:'.$arr['tel'];
                      break;
                  case 'map':
@@ -93,6 +91,7 @@ class TypeLink{
              }
          }
          if ($module=='Classify'){
+             LOG::write('TL:'.$arr['type'],LOG::ERR);
              switch ($arr['type']){
                  case 'article':
                      //   /wesite/test/lists?show=1&classid=325

@@ -9,9 +9,9 @@ var G = {
     util: {},
     data: {},
     domain: {
-        w: 'localhost',
-        t: 'http://localhost/tpl/static',
-        k: 'http://localhost/tpl/static/wm-xin-a'
+        w: 'nicepa.cn',
+        t: 'http://nicepa.cn/tpl/static',
+        k: 'http://nicepa.cn/tpl/static/wm-xin-a'
     },
     set: {
         KindEditor_seting: {

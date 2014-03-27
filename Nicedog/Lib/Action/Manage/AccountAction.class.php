@@ -328,7 +328,7 @@ class AccountAction extends UserAction{
             $data[$key]['pid']     = $vo['pid'];
             $data[$key]['level']     = $vo['level'];
             $data[$key]['module']     = $vo['name'];
-            $data[$key]['role_id']     = $user['id'];
+            $data[$key]['wxuid']     = $user['id'];
         }
         M('WxuserAccess')->addAll($data);
     }

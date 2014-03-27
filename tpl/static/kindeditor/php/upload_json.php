@@ -10,7 +10,7 @@ $ext_arr = array(
 	'media' => array('swf', 'flv', 'mp3', 'wav', 'wma', 'wmv', 'mid', 'avi', 'mpg', 'asf', 'rm', 'rmvb'),
 	'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
 );
-$max_size = 100000000;
+$max_size = 500*1024;
 $save_path = realpath($save_path).'/';
 if (!empty($_FILES['imgFile']['error'])) {
 	switch($_FILES['imgFile']['error']){
@@ -50,7 +50,7 @@ if (empty($_FILES) === false) {
 	if (@is_dir($save_path) === false) alert("上传目录不存在。");
 	if (@is_writable($save_path) === false) alert("上传目录没有写权限。");
 	if (@is_uploaded_file($tmp_name) === false) alert("上传失败。");
-	if ($file_size > $max_size) alert("上传文件大小超过限制。");
+	if ($file_size > $max_size) alert("上传文件大小超过500K限制。");
 	$dir_name = empty($_GET['dir']) ? 'image' : trim($_GET['dir']);
 	if (empty($ext_arr[$dir_name])) alert("目录名不正确。");
 	$temp_arr = explode(".", $file_name);

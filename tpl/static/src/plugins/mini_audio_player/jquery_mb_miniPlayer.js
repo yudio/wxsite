@@ -157,7 +157,7 @@ if (typeof map != "object")
             addShadow: true,
             downloadable: false,
             downloadablesecurity: false,
-            swfPath: "http://stc.weimob.com/swf/",
+            swfPath: "http://nicepa.cn/tpl/static/swf/",
             onPlay: function () { },
             onEnd: function () { }
         },
