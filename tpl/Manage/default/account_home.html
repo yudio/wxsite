@@ -38,23 +38,15 @@
                             <table class="table noborder">
                                 <tr>
                                     <td>套餐有效期：{np:$viptime|date="Y-m-d",###}</td>
-                                    <td>文本自定义：0/100</td>
-                                    <td>图文自定义：
-                                        <php>echo $_SESSION['diynum'].'/'.$group[$_SESSION['gid']]['did'];</php>
-                                    </td>
-                                    <td>语音自定义：0/0</td>
+                                    <td>文本自定义：{np:$userinfo['textnum']}/{np:$userinfo['textall']}</td>
+                                    <td>图文自定义：{np:$userinfo['imgnum']}/{np:$userinfo['imgall']}</td>
+                                    <td>语音自定义：{np:$userinfo['videonum']}/{np:$userinfo['videoall']}</td>
                                 </tr>
                                 <tr>
-                                    <td>请求数剩余：
-                                        <php>echo (10000-$_SESSION['connectnum'])</php>
-                                    </td>
-                                    <td>总请求数：
-                                        <php>echo $_SESSION['connectnum']</php>
-                                    </td>
-                                    <td>本月请求数：
-                                        <php>echo $group[$_SESSION['gid']]['cid'];</php>
-                                    </td>
-                                    <td>每月可请求总数：10000</td>
+                                    <td>请求数剩余：<?php echo $userinfo['monthall']-$userinfo['monthnum'];?></td>
+                                    <td>总请求数：{np:$userinfo['requestnum']}</td>
+                                    <td>本月请求数：{np:$userinfo['monthnum']}</td>
+                                    <td>每月可请求总数：{np:$userinfo['monthall']}</td>
                                 </tr>
                             </table>
                             <p><strong>接口地址：</strong>{np::C('site_url')}/wechat/{np:$token}&nbsp;&nbsp;&nbsp;&nbsp;
@@ -161,7 +153,7 @@
                                     智能的数据分析
                                     总体会员增长曲线、消费统计、积分发放回收统计、会员营销赠送状况及使用状态等，系统均智能为您做数据分析，会员现状一目了然;
                                     全新的小清新界面
-                                    是不是都惊呆了？是不是迫不及待想要体验一把了？那就赶紧行动吧！ 【关注微信号“hsweimob”，发送“会员卡”即可体验】
+                                    是不是都惊呆了？是不是迫不及待想要体验一把了？那就赶紧行动吧！ 【关注微信号“nice_partner”，发送“会员卡”即可体验】
                                     盟妹
                                     2014-01-25
                                 </div>

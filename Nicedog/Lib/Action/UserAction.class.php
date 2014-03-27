@@ -2,7 +2,7 @@
 class UserAction extends BaseAction{
 	protected function _initialize(){
 		parent::_initialize();
-		$userinfo=M('User_group')->where(array('id'=>session('gid')))->find();
+		$usergroup=M('User_group')->where(array('id'=>session('gid')))->find();
 		$users=M('Users')->where(array('id'=>$_SESSION['uid']))->find();
 		$this->assign('thisUser',$users);
 		//dump($users);
@@ -21,7 +21,7 @@ class UserAction extends BaseAction{
             $this->assign('token',session('token'));
         }
 		//
-		$this->assign('userinfo',$userinfo);
+		$this->assign('usergroup',$usergroup);
 		if(session('uid')==false){
 			$this->redirect('/npHome/Index/index.act');
 		}

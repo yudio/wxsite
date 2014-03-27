@@ -518,6 +518,7 @@
             editor.loadPlugin('smimage', function () {
                 editor.plugin.imageDialog({
                     imageUrl: $(e.target).prev().val(),
+                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                     clickFn: function (url, title, width, height, border, align) {
                         $(e.target).prev().val(url);
                         if ('img' == $(e.target).prev().prev().attr('type')) {

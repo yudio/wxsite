@@ -54,7 +54,7 @@ class WeixinAction extends Action
             $foloow_lists = M('Follow')->add($follow_data);
             $this->requestdata('follownum');//REQUEST
 
-            $autoreply = M('Areply')->field('home,keyword,content,default_reply_flag')->where(array('token' => $this->token))->find();
+            $autoreply = M('Areply')->where(array('token' => $this->token))->find();
 
             //未定义默认回复，返回微官网
             if (!$autoreply){
@@ -77,11 +77,13 @@ class WeixinAction extends Action
                 $where['match_type']  =  3;      //关注图文
                 $img = M('Img')->field('id,info,pic,url,title,news')->where($where)->find();
                 $return[] = array($img['title'],$img['info'],$img['pic'],$img['url']);;                //首条
-                $newswhere['token'] = $this->token;
-                $newswhere['id']    = array('in',$img['news']);
-                $news = M('Img')->field('id,info,pic,url,title')->limit(9)->order('id desc')->where($newswhere)->select();
-                foreach ($news as $keya => $infot) {
-                    $return[] = array($infot['title'],$infot['info'],$infot['pic'],$infot['url']);
+                if ($img['news']){
+                    $newswhere['token'] = $this->token;
+                    $newswhere['id']    = array('in',$img['news']);
+                    $news = M('Img')->where($newswhere)->order('id desc')->limit(9)->select();
+                    foreach ($news as $keya => $infot) {
+                        $return[] = array($infot['title'],$infot['info'],$infot['pic'],$infot['url']);
+                    }
                 }
                 return array($return,'news');
             } else {
@@ -94,6 +96,7 @@ class WeixinAction extends Action
             $foloow_del = M('Follow')->where($follow_data)->delete();
             //取消关注
             $this->requestdata('unfollownum');//REQUEST
+            return array('感谢关注！','text');
         }
         $key = $data['Content'];   //提取关键字匹配
         //主页过滤
@@ -1440,6 +1443,7 @@ class WeixinAction extends Action
         return $data;
     }
 
+    //基本模块请求数据
     public function requestdata($field)
     {
         $data['year'] = date('Y');
@@ -1457,6 +1461,7 @@ class WeixinAction extends Action
             $mysql->where($data)->setInc($field);
         }
     }
+    //业务模块请求数据
     public function trackdata($module){
         $data['year'] = date('Y');
         $data['month'] = date('m');
@@ -1474,6 +1479,36 @@ class WeixinAction extends Action
             $mysql->where($data)->setInc('click');
         }
     }
+    /*
+         * 添加用户限制INFO
+         */
+    public function addLimit(){
+        $db=M('WxuserInfo');
+        $data['token'] = $this->token;
+        $data['month']      = date('m');
+        $data['year']       = date('Y');
+        $userinfo = $db->where($data)->find();
+        if (!$userinfo){
+            //获取最近的历史数据
+            $userinfo = $db->where(array('token'=>$this->token))->order('year desc,month desc')->find();
+            $userinfo['monthnum'] = 1;
+            $userinfo['requestnum']++;
+            $userinfo['month']    = date('m');
+            $userinfo['year']     = date('Y');
+            unset($userinfo['id']);
+            $db->data($userinfo)->add();
+            return true;
+        }else{
+            if ($userinfo['monthnum']<$userinfo['monthall']){
+                $db->where($data)->setInc('requestnum');
+                $db->where($data)->setInc('monthnum');
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
 
     function baike($name)
     {

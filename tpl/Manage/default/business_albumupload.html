@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-    <meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
     <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstr
 		ap_responsive_min.css" media="all" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="{np::STATICS}/src/plugins/uploadify/jquery_uploadify.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/plugins/uploadify/jupload.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
-    <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
     <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->

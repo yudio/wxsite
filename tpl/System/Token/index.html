@@ -11,9 +11,7 @@
 		<td>公众号名称</td>
 		<td >所属等级</td>
 		<td >所属用户名</td>
-		<td >使用次数</td>
-		
-		<td>状态</td>
+		<td>类型</td>
 		<td>管理操作</td>
 	  </tr>
 	    <volist name="list" id="vo">
@@ -22,11 +20,11 @@
 				<td >{np:$vo.wxname}</td>
 				<td ><if condition="$vo['usr']['gid'] eq -1">0<else/>{np:$vo.user.gid}</if></td>
 				<td >{np:$vo.user.username}</td>
-				<td align='center'>{np:$vo.usenum}</td>
-				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
+				<td align='center'><if condition="$vo.type eq 1">订阅号</if><if condition="$vo.type eq 2">认证订阅号</if>
+                    <if condition="$vo.type eq 3">服务号</if><if condition="$vo.type eq 4">认证服务号</if>
 				</td>
 				<td align='center'>
-					
+                    <a href="javascript:setting_access({np:$vo.id}, '{np:$vo.wxname}')">权限设置</a>
 					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{np::U('Token/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
 				</td>
 			</tr>
@@ -41,7 +39,12 @@
     </tr>
    
 </table>
-
+<script type="text/javascript">
+    //权限设置
+    function setting_access(id, name) {
+        window.top.art.dialog.open('{np::U("Token/access")}'+'&wxuid='+id,{title: name+'权限设置', width: 600, height: 500});
+    }
+</script>
 <div class="bottom">
 <span>功能详细说明：</span>
 </div>

@@ -80,7 +80,7 @@
     <label class="control-label" for="wxkey">触发官网关键词:</label>
 
     <div class="controls">
-        <input type="text" name="wxkey" id="wxkey" value="{np:$home['wxkey']}" class="input-xlarge" data-rule-required="true"
+        <input type="text" name="wxkey" id="wxkey" value="{np:$home['wxkey']|default='微官网'}" class="input-xlarge" data-rule-required="true"
                data-rule-maxlength="60"/>
         <span class="help-inline">多个关键字请用空格分开</span>
     </div>
@@ -332,11 +332,11 @@
         </select>
     </div>
 </div>
-<div class="control-group">
+<div class="control-group" style="display: none;">
     <label class="control-label" for="tel">官网联系号码 </label>
 
     <div class="controls">
-        <input type="text" name="tel" id="tel" value="{np:$home['tel']}" class="input-xlarge" data-rule-required="true"/>
+        <input type="text" name="tel" id="tel" value="{np:$home['tel']}" class="input-xlarge" data-rule-required="false"/>
     </div>
 </div>
 <div class="control-group">

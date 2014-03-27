@@ -102,6 +102,10 @@ class ReplyAction extends UserAction
         $db  = D('Img');
         $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'match_type'=>'3'))->find();
         $this->assign('info',$res);
+        //加载外链配置
+        $this->assign('typelist',C('img_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         $this->display();
     }
 
@@ -117,12 +121,41 @@ class ReplyAction extends UserAction
             $res = $db->where(array('uid'=>session('uid'),'token'=>session('token'),'match_type'=>'3'))->find();
             if ($res == false) {
                 if ($db->create()){
-                    $db->add();
+                    $id = $db->add();
+                    //外链配置
+                    $data = $_POST;
+                    $url = TypeLink::getTypeLink($_POST,'Img');
+                    $db->save(array('id'=>$id,'url'=>$url));  //生成URL
+                    $data['url'] = $url;
+                    $data['pid'] = $id;
+                    $data['module'] = 'SUBSCRIBE';
+                    $newdb = D('Typelink');
+                    if ($newdb->create($data)){
+                        $newdb->add();
+                    }else{
+                        LOG::write('subscribe|update'.$newdb->getError(),LOG::ERR);
+                    }
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()),'JSON');
                 }
             }else{
+                //外链配置
+                $newdb = D('Typelink');
+                $data['pid'] = $res['id'];
+                $data['module'] = 'SUBSCRIBE';
+                $tlink = $newdb->field('id')->where($data)->find();
+                $_POST['url'] = TypeLink::getTypeLink($_POST,'Img');
+                $data = $_POST;
+                $data['id']     = $tlink['id'];
+                $data['pid'] = $res['id'];
+                $data['module'] = 'SUBSCRIBE';
+                if ($tlink['id']){
+                    $newdb->data($data)->save();
+                }else{
+                    unset($data['id']);
+                    $newdb->data($data)->add();
+                }
                 $_POST['id'] =$res['id'];
                 $_POST['updatetime'] = time();
                 if ($db->create()){
@@ -176,6 +209,17 @@ class ReplyAction extends UserAction
                 }
             }else{
                 if ($db->create()){
+                    //文本请求数
+                    $cond['uid']   = session('uid');
+                    $cond['token'] = session('token');
+                    $cond['year']  = date('Y');
+                    $cond['month'] = date('m');
+                    $userinfo = M('WxuserInfo')->field('textnum,textall')->where($cond)->find();
+                    if ($userinfo['textnum']<$userinfo['textall']){
+                        M('WxuserInfo')->where($cond)->setInc('textnum');
+                    }else{
+                        $this->ajaxReturn(array('errno'=>'100','error'=>'文本自定义超出限制！'),'JSON');
+                    }
                     $data['pid']     = 0;
                     $data['match_type'] = $this->_post('match_type');
                     $data['token']  = session('token');
@@ -206,6 +250,12 @@ class ReplyAction extends UserAction
         $db = D('Text');
         if(D('Text')->where($where)->delete()){
             M('Keyword')->where(array('pid'=>$where['id'],'token'=>session('token'),'module'=>'Text'))->delete();
+            //文本请求数
+            $cond['uid']   = session('uid');
+            $cond['token'] = session('token');
+            $cond['year']  = date('Y');
+            $cond['month'] = date('m');
+            M('WxuserInfo')->where($cond)->setDec('textnum');
             $this->ajaxReturn(array('errno'=>'0','error'=>'成功！'),'JSON');
         }else{
             $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
@@ -224,9 +274,9 @@ class ReplyAction extends UserAction
         //$where['uid']=session('uid');
         $where['token']=session('token');
         if ($type){
-            $where['type'] = $type;
+            $where['match_type'] = $type;
         }else{
-            $where['type'] = array('LT','3');
+            $where['match_type'] = array('LT','3');
         }
         if ($keys){$where['keyword'] = array('like','%'.$keys.'%');}
         if ($classid){$where['classid'] = array('eq',$classid);}
@@ -284,6 +334,17 @@ class ReplyAction extends UserAction
                 }
             }else{
                 if ($db->create()){
+                    //图文请求数
+                    $cond['uid']   = session('uid');
+                    $cond['token'] = session('token');
+                    $cond['year']  = date('Y');
+                    $cond['month'] = date('m');
+                    $userinfo = M('WxuserInfo')->field('imgnum,imgall')->where($cond)->find();
+                    if ($userinfo['imgnum']<$userinfo['imgall']){
+                        M('WxuserInfo')->where($cond)->setInc('imgnum');
+                    }else{
+                        $this->ajaxReturn(array('errno'=>'100','error'=>'图文自定义超出限制！'),'JSON');
+                    }
                     //关键字应答
                     $data['pid']     = 0;
                     $data['match_type'] = $this->_post('match_type','intval');
@@ -345,6 +406,12 @@ class ReplyAction extends UserAction
         $db = D('Img');
         if(D('Img')->where($where)->delete()){
             M('Keyword')->where(array('pid'=>$where['id'],'token'=>session('token'),'module'=>'Img'))->delete();
+            //图文请求数
+            $cond['uid']   = session('uid');
+            $cond['token'] = session('token');
+            $cond['year']  = date('Y');
+            $cond['month'] = date('m');
+            M('WxuserInfo')->where($cond)->setDec('imgnum');
             $this->ajaxReturn(array('errno'=>'0','error'=>'成功！'),'JSON');
         }else{
             $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');

@@ -42,11 +42,11 @@
                                     <label class="control-label">默认关注回复：</label>
                                     <div class="controls">
                                         <label class="radio">
-                                            <input type="radio" name="is_news" value="0" <if condition="$info.is_show eq 0"> checked="checked"</if> >
+                                            <input type="radio" name="is_news" value="0" <if condition="$info['is_news'] eq 0"> checked="checked"</if> >
                                             文字模式，用户关注时会以文字模式向用户回复一条信息!
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="is_news" value="1" <if condition="$info.is_show eq 1"> checked="checked"</if> >
+                                            <input type="radio" name="is_news" value="1" <if condition="$info['is_news'] eq 1"> checked="checked"</if> >
                                             图文模式, 用户关注时会以图文模式向用户回复一条信息!
                                         </label>
                                     </div>

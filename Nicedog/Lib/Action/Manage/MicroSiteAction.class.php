@@ -25,8 +25,25 @@ class MicroSiteAction extends UserAction{
         if($info==false||$info['token']!==$token){
             $this->error('非法操作','/');
         }
+        $access = M('WxuserAccess')->field('node_id')->where(array('wxuid'=>$info['id']))->order('pid')->select();
+        $menu = M('WxuserNode')->where(array('status'=>1,'pid'=>1))->select();
+        foreach($menu as $key=>&$vo){
+            LOG::write('IN_ARRAY'.$vo['id'],LOG::ERR);
+            if (!in_array(array('node_id'=>$vo['id']),$access)){
+                unset($menu[$key]);
+            }
+            $submenu = M('WxuserNode')->where(array('status'=>1,'pid'=>$vo['id']))->select();
+            foreach($submenu as $ki=>$vi){
+                if (!in_array(array('node_id'=>$vi['id']),$access)){
+                    unset($submenu[$ki]);
+                }
+            }
+            $vo['submenu'] = $submenu;
+        }
+        //dump($menu);
         session('token',$token);
         session('wxid',$info['id']);
+        $this->assign('menu',$menu);
         $this->assign('token',session('token'));
         $this->assign('info',$info);
         //
@@ -211,9 +228,9 @@ class MicroSiteAction extends UserAction{
         $where['category_id'] = array('eq',0);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
-        $info=$db->where($where)->order('sorts')->limit($page->firstRow.','.$page->listRows)->select();
+        $info=$db->where($where)->order('sorts asc,id asc')->limit($page->firstRow.','.$page->listRows)->select();
         foreach($info as $key=>&$vo){
-            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts')->select();
+            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts asc,id asc')->select();
             $vo['sub'] = $list;
         }
         $this->assign('page',$page->show());

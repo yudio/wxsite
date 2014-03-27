@@ -1,5 +1,5 @@
 Emotion = {
-    url: "http://stc.weimob.com/img/face/",
+    url: "http://nicepa.cn/tpl/static/img/face/",
     data: {
         0: "微笑",
         1: "撇嘴",
