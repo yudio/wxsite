@@ -3,32 +3,32 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
-    <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
+    <meta name="Keywords" content="<?php echo C('Keywords');?>"/>
+    <meta name="Description" content="<?php echo C('Description');?>"/>
     <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/plugins/datepicker/datepicker.css?2014-02-20-1"
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/plugins/datepicker/datepicker.css"
           media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/plugins/daterangepicker/daterangepicker.css?2014-02-20-1"
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/plugins/daterangepicker/daterangepicker.css"
           media="all"/>
-    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js?2014-02-20-1"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript"
-            src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js?2014-02-20-1"></script>
+            src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
     <script type="text/javascript"
-            src="<?php echo RES;?>/src/plugins/mini_audio_player/jquery_jplayer_min.js?2014-02-20-1"></script>
+            src="<?php echo RES;?>/src/plugins/mini_audio_player/jquery_jplayer_min.js"></script>
     <script type="text/javascript"
-            src="<?php echo RES;?>/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/zeroclipboard/zeroclipboard_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js?2014-02-20-1"></script>
-    <title><?php echo C('site_title');?> <?php echo C('site_name');?></title>
+            src="<?php echo RES;?>/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/zeroclipboard/zeroclipboard_min.js"></script>
+    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+    <title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
     <!--[if IE 7]>
     <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
@@ -61,7 +61,7 @@
                     return;
                 }
                 var left = ($(window.parent.parent).width() - 450) / 2;
-                window.open("<?php echo C('site_url');?>/wechat/<?php echo ($token); ?>?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+                window.open("<?php echo C('site_url');?>/wesite/<?php echo ($wecha['id']); ?>/index?wechatid=fromUsername", "我的微官网", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
             });
         </script>
     </div>
@@ -80,7 +80,7 @@
     <label class="control-label" for="wxkey">触发官网关键词:</label>
 
     <div class="controls">
-        <input type="text" name="wxkey" id="wxkey" value="<?php echo ($home['wxkey']); ?>" class="input-xlarge" data-rule-required="true"
+        <input type="text" name="wxkey" id="wxkey" value="<?php echo (($home['wxkey'])?($home['wxkey']):'微官网'); ?>" class="input-xlarge" data-rule-required="true"
                data-rule-maxlength="60"/>
         <span class="help-inline">多个关键字请用空格分开</span>
     </div>
@@ -90,10 +90,10 @@
 
     <div class="controls">
         <label class="radio">
-            <input type="radio" name="matchtype" value="0" <?php if($home["matchtype"] == 0): ?>checked="checked"<?php endif; ?>/>完全匹配（用户输入的和此关键词一样才会触发!）
+            <input type="radio" name="match_type" value="1" <?php if(empty($home)): ?>checked<?php endif; ?> <?php if($home["match_type"] == 1): ?>checked="checked"<?php endif; ?>/>完全匹配（用户输入的和此关键词一样才会触发!）
         </label>
         <label class="radio ">
-            <input type="radio" name="matchtype" value="1" <?php if($home["matchtype"] == 1): ?>checked="checked"<?php endif; ?>/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
+            <input type="radio" name="match_type" value="2" <?php if($home["match_type"] == 2): ?>checked="checked"<?php endif; ?>/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
         </label>
     </div>
 </div>
@@ -109,7 +109,7 @@
     <label class="control-label" for="cover">图文消息封面</label>
 
     <div class="controls">
-        <img class="thumb_img" src="<?php echo (($home['picurl'])?($home['picurl']):RES."/img/default/official.jpg"); ?>" style="max-height:100px;"/>
+        <img class="thumb_img" src="<?php echo (($home['picurl'])?($home['picurl']):SITE_URL.RES."/img/default/official.jpg"); ?>" style="max-height:100px;"/>
         <input id="thumb" type="text" name="picurl" class="hide"
                value="<?php echo (($home['picurl'])?($home['picurl']):RES."/img/default/official.jpg"); ?>"/>
 										<span class="help-inline">
@@ -209,6 +209,7 @@
                 editor.loadPlugin('smimage', function () {
                     editor.plugin.imageDialog({
                         imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                        userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                         clickFn: function (url, title, width, height, border, align) {
                             var $input = $(e.target).parent().prevAll("input[type=text]")
                             $input.val(url)
@@ -230,6 +231,7 @@
                 editor.loadPlugin('mp3', function () {
                     editor.plugin.imageDialog({
                         mp3Url: $(e.target).parent().prevAll("input[type=text]").val(),
+                        userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                         clickFn: function (url, title, width, height, border, align) {
                             _mp3_i++;
                             var $input = $(e.target).parent().prevAll("input[type=hidden]")
@@ -328,6 +330,13 @@
             <option value="5" <?php if($home["bg_animation"] == 5): ?>selected="selected"<?php endif; ?>>蓝色霓虹点</option>
             <option value="6" <?php if($home["bg_animation"] == 6): ?>selected="selected"<?php endif; ?>>紫色霓虹点</option>
         </select>
+    </div>
+</div>
+<div class="control-group" style="display: none;">
+    <label class="control-label" for="tel">官网联系号码 </label>
+
+    <div class="controls">
+        <input type="text" name="tel" id="tel" value="<?php echo ($home['tel']); ?>" class="input-xlarge" data-rule-required="false"/>
     </div>
 </div>
 <div class="control-group">
