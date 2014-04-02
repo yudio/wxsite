@@ -23,7 +23,7 @@
 		<script type="text/javascript" src="{np::RES}/src/plugins/wizard/jquery_form_wizard_min.js"></script>
 		<script type="text/javascript" src="{np::RES}/src/plugins/jscolor/jscolor.js"></script>
 		<script type="text/javascript" src="{np::STATICS}/inside.js"></script>
-		<script type="text/javascript" src="{np::RES}/src/map.js"></script>
+		<script type="text/javascript" src="{np::STATICS}/src/map.js"></script>
 		<title>{np::C('site_name')}—{np::C('site_title')}</title>
         <!--[if IE 7]>
             <link href="{np::RES}/css/font_awesome_ie7.css?v=2014-02-24-1" rel="stylesheet" />
@@ -100,7 +100,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="keyword">触发关键词</label>
                                         <div class="controls">
-                                            <input type="text" name="keyword" id="keyword" value="{np:$info.keyword}" data-rule-required="true" data-rule-maxlength="20" />
+                                            <input type="text" name="keyword" id="keyword" value="{np:$info.keyword|default='会员卡'}" data-rule-required="true" data-rule-maxlength="20" />
                                             <span>*</span>
                                             <span class="help-inline">用户输入此“关键词”将可以触发会员卡图文，最多只能输入20个字符。</span>
                                         </div>
@@ -108,8 +108,8 @@
                                     <div class="control-group">
                                     	<label class="control-label" for="logo">图文消息封面</label>
                                     	<div class="controls">
-                                        	    <img id="thumb_img" src="{np:$info.logo|default=RES."/img/card_cover1.jpg"}" style="max-height:100px;" />
-                                            	<input id="thumb" type="hidden" name="logo" value="{np:$info.logo|default=RES."/img/card_cover1.jpg"}" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
+                                        	    <img id="thumb_img" src="{np:$info.logo|default=C('site_url').RES."/img/card_cover1.jpg"}" style="max-height:100px;" />
+                                            	<input id="thumb" type="hidden" name="logo" value="{np:$info.logo|default=C('site_url').RES."/img/card_cover1.jpg"}" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
                                         	                                        	<span class="help-inline" style="margin-top:3px;">
                                             	<a class="btn" id="insertimage">选择封面</a>
                                         	</span>
@@ -204,8 +204,9 @@
     $(function () {
                 var lng = '{np:$info.lng}';
                 var lat = '{np:$info.lat}';
+                var adr = '{np:$info.place}';
                 if (lng&&lat){
-                    var data = {'lng':lng,'lat':lat};
+                    var data = {'lng':lng,'lat':lat,'adr':adr};
                     baidu_map(data);
                 }else{
                     baidu_map();

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/dialog.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/jquery_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/js/mymain.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/aSelect.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/aLocation.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/dialog_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/dater_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/js/main.js"></script>
+    <title>会员卡</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="Keywords" content="{np::C('Keywords')}" />
+    <meta name="Description" content="{np::C('Description')}" />
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Mobile Devices Support @end -->
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<script>
+$().ready(function(){
+    new dater({
+        selectYear:document.getElementById("selectYear"),
+        selectMonth:document.getElementById("selectMonth"),
+        selectDate:document.getElementById("selectDate"),
+        minDat: new Date("1900/1/1"),
+        maxDat: new Date(),
+        curDat: new Date("<?php echo date('Y',$info['birthday']); ?>/<?php echo date('m',$info['birthday']); ?>/<?php echo date('d',$info['birthday']); ?>")
+    }).init();
+});
+
+function submit1(){
+    var form = document.getElementById("form1");
+    var obj = {
+        username: form.truename.value,
+        gender:form.gender.value,
+        telephone: form.tel.value,
+        birthday: [form.birth_year.value, form.birth_month.value, form.birth_date.value].join("/"),
+        address:[form.province.value, form.city.value, form.town.value, form.address.value].join(" ")
+    }
+    if(obj.username.length<=0){
+        alert("请输入姓名", 1500);
+        return;
+    }
+
+    //loading(true);
+    $.ajax({
+        url: "/Webmember/{np:$wxuid}/addMember?wecha_id={np:$wecha_id}",
+        type:"POST",
+        data:$("#form1").serialize(),
+        dataType:"json",
+        success: function(res){
+            //loading(false);
+            if(res.errno == 0){
+                alert(res.error, 1500);
+                redirect(res.url,1500);
+            }else{
+                alert(res.error, 1500);
+            }
+        }
+    });
+
+}
+$(function () {
+    var sel = aSelect({data: aLocation});
+    sel.bind('#selectProvince', '{np:$info.province}');
+    sel.bind('#selectCity', '{np:$info.city}');
+    sel.bind('#selectArea', '{np:$info.town}');
+})
+</script>
+<div class="container info_tx">
+    <div class="body pt_10">
+        <ul class="list_ul_card">
+            <form id="form1" action="javascript:;" method="post">
+                <li data-card>
+                    <header class="center">
+                        <label style="display:inline-block;"><span>&nbsp;</span>完善会员卡资料</label>
+                    </header>
+                    <div class="forms">
+                        <dl>
+                            <dt>姓 名： </dt>
+                            <dd>
+                                <input type="text" name="truename" id="username" <if condition="$infoset['name_is_edit'] eq 0">readonly="readonly"</if> value="{np:$info.truename}" placeholder="请输入姓名" maxlength="30"  class="input"/>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>手 机：</dt>
+                            <dd><input type="tel" name="tel" value="{np:$info.tel}" <if condition="$infoset['phone_is_edit'] eq 0">readonly="readonly"</if> placeholder="请输入手机号码" maxlength="30"  class="input"/></dd>
+                        </dl>
+                        <!-- 系统字段性别可修改-->
+                        <dl>
+                            <dt>性 别： </dt>
+                            <dd>
+                                <select name="gender" id="gender" class="select" id="selectGender" style="width:100%;">
+                                    <option value="1" <if condition="$info['gender'] eq 1">selected</if>>男</option>
+                                    <option value="2" <if condition="$info['gender'] eq 2">selected</if>>女</option>
+                                </select>
+                            </dd>
+                        </dl>
+                        <!-- 系统字段性别是否可修改-->
+                        <dl>
+                            <dt>生 日：</dt>
+                            <dd>
+                                <div class="box select_box">
+                                    <div>
+                                        <select name="birth_year" <if condition="$infoset['birthday_is_edit'] eq 0">disabled</if> class="select" id="selectYear" value=""><!--auth Eric_wu--></select>
+                                    </div>
+                                    <div>
+                                        <select name="birth_month" <if condition="$infoset['birthday_is_edit'] eq 0">disabled</if> class="select" id="selectMonth" value=""><!--auth Eric_wu--></select>
+                                    </div>
+                                    <div>
+                                        <select name="birth_date" <if condition="$infoset['birthday_is_edit'] eq 0">disabled</if> class="select" id="selectDate" value=""><!--auth Eric_wu--></select>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <!-- 系统字段性别可修改-->
+                        <dl>
+                            <dt>地区:</dt>
+                            <dd>
+                                <div class="box select_box">
+                                    <div>
+                                        <select name="province" class="select" id="selectProvince"></select>
+                                    </div>
+                                    <div>
+                                        <select name="city" class="select" id="selectCity"></select>
+                                    </div>
+                                    <div>
+                                        <select name="town" class="select" id="selectArea"></select>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>详细地址:</dt>
+                            <dd><input type="text" name="address" id="Js-address" value="{np:$info.address}" placeholder="请输入详细地址" maxlength="100"  class="input"/></dd>
+                        </dl>
+                        <!-- 自定义字段必填项-->
+                </li>
+                <div class="pt_10 pb_10">
+                    <a href="javascript:submit1();" class="button">提&nbsp;&nbsp;&nbsp;交</a>
+                </div>
+            </form>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+</script>
+
+<script type="text/javascript">
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('hideToolbar');
+    });
+
+    window.shareData = {
+        "imgUrl": "",
+        "timeLineLink": "http://www.weimob.com/Webnewmemberscore/editMemberInfo?pid=103689&wechatid=fromUsername",
+        "sendFriendLink": "http://www.weimob.com/Webnewmemberscore/editMemberInfo?pid=103689&wechatid=fromUsername",
+        "weiboLink": "http://www.weimob.com/Webnewmemberscore/editMemberInfo?pid=103689&wechatid=fromUsername",
+        "tTitle": "会员卡",
+        "tContent": "微时代会员卡，方便携带，永不挂失。",
+        "fTitle": "会员卡",
+        "fContent": "微时代会员卡，方便携带，永不挂失。",
+        "wContent": "微时代会员卡，方便携带，永不挂失。"
+    };
+</script>        		<div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+<script type="text/javascript">
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Webnewmemberscore/editMemberInfo?pid=103689&wechatid=fromUsername",
+            "sendFriendLink": "http://www.weimob.com/Webnewmemberscore/editMemberInfo?pid=103689&wechatid=fromUsername",
+            "weiboLink": "http://www.weimob.com/Webnewmemberscore/editMemberInfo?pid=103689&wechatid=fromUsername",
+            "tTitle": document.title,
+            "tContent": document.title,
+            "fTitle": document.title,
+            "fContent": document.title,
+            "wContent": document.title
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                //weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+</html>
+

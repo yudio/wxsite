@@ -1459,6 +1459,7 @@ class WeixinAction extends Action
             $mysql->add($data);
         } else {
             $mysql->where($data)->setInc($field);
+            $this->addLimit();
         }
     }
     //业务模块请求数据
@@ -1477,6 +1478,7 @@ class WeixinAction extends Action
             $mysql->add($data);
         } else {
             $mysql->where($data)->setInc('click');
+            $this->addLimit();
         }
     }
     /*

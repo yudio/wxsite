@@ -2,9 +2,9 @@
 class CardAction extends BaseAction{
 	public function index(){
 		$agent = $_SERVER['HTTP_USER_AGENT']; 
-		if(!strpos($agent,"MicroMessenger")) {
+		/*if(!strpos($agent,"MicroMessenger")) {
 			//echo '此功能只能在微信浏览器中使用';exit;
-		}
+		}*/
 		$token=$this->_get('token');
 		if($token!=false){
 			$data=M('member_card_set')->where(array('token'=>$token))->find();
@@ -51,9 +51,9 @@ class CardAction extends BaseAction{
 		
 		
 		$agent = $_SERVER['HTTP_USER_AGENT']; 
-		if(!strpos($agent,"MicroMessenger")) {
+		/*if(!strpos($agent,"MicroMessenger")) {
 			echo '此功能只能在微信浏览器中使用';exit;
-		}
+		}*/
 		
 		$get_card=M('member_card_create')->where(array('wecha_id'=>$wecha_id))->find();
 

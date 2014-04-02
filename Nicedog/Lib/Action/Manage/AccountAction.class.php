@@ -318,6 +318,7 @@ class AccountAction extends UserAction{
         $data['textnum'] = 0;$data['imgnum'] = 0;$data['videonum'] = 0;$data['requestnum'] = 0;$data['monthnum'] = 0;
         $data['textall'] = $group['diynum'];$data['imgall'] = $group['imgnum'];$data['videonum'] = $data['videonum'];
         $data['requestall'] = 12*$group['connectnum'];$data['monthall'] = $group['connectnum'];
+        $data['cardnum'] = 0;$data['cardall'] = $group['create_card_num'];
         $db->data($data)->add();
         //菜单权限
         $cond['level'] = array('lt',session('gid'));

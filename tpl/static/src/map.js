@@ -46,7 +46,7 @@
                 //var mk = new BMap.Marker(r.point);  
                 //map.addOverlay(mk);  
                 // point = r.point;  
-                //map.panTo(r.point); 
+                //map.panTo(r.point);
 
                 var point = new BMap.Point(r.point.lng, r.point.lat);
                 marker1 = new BMap.Marker(point);        // 创建标注

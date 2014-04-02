@@ -26,13 +26,12 @@ class MicroSiteAction extends UserAction{
             $this->error('非法操作','/');
         }
         $access = M('WxuserAccess')->field('node_id')->where(array('wxuid'=>$info['id']))->order('pid')->select();
-        $menu = M('WxuserNode')->where(array('status'=>1,'pid'=>1))->select();
+        $menu = M('WxuserNode')->where(array('status'=>1,'pid'=>1))->order('sort')->select();
         foreach($menu as $key=>&$vo){
-            LOG::write('IN_ARRAY'.$vo['id'],LOG::ERR);
             if (!in_array(array('node_id'=>$vo['id']),$access)){
                 unset($menu[$key]);
             }
-            $submenu = M('WxuserNode')->where(array('status'=>1,'pid'=>$vo['id']))->select();
+            $submenu = M('WxuserNode')->where(array('status'=>1,'pid'=>$vo['id']))->order('sort')->select();
             foreach($submenu as $ki=>$vi){
                 if (!in_array(array('node_id'=>$vi['id']),$access)){
                     unset($submenu[$ki]);

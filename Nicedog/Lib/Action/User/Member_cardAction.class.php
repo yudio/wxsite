@@ -10,7 +10,7 @@ class Member_cardAction extends UserAction{
 		}
 		$this->wxuser_db=M("Wxuser");
 		//获取所在组的开卡数量
-		$thisWxUser=$this->wxuser_db->where(array('token'=>$this->token))->find();
+		/*$thisWxUser=$this->wxuser_db->where(array('token'=>$this->token))->find();
 		$thisUser=M("Users")->where(array('id'=>$thisWxUser['uid']))->find();
 		$thisGroup=M("User_group")->where(array('id'=>$thisUser['gid']))->find();
 		$this->wxuser_db->where(array('token'=>$this->token))->save(array('allcardnum'=>$thisGroup['create_card_num']));
@@ -18,7 +18,7 @@ class Member_cardAction extends UserAction{
 		if($can_cr_num > 0){
 			$data['cardisok'] = 1;
 			$this->wxuser_db->where(array('uid'=>session('uid'),'token'=>session('token')))->save($data);
-		}
+		}*/
 	}
 	//会员卡配置
 	public function index(){
