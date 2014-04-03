@@ -36,7 +36,9 @@
                 <div class="header2">
                 <!--幻灯片管理-->
                 <include file="common:banner"/>
-                <a href="tel:021-2222222" class="tel">电话:021-2222222<span class="icon-phone">&nbsp;</span></a>
+                <if condition="$homeInfo.tel neq ''">
+                    <a href="tel:{np:$homeInfo.tel}" class="tel">{np:$homeInfo.tel}<span class="icon-phone">&nbsp;</span></a>
+                </if>
             </div>
                 <!--
                 <ul class="list_ul" style="clear:both;">

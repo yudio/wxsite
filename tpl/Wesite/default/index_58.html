@@ -30,7 +30,9 @@
                 <img src="{np:$homeInfo.mslogo}" style="max-width:100%;max-height:50px;border-radius:0;margin:auto;width:auto;min-height:inherit;" />
             </div>
             <include file="common:banner"/>
-            <a href="tel:021-2222222" class="tel">电话:021-2222222<span class="icon-phone">&nbsp;</span></a>
+                <if condition="$homeInfo.tel neq ''">
+                    <a href="tel:{np:$homeInfo.tel}" class="tel">{np:$homeInfo.tel}<span class="icon-phone">&nbsp;</span></a>
+                </if>
         </div>
             <script>
                 window.addEventListener("DOMContentLoaded", function(){

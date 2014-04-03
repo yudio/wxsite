@@ -3,9 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="Keywords" content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销"/>
-    <meta name="Description" content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。"/>
-    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico?v=2014-02-20-1"/>
+    <meta name="Keywords" content="<?php echo C('Keywords');?>"/>
+    <meta name="Description" content="<?php echo C('Description');?>"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
@@ -21,23 +21,49 @@
             src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js?2014-02-20-1"></script>
     <script type="text/javascript" src="<?php echo RES;?>/src/resource.js?2014-02-20-1"></script>
     <script type="text/javascript" src="<?php echo STATICS;?>/inside.js?2014-02-20-1"></script>
-    <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+    <title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
     <!--[if IE 7]>
-    <link href="<?php echo RES;?>/css/font_awesome_ie7.css?v=2014-02-20-1" rel="stylesheet"/>
+    <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="<?php echo RES;?>/js/excanvas_min.js?v=2014-02-20-1"></script>
+    <script src="<?php echo RES;?>/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="<?php echo RES;?>/js/watermark.js?v=2014-02-20-1"></script>
+    <script src="<?php echo RES;?>/js/watermark.js"></script>
     <![endif]-->
 </head>
 <!--
 <script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript"></script>-->
-<script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js?v=2014-02-20-1"></script>
-<script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js?v=2014-02-20-1"></script>
-<script src="<?php echo STATICS;?>/kindeditor/kindeditor.config-upfile.js?v=2014-02-20-1"></script>
-<link href="<?php echo STATICS;?>/kindeditor/themes/default/default.css?v=2014-02-20-1" rel="stylesheet"/>
+<script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js"></script>
+<script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" >
+    KindEditor.ready(function (K) {
+        var editor = K.editor({
+            themeType: "simple",
+            allowFileManager: true
+
+        });
+        K('#insertimage').click(function () {
+            editor.loadPlugin('smimage', function () {
+                editor.plugin.imageDialog({
+                    imageUrl: K('#thumb').val(),
+                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                    clickFn: function (url, title, width, height, border, align) {
+                        K('#thumb').val(url);
+                        if (K('#thumb_img')) {
+                            K('#thumb').hide();
+                            K('#thumb_img').attr('src', url);
+                            K('#thumb_img').show().css('display','inline');
+                        }
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+<link href="<?php echo STATICS;?>/kindeditor/themes/default/default.css" rel="stylesheet"/>
 
 <style>
     option {
@@ -414,6 +440,7 @@
             editor.loadPlugin('smimage', function () {
                 editor.plugin.imageDialog({
                     imageUrl: $(e.target).prev().val(),
+                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
                     clickFn: function (url, title, width, height, border, align) {
                         $(e.target).prev().val(url);
                         if ('img' == $(e.target).prev().prev().attr('type')) {

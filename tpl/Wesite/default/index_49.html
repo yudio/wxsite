@@ -16,6 +16,7 @@
     </head>
     <body onselectstart="return true;" ondragstart="return false;">
     <include file="common:iframe"/>
+    <if condition="$homeInfo['play_img'] eq 1">
 	<style type="text/css">
 	.body{
 		max-width:640px;
@@ -28,6 +29,7 @@
 		background-attachment: fixed;
 	}
 	</style>
+    </if>
     <div class="body">
         <section>
         <header>

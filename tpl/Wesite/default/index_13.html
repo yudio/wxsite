@@ -24,9 +24,11 @@
             <include file="common:snow"/>
         </div>
     </header>
+    <if condition="$homeInfo.tel neq ''">
     <section>
-        <a href="tel:021-2222222" class="link_tel icon-phone">021-2222222</a>
+        <a href="tel:{np:$homeInfo.tel}" class="link_tel icon-phone">{np:$homeInfo.tel}</a>
     </section>
+    </if>
     <!--用户分类管理-->
     <section>
         <ul class="list_font">
