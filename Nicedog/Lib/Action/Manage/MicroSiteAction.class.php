@@ -70,8 +70,8 @@ class MicroSiteAction extends UserAction{
             $where['month'] = $period;
             $where['year']  = date('Y');
             $where['token'] = session('token');
-            $where['module'] = array('exp','is null');
-            $list = $db->where($where)->order('day')->select();
+            $where['module'] = 'Public';
+            $list = $db->field('day,sum(textnum) as textnum,sum(imgnum) as imgnum,sum(videonum) as videonum')->where($where)->group('day')->order('day')->select();
             LOG::write('XML:'.$db->getError(),LOG::ERR);
             $this->assign('list',$list);
             $this->assign('tcount',$tcount);
@@ -82,8 +82,8 @@ class MicroSiteAction extends UserAction{
             $where['month'] = $period;
             $where['year']  = date('Y');
             $where['token'] = session('token');
-            $where['module'] = array('exp','is null');
-            $list = $db->where($where)->order('day')->select();
+            $where['module'] = 'Public';
+            $list = $db->field('day,sum(follownum) as follownum,sum(unfollownum) as unfollownum')->where($where)->group('day')->order('day')->select();
             LOG::write('XML:'.$db->getError(),LOG::ERR);
             $this->assign('list',$list);
             $this->assign('tcount',$tcount);
@@ -168,6 +168,12 @@ class MicroSiteAction extends UserAction{
         $page=new Page($count,25);
         $info=$db->where($where)->order('sort')->limit($page->firstRow.','.$page->listRows)->select();
         $this->assign('page',$page->show());
+        foreach($info as &$vo){
+            $infoadd = M('Typelink')->where(array('pid'=>$vo['id'],'module'=>'Slide'))->find();
+            if ($infoadd){
+                $vo = array_merge($infoadd,$vo);
+            }
+        }
         $this->assign('info',$info);
         $this->display();
     }
@@ -191,12 +197,19 @@ class MicroSiteAction extends UserAction{
             $this->ajaxReturn(array('errno'=>'1','error'=>'M(slide_update).'.$db->getError()),'JSON');
         } else {
             $id = $db->save();
-            if ($id) {
+            if ($id||''==$db->getError()) {
                 $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/slide.act'),'JSON');
             } else {
                 $this->ajaxReturn(array('errno'=>'1','error'=>'M(slide_update).'.$db->getError()),'JSON');
             }
         }
+    }
+    public function addslide(){
+        //加载外链配置
+        $this->assign('typelist',C('class_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
+        $this->display();
     }
 
     public function editslide(){
@@ -204,6 +217,10 @@ class MicroSiteAction extends UserAction{
         $where['uid']=session('uid');
         $res=D('Flash')->where($where)->find();
         $this->assign('info',$res);
+        //加载外链配置
+        $this->assign('typelist',C('class_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         $this->display();
     }
     public function slide_del(){
@@ -231,6 +248,10 @@ class MicroSiteAction extends UserAction{
         foreach($info as $key=>&$vo){
             $list = $db->where(array('category_id'=>$vo['id']))->order('sorts asc,id asc')->select();
             $vo['sub'] = $list;
+            $infoadd = M('Typelink')->where(array('pid'=>$vo['id'],'module'=>'Classify'))->find();
+            if ($infoadd){
+                $vo = array_merge($infoadd,$vo);
+            }
         }
         $this->assign('page',$page->show());
         $this->assign('info',$info);
@@ -243,6 +264,10 @@ class MicroSiteAction extends UserAction{
         $where['category_id'] = 0; // 取一级分类
         $info = $db->where($where)->order('sorts')->select();
         $this->assign('info',$info);
+        //加载外链配置
+        $this->assign('typelist',C('class_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         $this->display();
     }
 
@@ -265,7 +290,7 @@ class MicroSiteAction extends UserAction{
             $this->ajaxReturn(array('errno'=>'1','error'=>'M(classify_update).'.$db->getError()),'JSON');
         } else {
             $id = $db->save();
-            if ($id) {
+            if ($id||''==$db->getError()) {
                 $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/classify.act'),'JSON');
             } else {
                 $this->ajaxReturn(array('errno'=>'1','error'=>'M(classify_update).'.$db->getError()),'JSON');
@@ -278,6 +303,10 @@ class MicroSiteAction extends UserAction{
         $where['uid']=session('uid');
         $res=D('Classify')->where($where)->find();
         $this->assign('info',$res);
+        //加载外链配置
+        $this->assign('typelist',C('class_typelist'));
+        $this->assign('businesslist',C('businesslist'));
+        $this->assign('activitylist',C('activitylist'));
         $this->display();
     }
     public function classify_del(){
@@ -340,7 +369,7 @@ class MicroSiteAction extends UserAction{
         $db = M('Plugmenu');
         $homedb = M('Home');
         $info = $db->where(array('token'=>session('token')))->select();
-        $home = $homedb->field('id,plugmenu,plugmenucolor,copyright')->where(array('token'=>session('token')))->find();
+        $home = $homedb->field('id,plugmenu,plugmenucolor,copyright,tel')->where(array('token'=>session('token')))->find();
         $this->assign('home',$home);
         $this->assign('info',$info);
         $this->display();
@@ -442,14 +471,15 @@ class MicroSiteAction extends UserAction{
         $db = M('Home');
         if (IS_POST){
             $home = $db->field('id')->where(array('token'=>session('token')))->find();
-            if (!home){
-                $this->error('请先设置微官网','/npManage/microsite/set.act');
+            if (!$home){
+                $this->ajaxReturn(array('errno'=>'100','error'=>'请先设置微官网！','url'=>'/npManage/microsite/set.act'),'JSON');
             }
             $data = array();
             $data['id'] = $home['id'];
             $data['plugmenu'] = $this->_post('plugmenu');
             $data['plugmenucolor'] = $this->_post('plugmenucolor');
             $data['copyright'] = $this->_post('copyright');
+            $data['tel'] = $this->_post('tel');
             if($db->data($data)->save()){
                 $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
             }else{

@@ -21,6 +21,7 @@ class KeyWord{
         $data['module'] = $module;
         $keys = explode(' ',trim($data['keyword']));
         foreach($keys as $vo){
+            if ($vo=='') continue;
             $insertDa = $data;
             $insertDa['keyword'] = mb_strtoupper($vo,'UTF-8');
             $db->data($insertDa)->add();

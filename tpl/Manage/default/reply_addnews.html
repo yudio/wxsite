@@ -6,28 +6,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="{np::C('Keywords')}" name="Keywords">
 	<meta content="{np::C('Description')}" name="Description">
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/emotion.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/plugins/chosen/chosen.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css" media="all" />
-<script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-<script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/emotion.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/chosen/chosen.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all" />
+<script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
 <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
-<script type="text/javascript" src="{np::RES}/src/emotion.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/chosen/chosen_jquery_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-<script type="text/javascript" src="{np::RES}/src/resource.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/emotion.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/plugins/chosen/chosen_jquery_min.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/resource.js"></script>
 <title>{np::C('site_name')}—{np::C('site_title')}</title>
 	<link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
-    <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
-	<!--[if IE 7]><link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+	<!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
 </head>
 <body>
 	   <div id="main">
@@ -85,7 +85,7 @@
                                     <label for="picurl" class="control-label">图文封面：</label>
                                     <div class="controls">
 											<img id="thumb_img" src="{np:$info.pic}" style="max-height:100px;" />
-                                            <input id="thumb" type="text" name="pic" value="{np:$info.pic}" class="input-xlarge" readonly="readonly" data-rule-required="true" data-rule-url="true" />
+                                            <input id="thumb" type="text" name="pic" value="{np:$info.pic}" class="input-xlarge" readonly="readonly" data-rule-required="true"  />
                                                                                 <span class="help-inline"><a class="btn" id="insertimage">选择图文封面</a></span>  建议大小(宽720高400)
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                                 </div>
 
 								<div class="control-group">
-                                    <label for="picurl" class="control-label">多图文：</label>
+                                    <label for="more_graphics_table" class="control-label">多图文：</label>
                                     <div class="controls">
                                         <table class="dataTable-mini" id="more_graphics_table">
                                             <tbody>
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                                 <div class="control-group" style="display: none;">
-                                    <label for="picurl" class="control-label">推荐阅读：</label>
+                                    <label for="more_recommended_table" class="control-label">推荐阅读：</label>
                                     <div class="controls">
                                         <table class="dataTable-mini" id="more_recommended_table">
 										                                        </table>
@@ -201,36 +201,33 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div id="r_article" class="control-group r-module hide">
+                                    <div id="r_article" class="control-group r-module <if condition="$info['type'] neq 'article'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label"></label>
                                             <div class="controls">
                                                 <span class="maroon">分类添加成功后 请添加图文选择此分类 将会列表显示</span>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div id="r_link" class="control-group r-module hide">
+                                    <div id="r_link" class="control-group r-module <if condition="$info['type'] neq 'link'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="source_url">页面URL</label>
                                             <div class="controls">
-                                                <input type="text" id="source_url" value="" class="input-xlarge" name="link" data-rule-required="true" data-rule-url="true" />
+                                                <input type="text" id="source_url" value="{np:$info.link}" class="input-xlarge" name="link" data-rule-required="true" data-rule-url="true" />
                                                 <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的URL格式)</span>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div id="r_tel" class="control-group r-module hide">
+                                    <div id="r_tel" class="control-group r-module <if condition="$info['type'] neq 'tel'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="tel">电话号码</label>
                                             <div class="controls">
-                                                <input type="text" id="tel" value="" class="input-large" name="tel" data-rule-required="true" data-rule-phone="true" />
+                                                <input type="text" id="tel" value="{np:$info.tel}" class="input-large" name="tel" data-rule-required="true" data-rule-phone="true" />
                                                 <span class="maroon">*</span><span class="help-inline">(必填,必须是正确的号码)</span>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div id="r_business" class="control-group r-module hide">
+                                    <div id="r_business" class="control-group r-module <if condition="$info['type'] neq 'business'">hide</if>">
                                         <label class="control-label">业务类型:</label>
                                         <div class="controls">
                                             <select id="business_func" name="business_type" class="input-medium">
@@ -259,7 +256,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="r_activity" class="control-group r-module hide"  >
+                                    <div id="r_activity" class="control-group r-module <if condition="$info['type'] neq 'activity'">hide</if>"  >
                                         <label class="control-label">活动类型:</label>
                                         <div class="controls">
                                             <select id="act" name="activity_type" onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
@@ -287,7 +284,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="r_map" class="control-group r-module hide">
+                                    <div id="r_map" class="control-group r-module <if condition="$info['type'] neq 'map'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="suggestId">经纬度</label>
                                             <div class="controls">
@@ -300,8 +297,8 @@
                                                     <i class="icon-spinner icon-spin icon-large"></i>地图加载中...
                                                 </div>
                                                 <div id="r-result">
-                                                    <input type="text" id="lng" name="lng" value="{np:$info.lng}" />
-                                                    <input type="text" id="lat" name="lat" value="{np:$info.lat}" />
+                                                    <input type="text" id="lng" name="lng" value="<if condition="$info['type'] eq 'map'">{np:$info.lng}</if>" />
+                                                    <input type="text" id="lat" name="lat" value="<if condition="$info['type'] eq 'map'">{np:$info.lat}</if>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -310,7 +307,7 @@
 
 
 
-                                    <div id="r_car" class="control-group r-module hide">
+                                    <div id="r_car" class="control-group r-module <if condition="$info['type'] neq 'car'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="suggestId">功能模块</label>
                                             <div class="controls">
@@ -354,7 +351,7 @@
                                     </div>
 
 
-                                    <div id="r_estate" class="control-group r-module hide">
+                                    <div id="r_estate" class="control-group r-module <if condition="$info['type'] neq 'estate'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="suggestId">功能模块</label>
                                             <div class="controls">
@@ -374,7 +371,7 @@
 
 
 
-                                    <div id="r_food" class="control-group r-module hide">
+                                    <div id="r_food" class="control-group r-module <if condition="$info['type'] neq 'food'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="suggestId">功能模块</label>
                                             <div class="controls">
@@ -395,7 +392,7 @@
 
 
 
-                                    <div id="r_vshop" class="control-group r-module hide">
+                                    <div id="r_vshop" class="control-group r-module <if condition="$info['type'] neq 'vshop'">hide</if>">
                                         <div class="control-group">
                                             <label for="suggestId" class="control-label">功能模块</label>
                                             <div class="controls">
@@ -413,7 +410,7 @@
 
 
 
-                                    <div id="r_vtg" class="control-group r-module hide">
+                                    <div id="r_vtg" class="control-group r-module <if condition="$info['type'] neq 'vtg'">hide</if>">
                                         <div class="control-group">
                                             <label for="suggestId" class="control-label">功能模块</label>
                                             <div class="controls">
@@ -428,7 +425,7 @@
 
 
 
-                                    <div id="r_vlife" class="control-group r-module hide">
+                                    <div id="r_vlife" class="control-group r-module <if condition="$info['type'] neq 'vlife'">hide</if>">
                                         <div class="control-group">
                                             <label for="suggestId" class="control-label">功能模块</label>
                                             <div class="controls">
@@ -439,6 +436,7 @@
 
                                         </div>
                                     </div>
+
 
 
 
@@ -500,9 +498,19 @@
                         var resource = Resource.create();
                         var ins = Resource.instance['res_block'];
                         ins.result = ins.result || {};
-                        ins.result.aid = 72040;
 
- 
+                        <if condition="$info['type'] eq 'map'">
+                        ins.map = {
+                            lat: {np:$info.lat},
+                            lng: {np:$info.lng},
+                            adr: "{np:$info.place}"
+                        }
+                        ins._loadBaidu_map();
+                        </if>
+
+
+
+
 
 
 

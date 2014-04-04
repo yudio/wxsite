@@ -6,35 +6,35 @@
     <meta name="Keywords" content="{np::C('Keywords')}"/>
     <meta name="Description" content="{np::C('Description')}"/>
     <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css?2014-02-20-1" media="all"/>
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js?2014-02-20-1"></script>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all"/>
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript"
-            src="{np::RES}/src/plugins/validation/jquery_validate_methods.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/resource.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::STATICS}/inside.js?2014-02-20-1"></script>
+            src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/resource.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
-    <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/>
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="{np::RES}/js/excanvas_min.js"></script>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="{np::RES}/js/watermark.js"></script>
+    <script src="{np::STATICS}/js/watermark.js"></script>
     <![endif]-->
 </head>
 <script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
 <script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
-<script type="text/javascript" >
+<script type="text/javascript">
     KindEditor.ready(function (K) {
         var editor = K.editor({
             themeType: "simple",
@@ -51,7 +51,7 @@
                         if (K('#thumb_img')) {
                             K('#thumb').hide();
                             K('#thumb_img').attr('src', url);
-                            K('#thumb_img').show().css('display','inline');
+                            K('#thumb_img').show().css('display', 'inline');
                         }
                         editor.hideDialog();
                     }
@@ -104,8 +104,8 @@
     <label for="insertimage" class="control-label">幻灯片封面:</label>
 
     <div class="controls">
-        <img type="img" src="{np::RES}/img/template/lib/default-slide.jpg?=2014-02-20-1" style="max-height:50px;"/>
-        <input type="hidden" name="img" value="{np::RES}/img/template/lib/default-slide.jpg?=2014-02-20-1"
+        <img type="img" src="{np::C('site_url')}{np::STATICS}/img/template/lib/default-slide.jpg" style="max-height:50px;"/>
+        <input type="hidden" name="img" value="{np::C('site_url')}{np::STATICS}/img/template/lib/default-slide.jpg"
                class="input-medium"/>
         <a class="btn insertimage">选择幻灯片</a>
         <span class="help-inline">建议尺寸：宽640像素，高425像素</span>
@@ -119,208 +119,191 @@
         <label class="radio inline"><input type="radio" value="0" name="is_show"/>隐藏</label>
     </div>
 </div>
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
+
 <div id="res_block">
+<div class="control-group">
+    <label for="type" class="control-label">类型：</label>
+
+    <div class="controls">
+        <select id="type" name="type" class="input-medium">
+            <option value="">选择类型</option>
+            <volist name="typelist" id="vo">
+                <option value="{np:$vo.value}" >{np:$vo.name}</option>
+            </volist>
+        </select>
+    </div>
+</div>
+<div id="r_article" class="control-group r-module hide">
     <div class="control-group">
-        <label for="type" class="control-label">类型：</label>
+        <label class="control-label"></label>
+
+        <div class="controls choose">
+            <span class="maroon">请选择图文</span>
+			<span class="help-inline">
+			<a href="javascript:void(0)" class="btn btn-mini ed_choose"><i class="icon-edit"></i></a>
+			</span>
+        </div>
+    </div>
+</div>
+<div id="r_link" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="link">外链地址</label>
 
         <div class="controls">
-            <select id="type" name="type" class="input-medium">
-                <option value="">选择类型</option>
-                <option value="article">图文</option>
-                <option value="link">链接</option>
-                <option value="tel">电话</option>
-                <option value="map">导航</option>
-                <option value="activity">活动</option>
-                <option value="business">业务模块</option>
-                <option value="car">微汽车</option>
-                <option value="estate">微房产</option>
-                <option value="food">微餐饮</option>
-                <option value="shop">微商城</option>
-                <option value="tg">微团购</option>
+            <input type="url" id="link" name="link" value="" class="input-xlarge" data-rule-required="true"
+                   data-rule-url="true"/>
+            <span class="maroon">*</span><span class="help-inline">(必填，必须是正确的URL格式)</span>
+        </div>
+    </div>
+</div>
+<div id="r_tel" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="tel">电话号码</label>
+
+        <div class="controls">
+            <input type="text" id="tel" name="tel" value="" class="input-large" data-rule-required="true"
+                   data-rule-phone="true"/>
+            <span class="maroon">*</span><span class="help-inline">(必填，必须是正确的号码)</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="r_market" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="markte_module">微商圈模块</label>
+
+        <div class="controls">
+            <select id="markte_module" name="market_type">
+                <option value="0" data-list="false">还没有商圈分类</option>
             </select>
         </div>
     </div>
-    <div id="r_article" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label"></label>
-
-            <div class="controls choose">
-                <span class="maroon">请选择图文</span>
-													<span class="help-inline">
-														<a href="javascript:void(0)" class="btn btn-mini ed_choose"><i
-                                                                class="icon-edit"></i></a>
-													</span>
-            </div>
-        </div>
-    </div>
-    <div id="r_link" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="link">外链地址</label>
-
-            <div class="controls">
-                <input type="url" id="link" name="url" value="" class="input-xlarge" data-rule-required="true"
-                       data-rule-url="true"/>
-                <span class="maroon">*</span><span class="help-inline">(必填，必须是正确的URL格式)</span>
-            </div>
-        </div>
-    </div>
-    <div id="r_tel" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="tel">电话号码</label>
-
-            <div class="controls">
-                <input type="text" id="tel" name="tel" value="" class="input-large" data-rule-required="true"
-                       data-rule-phone="true"/>
-                <span class="maroon">*</span><span class="help-inline">(必填，必须是正确的号码)</span>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="r_market" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="markte_module">微商圈模块</label>
-
-            <div class="controls">
-                <select id="markte_module" name="market_type">
-                    <option value="0" data-list="false">还没有商圈分类</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div id="r_shop" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="shop_module">微商城模块</label>
-
-            <div class="controls">
-                <select id="shop_module" name="shop_type">
-                    <option value="index" data-list="false">首页</option>
-                    <option value="profile" data-list="false">会员中心</option>
-                    <option value="cart" data-list="false">购物车</option>
-                    <option value="about" data-list="false">品牌介绍</option>
-                    <option value="list" data-list="false">全部分类</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div id="r_tg" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="tg_module">微团购模块</label>
-
-            <div class="controls">
-                <select id="tg_module" name="tg_type">
-                    <option value="index" data-list="false">首页</option>
-                    <option value="tgq" data-list="false">团购券</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div id="r_food" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="food_module">微餐饮模块</label>
-
-            <div class="controls">
-                <select id="food_module" name="food_type">
-                    <option value="xzmd" data-list="false">选择门店</option>
-                    <option value="qbcp" data-list="false">全部菜品</option>
-                    <option value="tcxz" data-list="false">套餐选择</option>
-                    <option value="wdcd" data-list="false">我的菜单</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div id="r_estate" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="estate_module">微房产模块</label>
-
-            <div class="controls">
-                <select id="estate_module" name="estate_type">
-                    <option value="jianjie" data-list="false">楼盘简介</option>
-                    <option value="xiangce" data-list="false">精美相册</option>
-                    <option value="yinxiang" data-list="false">楼盘印象</option>
-                    <option value="quanjing" data-list="false">360全景</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div id="r_car" class="control-group r-module hide">
-        <div class="control-group">
-            <label class="control-label" for="car_box">微汽车模块</label>
-
-            <div class="controls">
-                <select id="car_box" name="car_type">
-                    <option value="zixun" data-list="false">最新资讯</option>
-                    <option value="chexi" data-list="false">全部车型</option>
-                    <option value="xiaoshou" data-list="false">联系销售</option>
-                    <option value="shijia" data-list="false">预约试驾</option>
-                    <option value="baoyang" data-list="false">预约保养</option>
-                    <option value="gongju" data-list="false">实用工具</option>
-                    <option value="guanhuai" data-list="false">车主关怀</option>
-                </select>
-            </div>
-            <div class="margin-top" style="display:none;">
-                <label class="control-label">模块业务:</label>
-
-                <div class="controls">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>业务标题</th>
-                            <th>触发关键词</th>
-                            <th>时间段</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <div class="record hide"><a href="javascript:;" id="more_activity">加载更多模块业务...</a></div>
-                    <div class="text-center no-record" style="display:none;">没有正在进行中的模块业务</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="r_business" class="control-group r-module hide"
-    ">
-    <label class="control-label">业务类型:</label>
-
-    <div class="controls">
-        <select id="business_func" name="business_type" class="input-medium">
-            <option value="official" data-list="false">微官网</option>
-            <option value="vipcard" data-list="false">会员卡</option>
-            <option value="reservation" data-list="true">微预约</option>
-            <option value="medical" data-list="false">微医疗</option>
-            <option value="hotels" data-list="true">微酒店</option>
-            <option value="message" data-list="false">微留言</option>
-            <option value="albums" data-list="false">微相册</option>
-            <option value="survey" data-list="true">微调研</option>
-            <option value="invitation" data-list="true">微喜帖</option>
-            <option value="buy" disabled="disabled">微商城</option>
-            <option value="food" disabled="disabled">微餐饮</option>
-            <option value="estate" disabled="disabled">微房产</option>
-            <option value="tourism" disabled="disabled">微旅游</option>
-        </select>
-    </div>
-    <div class="margin-top" style="display:none;">
-        <label class="control-label">业务:</label>
+</div>
+<div id="r_shop" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="shop_module">微商城模块</label>
 
         <div class="controls">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>业务标题</th>
-                    <th>触发关键词</th>
-                    <th>时间段</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <div class="record hide"><a href="javascript:;" id="more_activity">加载更多业务...</a></div>
-            <div class="text-center no-record" style="display:none;">没有正在进行中的业务</div>
+            <select id="shop_module" name="shop_type">
+                <option value="index" data-list="false">首页</option>
+                <option value="profile" data-list="false">会员中心</option>
+                <option value="cart" data-list="false">购物车</option>
+                <option value="about" data-list="false">品牌介绍</option>
+                <option value="list" data-list="false">全部分类</option>
+            </select>
         </div>
     </div>
+</div>
+<div id="r_tg" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="tg_module">微团购模块</label>
+
+        <div class="controls">
+            <select id="tg_module" name="tg_type">
+                <option value="index" data-list="false">首页</option>
+                <option value="tgq" data-list="false">团购券</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div id="r_food" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="food_module">微餐饮模块</label>
+
+        <div class="controls">
+            <select id="food_module" name="food_type">
+                <option value="xzmd" data-list="false">选择门店</option>
+                <option value="qbcp" data-list="false">全部菜品</option>
+                <option value="tcxz" data-list="false">套餐选择</option>
+                <option value="wdcd" data-list="false">我的菜单</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div id="r_estate" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="estate_module">微房产模块</label>
+
+        <div class="controls">
+            <select id="estate_module" name="estate_type">
+                <option value="jianjie" data-list="false">楼盘简介</option>
+                <option value="xiangce" data-list="false">精美相册</option>
+                <option value="yinxiang" data-list="false">楼盘印象</option>
+                <option value="quanjing" data-list="false">360全景</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div id="r_car" class="control-group r-module hide">
+    <div class="control-group">
+        <label class="control-label" for="car_box">微汽车模块</label>
+
+        <div class="controls">
+            <select id="car_box" name="car_type">
+                <option value="zixun" data-list="false">最新资讯</option>
+                <option value="chexi" data-list="false">全部车型</option>
+                <option value="xiaoshou" data-list="false">联系销售</option>
+                <option value="shijia" data-list="false">预约试驾</option>
+                <option value="baoyang" data-list="false">预约保养</option>
+                <option value="gongju" data-list="false">实用工具</option>
+                <option value="guanhuai" data-list="false">车主关怀</option>
+            </select>
+        </div>
+        <div class="margin-top" style="display:none;">
+            <label class="control-label">模块业务:</label>
+
+            <div class="controls">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>业务标题</th>
+                        <th>触发关键词</th>
+                        <th>时间段</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="record hide"><a href="javascript:;" id="more_activity">加载更多模块业务...</a></div>
+                <div class="text-center no-record" style="display:none;">没有正在进行中的模块业务</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="r_business" class="control-group r-module hide"
+">
+<label class="control-label">业务类型:</label>
+
+<div class="controls">
+    <select id="business_func" name="business_type" class="input-medium">
+        <volist name="businesslist" id="vo">
+            <option value="{np:$vo.value}" data-list="false">{np:$vo.name}</option>
+        </volist>
+    </select>
+</div>
+<div class="margin-top" style="display:none;">
+    <label class="control-label">业务:</label>
+
+    <div class="controls">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th></th>
+                <th>业务标题</th>
+                <th>触发关键词</th>
+                <th>时间段</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="record hide"><a href="javascript:;" id="more_activity">加载更多业务...</a></div>
+        <div class="text-center no-record" style="display:none;">没有正在进行中的业务</div>
+    </div>
+</div>
 </div>
 <div id="r_activity" class="control-group r-module hide">
     <label class="control-label">活动类型:</label>
@@ -328,13 +311,9 @@
     <div class="controls">
         <select id="act" name="activity_type" class="input-medium"
                 onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
-            <option value="11">优惠券</option>
-            <option value="12">刮刮卡</option>
-            <option value="13">大转盘</option>
-            <option value="17">微投票</option>
-            <option value="15">一战到底</option>
-            <option value="20">砸金蛋</option>
-            <option value="100">圣诞活动</option>
+            <volist name="activitylist" id="vo">
+                <option value="{np:$vo.value}" data-list="false">{np:$vo.name}</option>
+            </volist>
         </select>
     </div>
     <div class="margin-top" id="activity_select_box">
@@ -503,8 +482,6 @@
         var resource = Resource.create();
         var ins = Resource.instance['res_block'];
         ins.result = ins.result || {};
-        ins.result.wuid = 72040;
-
 
         window.ICON();
     });

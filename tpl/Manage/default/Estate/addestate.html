@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/resource.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/map.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <!--[if IE 7]>
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="{np::STATICS}/js/watermark.js"></script>
+    <![endif]-->
+</head>
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript"></script>
+<script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+<script src="{np::STATICS}/kindeditor/kindeditor.config-upfile.js"></script>
+<link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
+
+<body>
+<div id="main">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span12">
+                            <h3><i class="icon-cog"></i>楼盘简介</h3>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <form action="/npManage/Estate/addEstate.act" method="post" class="form-horizontal form-validate">
+                            <div class="control-group">
+                                <label for="title" class="control-label">图文消息标题：</label>
+                                <div class="controls">
+                                    <input type="text" id="title" name="title" value="{np:$info.title|default='房产信息'}" class="input-xlarge" data-rule-required="true" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">触发关键词后返回的图文消息标题</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="keyword" class="control-label">图文消息触发关键词：</label>
+                                <div class="controls">
+                                    <input type="text" id="keyword" name="keyword" value="{np:$info.keyword|default='微房产'}" class="input-xlarge" data-rule-required="true" data-rule-maxlength="60" />
+                                    <input type="hidden" name="old_keyword" value="" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">多个关键字请用空格分开</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">关键词匹配模式：</label>
+                                <div class="controls">
+                                    <label class="radio">
+                                        <input type="radio" name="match_type" value="1" <empty name="info">checked</empty> <if condition="$info['match_type'] eq 1">checked</if> />完全匹配 （用户输入的和此关键词一样才会触发！）
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="match_type" value="2" <if condition="$info['match_type'] eq 2">checked</if> />包含匹配 （只要用户输入的文字包含本关键词就触发！）
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">图文消息封面：</label>
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.picurl|default=C('site_url').STATICS.'/img/default/estate_home.png'}" style="max-height:100px;" />
+                                    <input type="text" id="thumb" name="picurl" class="hide" value="{np:$info.picurl|default=C('site_url').STATICS.'/img/default/estate_home.png'}" />
+										<span class="help-inline">
+											<button class="btn select_img" type="button">选择封面</button>
+											<span class="help-inline">建议尺寸：宽720像素，高400像素</span>
+										</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="album_title" class="control-label">相册名称：</label>
+                                <div class="controls">
+                                    <input type="text" id="album_title" name="album_title" value="{np:$info.album_title|default='精美相册'}" class="input-xlarge" data-rule-required="true" data-rule-maxlength="10" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">楼盘相册标题 建议10字内</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">楼盘头部图片：</label>
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.banner|default=C('site_url').STATICS.'/img/default/estate_banner.png'}" style="max-height:100px;" />
+                                    <input type="text" id="thumb" name="banner" class="hide" value="{np:$info.banner|default=C('site_url').STATICS.'/img/default/estate_banner.png'}" />
+										<span class="help-inline">
+											<button class="btn select_img" type="button">选择图片</button>
+											<span class="help-inline">建议尺寸：宽720像素，高350像素</span>
+										</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">户型头部图片：</label>
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.house_banner|default=C('site_url').STATICS.'/img/default/estate_house_banner.png'}" style="max-height:100px;" />
+                                    <input type="text" name="house_banner" class="hide" value="{np:$info.house_banner|default=C('site_url').STATICS.'/img/default/estate_house_banner.png'}" />
+										<span class="help-inline">
+											<button class="btn select_img" type="button">选择图片</button>
+											<span class="help-inline">建议尺寸：宽720像素，高350像素</span>
+										</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="suggestId" class="control-label">地图标识：</label>
+                                <div class="controls">
+                                    <div class="input-append">
+                                        <input type="text" id="suggestId" name="place" value="{np:$info.place}" class="input-xlarge" data-rule-required="true" />
+                                        <button class="btn" type="button" id="positioning">搜索</button>
+                                    </div>
+                                    <span class="maroon">注意：这个只是模糊定位，准确位置请地图上标注！</span>
+                                    <div id="l-map">
+                                        <i class="icon-spinner icon-spin icon-large"></i>地图加载中...
+                                    </div>
+                                    <div id="r-result">
+                                        <input type="text" id="lng" name="lng" value="{np:$info.lng}" />
+                                        <input type="text" id="lat" name="lat" value="{np:$info.lat}"/>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    baidu_map();
+                                </script>
+                            </div>
+                            <div class="control-group">
+                                <label for="estate_desc" class="control-label">楼盘简介：</label>
+                                <div class="controls">
+                                    <textarea id="estate_desc" name="estate_desc">{np:$info.estate_desc}</textarea>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="object_desc" class="control-label">项目简介：</label>
+                                <div class="controls">
+                                    <textarea id="object_desc" name="object_desc">{np:$info.object_desc}</textarea>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="traffic_desc" class="control-label">交通配套：</label>
+                                <div class="controls">
+                                    <textarea id="traffic_desc" name="traffic_desc">{np:$info.traffic_desc}</textarea>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                KindEditor.ready(function (K) {
+                                    K.create("#estate_desc", G.set.KindEditor_seting);
+                                    K.create("#object_desc", G.set.KindEditor_seting);
+                                    var editor = K.create("#traffic_desc", G.set.KindEditor_seting);
+                                    $('button.select_img').live("click", function (e) {
+                                        editor.loadPlugin('smimage', function () {
+                                            editor.plugin.imageDialog({
+                                                imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                                                clickFn: function (url, title, width, height, border, align) {
+                                                    var $input = $(e.target).parent().prevAll("input[type=text]")
+                                                    $input.val(url)
+                                                    $input.hide();
+                                                    var t_img = $(e.target).parent().prevAll(".thumb_img:first");
+                                                    if (t_img.length == 0) {
+                                                        var tmp = '<img class="thumb_img" src="{0}" style="max-height: 100px;">';
+                                                        $input.before(tmp.format(url))
+                                                    } else {
+                                                        t_img.attr("src", url);
+                                                    }
+                                                    $(e.target).text("重新选择")
+                                                    editor.hideDialog();
+                                                }
+                                            });
+                                        });
+                                    });
+                                });
+                            </script>
+                            <input type="hidden" name="id" value="{np:$info.id}">
+                            <div class="form-actions">
+                                <button type="submit" id="bsubmit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    window.document.onkeydown = function(e) {
+        if ('' == document.activeElement.id) {
+            var e=e || event;
+　 				var currKey=e.keyCode || e.which || e.charCode;
+            if (8 == currKey) {
+                return false;
+            }
+        }
+    };
+</script>
+</html>

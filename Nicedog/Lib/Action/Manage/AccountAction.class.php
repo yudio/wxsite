@@ -7,10 +7,41 @@ class AccountAction extends UserAction{
         //$this->token=$this->_session('token');
     }
 
+    public function chat(){
+
+
+        $req = new WeiXinReq();
+        $res = $req->get("http://www.simsimi.com/talk.htm");
+        $cookie = $res['cookie'];
+        $body   = $res['body'];
+        echo "======1=====\n\r\t";
+        dump($body);
+        $url = "http://www.simsimi.com/func/reqN?lc=ch&ft=0.0&req=".urlencode('hello');
+        LOG::write($url,LOG::ERR);
+        $res = $req->get($url,$cookie);
+        echo "======2=====\n\r\t";
+        dump($res);
+        exit;
+    }
+
     public function main(){
         if (session('uid')==false){
-            $this->error('非法操作','/nphome/index/index.act');
+            $this->error('非法操作','/');
         }
+        /*$file='/Library/WebServer/Documents/tpl/static/img/applogo.png';
+        echo $file;
+        $type=getimagesize($file);//取得图片的大小，类型等
+        $fp=fopen($file,"r")or die("Can't open file");
+        $file_content=chunk_split(base64_encode(fread($fp,filesize($file))));//base64编码
+        switch($type[2]){//判读图片类型
+            case 1:$img_type="gif";break;
+            case 2:$img_type="jpg";break;
+            case 3:$img_type="png";break;
+        }
+        $img='data:image/'.$img_type.';base64,'.$file_content;//合成图片的base64编码
+        fclose($fp);
+        LOG::write($img,LOG::ERR);
+        $this->assign('logo',$img);*/
         $this->display();
     }
     /**
@@ -68,19 +99,14 @@ class AccountAction extends UserAction{
 
     /*
      *
-     *
+     *  用户登出
      */
     public function logout(){
         session(null);
+        session_unset();
         session_destroy();
         unset($_SESSION);
-        if(session('?'.C('USER_AUTH_KEY'))) {
-            session(C('USER_AUTH_KEY'),null);
-
-            redirect('/');
-        }else {
-            $this->error('已经登出！','/');
-        }
+        $this->error('已经登出！','/');
     }
     /*
      *

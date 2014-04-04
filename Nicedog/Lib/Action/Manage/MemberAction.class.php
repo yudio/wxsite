@@ -26,21 +26,42 @@ class MemberAction extends UserAction{
 
     //商家设置
     public function setBusiness(){
-        $db = D('Member_card_info');
+        $db = D('MemberCardInfo');
         if (IS_POST){
-            $_POST['token'] = session('token');
+            //$_POST['token'] = session('token');
             $id = $this->_post('id');
             $_POST['class'] = $this->_post('category_f').'/'.$this->_post('category_s');//兼容旧系统
             if ($id){//更新操作
                 if ($db->create()){
+                    //关键字
+                    $data['pid']    = $id;
+                    $data['match_type'] = 1;
+                    $data['token']  = session('token');
+                    $data['keyword']  = $this->_post('keyword');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！','url'=>'/npManage/reply/addtext.act?id='.$id),'JSON');
+                    }
                     $db->save();
+                    Keyword::update($data,'MemberCard');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/setBusiness.act'));
                 }else{
                     $this->ajaxReturn(array('errno'=>'100','error'=>$db->getError()),'JSON');
                 }
             }else{
                 if ($db->create()){
+                    //关键字
+                    $data['pid']     = 0;
+                    $data['match_type'] = 1;
+                    $data['token']  = session('token');
+                    $data['keyword']  = $this->_post('keyword');
+                    $keymatch = Keyword::select($data);
+                    if (count($keymatch)>1){
+                        $this->ajaxReturn(array('errno'=>'101','error'=>'该关键字冲突！'),'JSON');
+                    }
                     $id = $db->add();
+                    $data['pid']     = $id;
+                    Keyword::update($data,'MemberCard');
                     $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/member/setBusiness.act'),'JSON');
                 }else{
                     $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()),'JSON');

@@ -32,8 +32,7 @@
     <script src="<?php echo RES;?>/js/watermark.js"></script>
     <![endif]-->
 </head>
-<!--
-<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript"></script>-->
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
 <script src="<?php echo STATICS;?>/kindeditor/kindeditor-min.js"></script>
 <script src="<?php echo STATICS;?>/kindeditor/lang/zh_CN.js"></script>
 <script type="text/javascript" >
@@ -167,18 +166,7 @@
 
     <div class="controls">
         <select id="type" name="type" class="input-medium">
-            <option value="article" selected="selected">图文</option>
-            <option value="link">链接</option>
-            <option value="tel">电话</option>
-            <option value="map">导航</option>
-            <option value="activity">活动</option>
-            <option value="business">业务模块</option>
-            <option value="car">微汽车</option>
-            <option value="estate">微房产</option>
-            <option value="food">微餐饮</option>
-            <option value="shop">微商城</option>
-            <option value="market">微生活</option>
-            <option value="tg">微团购</option>
+            <?php if(is_array($typelist)): $i = 0; $__LIST__ = $typelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["value"]); ?>" ><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
         </select>
     </div>
 </div>
@@ -321,15 +309,7 @@
 
     <div class="controls">
         <select id="business_func" name="business_type" class="input-medium">
-            <option value="official" data-list="false">微官网</option>
-            <option value="vipcard" data-list="false">会员卡</option>
-            <option value="reservation" data-list="true">微预约</option>
-            <option value="medical" data-list="false">微医疗</option>
-            <option value="hotels" data-list="true">微酒店</option>
-            <option value="message" data-list="false">微留言</option>
-            <option value="albums" data-list="false">微相册</option>
-            <option value="survey" data-list="true">微调研</option>
-            <option value="invitation" data-list="true">微喜帖</option>
+            <?php if(is_array($businesslist)): $i = 0; $__LIST__ = $businesslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["value"]); ?>" data-list="false"><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
         </select>
     </div>
     <div class="margin-top" style="display:none;">
@@ -359,13 +339,7 @@
     <div class="controls">
         <select id="act" name="activity_type" class="input-medium"
                 onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
-            <option value="11">优惠券</option>
-            <option value="12">刮刮卡</option>
-            <option value="13">大转盘</option>
-            <option value="17">微投票</option>
-            <option value="15">一战到底</option>
-            <option value="20">砸金蛋</option>
-            <option value="100">圣诞活动</option>
+            <?php if(is_array($activitylist)): $i = 0; $__LIST__ = $activitylist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["value"]); ?>" data-list="false"><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
         </select>
     </div>
     <div class="margin-top" id="activity_select_box">
@@ -425,8 +399,6 @@
         var resource = Resource.create();
         var ins = Resource.instance['res_block'];
         ins.result = ins.result || {};
-        ins.result.wuid = 72040;
-
 
         window.ICON();
     });

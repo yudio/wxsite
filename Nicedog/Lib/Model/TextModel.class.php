@@ -16,6 +16,17 @@ class TextModel extends Model{
 		array('token','gettoken',self::MODEL_INSERT,'callback'),
 		array('click','0'),
 	);
+    //输出反转义内容
+    /*protected function _after_find(&$result,$options) {
+        $result['text'] = htmlspecialchars_decode($result['text']);
+    }*/
+
+    protected function _after_select(&$resultSet,$options) {
+        foreach($resultSet as &$result){
+            $result['text'] = htmlspecialchars($result['text'].'DDT',ENT_QUOTES);
+        }
+    }
+
 	function string2br(){
 		return preg_replace("/(\015\012)|(\015)|(\012)/", "\n",$_POST['text']);
 	

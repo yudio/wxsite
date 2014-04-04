@@ -19,6 +19,7 @@ class UsersAction extends BaseAction{
 				$this->error('请联系在线客户，为你人工审核帐号');exit;
 			}
 			session('uid',$res['id']);
+            session('livetime',time());
 			session('gid',$res['gid']);
 			session('uname',$res['username']);
 			$info=M('user_group')->find($res['gid']);
@@ -30,7 +31,7 @@ class UsersAction extends BaseAction{
             //为每个用户建立一个上传目录
             $picpath = dirname(__FILE__).'/../../../../Uploads/userShare/'.substr(md5($res['id']),16).'/';
             //$picpath            =   realpath($picpath);
-            LOG::write('创建用户图片空间|'.$picpath,LOG::ERR);
+            //LOG::write('创建用户图片空间|'.$picpath,LOG::ERR);
             if (!is_dir($picpath)) {
                 mkdir($picpath,0777,true);
                 chmod($picpath,0777);
