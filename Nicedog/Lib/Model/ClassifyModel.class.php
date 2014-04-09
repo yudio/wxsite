@@ -32,7 +32,12 @@ class ClassifyModel extends Model{
     protected function _after_insert($data,$options) {
         $db = D('Typelink');
         $kdata = $_POST;
-        $kdata['url'] = $data['url'];
+        //写入URL
+        $_POST['id'] = $data['id'];
+        $kdata['url'] = TypeLink::getTypeLink($_POST,'Classify');
+        M('Classify')->data(array('id'=>$data['id'],'url'=>$kdata['url']))->save();
+
+        $kdata['typename'] = $this->getTypeName();
         $kdata['pid'] = $data['id'];
         $kdata['module'] = 'Classify';
         $db->data($kdata)->add();
@@ -42,25 +47,28 @@ class ClassifyModel extends Model{
      * 成功更新后添加记录外链
      */
     protected function _after_update($data,$options) {
-        $db = D('Typelink');
-        $kdata = $_POST;
-        $kdata['typename'] = $this->getTypeName();
-        LOG::write('KDATA:'.$kdata['typename'],LOG::ERR);
-        $where['pid'] = $data['id'];
-        $where['module'] = 'Classify';
-        $vo = $db->where($where)->find();
-        if ($vo){
-            $kdata['id']  = $vo['id'];
-            $kdata['url'] = $data['url'];
-            $kdata['pid'] = $data['id'];
-            $kdata['module'] = 'Classify';
-            $db->data($kdata)->save();
-        }else{
-            unset($kdata['id']);
-            $kdata['url'] = $data['url'];
-            $kdata['pid'] = $data['id'];
-            $kdata['module'] = 'Classify';
-            $db->data($kdata)->add();
+        LOG::write('_after_update',LOG::ERR);
+        if ($_POST['type']){
+            $db = D('Typelink');
+            $kdata = $_POST;
+            $kdata['typename'] = $this->getTypeName();
+            LOG::write('KDATA:'.$kdata['typename'],LOG::ERR);
+            $where['pid'] = $data['id'];
+            $where['module'] = 'Classify';
+            $vo = $db->where($where)->find();
+            if ($vo){
+                $kdata['id']  = $vo['id'];
+                $kdata['url'] = $data['url'];
+                $kdata['pid'] = $data['id'];
+                $kdata['module'] = 'Classify';
+                $db->data($kdata)->save();
+            }else{
+                unset($kdata['id']);
+                $kdata['url'] = $data['url'];
+                $kdata['pid'] = $data['id'];
+                $kdata['module'] = 'Classify';
+                $db->data($kdata)->add();
+            }
         }
     }
 	

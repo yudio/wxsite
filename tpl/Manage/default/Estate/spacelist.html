@@ -37,20 +37,24 @@
                 <div class="box">
                     <div class="box-title">
                         <div class="span8">
-                            <h3><i class="icon-table"></i>户型管理</h3>
+                            <h3><i class="icon-table"></i>全景图管理</h3>
                         </div>
                     </div>
                     <div class="box-content">
                         <div class="row-fluid">
                             <div class="span8 control-group">
-                                <a href="/npManage/Estate/addHouse.act" class="btn"><i class="icon-plus"></i>添加户型</a>
+                                <a href="/npManage/Estate/houseList.act" class="btn"><i class="icon-reply"></i>返回户型</a>
+                                <a href="/npManage/Estate/addSpace.act?hid={np:$hid}" class="btn"><i class="icon-plus"></i>添加全景图</a>
                                 <div class="btn-group datatabletool">
                                     <a class="btn" title="删除" onclick="deleteMutil();"><i class="icon-trash"></i></a>
                                 </div>
+                                <a href="/tutorial/page1.html" target="_blank">
+                                    <span style="color:red;">如何制作一个360度全景?</span>
+                                </a>
                             </div>
-                            <div class="span4" style="text-align:right;">
-                                <form action="/npManage/Estate/houseList.act" method="get" class="form-horizontal form-validate">
-                                    <input type="text" name="name" value="" class="input-large" placeholder="请输入户型名称" data-rule-required="true" />
+                            <div class="span4" style="text-align:right; display: none;">
+                                <form action="/npManage/Estate/spaceList.act?hid={np:$hid}" method="get" class="form-horizontal form-validate">
+                                    <input type="text" name="title" value="" class="input-large" placeholder="请输入全景图标题" data-rule-required="true" />
                                     <button class="btn">查询</button>
                                 </form>
                             </div>
@@ -60,38 +64,28 @@
                                 <thead>
                                 <tr>
                                     <th class='with-checkbox'>
-                                        <input type="checkbox" class="check_all" disabled="disabled" />
+                                        <input type="checkbox" class="check_all"  />
                                     </th>
-                                    <th class="span3">户型名称</th>
-                                    <th class="span3">所属子楼盘</th>
-                                    <th class="span1">显示顺序</th>
+                                    <th class="span3">全景图标题</th>
+                                    <th class="span3" style="display:none;">分类</th>
                                     <th class="span3">操作</th>
                                 </tr>
                                 </thead>
-                                <empty name="list">
+                                <volist name="list" id="vo">
                                 <tr>
-                                    <td colspan="6" style="text-align:center; height:30px;">没有任何户型信息</td>
+                                    <td class="with-checkbox">
+                                        <input type="checkbox" name="check" value="{np:$vo.id}" />
+                                    </td>
+                                    <td>{np:$vo.title}</td>
+                                    <td style="display:none;"></td>
+                                    <td>
+                                        <a href="/npManage/Estate/addSpace.act?id={np:$vo.id}" class="btn"><i class="icon-edit"></i></a>
+                                        <a href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/Estate/spaceDel.act?id={np:$vo.id}');" class="btn"><i class="icon-remove"></i></a>
+                                    </td>
                                 </tr>
-                                <else/>
-                                    <volist name="list" id="vo">
-                                    <tr>
-                                        <td class="with-checkbox">
-                                            <input type="checkbox" name="check" value="3781" />
-                                        </td>
-                                        <td>{np:$vo.name}</td>
-                                        <td>{np:$vo.pname}</td>
-                                        <td>{np:$vo.sort}</td>
-                                        <td>
-                                            <a href="/npManage/Estate/spaceList.act?hid={np:$vo.id}" class="btn" onclick="//G.ui.tips.info('请联系客服'); return false;">管理全景图</a>
-                                            <a href="/npManage/Estate/addHouse.act?id={np:$vo.id}" class="btn"><i class="icon-edit"></i></a>
-                                            <a href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/Estate/houseDel.act?id={np:$vo.id}');" class="btn"><i class="icon-remove"></i></a>
-                                        </td>
-                                    </tr>
-                                    </volist>
-                                </empty>
+                                </volist>
                             </table>
-                            <notempty name="list"><div class="dataTables_paginate paging_full_numbers"><span>{np:$page}</span></div></notempty>
-                        </div>
+                            <div class="dataTables_paginate paging_full_numbers"><span>       </span></div>							</div>
                     </div>
                 </div>
             </div>
@@ -103,15 +97,15 @@
 
 <script>
     function deleteMutil(){
-        var hids = '';
+        var pfids = '';
         $('input[name=check]').each(function(){
             if ($(this).attr("checked")) {
-                hids += ","+$(this).val();
+                pfids += ","+$(this).val();
             }
         });
 
-        if('' != hids){
-            G.ui.tips.confirm('确定要删除选中的吗？', '/Estate/HouseBatDelete?aid=107395&hids='+hids);
+        if('' != pfids){
+            G.ui.tips.confirm('确定要删除选中的吗？', '/Estate/PicfullBatDelete?aid=110460&hid=3866&pfids='+pfids);
         }
     }
 </script>	<script>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -54,10 +53,10 @@
                                     </div>
                                 </div>
 
-                                <div class="control-group">
+                                <div class="control-group" style="display: none;">
                                     <label for="picurl" class="control-label">排序id：</label>
                                     <div class="controls">
-                                       <input type="text" ata-rule-number="true" class="input-mini" value="{np:$info.sort}" size="3" name="sort"><span style="color:red;" class="help-inline">(id越大，在所属官网分类文章列表中显示越靠前)</span>
+                                       <input type="text" ata-rule-number="true" class="input-mini" value="{np:$info.sort|default='0'}" size="3" name="sort"><span style="color:red;" class="help-inline">(id越大，在所属官网分类文章列表中显示越靠前)</span>
 
                                     </div>
                                 </div>
@@ -77,7 +76,7 @@
                                         <textarea id="description" name="info" data-rule-required="true" data-rule-maxlength="200" style="width: 580px; height: 100px">{np:$info.info}</textarea><span class="maroon">*</span>
                                     </div>
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" style="display: none;">
                                     <label for="title" class="control-label">所属类别：</label>
                                     <div class="controls">
                                         <select name="classid" class="chosen-select input-medium" data-nosearch="true" id="article_class">
@@ -143,7 +142,7 @@
                                         <button type="button" rel="more_graphics_table" class="btn add-on">添加</button><span style="color:red;" class="help-inline">最多添加9个</span>
                                     </div>
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" style="display: none;">
                                     <label for="picurl" class="control-label">推荐阅读：</label>
                                     <div class="controls">
                                         <table class="dataTable-mini" id="more_recommended_table">

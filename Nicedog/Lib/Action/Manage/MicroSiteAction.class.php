@@ -150,7 +150,11 @@ class MicroSiteAction extends UserAction{
                 }
             }
         }else{
-            $wxuser = M('Wxuser')->field('id,wxname')->where(array('token'=>session('token')))->find();
+            $wxuser = M('Wxuser')->where(array('token'=>session('token')))->find();
+            if ($wxuser['type']>1){
+                $authservice = new AuthService($wxuser);
+                $this->assign('authurl',$authservice->auth2url(C('site_url').'/webauth/'.$this->wecha['id'].'/redirect','snsapi_base','official'));
+            }
             $this->assign('wxuser',$wxuser);
             $this->assign('home',$home);
             $this->display();
@@ -300,9 +304,14 @@ class MicroSiteAction extends UserAction{
 
     public function editclassify(){
         $where['id']=$this->_get('id','intval');
-        $where['uid']=session('uid');
+        $where['uid']   = session('uid');
+        $where['token'] = session('token');
         $res=D('Classify')->where($where)->find();
         $this->assign('info',$res);
+        $cond['token']=session('token');
+        $cond['category_id'] = 0; // 取一级分类
+        $clist = D('Classify')->where($cond)->order('sorts')->select();
+        $this->assign('clist',$clist);
         //加载外链配置
         $this->assign('typelist',C('class_typelist'));
         $this->assign('businesslist',C('businesslist'));
@@ -475,12 +484,13 @@ class MicroSiteAction extends UserAction{
                 $this->ajaxReturn(array('errno'=>'100','error'=>'请先设置微官网！','url'=>'/npManage/microsite/set.act'),'JSON');
             }
             $data = array();
-            $data['id'] = $home['id'];
-            $data['plugmenu'] = $this->_post('plugmenu');
+            $_POST['id'] = $home['id'];
+            /*$data['plugmenu'] = $this->_post('plugmenu');
             $data['plugmenucolor'] = $this->_post('plugmenucolor');
             $data['copyright'] = $this->_post('copyright');
-            $data['tel'] = $this->_post('tel');
-            if($db->data($data)->save()){
+            $data['tel'] = $this->_post('tel');*/
+            if($db->create()){
+                $db->save();
                 $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/microsite/plugmenu.act'),'JSON');
             }else{
                 $this->ajaxReturn(array('errno'=>'100','error'=>'更新完成！'),'JSON');

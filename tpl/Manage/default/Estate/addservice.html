@@ -12,15 +12,12 @@
     <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/uploadify/uploadify_t.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
     <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/src/jquery_ui_custom.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/src/plugins/uploadify/jquery_uploadify.js"></script>
     <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
@@ -33,6 +30,10 @@
     <script src="{np::STATICS}/js/watermark.js"></script>
     <![endif]-->
 </head>
+<script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+<script src="{np::STATICS}/kindeditor/kindeditor.config-upfile.js"></script>
+<link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
 <body>
 <div id="main">
     <div class="container-fluid">
@@ -41,13 +42,13 @@
                 <div class="box">
                     <div class="box-title">
                         <div class="span12">
-                            <h3><i class="icon-cog"></i>添加楼盘相册</h3>
+                            <h3><i class="icon-cog"></i>添加便民信息</h3>
                         </div>
                     </div>
                     <div class="box-content">
-                        <form action="/npManage/Estate/addAlbum.act" method="post" class="form-horizontal form-validate">
+                        <form action="/npManage/Estate/addService.act" method="post" class="form-horizontal form-validate">
                             <div class="control-group">
-                                <label for="title" class="control-label">相册名称：</label>
+                                <label for="title" class="control-label">便民标题：</label>
                                 <div class="controls">
                                     <input type="text" id="title" name="title" value="{np:$info.title}" class="input-large" data-rule-required="true" data-rule-maxlength="20" />
                                     <span class="maroon">*</span>
@@ -74,43 +75,23 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="description" class="control-label">相册介绍：</label>
+                                <label for="description" class="control-label">便民描述：</label>
                                 <div class="controls">
-                                    <textarea id="description" name="desc" rows="5" class="input-xxlarge" data-rule-maxlength="150">{np:$info.desc}</textarea>
-                                    <span class="maroon">*</span>
-                                    <span class="help-block">最多可150字</span>
+                                    <textarea id="description" name="desc" rows="3" class="input-xxlarge" data-rule-maxlength="150" placeholder="可不填">{np:$info.desc}</textarea>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="prices" class="control-label">相册图片：</label>
+                                <label for="content_desc" class="control-label">便民内容：</label>
                                 <div class="controls">
-                                    <div id="upimg_main">
-                                        <empty name="info['id']">
-                                            请保存后上传图片！
-                                        <else/>
-                                        <input id="file_upload" type="file" />
-                                        <ul class="ipost-list ui-sortable" id="fileList">
-                                            <volist name="imglist" id="vo">
-                                            <li class="imgbox" data-post-id="{np:$vo.id}" data-url="{np:$vo.imgurl}">
-                                                <a class="item_close" href="javascript:void(0)" title="删除"></a>
-                                                <input type="hidden" value="{np:$vo.id}" name="phout_list[]">
-                                                <input type="hidden" value="{np:$vo.imgurl}" name="phout_url[{np:$vo.id}]">
-                                                <span class="item_box"><img src="{np:$vo.thumb}"></span>
-															<span class="item_input">
-																<textarea name="imagestexts[{np:$vo.id}]" class="bewrite" cols="3" rows="4" style="resize: none" data-rule-maxlength="150" placeholder="图片描述...">{np:$vo.title}</textarea>
-																<i class="shadow hc"></i>
-															</span>
-                                            </li>
-                                            </volist>
-                                        </ul>
-                                        </empty>
-                                        <div id="file_upload_queue" class="uploadifyQueue">
-                                        </div>
-                                    </div>
+                                    <textarea id="content_desc" name="content" placeholder="必须填写">{np:$info.content}</textarea>
                                 </div>
                             </div>
+                            <script type="text/javascript">
+                                KindEditor.ready(function (K) {
+                                    var editor = K.create("#content_desc", G.set.KindEditor_seting);
+                                });
+                            </script>
                             <div class="form-actions">
-                                <input type="hidden" name="type" value="1"/>
                                 <input type="hidden" name="id" value="{np:$info.id}"/>
                                 <button type="submit" id="bsubmit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
                                 <button type="button" class="btn" onclick="window.history.go(-1);">取消</button>
@@ -123,45 +104,7 @@
     </div>
 </div>
 </body>
-
-<script type="text/javascript">
-    $(function () {
-        var op = {
-            el: $("#file_upload"),
-            count: 50,
-            data: {
-                'type_id': 1,
-                'pid':"{np:$info.id}"
-            },
-            url: "/npManage/Estate/upload.act",
-            del_url: "/npManage/Estate/imgDel.act",
-            swf: "{np::STATICS}/swf/uploadify.swf"
-        }
-        G.logic.uploadify.init(op);
-        var flag=true;
-        /*
-        G.logic.uploadify.Callback=function(data){
-            if (flag && op.data.abid==0) {
-                var urlstr = data.url.split('_');
-                var strs = urlstr[1].split('/');
-                var abid=strs[0];
-                op.data.abid = abid;
-                $("#abid").val(abid);
-                op.el.uploadify('settings','formData',op.data);
-                flag=false;
-            };
-        }
-        $("#bsubmit").click(function () {
-            if (!$("li.imgbox").length) {
-                G.ui.tips.info("请上传图片");
-                return false;
-            };
-
-        })
-        */
-        $("#file_upload").append('<span class="maroon">*</span><span class="help-inline">图片大小650*650，图片大小不超过300K</span>');
-    })
-</script>	<script>
+<script>
     window.document.onkeydown = function(e) {
         if ('' == document.activeElement.id) {
             var e=e || event;

@@ -1,36 +1,35 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
-    <link rel="shortcut icon" href="http://stc.weimob.com/img/favicon.ico?v=2014-03-07-1" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/bootstrap_min.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/bootstrap_responsive_min.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/style.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/todc_bootstrap.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/themes.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/plugins/uploadify/uploadify_t.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/inside.css?2014-03-07-1" media="all" />
-    <script type="text/javascript" src="http://stc.weimob.com/src/jQuery.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/bootstrap_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/validation/jquery_validate_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/validation/jquery_validate_methods.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/form/jquery_form_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/jquery_ui_custom.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/uploadify/jquery_uploadify.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/inside.js?2014-03-07-1"></script>
-    <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/uploadify/uploadify_t.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/jquery_ui_custom.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/uploadify/jquery_uploadify.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js?=<?php echo time();?>"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
-    <link href="http://stc.weimob.com/css/font_awesome_ie7.css?v=2014-03-07-1" rel="stylesheet" />
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" />
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="http://stc.weimob.com/js/excanvas_min.js?v=2014-03-07-1"></script>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="http://stc.weimob.com/js/watermark.js?v=2014-03-07-1"></script>
+    <script src="{np::STATICS}/js/watermark.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -45,11 +44,11 @@
                         </div>
                     </div>
                     <div class="box-content">
-                        <form action="/Estate/HouseEdit/aid/107395/hid/0" method="post" class="form-horizontal form-validate">
+                        <form action="/npManage/Estate/addHouse.act" method="post" class="form-horizontal form-validate">
                             <div class="control-group">
                                 <label for="name" class="control-label">户型名称：</label>
                                 <div class="controls">
-                                    <input type="text" id="name" name="name" value="" class="input-large" data-rule-required="true" data-rule-maxlength="20" />
+                                    <input type="text" id="name" name="name" value="{np:$info.name|default='基础户型'}" class="input-large" data-rule-required="true" data-rule-maxlength="20" />
                                     <span class="maroon">*</span>
                                     <span class="help-inline">尽量简单，不要超过20字</span>
                                 </div>
@@ -57,15 +56,18 @@
                             <div class="control-group">
                                 <label for="category_id" class="control-label">选择子楼盘：</label>
                                 <div class="controls">
-                                    <select id="category_id" name="category_id" class="input-medium" data-rule-required="true">
-                                        <option value="0">请选择子楼盘</option>
+                                    <select id="category_id" name="pid" class="input-medium" data-rule-required="true">
+                                        <option value="">请选择子楼盘</option>
+                                        <volist name="plist" id="vo">
+                                            <option value="{np:$vo.id}" <if condition="$vo['id'] eq $info['pid']">selected</if>>{np:$vo.title}</option>
+                                        </volist>
                                     </select>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="floor_num" class="control-label">楼层：</label>
                                 <div class="controls">
-                                    <input type="text" id="floor_num" name="floor_num" value="" class="input-large" data-rule-required="true" />
+                                    <input type="text" id="floor_num" name="floor_num" value="{np:$info.floor_num}" class="input-large" data-rule-required="true" />
                                     <span class="maroon">*</span>
                                     <span class="help-inline">如：3-10</span>
                                 </div>
@@ -73,7 +75,7 @@
                             <div class="control-group">
                                 <label for="area" class="control-label">建筑面积：</label>
                                 <div class="controls">
-                                    <input type="text" id="area" name="area" value="" class="input-large" data-rule-required="true" />
+                                    <input type="text" id="area" name="area" value="{np:$info.area}" class="input-large" data-rule-required="true" />
                                     <span class="maroon">*</span>
                                     <span class="help-inline">如：约103平方米</span>
                                 </div>
@@ -82,20 +84,20 @@
                                 <label for="fang" class="control-label">房屋户型：</label>
                                 <div class="controls">
                                     <select id="fang" name="fang" class="input-mini" data-rule-required="true">
-                                        <option value="1" selected="selected">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+                                        <option value="1" <empty name="info">selected</empty><if condition="$info['fang'] eq 1">selected</if>>1</option>
+                                        <option value="2" <if condition="$info['fang'] eq 2">selected</if>>2</option>
+                                        <option value="3" <if condition="$info['fang'] eq 3">selected</if>>3</option>
+                                        <option value="4" <if condition="$info['fang'] eq 4">selected</if>>4</option>
+                                        <option value="5" <if condition="$info['fang'] eq 5">selected</if>>5</option>
+                                        <option value="6" <if condition="$info['fang'] eq 6">selected</if>>6</option>
                                     </select>
                                     房
                                     <select id="ting" name="ting" class="input-mini" data-rule-required="true">
-                                        <option value="1" selected="selected">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                        <option value="1" <empty name="info">selected</empty><if condition="$info['ting'] eq 1">selected</if>>1</option>
+                                        <option value="2" <if condition="$info['ting'] eq 2">selected</if>>2</option>
+                                        <option value="3" <if condition="$info['ting'] eq 3">selected</if>>3</option>
+                                        <option value="4" <if condition="$info['ting'] eq 4">selected</if>>4</option>
+                                        <option value="5" <if condition="$info['ting'] eq 5">selected</if>>5</option>
                                     </select>
                                     厅
                                 </div>
@@ -103,7 +105,7 @@
                             <div class="control-group">
                                 <label for="sort" class="control-label">显示顺序：</label>
                                 <div class="controls">
-                                    <input type="text" id="sort" name="sort" value="0" class="input-mini" data-rule-required="true" data-rule-number="true" />
+                                    <input type="text" id="sort" name="sort" value="{np:$info.sort|default='0'}" class="input-mini" data-rule-required="true" data-rule-number="true" />
                                     <span class="maroon">*</span>
                                     <span class="help-inline">数值越大越靠前</span>
                                 </div>
@@ -111,23 +113,40 @@
                             <div class="control-group">
                                 <label for="description" class="control-label">户型介绍：</label>
                                 <div class="controls">
-                                    <textarea id="description" name="description" rows="5" class="input-xxlarge"></textarea>
+                                    <textarea id="description" name="desc" rows="5" class="input-xxlarge">{np:$info.desc}</textarea>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="prices" class="control-label">户型图片：</label>
                                 <div class="controls">
-                                    <input type="hidden" name="abid" id="abid" value="0">
+                                    <input type="hidden" name="abid" id="abid" value="{np:$info.abid}">
                                     <div id="upimg_main">
-                                        <input id="file_upload" type="file" />
+                                        <empty name="info['abid']">
+                                            请保存后上传图片！
+                                        <else/>
+                                        <input id="file_upload" type="file"/>
                                         <ul class="ipost-list ui-sortable" id="fileList">
+                                            <volist name="imglist" id="vo">
+                                            <li class="imgbox" data-post-id="{np:$vo.id}" data-url="{np:$vo.imgurl}">
+                                                <a class="item_close" href="javascript:void(0)" title="删除"></a>
+                                                <input type="hidden" value="{np:$vo.id}" name="phout_list[]">
+                                                <input type="hidden" value="{np:$vo.imgurl}" name="phout_url[{np:$vo.id}]">
+                                                <span class="item_box"><img src="{np:$vo.thumb}"></span>
+															<span class="item_input">
+																<textarea name="imagestexts[{np:$vo.id}]" class="bewrite" cols="3" rows="4" style="resize: none" data-rule-maxlength="150" placeholder="图片描述...">{np:$vo.title}</textarea>
+																<i class="shadow hc"></i>
+															</span>
+                                            </li>
+                                            </volist>
                                         </ul>
+                                        </empty>
                                         <div id="file_upload_queue" class="uploadifyQueue">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-actions">
+                                <input type="hidden" name="id" value="{np:$info.id}"/>
                                 <button type="submit" id="bsubmit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
                                 <button type="button" class="btn" onclick="window.history.go(-1);">取消</button>
                             </div>
@@ -147,38 +166,15 @@
             el: $("#file_upload"),
             count: 50,
             data: {
-                'type_id': 3,
-                'abid':"0",
-                'aid':"107395",
-                'utype':"102",
-                'uid':"218177",
-                'uu':"5200fef6998c58ab2e8e211e99d44740"
+                'type_id': 0,
+                'pid':"{np:$info.abid}"
             },
-            url: "http://www.weimob.com/Webalbums/Upimg",
-            del_url: "http://www.weimob.com/Wealbums/Delimg/",
-            swf: "http://stc.weimob.com/swf/uploadify.swf"
+            url: "/npManage/Estate/upload.act",
+            del_url: "/npManage/Estate/imgDel.act",
+            swf: "{np::STATICS}/swf/uploadify.swf"
         }
         G.logic.uploadify.init(op);
-        var flag=true;
-        G.logic.uploadify.Callback=function(data){
-            if (flag && op.data.abid==0) {
-                var urlstr = data.url.split('_');
-                var strs = urlstr[1].split('/');
-                var abid=strs[0];
-                op.data.abid = abid;
-                $("#abid").val(abid);
-                op.el.uploadify('settings','formData',op.data);
-                flag=false;
-            };
-        }
-        $("#bsubmit").click(function () {
-            if (!$("li.imgbox").length) {
-                G.ui.tips.info("请上传图片");
-                return false;
-            };
-
-        })
-        $("#file_upload").append('<span class="maroon">*</span><span class="help-inline">图片大小不超过300K</span>');
+        $("#file_upload").append('<span class="maroon">*</span><span class="help-inline">图片大小650*650，图片大小不超过300K</span>');
     })
 </script>	<script>
     window.document.onkeydown = function(e) {
@@ -190,88 +186,5 @@
             }
         }
     };
-</script>
-<script type="text/javascript">
-    (function() {
-        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
-        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
-    })();
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
-    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
-        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
-        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
-        wmShare.src += shareToPlatform + '&pid=&sendFriendLink=' + encodeURIComponent(sendFriendLink);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
-    }
-    function getShareApiRouter(){
-        var str_domain = location.href.split('/',4)[2];
-        var tj_domain = '127.0.0.1';
-        switch(str_domain){
-            case 'www.weimob.com':
-                tj_domain = 'tj.weimob.com';
-                break;
-            case '112.124.28.82':
-                tj_domain = '112.124.28.82:400';
-                break;
-        }
-        return tj_domain;
-    }
-    if(typeof(window.shareData) == 'undefined'){
-        window.shareData = {
-            "imgUrl": "",
-            "timeLineLink": "http://www.weimob.com/Estate/HouseEdit?aid=107395",
-            "sendFriendLink": "http://www.weimob.com/Estate/HouseEdit?aid=107395",
-            "weiboLink": "http://www.weimob.com/Estate/HouseEdit?aid=107395",
-            "tTitle": document.title,
-            "tContent": document.title,
-            "fTitle": document.title,
-            "fContent": document.title,
-            "wContent": document.title
-        }
-    }
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            WeixinJSBridge.invoke('sendAppMessage', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.sendFriendLink,
-                "desc": window.shareData.fContent,
-                "title": window.shareData.fTitle
-            }, function (res) {
-                weimobAfterShare("",window.shareData.sendFriendLink,'appmessage');
-                _report('send_msg', res.err_msg);
-            })
-        });
-
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.timeLineLink,
-                "desc": window.shareData.tContent,
-                "title": window.shareData.tTitle
-            }, function (res) {
-                //weimobAfterShare("",window.shareData.timeLineLink,'timeline');
-                _report('timeline', res.err_msg);
-            });
-        });
-
-        // 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-            WeixinJSBridge.invoke('shareWeibo', {
-                "content": window.shareData.wContent,
-                "url": window.shareData.weiboLink
-            }, function (res) {
-                weimobAfterShare("",window.shareData.weiboLink,'weibo');
-                _report('weibo', res.err_msg);
-            });
-        });
-    }, false);
 </script>
 </html>
