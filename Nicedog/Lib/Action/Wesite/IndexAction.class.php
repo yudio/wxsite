@@ -105,7 +105,6 @@ class IndexAction extends BaseAction{
 		}
 		//
 		$where['token']=$this->token;;
-        LOG::write($this->_get('wechatid'),LOG::ERR);
 		//dump($where);
 		//	$where['status']=1;  幻灯片Flash
 		$flash=M('Flash')->where($where)->select();
@@ -128,6 +127,8 @@ class IndexAction extends BaseAction{
             $this->assign('flash',$flash);
             $this->assign('num',$count);
             $subclass=$this->getTypeUrl($subclass);
+            $thisClassify = M('Classify')->find($classid);
+            $this->assign('thisclassify',$thisClassify);
             $this->assign('subclassify',$subclass);
             $this->display($this->wxuser['tplchname'].':'.$this->wxuser['tplchid']);
         }else{
@@ -200,6 +201,14 @@ class IndexAction extends BaseAction{
 		$this->assign('num',$count);
 		$this->display('ty_index');
 	}
+
+    /*
+     *
+     *  动作感应
+     */
+    public function move(){
+        $this->display();
+    }
 
     /*
      *

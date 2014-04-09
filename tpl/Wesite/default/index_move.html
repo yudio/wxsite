@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-0.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <title>DeviceMotionEvent</title>
+    <include file="common:meta"/>
+</head>
+<script type="text/javascript">
+    function motionHandler(event) {
+
+        alert('motion');
+        document.getElementById("interval").innerHTML = event.interval;
+        var acc = event.acceleration;
+        document.getElementById("x").innerHTML = acc.x;
+        document.getElementById("y").innerHTML = acc.y;
+        document.getElementById("z").innerHTML = acc.z;
+        var accGravity = event.accelerationIncludingGravity;
+        document.getElementById("xg").innerHTML = accGravity.x;
+        document.getElementById("yg").innerHTML = accGravity.y;
+        document.getElementById("zg").innerHTML = accGravity.z;
+        var rotationRate = event.rotationRate;
+        document.getElementById("alpha").innerHTML = rotationRate.alpha;
+        document.getElementById("beta").innerHTML = rotationRate.beta;
+        document.getElementById("gamma").innerHTML = rotationRate.gamma;
+    }
+
+    function init(){
+
+        if (window.DeviceMotionEvent) {
+            window.addEventListener("devicemotion", motionHandler, false);
+        } else {
+            document.body.innerHTML = "What user agent u r using?";
+        }
+    }
+</script>
+<body onload="init()">
+<p>x speed:<span id="x">0</span>m/s2</p>
+<p>y speed:<span id="y">0</span>m/s2</p>
+<p>z speed:<span id="z">0</span>m/s2</p>
+<hr />
+<p>x speed(gravity):<span id="xg">0</span>m/s2</p>
+<p>y speed(gravity):<span id="yg">0</span>m/s2</p>
+<p>z speed(gravity):<span id="zg">0</span>m/s2</p>
+<hr />
+<p>left/right turn speed:<span id="alpha">0</span>du/s</p>
+<p>ahead/behind turn speed:<span id="beta">0</span>du/s</p>
+<p>turn speed:<span id="gamma">0</span>du/s</p>
+<hr />
+<p>last message per :<span id="interval">0</span>microsecond</p>
+
+</body>
+</html>

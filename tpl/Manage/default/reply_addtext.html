@@ -738,7 +738,7 @@
 <div class="editArea">
     <textarea name="text" id="content" style="display: none;" title="first tooltip">{np:$info.text}</textarea>
 
-    <div contenteditable="true" style="overflow-y: auto; overflow-x: hidden;">{np:$info.text}</div>
+    <div contenteditable="true" style="overflow-y: auto; overflow-x: hidden;">{np:$info.text|htmlspecialchars=###,ENT_QUOTES}</div>
 </div>
 </div>
 

@@ -33,6 +33,8 @@ class MenuAction extends UserAction{
                 $vo['token'] = session('token');
                 if (preg_match('/http:\/\/(.+)/i',$vo['key'])){
                     $vo['url'] = $vo['key'];
+                }else if (preg_match('/tel:(.+)/i',$vo['key'])){
+                    $vo['url'] = $vo['key'];
                 }else{
                     $vo['url'] = '';
                 }

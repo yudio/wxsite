@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/member/main.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/member/dialog.css?2014-03-07-1" media="all" />
+    <script type="text/javascript" src="http://stc.weimob.com/src/member/lib/jquery_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/member/lib/dialog_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/member/lib/calendar.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/member/js/main.js?2014-03-07-1"></script>
+    <title>会员卡</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Mobile Devices Support @end -->
+    <link rel="shortcut icon" href="http://stc.weimob.com/img/favicon.ico" />
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<style type="text/css">
+    .Calendar {
+        font-family:Verdana;
+        background-color:#EEE;
+        text-align:center;
+        height: 300px;
+        line-height:1.5em;
+    }
+    .Calendar .icons{
+        display: block;
+        width:40px;
+        height:40px;
+        background: url(http://stc.weimob.com/img/member/imgs/icons4.png) no-repeat center -300px;
+        -webkit-background-size:50px auto;
+    }
+    .Calendar .icons_after{
+        background-position: center -350px;
+    }
+    .Calendar header{
+        font-size:14px;
+        color:#888e8e;
+        line-height:50px;
+        height:50px;
+        background:#ffffff;
+        box-shadow: 0 5px 5px rgba(100,100,100,0.1);
+    }
+    .Calendar a{
+        color:#0066CC;
+    }
+    .Calendar table{
+        width:280px;
+        margin:auto;
+        border:0;
+    }
+    .Calendar table thead{color:#acacac;}
+    .Calendar table td {
+        color:#989898;
+        border:1px solid #ecf9fa;
+        width:40px;
+        height:40px;
+        margin:1px;
+        background: #ffffff;
+        -webkit-box-sizing:border-box;
+    }
+    .Calendar thead td, .Calendar td:empty{
+        background:none;
+        border:0;
+    }
+    .Calendar thead td{
+        color:#72bec9;
+        font-size:13px;
+        font-weight:bold;
+    }
+    #idCalendarPre{
+        cursor:pointer;
+        float:left;
+    }
+    #idCalendarNext{
+        cursor:pointer;
+        float:right;
+    }
+
+    #idCalendar td a.checked{
+        display: block;
+        height:100%;
+        border:1px solid #58c4d1;
+        line-height:38px;
+        color:#989898;
+    }
+    #idCalendar td.onToday, #idCalendar td.onToday a{
+        color:#ff3600!important;
+    }
+</style>
+<script>
+    /**
+     * 积分签到
+     */
+    function dosignin() {
+        //提交信息
+        $.ajax({
+            type: "post",
+            url: "/Webnewmemintegral/dosignin?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4",
+            dataType: "json",
+            success: function(html){
+                if (html.status == 1) {
+                    alert(html.msg,1500);
+                    setTimeout("location.reload();",1500);
+                } else {
+                    alert(html.msg,1500)
+                }
+            }
+        });
+
+
+    }
+</script>
+<div class="container integral">
+    <header>
+        <ul class="tbox tbox_1">
+            <li >
+                <p class="pre">
+                    <label>0</label>
+                    可用积分
+                </p>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="dosignin()" ><label>签到</label></a>
+
+            </li>
+            <li>
+                <p class="pre">
+                    <label>0</label>
+                    签到次数
+                </p>
+            </li>
+        </ul>
+        <nav class="nav_integral">
+            <ul class="box">
+                <li><a href="/Webnewmemintegral/exchangeList?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&type=1&from=sign"><span class="icons icons_prize">&nbsp;</span><label>兑换礼品</label></a></li>
+                <li><a href="/Webnewmemintegral/exchangeList?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&type=2&from=sign"><span class="icons icons_luck">&nbsp;</span><label>积分抽奖</label></a></li>
+                <li><a href="/Webnewmemberscore/Signlist?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&from=sign"><span class="icons icons_record">&nbsp;</span><label>签到记录</label></a></li>
+                <li><a href="/Webnewmemberscore/IntegralTeach?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&type=2&from=sign"><span class="icons icons_teach">&nbsp;</span><label>积分攻略</label></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="body">
+        <div>
+            <div class="Calendar">
+                <header>
+                    <div id="idCalendarPre"><span class="icons icons_before">&nbsp;</span></div>
+                    <div id="idCalendarNext"><span class="icons icons_after">&nbsp;</span></div>
+                    <span id="idCalendarYear">0</span>年 <span id="idCalendarMonth">0</span>月
+                </header>
+                <table cellspacing="0">
+                    <thead>
+                    <tr>
+                        <td>日</td>
+                        <td>一</td>
+                        <td>二</td>
+                        <td>三</td>
+                        <td>四</td>
+                        <td>五</td>
+                        <td>六</td>
+                    </tr>
+                    </thead>
+                    <tbody id="idCalendar">
+                    </tbody>
+                </table>
+            </div>
+            <script language="JavaScript">
+                var cale = new Calendar("idCalendar", {
+                    Year : 2014,
+                    Month : 03,
+                    onToday: function(o){ o.className = "onToday"; },
+                    onFinish: function(){
+                        this.Year = 2014;
+                        this.Month = 03;
+                        $$("idCalendarYear").innerHTML = this.Year;
+                        $$("idCalendarMonth").innerHTML = this.Month;
+                        var flag = [];
+                        for(var i = 0, len = flag.length; i < len; i++){
+                            this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' class='checked'>" + flag[i] + "</a>";
+                        }
+                    }
+                });
+                $$("idCalendarPre").onclick = function(){ location.href = "/Webnewmemintegral/signin?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&date=201402"; }
+                $$("idCalendarNext").onclick = function(){ location.href = "/Webnewmemintegral/signin?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4&date=201404"; }
+            </script>
+        </div>
+    </div>
+    <footer>
+        <nav class="nav">
+            <ul class="box">
+                <li>
+                    <a href="/Webnewmemberscore/index?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
+                        <p class="card"></p>
+                        <span>会员卡</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webnewmemannounce/notice?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
+                        <p id="Js-msg-num" class="msg"  ></p>
+                        <span>消息</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webnewmemintegral/signin?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" class="on">
+                        <p class="sign"></p>
+                        <span>签到</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webnewmemberscore/share?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
+                        <p class="share"></p>
+                        <span>分享</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webnewmemberscore/my?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" class="my " >
+                        <p class="my"  ></p>
+                        <span>我的</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <script type="text/javascript">
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
+
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Webnewmemintegral/signin?pid=103689&wechatid=fromUsername",
+            "sendFriendLink": "http://www.weimob.com/Webnewmemintegral/signin?pid=103689&wechatid=fromUsername",
+            "weiboLink": "http://www.weimob.com/Webnewmemintegral/signin?pid=103689&wechatid=fromUsername",
+            "tTitle": "会员卡",
+            "tContent": "微时代会员卡，方便携带，永不挂失。",
+            "fTitle": "会员卡",
+            "fContent": "微时代会员卡，方便携带，永不挂失。",
+            "wContent": "微时代会员卡，方便携带，永不挂失。"
+        };
+    </script>		</div>
+
+
+<div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+<script type="text/javascript">
+    (function() {
+        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
+        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
+    })();
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
+    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
+        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
+        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
+        wmShare.src += shareToPlatform + '&pid=103689&sendFriendLink=' + encodeURIComponent(sendFriendLink);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
+    }
+    function getShareApiRouter(){
+        var str_domain = location.href.split('/',4)[2];
+        var tj_domain = '127.0.0.1';
+        switch(str_domain){
+            case 'www.weimob.com':
+                tj_domain = 'tj.weimob.com';
+                break;
+            case '112.124.28.82':
+                tj_domain = '112.124.28.82:400';
+                break;
+        }
+        return tj_domain;
+    }
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Webnewmemintegral/signin?pid=103689&wechatid=fromUsername",
+            "sendFriendLink": "http://www.weimob.com/Webnewmemintegral/signin?pid=103689&wechatid=fromUsername",
+            "weiboLink": "http://www.weimob.com/Webnewmemintegral/signin?pid=103689&wechatid=fromUsername",
+            "tTitle": document.title,
+            "tContent": document.title,
+            "fTitle": document.title,
+            "fContent": document.title,
+            "wContent": document.title
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                //weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+<script type="text/javascript" src="http://kf.weimob.com/js/ChatFloat.js"></script>
+<script type="text/javascript">
+    var str_domain = location.href.split('/',4)[2];
+    var boolIsTest = true;
+    if(str_domain == 'www.weimob.com'){
+        boolIsTest = false;
+    }
+    new ChatFloat({
+        AId: '103689',
+        openid: "oiHrGt69PhyxwL3qlMNSCruSwIv4",
+        top:150,
+        right:0,
+        IsTest:boolIsTest
+    });
+</script>
+</html>
+

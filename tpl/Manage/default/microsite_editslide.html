@@ -126,17 +126,9 @@
         <div class="controls">
             <select id="type" name="type" class="input-medium">
                 <option value="">选择类型</option>
-                <option value="article">图文</option>
-                <option value="link">链接</option>
-                <option value="tel">电话</option>
-                <option value="map">导航</option>
-                <option value="activity">活动</option>
-                <option value="business">业务模块</option>
-                <option value="car">微汽车</option>
-                <option value="estate">微房产</option>
-                <option value="food">微餐饮</option>
-                <option value="shop">微商城</option>
-                <option value="tg">微团购</option>
+                <volist name="typelist" id="vo">
+                    <option value="{np:$vo.value}" >{np:$vo.name}</option>
+                </volist>
             </select>
         </div>
     </div>
@@ -146,10 +138,9 @@
 
             <div class="controls choose">
                 <span class="maroon">请选择图文</span>
-													<span class="help-inline">
-														<a href="javascript:void(0)" class="btn btn-mini ed_choose"><i
-                                                                class="icon-edit"></i></a>
-													</span>
+				<span class="help-inline">
+				<a href="javascript:void(0)" class="btn btn-mini ed_choose"><i class="icon-edit"></i></a>
+				</span>
             </div>
         </div>
     </div>
@@ -158,7 +149,7 @@
             <label class="control-label" for="link">外链地址</label>
 
             <div class="controls">
-                <input type="url" id="link" name="url" value="" class="input-xlarge" data-rule-required="true"
+                <input type="url" id="link" name="link" value="" class="input-xlarge" data-rule-required="true"
                        data-rule-url="true"/>
                 <span class="maroon">*</span><span class="help-inline">(必填，必须是正确的URL格式)</span>
             </div>
@@ -286,19 +277,9 @@
 
     <div class="controls">
         <select id="business_func" name="business_type" class="input-medium">
-            <option value="official" data-list="false">微官网</option>
-            <option value="vipcard" data-list="false">会员卡</option>
-            <option value="reservation" data-list="true">微预约</option>
-            <option value="medical" data-list="false">微医疗</option>
-            <option value="hotels" data-list="true">微酒店</option>
-            <option value="message" data-list="false">微留言</option>
-            <option value="albums" data-list="false">微相册</option>
-            <option value="survey" data-list="true">微调研</option>
-            <option value="invitation" data-list="true">微喜帖</option>
-            <option value="buy" disabled="disabled">微商城</option>
-            <option value="food" disabled="disabled">微餐饮</option>
-            <option value="estate" disabled="disabled">微房产</option>
-            <option value="tourism" disabled="disabled">微旅游</option>
+            <volist name="businesslist" id="vo">
+                <option value="{np:$vo.value}" data-list="false" <if condition="$info['business_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+            </volist>
         </select>
     </div>
     <div class="margin-top" style="display:none;">
@@ -328,13 +309,9 @@
     <div class="controls">
         <select id="act" name="activity_type" class="input-medium"
                 onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
-            <option value="11">优惠券</option>
-            <option value="12">刮刮卡</option>
-            <option value="13">大转盘</option>
-            <option value="17">微投票</option>
-            <option value="15">一战到底</option>
-            <option value="20">砸金蛋</option>
-            <option value="100">圣诞活动</option>
+            <volist name="activitylist" id="vo">
+                <option value="{np:$vo.value}" data-list="false" <if condition="$info['activity_type'] eq $vo['value']">selected="selected"</if>>{np:$vo.name}</option>
+            </volist>
         </select>
     </div>
     <div class="margin-top" id="activity_select_box">

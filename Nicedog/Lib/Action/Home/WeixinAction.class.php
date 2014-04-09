@@ -133,7 +133,7 @@ class WeixinAction extends Action
         LOG::write("RETURN VALUE",LOG::INFO);
         if (!empty($return)) {
             if (is_array($return)) {
-                $this->trackdata('Token_open');
+                $this->trackdata('Token_OPEN');
                 return $return;
             } else {
                 $this->trackdata('textnum');//REQUEST
@@ -1034,7 +1034,7 @@ class WeixinAction extends Action
             $id['id'] = $user['id'];
             $re->where($id)->save($data);
         }
-        return "主淫【" . $this->my . "】已经接收到你的指令\n请发送您的地理位置给我哈";
+        return "主人【" . $this->my . "】已经接收到你的指令\n请发送您的地理位置给我哈";
     }
 
     function recordLastRequest($key, $msgtype = 'text')
@@ -1375,7 +1375,7 @@ class WeixinAction extends Action
         if ($name == "你叫什么" || $name == "你是谁") {
             return '咳咳，我是聪明与智慧并存的美女，主淫你可以叫我' . $this->my . ',人家刚交男朋友,你不可追我啦';
         } elseif ($name == "你父母是谁" || $name == "你爸爸是谁" || $name == "你妈妈是谁") {
-            return '主淫,' . $this->my . '是NiceDog创造的,所以他们是我的父母,不过主人我属于你的';
+            return '主人,' . $this->my . '是NiceDog创造的,所以他们是我的父母,不过主人我属于你的';
         } elseif ($name == '糗事') {
             $name = '笑话';
         } elseif ($name == '网站' || $name == '官网' || $name == '网址' || $name == '3g网址') {
@@ -1451,6 +1451,7 @@ class WeixinAction extends Action
         $data['day'] = date('d');
         $data['token'] = $this->token;
         $data['wecha_id'] = $this->wecha_id;
+        $data['module'] = 'Public';
         $mysql = M('Requestdata');
         $check = $mysql->field('id')->where($data)->find();
         if ($check == false) {
@@ -1459,6 +1460,7 @@ class WeixinAction extends Action
             $mysql->add($data);
         } else {
             $mysql->where($data)->setInc($field);
+            $this->addLimit();
         }
     }
     //业务模块请求数据
@@ -1477,6 +1479,7 @@ class WeixinAction extends Action
             $mysql->add($data);
         } else {
             $mysql->where($data)->setInc('click');
+            $this->addLimit();
         }
     }
     /*

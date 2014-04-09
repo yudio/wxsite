@@ -1,9 +1,10 @@
 <?php
+if (!session_id()) session_start();
 require_once 'JSON.php';
 $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
-$save_path = $php_path . '../../../../Uploads/userShare/'.$_GET['userRoot'];//上传的磁盘地址
-$save_url = '/Uploads/userShare/'.$_GET['userRoot'].'/';//访问时的网络地址
+$save_path = $php_path . '../../../../Uploads/userShare/'.substr(md5($_SESSION['uid']),16);//上传的磁盘地址
+$save_url = '/Uploads/userShare/'.substr(md5($_SESSION['uid']),16).'/';//访问时的网络地址
 $ext_arr = array(
 	'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp','pdf'),
 	'flash' => array('swf', 'flv'),
@@ -77,7 +78,7 @@ if (empty($_FILES) === false) {
 		alert("上传文件失败。");
 	}
 	@chmod($file_path, 0644);
-	$file_url = $_SERVER['HTTP_ORIGIN'].$save_url.$new_file_name;
+	$file_url = 'http://'.$_SERVER['HTTP_HOST'].$save_url.$new_file_name;
 	header('Content-type: text/html; charset=UTF-8');
 	$json = new Services_JSON();
 	echo $json->encode(array('error' => 0,'url' => $file_url));

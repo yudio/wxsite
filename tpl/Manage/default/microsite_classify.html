@@ -99,8 +99,8 @@
                                     <td><if condition="$vo.img eq ''"><i class="{np:$vo.icon}"></i><else/><img src="{np:$vo.img}" style="max-height:50px;"></if></td>
                                     <td><if condition="$vo.status eq '1'"><span class="label label-satgreen">显示</span><else/>隐藏</if></td>
                                     <td>{np:$vo.sorts}</td>
-                                    <td>{np:$vo.type}</td>
-                                    <td>{np:$vo.info}</td>
+                                    <td>{np:$vo.typename}</td>
+                                    <td><if condition="$vo['type'] neq 'map'">{np:$vo.url}</if></td>
                                     <td><a href="/npManage/microsite/editclassify.act?id={np:$vo.id}" class="btn">编辑</a><a
                                             href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/microsite/classify_del.act?id={np:$vo.id}');"
                                             class="btn">删除</a></td>

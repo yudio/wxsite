@@ -105,7 +105,6 @@ class IndexAction extends BaseAction{
 		}
 		//
 		$where['token']=$this->_get('token');
-        LOG::write($this->_get('wechatid'),LOG::ERR);
 		//dump($where);
 		//	$where['status']=1;
 		$flash=M('Flash')->where($where)->select();

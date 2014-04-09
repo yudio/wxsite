@@ -6,42 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="Keywords" content="{np::C('Keywords')}" />
     <meta name="Description" content="{np::C('Description')}" />
-    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico?v=2014-02-26-2" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap_button.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js"></script>
-    <script type="text/javascript" src="{np::RES}/src/resource.js"></script>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap_button.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/resource.js"></script>
     <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
-    <link href="{np::RES}/css/font_awesome_ie7.css?v=2014-02-26-2" rel="stylesheet" />
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" />
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="{np::RES}/js/excanvas_min.js?v=2014-02-26-2"></script>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="{np::RES}/js/watermark.js?v=2014-02-26-2"></script>
-    <![endif]-->
-</head>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{np::C('site_name')}—{np::C('site_title')}</title>
-
-    <!-- Plupload -->
-    <script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
-    <!--[if lte IE 9]>
-    <script src="{np::RES}/static/js/watermark.js"></script>
+    <script src="{np::STATICS}/js/watermark.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -103,12 +91,14 @@
                 </div>
             </div>
         </div>
-                                        <span class="help-inline">该图标用于二级页面右上角的缩略菜单和部分模板的首页主菜单
-                                        </span>
-
+        <span class="help-inline">该图标用于二级页面右上角的缩略菜单和部分模板的首页主菜单
+        </span>
     </div>
 
 </div>
+
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
+
 <div id="res_block">
 <div class="control-group">
     <label class="control-label">回复类型</label>
@@ -120,7 +110,7 @@
         </select>
     </div>
 </div>
-<div id="r_link" class="control-group r-module ">
+<div id="r_link" class="control-group r-module <if condition="$info['type'] neq 'link' and $info['id'] neq ''">hide</if>">
     <div class="control-group">
         <label class="control-label" for="source_url">页面URL</label>
         <div class="controls">
@@ -129,7 +119,7 @@
         </div>
     </div>
 </div>
-<div id="r_tel" class="control-group r-module hide">
+<div id="r_tel" class="control-group r-module <if condition="$info['type'] neq 'tel'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="tel">电话号码</label>
         <div class="controls">
@@ -140,7 +130,7 @@
 </div>
 
 
-<div id="r_market" class="control-group r-module hide">
+<div id="r_market" class="control-group r-module <if condition="$info['type'] neq 'market'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="markte_module">微商圈模块</label>
         <div class="controls">
@@ -150,7 +140,7 @@
         </div>
     </div>
 </div>
-<div id="r_shop" class="control-group r-module hide">
+<div id="r_shop" class="control-group r-module <if condition="$info['type'] neq 'shop'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="shop_module">微商城模块</label>
         <div class="controls">
@@ -164,7 +154,7 @@
         </div>
     </div>
 </div>
-<div id="r_tg" class="control-group r-module hide">
+<div id="r_tg" class="control-group r-module <if condition="$info['type'] neq 'tg'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="tg_module">微团购模块</label>
         <div class="controls">
@@ -175,7 +165,7 @@
         </div>
     </div>
 </div>
-<div id="r_food" class="control-group r-module hide">
+<div id="r_food" class="control-group r-module <if condition="$info['type'] neq 'food'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="food_module">微餐饮模块</label>
         <div class="controls">
@@ -188,7 +178,7 @@
         </div>
     </div>
 </div>
-<div id="r_estate" class="control-group r-module hide">
+<div id="r_estate" class="control-group r-module <if condition="$info['type'] neq 'estate'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="estate_module">微房产模块</label>
         <div class="controls">
@@ -201,7 +191,7 @@
         </div>
     </div>
 </div>
-<div id="r_car" class="control-group r-module hide">
+<div id="r_car" class="control-group r-module <if condition="$info['type'] neq 'car'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="car_box">微汽车模块</label>
         <div class="controls">
@@ -236,7 +226,7 @@
         </div>
     </div>
 </div>
-<div id="r_business" class="control-group r-module hide">
+<div id="r_business" class="control-group r-module <if condition="$info['type'] neq 'business'">hide</if>">
     <label class="control-label">业务类型:</label>
     <div class="controls">
         <select id="business_func" name="business_type" class="input-medium">
@@ -265,7 +255,7 @@
         </div>
     </div>
 </div>
-<div id="r_activity" class="control-group r-module hide"  >
+<div id="r_activity" class="control-group r-module <if condition="$info['type'] neq 'activity'">hide</if>"  >
     <label class="control-label">活动类型:</label>
     <div class="controls">
         <select id="act" name="activity_type" onchange="if (100 == $(this).val()) {$('#activity_select_box').hide(); } else {$('#activity_select_box').show(); };">
@@ -293,7 +283,7 @@
         </div>
     </div>
 </div>
-<div id="r_map" class="control-group r-module hide">
+<div id="r_map" class="control-group r-module <if condition="$info['type'] neq 'map'">hide</if>">
     <div class="control-group">
         <label class="control-label" for="suggestId">经纬度</label>
         <div class="controls">
@@ -312,27 +302,6 @@
         </div>
     </div>
 </div>
-<!-- <div id="r_map" class="control-group r-module hide">
-    <div class="control-group">
-        <label class="control-label" for="suggestId">经纬度</label>
-        <div class="controls">
-            <div class="input-append">
-                <input type="text" id="suggestId" class="input-xlarge" name="place" data-rule-required="true" />
-                <button class="btn" type="button" id="positioning">搜索</button>
-            </div>
-
-            <span class="maroon">注意：这个只是模糊定位，准确位置请地图上标注!</span>
-            <div id="l-map">
-               <i class="icon-spinner icon-spin icon-large"></i> 地图加载中...
-            </div>
-            <div id="r-result">
-                <input type="hidden" id="lng" name="lng" /><input type="hidden" id="lat" name="lat" /> 
-            </div>
-             
-        </div>
-
-    </div>
-</div> -->
 <div class="form-actions">
     <button type="submit" class="btn btn-primary">保存</button>
     <button type="button" class="btn" onclick="window.history.go(-1)">取消</button>
@@ -362,8 +331,15 @@
         var resource = Resource.create();
         var ins = Resource.instance['res_block'];
         ins.result = ins.result || {};
-        ins.result.wuid = $('#aid').val();
 
+        <if condition="$info['type'] eq 'map'">
+                ins.map = {
+            lat: {np:$info.lat},
+            lng: {np:$info.lng},
+            adr: "{np:$info.place}"
+        }
+            ins._loadBaidu_map();
+        </if>
         window.ICON();
 
     });

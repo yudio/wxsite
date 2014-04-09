@@ -109,9 +109,8 @@
     <label class="control-label" for="cover">图文消息封面</label>
 
     <div class="controls">
-        <img class="thumb_img" src="{np:$home['picurl']|default=SITE_URL.RES."/img/default/official.jpg"}" style="max-height:100px;"/>
-        <input id="thumb" type="text" name="picurl" class="hide"
-               value="{np:$home['picurl']|default=RES."/img/default/official.jpg"}"/>
+        <img class="thumb_img" src="{np:$home['picurl']|default=C('site_url').RES."/img/default/official.jpg"}" style="max-height:100px;"/>
+        <input id="thumb" type="text" name="picurl" class="hide" value="{np:$home['picurl']|default=C('site_url').RES."/img/default/official.jpg"}"/>
 										<span class="help-inline">
                                             <button class="btn select_img" type="button">选择封面</button>
 											<span class="help-inline">建议尺寸：宽720像素，高400像素</span>
@@ -130,8 +129,8 @@
     <label class="control-label" for="cover">官网logo</label>
 
     <div class="controls">
-        <img class="thumb_img" src="{np:$home['mslogo']|default=RES."/img/default/official.jpg"}" style="max-height:100px;"/>
-        <input type="text" name="mslogo" class="hide" value="{np:$home['mslogo']|default=RES."/img/default/official.jpg"}"/>
+        <img class="thumb_img" src="{np:$home['mslogo']|default=C('site_url').RES."/img/default/official.jpg"}" style="max-height:100px;"/>
+        <input type="text" name="mslogo" class="hide" value="{np:$home['mslogo']|default=C('site_url').RES."/img/default/official.jpg"}"/>
 										<span class="help-inline">
                                             <button class="btn select_img" type="button">选择logo</button>
 											<span class="help-inline">建议尺寸：宽420像素，高60像素的png图片</span>
@@ -142,10 +141,10 @@
     <label class="control-label" for="bg_img">官网背景</label>
 
     <div class="controls">
-        <img class="gwbg thumb_img" src="{np:$home['bg_img']|default=RES."/img/template/lib/home-default10.jpg"}"
+        <img class="gwbg thumb_img" src="{np:$home['bg_img']|default=C('site_url').RES."/img/template/lib/home-default10.jpg"}"
              style="max-height: 100px;"/>
         <input class="input-xlarge" type="text" name="bg_img" id="bg_img"
-               value="{np:$home['bg_img']|default=RES."/img/template/lib/home-default10.jpg"}" style="display: none;"/>
+               value="{np:$home['bg_img']|default=C('site_url').RES."/img/template/lib/home-default10.jpg"}" style="display: none;"/>
                                         <span class="help-inline">
                                             <button class="btn select_img" type="button">自定义</button>
                                             建议大小(宽640高960)
@@ -158,28 +157,28 @@
     <div class="controls">
         <select name="select_bg_img" id="select_bg" class="input-medium">
             <option value="">选择官网背景图片</option>
-            <option value="{np::RES}/img/template/lib/home-default9.jpg">01</option>
-            <option value="{np::RES}/img/template/lib/home-default10.jpg">02</option>
-            <option value="{np::RES}/img/template/lib/home-default11.jpg">03</option>
-            <option value="{np::RES}/img/template/lib/home-default12.jpg">04</option>
-            <option value="{np::RES}/img/template/lib/home-default13.jpg">05</option>
-            <option value="{np::RES}/img/template/lib/home-default14.jpg">06</option>
-            <option value="{np::RES}/img/template/lib/home-default15.jpg">07</option>
-            <option value="{np::RES}/img/template/lib/home-default1.jpg">08</option>
-            <option value="{np::RES}/img/template/lib/home-default2.jpg">09</option>
-            <option value="{np::RES}/img/template/lib/home-default3.jpg">10</option>
-            <option value="{np::RES}/img/template/lib/home-default4.jpg">11</option>
-            <option value="{np::RES}/img/template/lib/home-default5.jpg">12</option>
-            <option value="{np::RES}/img/template/lib/home-default6.jpg">13</option>
-            <option value="{np::RES}/img/template/lib/home-default7.jpg">14</option>
-            <option value="{np::RES}/img/template/lib/home-default8.jpg">15</option>
-            <option value="{np::RES}/img/template/lib/home-default16.jpg">16</option>
-            <option value="{np::RES}/img/template/lib/home-default17.jpg">17</option>
-            <option value="{np::RES}/img/template/lib/home-default18.jpg">18</option>
-            <option value="{np::RES}/img/template/lib/home-default19.jpg">19</option>
-            <option value="{np::RES}/img/template/lib/home-default20.jpg">20</option>
-            <option value="{np::RES}/img/template/lib/home-default21.jpg">21</option>
-            <option value="{np::RES}/img/template/lib/home-default22.jpg">22</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default9.jpg">01</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default10.jpg">02</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default11.jpg">03</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default12.jpg">04</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default13.jpg">05</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default14.jpg">06</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default15.jpg">07</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default1.jpg">08</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default2.jpg">09</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default3.jpg">10</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default4.jpg">11</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default5.jpg">12</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default6.jpg">13</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default7.jpg">14</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default8.jpg">15</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default16.jpg">16</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default17.jpg">17</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default18.jpg">18</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default19.jpg">19</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default20.jpg">20</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default21.jpg">21</option>
+            <option value="{np::C('site_url')}{np::RES}/img/template/lib/home-default22.jpg">22</option>
         </select>
         <span class="help-inline">以预览背景图为标准</span>
     </div>
@@ -189,9 +188,9 @@
 
     <div class="controls">
         <div class="inline mp3">
-            <a id="m1" class="audio " href="{np::RES}/img/template/lib/default.mp3" style="display: none;">default.mp3</a>
+            <a id="m1" class="audio " href="{np::C('site_url')}{np::RES}/img/template/lib/default.mp3" style="display: none;">default.mp3</a>
         </div>
-        <input type="hidden" name="bg_audio" id="mp3url" value="{np::RES}/img/template/lib/default.mp3"/>
+        <input type="hidden" name="bg_audio" id="mp3url" value="{np::C('site_url')}{np::RES}/img/template/lib/default.mp3"/>
                                         <span class="help-inline">
 											<button class="btn addmp3" type="button">选择音乐</button>
                                         </span>

@@ -17,7 +17,7 @@ class UserinfoAction extends BaseAction{
 		if($memboer['hoempic']!=false){
 			$img=$member['homepic'];			
 		}else{
-			$img='tpl/Wap/default/common/images/userinfo/fans.jpg';
+			$img=C('site_url').'tpl/Wap/default/common/images/userinfo/fans.jpg';
 		}
 		$this->assign('cardnum',$cardinfo['number']);
 		$this->assign('homepic',$img);

@@ -193,6 +193,7 @@ class ReplyAction extends UserAction
             $id = $this->_post('id');
             if ($id){//更新操作
                 if ($db->create()){
+                    //关键字
                     $data['pid']    = $id;
                     $data['match_type'] = $this->_post('match_type');
                     $data['token']  = session('token');
@@ -220,6 +221,7 @@ class ReplyAction extends UserAction
                     }else{
                         $this->ajaxReturn(array('errno'=>'100','error'=>'文本自定义超出限制！'),'JSON');
                     }
+                    //关键字
                     $data['pid']     = 0;
                     $data['match_type'] = $this->_post('match_type');
                     $data['token']  = session('token');
@@ -380,12 +382,16 @@ class ReplyAction extends UserAction
         $id = $this->_get('id','intval');
         if ($id){
             $info = $db->where(array('id'=>$id))->find();
-            $this->assign('info',$info);
+            $infoadd = M('Typelink')->where(array('pid'=>$id,'module'=>'Img'))->find();
+            if ($infoadd){
+                $info = array_merge($infoadd,$info);
+            }
             if ($info['news']){
                 $newswhere['id'] = array('in',$info['news']);
                 $news = M('Img')->field('id,title')->where($newswhere)->select();
                 $this->assign('news',$news);
             }
+            $this->assign('info',$info);
         }
         $class=M('Classify')->field('id,name')->where(array('token'=>session('token')))->select();
         /*if(!$class){

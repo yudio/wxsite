@@ -22,8 +22,15 @@ class UserAction extends BaseAction{
         }
 		//
 		$this->assign('usergroup',$usergroup);
-		if(session('uid')==false){
-			$this->redirect('/npHome/Index/index.act');
-		}
+		if(!session('uid')){
+			$this->redirect('/npHome/Index/index.act',null,3,'请登录！');
+		}else{
+            $livetime = session('livetime');
+            if ((time()-$livetime)>144000){
+                $this->redirect('/npHome/Index/index.act',null,3,'请重新登录！');
+            }else{
+                session('livetime',time());
+            }
+        }
 	}
 }

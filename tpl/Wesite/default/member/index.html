@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/main.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/jquery.min.js"></script>
+    <title>会员卡</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="Keywords" content="{np::Keywords}" />
+    <meta name="Description" content="{np::Description}" />
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Mobile Devices Support @end -->
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="container get card">
+    <header>
+        <div class="header card">
+            <div id="card" data-role="card" >
+                <div class="front" style="background-image:url({np:$infoset.card_bg});">
+                    <if condition="$infoset.card_logo neq '' and $infoset.is_show eq 1">
+                    <span class="logo"><img src="{np:$infoset.card_logo}" /></span>
+                    </if>
+                    <span class="name" style="color:{np:$infoset.cname_color}">{np:$infoset.cname}</span>
+                    <span class="no" style="color:{np:$infoset.number_color};">87580191</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <ul class="tbox group_btn3">
+                <li>
+                </li>
+                <li><if condition="$cardstatus eq '0'"><a hre="#">资料审核中</a><else/><a href="/Webmember/{np:$wxuid}/AddMember?wecha_id={np:$wecha_id}" >点击领取</a></if></li>
+            </ul>
+        </div>
+    </header>
+    <div class="body">
+        <ul class="list_ul">
+            <!-- 特权-->
+            <notempty name="mempriv">
+            <li class="li_a">
+                <label class="label" onclick="this.parentNode.classList.toggle('on');"><i>&nbsp;</i>会员特权<span>&nbsp;</span></label>
+                <ol>
+                    <h6>{np:$mempriv.title}:</h6>
+                    <p>{np:$mempriv.content}</p>
+                </ol>
+            </li>
+            </notempty>
+            <!-- 开卡活动-->
+            <!-- 生日关怀-->
+            <!-- 节日关怀-->
+            <!-- 联系电话-->
+            <li class="li_i">
+                <a class="label" href="tel:{np:$info.phone} "><i>&nbsp;</i>{np:$info.phone} <span>&nbsp;</span></a>
+            </li>
+            <!-- 地址-->
+            <li class="li_j">
+                <a href="http://api.map.baidu.com/marker?location={np:$info.lat},{np:$info.lng}&title={np:$info.place}&name={np:$info.place}&content={np:$info.place}&output=html&src=weiba|weiweb">
+                    <label class="label"><i>&nbsp;</i><p class="mutipleLine">福建省福州市晋安区华林路338</p> <span>&nbsp;</span></label>
+                </a>
+            </li>
+            <!-- 门店-->
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('hideToolbar');
+    });
+
+    window.shareData = {
+        "imgUrl": "",
+        "timeLineLink": "http://www.weimob.com/Webnewmembercard/GetMember?_tj_twtype=14&_tj_pid=101281&_tt=1&_tj_graphicid=11925&_tj_title=Nice&_tj_keywords=%E4%BC%9A%E5%91%98%E5%8D%A1&pid=101281&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+        "sendFriendLink": "http://www.weimob.com/Webnewmembercard/GetMember?_tj_twtype=14&_tj_pid=101281&_tt=1&_tj_graphicid=11925&_tj_title=Nice&_tj_keywords=%E4%BC%9A%E5%91%98%E5%8D%A1&pid=101281&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+        "weiboLink": "http://www.weimob.com/Webnewmembercard/GetMember?_tj_twtype=14&_tj_pid=101281&_tt=1&_tj_graphicid=11925&_tj_title=Nice&_tj_keywords=%E4%BC%9A%E5%91%98%E5%8D%A1&pid=101281&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+        "tTitle": "会员卡",
+        "tContent": "微时代会员卡，方便携带，永不挂失。",
+        "fTitle": "会员卡",
+        "fContent": "微时代会员卡，方便携带，永不挂失。",
+        "wContent": "微时代会员卡，方便携带，永不挂失。"
+    };
+</script> <div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+<script type="text/javascript">
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Webnewmembercard/GetMember?_tj_twtype=14&_tj_pid=101281&_tt=1&_tj_graphicid=11925&_tj_title=Nice&_tj_keywords=%E4%BC%9A%E5%91%98%E5%8D%A1&pid=101281&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+            "sendFriendLink": "http://www.weimob.com/Webnewmembercard/GetMember?_tj_twtype=14&_tj_pid=101281&_tt=1&_tj_graphicid=11925&_tj_title=Nice&_tj_keywords=%E4%BC%9A%E5%91%98%E5%8D%A1&pid=101281&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+            "weiboLink": "http://www.weimob.com/Webnewmembercard/GetMember?_tj_twtype=14&_tj_pid=101281&_tt=1&_tj_graphicid=11925&_tj_title=Nice&_tj_keywords=%E4%BC%9A%E5%91%98%E5%8D%A1&pid=101281&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+            "tTitle": document.title,
+            "tContent": document.title,
+            "fTitle": document.title,
+            "fContent": document.title,
+            "wContent": document.title
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+// 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("o_bv2t14U7PS2WSTkbbbbannGk",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+// 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+//weimobAfterShare("o_bv2t14U7PS2WSTkbbbbannGk",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+// 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("o_bv2t14U7PS2WSTkbbbbannGk",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+</html>

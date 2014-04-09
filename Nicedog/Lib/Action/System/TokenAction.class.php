@@ -68,7 +68,7 @@ class TokenAction extends BackAction{
             $NodeDB = D('WxuserNode');
             $node = $NodeDB->getAllNode();
 
-            foreach ($node as $_v) $node[$_v[id]] = $_v;
+            foreach ($node as $_v) $node[$_v['id']] = $_v;
             foreach($nodeid as $k => $node_id){
                 $data[$k] = $AccessDB -> get_nodeinfo($node_id,$node);
                 $data[$k]['wxuid'] = $wxuid;

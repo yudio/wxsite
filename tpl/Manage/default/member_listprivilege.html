@@ -53,7 +53,7 @@
                                     <volist name="info" id="vo">
                                     <tr class="">
                                         <td class="with-checkbox">
-                                            <input type="checkbox" name="check" value="5087"></td>
+                                            <input type="checkbox" name="check" value="{np:$vo.id}"></td>
                                         <td>{np:$vo.btime|date='Y-m-d H:i',###}<span class="time-sep">至</span>
                                             {np:$vo.etime|date='Y-m-d H:i',###}
                                         </td>
@@ -61,7 +61,7 @@
                                         <td>{np:$vo.content}</td>
                                         <td>
                                             <label class="radio">
-                                                <input type="checkbox" name="show" id="is_show" data-id="5087" value="5087">
+                                                <input type="checkbox" name="show" id="is_show" data-id="{np:$vo.id}" value="{np:$vo.id}">
                                             </label>
                                         </td>
                                         <td>

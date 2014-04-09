@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/dialog.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/jquery_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/js/main.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/dialog_min.js"></script>
+    <title>会员卡</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="Keywords" content="{np::C('Keywords')}" />
+    <meta name="Description" content="{np::C('Description')}" />
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Mobile Devices Support @end -->
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<script>
+// 	$().ready(function(){
+//
+// });
+
+function charge(){
+    var d = new iDialog();
+    var payment = '';
+    d.open({
+        classList: "valid_phone charge",
+        title:"",
+        close:"",
+        content:'<ul class="list_ul_card">'+
+                '<form id="form1" action="javascript:;" method="post">'+
+                '<li data-card>'+
+                '<table>'+
+                '<tr class="input wrapInput">'+
+                '<td><label class="pre" style="color:#333333;">充值金额：</label></td>'+
+                '<td style="width:100%;"><input type="number" name="money" placeholder="请输入充值金额" maxlength="15" class="input" /></td>'+
+                '</tr><tr><td colspan="2" style="height:15px;"></td></tr>'+
+                '<tr class="input wrapInput">'+
+                '<td><label class="pre pl_10" style="color:#333333;">充值方式:</label></td>'+
+                '<td style="width:100%;" colspan="2">'+
+                '<select name="paytype" class="select">'+
+                payment+
+                '</select>'+
+                '</td>'+
+                '</tr>'+
+                '</table>'+
+                '</li>'+
+                '</form>'+
+                '</ul>',
+        btns:[
+            {id:"", name:"确定", onclick:"fn.call();", fn: function(self){
+                var form1 = document.getElementById("form1");
+                var obj = {
+                    money: form1.money.value,
+                    paytype: form1.paytype.value
+                }
+                if(parseFloat(obj.money) <=0 ){
+                    alert("请输入正确的充值金额", 1500);
+                    return false;
+                }
+                loading(true);
+                $.ajax({
+                    url: "/Webnewmemberscore/Recharge?pid=103689&bid=&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4",
+                    type:"post",
+                    data:obj,
+                    success: function(res){
+                        //loading(false);
+                        window.location.href=res;
+//							if(1 == res.result){
+//								self.die();
+//								alert("成功", 1500);
+//							}else{
+//								alert("失败", 1500);
+//							}
+                    }
+                });
+            }},
+            {id:"", name:"取消", onclick:"fn.call();", fn: function(self){
+                self.die();
+            }}
+        ]
+    });
+}
+function pay(){
+    var d = new iDialog();
+    var payment = '';
+    d.open({
+        classList: "valid_phone pay",
+        title:"",
+        close:"",
+        content:'<ul class="list_ul_card">'+
+                '<form id="form2" action="javascript:;" method="post">'+
+                '<li data-card>'+
+                '<table>'+
+                '<tr class="input wrapInput">'+
+                '<td></td>'+
+                '<td style="width:100%;" colspan="2">'+
+                '<select name="store" class="select">'+
+                '<option value="0">请选择消费门店：</option>'+
+                '</select>'+
+                '</td>'+
+                '</tr>'+
+                '<tr class="input wrapInput">'+
+                '<td></td>'+
+                '<td style="width:100%;" colspan="2">'+
+                '<select name="discount" class="select">'+
+                '<option value="0">请选择所需优惠：</option>'+
+                '</select>'+
+                '</td>'+
+                '</tr>'+
+                '<tr class="input wrapInput">'+
+                '<td></td>'+
+                '<td style="width:100%;" colspan="2">'+
+                '<select name="paytype" class="select" onChange="SelectCode(this);">'+
+                '<option value="0">请选择支付方式：</option>'+
+                payment+
+                '<option value="2">余额支付 </option>'+
+                '<option value="1">现金付款 </option>'+
+                '</select>'+
+                '</td>'+
+                '</tr>'+
+                '<tr class="input wrapInput">'+
+                '<td>'+
+                '<label class="pre ml_5" style="color:#333333;"> 消费金额：</label> '+
+                '</td>'+
+                '<td style="width:100%;">'+
+                '<input name="money" type="number" placeholder="请输入实际消费金额" maxlength="15" class="input" />'+
+                '</td>'+
+                '</tr>'+
+                '<tr class="input wrapInput" id="vcode">'+
+                '<td style="width:70%;"><input type="number" placeholder="验证码：" maxlength="30" class="input" name="vcode"></td>'+
+                '<td>'+
+                '<input  class="button vcode" type="button" id="codeing" onclick="getReceiveMemberCardVCode(this);" style="width:120px;" value="获取验证码" />'+
+                '</td>'+
+                '</tr>'+
+                '<tr class="input wrapInput" id="password" style="display:none">'+
+                '<td style="width:70%;"><input type="password" placeholder="商家确认密码：" maxlength="30" class="input" name="password"></td>'+
+                '<td>&nbsp;</td>'+
+                '</tr>'+
+                '</table>'+
+                '</li>'+
+                '</form>'+
+                '</ul>',
+        btns:[
+            {id:"", name:"确定", onclick:"fn.call();", fn: function(self){
+                var form2 = document.getElementById("form2");
+                var obj = {
+                    store: form2.store.value,
+                    discount: form2.discount.value,
+                    paytype: form2.paytype.value,
+                    money: form2.money.value,
+                    validCode: form2.vcode.value,
+                    password: form2.password.value
+                }
+                var code = $("input[name='paytype'] :selected").attr("code");
+                if(obj.paytype == 0){
+                    alert("请选择支付方式", 1500);
+                    return false;
+                }else if(obj.paytype == 2){
+                    if(obj.validCode == ''){
+                        alert("验证码不能为空", 1500);
+                        return false;
+                    }
+                }else if(obj.paytype == 1){
+                    if(obj.password == ''){
+                        alert("商家确认密码不能为空", 1500);
+                        return false;
+                    }
+                }
+                if(parseFloat(obj.money) <= 0){
+                    alert("请输入正确的充值金额",1500);
+                    return false;
+                }
+
+                loading(true);
+                $.ajax({
+                    url: "/Webnewmemberscore/Pay?pid=103689&bid=&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4",
+                    type:"post",
+                    data:obj,
+                    dataType:'json',
+                    success: function(res){
+                        loading(false);
+                        if(res.errno == '0'){
+
+                            window.location.href=res.url;
+
+
+                        }else{
+                            alert(res.error, 1500);
+                            return false;
+                        }
+
+                    }
+                });
+            }},
+            {id:"", name:"取消", onclick:"fn.call();", fn: function(selfs){
+                selfs.die();
+            }}
+        ]
+    });
+}
+
+function OrderWeipay(urls){
+    var url = '/payment/weixinpay/start/103689/default.aspx?showwxpaytitle=1';
+    $.ajax({
+        url:url,
+        cache:false,
+        dataType:'html',
+        data:{urls:urls},
+        type:"POST",
+        success:function(msgObj){
+            $('#orderpay').html(msgObj);
+            return false;
+        }
+    });
+
+}
+
+$(document).ready(function(){
+    $("#codeing").on(function(){
+        alert("请输入正确的充值金额",1500);
+
+
+    });
+
+
+});
+</script>
+<div class="container card">
+    <header>
+        <div class="header card">
+            <div id="card" data-role="card" onclick="this.classList.toggle('on');" >
+                <div class="front" style="background-image:url({np:$cardset.card_bg});">
+                    <if condition="$cardset.card_logo neq '' and $cardset.is_show eq 1">
+                    <span class="logo"><img src="{np:$cardset.card_logo}" /></span>
+                    </if>
+                    <span class="name" style="color:{np:$cardset.cname_color};">{np:$cardset.cname}</span>
+                    <span class="no" style="color:{np:$cardset.numbercolor};">{np:$info.card_no}</span>
+                </div>
+                <div class="back" style="background-image:url({np:$cardset.custom_background});">
+							<span style="color:{np:$cardset.back_text_color};">
+								<h3>使用说明：</h3>
+								<pre style="white-space:pre-line;height: 84px;overflow:hidden;">
+								{np:$cardset.instructions}</pre>
+								<label class="addr">地址：{np:$cardinfo.address}</label>
+							</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <ul class="box group_btn">
+                <li><a href="javascript:charge();" >充值</a></li>
+                <li><a href="javascript:pay();" >付款</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="body">
+        <ul class="list_ul">
+            <div>
+                <notempty name="mempriv">
+                <li class="li_a">
+                    <label class="label" onclick="this.parentNode.classList.toggle('on');"><i>&nbsp;</i>{np:$mempriv.title} <span>&nbsp;</span></label>
+                    <ol>
+                        <h6>详细说明：</h6>
+                        {np:$mempriv.content}
+                    </ol>
+                </li>
+                </notempty>
+                <li class="li_b">
+                    <a href="/Webnewmemberscore/ListCoupon?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>会员优惠<span>&nbsp;</span></label></a>
+                </li>
+                <li class="li_c">
+                    <a href="/Webnewmemintegral/exchangelist?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>积分兑换<span>&nbsp;</span></label></a>
+                </li>
+                <li class="li_d">
+                    <a href="/Webmember/{np:$wxuid}/editMember?wecha_id={np:$wecha_id}"><label class="label"><i>&nbsp;</i>完善会员卡资料 <span>&nbsp;</span></label></a>
+                </li>
+            </div>
+            <div>
+            </div>
+            <div>
+                <li class="li_i">
+                    <a class="label" href="tel:{np:$cardinfo.phone} "><i>&nbsp;</i>{np:$cardinfo.phone} <span>&nbsp;</span></a>
+                </li>
+                <li class="li_j">
+                    <a href="http://api.map.baidu.com/marker?location={np:$cardinfo.lat},{np:$cardinfo.lng}&title={np:$cardinfo.place}&name={np:$cardinfo.place}&content={np:$cardinfo.place}&output=html&src=weiba|weiweb">
+                        <label class="label"><i>&nbsp;</i><p class="mutipleLine">福建省福州市晋安区华林路338</p><span>&nbsp;</span></label>
+                    </a>
+                </li>
+                <!-- 门店-->
+            </div>
+        </ul>
+    </div>
+    <div style="display: none;" id="orderpay">
+
+    </div>
+    <footer>
+        <nav class="nav">
+            <ul class="box">
+                <li>
+                    <a href="/Webmember/{np:$wxuid}/center?wechatid={np:$wecha_id}" class="on">
+                        <p class="card"></p>
+                        <span>会员卡</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webmember/{np:$wxuid}/notice?wechatid={np:$wecha_id}" >
+                        <p id="Js-msg-num" class="msg"  ></p>
+                        <span>消息</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webmember/{np:$wxuid}/signin?wechatid={np:$wecha_id}" >
+                        <p class="sign"></p>
+                        <span>签到</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webmember/{np:$wxuid}/share?wechatid={np:$wecha_id}" >
+                        <p class="share"></p>
+                        <span>分享</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webmember/{np:$wxuid}/my?wechatid={np:$wecha_id}" class="my " >
+                        <p class="my"  ></p>
+                        <span>我的</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <script type="text/javascript">
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
+
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Webnewmemberscore/index?pid=103689&wechatid=fromUsername",
+            "sendFriendLink": "http://www.weimob.com/Webnewmemberscore/index?pid=103689&wechatid=fromUsername",
+            "weiboLink": "http://www.weimob.com/Webnewmemberscore/index?pid=103689&wechatid=fromUsername",
+            "tTitle": "会员卡",
+            "tContent": "微时代会员卡，方便携带，永不挂失。",
+            "fTitle": "会员卡",
+            "fContent": "微时代会员卡，方便携带，永不挂失。",
+            "wContent": "微时代会员卡，方便携带，永不挂失。"
+        };
+    </script></div>
+<script type="text/javascript">
+    var intervalId,buttonObj;
+    //发送下一条短信需要间隔的秒数
+    var seconds = 60;
+    function getReceiveMemberCardVCode(clickObj){
+        var form = document.getElementById("form2");
+        var pid = 103689;
+        var wechatid = "oiHrGt69PhyxwL3qlMNSCruSwIv4";
+        var phone = "13705120102";
+        var req = {
+            telephone: $.trim(phone),
+            pid:pid,
+            price:form.money.value,
+            wechatid:wechatid
+        }
+        if(!req.telephone){
+            alert("请输入手机号", 1000);return;
+        }
+        clickObj.setAttribute("disabled", "disabled");
+        clickObj.value = "正在发送，请稍候...";
+        $.ajax({
+            url: "/Webnewmemberscore/SendCardCheckCode",
+            type:"post",
+            data:req,
+            dataType:"JSON",
+            success: function(res){
+                if(0 == res.errno){
+                    clickObj.value = '验证码发送成功';
+                    buttonObj = clickObj;
+                    intervalId = setInterval("ticker()",1000);
+                }else{
+                    alert(res.error, 1500);return false;
+                }
+            }
+        });
+    }
+    function ticker(){
+        seconds --;
+        if(seconds > 55){
+            //提示消息显示5秒钟
+        }else if(seconds>0){
+            buttonObj.value = seconds+"秒后可重新获取";
+        }else{
+            clearInterval(intervalId);
+            buttonObj.removeAttribute("disabled");
+            buttonObj.value = "获取验证码";
+            seconds = 60;
+            buttonObj = null;
+        }
+    }
+
+    function SelectCode(obj){
+        var val = $(obj).val();
+        if(val != 2){
+            $("#vcode").hide();
+        }else{
+            $("#vcode").show();
+        }
+
+        if(val == 1){
+            $("#vcode").hide();
+            $("#password").show();
+        }else{
+            $("#password").hide();
+        }
+    }
+</script>
+<div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+<script type="text/javascript">
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Webnewmemberscore/index?pid=103689&wechatid=fromUsername",
+            "sendFriendLink": "http://www.weimob.com/Webnewmemberscore/index?pid=103689&wechatid=fromUsername",
+            "weiboLink": "http://www.weimob.com/Webnewmemberscore/index?pid=103689&wechatid=fromUsername",
+            "tTitle": document.title,
+            "tContent": document.title,
+            "fTitle": document.title,
+            "fContent": document.title,
+            "wContent": document.title
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                //weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+</html>
+

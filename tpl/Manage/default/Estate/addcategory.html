@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <link rel="shortcut icon" href="http://stc.weimob.com/img/favicon.ico?v=2014-03-07-1" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/bootstrap_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/bootstrap_responsive_min.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/style.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/todc_bootstrap.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/themes.css?2014-03-07-1" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/inside.css?2014-03-07-1" media="all" />
+    <script type="text/javascript" src="http://stc.weimob.com/src/jQuery.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/bootstrap_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/validation/jquery_validate_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/validation/jquery_validate_methods.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/plugins/form/jquery_form_min.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/inside.js?2014-03-07-1"></script>
+    <title>微盟（Weimob）—国内最大的微信公众服务平台</title>
+    <!--[if IE 7]>
+    <link href="http://stc.weimob.com/css/font_awesome_ie7.css?v=2014-03-07-1" rel="stylesheet" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="http://stc.weimob.com/js/excanvas_min.js?v=2014-03-07-1"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="http://stc.weimob.com/js/watermark.js?v=2014-03-07-1"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span12">
+                            <h3><i class="icon-cog"></i>添加子楼盘</h3>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <form action="/Estate/CategoryEdit/aid/107395/cid/0" method="post" class="form-horizontal form-validate">
+                            <div class="control-group">
+                                <label for="title" class="control-label">子楼盘名称：</label>
+                                <div class="controls">
+                                    <input type="text" id="title" name="title" value="" class="input-large" data-rule-required="true" data-rule-maxlength="20" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">尽量简单，不要超过20字</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="sort" class="control-label">显示顺序：</label>
+                                <div class="controls">
+                                    <input type="text" id="sort" name="sort" value="0" class="input-mini" data-rule-required="true" data-rule-number="true" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">数值越大越靠前</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="description" class="control-label">子楼盘介绍：</label>
+                                <div class="controls">
+                                    <textarea id="description" name="description" rows="3" class="input-xxlarge" data-rule-maxlength="150" placeholder="可不填"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" id="bsubmit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+                                <button type="button" class="btn" onclick="window.history.go(-1);">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    window.document.onkeydown = function(e) {
+        if ('' == document.activeElement.id) {
+            var e=e || event;
+　 				var currKey=e.keyCode || e.which || e.charCode;
+            if (8 == currKey) {
+                return false;
+            }
+        }
+    };
+</script>
+<script type="text/javascript">
+    (function() {
+        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
+        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
+    })();
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
+    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
+        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
+        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
+        wmShare.src += shareToPlatform + '&pid=&sendFriendLink=' + encodeURIComponent(sendFriendLink);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
+    }
+    function getShareApiRouter(){
+        var str_domain = location.href.split('/',4)[2];
+        var tj_domain = '127.0.0.1';
+        switch(str_domain){
+            case 'www.weimob.com':
+                tj_domain = 'tj.weimob.com';
+                break;
+            case '112.124.28.82':
+                tj_domain = '112.124.28.82:400';
+                break;
+        }
+        return tj_domain;
+    }
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/Estate/CategoryEdit?aid=107395",
+            "sendFriendLink": "http://www.weimob.com/Estate/CategoryEdit?aid=107395",
+            "weiboLink": "http://www.weimob.com/Estate/CategoryEdit?aid=107395",
+            "tTitle": document.title,
+            "tContent": document.title,
+            "fTitle": document.title,
+            "fContent": document.title,
+            "wContent": document.title
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                //weimobAfterShare("",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+</html>

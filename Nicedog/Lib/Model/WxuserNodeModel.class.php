@@ -26,7 +26,7 @@ class WxuserNodeModel extends Model{
         }
     }
 	// 获取所有节点信息
-	public function getAllNode($where = '' , $order = 'sort DESC') {
+	public function getAllNode($where = '' , $order = 'sort') {
 		return $this->where($where)->order($order)->select();
 	}
 
@@ -55,6 +55,6 @@ class WxuserNodeModel extends Model{
 
 	// 子节点
 	public function childNode($id){
-		return $this->where(array('pid'=>$id))->select();
+		return $this->where(array('pid'=>$id))->order('sort')->select();
 	}
 }

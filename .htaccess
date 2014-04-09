@@ -2,11 +2,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
-#不显示index.php
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
-#RewriteLog "/User/samonyu/rewrite.log"
 
 RewriteCond %{HTTP_HOST} ^www\.nicepa\.cn$ [NC]
 RewriteRule .?  http://nicepa.cn%{REQUEST_URI} [R=301]
@@ -23,16 +18,9 @@ RewriteRule ^album/(.+)/(.+)$ index.php?g=Wesite&m=album&a=$2&wxuid=$1&%{QUERY_S
 #微相册
 RewriteRule ^Webmessage/(.+)/(.+)$ index.php?g=Wesite&m=comment&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
+#微会员卡
+RewriteRule ^Webmember/(.+)/(.+)$ index.php?g=Wesite&m=Member&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
-#http://serverName/appName/?m=module&a=action&id=1
-#http://localhost/index.php/User/Index/edit/id/59
-#RewriteRule ^archiver/((fid|tid)-[0-9]+\.html)$ archiver/index.php?$1
-#RewriteRule ^forum-([0-9]+)-([0-9]+)\.html$ forumdisplay.php?fid=$1&page=$2
-#RewriteRule ^thread-([0-9]+)-([0-9]+)-([0-9]+)\.html$ viewthread.php?tid=$1&extra=page\%3D$3&page=$2
-#RewriteRule ^space-(username|uid)-(.+)\.html$ space.php?$1=$2
-#RewriteRule ^tag-(.+)\.html$ tag.php?name=$1
 
-#RewriteCond %{QUERY_STRING} ^(.*)/(.*)/(.*)$
-#RewriteRule ^(.*)$ $index.php?g=%1&m=%2&c=%3 [L,NE]
 
 </IfModule>
