@@ -1,0 +1,48 @@
+<?php echo pack ( "C3" , 0xef, 0xbb, 0xbf );?>
+<?xml version='1.0' encoding='utf-8'?>
+<chart caption='{np:$head}' subcaption=' ' lineThickness='4' showValues='0' formatNumberScale='0' anchorRadius='4'
+       divLineAlpha='15' divLineColor='666666' divLineIsDashed='1' showAlternateHGridColor='1'
+       alternateHGridColor='666666' shadowAlpha='40' labelStep='2' numvdivlines='5' chartRightMargin='35'
+       bgColor='FFFFFF,FFFFFF' bgAngle='270' bgAlpha='10,10' alternateHGridAlpha='5' legendPosition='RIGHT '
+       baseFontSize='12' baseFont='Microsoft YaHei,Helvitica,Verdana,Arial,san-serif' canvasBorderThickness='1'
+       canvasBorderColor='888888' showShadow='1' animation='1' showBorder='0' showToolTip='1' adjustDiv='1'
+       setAdaptiveYMin='1' defaultAnimation='1' >
+    <categories>
+        <?php for($i=1;$i<=$tcount;$i++){?>
+        <category label='{np:$i}日'/>
+        <?php }?>
+    </categories>
+    <dataset seriesName='关注数' color='99ccff' anchorBorderColor='99ccff' anchorBgColor='ffffff'>
+        <?php $j=0;for($i=1;$i<=$tcount;$i++){?>
+        <?php if ($list[$j]&&$list[$j]['day']==$i){ ?>
+        <set value='{np:$list[$j]['follownum']}'/>
+        <?php $j++;}else{?>
+        <set value='0'/>
+        <?php }}?>
+    </dataset>
+    <dataset seriesName='取消关注数' color='d3d3d3' anchorBorderColor='d3d3d3' anchorBgColor='ffffff'>
+        <?php $j=0;for($i=1;$i<=$tcount;$i++){?>
+        <?php if ($list[$j]&&$list[$j]['day']==$i){ ?>
+        <set value='{np:$list[$j]['unfollownum']}'/>
+        <?php $j++;}else{?>
+        <set value='0'/>
+        <?php }}?>
+    </dataset>
+    <dataset seriesName='净增长数' color='cc0000' anchorBorderColor='cc0000' anchorBgColor='ffffff'>
+        <?php $j=0;for($i=1;$i<=$tcount;$i++){?>
+        <?php if ($list[$j]&&$list[$j]['day']==$i){ ?>
+        <set value='<?php echo $list[$j]['follownum'] - $list[$j]['unfollownum'];?>'/>
+        <?php $j++;}else{?>
+        <set value='0'/>
+        <?php }}?>
+    </dataset>
+    <styles>
+        <definition>
+            <style name='CaptionFont' type='font' size='12'/>
+        </definition>
+        <application>
+            <apply toObject='CAPTION' styles='CaptionFont'/>
+            <apply toObject='SUBCAPTION' styles='CaptionFont'/>
+        </application>
+    </styles>
+</chart>
