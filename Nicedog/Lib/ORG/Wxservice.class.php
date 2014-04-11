@@ -5,6 +5,8 @@ class WxService
     private $repxml = null;
     private $appaccess = "";
     private $apptime = 0;
+    private $appid;
+    private $appsecret;
 
     public function __construct($apidata)
     {
@@ -13,6 +15,7 @@ class WxService
             // dump($api);die;
             $url_get='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$apidata['appid'].'&secret='.$apidata['appsecret'];
             $json = "";
+            $this->appid = $apidata['appid'];$this->appsecret = $apidata['appsecret'];
             if (!isset($apidata['appaccess'])||(time()-intval($apidata['updatetime'])>7200)){
                 $res = $this->curlGet($url_get);
                 Log::write('WxService结果'.$res.'APPID'.$apidata['appid'].'|'.$apidata['appsecret'],Log::ERR);

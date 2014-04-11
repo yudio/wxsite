@@ -37,20 +37,20 @@
                 <div class="box">
                     <div class="box-title">
                         <div class="span8">
-                            <h3><i class="icon-table"></i>户型管理</h3>
+                            <h3>
+                                <i class="icon-table"></i>便民信息管理
+                                <small>如果您的楼盘有多便民信息组成，请在此添加，如果没有可以不添加。</small>
+                            </h3>
                         </div>
                     </div>
                     <div class="box-content">
                         <div class="row-fluid">
                             <div class="span8 control-group">
-                                <a href="/npManage/Estate/addHouse.act" class="btn"><i class="icon-plus"></i>添加户型</a>
-                                <div class="btn-group datatabletool">
-                                    <a class="btn" title="删除" onclick="deleteMutil();"><i class="icon-trash"></i></a>
-                                </div>
+                                <a href="/npManage/Estate/addService.act" class="btn"><i class="icon-plus"></i>添加便民信息</a>
                             </div>
                             <div class="span4" style="text-align:right;">
-                                <form action="/npManage/Estate/houseList.act" method="get" class="form-horizontal form-validate">
-                                    <input type="text" name="name" value="" class="input-large" placeholder="请输入户型名称" data-rule-required="true" />
+                                <form action="/npManage/Estate/serviceList.act" method="get" class="form-horizontal form-validate">
+                                    <input type="text" name="title" value="" class="input-large" placeholder="请输入便民信息名称" data-rule-required="true" />
                                     <button class="btn">查询</button>
                                 </form>
                             </div>
@@ -59,36 +59,32 @@
                             <table id="listTable" class="table table-bordered table-hover dataTable">
                                 <thead>
                                 <tr>
-                                    <th class='with-checkbox'>
-                                        <input type="checkbox" class="check_all" disabled="disabled" />
-                                    </th>
-                                    <th class="span3">户型名称</th>
-                                    <th class="span3">所属子楼盘</th>
-                                    <th class="span1">显示顺序</th>
-                                    <th class="span3">操作</th>
+                                    <th class="span4">便民标题</th>
+                                    <th class="span4">所属楼盘名称</th>
+                                    <th class="span4">便民描述</th>
+                                    <th class="span2">显示顺序</th>
+                                    <th class="span2">操作</th>
                                 </tr>
                                 </thead>
                                 <empty name="list">
                                 <tr>
-                                    <td colspan="6" style="text-align:center; height:30px;">没有任何户型信息</td>
+                                    <td colspan="4" style="text-align:center; height:30px;">没有任何便民信息</td>
                                 </tr>
                                 <else/>
                                     <volist name="list" id="vo">
-                                    <tr>
-                                        <td class="with-checkbox">
-                                            <input type="checkbox" name="check" value="3781" />
-                                        </td>
-                                        <td>{np:$vo.name}</td>
-                                        <td>{np:$vo.pname}</td>
-                                        <td>{np:$vo.sort}</td>
-                                        <td>
-                                            <a href="/npManage/Estate/spaceList.act?hid={np:$vo.id}" class="btn" onclick="//G.ui.tips.info('请联系客服'); return false;">管理全景图</a>
-                                            <a href="/npManage/Estate/addHouse.act?id={np:$vo.id}" class="btn"><i class="icon-edit"></i></a>
-                                            <a href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/Estate/houseDel.act?id={np:$vo.id}');" class="btn"><i class="icon-remove"></i></a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>{np:$vo.title}</td>
+                                    <td>{np:$vo.pname}</td>
+                                    <td>{np:$vo.desc}</td>
+                                    <td>{np:$vo.sort}</td>
+                                    <td>
+                                        <a href="/npManage/Estate/addService.act?id={np:$vo.id}" class="btn"><i class="icon-edit"></i></a>
+                                        <a href="javascript:G.ui.tips.confirm('确定要删除吗？', '/npManage/Estate/serviceDel.act?id={np:$vo.id}');" class="btn"><i class="icon-remove"></i></a></a>
+                                    </td>
+                                </tr>
                                     </volist>
                                 </empty>
+
                             </table>
                             <notempty name="list"><div class="dataTables_paginate paging_full_numbers"><span>{np:$page}</span></div></notempty>
                         </div>
@@ -99,22 +95,7 @@
     </div>
 </div>
 </body>
-
-
 <script>
-    function deleteMutil(){
-        var hids = '';
-        $('input[name=check]').each(function(){
-            if ($(this).attr("checked")) {
-                hids += ","+$(this).val();
-            }
-        });
-
-        if('' != hids){
-            G.ui.tips.confirm('确定要删除选中的吗？', '/Estate/HouseBatDelete?aid=107395&hids='+hids);
-        }
-    }
-</script>	<script>
     window.document.onkeydown = function(e) {
         if ('' == document.activeElement.id) {
             var e=e || event;

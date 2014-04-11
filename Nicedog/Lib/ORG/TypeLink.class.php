@@ -186,11 +186,11 @@ class TypeLink{
                      }
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/slide?fid={$arr['id']}";
+                     $arr['url'] = "#no_url";
              }
          }
 
-        if ($arr['type']=='link'||$arr['type']=='tel'||$arr['type']=='map'){
+        if ($arr['type']=='link'||$arr['type']=='tel'||$arr['type']=='map'||$arr['type']==''||$arr['type']=='0'){
             return $arr['url'];
         }else{
             return C('site_url').$arr['url'];

@@ -31,7 +31,7 @@ class MenuAction extends UserAction{
             foreach($newarr as $key=>$vo){
                 $vo['uid']   = session('uid');
                 $vo['token'] = session('token');
-                if (preg_match('/http:\/\/(.+)/i',$vo['key'])){
+                if (preg_match('/(http|https|ftp):\/\/(.+)/i',$vo['key'])){
                     $vo['url'] = $vo['key'];
                 }else if (preg_match('/tel:(.+)/i',$vo['key'])){
                     $vo['url'] = $vo['key'];
@@ -44,21 +44,17 @@ class MenuAction extends UserAction{
             }
             foreach($psarr as $key=>$vo){
                 $vo['id']  =  $key;
-                if (preg_match('/http:\/\/(.+)/i',$vo['key'])){
+                if (preg_match('/(http|https|ftp):\/\/(.+)/i',$vo['key'])){
+                    $vo['url'] = $vo['key'];
+                }else if (preg_match('/tel:(.+)/i',$vo['key'])){
                     $vo['url'] = $vo['key'];
                 }else{
                     $vo['url'] = '';
                 }
                 $db->where(array('id'=>$key))->save($vo);
-                //    $this->ajaxReturn(array('errno'=>'100','error'=>"psarr{$key}:".$db->getError()),'JSON');
-
             }
             $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/menu/index.act'),'JSON');
         }else{
-            /*$class=M('Diymen_class')->where(array('token'=>$_SESSION['token'],'pid'=>0))->order('sort desc')->select();
-            //dump($class);
-            $this->assign('class',$class);
-            $this->display();*/
             $this->ajaxReturn(array('errno'=>'200','error'=>'POST数据出错！'),'JSON');
         }
     }

@@ -32,7 +32,12 @@ class FlashModel extends Model{
     protected function _after_insert($data,$options) {
         $db = D('Typelink');
         $kdata = $_POST;
-        $kdata['url'] = $data['url'];
+        //写入URL
+        $_POST['id'] = $data['id'];
+        $kdata['url'] = TypeLink::getTypeLink($_POST,'Slide');
+        M('Flash')->data(array('id'=>$data['id'],'url'=>$kdata['url']))->save();
+
+        $kdata['typename'] = $this->getTypeName();
         $kdata['pid'] = $data['id'];
         $kdata['module'] = 'Slide';
         $db->data($kdata)->add();

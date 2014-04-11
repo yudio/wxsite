@@ -149,37 +149,37 @@
                                                 <label for="typename" class="control-label">订单接收设置：</label>
                                                 <div class="controls">
                                                     <label class="radio inline">
-                                                        <input type="radio" name="type" value="1" <if condition="$info.type eq 1">checked="checked"</if>   />
+                                                        <input type="radio" name="type" value="1" <empty name="info">checked</empty><if condition="$info['type'] eq 1">checked="checked"</if>   />
                                                         限定时间
                                                     </label>
                                                     <label class="radio inline">
-                                                        <input type="radio" name="type" value="2" <if condition="$info.type eq 2">checked="checked"</if> />
+                                                        <input type="radio" name="type" value="2" <if condition="$info['type'] eq 2">checked="checked"</if> />
                                                         限定每日量
                                                     </label>
                                                     <label class="radio inline">
-                                                        <input type="radio" name="type" value="3" <if condition="$info.type eq 3">checked="checked"</if> />
+                                                        <input type="radio" name="type" value="3" <if condition="$info['type'] eq 3">checked="checked"</if> />
                                                         限定全部总量
                                                     </label>
-													<span class="help-inline" id="type1" <if condition="$info.type neq 1">style="display:none;"</if>>设定您接受订单的起始和结束时间</span>
-													<span class="help-inline" id="type2" <if condition="$info.type neq 2">style="display:none;"</if>>设定您每日接收的订单总数</span>
-													<span class="help-inline" id="type3" <if condition="$info.type neq 3">style="display:none;"</if>>设定您总计可接收的订单总数</span>
+													<span class="help-inline" id="type1" <if condition="$info['type'] neq 1 and $info neq false">style="display:none;"</if>>设定您接受订单的起始和结束时间</span>
+													<span class="help-inline" id="type2" <if condition="$info['type'] neq 2">style="display:none;"</if>>设定您每日接收的订单总数</span>
+													<span class="help-inline" id="type3" <if condition="$info['type'] neq 3">style="display:none;"</if>>设定您总计可接收的订单总数</span>
                                                 </div>
                                             </div>
 
-                                            <div class="control-group" <if condition="$info.type neq 1">style="display: none;"</if>>
+                                            <div class="control-group" <if condition="$info['type'] neq 1 and $info neq false">style="display: none;"</if>>
                                                 <label for="date" class="control-label"></label>
                                                 <div class="controls">
 												<div class="input-prepend">
 
 												 <span class="add-on"><i class="icon-calendar"></i></span>
-                                                    <input type="text" class="input-xlarge daterangepick" value='<if condition="$info.type eq 1">{np:$info.stime|date="Y/m/d H:i",###} - {np:$info.etime|date="Y/m/d H:i",###}</if>' name="time" id="date" />
+                                                    <input type="text" class="input-xlarge daterangepick" value='<if condition="$info['type'] eq 1">{np:$info.stime|date="Y/m/d H:i",###} - {np:$info.etime|date="Y/m/d H:i",###}</if>' name="time" id="date" />
 													
                                                 </div><span class="help-inline">填写订单的起始和结束时间(为空表示不限制)</span></div>
                                             </div>
-                                            <div class="control-group"  <if condition="$info.type eq 1">style="display: none;"</if>>
+                                            <div class="control-group"  <if condition="$info['type'] eq 1 or $info eq false">style="display: none;"</if>>
                                                 <label for="allnums" class="control-label"></label>
                                                 <div class="controls">
-                                                    <input type="text" name="allnums" id="allnums" class="input-mini" value='<if condition="$info.type neq 1">{np:$info.allnums}</if>' data-rule-number="true" />
+                                                    <input type="text" name="allnums" id="allnums" class="input-mini" value='<if condition="$info['type'] neq 1">{np:$info.allnums}</if>' data-rule-number="true" />
                                                     <span class="help-inline">填写最大接收订单数(为空表示不限制),今日预约量:</span>
                                                 </div>
                                             </div>

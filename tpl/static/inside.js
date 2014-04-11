@@ -57,234 +57,234 @@ var G = {
 };
 (function (n) {
     var f = {
-        buttons: {
-            button1: {
-                text: "OK",
-                danger: !1,
-                onclick: function () {
-                    n.fallr("hide")
+            buttons: {
+                button1: {
+                    text: "OK",
+                    danger: !1,
+                    onclick: function () {
+                        n.fallr("hide")
+                    }
                 }
+            },
+            icon: "check",
+            content: "Hello",
+            position: "top",
+            closeKey: !0,
+            closeOverlay: !1,
+            useOverlay: !0,
+            autoclose: !1,
+            easingDuration: 300,
+            easingIn: "swing",
+            easingOut: "swing",
+            height: "auto",
+            width: "360px",
+            zIndex: 100,
+            bound: window,
+            afterHide: function () { },
+            afterShow: function () { }
+        },
+        t, e, i = n(window),
+        u = {
+            hide: function (f, o, s) {
+                if (u.isActive()) {
+                    n("#fallr-wrapper").stop(!0, !0);
+                    var h = n("#fallr-wrapper"),
+                        a = h.css("position"),
+                        c = a === "fixed",
+                        l = 0;
+                    switch (t.position) {
+                        case "bottom":
+                        case "center":
+                            l = (c ? i.height() : h.offset().top + h.outerHeight()) + 10;
+                            break;
+                        default:
+                            l = (c ? -1 * h.outerHeight() : h.offset().top - h.outerHeight()) - 10
+                    }
+                    h.animate({
+                        top: l,
+                        opacity: c ? 1 : 0
+                    }, t.easingDuration || t.duration, t.easingOut, function () {
+                        n.browser.msie ? n("#fallr-overlay").css("display", "none") : n("#fallr-overlay").fadeOut("fast"), h.remove(), clearTimeout(e), o = typeof o == "function" ? o : t.afterHide, o.call(s)
+                    }), n(document).unbind("keydown", r.enterKeyHandler).unbind("keydown", r.closeKeyHandler).unbind("keydown", r.tabKeyHandler)
+                }
+            },
+            resize: function (t, i, f) {
+                var e = n("#fallr-wrapper"),
+                    o = parseInt(t.width, 10),
+                    s = parseInt(t.height, 10),
+                    h = Math.abs(e.outerWidth() - o),
+                    c = Math.abs(e.outerHeight() - s);
+                u.isActive() && (h > 5 || c > 5) && (e.animate({
+                    width: o
+                }, function () {
+                    n(this).animate({
+                        height: s
+                    }, function () {
+                        r.fixPos()
+                    })
+                }), n("#fallr").animate({
+                    width: o - 94
+                }, function () {
+                    n(this).animate({
+                        height: s - 116
+                    }, function () {
+                        typeof i == "function" && i.call(f)
+                    })
+                }))
+            },
+            show: function (o, s, h) {
+                var a;
+                if (u.isActive()) n("body", "html").animate({
+                    scrollTop: n("#fallr").offset().top
+                }, function () {
+                    n.fallr("shake")
+                }), n.error("Can't create new message with content: \"" + o.content + '", past message with content "' + t.content + '" is still active');
+                else {
+                    t = n.extend({}, f, o), n('<div id="fallr-wrapper"><\/div>').appendTo("body"), t.bound = n(t.bound).length > 0 ? t.bound : window;
+                    var c = n("#fallr-wrapper"),
+                        v = n("#fallr-overlay"),
+                        l = t.bound === window;
+                    c.css({
+                        width: t.width,
+                        height: t.height,
+                        position: "absolute",
+                        top: "-9999px",
+                        left: "-9999px"
+                    }).html('<div id="fallr-icon"><\/div><div id="fallr"><\/div><div id="fallr-buttons"><\/div>').find("#fallr-icon").addClass("icon-msg-" + t.icon).end().find("#fallr").html(t.content).css({
+                            height: t.height == "auto" ? "auto" : c.height() - 116,
+                            width: c.width() - 94
+                        }).end().find("#fallr-buttons").html(function () {
+                            var i = "",
+                                n;
+                            for (n in t.buttons) t.buttons.hasOwnProperty(n) && (i = i + '<a href="#" class="fallr-button ' + (t.buttons[n].danger ? "fallr-button-danger" : "") + '" id="fallr-button-' + n + '">' + t.buttons[n].text + "<\/a>");
+                            return i
+                        }()).find(".fallr-button").bind("click", function () {
+                            var i = n(this).attr("id").substring(13),
+                                r;
+                            return typeof t.buttons[i].onclick == "function" && t.buttons[i].onclick != !1 ? (r = n("#fallr"), t.buttons[i].onclick.apply(r)) : u.hide(), !1
+                        }), a = function () {
+                        c.show();
+                        var y = l ? (i.width() - c.outerWidth()) / 2 + i.scrollLeft() : (n(t.bound).width() - c.outerWidth()) / 2 + n(t.bound).offset().left,
+                            r, f, a = i.height() > c.height() && i.width() > c.width() && l ? "fixed" : "absolute",
+                            o = a === "fixed";
+                        switch (t.position) {
+                            case "bottom":
+                                r = l ? o ? i.height() : i.scrollTop() + i.height() : n(t.bound).offset().top + n(t.bound).outerHeight(), f = r - c.outerHeight();
+                                break;
+                            case "center":
+                                r = l ? o ? -1 * c.outerHeight() : v.offset().top - c.outerHeight() : n(t.bound).offset().top + n(t.bound).height() / 2 - c.outerHeight(), f = r + c.outerHeight() + ((l ? i.height() : c.outerHeight() / 2) - c.outerHeight()) / 2;
+                                break;
+                            default:
+                                f = l ? o ? 0 : i.scrollTop() : n(t.bound).offset().top, r = f - c.outerHeight()
+                        }
+                        c.css({
+                            left: y,
+                            position: a,
+                            top: r,
+                            "z-index": 999999
+                        }).animate({
+                                top: f
+                            }, t.easingDuration, t.easingIn, function () {
+                                s = typeof s == "function" ? s : t.afterShow, s.call(h), t.autoclose && (e = setTimeout(u.hide, t.autoclose))
+                            })
+                    }, t.useOverlay ? n.browser.msie && n.browser.version < 9 ? (v.css({
+                        display: "block",
+                        "z-index": t.zIndex
+                    }), a()) : v.css({
+                        "z-index": t.zIndex
+                    }).fadeIn(a) : a(), n(document).bind("keydown", r.enterKeyHandler).bind("keydown", r.closeKeyHandler).bind("keydown", r.tabKeyHandler), n("#fallr-buttons").children().eq(-1).bind("focus", function () {
+                        n(this).bind("keydown", r.tabKeyHandler)
+                    }), c.find(":input").bind("keydown", function (t) {
+                        r.unbindKeyHandler(), t.keyCode === 13 && n(".fallr-button").eq(0).trigger("click")
+                    })
+                }
+            },
+            set: function (n, i, r) {
+                for (var u in n) f.hasOwnProperty(u) && (f[u] = n[u], t && t[u] && (t[u] = n[u]));
+                typeof i == "function" && i.call(r)
+            },
+            isActive: function () {
+                return !!(n("#fallr-wrapper").length > 0)
+            },
+            blink: function () {
+                n("#fallr-wrapper").fadeOut(100, function () {
+                    n(this).fadeIn(100)
+                })
+            },
+            shake: function () {
+                n("#fallr-wrapper").stop(!0, !0).animate({
+                    left: "+=20px"
+                }, 50, function () {
+                    n(this).animate({
+                        left: "-=40px"
+                    }, 50, function () {
+                        n(this).animate({
+                            left: "+=30px"
+                        }, 50, function () {
+                            n(this).animate({
+                                left: "-=20px"
+                            }, 50, function () {
+                                n(this).animate({
+                                    left: "+=10px"
+                                }, 50)
+                            })
+                        })
+                    })
+                })
             }
         },
-        icon: "check",
-        content: "Hello",
-        position: "top",
-        closeKey: !0,
-        closeOverlay: !1,
-        useOverlay: !0,
-        autoclose: !1,
-        easingDuration: 300,
-        easingIn: "swing",
-        easingOut: "swing",
-        height: "auto",
-        width: "360px",
-        zIndex: 100,
-        bound: window,
-        afterHide: function () { },
-        afterShow: function () { }
-    },
-		t, e, i = n(window),
-		u = {
-		    hide: function (f, o, s) {
-		        if (u.isActive()) {
-		            n("#fallr-wrapper").stop(!0, !0);
-		            var h = n("#fallr-wrapper"),
-						a = h.css("position"),
-						c = a === "fixed",
-						l = 0;
-		            switch (t.position) {
-		                case "bottom":
-		                case "center":
-		                    l = (c ? i.height() : h.offset().top + h.outerHeight()) + 10;
-		                    break;
-		                default:
-		                    l = (c ? -1 * h.outerHeight() : h.offset().top - h.outerHeight()) - 10
-		            }
-		            h.animate({
-		                top: l,
-		                opacity: c ? 1 : 0
-		            }, t.easingDuration || t.duration, t.easingOut, function () {
-		                n.browser.msie ? n("#fallr-overlay").css("display", "none") : n("#fallr-overlay").fadeOut("fast"), h.remove(), clearTimeout(e), o = typeof o == "function" ? o : t.afterHide, o.call(s)
-		            }), n(document).unbind("keydown", r.enterKeyHandler).unbind("keydown", r.closeKeyHandler).unbind("keydown", r.tabKeyHandler)
-		        }
-		    },
-		    resize: function (t, i, f) {
-		        var e = n("#fallr-wrapper"),
-					o = parseInt(t.width, 10),
-					s = parseInt(t.height, 10),
-					h = Math.abs(e.outerWidth() - o),
-					c = Math.abs(e.outerHeight() - s);
-		        u.isActive() && (h > 5 || c > 5) && (e.animate({
-		            width: o
-		        }, function () {
-		            n(this).animate({
-		                height: s
-		            }, function () {
-		                r.fixPos()
-		            })
-		        }), n("#fallr").animate({
-		            width: o - 94
-		        }, function () {
-		            n(this).animate({
-		                height: s - 116
-		            }, function () {
-		                typeof i == "function" && i.call(f)
-		            })
-		        }))
-		    },
-		    show: function (o, s, h) {
-		        var a;
-		        if (u.isActive()) n("body", "html").animate({
-		            scrollTop: n("#fallr").offset().top
-		        }, function () {
-		            n.fallr("shake")
-		        }), n.error("Can't create new message with content: \"" + o.content + '", past message with content "' + t.content + '" is still active');
-		        else {
-		            t = n.extend({}, f, o), n('<div id="fallr-wrapper"><\/div>').appendTo("body"), t.bound = n(t.bound).length > 0 ? t.bound : window;
-		            var c = n("#fallr-wrapper"),
-						v = n("#fallr-overlay"),
-						l = t.bound === window;
-		            c.css({
-		                width: t.width,
-		                height: t.height,
-		                position: "absolute",
-		                top: "-9999px",
-		                left: "-9999px"
-		            }).html('<div id="fallr-icon"><\/div><div id="fallr"><\/div><div id="fallr-buttons"><\/div>').find("#fallr-icon").addClass("icon-msg-" + t.icon).end().find("#fallr").html(t.content).css({
-		                height: t.height == "auto" ? "auto" : c.height() - 116,
-		                width: c.width() - 94
-		            }).end().find("#fallr-buttons").html(function () {
-		                var i = "",
-							n;
-		                for (n in t.buttons) t.buttons.hasOwnProperty(n) && (i = i + '<a href="#" class="fallr-button ' + (t.buttons[n].danger ? "fallr-button-danger" : "") + '" id="fallr-button-' + n + '">' + t.buttons[n].text + "<\/a>");
-		                return i
-		            }()).find(".fallr-button").bind("click", function () {
-		                var i = n(this).attr("id").substring(13),
-							r;
-		                return typeof t.buttons[i].onclick == "function" && t.buttons[i].onclick != !1 ? (r = n("#fallr"), t.buttons[i].onclick.apply(r)) : u.hide(), !1
-		            }), a = function () {
-		                c.show();
-		                var y = l ? (i.width() - c.outerWidth()) / 2 + i.scrollLeft() : (n(t.bound).width() - c.outerWidth()) / 2 + n(t.bound).offset().left,
-							r, f, a = i.height() > c.height() && i.width() > c.width() && l ? "fixed" : "absolute",
-							o = a === "fixed";
-		                switch (t.position) {
-		                    case "bottom":
-		                        r = l ? o ? i.height() : i.scrollTop() + i.height() : n(t.bound).offset().top + n(t.bound).outerHeight(), f = r - c.outerHeight();
-		                        break;
-		                    case "center":
-		                        r = l ? o ? -1 * c.outerHeight() : v.offset().top - c.outerHeight() : n(t.bound).offset().top + n(t.bound).height() / 2 - c.outerHeight(), f = r + c.outerHeight() + ((l ? i.height() : c.outerHeight() / 2) - c.outerHeight()) / 2;
-		                        break;
-		                    default:
-		                        f = l ? o ? 0 : i.scrollTop() : n(t.bound).offset().top, r = f - c.outerHeight()
-		                }
-		                c.css({
-		                    left: y,
-		                    position: a,
-		                    top: r,
-		                    "z-index": 999999
-		                }).animate({
-		                    top: f
-		                }, t.easingDuration, t.easingIn, function () {
-		                    s = typeof s == "function" ? s : t.afterShow, s.call(h), t.autoclose && (e = setTimeout(u.hide, t.autoclose))
-		                })
-		            }, t.useOverlay ? n.browser.msie && n.browser.version < 9 ? (v.css({
-		                display: "block",
-		                "z-index": t.zIndex
-		            }), a()) : v.css({
-		                "z-index": t.zIndex
-		            }).fadeIn(a) : a(), n(document).bind("keydown", r.enterKeyHandler).bind("keydown", r.closeKeyHandler).bind("keydown", r.tabKeyHandler), n("#fallr-buttons").children().eq(-1).bind("focus", function () {
-		                n(this).bind("keydown", r.tabKeyHandler)
-		            }), c.find(":input").bind("keydown", function (t) {
-		                r.unbindKeyHandler(), t.keyCode === 13 && n(".fallr-button").eq(0).trigger("click")
-		            })
-		        }
-		    },
-		    set: function (n, i, r) {
-		        for (var u in n) f.hasOwnProperty(u) && (f[u] = n[u], t && t[u] && (t[u] = n[u]));
-		        typeof i == "function" && i.call(r)
-		    },
-		    isActive: function () {
-		        return !!(n("#fallr-wrapper").length > 0)
-		    },
-		    blink: function () {
-		        n("#fallr-wrapper").fadeOut(100, function () {
-		            n(this).fadeIn(100)
-		        })
-		    },
-		    shake: function () {
-		        n("#fallr-wrapper").stop(!0, !0).animate({
-		            left: "+=20px"
-		        }, 50, function () {
-		            n(this).animate({
-		                left: "-=40px"
-		            }, 50, function () {
-		                n(this).animate({
-		                    left: "+=30px"
-		                }, 50, function () {
-		                    n(this).animate({
-		                        left: "-=20px"
-		                    }, 50, function () {
-		                        n(this).animate({
-		                            left: "+=10px"
-		                        }, 50)
-		                    })
-		                })
-		            })
-		        })
-		    }
-		},
-		r = {
-		    fixPos: function () {
-		        var r = n("#fallr-wrapper"),
-					e = r.css("position"),
-					f, u;
-		        if (i.width() > r.outerWidth() && i.height() > r.outerHeight()) {
-		            f = (i.width() - r.outerWidth()) / 2, u = i.height() - r.outerHeight();
-		            switch (t.position) {
-		                case "center":
-		                    u = u / 2;
-		                    break;
-		                case "bottom":
-		                    break;
-		                default:
-		                    u = 0
-		            }
-		            e == "fixed" ? r.animate({
-		                left: f
-		            }, function () {
-		                n(this).animate({
-		                    top: u
-		                })
-		            }) : r.css({
-		                position: "fixed",
-		                left: f,
-		                top: u
-		            })
-		        } else f = (i.width() - r.outerWidth()) / 2 + i.scrollLeft(), u = i.scrollTop(), e != "fixed" ? r.animate({
-		            left: f
-		        }, function () {
-		            n(this).animate({
-		                top: u
-		            })
-		        }) : r.css({
-		            position: "absolute",
-		            top: u,
-		            left: f > 0 ? f : 0
-		        })
-		    },
-		    enterKeyHandler: function (t) {
-		        t.keyCode === 13 && (n("#fallr-buttons").children().eq(0).focus(), r.unbindKeyHandler())
-		    },
-		    tabKeyHandler: function (t) {
-		        t.keyCode === 9 && (n("#fallr-wrapper").find(":input, .fallr-button").eq(0).focus(), r.unbindKeyHandler(), t.preventDefault())
-		    },
-		    closeKeyHandler: function (n) {
-		        n.keyCode === 27 && t.closeKey && u.hide()
-		    },
-		    unbindKeyHandler: function () {
-		        n(document).unbind("keydown", r.enterKeyHandler).unbind("keydown", r.tabKeyHandler)
-		    }
-		};
+        r = {
+            fixPos: function () {
+                var r = n("#fallr-wrapper"),
+                    e = r.css("position"),
+                    f, u;
+                if (i.width() > r.outerWidth() && i.height() > r.outerHeight()) {
+                    f = (i.width() - r.outerWidth()) / 2, u = i.height() - r.outerHeight();
+                    switch (t.position) {
+                        case "center":
+                            u = u / 2;
+                            break;
+                        case "bottom":
+                            break;
+                        default:
+                            u = 0
+                    }
+                    e == "fixed" ? r.animate({
+                        left: f
+                    }, function () {
+                        n(this).animate({
+                            top: u
+                        })
+                    }) : r.css({
+                        position: "fixed",
+                        left: f,
+                        top: u
+                    })
+                } else f = (i.width() - r.outerWidth()) / 2 + i.scrollLeft(), u = i.scrollTop(), e != "fixed" ? r.animate({
+                    left: f
+                }, function () {
+                    n(this).animate({
+                        top: u
+                    })
+                }) : r.css({
+                    position: "absolute",
+                    top: u,
+                    left: f > 0 ? f : 0
+                })
+            },
+            enterKeyHandler: function (t) {
+                t.keyCode === 13 && (n("#fallr-buttons").children().eq(0).focus(), r.unbindKeyHandler())
+            },
+            tabKeyHandler: function (t) {
+                t.keyCode === 9 && (n("#fallr-wrapper").find(":input, .fallr-button").eq(0).focus(), r.unbindKeyHandler(), t.preventDefault())
+            },
+            closeKeyHandler: function (n) {
+                n.keyCode === 27 && t.closeKey && u.hide()
+            },
+            unbindKeyHandler: function () {
+                n(document).unbind("keydown", r.enterKeyHandler).unbind("keydown", r.tabKeyHandler)
+            }
+        };
     n(document).ready(function () {
         n("body").append('<div id="fallr-overlay"><\/div>'), n("#fallr-overlay").bind("click", function () {
             t.closeOverlay ? u.hide() : u.blink()
@@ -307,33 +307,33 @@ jQuery.fn.extend({
 (function (a, b) {
     "use strict";
     var c = "undefined" != typeof Element && "ALLOW_KEYBOARD_INPUT" in Element,
-		d = function () {
-		    for (var a, c, d = [
-				["requestFullscreen", "exitFullscreen", "fullscreenElement", "fullscreenEnabled", "fullscreenchange", "fullscreenerror"],
-				["webkitRequestFullscreen", "webkitExitFullscreen", "webkitFullscreenElement", "webkitFullscreenEnabled", "webkitfullscreenchange", "webkitfullscreenerror"],
-				["webkitRequestFullScreen", "webkitCancelFullScreen", "webkitCurrentFullScreenElement", "webkitCancelFullScreen", "webkitfullscreenchange", "webkitfullscreenerror"],
-				["mozRequestFullScreen", "mozCancelFullScreen", "mozFullScreenElement", "mozFullScreenEnabled", "mozfullscreenchange", "mozfullscreenerror"]
-		    ], e = 0, f = d.length, g = {}; f > e; e++) if (a = d[e], a && a[1] in b) {
-		        for (e = 0, c = a.length; c > e; e++) g[d[0][e]] = a[e];
-		        return g
-		    }
-		    return !1
-		}(),
-		e = {
-		    request: function (a) {
-		        var e = d.requestFullscreen;
-		        a = a || b.documentElement, /5\.1[\.\d]*Safari/.test(navigator.userAgent) ? a[e]() : a[e](c && Element.ALLOW_KEYBOARD_INPUT)
-		    },
-		    exit: function () {
-		        b[d.exitFullscreen]()
-		    },
-		    toggle: function (a) {
-		        this.isFullscreen ? this.exit() : this.request(a)
-		    },
-		    onchange: function () { },
-		    onerror: function () { },
-		    raw: d
-		};
+        d = function () {
+            for (var a, c, d = [
+                ["requestFullscreen", "exitFullscreen", "fullscreenElement", "fullscreenEnabled", "fullscreenchange", "fullscreenerror"],
+                ["webkitRequestFullscreen", "webkitExitFullscreen", "webkitFullscreenElement", "webkitFullscreenEnabled", "webkitfullscreenchange", "webkitfullscreenerror"],
+                ["webkitRequestFullScreen", "webkitCancelFullScreen", "webkitCurrentFullScreenElement", "webkitCancelFullScreen", "webkitfullscreenchange", "webkitfullscreenerror"],
+                ["mozRequestFullScreen", "mozCancelFullScreen", "mozFullScreenElement", "mozFullScreenEnabled", "mozfullscreenchange", "mozfullscreenerror"]
+            ], e = 0, f = d.length, g = {}; f > e; e++) if (a = d[e], a && a[1] in b) {
+                for (e = 0, c = a.length; c > e; e++) g[d[0][e]] = a[e];
+                return g
+            }
+            return !1
+        }(),
+        e = {
+            request: function (a) {
+                var e = d.requestFullscreen;
+                a = a || b.documentElement, /5\.1[\.\d]*Safari/.test(navigator.userAgent) ? a[e]() : a[e](c && Element.ALLOW_KEYBOARD_INPUT)
+            },
+            exit: function () {
+                b[d.exitFullscreen]()
+            },
+            toggle: function (a) {
+                this.isFullscreen ? this.exit() : this.request(a)
+            },
+            onchange: function () { },
+            onerror: function () { },
+            raw: d
+        };
     return d ? (Object.defineProperties(e, {
         isFullscreen: {
             get: function () {
@@ -667,9 +667,9 @@ G.logic.form = {
                                 this.sync();
                                 var $element = $(this.srcElement[0]);
                                 var r = $element.attr("data-rule-required"),
-									m = $element.attr("data-msg-required"),
-									e = $element.attr("data-rule-rangelength"),
-									em = $element.attr("data-msg-rangelength");
+                                    m = $element.attr("data-msg-required"),
+                                    e = $element.attr("data-rule-rangelength"),
+                                    em = $element.attr("data-msg-rangelength");
                                 var v = $.trim($element.val()).replace(/(&nbsp;)|\s|\u00a0/g, '');
                                 if (r) {
                                     if (v.length == 0) {
@@ -768,9 +768,9 @@ G.logic.form = {
                             this.sync();
                             var $element = $(this.srcElement[0]);
                             var r = $element.attr("data-rule-required"),
-								m = $element.attr("data-msg-required"),
-								e = $element.attr("data-rule-range"),
-								em = $element.attr("data-msg-range");
+                                m = $element.attr("data-msg-required"),
+                                e = $element.attr("data-rule-range"),
+                                em = $element.attr("data-msg-range");
                             var v = $.trim($element.val()).replace(/(&nbsp;)|\s|\u00a0/g, '');
                             if (r) {
                                 if (v.length == 0) {
@@ -855,7 +855,7 @@ G.logic.page = {
         if (ajaxtable.length > 0) {
             ajaxtable.each(function () {
                 var $this = $(this),
-					$url = $this.data("url");
+                    $url = $this.data("url");
                 if ($url) G.set.dataTables.sAjaxSource = $this.data("url");
                 $this.dataTable(G.set.dataTables)
             });
@@ -867,9 +867,9 @@ G.logic.page = {
     common: function () {
         $(".chosen-select").length > 0 && $(".chosen-select").each(function () {
             var t = $(this),
-				r = t.attr("data-nosearch") === "true" ? !0 : !1,
-				n = {},
-				i = t.data("maxlength");
+                r = t.attr("data-nosearch") === "true" ? !0 : !1,
+                n = {},
+                i = t.data("maxlength");
             i && (n.max_selected_options = i);
             r && (n.disable_search_threshold = 9999999);
             n.no_results_text = "找不到";
@@ -895,11 +895,11 @@ G.logic.page = {
         var $talbecheckbox = $("table.ajax-checkbox");
         $talbecheckbox.length > 0 && $("table.ajax-checkbox input[type='checkbox'][name='show']").click(function () {
             var t = $(this),
-				e = t.attr("checked"),
-				n = $talbecheckbox.attr("ajax-length"),
-				i = t.attr("data-id"),
-				r = $talbecheckbox.attr("ajax-url"),
-				u, f;
+                e = t.attr("checked"),
+                n = $talbecheckbox.attr("ajax-length"),
+                i = t.attr("data-id"),
+                r = $talbecheckbox.attr("ajax-url"),
+                u, f;
             if (e) {
                 if (u = $("table.ajax-checkbox input[type='checkbox'][name='show']:checked").length, n && n != 0 && (f = "最多勾选{0}个", u > n)) return G.ui.tips.info(f.format(n)), !1;
                 $.post(r, {
@@ -940,10 +940,10 @@ G.logic.page = {
         });
         $(".copy_text").each(function (i) {
             var $id = "copy_button{0}".format(i),
-				_tmp = '  <button class="btn copy" id="{0}" type="button" data-clipboard-target="{2}" data-clipboard-text="{1}"><i class="icon-copy"><\/i>复制<\/button>  <span class="alert copy-success help-inline alert-success hide "  >复制成功,请粘帖到您需要的地方<\/span>',
-				$this = $(this),
-				v = $this.text(),
-				$iid = $this.attr("id");
+                _tmp = '  <button class="btn copy" id="{0}" type="button" data-clipboard-target="{2}" data-clipboard-text="{1}"><i class="icon-copy"><\/i>复制<\/button>  <span class="alert copy-success help-inline alert-success hide "  >复制成功,请粘帖到您需要的地方<\/span>',
+                $this = $(this),
+                v = $this.text(),
+                $iid = $this.attr("id");
             if (/^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(v)) {
                 var _atmp = '<a href="{0}" target="_blank" title="点击新窗口打开">{0}<\/a>';
                 $this.html(_atmp.format(v))
@@ -964,7 +964,7 @@ G.logic.page = {
             };
             $("button.copy").click(function () {
                 var $this = $(this),
-					v = $this.data("clipboard-text").trim();
+                    v = $this.data("clipboard-text").trim();
                 if ($.browser.msie) {
                     window.clipboardData.setData("Text", v);
                     success($this)
@@ -979,47 +979,47 @@ G.logic.page = {
     },
     input_text_clear: function () {
         $("input[type=text]").not(".no-clear").unbind("clear-focus").bind("clear-focus", (function () {
-            if ($(this).data("clear-button")) return;
-            var x = $("<a class='clear-text' style='cursor:pointer;color:#000;font-size:14px;text-decoration:none'><i class='icon-remove'></i></a>");
-            $(x).data("text-box", this);
-            $(x).mouseover(function () {
-                $(this).addClass("over")
-            }).mouseleave(function () {
-                $(this).removeClass("over")
-            });
-            $(this).data("clear-button", x);
-            $(x).css({
-                "position": "absolute",
-                "left": ($(this).position().right),
-                "top": $(this).position().top + 2,
-                "margin": "3px 0px 0px -20px"
-            });
-            $(this).after(x)
-        })).unbind("clear-blur").bind("clear-blur", (function (e) {
-            var x = $(this).data("clear-button");
-            if (x) {
-                if ($(x).hasClass("over")) {
-                    $(x).removeClass("over");
-                    $(x).hide().remove();
-                    $(this).val("");
-                    $(this).removeData("clear-button");
-                    var txt = this;
-                    e.stopPropagation();
-                    e.stopImmediatePropagation();
-                    setTimeout($.proxy(function () {
-                        $(this).trigger("focus")
-                    }, txt), 50);
-                    return false
+                if ($(this).data("clear-button")) return;
+                var x = $("<a class='clear-text' style='cursor:pointer;color:#000;font-size:14px;text-decoration:none'><i class='icon-remove'></i></a>");
+                $(x).data("text-box", this);
+                $(x).mouseover(function () {
+                    $(this).addClass("over")
+                }).mouseleave(function () {
+                        $(this).removeClass("over")
+                    });
+                $(this).data("clear-button", x);
+                $(x).css({
+                    "position": "absolute",
+                    "left": ($(this).position().right),
+                    "top": $(this).position().top + 2,
+                    "margin": "3px 0px 0px -20px"
+                });
+                $(this).after(x)
+            })).unbind("clear-blur").bind("clear-blur", (function (e) {
+                var x = $(this).data("clear-button");
+                if (x) {
+                    if ($(x).hasClass("over")) {
+                        $(x).removeClass("over");
+                        $(x).hide().remove();
+                        $(this).val("");
+                        $(this).removeData("clear-button");
+                        var txt = this;
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        setTimeout($.proxy(function () {
+                            $(this).trigger("focus")
+                        }, txt), 50);
+                        return false
+                    }
                 }
-            }
-            if (x && !$(x).hasClass("over")) {
-                $(this).removeData("clear-button");
-                $(x).remove()
-            }
-        }));
+                if (x && !$(x).hasClass("over")) {
+                    $(this).removeData("clear-button");
+                    $(x).remove()
+                }
+            }));
         $("input[type=text].clear_text").on("focus", function () {
             var $this = $(this),
-				$l = $this.val().length;
+                $l = $this.val().length;
             if ($l > 0) {
                 $this.trigger("clear-focus")
             };
@@ -1031,8 +1031,8 @@ G.logic.page = {
                 }
             })
         }).on("blur", function () {
-            $(this).trigger("clear-blur")
-        })
+                $(this).trigger("clear-blur")
+            })
     },
     init: function () {
         this.skn();
@@ -1124,8 +1124,8 @@ G.util.location = {
         })(p, c, d));
         j.setLocation = function (dist) {
             var p = $(this).filter('select:eq(0)'),
-				c = $(this).filter('select:eq(1)'),
-				d = $(this).filter('select:eq(2)');
+                c = $(this).filter('select:eq(1)'),
+                d = $(this).filter('select:eq(2)');
             var ddInfo = G.util.location.getLocInfo(dist);
             if (ddInfo !== false) {
                 p.val(ddInfo.provinceId).change();
@@ -1155,18 +1155,18 @@ G.util.location = {
 };
 G.util.select = function (options) {
     var bindEls = [],
-		items = {},
-		settings = {
-		    data: {},
-		    file: null,
-		    root: "0",
-		    ajax: null,
-		    timeout: 30,
-		    method: "post",
-		    field_name: null,
-		    auto: !1,
-		    default_text: "请选择"
-		};
+        items = {},
+        settings = {
+            data: {},
+            file: null,
+            root: "0",
+            ajax: null,
+            timeout: 30,
+            method: "post",
+            field_name: null,
+            auto: !1,
+            default_text: "请选择"
+        };
     options && jQuery.extend(settings, options);
     items = settings.data;
 
@@ -1227,7 +1227,7 @@ G.util.select = function (options) {
     function _fill(n, t, i) {
         var r, e, u, f, s, o, h;
         if (n.empty(), n.append('<option value="">{0}<\/option>'.format(settings.default_text)), r = _find(t, function () {
-			_fill(n, t, i)
+            _fill(n, t, i)
         }), !r) return settings.auto && n.hide(), !1;
         n.show();
         e = 1;
@@ -1283,7 +1283,7 @@ G.logic.uploadify = {
         });
         $("a.item_close").live("click ", function (n) {
             var t = G.logic.uploadify,
-				i = G.logic.uploadify.op;
+                i = G.logic.uploadify.op;
             $.fallr("show", {
                 buttons: {
                     button1: {
@@ -1291,7 +1291,7 @@ G.logic.uploadify = {
                         danger: !0,
                         onclick: function () {
                             var r = $(n.target).closest("li.imgbox"),
-								u;
+                                u;
                             $.post(t.op.del_url, {
                                 id: r.data("postId"),
                                 url: r.data("url")
@@ -1315,14 +1315,14 @@ G.logic.uploadify = {
         })
     },
     add: function (data) {
-        var _tmp = ' <li class="imgbox" data-post-id="{0}" data-url="{3}"><a class="item_close" href="javascript:void(0)" title="删除"><\/a>  <input type="hidden" value="{0}" name="phout_list[]" /> <input type="hidden" value="{3}" name="phout_url[{0}][]" /> <span class="item_box"><img src="{1}" /><\/span> <span class="item_input"> <textarea name="imagestexts[{0}][]" class="bewrite" cols="3" rows="4" style="resize: none" data-rule-maxlength="150" placeholder="图片描述...">{2}<\/textarea><i class="shadow hc"><\/i><\/span><\/li>';
+        var _tmp = ' <li class="imgbox" data-post-id="{0}" data-url="{3}"><a class="item_close" href="javascript:void(0)" title="删除"><\/a>  <input type="hidden" value="{0}" name="phout_list[]" /> <input type="hidden" value="{3}" name="phout_url[{0}]" /> <span class="item_box"><img src="{1}" /><\/span> <span class="item_input"> <textarea name="imagestexts[{0}]" class="bewrite" cols="3" rows="4" style="resize: none" data-rule-maxlength="150" placeholder="图片描述...">{2}<\/textarea><i class="shadow hc"><\/i><\/span><\/li>';
         $("#fileList").append(_tmp.format(data.id, data.thm_url, data.title, data.url));
         $.browser.msie && eval(parseInt($.browser.version)) < 10 && $("textarea[placeholder]").watermark()
     },
     set: function () {
         var _self = this,
-			c = _self.op.count - $("li.imgbox").length,
-			max_size = _self.op.data.type_id > 0 ? "300kb" : "600kb";
+            c = _self.op.count - $("li.imgbox").length,
+            max_size = _self.op.data.type_id > 0 ? "600kb" : "600kb";
         _self.op.el.uploadify({
             swf: _self.op.swf,
             uploader: _self.op.url,

@@ -23,7 +23,7 @@ class TextModel extends Model{
 
     protected function _after_select(&$resultSet,$options) {
         foreach($resultSet as &$result){
-            $result['text'] = htmlspecialchars($result['text'].'DDT',ENT_QUOTES);
+            $result['text'] = htmlspecialchars($result['text'],ENT_QUOTES);
         }
     }
 

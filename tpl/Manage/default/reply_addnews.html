@@ -100,9 +100,9 @@
                                     <label for="article_class" class="control-label">所属类别：</label>
                                     <div class="controls">
                                         <select name="article_class" class="chosen-select input-medium" data-nosearch="true" id="article_class">
-                                           <option value="0" <if condition="$vo.classid eq 0">selected="selected"</if>>根分类</option>
+                                           <option value="0" <if condition="$info['classid'] eq 0">selected="selected"</if>>根分类</option>
                                            <volist name="classinfo" id="val">
-                                               <option value="{np:$val.id},{np:$val.name}" <if condition="$val.id eq $vo.classid">selected="selected"</if>>{np:$val.name}</option>
+                                               <option value="{np:$val.id},{np:$val.name}" <if condition="$val['id'] eq $info['classid']">selected="selected"</if>>{np:$val.name}</option>
                                            </volist>
                                         </select>
                                     </div>
@@ -112,11 +112,11 @@
                                     <label for="showpic" class="control-label">详细页显示图文封面：</label>
                                     <div class="controls">
                                         <label class="radio inline">
-                                            <input type="radio" name="showpic"  value="1" <if condition="$info.showpic eq 1">checked="checked"</if> >
+                                            <input type="radio" name="showpic"  value="1" <empty name="info">checked</empty> <if condition="$info['showpic'] eq 1">checked</if> >
                                             是
                                         </label>
                                         <label class="radio inline">
-                                            <input type="radio" name="showpic" value="0" <if condition="$info.showpic eq 0">checked="checked"</if> >
+                                            <input type="radio" name="showpic" value="0" <if condition="$info['showpic'] eq '0'">checked</if> >
                                             否
                                         </label>
                                     </div>

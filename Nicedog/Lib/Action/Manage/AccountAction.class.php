@@ -221,7 +221,7 @@ class AccountAction extends UserAction{
         //LOG::write('创建用户图片空间'.$dir,LOG::ERR);
         //if (!is_dir($dir)) mkdir($dir,0755,true);
         $picpath = 'Uploads/ufaceimg/'.date('Ymd').'-'.time().'.jpg';
-        $_POST['headerpic'] = '/'.$picpath;
+        $_POST['headerpic'] = C('site_url').'/'.$picpath;
         file_put_contents(THINK_PATH.$picpath,$wxclient->getUserFace($wxclient->getFakeId()));
         //ddump($_POST);
         $db=D('Wxuser');//->where(array('token'=>session('token'),'wxid'=>$wxclient->getwxid()))->find();
@@ -446,8 +446,6 @@ class AccountAction extends UserAction{
             }else{
                 $this->ajaxReturn(array('errno'=>'101','error'=>$db->getError()));
             }
-
-
         }else{
             $this->ajaxReturn(array('errno'=>'100','error'=>'请提交数据！'));
         }

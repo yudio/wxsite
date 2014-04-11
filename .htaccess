@@ -21,6 +21,10 @@ RewriteRule ^Webmessage/(.+)/(.+)$ index.php?g=Wesite&m=comment&a=$2&wxuid=$1&%{
 #微会员卡
 RewriteRule ^Webmember/(.+)/(.+)$ index.php?g=Wesite&m=Member&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
+#微房产
+RewriteRule ^WebEstate/(.+)/(.+)$ index.php?g=Wesite&m=WebEstate&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
+#授权访问
+RewriteRule ^WebAuth/(.+)/(.+)$ index.php?g=Wesite&m=Auth&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
 </IfModule>

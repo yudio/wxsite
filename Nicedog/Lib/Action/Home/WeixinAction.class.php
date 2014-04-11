@@ -34,6 +34,7 @@ class WeixinAction extends Action
 
         $weixin->response($content, $type);
         $arr['act_reply'] = $weixin->getXMLRES();
+        $arr['act_time'] = time();
         $vo->add($arr);
         $weixin->close($weixin->getXMLRES());
 
@@ -647,7 +648,7 @@ class WeixinAction extends Action
                     LOG::write('图文'.$imgmsg['id'],LOG::INFO);
                     //替代wecha_id
                     $imgmsg['url'] = @ereg_replace('FromUserName',$this->data['FromUserName'],$imgmsg['url']);
-                    $return[] = array($imgmsg['title'],$imgmsg['info'],$imgmsg['pic'],C('site_url').$imgmsg['url']);
+                    $return[] = array($imgmsg['title'],$imgmsg['info'],$imgmsg['pic'],$imgmsg['url']);
 
                     $back = array();
                     if($imgmsg['news']){
@@ -657,7 +658,7 @@ class WeixinAction extends Action
                     foreach ($back as $keya => $infot) {
                         LOG::write('图文'.$infot['id'],LOG::INFO);
                         $infot['url'] = @ereg_replace('FromUserName',$this->data['FromUserName'],$infot['url']);
-                        $return[] = array($infot['title'],$infot['info'],$infot['pic'],C('site_url').$infot['url']);
+                        $return[] = array($infot['title'],$infot['info'],$infot['pic'],$infot['url']);
                     }
                     return array(
                         $return,
@@ -715,7 +716,7 @@ class WeixinAction extends Action
                                 $info['title'],
                                 $info['info'],
                                 $info['picurl'],
-                                C('site_url')."/album/{$this->wxuid}/showlist?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}"
+                                C('site_url')."/album/{$this->wxuid}/showlist?pid={$res['pid']}&wecha_id={$this->data['FromUserName']}"
                             )
                         ),
                         'news'
@@ -1396,9 +1397,7 @@ class WeixinAction extends Action
 
     public function help()
     {
-        $data = M('Areply')->where(array(
-            'token' => $this->token
-        ))->find();
+        $data = M('Areply')->where(array('token' => $this->token))->find();
         return array(
             preg_replace("/(\015\012)|(\015)|(\012)/", "\n", $data['content']),
             'text'

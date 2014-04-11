@@ -46,15 +46,16 @@ class IndexAction extends BaseAction{
 		if (isset($_SESSION['wecha_id'])){
 			$this->wecha_id=$_SESSION['wecha_id'];
 		}
+
 		//获取分类信息Classify
         $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts asc,id asc')->select();
-        $classify=$this->convertLinks($classify);//加外链等信息
+        //$classify=$this->convertLinks($classify);//加外链等信息
         //获取用户组ID
 		$gid=D('Users')->field('gid')->find($wxuser['uid']);
 		$this->userGroup=M('User_group')->where(array('id'=>$gid['gid']))->find();
 		$this->copyright=$this->userGroup['iscopyright'];
 		
-		$this->classify=$this->getTypeUrl($classify);
+		$this->classify=$classify;
         $wxuser['color_id']=intval($wxuser['color_id']);
 		$this->wxuser=$wxuser;
         //旧版门店Company
@@ -108,7 +109,7 @@ class IndexAction extends BaseAction{
 		//dump($where);
 		//	$where['status']=1;  幻灯片Flash
 		$flash=M('Flash')->where($where)->select();
-		$flash=$this->convertLinks($flash);
+		//$flash=$this->convertLinks($flash);
 		$count=count($flash);
 		$this->assign('flash',$flash);
 		$this->assign('num',$count);
@@ -122,7 +123,7 @@ class IndexAction extends BaseAction{
         $subclass = M('Classify')->where(array('category_id'=>$classid))->order('sorts')->select();
         if ($subclass){
             $flash=M('Flash')->where($where)->select();
-            $flash=$this->convertLinks($flash);
+            //$flash=$this->convertLinks($flash);
             $count=count($flash);
             $this->assign('flash',$flash);
             $this->assign('num',$count);
@@ -208,6 +209,32 @@ class IndexAction extends BaseAction{
      */
     public function move(){
         $this->display();
+    }
+
+    public function auth2(){
+        $db = M('Diymen_set');
+        $menuset = $db->where(array('token'=>$_SESSION['token']))->find();
+        if (!$menuset){
+            $data = $this->wxuser;
+            $setid = $db->data($data)->add();
+            $menuset['id'] = $setid;
+        }else{
+            $menuset['appid'] = $this->wxuser['appid'];
+            $menuset['appsecret']  = $this->wxuser['appsecret'];
+            $db->data($menuset)->save();
+        }
+        $wxservice = new WxService($menuset);
+        $menuset['appaccess'] = $wxservice->getAccessToken();
+        if ($wxservice->getAccessTime()>0){
+            $menuset['updatetime'] = $wxservice->getAccessTime();
+        }
+        M('Diymen_set')->where(array('token'=>$_SESSION['token']))->data($menuset)->save();
+
+        //echo $wxservice->auth2url(C('site_url').'/wesite/'.$this->wxuid.'/index','snsapi_base');
+
+        //dump($wxservice->auth2('024352c2daef264be2ba44fc01cf9862'));
+
+        //dump($wxservice->auth_userinfo('OezXcEiiBSKSxW0eoylIeCYQmUO0AMPE2wc8CiviZV3Qx78e0ntaf1JREfFFHXlTGvuqKwel0-g7vJEeM-fKd-2KatuD31VEF0iox0ovXh_GLOWMABQTX-XJ1NtPZS9nL5H9qUeiB6pnhkUbV3OgbA','oJaOsuHii9_d62x_t4RpxSfNiIPM'));
     }
 
     /*

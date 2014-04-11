@@ -27,7 +27,7 @@
     <script type="text/javascript"
             src="{np::RES}/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js"></script>
     <script type="text/javascript" src="{np::RES}/src/plugins/zeroclipboard/zeroclipboard_min.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
     <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/>
@@ -354,6 +354,14 @@
                class="input-xlarge"/>
     </div>
 </div>
+<notempty name="authurl">
+<div class="control-group">
+    <label class="control-label" for="sites">授权链接：</label>
+    <div class="controls" style="padding-top:4px;overflow: hidden;width:550px;">
+        <span class="copy_text">{np:$authurl}</span>
+    </div>
+</div>
+</notempty>
 <div class="control-group">
     <label class="control-label" for="sites">智能分流：</label>
 
