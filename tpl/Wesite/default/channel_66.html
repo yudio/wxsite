@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-66.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/iscroll.js"></script>
+    <title>{np:$homInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="body">
+    <div class="snower">
+        <include file="common:snow"/>
+    </div>
+    <header id="scroll_pic_view" class="scroll_pic_view">
+        <div id="scroll_pic_view_div">
+            <ul id="scroll_pic_view_ul">
+                <volist name="flash" id="vo">
+                    <li>
+                        <a onclick="return false;">
+                            <img src="{np:$vo.img}" >
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div>
+            <ol id="scroll_pic_nav" class="scroll_pic_nav">
+                <script>
+                    (function(d, $){
+                        var scrollPicView = d.getElementById("scroll_pic_view"),
+                                scrollPicViewDiv = d.getElementById("scroll_pic_view_div"),
+                                lis = scrollPicViewDiv.querySelectorAll("li"),
+                                w = scrollPicView.offsetWidth,
+                                len = lis.length;
+                        for(var i=0; i<len; i++){
+                            lis[i].style.width = w+"px";
+                            if(i == len-1){
+                                scrollPicViewDiv.style.width = w * len + "px";
+                            }
+                        }
+
+                        var scroll_pic_view = new iScroll('scroll_pic_view', {
+                            snap: true,
+                            momentum: false,
+                            hScrollbar: false,
+                            useTransition: true,
+                            onScrollEnd: function() {
+                                $("#scroll_pic_nav li").removeClass("on").eq(this.currPageX).addClass("on");
+                                //$("#scroll_pic_nav li.on").prev().addClass("left");
+                                //$("#scroll_pic_nav li.on").next().removeClass("left");
+
+                                var  list=$("#scroll_pic_nav li");
+                                for(var k=0;k<list.length;k++){
+                                    if(k<this.currPageX)
+                                        $(list[k]).addClass("left");
+                                    else
+                                        $(list[k]).removeClass("left");
+                                }
+                            }
+                        });
+                        //
+                        var nav_lis = new Array(lis.length);
+                        d.write('<li class="on"><span>1</span></li>');
+                        for(var i=1; i<nav_lis.length; i++){
+                            d.write("<li><span>"+(i+1)+"</span></li>");
+                        }
+                    })(document, $);
+                </script>
+            </ol>
+        </div>
+    </header>
+    <section class="section_body">
+        <ul class="list_article">
+            <volist name="subclassify" id="vo">
+                <li>
+                    <a href="{np:$vo.url}" class="tbox">
+                        <div>
+                            <span><img src="{np:$vo.img}" /></span>
+                        </div>
+                        <div class="article_summary">
+                            <h3>{np:$vo.name}</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </section>
+</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

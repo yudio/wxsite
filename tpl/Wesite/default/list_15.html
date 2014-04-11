@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-15.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>{np:$thisclassify.name}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="body">
+    <section class="section_body">
+        <ul class="list_article">
+            <volist name="info" id="vo">
+                <li>
+                    <a href="{$np:vo.url}" class="tbox">
+                        <div><span><img src="{np:$vo.pic}"/></span></div>
+                        <div class="summary">
+                            <h3>{np:$vo.title}</h3>
+                            <p>{np:$vo.info}</p>
+                        </div>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </section>
+
+</div>
+<include file="common:menu"/>
+<include file="common:footer"/>
+</body>
+</html>
+

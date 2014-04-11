@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/template/home-70.css" media="all" />
+    <script type="text/javascript" src="http://stc.weimob.com/src/template/maivl.js"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/jQuery.js"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/template/zepto.js"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src/template/swipe.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+
+<div class="body">
+    <header>
+        <div class="snower">
+            <include file="common:snow"/>
+        </div>
+    </header>
+    <div class="list">
+        <ul>
+            <volist name="classify" id="vo">
+                <li><a href="{np:$vo.url}"class="tbox">{np:$vo.name}  <sapn class='icon {np:$vo.icon}'></span></a></li>
+            </volist>
+        </ul>
+    </div>
+    <div class="leftbg"><img src="{np:$homeInfo.bg_img}"></div>
+</div>
+<!--导航菜单后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+
