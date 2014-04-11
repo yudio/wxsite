@@ -9,15 +9,15 @@
     <!-- Apple devices fullscreen -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <base target="mainFrame"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css?2014-02-20-1" media="all"/>
-    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/application.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js?2014-02-20-1"></script>
-    <title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
+    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/application.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+    <title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
     <!--[if IE 7]>
     <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
@@ -36,7 +36,7 @@
         </div>
         <ul class='main-nav'>
             <li class='active'>
-                <a href="/wechat/index/aid/72040" target="_self">
+                <a href="/npManage/microsite/main.act?id=<?php echo ($info["id"]); ?>&token=<?php echo ($token); ?>" target="_self">
                     <span>管理平台</span>
                 </a>
             </li>
@@ -74,7 +74,7 @@
         <div class="user">
             <ul class="icon-nav">
                 <li>
-                    <a href="<?php echo C('site_url');?>" target="_blank" title="打开微盟首页"><i class="icon-home"></i></a>
+                    <a href="<?php echo C('site_url');?>" target="_blank" title="打开奈斯伙伴首页"><i class="icon-home"></i></a>
                 </li>
                 <li class='dropdown'>
                     <a href="#" class='dropdown-toggle' data-toggle="dropdown" title="消息" style="display:none;"><i
@@ -133,174 +133,18 @@
 
 <div class="container-fluid" id="content">
     <div id="left">
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'><i
-                        class="icon-angle-right"></i><span>我的微盟</span></a>
-            </div>
-            <ul class="subnav-menu" style="display:block;">
-                <li>
-                    <a href="/npManage/account/home.act">账户信息</a>
-                </li>
-                <li>
-                    <a href="stat.html">运营图表</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'>
-                    <i class="icon-angle-right"></i>
-                    <span>系统设置</span>
-                </a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/npManage/account/type.act">授权设置</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'>
-                    <i class="icon-angle-right"></i>
-                    <span>智能回复</span>
-                </a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/npManage/reply/autoset.act">默认设置</a>
-                </li>
-                <li>
-                    <a href="/npManage/reply/subscribe.act">关注时回复</a>
-                </li>
-                <li>
-                    <a href="/npManage/reply/textlist.act">文本回复</a>
-                </li>
-                <li>
-                    <a href="/npManage/reply/newslist.act">图文回复</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'>
-                    <i class="icon-angle-right"></i>
-                    <span>自定义菜单</span>
-                </a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/npManage/menu/index.act">菜单设置</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-right"></i><span>微服务</span></a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/npManage/func/app.act">应用管理</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-right"></i><span>微活动</span></a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="coupons-list.html">优惠券</a>
-                </li>
-                <li>
-                    <a href="scratchcard.html">刮刮卡</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-right"></i><span>微官网</span></a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/npManage/microsite/set.act">微官网设置</a>
-                </li>
-                <li>
-                    <a href="/npManage/microsite/slide.act">首页幻灯片</a>
-                </li>
-                <li>
-                    <a href="/npManage/microsite/classify.act">分类管理</a>
-                </li>
-                <li>
-                    <a href="/npManage/microsite/template.act">模板管理</a>
-                </li>
-                <li>
-                    <a href="/npManage/microsite/plugmenu.act">快捷与版权</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-right"></i><span>微团购(公测)</span></a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">团购管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/order/indexPage/aid/72040">订单管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/user/indexPage/aid/72040">会员管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/refund/indexPage/aid/72040/">退款管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/eticket/indexPage/aid/72040">团购券管理</a>
-                </li>
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a href="javascript:alert('请于客服索取微推广软件');" class='toggle-subnav'><i class="icon-angle-right"></i><span>微推送</span></a>
-            </div>
-            <ul class="subnav-menu">
-            </ul>
-        </div>
-        <div class="subnav">
-            <div class="subnav-title">
-                <a class='toggle-subnav'><i class="icon-angle-right"></i><span>会员卡</span></a>
-            </div>
-            <ul class="subnav-menu">
-                <li>
-                    <a href="/npManage/member/setbusiness.act">商家设置</a>
-                </li>
-                <li>
-                    <a href="/npManage/member/addcard.act">会员卡设置</a>
-                </li>
-                <li>
-                    <a href="/npManage/member/memberlist.act">微信会员管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">实体店会员管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">会员交易</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">会员营销</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">通知管理</a>
-                </li>
-                <li>
-                    <a href="/tg/manager/goods/indexPage/aid/72040">数据统计</a>
-                </li>
+        <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="subnav">
+                <div class="subnav-title">
+                    <a href="<?php if($vo["display"] == 1): ?>javascript:void(0);<?php else: echo ($vo["url"]); endif; ?>" class='toggle-subnav'><i
+                            class="icon-angle-right"></i><span><?php echo ($vo["title"]); ?></span></a>
+                </div>
+                <ul class="subnav-menu" <?php if($i==1): ?>style="display:block;"<?php endif; ?>>
+                    <?php if(is_array($vo['submenu'])): $i = 0; $__LIST__ = $vo['submenu'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$subvo): $mod = ($i % 2 );++$i;?><li>
+                            <a href="<?php if($subvo["display"] == 1): ?>javascript:void(0);<?php else: echo ($subvo["url"]); endif; ?>"><?php echo ($subvo["title"]); ?></a>
+                        </li><?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+            </div><?php endforeach; endif; else: echo "" ;endif; ?>
 
-            </ul>
-        </div>
         <div class="subnav bottom">
             <div class="subnav-title">
                 <a href="javascript:void(0);" class='toggle-subnav'><i class="icon-angle-right"></i><span></span></a>
@@ -353,7 +197,7 @@
                             <p>亲爱的用户</p>
 
                             <p class="bbottom">
-                                欢迎您访问微盟官方网站！您对微盟有任何意见和建议，或在使用过程中遇到问题，请在本页面反馈。我们会实时关注您的反馈不断优化，您的建议将帮助我们改进，为您提供更好的服务！</p>
+                                欢迎您访问奈斯伙伴官方网站！您对奈斯伙伴有任何意见和建议，或在使用过程中遇到问题，请在本页面反馈。我们会实时关注您的反馈不断优化，您的建议将帮助我们改进，为您提供更好的服务！</p>
 
                             <p><b>请留下您的宝贵意见和建议！（请填写）</b></p>
 

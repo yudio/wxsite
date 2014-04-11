@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-	<meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <meta content="<?php echo C('Keywords');?>" name="Keywords">
+	<meta content="<?php echo C('Description');?>" name="Description">
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all" />
@@ -18,7 +18,7 @@
 <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
 <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
 <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
-<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
+<title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
 	<link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico" />
     <!--[if lte IE 9]><script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
 	<!--[if IE 7]><link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
