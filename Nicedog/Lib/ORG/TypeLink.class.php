@@ -51,7 +51,7 @@ class TypeLink{
                      }
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/index?wecha_id=FromUserName";
+                     $arr['url'] = C('site_url')."/wesite/{$_SESSION['wxid']}/index?wecha_id=FromUserName";
              }
          }
          if ($module=='Img'){
@@ -93,7 +93,7 @@ class TypeLink{
                      }
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/detail?id={$arr['id']}";
+                     $arr['url'] = C('site_url')."/wesite/{$_SESSION['wxid']}/detail?id={$arr['id']}";
              }
          }
          if ($module=='Classify'){
@@ -139,7 +139,7 @@ class TypeLink{
                      }
                      break;
                  default:
-                     $arr['url'] = "/wesite/{$_SESSION['wxid']}/lists?classid={$arr['id']}";
+                     $arr['url'] = C('site_url')."/wesite/{$_SESSION['wxid']}/lists?classid={$arr['id']}";
              }
          }
 

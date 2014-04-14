@@ -4,7 +4,7 @@ class BaseAction extends Action
     protected function _initialize()
     {
         define('RES', '/'.THEME_PATH . 'common');
-        define('STATICS', '/'.TMPL_PATH . 'static');
+        define('STATICS', '/tpl/static');
         $this->assign('action', $this->getActionName());
     }
     protected function all_insert($name = '', $back = '/index')

@@ -27,4 +27,7 @@ RewriteRule ^WebEstate/(.+)/(.+)$ index.php?g=Wesite&m=WebEstate&a=$2&wxuid=$1&%
 #授权访问
 RewriteRule ^WebAuth/(.+)/(.+)$ index.php?g=Wesite&m=Auth&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
+#游戏应用
+RewriteRule ^WebApp/(.+)/(.+)$ index.php?g=Wesite&m=WebApp&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
+
 </IfModule>

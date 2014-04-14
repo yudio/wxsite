@@ -103,6 +103,9 @@
                                            <option value="0" <if condition="$info['classid'] eq 0">selected="selected"</if>>根分类</option>
                                            <volist name="classinfo" id="val">
                                                <option value="{np:$val.id},{np:$val.name}" <if condition="$val['id'] eq $info['classid']">selected="selected"</if>>{np:$val.name}</option>
+                                               <volist name="val['subclass']" id="vi">
+                                                   <option value="{np:$vi.id},{np:$vi.name}" <if condition="$vi['id'] eq $info['classid']">selected="selected"</if>>&nbsp;&nbsp;&nbsp;{np:$vi.name}</option>
+                                               </volist>
                                            </volist>
                                         </select>
                                     </div>

@@ -46,7 +46,7 @@ FCAPP.Index = FCAPP.Index || {
 //            dataType: 'jsonp'
 //        });
         $.ajax({
-            url: '/Webestate/Indexdata/pid/'+PID+'/wechatid/'+WECHATID,
+            url: '/WebEstate/'+WXUID+'/setdetaildata?id='+PID+'&wecha_id='+WECHATID,
             dataType: 'jsonp'
         });
     },

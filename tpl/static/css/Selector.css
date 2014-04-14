@@ -1,0 +1,179 @@
+﻿html
+{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.Selector
+{
+    width: 100%;
+    height: 100%;
+}
+
+.SelectorHead
+{
+    width: 100%;
+    height: 44px;
+    vertical-align: middle;
+    text-align: right;
+    border-bottom: 1px solid #CCCCCC;
+    background: -moz-linear-gradient(top,#ffffff,#eeeeee); /*非IE6的其它*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#eeeeee)); /*非IE6的其它*/
+	line-height:44px;
+	text-align:center;
+	font-size:16px;
+}
+
+.SelectorHead span
+{
+    color: #4D99CB;
+    line-height: 44px;
+    margin-right: 20px;
+    font-size: 17px;
+}
+
+.SelecorContent
+{
+    width: 100%;
+}
+
+.SelecorContent ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.SelecorContent ul li
+{
+    list-style: none;
+    float: left;
+    margin: 0px 0px 0px 0px;
+}
+
+.Projectcontainer
+{
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ProjectImage
+{
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid #999999;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ProjectImage_Selected
+{
+    border: 2px solid #33AA00;
+}
+
+.DeleteSpan
+{
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    top: -7px;
+    right: -7px;
+}
+
+.selectSpan
+{
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    top: -7px;
+    right: -7px;
+	background-image: url("../img/selectimage.png");
+	background-size: 18px 18px;
+}
+
+.actionImage
+{
+    width: 16px;
+    height: 16px;
+}
+
+.text-bottom
+{
+    vertical-align: middle;
+    line-height: 15px;
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+    background: #000000;
+    position: absolute;
+    color: #fffefe;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.80;
+    opacity: 0.80;
+    text-align: left;
+    bottom: 0px;
+    margin: 2px;
+    padding: 5px;
+    text-shadow: none;
+    word-break: break-all;
+    max-height: 77px;
+}
+.text-bottom-a
+{
+    vertical-align: middle;
+    line-height: 15px;
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+    background: #000000;
+    position: absolute;
+    color: #fffefe;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.80;
+    opacity: 0.80;
+    text-align: left;
+    margin-top: -27px;
+    margin-left: 2px;
+    padding: 5px;
+    text-shadow: none;
+}
+.config-div
+{
+    background-color: #FFFFFF;
+    border: solid 1px #CCCCCC;
+    text-align: center;
+}
+
+.config-div span
+{
+    font-size: 18px;
+    line-height: 28px;
+    margin: 10px;
+    display: block;
+}
+
+.config-div-btn
+{
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #3A9FDE;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4px;
+}

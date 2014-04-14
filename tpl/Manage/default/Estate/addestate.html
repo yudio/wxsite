@@ -81,6 +81,14 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label for="sort" class="control-label">显示顺序：</label>
+                                <div class="controls">
+                                    <input type="text" id="sort" name="sort" value="{np:$info.sort|default='0'}" class="input-mini" data-rule-required="true" data-rule-number="true" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">数值越大越靠前</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label">图文消息封面：</label>
                                 <div class="controls">
                                     <img class="thumb_img" src="{np:$info.picurl|default=C('site_url').STATICS.'/img/default/estate_home.png'}" style="max-height:100px;" />
@@ -89,6 +97,14 @@
 											<button class="btn select_img" type="button">选择封面</button>
 											<span class="help-inline">建议尺寸：宽720像素，高400像素</span>
 										</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="tel_title" class="control-label">联系号码：</label>
+                                <div class="controls">
+                                    <input type="text" id="tel_title" name="tel" value="{np:$info.tel}" class="input-xlarge" data-rule-required="true" data-rule-phone="true" />
+                                    <span class="maroon">*</span>
+                                    <span class="help-inline">楼盘官方联系电话</span>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -119,6 +135,12 @@
 											<button class="btn select_img" type="button">选择图片</button>
 											<span class="help-inline">建议尺寸：宽720像素，高350像素</span>
 										</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="description" class="control-label">楼盘描述：</label>
+                                <div class="controls">
+                                    <textarea id="description" name="desc" rows="5" class="input-xxlarge">{np:$info.desc}</textarea>
                                 </div>
                             </div>
                             <div class="control-group">
