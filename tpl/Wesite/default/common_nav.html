@@ -199,4 +199,25 @@
         </div>
     </section>
 </div>
+<elseif condition="($homeInfo.plugmenu eq 99)AND(count($plugmenus) gt 0)"/>
+<section>
+    <ul class="menu" style="margin-top:2px;">
+        <li><a onClick="javascript :history.back();"><span class="weboticon backhome">返回</span></a></li>
+        <volist name="plugmenus" id="vo">
+            <if condition="$i eq 1">
+                <li><a href="{np:$vo.url}"><span class="weboticon tel">{np:$vo.name}</span></a></li>
+                <elseif condition="$i eq 2"/>
+                <li><a href="{np:$vo.url}"><span class="weboticon streetscape">{np:$vo.name}</span></a></li>
+                <elseif condition="$i eq 3"/>
+                <li><a href="{np:$vo.url}"><span class="weboticon dobl">{np:$vo.name}</span></a></li>
+                <elseif condition="$i eq 4"/>
+                <li>
+                    <a href="{np:$vo.url}">
+                        <span class="weboticon share">{np:$vo.name}</span>
+                    </a>
+                </li>
+            </if>
+        </volist>
+    </ul>
+</section>
 </if>
