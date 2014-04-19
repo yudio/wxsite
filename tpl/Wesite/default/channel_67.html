@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-67.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>{np:$homInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="body">
+    <header>
+        <div class="snower">
+            <include file="common:snow"/>
+        </div>
+    </header>
+
+    <div class="bg"><img src="{np:$homeInfo.bg_img}" width="100%" height="100%;"></div>
+    <div class="main">
+        <div class="weimob">
+            <span class="transparent-layer"></span>
+            <div class="content">
+                <div class="title">{np:$homeInfo.title}</div>
+                <div class="date">{np:$homeInfo.info}</div>
+            </div>
+        </div>
+        <ul>
+            <volist name="subclassify" id="vo">
+                <li>
+                    <span class="transparent-layer"></span>
+                    <a href="{np:$vo.url}"
+                       class="tbox">
+                        <span class="icon {np:$vo.icon}"></span>
+                        <span class="title">{np:$vo.name}</span>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>
+<!--
+导航菜单
+   后台设置的快捷菜单
+-->
+
+<!--
+分享前控制
+-->
+<script type="text/javascript">
+    window.shareData = {
+        "imgUrl": "http://img.weimob.com/static/69/bf/1c/image/20140327/20140327143033_65243.jpg",
+        "timeLineLink": "http://www.weimob.com/weisite/home?pid=101281&bid=207042&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+        "sendFriendLink": "http://www.weimob.com/weisite/home?pid=101281&bid=207042&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+        "weiboLink": "http://www.weimob.com/weisite/home?pid=101281&bid=207042&wechatid=fromUsername&wxref=mp.weixin.qq.com",
+        "tTitle": "欢迎您关注融信大卫城微官网！",
+        "tContent": "融信大卫城地块位于浦上路以北、洪湾路东侧，为金山生活八期A地块，占地286亩，容积率1.7，毗邻福州",
+        "fTitle": "欢迎您关注融信大卫城微官网！",
+        "fContent": "融信大卫城地块位于浦上路以北、洪湾路东侧，为金山生活八期A地块，占地286亩，容积率1.7，毗邻福州",
+        "wContent": "融信大卫城地块位于浦上路以北、洪湾路东侧，为金山生活八期A地块，占地286亩，容积率1.7，毗邻福州"
+    };
+</script>
+<footer style="overflow:visible;">
+    <div class="weimob-copyright" style="padding-bottom:50px;">
+        <a href="/weisite/home?pid=101281&bid=207042&wechatid=o_bv2t-LO8mPHP64b7AzsFnE-l5s&wxref=mp.weixin.qq.com">© 融信大卫城</a>
+    </div>
+    <span class="weimob-support" style="display:none;">©微盟提供</span>
+</footer>
+<div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+<script type="text/javascript">
+    (function() {
+        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
+        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
+    })();
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
+    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
+        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
+        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
+        wmShare.src += shareToPlatform + '&pid=101281&sendFriendLink=' + encodeURIComponent(sendFriendLink);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
+    }
+    function getShareApiRouter(){
+        var str_domain = location.href.split('/',4)[2];
+        var tj_domain = '127.0.0.1';
+        switch(str_domain){
+            case 'www.weimob.com':
+                tj_domain = 'tj.weimob.com';
+                break;
+            case '112.124.28.82':
+                tj_domain = '112.124.28.82:400';
+                break;
+        }
+        return tj_domain;
+    }
+    if(typeof(window.shareData) == 'undefined'){
+        window.shareData = {
+            "imgUrl": "",
+            "timeLineLink": "http://www.weimob.com/weisite/channel?pid=101281&bid=207042&wechatid=fromUsername&categoryid=304494&wxref=mp.weixin.qq.com",
+            "sendFriendLink": "http://www.weimob.com/weisite/channel?pid=101281&bid=207042&wechatid=fromUsername&categoryid=304494&wxref=mp.weixin.qq.com",
+            "weiboLink": "http://www.weimob.com/weisite/channel?pid=101281&bid=207042&wechatid=fromUsername&categoryid=304494&wxref=mp.weixin.qq.com",
+            "tTitle": document.title,
+            "tContent": document.title,
+            "fTitle": document.title,
+            "fContent": document.title,
+            "wContent": document.title
+        }
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("o_bv2t-LO8mPHP64b7AzsFnE-l5s",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": window.shareData.imgUrl,
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                //weimobAfterShare("o_bv2t-LO8mPHP64b7AzsFnE-l5s",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("o_bv2t-LO8mPHP64b7AzsFnE-l5s",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+<script type="text/javascript" src="http://kf.weimob.com/js/ChatFloat.js"></script>
+<script type="text/javascript">
+    var str_domain = location.href.split('/',4)[2];
+    var boolIsTest = true;
+    if(str_domain == 'www.weimob.com'){
+        boolIsTest = false;
+    }
+    new ChatFloat({
+        AId: '101281',
+        openid: "o_bv2t-LO8mPHP64b7AzsFnE-l5s",
+        top:150,
+        right:0,
+        IsTest:boolIsTest
+    });
+</script>
+</html>
+

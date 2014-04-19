@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-    <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+        <meta content="<?php echo C('Keywords');?>" name="Keywords">
+    <meta content="<?php echo C('Description');?>" name="Description">
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
@@ -52,7 +52,7 @@
                         <div class="row-fluid dataTables_wrapper">
                             <div class="alert">
                                 <strong>温馨提示</strong>：您还有<?php echo ($gwxnum - $uwxnum);?>个微信公众号配额，请珍惜使用名额！ <span
-                                    class="line hide">微盟交流QQ③群（245257246）</span>
+                                    class="line hide">奈斯伙伴交流QQ③群（245257246）</span>
                             </div>
                             <form method="post" action="" id="listForm">
                                 <table id="listTable"
@@ -66,7 +66,6 @@
                                         <th>已定义/上限</th>
                                         <th>请求数</th>
                                         <th>剩余请求数</th>
-                                        <th>增值服务</th>
                                         <th>操作</th>
                                     </tr>
 
@@ -96,19 +95,16 @@
                                             <p>到期时间:<?php echo (date("Y-m-d",$viptime)); ?></p>
                                         </td>
                                         <td>
+                                            <p>文本：<?php echo ($vo['numinfo']['textnum']); ?>/<?php echo ($vo['numinfo']['textall']); ?></p>
+                                            <p>图文：<?php echo ($vo['numinfo']['imgnum']); ?>/<?php echo ($vo['numinfo']['imgall']); ?></php></p>
+                                        </td>
+                                        <td>
+                                            <p>总请求数:<?php echo ($vo['numinfo']['requestnum']); ?></p>
 
-                                            <p>图文：<?php echo $_SESSION['diynum'].'/'.$group[$_SESSION['gid']]['did']; ?></p>
+                                            <p>本月请求数:<?php echo ($vo['numinfo']['monthnum']); ?></p>
                                         </td>
                                         <td>
-                                            <p>总请求数:<?php echo $_SESSION['connectnum'] ?></p>
-
-                                            <p>本月请求数:<?php echo $group[$_SESSION['gid']]['cid']; ?></p>
-                                        </td>
-                                        <td>
-                                            <p>请求数剩余：9999</p>
-                                        </td>
-                                        <td>
-                                            <p>短信：0/条</p>
+                                            <p>请求数剩余：<?php echo $vo['numinfo']['monthall']-$vo['numinfo']['monthnum'];?></p>
                                         </td>
                                         <td>
 

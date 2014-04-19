@@ -4,27 +4,30 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-	<meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
-    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/page/binding.css" media="all" />
-<script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
-<script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
-<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
-<script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
-<script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
-<script type="text/javascript" src="<?php echo RES;?>/src/plugins/flot/jquery_flot.js"></script>
-<script type="text/javascript" src="<?php echo RES;?>/src/plugins/flot/jquery_easy_pie_chart.js"></script>
-<script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
-<title>奈斯伙伴（Weimob）—国内最大的微信公众服务平台</title>
-	<link rel="shortcut icon" href="<?php echo RES;?>/img/favicon.ico" />
-    <!--[if lte IE 9]><script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
-	<!--[if IE 7]><link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+        <meta content="<?php echo C('Keywords');?>" name="Keywords">
+    <meta content="<?php echo C('Description');?>" name="Description">
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/inside.css" media="all"/>
+    <link rel="shortcut icon" href="<?php echo STATICS;?>/img/favicon.ico" />
+    <script type="text/javascript" src="<?php echo RES;?>/src/jQuery.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="<?php echo STATICS;?>/inside.js"></script>
+    <title><?php echo C('site_name');?>—<?php echo C('site_title');?></title>
+    <!--[if lte IE 9]>
+    <script src="<?php echo RES;?>/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]>
+    <link href="<?php echo RES;?>/css/font_awesome_ie7.css" rel="stylesheet"/><![endif]-->
+    <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/page/binding.css" media="all" />
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/flot/jquery_flot.js"></script>
+    <script type="text/javascript" src="<?php echo RES;?>/src/plugins/flot/jquery_easy_pie_chart.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -41,7 +44,7 @@
                             <div class="bboxl step1">
                                 <div class="pd">
                                     <div class="f14 mb30">
-                                        请输入微信公众平台帐号信息，非微盟帐号。无帐号点击<a href="https://mp.weixin.qq.com" target="_blank">申请</a>
+                                        请输入微信公众平台帐号信息，非奈斯伙伴帐号。无帐号点击<a href="https://mp.weixin.qq.com" target="_blank">申请</a>
                                     </div>
 
                                     <form action="/npManage/account/bind.act" method="post" class="form-horizontal form-validate2">
@@ -102,7 +105,7 @@
                             </div>
                             <div class="bboxr selid1 ">
                                 <div class="t1">
-                                    欢迎使用微盟公众帐号智能绑定功能，您只需输入微信公众帐号及密码，微盟将自动完成微盟平台与微信公众平台的数据对接，请耐心等耐。
+                                    欢迎使用奈斯伙伴公众帐号智能绑定功能，您只需输入微信公众帐号及密码，奈斯伙伴将自动完成奈斯伙伴平台与微信公众平台的数据对接，请耐心等耐。
                                 </div>
                                 <div class="t2">奈斯伙伴</div>
                                 <div class="t3">
@@ -145,7 +148,7 @@
                                 </div>
                             </div>
                             <div class="bbbp f14 tile-themed">
-                                我们提供更便捷、更贴心、更高效的微信公众智能服务。微盟的使命帮助100万家企业从微信营销中获得成功。
+                                我们提供更便捷、更贴心、更高效的微信公众智能服务。奈斯伙伴的使命帮助100万家企业从微信营销中获得成功。
                             </div>
                         </div>
                     </div>

@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-    <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+        <meta content="<?php echo C('Keywords');?>" name="Keywords">
+    <meta content="<?php echo C('Description');?>" name="Description">
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
@@ -43,31 +43,27 @@
                             <img src="<?php echo ($user["headerpic"]); ?>" style="width: 88px; height: 88px" class="img-rounded"></dt>
                         <dd>
                             <p><strong><?php echo ($user["wxname"]); ?></strong>：<b class="text-warning">体验版</b> <a
-                                    href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo ($user["wxfakeid"]); ?>&site=qq&menu=yes"
+                                    href="http://wpa.qq.com/msgrd?v=3&uin=24757856&site=qq&menu=yes"
                                     target="_blank"><i class="icon-arrow-up" title="升级"></i>升级</a> <a
-                                    href="/wechat/menuset?aid=72040"><i></i>订阅号</a></p>
+                                    href="/npManage/account/type.act"><i></i>
+                                <?php if($user["type"] == 1): ?>订阅号<?php endif; ?>
+                                <?php if($user["type"] == 2): ?>认证订阅号<?php endif; ?>
+                                <?php if($user["type"] == 3): ?>服务号<?php endif; ?>
+                                <?php if($user["type"] == 4): ?>认证服务号<?php endif; ?></a></p>
 
 
                             <table class="table noborder">
                                 <tr>
                                     <td>套餐有效期：<?php echo (date("Y-m-d",$viptime)); ?></td>
-                                    <td>文本自定义：0/100</td>
-                                    <td>图文自定义：
-                                        <?php echo $_SESSION['diynum'].'/'.$group[$_SESSION['gid']]['did']; ?>
-                                    </td>
-                                    <td>语音自定义：0/0</td>
+                                    <td>文本自定义：<?php echo ($userinfo['textnum']); ?>/<?php echo ($userinfo['textall']); ?></td>
+                                    <td>图文自定义：<?php echo ($userinfo['imgnum']); ?>/<?php echo ($userinfo['imgall']); ?></td>
+                                    <td>语音自定义：<?php echo ($userinfo['videonum']); ?>/<?php echo ($userinfo['videoall']); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>请求数剩余：
-                                        <?php echo (10000-$_SESSION['connectnum']) ?>
-                                    </td>
-                                    <td>总请求数：
-                                        <?php echo $_SESSION['connectnum'] ?>
-                                    </td>
-                                    <td>本月请求数：
-                                        <?php echo $group[$_SESSION['gid']]['cid']; ?>
-                                    </td>
-                                    <td>每月可请求总数：10000</td>
+                                    <td>请求数剩余：<?php echo $userinfo['monthall']-$userinfo['monthnum'];?></td>
+                                    <td>总请求数：<?php echo ($userinfo['requestnum']); ?></td>
+                                    <td>本月请求数：<?php echo ($userinfo['monthnum']); ?></td>
+                                    <td>每月可请求总数：<?php echo ($userinfo['monthall']); ?></td>
                                 </tr>
                             </table>
                             <p><strong>接口地址：</strong><?php echo C('site_url');?>/wechat/<?php echo ($token); ?>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -125,11 +121,11 @@
                             </li>
                             <li><a href="/wechat/Newdetail?aid=72040&noticeid=32">公众帐号智能绑定上线公告</a><span
                                     class="pull-right">2014-01-24</span></li>
-                            <li><a href="/wechat/Newdetail?aid=72040&noticeid=28">好消息，微盟微拍隆重上线啦！</a><span
+                            <li><a href="/wechat/Newdetail?aid=72040&noticeid=28">好消息，奈斯微拍隆重上线啦！</a><span
                                     class="pull-right">2014-01-07</span></li>
                             <li><a href="/wechat/Newdetail?aid=72040&noticeid=27">微信上墙啦！</a><span class="pull-right">2014-01-03</span>
                             </li>
-                            <li><a href="/wechat/Newdetail?aid=72040&noticeid=26">微盟支持微信群发啦！</a><span
+                            <li><a href="/wechat/Newdetail?aid=72040&noticeid=26">奈斯支持微信群发啦！</a><span
                                     class="pull-right">2013-12-31</span></li>
                             <li><a href="/wechat/Newdetail?aid=72040&noticeid=24">微餐饮v2.0上线公告</a><span
                                     class="pull-right">2013-12-30</span></li>
@@ -156,14 +152,14 @@
                             </div>
                             <div id="div0" class="accordion-body in collapse">
                                 <div class="accordion-inner">
-                                    尊敬的微盟用户：
-                                    新的一年，微盟团队的小伙伴要让大家马上有惊喜，所以不分昼夜加班加点，终于让大家一直期待的微信会员卡V2.0上线啦！功能强大自然不说，界面也全部迭代更新啦，大家先一睹为快吧！
+                                    尊敬的奈斯用户：
+                                    新的一年，奈斯团队的小伙伴要让大家马上有惊喜，所以不分昼夜加班加点，终于让大家一直期待的微信会员卡V2.0上线啦！功能强大自然不说，界面也全部迭代更新啦，大家先一睹为快吧！
 
                                     全能的会员管理
                                     强大的会员信息储存库，包含会员信息快捷录入、修改、查询，会员分等级，并支持线下会员信息导入，让您的老会员一键绑定微信会员卡，协助您打造微信上的CRM系统；
 
                                     精准的会员营销
-                                    在微盟后台，可任意以充值送、消费送、开卡送、签到分享送积分、优惠券、代金券、礼品券、节日关怀等方式作为营销工具，如积分营销、消费充值赠送、会员关怀等来维护老客户，设置开卡活动来吸引新客户，并通过高效的会员分类及筛选工具为企业达成精准、智能的营销活动，提升企业营业额；
+                                    在奈斯后台，可任意以充值送、消费送、开卡送、签到分享送积分、优惠券、代金券、礼品券、节日关怀等方式作为营销工具，如积分营销、消费充值赠送、会员关怀等来维护老客户，设置开卡活动来吸引新客户，并通过高效的会员分类及筛选工具为企业达成精准、智能的营销活动，提升企业营业额；
 
                                     便捷的会员交易
                                     用户通过手机即可在线充值、付款，商家也可通过管理系统实现消费、充值、修改积分等快捷交易，并且相关交易记录及流水，通过筛选项即可快速查询，交易更便捷，管理更高效；
@@ -174,7 +170,7 @@
                                     智能的数据分析
                                     总体会员增长曲线、消费统计、积分发放回收统计、会员营销赠送状况及使用状态等，系统均智能为您做数据分析，会员现状一目了然;
                                     全新的小清新界面
-                                    是不是都惊呆了？是不是迫不及待想要体验一把了？那就赶紧行动吧！ 【关注微信号“hsweimob”，发送“会员卡”即可体验】
+                                    是不是都惊呆了？是不是迫不及待想要体验一把了？那就赶紧行动吧！ 【关注微信号“nice_partner”，发送“会员卡”即可体验】
                                     盟妹
                                     2014-01-25
                                 </div>
@@ -187,18 +183,18 @@
                             </div>
                             <div id="div1" class="accordion-body  collapse">
                                 <div class="accordion-inner">
-                                    尊敬的微盟用户：
+                                    尊敬的奈斯用户：
 
                                     您好！
                                     新版会员卡将于2014年2月20日正式上线啦！
                                     1、全新的微信会员卡支持微信会员管理、线下会员打通，协助企业建立微信上的CRM系统，并记录所有会员的行为轨迹，轻松管理；
-                                    2、在微盟后台，可任意以充值送、消费送、开卡送、签到分享送积分、优惠券、代金券、礼品券、节日关怀等方式作为营销工具，并通过高效的会员分类及筛选工具为企业达成精准、智能的营销活动，提升企业营业额；
+                                    2、在奈斯后台，可任意以充值送、消费送、开卡送、签到分享送积分、优惠券、代金券、礼品券、节日关怀等方式作为营销工具，并通过高效的会员分类及筛选工具为企业达成精准、智能的营销活动，提升企业营业额；
                                     3、用户可通过手机实现在线充值、支付等快捷交易，并可使用积分兑换券或抽奖等，让积分更加有意义，增强企业与消费者黏性；
                                     4、新版会员卡还有智能数据分析功能，满足企业对数据管理的需求，并且界面以ios7风格为主导，为新版会员卡设计了全新的高大上界面，让您的用户忍不住都点击领卡啦！
 
                                     新版会员卡无论从功能还是界面，都将直击您的眼球，敬请期待吧！
 
-                                    上线期间，为了能够让老版会员卡的用户也用上全新的微信会员卡，微盟团队将对老数据进行迁移，并且为了保证数据完整性，将暂定于2014年2月20日23:30临时停止服务，在此期间官网将不能访问，微盟所有服务将暂停使用，为此给您带来的不便请谅解。
+                                    上线期间，为了能够让老版会员卡的用户也用上全新的微信会员卡，奈斯团队将对老数据进行迁移，并且为了保证数据完整性，将暂定于2014年2月20日23:30临时停止服务，在此期间官网将不能访问，奈斯所有服务将暂停使用，为此给您带来的不便请谅解。
                                 </div>
                             </div>
                         </div>
@@ -220,7 +216,7 @@
                             </div>
                             <div id="div3" class="accordion-body  collapse">
                                 <div class="accordion-inner">
-                                    您只需输入微信公众平台帐号及密码，微盟将自动帮您完成微盟平台与微信公众平台的数据对接。微信公众平台帐号及密码我们将仅用于智能绑定，不保存！不泄漏！如果您不放心，依旧可以选择手动绑定。绑定完成，您仅需按照提示使用个人帐号向您的公众帐号发送一条文本消息“验证”，如收到“绑定成功，
+                                    您只需输入微信公众平台帐号及密码，奈斯将自动帮您完成奈斯平台与微信公众平台的数据对接。微信公众平台帐号及密码我们将仅用于智能绑定，不保存！不泄漏！如果您不放心，依旧可以选择手动绑定。绑定完成，您仅需按照提示使用个人帐号向您的公众帐号发送一条文本消息“验证”，如收到“绑定成功，
                                     盟妹来了”问题提示，则表明您已成功完成智能绑定。
                                 </div>
                             </div>
@@ -232,7 +228,7 @@
                             </div>
                             <div id="div4" class="accordion-body  collapse">
                                 <div class="accordion-inner">
-                                    一、新增我喜欢功能，所有顾客仅需点击菜名右侧的“爱心”按钮，便可轻松收藏喜爱的菜肴；二、新增底部全局浮层导航，全面展示智能选餐、点菜、我的订单、我喜欢和已点信息；三、新增在线支付功能，顾客通过在线支付功能将可直接对预定的订单进行在线支付，通过我的订单栏，便可轻松的对订单状态进行查询。微餐饮支付方式设置操作路径：我的微盟
+                                    一、新增我喜欢功能，所有顾客仅需点击菜名右侧的“爱心”按钮，便可轻松收藏喜爱的菜肴；二、新增底部全局浮层导航，全面展示智能选餐、点菜、我的订单、我喜欢和已点信息；三、新增在线支付功能，顾客通过在线支付功能将可直接对预定的订单进行在线支付，通过我的订单栏，便可轻松的对订单状态进行查询。微餐饮支付方式设置操作路径：我的奈斯
                                     → 支付方式管理栏目。
                                 </div>
                             </div>
@@ -314,8 +310,8 @@
 
 <div class="hide" id="tisp"><h5>微信会员卡V2.0上线啦！</h5>
 
-    <pre> 尊敬的微盟用户：
-        新的一年，微盟团队的小伙伴要让大家马上有惊喜，所以不分昼夜加班加点，终于让大家一直期待的微信会员卡V2.0上线啦！功能强大自然不说，界面也全部迭代更新啦，大家先...</pre></div>
+    <pre> 尊敬的奈斯用户：
+        新的一年，奈斯团队的小伙伴要让大家马上有惊喜，所以不分昼夜加班加点，终于让大家一直期待的微信会员卡V2.0上线啦！功能强大自然不说，界面也全部迭代更新啦，大家先...</pre></div>
 <script>
     $(function () {
         if ($("#tisp")) {

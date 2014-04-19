@@ -10,8 +10,8 @@
     <!-- Apple devices fullscreen -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <base target="mainFrame" />
-        <meta content="奈斯、奈斯伙伴、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
-    <meta content="奈斯伙伴，福建最大的微信公众智能服务平台，八大微信利器：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+        <meta content="<?php echo C('Keywords');?>" name="Keywords">
+    <meta content="<?php echo C('Description');?>" name="Description">
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/index.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_min.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="<?php echo RES;?>/css/bootstrap_responsive_min.css" media="all"/>
@@ -133,13 +133,13 @@
         <div id="left">
             <div class="subnav">
                 <div class="subnav-title ">
-                    <a href="javascript:void(0)" class='toggle-subnav'><i class="icon-angle-right"></i><span>我的微盟</span></a>
+                    <a href="javascript:void(0)" class='toggle-subnav'><i class="icon-angle-right"></i><span>用户中心</span></a>
                 </div>
                 <ul class="subnav-menu" style="display: block">
                     <li >
                         <a href="/npManage/account/user.act">商户信息</a>
                     </li>
-					<li >
+					<li style="display: none;">
 						<a href="/npManage/account/payment.act">支付方式管理</a>
 					</li>
                     <li>
@@ -148,7 +148,7 @@
                     <li class="active">
                         <a href="/npManage/account/index.act">公众帐号管理</a>
                     </li>
-                    <li>
+                    <li style="display: none;">
                         <a href="/npManage/account/service.act">增值服务</a>
                     </li>
                 </ul>
@@ -186,7 +186,7 @@
 					<div class="row-fluid">
 						<div id="pp">
 							<p>亲爱的用户</p>
-							<p class="bbottom">欢迎您访问微盟官方网站！您对微盟有任何意见和建议，或在使用过程中遇到问题，请在本页面反馈。我们会实时关注您的反馈不断优化，您的建议将帮助我们改进，为您提供更好的服务！</p>
+							<p class="bbottom">欢迎您访问奈斯伙伴官方网站！您对奈斯伙伴有任何意见和建议，或在使用过程中遇到问题，请在本页面反馈。我们会实时关注您的反馈不断优化，您的建议将帮助我们改进，为您提供更好的服务！</p>
 							<p><b>请留下您的宝贵意见和建议！（请填写）</b></p>
 
 							<textarea name="info" class="input-block-level" placeholder="输入文本..." rows="4" id="feedback-text" ></textarea>

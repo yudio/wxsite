@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+    <include file="common:snowcss"/>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-67.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/template/maivl.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<include file="common:iframe"/>
+<header>
+    <div class="snower">
+        <include file="common:snow"/>
+    </div>
+</header>
+<div class="body">
+    <div class="bg"><img src="{np:$homeInfo.bg_img}" width="100%" height="100%;"></div>
+    <div class="main">
+        <div class="weimob">
+            <span class="transparent-layer"></span>
+            <div class="content">
+                <div class="title">{np:$homeInfo.title}</div>
+                <div class="date">{np:$homeInfo.info}</div>
+            </div>
+        </div>
+        <ul>
+            <volist name="classify" id="vo">
+                <li>
+                    <span class="transparent-layer"></span>
+                    <a href="{np:$vo.url}"
+                       class="tbox">
+                        <span class="icon {np:$vo.icon}"></span>
+                        <span class="title">{np:$vo.title}</span>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>
+<!--导航菜单 后台设置的快捷菜单-->
+<include file="common:nav"/>
+<!--分享前控制-->
+<include file="common:share"/>
+<include file="common:footer"/>
+</body>
+</html>
+

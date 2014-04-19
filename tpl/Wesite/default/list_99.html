@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/template/home-16.css" media="all">
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <title>{np:$homeInfo.title}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="body" style="padding-bottom:52px;">
+    <include file="common:nav"/>
+    <!--菜单结束-->
+    <!--	<section>
+        <div align="center"><img src="http://weixin.dodoca.com/static/webot/images/function.jpg" border="0" width="100%"></div>
+       </section>-->
+    <section>
+        <div class="maincontent" align="center" style="background:#fff;"  >
+            <ul class="agent_ul" >
+                <volist name="info" id="vo">
+                    <a href="{np:$vo.url}">
+                        <li>
+                            <div class="w_icon"><img src="{np:$vo.pic}" style="width:60px; height:100%;"></div>
+                            <div class="w_text"><p>{np:$vo.title}</p><p>{np:$vo.info}</p></div>
+                        </li>
+                    </a>
+                </volist>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div align="center"><img src="{np::RES}/img/sharecard.jpg" border="0" width="100%"></div>
+    </section>
+</div>
+<footer>
+    <div class="webot-copyright"><a href="#" style="color:#fff!important;">© {np:$homeInfo.copyright}</a></div>
+    <span class="webot-support" style="display:none;">©奈斯伙伴提供支持</span>
+</footer>
+</body>
+</html>
