@@ -10,9 +10,7 @@ class WxService
 
     public function __construct($apidata)
     {
-        //$this->auth($token) || die;
 
-            // dump($api);die;
             $url_get='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$apidata['appid'].'&secret='.$apidata['appsecret'];
             $json = "";
             $this->appid = $apidata['appid'];$this->appsecret = $apidata['appsecret'];
@@ -44,13 +42,13 @@ class WxService
         return json_decode($this->curlGet($url));
     }
     //用户管理
-    public function user_get($openid=''){
+    public function user_get($openid='',$assoc = false){
         $url='https://api.weixin.qq.com/cgi-bin/user/get?access_token='.$this->appaccess.'&next_openid='.$openid;
-        return json_decode($this->curlGet($url));
+        return json_decode($this->curlGet($url),$assoc);
     }
-    public function user_info($openid){
+    public function user_info($openid,$assoc = false){
         $url='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->appaccess.'&openid='.$openid;
-        return json_decode($this->curlGet($url));
+        return json_decode($this->curlGet($url),$assoc);
     }
     //分组
     public function group_get(){

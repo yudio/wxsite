@@ -6,7 +6,7 @@
  * Time: 下午5:29
  */
 
-class WebEstateAction extends BaseAction{
+class WebEstateAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;

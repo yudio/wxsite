@@ -11,6 +11,7 @@ class BusinessAction extends UserAction{
     public function _initialize() {
         parent::_initialize();
         C('TOKEN_ON',false);
+        C('TMPL_FILE_DEPR','/');
         /*if(session('gid')==1){
             $this->error('vip0无法使用微活动,请充值后再使用','/npManage/account/home.php');
         }*/

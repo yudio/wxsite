@@ -6,7 +6,7 @@
  * Time: 下午5:29
  */
 
-class WebWallAction extends BaseAction{
+class WebWallAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;
@@ -45,7 +45,27 @@ class WebWallAction extends BaseAction{
     }
 
     public function index(){
+        $db = D('Wall');
+        $id = $this->_get('wid');
+        if ($id){
+            $info = $db->where('id='.$id)->find();
+            if (!$info){exit('该微信墙活动不存在或已经结束！');}
+            $this->assign('wid',$id);
+            $this->assign('info',$info);
+            $this->display('index'.$info['template']);
+        }else{
+            echo '该微信墙活动不存在或已经结束！';
+            exit;
+        }
+    }
+
+    public function home(){
+        $id = $this->_get('wid');
+        $this->assign('wid',$id);
         $this->display();
+    }
+    public function getCon(){
+        $this->ajaxReturn(array('result'=>0));
     }
 
 

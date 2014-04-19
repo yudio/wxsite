@@ -219,9 +219,9 @@ function U($url='',$vars='',$suffix=true,$redirect=false,$domain=false) {
                     $group                  =   array_pop($path);
                     $var[C('VAR_GROUP')]    =   $group;
                 }else{
-                    if(GROUP_NAME != C('DEFAULT_GROUP')) {
+                    //if(GROUP_NAME != C('DEFAULT_GROUP')) {
                         $var[C('VAR_GROUP')]=   GROUP_NAME;
-                    }
+                    //}
                 }
                 if(C('URL_CASE_INSENSITIVE') && isset($var[C('VAR_GROUP')])) {
                     $var[C('VAR_GROUP')]    =  strtolower($var[C('VAR_GROUP')]);
@@ -231,10 +231,11 @@ function U($url='',$vars='',$suffix=true,$redirect=false,$domain=false) {
     }
 
     if(C('URL_MODEL') == 0) { // 普通模式URL转换
-        $url        =   __APP__.'?'.http_build_query(array_reverse($var));
+        $url          =   __ROOT__.'/np'.$var[C('VAR_GROUP')].$depr.$var[C('VAR_MODULE')].$depr.$var[C('VAR_ACTION')].'.act';
+        //$url        =   __APP__.'?'.http_build_query(array_reverse($var));
         if(!empty($vars)) {
             $vars   =   urldecode(http_build_query($vars));
-            $url   .=   '&'.$vars;
+            $url   .=   '?'.$vars;
         }
     }else{ // PATHINFO模式或者兼容URL模式
         if(isset($route)) {
@@ -736,4 +737,43 @@ function __hack_module(){
 function __hack_action(){
     LOG::write('__hack_action',LOG::ERR);
     echo "你访问的方法不存在!";
+}
+
+/*
+ * BASE编码
+ */
+function npencrypt($str,$token='NICEPANICEPA'){
+    $mix = base64_encode(bin2hex(pack('A*',$str)));
+    $num = mt_rand(ceil(strlen($mix)/10),ceil((strlen($mix))/2));
+    $start = substr($mix,0,$num);
+    $end   = substr($mix,$num);
+    $mix = $start.substr(base64_encode(md5($token)),10,15).$end;
+    $mix = str_replace('=','',$mix);
+    $len = strlen($mix);
+    for($i=0;$i<=$len;$i++){
+        $mix .= $mix[$len-$i];
+    }
+    $mix = substr($mix,$len,$len);
+    //$mix = str_pad($mix, ceil(strlen($mix)/3)*3 , '=');
+    //$mix = md5(substr($mix,0,31));  //remove to change
+    return $mix;
+}
+/*
+ * BASE解码
+ */
+function npdecrypt($str,$token='NICEPANICEPA'){
+    $len = strlen($str);
+    for($i=0;$i<=$len;$i++){
+        $str .= $str[$len-$i];
+    }
+    $str = substr($str,$len,$len);
+    $mix = str_replace(substr(base64_encode(md5($token)),10,15),'',$str);
+    $mix = str_pad($mix, ceil(strlen($mix)/3)*3 , '=');
+    $mix = base64_decode($mix);
+    $arr = str_split($mix,2);
+    $res = "";
+    foreach($arr as $vo){
+        $res .= chr('0x'.$vo);
+    }
+    return $res;
 }

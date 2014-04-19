@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/core2.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/main2.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/helper_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/main.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/msgScroll.js"></script>
+    <title>微信墙</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+    $(function(){
+        $("#nav_ul a").click(function(thi, evt){
+            $("#nav_ul a").removeClass("on");
+            $(this).addClass("on");
+        });
+    });
+</script>
+<style>
+    body.main{
+        background: url({np:$info.pc_bg});
+    }
+</style>
+<body class="main">
+<div class="body">
+    <div class="main_header" style="margin-top: 20px;">
+        <table>
+            <tr>
+                <td><img src="{np:$info.logo}" class="logo" /></td>
+                <td style="width:100%;">
+                    <h3>{np:$info.theme}</h3>
+                    <p>{np:$info.title}</p>
+                </td>
+                <td style="vertical-align:bottom;">
+                    <img src="{np::STATICS}/img/wall/logo.png" class="logo2"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="main_body">
+        <div>
+            <iframe id="iframe_body" src="/Webwall/{np:$wxuid}/Home?wid={np:$wid}&wecha_id={np:$wecha_id}">
+                <!---->
+            </iframe>
+        </div>
+    </div>
+    <div class="main_footer">
+        <div class="box_menu">
+
+            <ul id="nav_ul" class="relative" >
+                <div>
+                    <div id="qrcode" class="qrcode">
+                        <div class="qheader">
+                            <span onclick="$('#qrcode').removeClass('on');">&nbsp;</span>
+                        </div>
+                        <div class="qbody">
+					<span>
+						<img src="{np:$info.tdcode}" />
+					</span>
+                        </div>
+                    </div>
+                </div>
+                <ol class="clear">
+                    <li class="fl">
+                        <label>{np:$info.intro}</label>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="yy">
+                            <span></span>
+                            <label>微信墙</label>
+                        </a>
+                        <script>
+                            if(!-[1,]){
+                                document.write('<embed id="msc" src="{np:$info.mp3url}" autostart="false" loop="true" hidden="true" />');
+                            }else{
+                                document.write('<audio id="msc" loop="true" hidden="true" autoplay="true"><source src="{np:$info.mp3url}" ></audio>');
+                            }
+                        </script>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="qp" onclick="fullScreen(event, this);">
+                            <span></span>
+                            <label>全屏</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="iframe_body" class="ewm" onclick="$('#qrcode').addClass('on');">
+                            <span></span>
+                            <label>二维码</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Webwall/{np:$wxuid}/Index?wid={np:$wid}&wecha_id={np:$wecha_id}" target="iframe_body" class="wxq on">
+                            <span></span>
+                            <label>微信墙</label>
+                        </a>
+                    </li>
+
+                </ol>
+            </ul>
+        </div>
+        <div class="align_center white"><a href="/weisite/home?pid=117433&bid=239626&wechatid=fromUsername&wxref=mp.weixin.qq.com" class="white">©big009<a></div>		</div>
+</div>
+</body>
+</html></body>
+</html>

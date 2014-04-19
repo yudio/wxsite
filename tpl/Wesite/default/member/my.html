@@ -3,17 +3,17 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/member/main.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/member/dialog.css?2014-03-07-1" media="all" />
-    <script type="text/javascript" src="http://stc.weimob.com/src/member/lib/jquery_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/member/lib/dialog_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/member/lib/helper_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="http://stc.weimob.com/src/member/js/main.js?2014-03-07-1"></script>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/member/dialog.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/jquery_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/dialog_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/lib/helper_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/member/js/main.js"></script>
     <title>会员卡</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-    <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+    <meta name="Keywords" content="{np::C('Keywords')}" />
+    <meta name="Description" content="{np::C('Description')}" />
     <!-- Mobile Devices Support @begin -->
     <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
     <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
@@ -23,7 +23,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <!-- Mobile Devices Support @end -->
-    <link rel="shortcut icon" href="http://stc.weimob.com/img/favicon.ico" />
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
 </head>
 <body onselectstart="return true;" ondragstart="return false;">
 <script>
@@ -161,9 +161,7 @@
                 <ul class="tbox">
                     <li>
 						<span id="upload_header">
-							
-															<img src="http://stc.weimob.com/img/member/res/4.png" />
-														
+                            <img src="http://stc.weimob.com/img/member/res/4.png" />
 							<input type="file" accept="image/jpeg, image/jpg, image/png" onchange="my.changeImg(this, event, {pid:'103689',wechatid:'oiHrGt69PhyxwL3qlMNSCruSwIv4',base_url:'http://img.weimob.com/'});" />
 						</span>
                     </li>
@@ -178,12 +176,6 @@
                     <li>
                         <a href="/Webnewmemberscore/MyCoupon?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4">
                             <label>优惠券</label>
-                            <span>0</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Webnewmemberscore/MyVoucher?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4">
-                            <label>代金券</label>
                             <span>0</span>
                         </a>
                     </li>
@@ -209,12 +201,6 @@
                 <li class="li_s">
                     <a href="/Webnewmemberscore/MyCoupon?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>我的优惠券<span>&nbsp;</span></label></a>
                 </li>
-                <li class="li_t">
-                    <a href="/Webnewmemberscore/MyVoucher?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>我的代金券<span>&nbsp;</span></label></a>
-                </li>
-                <li class="li_u">
-                    <a href="/Webnewmemintegral/myexchangecoupon?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>我的礼品券<span>&nbsp;</span></label></a>
-                </li>
                 <li class="li_x">
                     <a href="/Webnewmemintegral/myexchangeactivity?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>我的活动<span>&nbsp;</span></label></a>
                 </li>
@@ -232,42 +218,7 @@
             </div>
         </ul>
     </div>
-    <footer>
-        <nav class="nav">
-            <ul class="box">
-                <li>
-                    <a href="/Webnewmemberscore/index?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
-                        <p class="card"></p>
-                        <span>会员卡</span>
-                    </a>
-                    /li>
-                <li>
-                    <a href="/Webnewmemannounce/notice?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
-                        <p id="Js-msg-num" class="msg"  ></p>
-                        <span>消息</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webnewmemintegral/signin?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
-                        <p class="sign"></p>
-                        <span>签到</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webnewmemberscore/share?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" >
-                        <p class="share"></p>
-                        <span>分享</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webnewmemberscore/my?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4" class="my on" >
-                        <p class="my" style="background-position-y:-40px;" ></p>
-                        <span>我的</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </footer>
+    <include file="footer"/>
     <script type="text/javascript">
         document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
             WeixinJSBridge.call('hideToolbar');
@@ -287,103 +238,5 @@
     </script></div>        		<div mark="stat_code" style="width:0px; height:0px; display:none;">
 </div>
 </body>
-<script type="text/javascript">
-    (function() {
-        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
-        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
-    })();
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
-    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
-        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
-        wmShare.src = 'http://' + getShareApiRouter() + '/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
-        wmShare.src += shareToPlatform + '&pid=103689&sendFriendLink=' + encodeURIComponent(sendFriendLink);
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
-    }
-    function getShareApiRouter(){
-        var str_domain = location.href.split('/',4)[2];
-        var tj_domain = '127.0.0.1';
-        switch(str_domain){
-            case 'www.weimob.com':
-                tj_domain = 'tj.weimob.com';
-                break;
-            case '112.124.28.82':
-                tj_domain = '112.124.28.82:400';
-                break;
-        }
-        return tj_domain;
-    }
-    if(typeof(window.shareData) == 'undefined'){
-        window.shareData = {
-            "imgUrl": "",
-            "timeLineLink": "http://www.weimob.com/Webnewmemberscore/my?pid=103689&wechatid=fromUsername",
-            "sendFriendLink": "http://www.weimob.com/Webnewmemberscore/my?pid=103689&wechatid=fromUsername",
-            "weiboLink": "http://www.weimob.com/Webnewmemberscore/my?pid=103689&wechatid=fromUsername",
-            "tTitle": document.title,
-            "tContent": document.title,
-            "fTitle": document.title,
-            "fContent": document.title,
-            "wContent": document.title
-        }
-    }
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        // 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            WeixinJSBridge.invoke('sendAppMessage', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.sendFriendLink,
-                "desc": window.shareData.fContent,
-                "title": window.shareData.fTitle
-            }, function (res) {
-                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.sendFriendLink,'appmessage');
-                _report('send_msg', res.err_msg);
-            })
-        });
-
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.timeLineLink,
-                "desc": window.shareData.tContent,
-                "title": window.shareData.tTitle
-            }, function (res) {
-                //weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.timeLineLink,'timeline');
-                _report('timeline', res.err_msg);
-            });
-        });
-
-        // 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-            WeixinJSBridge.invoke('shareWeibo', {
-                "content": window.shareData.wContent,
-                "url": window.shareData.weiboLink
-            }, function (res) {
-                weimobAfterShare("oiHrGt69PhyxwL3qlMNSCruSwIv4",window.shareData.weiboLink,'weibo');
-                _report('weibo', res.err_msg);
-            });
-        });
-    }, false);
-</script>
-<script type="text/javascript" src="http://kf.weimob.com/js/ChatFloat.js"></script>
-<script type="text/javascript">
-    var str_domain = location.href.split('/',4)[2];
-    var boolIsTest = true;
-    if(str_domain == 'www.weimob.com'){
-        boolIsTest = false;
-    }
-    new ChatFloat({
-        AId: '103689',
-        openid: "oiHrGt69PhyxwL3qlMNSCruSwIv4",
-        top:150,
-        right:0,
-        IsTest:boolIsTest
-    });
-</script>
 </html>
 

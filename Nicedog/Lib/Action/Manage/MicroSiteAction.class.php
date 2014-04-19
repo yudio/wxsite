@@ -248,9 +248,9 @@ class MicroSiteAction extends UserAction{
         $where['category_id'] = array('eq',0);
         $count=$db->where($where)->count();
         $page=new Page($count,25);
-        $info=$db->where($where)->order('sorts asc,id asc')->limit($page->firstRow.','.$page->listRows)->select();
+        $info=$db->where($where)->order('sorts')->limit($page->firstRow.','.$page->listRows)->select();
         foreach($info as $key=>&$vo){
-            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts asc,id asc')->select();
+            $list = $db->where(array('category_id'=>$vo['id']))->order('sorts')->select();
             $vo['sub'] = $list;
             $infoadd = M('Typelink')->where(array('pid'=>$vo['id'],'module'=>'Classify'))->find();
             if ($infoadd){
@@ -500,6 +500,40 @@ class MicroSiteAction extends UserAction{
 
         }
 
+    }
+
+    /*
+     *
+     * 设置微名片
+     */
+    public function setVCard(){
+        $db = D('Vcard');
+        if (IS_POST){
+            $id = $this->_post('id');
+            if ($id){
+                $db->create();
+                if ($db->getError()){
+                    $this->ajaxReturn(array('errno'=>'10','error'=>$db->getError()));
+                }else{
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/setVCard.act'));
+                }
+            }else{
+                $db->create();
+                if ($db->getError()){
+                    $this->ajaxReturn(array('errno'=>'10','error'=>$db->getError()));
+                }else{
+                    $db->add();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'修改成功','url'=>'/npManage/MicroSite/setVCard.act'));
+                }
+            }
+        }
+        $where['token'] = $this->token;
+        $info = $db->where($where)->find();
+        if ($info){
+            $this->assign('info',$info);
+        }
+        $this->display();
     }
 
 }

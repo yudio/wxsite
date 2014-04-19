@@ -5,7 +5,7 @@
  * Date: 14-3-17
  * Time: 下午3:38
  */
-class MemberAction extends BaseAction{
+class MemberAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;
@@ -14,6 +14,7 @@ class MemberAction extends BaseAction{
 
     public function _initialize(){
         parent::_initialize();
+        define('SIGNIN_TYPE',7);
         /*$agent = $_SERVER['HTTP_USER_AGENT'];
 
         if(!strpos($agent,"icroMessenger")&&!isset($_GET['show'])&&!isset($_SESSION['uid'])) {
@@ -32,13 +33,18 @@ class MemberAction extends BaseAction{
         }
         $this->wxuser = $wxuser;
         $this->wxname     = $wxuser['wxname'];
-
-        $this->wecha_id	= $this->_get('wecha_id');
-        LOG::write('WECHAT_ID:'.$this->wecha_id,LOG::ERR);
+        //用户Wecha_id
+        if (session('wecha_id')){
+            $this->wecha_id = session('wecha_id');
+        }else{
+            $this->wecha_id	= $this->_get('wecha_id');
+            if (!$this->wecha_id){
+                $this->wecha_id = $this->_post('wecha_id');
+            }
+        }
         if (!$this->wecha_id||$this->wecha_id=='FromUserName'){
             $this->wecha_id='0';
         }
-        LOG::write('WECHAT_ID:'.$this->wecha_id,LOG::ERR);
         $this->assign('wxname',$this->wxname);
         $this->assign('wecha_id',$this->wecha_id);
         $this->assign('wxuid',$this->wxuid);
@@ -143,6 +149,118 @@ class MemberAction extends BaseAction{
         $this->assign('cardset',$cardset);
         $this->assign('cardinfo',$cardinfo);
         $this->assign('mempriv',$mempriv);
+        $this->assign('mact','center');
+        $this->display();
+    }
+
+    //会员中心－消息
+    public function notice(){
+        $this->assign('mact','notice');
+        $this->display();
+    }
+
+    //会员中心－签到
+    public function signin(){
+        $date = $this->_get('date');
+        $year = date('Y');$month = date('m');
+        if ($date){
+            $year = substr($date,0,4);
+            $month = substr($date,4,2);
+        }
+        $cuser = M('MemberUser')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
+        $signwhere = array('token'=>$this->token,'wecha_id'=>$this->wecha_id,'type'=>SIGNIN_TYPE);
+        $sign  = M('MemberIntegraldata')->where($signwhere)->order('create_time desc')->find();
+        if (date('Ymd')==date('Ymd',$sign['create_time'])){
+            $this->assign('signined',1);
+        }
+        $signwhere['year'] = $year;$signwhere['month'] = $month;
+        $signlist = M('MemberIntegraldata')->where($signwhere)->order('create_time asc')->select();
+        $str = array();
+        foreach($signlist as $vo){
+            $str[] = $vo['day'];
+        }
+        $str = implode(',',$str);
+        $this->assign('signflag',$str);
+        $this->assign('info',$cuser);
+        $this->assign('year',$year);
+        $this->assign('month',$month);
+        $this->assign('pre',date('Ym',mktime(0,0,0,$month,10,$year)-25*24*3600));
+        $this->assign('next',date('Ym',mktime(0,0,0,$month,10,$year)+25*24*3600));
+        $this->assign('mact','signin');
+        $this->display();
+    }
+    //签到动作
+    public function doSignin(){
+        $db = D('MemberIntegraldata');
+        if (!IS_POST){  $this->ajaxReturn(array('status'=>0,'msg'=>'错误操作!'));}
+        //用户信息
+        $cuser = M('MemberUser')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
+        //会员设置
+        $signset = M('MemberCardSet')->where(array('token'=>$this->token))->find();
+        $where = array('token'=>$this->token,'wecha_id'=>$this->wecha_id,'type'=>SIGNIN_TYPE);
+        //上次签到
+        $sign  = $db->where($where)->order('create_time desc')->find();
+        //签到数据
+        $data['truename'] = $cuser['truename'];
+        $data['card_no']  = $cuser['card_no'];
+        $data['tel']      = $cuser['tel'];
+        $data['token'] = $this->token;
+        $data['wecha_id'] = $this->wecha_id;
+        $data['type']  = SIGNIN_TYPE;
+        if (date('Ymd')==date('Ymd',$sign['create_time'])){
+            $this->ajaxReturn(array('status'=>0,'msg'=>'今天已经签到过了。'));
+            return;
+        }
+        if (!$sign){        //用户首次签到
+            $data['nick']     = '用户签到';
+            $data['score'] = intval($signset['sign_score']);
+            $db->create($data);
+            $db->add();
+            M('MemberUser')->data(array('id'=>$cuser['id'],'continuous'=>$cuser['continuous']+1,
+                                'sign_total'=>$cuser['sign_total']+1,'sign_score'=>$cuser['sign_score']+$data['score'],'total_score'=>$cuser['total_score']+$data['score']))->save();
+            $this->ajaxReturn(array('status'=>1,'msg'=>'签到成功,获得'.$data['score'].'积分'));
+        }else{
+            $now = time();
+            if ($now-$sign['create_time']>86400){ //非连续签到
+                $data['nick']     = '用户签到';
+                $data['score'] = intval($signset['sign_score']);
+                $db->create($data);
+                $db->add();
+                M('MemberUser')->data(array('id'=>$cuser['id'],'continuous'=>0,
+                            'sign_total'=>$cuser['sign_total']+1,'sign_score'=>$cuser['sign_score']+$data['score'],'total_score'=>$cuser['total_score']+$data['score']))->save();
+                $this->ajaxReturn(array('status'=>1,'msg'=>'签到成功,获得'.$data['score'].'积分'));
+            }else{ //连续签到
+                if ($cuser['continuous']>=$signset['sign_days']-1){//连续签到奖励
+                    $data['nick']     = '连续签到';
+                    $data['score'] = intval($signset['sign_score']) + intval($signset['sign_days_score']);
+                    $db->create($data);
+                    $db->add();
+                    M('MemberUser')->data(array('id'=>$cuser['id'],'continuous'=>0,
+                                'sign_total'=>$cuser['sign_total']+1,'sign_score'=>$cuser['sign_score']+$data['score'],'total_score'=>$cuser['total_score']+$data['score']))->save();
+                    $this->ajaxReturn(array('status'=>1,'msg'=>'你已连续签到'.$cuser['continuous'].'天,获得'.$data['score'].'积分'));
+                }else{
+                    $data['nick']     = '用户签到';
+                    $data['score'] = intval($signset['sign_score']);
+                    $db->create($data);
+                    $db->add();
+                    M('MemberUser')->data(array('id'=>$cuser['id'],'continuous'=>$cuser['continuous']+1,
+                                'sign_total'=>$cuser['sign_total']+1,'sign_score'=>$cuser['sign_score']+$data['score'],'total_score'=>$cuser['total_score']+$data['score']))->save();
+                    $this->ajaxReturn(array('status'=>1,'msg'=>'签到成功,获得'.$data['score'].'积分'));
+                }
+            }
+        }
+
+    }
+
+    //会员中心－分享
+    public function share(){
+        $this->assign('mact','share');
+        $this->display();
+    }
+
+    //会员中心－我的
+    public function my(){
+        $this->assign('mact','my');
         $this->display();
     }
 
@@ -250,9 +368,9 @@ class MemberAction extends BaseAction{
         }
     }
 }
-function generateQRfromGoogle($chl,$widhtHeight ='150',$EC_level='L',$margin='0'){
-    $chl = urlencode($chl);
-    $src='http://chart.apis.google.com/chart?chs='.$widhtHeight.'x'.$widhtHeight.'&cht=qr&chld='.$EC_level.'|'.$margin.'&chl='.$chl;
-    return $src;
-}
+    function generateQRfromGoogle($chl,$widhtHeight ='150',$EC_level='L',$margin='0'){
+        $chl = urlencode($chl);
+        $src='http://chart.apis.google.com/chart?chs='.$widhtHeight.'x'.$widhtHeight.'&cht=qr&chld='.$EC_level.'|'.$margin.'&chl='.$chl;
+        return $src;
+    }
 ?>

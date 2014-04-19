@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="Keywords" content="{np::C('Keywords')}"/>
+    <meta name="Description" content="{np::C('Description')}"/>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/datepicker/datepicker.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/daterangepicker/daterangepicker.css" media="all"/>
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/zeroclipboard/zeroclipboard_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/map.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <!--[if IE 7]>
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet"/>
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="{np::STATICS}/js/watermark.js"></script>
+    <![endif]-->
+</head>
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript"></script>
+<link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet"/>
+<script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+<body>
+<div id="main">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span12">
+                            <h3><i class="icon-cog"></i>微名片设置</h3>
+                            <a class="btn preview pull-right btn-success" href="javascript:;">微名片预览</a>
+                            <script type="text/javascript">
+                                $("a.preview").click(function () {
+                                    if ($.browser.msie) {
+                                        alert("不支持在IE浏览器下预览，建议使用谷歌浏览器或者360极速浏览器或者直接在微信上预览。");
+                                        return;
+                                    }
+                                    var left = ($(window.parent.parent).width() - 450) / 2;
+                                    window.open("{np::C('site_url')}/wesite/{np:$wecha['id']}/vcard?wechatid=fromUsername", "我的微名片", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <form action="/npManage/MicroSite/setVCard.act?id={np:$info.id}" method="post" class="form-horizontal form-validate">
+                            <div class="control-group">
+                                <label class="control-label" for="title">公司名称：</label>
+
+                                <div class="controls">
+                                    <input type="text" name="title" id="title" value="{np:$info.title|default='微名片'}" class="input-xlarge"
+                                           data-rule-required="true"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="keyword">触发关键词:</label>
+
+                                <div class="controls">
+                                    <input type="text" name="keyword" id="keyword" value="{np:$info.keyword|default='微名片'}" class="input-xlarge" data-rule-required="true" data-rule-maxlength="60"/>
+                                    <span class="help-inline">多个关键字请用空格分开</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">匹配模式：</label>
+
+                                <div class="controls">
+                                    <label class="radio">
+                                        <input type="radio" name="match_type" value="1" <empty name="info">checked</empty> <if condition="$info['match_type'] eq 1">checked</if>/>完全匹配（用户输入的和此关键词一样才会触发!）
+                                    </label>
+                                    <label class="radio ">
+                                        <input type="radio" name="match_type" value="2" <if condition="$info['match_type'] eq 2">checked</if>/>包含匹配 (只要用户输入的文字包含本关键词就触发！)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="caption">图文消息标题：</label>
+
+                                <div class="controls">
+                                    <input type="text" name="caption" id="caption" value="{np:$info.caption|default='点击查看微名片'}" class="input-xlarge" data-rule-required="true"/>
+                                    <span class="help-inline">发送关键词后返回的图文消息标题</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="thumb">图文消息封面</label>
+
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info.picurl|default=C('site_url').STATICS.'/img/vcard/vcard_banner.jpg'}" style="max-height:100px;"/>
+                                    <input id="thumb" type="text" name="picurl" class="hide" value="{np:$info.picurl|default=C('site_url').STATICS.'/img/vcard/vcard_banner.jpg'}"/>
+                                    <span class="help-inline">
+                                        <button class="btn select_img" type="button">选择封面</button>
+                                        <span class="help-inline">建议尺寸：宽720像素，高400像素</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="contact_name">联系人名称</label>
+
+                                <div class="controls">
+                                    <input type="text" name="contact_name" id="contact_name" value="{np:$info['contact_name']|default='客服专员'}" class="input-xlarge"
+                                           data-rule-required="true"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="contact_dept">联系人部门：</label>
+
+                                <div class="controls">
+                                    <input type="text" name="contact_dept" id="contact_dept" value="{np:$info['contact_dept']|default='客服部 售后支持'}" class="input-xlarge"
+                                           data-rule-required="true"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="cover">联系人头像</label>
+
+                                <div class="controls">
+                                    <img class="thumb_img" src="{np:$info['contact_logo']|default=C('site_url').STATICS.'/img/vcard/vcard_clogo.jpg'}" style="max-height:100px;"/>
+                                    <input type="text" name="contact_logo" class="hide" value="{np:$info['contact_logo']|default=C('site_url').STATICS.'/img/vcard/vcard_clogo.jpg'}"/>
+                                    <span class="help-inline">
+                                        <span class="help-inline">建议尺寸：宽205像素，高205像素的png图片</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="brief">公司简介</label>
+                                <div class="controls">
+                                    <textarea id="brief" name="desc" class="input-xlarge ui-wizard-content ui-helper-reset ui-state-default"
+                                              style="resize:none; width:274px; height:120px;" placeholder="字数控制在200以内" data-rule-required="true">{np:$info['desc']}</textarea>
+                                    <span class="maroon">*</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="banner">名片背景图</label>
+
+                                <div class="controls">
+                                    <img class="gwbg thumb_img" src="{np:$info.banner|default=C('site_url').STATICS.'/img/vcard/vcard_banner.jpg'}" style="max-height: 100px;"/>
+                                    <input class="input-xlarge" type="text" name="banner" id="banner" value="{np:$info.banner|default=C('site_url').STATICS.'/img/vcard/vcard_banner.jpg'}" style="display: none;"/>
+                                        <span class="help-inline">
+                                            <button class="btn select_img" type="button">自定义</button>
+                                            建议大小(宽360高720)
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="suggestId">经纬度</label>
+                                <div class="controls">
+                                    <div class="input-append">
+                                        <input type="text" id="suggestId" class="input-xlarge" name="place" value="{np:$info.place}" data-rule-required="true" />
+                                        <button class="btn" type="button" id="positioning">搜索</button>
+                                    </div>
+
+                                    <span class="maroon">注意：这个只是模糊定位，准确位置请地图上标注!</span>
+                                    <div id="l-map"> <i class="icon-spinner icon-spin icon-large"></i>
+                                        地图加载中...
+                                    </div>
+                                    <div id="r-result">
+                                        <input type="text" id="lng" name="lng" value="{np:$info.lng}"/>
+                                        <input type="text" id="lat" name="lat" value="{np:$info.lat}"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="tel">联系电话：</label>
+                                <div class="controls">
+                                    <input type="text" name="tel" id="tel" value="{np:$info.tel}" class="input-xlarge" data-rule-required="true" data-rule-phone="true"/>
+                                    <span class="maroon">*</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="servetel">400电话：</label>
+
+                                <div class="controls">
+                                    <input type="text" name="servetel" id="servetel" value="{np:$info.servetel}" class="input-xlarge" data-rule-phone="true"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="sites">首页地址：</label>
+
+                                <div class="controls" style="padding-top:4px;">
+                                    <span class="copy_text">{np::C('site_url')}/wesite/{np:$wxuser.id}/vcard</span>
+                                    <input type="hidden" name="homeurl" id="sites" value="{np::C('site_url')}/wesite/{np:$wxuser.id}/vcard"
+                                           class="input-xlarge"/>
+                                </div>
+                            </div>
+                            <input type="hidden" name="id" value="{np:$info.id}">
+                            <div class="form-actions">
+                                <button id="bsubmit" type="submit" data-loading-text="提交中..." class="btn btn-primary">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        var lng = '{np:$info.lng}';
+        var lat = '{np:$info.lat}';
+        var adr = '{np:$info.place}';
+        if (lng&&lat){
+            var data = {'lng':lng,'lat':lat,'adr':adr};
+            baidu_map(data);
+        }else{
+            baidu_map();
+        }
+    })
+</script>
+<script>
+    window.document.onkeydown = function (e) {
+        if ('' == document.activeElement.id) {
+            var e = e || event;
+　 				var currKey = e.keyCode || e.which || e.charCode;
+            if (8 == currKey) {
+                return false;
+            }
+        }
+    };
+</script>
+<script type="text/javascript">
+    KindEditor.ready(function (K) {
+        var editor = K.editor({
+            themeType: "simple",
+            allowFileManager: true
+
+        });
+        var _mp3_i = 0;
+        K('button.select_img').click(function (e) {
+            editor.loadPlugin('smimage', function () {
+                editor.plugin.imageDialog({
+                    imageUrl: $(e.target).parent().prevAll("input[type=text]").val(),
+                    userRoot: '<?php echo substr(md5($_SESSION['uid']),16);?>',
+                    clickFn: function (url, title, width, height, border, align) {
+                        var $input = $(e.target).parent().prevAll("input[type=text]")
+                        $input.val(url)
+                        $input.hide();
+                        var t_img = $(e.target).parent().prevAll(".thumb_img:first");
+                        if (t_img.length == 0) {
+                            var tmp = '<img class="thumb_img" src="{0}" style="max-height: 100px;">';
+                            $input.before(tmp.format(url))
+                        } else {
+                            t_img.attr("src", url);
+                        }
+
+                        editor.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/daterangepicker/daterangepicker.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap_button.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/daterangepicker/moment_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<div id="main">
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span12">
+
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span10"> <h3><i class="icon-table"></i>充值查询 </h3></div>
+                        <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+                    </div>
+
+                    <div class="box-content">
+                        <form action="/npManage/Member/rechargeList.act" method="get" class="form-horizontal form-horizontal-s">
+                            <input type="hidden" name="types"  value="1"/>
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label class="control-label">会员名称</label>
+                                        <div class="controls">
+                                            <input type="text" name="name" class="input-medium" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">会员手机号</label>
+                                        <div class="controls">
+                                            <input type="text" name="phone" class="input-medium" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">操作员</label>
+                                        <div class="controls">
+                                            <input type="text" name="user"  class="input-medium" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label class="control-label">充值门店</label>
+                                        <div class="controls">
+                                            <select class="input-medium" name="spoutlet_id">
+                                                <option selected="selected" value="0" >商户总部</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">充值时间</label>
+                                        <div class="controls">
+                                            <div class="input-prepend">
+                                                <span class="add-on"><i class="icon-calendar"></i></span>
+                                                <input type="text" name="time" class="input-xlarge daterangepick " value="" readonly />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">充值金额</label>
+                                        <div class="controls">
+                                            <input type="text" name="moneys" class="input-mini" value="" />
+                                            至
+                                            <input type="text" name="moneye" class="input-mini" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="row-fluid">
+                                <div class="span12 control-group">
+                                    <button type="submit" class="btn"><i class="icon-search"></i>查询</button>
+                                    <a class="btn" href="/Newmembertrade/BillExport?aid=103689&types=1" target="_blank"><i class="icon-cloud-download"></i>导出</a>
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="row-fluid dataTables_wrapper">
+                            <table id="listTable" class="table table-bordered table-hover  dataTable">
+                                <thead>
+                                <tr>
+                                    <th>会员卡号</th>
+                                    <th>姓名</th>
+                                    <th>手机号码</th>
+                                    <th>充值金额</th>
+                                    <th>充值时间</th>
+                                    <th>充值门店</th>
+                                    <th>操作员</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="vo">
+                                <tr>
+                                    <td>{np:$vo.card_no}</td>
+                                    <td>{np:$vo.truename}</td>
+                                    <td>{np:$vo.tel}</td>
+                                    <td>{np:$vo.price}</td>
+                                    <td>{np:$vo.createtime|date='Y-m-d H:i:s',###}</td>
+                                    <td>
+                                        线上充值
+                                    </td>
+                                    <td>
+                                        {np:$vo.nick|default='默认'}
+                                    </td>
+                                </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                            <div class="dataTables_paginate paging_full_numbers"><span>{np:$page}</span></div>							<!--<div class="dataTables_info" id="DataTables_Table_8_info">Showing <span>1</span> to <span>10</span> of <span>22</span> entries</div>
+							<div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_8_paginate"><a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_8_first">First</a><a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_8_previous">Previous</a><span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a></span><a tabindex="0" class="next paginate_button" id="DataTables_Table_8_next">Next</a><a tabindex="0" class="last paginate_button" id="DataTables_Table_8_last">Last</a></div>
+							-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

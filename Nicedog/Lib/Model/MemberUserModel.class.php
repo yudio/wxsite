@@ -3,11 +3,13 @@ class MemberUserModel extends Model{
 	protected $_validate =array(
 		//array('token','require','TOKEN不能为空',1),
 		//array('token','','token已经存在！',1,'unique',1),
+        array('tel','checkTel','该号码已经领取会员卡！',MODEL::MUST_VALIDATE,'callback',MODEL::MODEL_INSERT),
 	);
 	
 	protected $_auto = array (
 		array('total_score','0',self::MODEL_INSERT),
 		array('sign_score','0',self::MODEL_INSERT),
+        array('sign_total','0',self::MODEL_INSERT),
 		array('amount','0',self::MODEL_INSERT),
         array('continuous','0',self::MODEL_INSERT),
         array('expend_score','0',self::MODEL_INSERT),
@@ -17,6 +19,17 @@ class MemberUserModel extends Model{
         array('card_no','getCardNo',self::MODEL_INSERT,'callback'),
 		//array('typeid','gettypeid',self::MODEL_BOTH,'callback'),
 	);
+
+    public function checkTel($tel){
+        $where['tel'] = $tel;
+        $where['token'] = $_POST['token'];
+        $info = M('MemberUser')->where($where)->find();
+        if ($info){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     public function chekWechatCardNums(){
 		$data=M('User_group')->field('wechat_card_num')->where(array('id'=>session('gid')))->find();

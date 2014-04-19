@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap_button.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/datepicker/datepicker.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+
+<body>
+<div id="main">
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span12">
+
+                <div class="box">
+                    <div class="box-title">
+                        <div class="span7">
+                            <h3><i class="icon-table"></i>在线订单管理 </h3>
+                        </div>
+                        <div class="span5">
+                            <form action="" method="get" class="form-horizontal">
+                                <input type="text" id="date-input" class="input-small-z datepick"  name="date" placeholder="预定日期" />
+                                <select name="state" class="input-small">
+                                    <option value="">全部</option>
+                                    <option value="0">等待客服回电</option>
+                                    <option value="1">已确认</option>
+                                    <option value="2">已拒绝</option>
+
+                                </select>
+                                <button class="btn">查询</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="box-content">
+
+                        <div class="row-fluid">
+                            <div class="span12 control-group">
+                                <div class="alert">
+                                    本次收集订单总数：<span class="redamount">{np:$count}</span>个　　预订成功：<span class="redamount">{np:$passCount}</span>个　　预订失败：<span class="redamount">{np:$failCount}</span>个　　等待客服回电订单：<span class="redamount">{np:$waitCount}</span>个
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span12 control-group" style="display: none;">
+                                <a class="btn" href="/Wereserve/ReserveCustomExport/rid/8375"><i class="icon-download-alt"></i>导出订单</a>
+                            </div>
+
+                        </div>
+                        <div class="row-fluid dataTables_wrapper">
+                            <form action="/plus/formajax.php" method="post" class="form-horizontal">
+                                <table id="listTable" class="table table-bordered table-hover  dataTable">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>真实姓名</th>
+                                        <th>电话</th>
+                                        <th>预订日期</th>
+                                        <th>订单状态</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>用户是<br>
+                                            否删除</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <volist name="list" id="vo">
+                                        <tr>
+                                            <td>{np:$i}</td>
+                                            <td>{np:$vo.contact}</td>
+                                            <td>{np:$vo.contacttel}</td>
+                                            <td>{np:$vo.dateline}</td>
+                                            <td><if condition="$vo['status'] eq 0"><span class="label">等待客服回电</span>
+                                                <elseif condition="$vo['status'] eq 1"/><span class="label label-satgreen">确认</span>
+                                                <else/><span class="label label-lightred">拒绝</span></if></td>
+                                            <td>&nbsp;</td><td>&nbsp;</td>
+                                            <td><if condition="$vo.del_flag eq 0">否<else/>是</if></td>
+                                            <td><a href="/npManage/business/reserveRecordDetail.act?id={np:$vo.id}" class="btn"  title="订单详情"><i class="icon-search"></i></a>
+                                                <a href="javascript:void(0);" onclick="del_reserve({np:$vo.id});" class="btn" title="删除"><i class="icon-remove"></i></a>
+                                                <a href="javascript:void(0)" data-id="{np:$vo.id}" state="1" class="btn action" title="管理"><i class="icon-cog"></i></a><div style="display:none;">{np:$vo.remark}</div></td>
+                                        </tr>
+                                    </volist>
+                                    </tbody>
+                                </table>
+
+                            </form>
+                            <script>
+
+                            </script>
+                            <div class="dataTables_paginate paging_full_numbers"><span>       </span></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="Form1" action="" method="post" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="icon-check"></i>订单处理</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="control-group">
+                        <label class="control-label" for="username">预约人</label>
+                        <div class="controls" id="username">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="reservetime">预约时间</label>
+                        <div class="controls" id="reservetime">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">订单确认</label>
+                        <div class="controls">
+
+                            <select name="state" id="state" class="state input-medium">
+                                <option value="0">等待客服回电</option>
+                                <option value="1">确认</option>
+                                <option value="2">拒绝</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="store_id">留言</label>
+                        <div class="controls">
+                            <textarea name="msg" id="order_msg" class="order_msg input-large"  disabled="disabled">  </textarea>
+
+                        </div>
+                    </div>
+                    <input type="hidden" id="data-id" class="data-id" name="data-id" />
+                    <input type="hidden" id="rid" class="rid" name="data-id" value="8375"/>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="submitorder();">提交</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("tr").delegate(".action", "click", function () {
+            var id=$(this).attr("data-id");
+            var name=$(this).parent().siblings().eq(1).text();
+            var time=$(this).parent().siblings().eq(2).text();
+            var state=$(this).attr("state");
+            var remark=$(this).next().text();
+            $(".data-id").val(id);
+            $("#username").text(name);
+            $("#reservetime").text(time);
+            $("#state").val(state);
+            $("#order_msg").text(remark);
+            $("#myModal2").modal("show");
+        });
+    });
+
+    function submitorder(){
+        var id = $("#myModal2 .data-id").val();
+        var state = $("#myModal2 .state").val();
+        var order_msg = $("#myModal2 .order_msg").val();
+        $.ajax("/npManage/business/updateReserveRecord.act", {dataType: 'json', data: {'id':id,'state':state,'order_msg':order_msg}}).done(function (d) {
+            if(0 == d.errno){
+                G.ui.tips.err("操作成功！");
+                window.location.reload();
+            }else{
+                G.ui.tips.err("操作失败！");
+            }
+            $("#myModal2").modal("hide");
+        }).fail(function () {
+                    G.ui.tips.err("错误订单！");
+                });
+    }
+
+    function del_reserve(id){
+        if(confirm('您确定要删除吗?')){
+            $.ajax("/npManage/business/delReserveRecord.act", {dataType: 'json', data: {'id':id}}).done(function (d) {
+                if(0 == d.errno){
+                    G.ui.tips.err("操作成功！");
+                    window.location.reload();
+                }else{
+                    G.ui.tips.err("操作失败！"+ d.error);
+                }
+            }).fail(function () {
+                        G.ui.tips.err("错误订单！");
+                    });
+        }
+
+    }
+</script>
+</body>
+
+</body>
+<script type="text/javascript">
+        // 发送给好友
+
+        // 分享到朋友圈
+
+        // 分享到微博
+</script>
+</html>

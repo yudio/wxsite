@@ -29,6 +29,11 @@ class ReplyAction extends UserAction
                 }
                 if (!isset($_POST['default_reply_flag'])){
                     $_POST['default_reply_flag'] = 0;
+                }else{
+                    $keyword = KeyWord::select(array('keyword'=>$_POST['default_reply'],'token'=>session('token'),'match_type'=>1,'pid'=>0));
+                    if (!$keyword){
+                        $this->ajaxReturn(array('errno'=>'1','error'=>'关键词不存在！'),'JSON');
+                    }
                 }
                 $_POST['createtime'] = time();
                 if ($db->create()){
@@ -46,6 +51,11 @@ class ReplyAction extends UserAction
                 }
                 if (!isset($_POST['default_reply_flag'])){
                     $_POST['default_reply_flag'] = 0;
+                }else{
+                    $keyword = KeyWord::select(array('keyword'=>$_POST['default_reply'],'token'=>session('token'),'match_type'=>1,'pid'=>0));
+                    if (!$keyword){
+                        $this->ajaxReturn(array('errno'=>'1','error'=>'关键词不存在！'),'JSON');
+                    }
                 }
                 $_POST['updatetime'] = time();
                 if ($db->create()){

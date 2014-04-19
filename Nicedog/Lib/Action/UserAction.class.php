@@ -16,18 +16,18 @@ class UserAction extends BaseAction{
 			}
 		}
         if (session('token')){
-            $wecha=M('Wxuser')->field('id,wxname,wxid,headerpic,weixin')->where(array('token'=>session('token'),'uid'=>session('uid')))->find();
+            $wecha=M('Wxuser')->field('id,wxname,wxid,headerpic,weixin,type')->where(array('token'=>session('token'),'uid'=>session('uid')))->find();
             $this->assign('wecha',$wecha);
             $this->assign('token',session('token'));
         }
 		//
 		$this->assign('usergroup',$usergroup);
 		if(!session('uid')){
-			$this->redirect('/npHome/Index/index.act',null,3,'请登录！');
+			$this->redirect('Home/Index/index',null,3,'请登录！');
 		}else{
             $livetime = session('livetime');
             if ((time()-$livetime)>144000){
-                $this->redirect('/npHome/Index/index.act',null,3,'请重新登录！');
+                $this->redirect('Home/Index/index',null,3,'请重新登录！');
             }else{
                 session('livetime',time());
             }
