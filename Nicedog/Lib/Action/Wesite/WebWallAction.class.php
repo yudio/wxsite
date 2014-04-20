@@ -65,7 +65,22 @@ class WebWallAction extends WebAction{
         $this->display();
     }
     public function getCon(){
-        $this->ajaxReturn(array('result'=>0));
+        $db = M('WallMsg');
+        $id = $this->_post('id');
+        if ($id){
+            $wall = M('Wall')->where('id='.$id)->find();
+            $where['token'] = $this->token;
+            $where['wid']	= $id;
+            $where['status']= 1;
+            $msglist = $db->where($where)->order('create_time desc')->select();
+            $arr = array();
+            foreach($msglist as $msg){
+                $arr[] = array('id'=>$msg['id'],'img'=>$msg['headpic'],'title'=>$msg['title'],'pdate'=>date('Y-m-d H:i:s',$msg['create_time']),'content'=>$msg['content']);
+            }
+            $this->ajaxReturn(array('result'=>1,'message'=>'success','data'=>$arr));
+        }else{
+            $this->ajaxReturn(array('result'=>0));
+        }
     }
 
 

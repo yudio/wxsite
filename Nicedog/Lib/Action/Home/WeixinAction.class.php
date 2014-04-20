@@ -9,6 +9,7 @@ class WeixinAction extends Action
     private $data = array();
     private $my = '奈斯伙伴';
     private $usertype;
+    private $themeid;
 
     public function index()
     {
@@ -43,6 +44,7 @@ class WeixinAction extends Action
                 $themedb->data(array('id'=>$theme['id'],'theme'=>'默认','type'=>0,'status'=>0,'update_time'=>NOW_TIME,'expire_time'=>7200))->save();
                 $theme = $themedb->find($theme['id']);
             }
+            $this->themeid = $theme['id'];
             if ($theme['type']==0){ //默认回复
                 list($content, $type) = $this->reply($data);
                 $weixin->response($content, $type);
@@ -51,64 +53,34 @@ class WeixinAction extends Action
             if ($theme['type']==3){ //微信墙场景   status 0:进入微信墙  1:资料完整或修改   2:发言状态    3:跑马
                 switch($theme['status']){
                     case 0:
-                        if ($this->usertype>2){
-                            $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
-                            if (!$walluser){    //同步资料
-                                $member = M('Member')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
-                                $walluser['token'] = $member['token'];
-                                $walluser['wecha_id'] = $member['wecha_id'];
-                                $walluser['wxname'] = $member['nickname'];
-                                $walluser['headpic'] = $member['headimgurl'];
-                                $walluser['status'] = 1;$walluser['msgnum'] = 0;
-                                $walluser['create_time'] = NOW_TIME;$walluser['update_time'] = NOW_TIME;
-                                D('WallUser')->data($walluser)->add();
-                            }
-                            $themedb->data(array('id'=>$theme['id'],'status'=>1,'update_time'=>NOW_TIME,'expire_time'=>600))->save();
-                            $weixin->response('请回复"上墙"参与活动！10分钟内无响应自动退出！','text');
-                        }else{
-                            $walluser['token'] = $this->token;
-                            $walluser['wecha_id'] = $data['FromUserName'];
-                            $walluser['status'] = 0;$walluser['msgnum'] = 0;
-                            $walluser['create_time'] = NOW_TIME;$walluser['update_time'] = NOW_TIME;
-                            D('WallUser')->data($walluser)->add();
-                            $themedb->data(array('id'=>$theme['id'],'status'=>1,'update_time'=>NOW_TIME,'expire_time'=>180))->save();
-                            $weixin->response('请发送你的"姓名"或"昵称"！3分钟内无响应自动退出！','text');
-                        }
+                        LOG::write('usertype'.$this->usertype,LOG::ERR);
+
                         break;
                     case 1:
                         //验证用户资料是否齐全   不齐全提示其操作
                         $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
                         $nextstatus = 1;
-                        if ($walluser['status']==0){//资料不全
-                            //处理消息
-                            if ($data['MsgType']=='text'){
-                                if ($data['Content']=='上墙'){
-                                    $weixin->response('请完善你的资料再发送"上墙"！','text');
-                                }else{
-                                    D('WallUser')->data(array('id'=>$walluser['id'],'wxname'=>$data['Content']))->save();
-                                    if (!$walluser['headpic']||$walluser['headpic']==''){
-                                        $weixin->response('请发送图片作为你的头像！3分钟内无响应自动退出！','text');
-                                    }else{
-                                        D('WallUser')->data(array('id'=>$walluser['id'],'status'=>1))->save();
-                                        $weixin->response('请回复"上墙"参与活动！3分钟内无响应自动退出！','text');
-                                    }
-                                }
-                            }elseif ($data['MsgType']=='image'){
-                                D('WallUser')->data(array('id'=>$walluser['id'],'headpic'=>$data['PicUrl']))->save();
-                                if (!$walluser['nickname']||$walluser['nickname']==''){
-                                    $weixin->response('请发送你的"姓名"或"昵称"！3分钟内无响应自动退出！','text');
-                                }else{
-                                    D('WallUser')->data(array('id'=>$walluser['id'],'status'=>1))->save();
-                                    $weixin->response('请回复"上墙"参与活动！3分钟内无响应自动退出！','text');
-                                }
+                        //处理消息
+                        if ($data['MsgType']=='text'){
+                            D('WallUser')->data(array('id'=>$walluser['id'],'wxname'=>$data['Content']))->save();
+                            if (!$walluser['headpic']||$walluser['headpic']==''){
+                                $weixin->response('请发送图片作为你的头像！3分钟内无响应自动退出！','text');
                             }else{
-                                $weixin->response('请发送文本和图片格式的消息！3分钟内无响应自动退出！','text');
+                                D('WallUser')->data(array('id'=>$walluser['id'],'status'=>1))->save();
+                                $nextstatus = 2;
+                                $weixin->response('请发送文本消息上墙吧！3分钟内无响应自动退出！','text');
+                            }
+                        }elseif ($data['MsgType']=='image'){
+                            D('WallUser')->data(array('id'=>$walluser['id'],'headpic'=>$data['PicUrl']))->save();
+                            if (!$walluser['nickname']||$walluser['nickname']==''){
+                                $weixin->response('请发送你的"姓名"或"昵称"！3分钟内无响应自动退出！','text');
+                            }else{
+                                D('WallUser')->data(array('id'=>$walluser['id'],'status'=>1))->save();
+                                $nextstatus = 2;
+                                $weixin->response('请发送文本消息上墙吧！3分钟内无响应自动退出！','text');
                             }
                         }else{
-                            if ($data['MsgType']=='text'&&$data['Content']=='上墙'){
-                                $weixin->response('请发送文本消息上墙吧！3分钟内无响应自动退出！','text');
-                                $nextstatus = 2;
-                            }
+                            $weixin->response('请发送文本或图片格式的消息！3分钟内无响应自动退出！','text');
                         }
                         $themedb->data(array('id'=>$theme['id'],'status'=>$nextstatus,'update_time'=>NOW_TIME))->save();
                         //匹配关键字"上墙"进入下一状态
@@ -117,21 +89,28 @@ class WeixinAction extends Action
                         $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
                         if ($data['MsgType']=='text'){
                             $content = $data['Content'];
-                            $msg = array();
-                            $msg['token'] = $this->token;
-                            $msg['wecha_id'] = $data['FromUserName'];
-                            $msg['title']  = $walluser['wxname'];
-                            $msg['headpic'] = $walluser['headpic'];
-                            $msg['content'] = $content;
-                            $msg['status']  = 1;
-                            $msg['create_time'] = NOW_TIME;
-                            M('WallMsg')->data($msg)->add();
-                            $weixin->response('消息发送成功！3分钟内无响应自动退出！','text');
-                            $themedb->data(array('id'=>$theme['id'],'update_time'=>NOW_TIME))->save();
+                            if ('0'==trim($content)){
+                                $weixin->response('你已退出微信墙，非常感谢你的参与！','text');
+                                $themedb->data(array('id'=>$theme['id'],'theme'=>'默认','type'=>0,'status'=>0,'update_time'=>NOW_TIME,'expire_time'=>7200))->save();
+                            }else{
+                                $msg = array();
+                                $msg['token'] = $this->token;
+                                $msg['wecha_id'] = $data['FromUserName'];
+                                $msg['wid']     = $theme['pid'];
+                                $msg['title']  = $walluser['wxname'];
+                                $msg['headpic'] = $walluser['headpic'];
+                                $msg['content'] = $content;
+                                $msg['status']  = 1;
+                                $msg['create_time'] = NOW_TIME;
+                                M('WallMsg')->data($msg)->add();
+                                $weixin->response('消息发送成功！3分钟内无响应自动退出！','text');
+                                $themedb->data(array('id'=>$theme['id'],'update_time'=>NOW_TIME))->save();
+                            }
                         }else{
                             $weixin->response('请发送文本消息上墙吧！3分钟内无响应自动退出！','text');
                             $themedb->data(array('id'=>$theme['id'],'update_time'=>NOW_TIME))->save();
                         }
+                        break;
                     default:
                         $weixin->response('微信墙状态异常,请等待！','text');
                 }
@@ -718,13 +697,55 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-                case 'MemberCard':
+                case 'MemberCard'://会员卡
                     LOG::write('匹配MemberCard:'.$key,LOG::INFO);
                     $this->trackdata('MemberCard');
                     $info = M('MemberCardInfo')->find($res['pid']);
                     $msg = array($info['shop_name'],$info['info'],$info['logo'],
                         C('site_url')."/Webmember/{$this->wxuid}/index?wecha_id={$this->data['FromUserName']}");
                     return array(array($msg),'news');
+                    break;
+                case 'Wall'://微信墙
+                    LOG::write('匹配Wall:'.$key,LOG::INFO);
+                    $this->trackdata('Wall');
+                    $info = M('Wall')->find($res['pid']);
+                    $msg = '';
+                    //同步微信墙资料
+                    $themedb = M('MemberTheme');
+                    $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
+                    if ($walluser['status']==0){//资料不全
+                        if ($this->usertype>2){//服务号账户
+                            $member = M('Member')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
+                            if (!$walluser){    //同步资料
+                                $walluser['token'] = $member['token'];
+                                $walluser['wecha_id'] = $member['wecha_id'];
+                                $walluser['wxname'] = $member['nickname'];
+                                $walluser['headpic'] = $member['headimgurl'];
+                                $walluser['status'] = 1;$walluser['msgnum'] = 0;
+                                $walluser['create_time'] = NOW_TIME;$walluser['update_time'] = NOW_TIME;
+                                D('WallUser')->data($walluser)->add();
+                            }else{
+                                $walluser['wxname'] = $member['nickname'];
+                                $walluser['headpic'] = $member['headimgurl'];
+                                $walluser['status'] = 1;$walluser['update_time'] = NOW_TIME;
+                                D('WallUser')->data($walluser)->save();
+                            }
+                            $themedb->data(array('id'=>$this->themeid,'theme'=>'微信墙','type'=>3,'status'=>2,'pid'=>$res['pid'],'update_time'=>NOW_TIME,'expire_time'=>180))->save();
+                            $msg = '请发送文本消息上墙吧！3分钟内无响应自动退出！';
+                        }else{
+                            $walluser['token'] = $this->token;
+                            $walluser['wecha_id'] = $this->wecha_id;
+                            $walluser['status'] = 0;$walluser['msgnum'] = 0;
+                            $walluser['create_time'] = NOW_TIME;$walluser['update_time'] = NOW_TIME;
+                            D('WallUser')->data($walluser)->add();
+                            $themedb->data(array('id'=>$this->themeid,'theme'=>'微信墙','type'=>3,'status'=>1,'pid'=>$res['pid'],'update_time'=>NOW_TIME,'expire_time'=>180))->save();
+                            $msg = '请发送你的"姓名"或"昵称"！3分钟内无响应自动退出！';
+                        }
+                    }else{
+                        $themedb->data(array('id'=>$this->themeid,'theme'=>'微信墙','type'=>3,'status'=>2,'pid'=>$res['pid'],'update_time'=>NOW_TIME,'expire_time'=>180))->save();
+                        $msg = '请发送文本消息上墙吧！3分钟内无响应自动退出！';
+                    }
+                    return array($msg,'text');
                     break;
                 case 'Host':
                     $this->requestdata('other');
