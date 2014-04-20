@@ -215,7 +215,7 @@ KindEditor.plugin('mp3', function (K) {
 				self.loadPlugin('filemanager', function() {
 					self.plugin.filemanagerDialog({
 					    viewType: 'LIST',
-						dirName : 'mp3',
+						dirName : 'media',
 						clickFn : function(url, title) {
 							if (self.dialogs.length > 1) {
 								K('[name="url"]', div).val(url);

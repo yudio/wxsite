@@ -23,6 +23,8 @@
         window.msgr = new msg({
             auto: <if condition="$info['scroll'] eq 1">true<else/>false</if>	}).init("#list_message").work();
         window.msgr.index = 0;
+        window.msgr.lastid = 0;
+        window.msgr.data = new Array();
         window.msgr.getMessage();
 
         setInterval(function(){
@@ -35,7 +37,7 @@
             $.ajax({
                 url: "/Webwall/{np:$wxuid}/getCon",
                 type:"post",
-                data:{index: ++that.index,id:{np:$wid},wecha_id:'{np:$wecha_id}'},
+                data:{index: ++that.index,lastid:that.lastid,id:{np:$wid},wecha_id:'{np:$wecha_id}'},
                 dataType:"JSON",
                 success: function(res){
                     if(res.result){
