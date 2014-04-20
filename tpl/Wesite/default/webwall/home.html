@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/core2.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/main2.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/helper_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/main.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/msgScroll.js"></script>
+    <title>微信墙</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+    $(function(){
+        window.msgr = new msg({
+            auto: true		}).init("#list_message").work();
+        window.msgr.index = 0;
+        window.msgr.getMessage();
+
+        setInterval(function(){
+            window.msgr.getMessage();
+        }, 5000);
+
+
+        window.msgr.getMessage = function(){
+            var that = this;
+            $.ajax({
+                url: "/Webwall/{np:$wxuid}/getCon",
+                type:"post",
+                data:{id:{np:$wid},wecha_id:'{np:$wecha_id}'},
+                dataType:"JSON",
+                success: function(res){
+                    if(res.result){
+                        that.data = res.data;//that.data.concat(res.data);
+                        var ols = [];
+                        ols.push('<ol class="ol_0">');
+                        ols.push("<!--list_lis_0-->");
+                        ols.push('</ol><ol class="ol_1">');
+                        ols.push("<!--list_lis_0-->");
+                        ols.push('</ol><ol class="ol_2">');
+                        ols.push("<!--list_lis_0-->");
+                        ols.push('</ol>');
+                        var TPL = '<li>\
+							<div class="tbox">\
+								<div class="header">\
+									<span><img src="{img}" /></span>\
+								</div>\
+								<div class="content">\
+									<h3>{title} <label style="font-size:14px;">{pdate}</label></h3>\
+									<p>{content}</p>\
+								</div>\
+							</div>\
+						</li>';
+                        var html = iTemplate.makeList(TPL, that.data);
+                        if(that.data.length>3){
+                            ols[1] = ols[3] = ols[5] = html;
+                        }else{
+                            ols[3] = html;
+                        }
+
+                        var ul = document.getElementById("list_message_ul");
+                        ul.innerHTML = ols.join("<!----Eric_wu---->");
+                        that.length = that.data.length;
+                    }else{
+                        return;
+                    }
+                }
+            });
+            return that;
+        }
+        window.msgr.getMessage();
+        //
+    });
+</script>
+<body class="home">
+<div class="fbody ofh" >
+    <section id="list_message">
+        <ul id="list_message_ul" class="list_message">
+
+        </ul>
+    </section>
+    <div class="nav">
+        <a href="javascript:;" onclick="window.msgr.next();" class="pre">&nbsp;</a>
+        <a href="javascript:;" onclick="window.msgr.prev();" class="next">&nbsp;</a>
+    </div>
+</div>
+</body>
+</html></body>
+</html>

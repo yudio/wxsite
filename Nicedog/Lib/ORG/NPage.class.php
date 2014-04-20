@@ -73,8 +73,8 @@ class NPage {
         $nowCoolPage    =   ceil($this->nowPage/$this->rollPage);
 
         // 分析分页参数
+        $depr       =   C('URL_PATHINFO_DEPR');
         if($this->url){
-            $depr       =   C('URL_PATHINFO_DEPR');
             $url        =   rtrim(U('/'.$this->url,'',false),$depr).$depr.'__PAGE__';
         }else{
             if($this->parameter && is_string($this->parameter)) {
@@ -90,6 +90,8 @@ class NPage {
                     $parameter  =   $var;
                 }
             }
+
+            //LOG::write($parameter[C('VAR_GROUP')].$depr.$parameter[C('VAR_MODULE')].$depr.$parameter[C('VAR_ACTION')].'.act',LOG::ERR);
             $parameter[$p]  =   '__PAGE__';
             $url            =   U('',$parameter);
         }

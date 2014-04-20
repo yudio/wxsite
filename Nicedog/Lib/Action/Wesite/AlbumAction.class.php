@@ -6,7 +6,7 @@
  * Time: 下午5:29
  */
 
-class AlbumAction extends BaseAction{
+class AlbumAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;
@@ -58,10 +58,12 @@ class AlbumAction extends BaseAction{
         $db = M('Album');
         $id = $this->_get('pid','intval');
         $info = $db->where(array('token'=>$this->token,'id'=>$id))->find();
+        $infoset = D('AlbumSet')->where(array('token'=>$this->token))->find();
         $list = M('AlbumImg')->where(array('pid'=>$id))->select();
 
         $this->assign('info',$info);
         $this->assign('list',$list);
+        $this->assign('infoset',$infoset);
         $this->display('list');
     }
 

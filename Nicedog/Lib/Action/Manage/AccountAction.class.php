@@ -185,9 +185,9 @@ class AccountAction extends UserAction{
         $wxclient = new WeiXinClient(array('account'=>$_POST['wxaccount'],'password'=>md5($_POST['wxpwd']),'temp_path'=>THINK_PATH));
         $loginret = $wxclient->login();
         if ($loginret!="true"){
-            LOG::write($loginret,LOG::ERR);
+            //LOG::write($loginret,LOG::ERR);
             $ret =    json_decode($loginret,1);
-            $retcode = $ret['ErrCode'];
+            $retcode = $ret['base_resp']['ret'];  //{"base_resp":{"ret":0,"err_msg":"ok"}
             switch ($retcode){
                 case '-3':
                     $data=array('errno'=>'-3','error'=>"密码错误！",'pid'=>session('uid'));
@@ -212,8 +212,8 @@ class AccountAction extends UserAction{
         LOG::write('WXNAME:'.$_POST['wxname'],LOG::ERR);
         $_POST['wxfakeid'] = $wxclient->getFakeId();
         $_POST['wxaccount'] = $_POST['wxaccount'];
-        $_POST['wxpwd'] = $_POST['wxpwd'];
         $_POST['token'] = $this->genToken();
+        $_POST['wxpwd'] = npencrypt($_POST['wxpwd'],$_POST['token']);
         $_POST['type'] = '8,服务';
         //创建用户图片空间
         $picpath = 'Uploads/'.md5($_POST['token']);

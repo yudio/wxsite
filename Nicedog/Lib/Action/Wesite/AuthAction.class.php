@@ -6,7 +6,7 @@
  * Time: 下午5:29
  */
 
-class AuthAction extends BaseAction{
+class AuthAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;

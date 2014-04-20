@@ -40,7 +40,7 @@ FCAPP.HOUSE.List = {
 //            }
 //        });
         $.ajax({
-			url:'WebeState/housedata.html',
+			url:'/WebEstate/'+WXUID+'/houseData?eid='+EID+'&wecha_id='+WECHATID,
             //url: '/Webestate/Housedata/pid/'+PID+'/wechatid/'+WECHATID,
             dataType: 'jsonp',
             error: function() {
@@ -76,13 +76,13 @@ FCAPP.HOUSE.List = {
         i,
         defaultDesc = '其他户型';
         for (i = 0, il = rooms.length; i < il; i++) {
-            if (!rooms[i].desc) {
-                rooms[i].desc = defaultDesc;
+            if (!rooms[i].category) {
+                rooms[i].category = defaultDesc;
             }
-            if (rooms[i].desc in category) {
-                category[rooms[i].desc].push(rooms[i]);
+            if (rooms[i].category in category) {
+                category[rooms[i].category].push(rooms[i]);
             } else {
-                category[rooms[i].desc] = [rooms[i]];
+                category[rooms[i].category] = [rooms[i]];
             }
         }
         for (i in category) {
@@ -114,14 +114,14 @@ FCAPP.HOUSE.List = {
         return newCategory;
     },
     showDetail: function(id) {
-        FCAPP.Common.jumpTo('/Webestate/Picroll', {
+        FCAPP.Common.jumpTo('/WebEstate/'+WXUID+'/Picroll', {
             houseid: id
         },
         true);
     },
     show3D: function(houseid) {
         var t = new Date();
-        FCAPP.Common.jumpTo('/Webestate/Picfull', {
+        FCAPP.Common.jumpTo('/WebEstate/'+WXUID+'/Picfull', {
             houseid: houseid
         });
     },

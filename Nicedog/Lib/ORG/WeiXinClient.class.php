@@ -51,8 +51,6 @@ class WeiXinClient
 
         $this->req = new WeiXinReq();
         $this->req->get("https://mp.weixin.qq.com");
-        LOG::write("C|".$this->cookie,LOG::ERR);
-        LOG::write("C|".$this->webToken,LOG::ERR);
 // 读取cookie, webToken
         //$this->getCookieAndWebToken();
     }
@@ -71,11 +69,10 @@ class WeiXinClient
         $re = $this->req->submit($url, $post);
         // 保存cookie
         $this->cookie = $re['cookie'];
-        //file_put_contents($this->cookiePath, $this->cookie);
         // 得到token
         $this->getWebToken($re['body']);
-        LOG::write("LOGIN:".$this->cookie,LOG::ERR);
-        LOG::write("LOGIN:".$this->webToken,LOG::ERR);
+        //LOG::write("LOGIN:".$this->cookie,LOG::ERR);
+        //LOG::write("LOGIN:".$this->webToken,LOG::ERR);
         if (!$this->webToken){
             return $re['body'];
         }else{
@@ -196,13 +193,12 @@ class WeiXinClient
     private function getWebToken($logonRet)
     {
         $logonRet = json_decode($logonRet, true);
-        $msg = $logonRet["ErrMsg"]; // /cgi-bin/indexpage?t=wxm-index&lang=zh_CN&token=1455899896
+        $msg = $logonRet["redirect_url"]; // "redirect_url":"\/cgi-bin\/home?t=home\/index&lang=zh_CN&token=1832654677"}   /cgi-bin/indexpage?t=wxm-index&lang=zh_CN&token=1455899896
         $msgArr = explode("&token=", $msg);
         if (count($msgArr) != 2) {
             return false;
         } else {
             $this->webToken = $msgArr[1];
-            //file_put_contents($this->webTokenPath, $this->webToken);
             return true;
         }
     }

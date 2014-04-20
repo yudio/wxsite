@@ -5,7 +5,7 @@
  * Date: 14-3-17
  * Time: 下午3:38
  */
-class ReserveAction extends BaseAction{
+class ReserveAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;

@@ -6,7 +6,7 @@
  * Time: 下午5:29
  */
 
-class CommentAction extends BaseAction{
+class CommentAction extends WebAction{
     private $token;
     private $wxuid;
     private $wecha_id;

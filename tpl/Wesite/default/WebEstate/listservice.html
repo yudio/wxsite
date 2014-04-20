@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        {np:$setname}
+    </title>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="{np::STATICS}/js/jquery.min.js"></script>
+    <link href="{np::STATICS}/css/reset.css" rel="stylesheet" />
+    <style type="text/css">
+        #Content {
+            padding: 0 10px;
+        }
+        .list_bd{display:none;}
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn_more").bind('click', function() {
+                var box = $(this).parent().parent();
+                var isshow= $(".list_bd",box).is(":visible");//是否可见
+                if(isshow){
+                    $(".list_bd",box).hide();
+                    $(this).html('').html("展开详细");
+                }
+                else{
+                    $(".list_bd",box).show();
+                    $(this).html('').html("收起详细");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <a href="/WebEstate/{np:$wxuid}/indexService" class="btn_back"></a>
+    <h1>{np:$setname}</h1>
+</header>
+<div id="Content">
+    <ul class="data-list">
+        <volist name="list" id="vo">
+        <li>
+            <div class="listbox">
+                <div class="list_hd">
+                    <h4>{np:$vo.title}</h4>
+                </div>
+                <div class="list_bd">
+                    {np:$vo.content}
+                </div>
+                <div class="list_ft"><!--{np:$vo.update_time|date='Y-m-d',###}--><a class="btn_more" href="javascript:void(0)">点击查看</a></div>
+            </div>
+        </li>
+        </volist>
+    </ul>
+</div>
+</body>
+</html>

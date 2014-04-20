@@ -5,7 +5,7 @@ function strExists($haystack, $needle)
 }
 
 
-class IndexAction extends BaseAction{
+class IndexAction extends WebAction{
 	private $wxuser;	//微信公共帐号信息
 	private $classify;	//分类信息
 	private $wecha_id;
@@ -141,7 +141,7 @@ class IndexAction extends BaseAction{
             }
             $where['classid']=$classid;
             $count=$db->where($where)->count();
-            $pageSize=8;
+            $pageSize=10;
             $pagecount=ceil($count/$pageSize);
             if($pageNum > $pagecount){$pageNum=$pagecount;}
             if($pageNum >=1){$pageNum=($pageNum-1)*$pageSize;}
@@ -192,7 +192,10 @@ class IndexAction extends BaseAction{
         $this->assign('copyright',$this->copyright);	//版权是否显示
         $this->display($this->wxuser['tplcontentname'].':'.$this->wxuser['tplcontentid']);
     }
-	
+
+    /*
+     * 幻灯片图文列表
+     */
 	public function flash(){
 		$where['token']=$this->_get('token','trim');
 		$flash=M('Flash')->where($where)->select();

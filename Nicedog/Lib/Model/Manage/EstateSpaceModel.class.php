@@ -28,6 +28,7 @@
         $kdata['token'] = $data['token'];
         $kdata['uid']   = $data['uid'];
         $abid = $adb->data($kdata)->add();
+        M('EstateHouse')->where('id='.$data['pid'])->setInc('fulldnum');
         M('EstateSpace')->data(array('id'=>$data['id'],'abid'=>$abid))->save();
     }
     /*
@@ -39,6 +40,11 @@
         $kdata['title'] = $data['title'];
         $kdata['update_time'] = time();
         $adb->data($kdata)->save();
+    }
+
+    // 删除成功后的回调方法
+    protected function _after_delete($data,$options) {
+
     }
 
     function checkPid(){

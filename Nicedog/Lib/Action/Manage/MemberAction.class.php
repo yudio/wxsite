@@ -10,12 +10,12 @@ class MemberAction extends UserAction{
     public function _initialize() {
         parent::_initialize();
         $token = session('token');
-        $db=M("Wxuser");
+        C('TMPL_FILE_DEPR','/');
         //验证权限
-        $token_open=M('token_open')->field('queryname')->where(array('token'=>session('token')))->find();
+        /*$token_open=M('token_open')->field('queryname')->where(array('token'=>session('token')))->find();
         if(!strpos($token_open['queryname'],'huiyuanka')){
             $this->error('您还未开启该模块的使用权,请到功能模块中添加','/npManage/func/app.act');
-        }
+        }*/
         //获取所在组的开卡数量
         //user_group.create_card_num     wxuser.allcardnum,yetcardnum,cardisok
         /*$thisWxUser=$db->where(array('token'=>$token))->find();
@@ -308,7 +308,7 @@ class MemberAction extends UserAction{
         }
         if ($keys){$where['keyword'] = array('like','%'.$keys.'%');}
         $count=$db->where($where)->count();
-        $page=new Page($count,25);
+        $page=new NPage($count,5);
         $list=$db->where($where)->order('getcardtime DESC')->limit($page->firstRow.','.$page->listRows)->select();
         //用户总数
         $totalCount = $db->where(array('token'=>session('token')))->count();
@@ -734,6 +734,30 @@ class MemberAction extends UserAction{
     }
 
 
+    /*
+     *
+     * 会员营销
+     */
+    public function market(){
+
+        $this->display();
+    }
+    /*
+     * 签到分享设置
+     */
+    public function setScores(){
+        $db = D('MemberCardSet');
+        if (IS_POST){
+            $db->data($_POST)->save();
+            $this->ajaxReturn(array('errno'=>0,'error'=>'保存成功！','url'=>U('setScores')));
+        }
+        $info = $db->where(array('token'=>$this->token))->find();
+        if (!$info){
+            $this->redirect('Manage/Member/setBusiness',null,3,'请先设置商家信息！');
+        }
+        $this->assign('info',$info);
+        $this->display();
+    }
 }
 
 

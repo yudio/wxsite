@@ -4,7 +4,8 @@
 	protected $_validate = array(
 			array('keyword','require','关键词不能为空',MODEL::MODEL_INSERT),
             array('keyword','insertKeyword','该关键字冲突！',MODEL::MUST_VALIDATE,'callback',MODEL::MODEL_INSERT),
-			array('title','require','标题不能为空',1)
+			array('title','require','标题不能为空',1),
+            array('tel','require','联系号码不能为空',1)
 	 );
 	protected $_auto = array (
         array('create_time','time',MODEL::MODEL_INSERT,'function'),
@@ -34,6 +35,7 @@
     protected function _after_insert($data,$options) {
         $kdata = $data;
         $kdata['pid'] = $data['id'];
+        $kdata['token'] = session('token');
         unset($kdata['id']);
         KeyWord::update($kdata,'Estate');
     }
@@ -44,6 +46,7 @@
     protected function _after_update($data,$options) {
         $kdata = $data;
         $kdata['pid'] = $data['id'];
+        $kdata['token'] = session('token');
         unset($kdata['id']);
         KeyWord::update($kdata,'Estate');
     }

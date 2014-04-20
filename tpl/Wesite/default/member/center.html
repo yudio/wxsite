@@ -280,9 +280,6 @@ $(document).ready(function(){
                 <li class="li_b">
                     <a href="/Webnewmemberscore/ListCoupon?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>会员优惠<span>&nbsp;</span></label></a>
                 </li>
-                <li class="li_c">
-                    <a href="/Webnewmemintegral/exchangelist?pid=103689&wechatid=oiHrGt69PhyxwL3qlMNSCruSwIv4"><label class="label"><i>&nbsp;</i>积分兑换<span>&nbsp;</span></label></a>
-                </li>
                 <li class="li_d">
                     <a href="/Webmember/{np:$wxuid}/editMember?wecha_id={np:$wecha_id}"><label class="label"><i>&nbsp;</i>完善会员卡资料 <span>&nbsp;</span></label></a>
                 </li>
@@ -305,42 +302,7 @@ $(document).ready(function(){
     <div style="display: none;" id="orderpay">
 
     </div>
-    <footer>
-        <nav class="nav">
-            <ul class="box">
-                <li>
-                    <a href="/Webmember/{np:$wxuid}/center?wechatid={np:$wecha_id}" class="on">
-                        <p class="card"></p>
-                        <span>会员卡</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webmember/{np:$wxuid}/notice?wechatid={np:$wecha_id}" >
-                        <p id="Js-msg-num" class="msg"  ></p>
-                        <span>消息</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webmember/{np:$wxuid}/signin?wechatid={np:$wecha_id}" >
-                        <p class="sign"></p>
-                        <span>签到</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webmember/{np:$wxuid}/share?wechatid={np:$wecha_id}" >
-                        <p class="share"></p>
-                        <span>分享</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Webmember/{np:$wxuid}/my?wechatid={np:$wecha_id}" class="my " >
-                        <p class="my"  ></p>
-                        <span>我的</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </footer>
+    <include file="footer"/>
     <script type="text/javascript">
         document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
             WeixinJSBridge.call('hideToolbar');

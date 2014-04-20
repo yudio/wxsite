@@ -10,9 +10,10 @@ class ActivityAction extends UserAction{
 
     public function _initialize() {
         parent::_initialize();
-        if(session('gid')==1){
+        if(session('gid')<=1){
             $this->error('vip0无法使用微活动,请充值后再使用','/npManage/account/home.php');
         }
+        C('TMPL_FILE_DEPR','/');
     }
 
     //大转盘

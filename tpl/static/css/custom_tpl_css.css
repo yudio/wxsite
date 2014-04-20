@@ -1,0 +1,15 @@
+
+.weiba-type-home{background: #ECEFFC;}
+.tpl-list-item:first-child .tpl-title,.tpl-list-item:nth-child(n+2).tpl-list-item:nth-child(-n+5) .tpl-title{font-weight: bold;}
+.tpl-list-item:nth-child(n+2).tpl-list-item:nth-child(-n+5) .tpl-desc {font-size:12px;}
+font-size: 12px;
+.tpl-list-item:first-child .tpl-desc{font-size:12px;}
+.tpl-list-item:nth-child(n+11) {height: 110px;line-height:90px;}
+.tpl-list-item:nth-child(n+11) .smallImg {width:60px;height: 60px;border-radius: 30px;text-align: center;line-height: 50px;margin-top:0px;box-shadow: 0 1px 3px #C0C0C0;}
+.tpl-list-item:nth-child(n+11) .smallImg img {margin-top:5px;width: 50px;height: 50px;}
+.tpl-list-item:nth-child(n+11) .tpl-title{font-size:15px; color:#555}
+.tpl-list-item:nth-child(n+6).tpl-list-item:nth-child(-n+10) {border: 1px solid #fff;
+background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FFFFFF),color-stop(1,#e3ecf3));box-shadow: 0 0 2px #B6B4B4;}
+.weiba-easyhomepanel .weiba-footer {padding-bottom:34px;}
+.weiba-easycall.home-panel .panel-box .easycall-item .title{margin-top: -5px;}
+.weiba-type-detail.weiba-tpl-photo{background-color:#fff;}

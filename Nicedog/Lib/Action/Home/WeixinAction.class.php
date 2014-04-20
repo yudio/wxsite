@@ -8,108 +8,331 @@ class WeixinAction extends Action
     private $wecha_id;
     private $data = array();
     private $my = '奈斯伙伴';
+    private $usertype;
 
     public function index()
     {
         $this->token = $this->_get('token');
-        $db = M('Wxuser');
-        $wxuser = $db->where(array('token'=>$this->token))->find();
-        if (!$wxuser){
-            return "";
-        }
-        $this->wxuid = $wxuser['id'];
-
+        //验证并获取微信消息
         $weixin = new Wechat($this->token);
         $data = $weixin->request();
         $this->data = $weixin->request();
         $this->wecha_id = $data['FromUserName'];
         $this->my = C('site_my');
-        list($content, $type) = $this->reply($data);
+        //验证服务用户存在
+        $db = M('Wxuser');
+        $wxuser = $db->where(array('token'=>$this->token))->find();
+        if (!$wxuser){
+            $weixin->response('该公众号已解除服务!','text');
+            $weixin->close($weixin->getXMLRES());
+        }
+        $this->usertype = $wxuser['type'];
+        $this->wxuid = $wxuser['id'];
+
+
+        if ($data['Event']&&$data['MsgType']=='event'){
+            list($content, $type) = $this->replyEvent($data);
+            $weixin->response($content, $type);
+        }else{  //场景设置
+            $themedb = M('MemberTheme');
+            $theme = $themedb->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
+            if (!$theme){   //theme_type   0 默认   3微信墙
+                $tid = $themedb->data(array('token'=>$this->token,'wecha_id'=>$data['FromUserName'],'theme'=>'默认','type'=>0,'status'=>0,'update_time'=>NOW_TIME,'expire_time'=>7200))->add();
+                $theme = $themedb->find($tid);
+            }elseif (NOW_TIME - $theme['update_time']>$theme['expire_time']){   //场景超时
+                $themedb->data(array('id'=>$theme['id'],'theme'=>'默认','type'=>0,'status'=>0,'update_time'=>NOW_TIME,'expire_time'=>7200))->save();
+                $theme = $themedb->find($theme['id']);
+            }
+            if ($theme['type']==0){ //默认回复
+                list($content, $type) = $this->reply($data);
+                $weixin->response($content, $type);
+                $themedb->data(array('id'=>$theme['id'],'update_time'=>NOW_TIME))->save();
+            }
+            if ($theme['type']==3){ //微信墙场景   status 0:进入微信墙  1:资料完整或修改   2:发言状态    3:跑马
+                switch($theme['status']){
+                    case 0:
+                        if ($this->usertype>2){
+                            $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
+                            if (!$walluser){    //同步资料
+                                $member = M('Member')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
+                                $walluser['token'] = $member['token'];
+                                $walluser['wecha_id'] = $member['wecha_id'];
+                                $walluser['wxname'] = $member['nickname'];
+                                $walluser['headpic'] = $member['headimgurl'];
+                                $walluser['status'] = 1;$walluser['msgnum'] = 0;
+                                $walluser['create_time'] = NOW_TIME;$walluser['update_time'] = NOW_TIME;
+                                D('WallUser')->data($walluser)->add();
+                            }
+                            $themedb->data(array('id'=>$theme['id'],'status'=>1,'update_time'=>NOW_TIME,'expire_time'=>600))->save();
+                            $weixin->response('请回复"上墙"参与活动！10分钟内无响应自动退出！','text');
+                        }else{
+                            $walluser['token'] = $this->token;
+                            $walluser['wecha_id'] = $data['FromUserName'];
+                            $walluser['status'] = 0;$walluser['msgnum'] = 0;
+                            $walluser['create_time'] = NOW_TIME;$walluser['update_time'] = NOW_TIME;
+                            D('WallUser')->data($walluser)->add();
+                            $themedb->data(array('id'=>$theme['id'],'status'=>1,'update_time'=>NOW_TIME,'expire_time'=>180))->save();
+                            $weixin->response('请发送你的"姓名"或"昵称"！3分钟内无响应自动退出！','text');
+                        }
+                        break;
+                    case 1:
+                        //验证用户资料是否齐全   不齐全提示其操作
+                        $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
+                        $nextstatus = 1;
+                        if ($walluser['status']==0){//资料不全
+                            //处理消息
+                            if ($data['MsgType']=='text'){
+                                if ($data['Content']=='上墙'){
+                                    $weixin->response('请完善你的资料再发送"上墙"！','text');
+                                }else{
+                                    D('WallUser')->data(array('id'=>$walluser['id'],'wxname'=>$data['Content']))->save();
+                                    if (!$walluser['headpic']||$walluser['headpic']==''){
+                                        $weixin->response('请发送图片作为你的头像！3分钟内无响应自动退出！','text');
+                                    }else{
+                                        D('WallUser')->data(array('id'=>$walluser['id'],'status'=>1))->save();
+                                        $weixin->response('请回复"上墙"参与活动！3分钟内无响应自动退出！','text');
+                                    }
+                                }
+                            }elseif ($data['MsgType']=='image'){
+                                D('WallUser')->data(array('id'=>$walluser['id'],'headpic'=>$data['PicUrl']))->save();
+                                if (!$walluser['nickname']||$walluser['nickname']==''){
+                                    $weixin->response('请发送你的"姓名"或"昵称"！3分钟内无响应自动退出！','text');
+                                }else{
+                                    D('WallUser')->data(array('id'=>$walluser['id'],'status'=>1))->save();
+                                    $weixin->response('请回复"上墙"参与活动！3分钟内无响应自动退出！','text');
+                                }
+                            }else{
+                                $weixin->response('请发送文本和图片格式的消息！3分钟内无响应自动退出！','text');
+                            }
+                        }else{
+                            if ($data['MsgType']=='text'&&$data['Content']=='上墙'){
+                                $weixin->response('请发送文本消息上墙吧！3分钟内无响应自动退出！','text');
+                                $nextstatus = 2;
+                            }
+                        }
+                        $themedb->data(array('id'=>$theme['id'],'status'=>$nextstatus,'update_time'=>NOW_TIME))->save();
+                        //匹配关键字"上墙"进入下一状态
+                        break;
+                    case 2://发言状态   回复'修改资料'返回状态1  回复'离开或0'退出微信墙
+                        $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$data['FromUserName']))->find();
+                        if ($data['MsgType']=='text'){
+                            $content = $data['Content'];
+                            $msg = array();
+                            $msg['token'] = $this->token;
+                            $msg['wecha_id'] = $data['FromUserName'];
+                            $msg['title']  = $walluser['wxname'];
+                            $msg['headpic'] = $walluser['headpic'];
+                            $msg['content'] = $content;
+                            $msg['status']  = 1;
+                            $msg['create_time'] = NOW_TIME;
+                            M('WallMsg')->data($msg)->add();
+                            $weixin->response('消息发送成功！3分钟内无响应自动退出！','text');
+                            $themedb->data(array('id'=>$theme['id'],'update_time'=>NOW_TIME))->save();
+                        }else{
+                            $weixin->response('请发送文本消息上墙吧！3分钟内无响应自动退出！','text');
+                            $themedb->data(array('id'=>$theme['id'],'update_time'=>NOW_TIME))->save();
+                        }
+                    default:
+                        $weixin->response('微信墙状态异常,请等待！','text');
+                }
+            }
+        }
+
         //测试接口记录
         $vo = M('Actlog');
-        $arr = array();
         $arr['act_url'] = "HTTP";
-        $arr['act_date'] = date("Y-m-d H:i:s");
+        $arr['act_date'] = date("Y-m-d");
         $arr['act_data'] = $data['orgin']; //is_array($weixin->request());//explode('|',$weixin->request());
-
-        $weixin->response($content, $type);
         $arr['act_reply'] = $weixin->getXMLRES();
-        $arr['act_time'] = time();
+        $arr['act_time'] = NOW_TIME;
         $vo->add($arr);
         $weixin->close($weixin->getXMLRES());
 
     }
 
-    private function reply($data)
-    {
-        $this->data = $data;
-        if ('CLICK' == $data['Event']) {
-            LOG::write("CLICK",LOG::INFO);
-            $data['Content'] = $data['EventKey'];
-        }
-        if ('subscribe' == $data['Event']) {
-            LOG::write("SUBSCRIBE OPEN",LOG::INFO);
-            $follow_data['follow_form_id'] = $data['FromUserName'];
-            $follow_data['follow_to_id'] = $data['ToUserName'];
-            $follow_data['follow_time'] = $data['CreateTime'];
-            $foloow_lists = M('Follow')->add($follow_data);
-            $this->requestdata('follownum');//REQUEST
 
-            $autoreply = M('Areply')->where(array('token' => $this->token))->find();
-
-            //未定义默认回复，返回微官网
-            if (!$autoreply){
-                LOG::write("未定义默认回复，返回微官网",LOG::INFO);
-                $homestr = M('Home')->field('wxkey')->where(array('token' => $this->token))->find();
-                if ($homestr) {
-                     return $this->shouye();
-                }else{
-                     return array('用户未设置关注回复！','text');
+    private function replyEvent($data){
+        //记录事件
+        $event['token'] = $this->token;
+        $event['wecha_id'] = $this->wecha_id;
+        $event['tousername'] = $data['ToUserName'];
+        $event['create_time'] = NOW_TIME;
+        $event['msg_type']  = 'event';
+        //匹配事件
+        switch($data['Event']){
+            case 'subscribe'://用户关注 和 用户未关注时，进行关注后的事件推送
+                //记录关注事件
+                $event['event']   = $data['Event'];
+                if ($data['EventKey']){
+                    $event['event_key'] = $data['EventKey'];
+                    $event['ticket'] = $data['Ticket'];
                 }
-            }
-            //开启默认无匹配回复
-            if ($autoreply['default_reply_flag']){
-                LOG::write("开启默认无匹配回复，返回微官网",LOG::INFO);
-                $this->keyword($data['keyword']);
-            }
-
-            if ($autoreply['is_news'] == 1) {    //返回关注图文本回复
-                $where['token'] = $this->token;
-                $where['match_type']  =  3;      //关注图文
-                $img = M('Img')->field('id,info,pic,url,title,news')->where($where)->find();
-                $return[] = array($img['title'],$img['info'],$img['pic'],$img['url']);;                //首条
-                if ($img['news']){
-                    $newswhere['token'] = $this->token;
-                    $newswhere['id']    = array('in',$img['news']);
-                    $news = M('Img')->where($newswhere)->order('id desc')->limit(9)->select();
-                    foreach ($news as $keya => $infot) {
-                        $return[] = array($infot['title'],$infot['info'],$infot['pic'],$infot['url']);
+                M('MemberEvent')->data($event)->add();
+                //统计关注事件
+                $follow_data['follow_form_id'] = $data['FromUserName'];
+                $follow_data['follow_to_id'] = $data['ToUserName'];
+                $follow_data['follow_time'] = $data['CreateTime'];
+                $foloow_lists = M('Follow')->add($follow_data);
+                $this->requestdata('follownum');//REQUEST
+                //写入Member
+                $mdata['token'] = $this->token;
+                $mdata['wecha_id'] = $this->wecha_id;
+                $mdata['subscribe_time'] = NOW_TIME;
+                $member = M('Member')->where($mdata)->find();
+                if (!$member){
+                    if ($this->usertype>2){ //服务号高级接口
+                        $member = D('Member')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
+                        if (!$member){
+                            //调用微信接口更新
+                            $dbset = M('Diymen_set');
+                            $wxset = $dbset->where(array('token'=>$this->token))->find();
+                            $wxservice = new WxService($wxset);
+                            $wxset['appaccess'] = $wxservice->getAccessToken();
+                            if (NOW_TIME-$wxservice->getAccessTime()>7200){
+                                $wxset['updatetime'] = $wxservice->getAccessTime();
+                                M('Diymen_set')->where(array('token'=>$this->token))->data($wxset)->save();
+                            }
+                            $mdata = $wxservice->user_info($this->wecha_id,true);
+                            $mdata['status']   = 1; //完整资料
+                            $mdata['wecha_id'] = $this->wecha_id;
+                            $mdata['token'] = $this->token;
+                            $mdata['update_time'] = NOW_TIME;
+                            M('Member')->data($mdata)->add();
+                        }//TODO  取消关注后再关注，更新用户资料status
+                    }else{
+                        M('Member')->data($mdata)->add();
                     }
                 }
-                return array($return,'news');
-            } else {
-                //返回关注时文本回复
-                return array($autoreply['content'],'text');
-            }
-        } elseif ('unsubscribe' == $data['Event']) {
-            $follow_data['follow_form_id'] = $data['FromUserName'];
-            $follow_data['follow_to_id'] = $data['ToUserName'];
-            $foloow_del = M('Follow')->where($follow_data)->delete();
-            //取消关注
-            $this->requestdata('unfollownum');//REQUEST
-            return array('感谢关注！','text');
+
+                $autoreply = M('Areply')->where(array('token' => $this->token))->find();
+                //未定义默认回复，返回微官网
+                if (!$autoreply){
+                    LOG::write("未定义默认回复，返回微官网",LOG::INFO);
+                    $homestr = M('Home')->field('wxkey')->where(array('token' => $this->token))->find();
+                    if ($homestr) {
+                        return $this->shouye();
+                    }else{
+                        return array('用户未设置关注回复！','text');
+                    }
+                }
+                //开启默认无匹配回复
+                if ($autoreply['default_reply_flag']){
+                    LOG::write("开启默认无匹配回复，返回微官网",LOG::INFO);
+                    $this->keyword($data['keyword']);
+                }
+
+                if ($autoreply['is_news'] == 1) {    //返回关注图文本回复
+                    $where['token'] = $this->token;
+                    $where['match_type']  =  3;      //关注图文
+                    $img = M('Img')->field('id,info,pic,url,title,news')->where($where)->find();
+                    $return[] = array($img['title'],$img['info'],$img['pic'],$img['url']);;                //首条
+                    if ($img['news']){
+                        $newswhere['token'] = $this->token;
+                        $newswhere['id']    = array('in',$img['news']);
+                        $news = M('Img')->where($newswhere)->order('id desc')->limit(9)->select();
+                        foreach ($news as $keya => $infot) {
+                            $return[] = array($infot['title'],$infot['info'],$infot['pic'],$infot['url']);
+                        }
+                    }
+                    return array($return,'news');
+                } else {
+                    //返回关注时文本回复
+                    return array($autoreply['content'],'text');
+                }
+                break;
+            case 'unsubscribe':
+                //取消关注事件
+                $event['event']   = $data['Event'];
+                M('MemberEvent')->data($event)->add();
+                //更新用户状态
+                $mdata['token'] = $this->token;
+                $mdata['wecha_id'] = $this->wecha_id;
+                $member = M('Member')->where($mdata)->find();
+                M('Member')->data(array('id'=>$member['id'],'status'=>0))->save();
+                //取消关注统计数据
+                $this->requestdata('unfollownum');//REQUEST
+                return array('感谢关注！','text');
+            case 'SCAN'://用户已关注时的事件推送
+                $event['event']   = $data['Event'];
+                $event['event_key'] = $data['EventKey'];
+                $event['ticket'] = $data['Ticket'];
+                M('MemberEvent')->data($event)->add();
+                $this->trackdata('SCAN');//REQUEST
+                break;
+            case 'LOCATION'://上报地理位置事件
+                $event['event']   = $data['Event'];
+                $event['event_key'] = $data['EventKey'];
+                $event['lat'] = $data['Latitude'];
+                $event['lng'] = $data['Longitude'];
+                $event['precision'] = $data['Precision'];
+                M('MemberEvent')->data($event)->add();
+                $this->trackdata('LOCATION');//REQUEST
+                break;
+            case 'CLICK'://点击菜单拉取消息时的事件推送
+                $event['event']   = $data['Event'];
+                $event['event_key'] = $data['EventKey'];
+                M('MemberEvent')->data($event)->add();
+                $this->trackdata('MENU_CLICK');//REQUEST
+                break;
+            case 'VIEW'://点击菜单跳转链接时的事件推送
+                $event['event']   = $data['Event'];
+                $event['event_key'] = $data['EventKey'];
+                M('MemberEvent')->data($event)->add();
+                $this->trackdata('MENU_VIEW');//REQUEST
+                break;
+            default:
+                return array('未匹配事件','text');
         }
-        $key = $data['Content'];   //提取关键字匹配
-        //主页过滤
-        /*LOG::write("[HOMESTR]",LOG::INFO);
-        $homestr  = M('Home')->field('wxkey')->where(array('token' => $this->token))->find();
-        if ($homestr){
-            $homedata = explode(' ',trim($homestr['wxkey']));
-            if (in_array(mb_strtoupper($key,'UTF-8'),$homedata)){
-                return $this->shouye();
-            }
-        }*/
-        LOG::write("TOKEN OPEN",LOG::INFO);
+    }
+
+    private function reply($data)
+    {
+        //记录消息
+        $msg['token'] = $this->token;
+        $msg['wecha_id'] = $this->wecha_id;
+        $msg['tousername'] = $data['ToUserName'];
+        $msg['create_time'] = NOW_TIME;
+        $msg['msg_id']  = $data['MsgId'];
+        //匹配消息
+        switch($data['MsgType']){
+            case 'image':
+                $msg['picurl'] = $data['PicUrl'];
+                $msg['media_id'] = $data['MediaId'];
+                M('MemberMsg')->data($msg)->add();
+                return array('图片接收成功！','text');
+                break;
+            case 'voice':
+                $msg['media_id'] = $data['MediaId'];
+                $msg['format'] = $data['Format'];
+                M('MemberMsg')->data($msg)->add();
+                return array('音频接收成功！','text');
+                break;
+            case 'video':
+                $msg['media_id'] = $data['MediaId'];
+                $msg['thumb_media_id'] = $data['ThumbMediaId'];
+                M('MemberMsg')->data($msg)->add();
+                return array('音频接收成功！','text');
+                break;
+            case 'location':
+                $msg['location_x'] = $data['Location_X'];
+                $msg['location_y'] = $data['Location_Y'];
+                $msg['scale'] = $data['Scale'];
+                $msg['label'] = $data['Label'];
+                M('MemberMsg')->data($msg)->add();
+                return array('定位接收成功！','text');
+                break;
+            case 'link':
+                $msg['title'] = $data['Title'];
+                $msg['description'] = $data['Description'];
+                $msg['url'] = $data['Url'];
+                M('MemberMsg')->data($msg)->add();
+                return array('链接接收成功！','text');
+                break;
+        }
+        $msg['content'] = $data['Content'];
+        M('MemberMsg')->data($msg)->add();
+
+        $key = $data['Content'];
         $Pin = new GetPin();
         $open = M('Token_open')->where(array('token' => $this->_get('token')))->find();
         $this->fun = $open['queryname'];        $datafun = explode(',', $open['queryname']);
@@ -131,7 +354,6 @@ class WeixinAction extends Action
                 continue;
             }
         }
-        LOG::write("RETURN VALUE",LOG::INFO);
         if (!empty($return)) {
             if (is_array($return)) {
                 $this->trackdata('Token_OPEN');
@@ -144,7 +366,7 @@ class WeixinAction extends Action
                 );
             }
         } else {
-            LOG::write("Location_X",LOG::INFO);
+            /*LOG::write("Location_X",LOG::INFO);
             if ($this->data['Location_X']) {
                 $this->recordLastRequest($this->data['Location_Y'] . ',' . $this->data['Location_X'], 'location');
                 $this->trackdata('Location');
@@ -158,7 +380,7 @@ class WeixinAction extends Action
                     'msgtype' => 'location',
                     'uid' => $this->data['FromUserName']
                 ))->find();
-                if ($loctionInfo && intval($loctionInfo['time'] > (time() - 60))) {
+                if ($loctionInfo && intval($loctionInfo['time'] > (NOW_TIME - 60))) {
                     $latLng = explode(',', $loctionInfo['keyword']);
                     return $this->map($latLng[1], $latLng[0]);
                 }
@@ -167,8 +389,7 @@ class WeixinAction extends Action
                     '请发送您所在的位置',
                     'text'
                 );
-            }
-            LOG::write("FUNCTION",LOG::INFO);
+            }*/
             switch ($key) {
                 case '地图':
                     return $this->companyMap();
@@ -180,7 +401,7 @@ class WeixinAction extends Action
                         'msgtype' => 'location',
                         'uid' => $this->data['FromUserName']
                     ))->find();
-                    if ($loctionInfo && intval($loctionInfo['time'] > (time() - 60))) {
+                    if ($loctionInfo && intval($loctionInfo['time'] > (NOW_TIME - 60))) {
                         $latLng = explode(',', $loctionInfo['keyword']);
                         return $this->map($latLng[1], $latLng[0]);
                     }
@@ -207,35 +428,10 @@ class WeixinAction extends Action
                 case 'help':
                     return $this->help();
                     break;
-                case '会员卡':
-                    return $this->member();
-                    break;
                 case '身份证':
                     return $this->shenfenzheng(array());
                     break;
-                case '会员':
-                    return $this->member();
-                    break;
-                // case '留言':
-                // return $this->liuyan();
-                // break;
                 case '商城':
-                    /*$pro = M('product')->where(array(
-                        'groupon' => '0',
-                        'dining' => '0',
-                        'token' => $this->token
-                    ))->find();
-                    return array(
-                        array(
-                            array(
-                                $pro['name'],
-                                strip_tags(htmlspecialchars_decode($pro['intro'])),
-                                $pro['logourl'],
-                                C('site_url') . '/index.php?g=Wap&m=Product&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName']
-                            )
-                        ),
-                        'news'
-                    );*/
                     $pro = M('reply_info')->where(array(
                         'infotype' => 'Shop',
                         'token' => $this->token
@@ -247,54 +443,6 @@ class WeixinAction extends Action
                                 strip_tags(htmlspecialchars_decode($pro['info'])),
                                 $pro['picurl'],
                                 C('site_url') . '/index.php?g=Wap&m=Product&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName']
-                            )
-                        ),
-                        'news'
-                    );
-                    break;
-                case '全景':
-                    $pro = M('reply_info')->where(array(
-                        'infotype' => 'Panorama',
-                        'token' => $this->token
-                    ))->find();
-                    return array(
-                        array(
-                            array(
-                                $pro['title'],
-                                strip_tags(htmlspecialchars_decode($pro['info'])),
-                                $pro['picurl'],
-                                C('site_url') . '/index.php?g=Wap&m=Panorama&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName']
-                            )
-                        ),
-                        'news'
-                    );
-                    break;
-                case '留言':
-                    $pro = M('reply_info')->where(array(
-                        'infotype' => 'Liuyan',
-                        'token' => $this->token
-                    ))->find();
-                    return array(
-                        array(
-                            array(
-                                $pro['title'],
-                                strip_tags(htmlspecialchars_decode($pro['info'])),
-                                $pro['picurl'],
-                                C('site_url') . '/index.php?g=Wap&m=Liuyan&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName']
-                            )
-                        ),
-                        'news'
-                    );
-                    break;
-                case '预约':
-                    $pro = M('reply_info')->where(array('infotype' => 'Yuyue','token' => $this->token))->find();
-                    return array(
-                        array(
-                            array(
-                                $pro['title'],
-                                strip_tags(htmlspecialchars_decode($pro['info'])),
-                                $pro['picurl'],
-                                C('site_url') . '/index.php?g=Wap&m=Yuyue&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName']
                             )
                         ),
                         'news'
@@ -318,22 +466,6 @@ class WeixinAction extends Action
                     );
                     break;
                 case '团购':
-                    /*$pro = M('product')->where(array(
-                        'groupon' => '1',
-                        'token' => $this->token
-                    ))->find();
-                    return array(
-                        array(
-                            array(
-                                $pro['name'],
-                                strip_tags(htmlspecialchars_decode($pro['intro'])),
-                                $pro['logourl'],
-                                C('site_url') . '/index.php?g=Wap&m=Groupon&a=grouponIndex&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName']
-                            )
-                        ),
-                        'news'
-                    );
-					*/
                     $pro = M('reply_info')->where(array(
                         'infotype' => 'Groupon',
                         'token' => $this->token
@@ -351,68 +483,11 @@ class WeixinAction extends Action
                     );
                     break;
                 default:
-                    $check = $this->user('diynum', $key);
-                    if ($check['diynum'] != 1) {
-                        return array(
-                            C('connectout'),
-                            'text'
-                        );
-                    } else {
-                        return $this->keyword($key);
-                    }
+                    return $this->keyword($key);
             }
         }
     }
 
-    function xiangce()
-    {
-        $photo = M('Photo')->where(array(
-            'token' => $this->token,
-            'status' => 1
-        ))->find();
-        $data['title'] = $photo['title'];
-        $data['keyword'] = $photo['info'];
-        $data['url'] = rtrim(C('site_url'), '/') . U('Wap/Photo/index', array(
-                'token' => $this->token,
-                'wecha_id' => $this->data['FromUserName']
-            ));
-        $data['picurl'] = $photo['picurl'] ? $photo['picurl'] : rtrim(C('site_url'), '/') . '/tpl/static/images/yj.jpg';
-        return array(
-            array(
-                array(
-                    $data['title'],
-                    $data['keyword'],
-                    $data['picurl'],
-                    $data['url']
-                )
-            ),
-            'news'
-        );
-    }
-    // function liuyan(){
-    // $liuyan = M('liuyan')->where(array(
-    // 'token' => $this->token,
-    // 'status' => 1
-    // ))->find();
-    // $data['title']   = $liuyan['title'];
-    // $data['keyword'] = $liuyan['keyword'];
-    // $data['url']     = rtrim(C('site_url'), '/') . U('Wap/Liuyan/index', array(
-    // 'token' => $this->token,
-    // 'wecha_id' => $this->data['FromUserName']
-    // ));
-    // $data['pic']  = $liuyan['pic'] ? $liuyan['pic'] : rtrim(C('site_url'), '/') . '/tpl/static/images/02.jpg';
-    // return array(
-    // array(
-    // array(
-    // $data['title'],
-    // $data['keyword'],
-    // $data['pic'],
-    // $data['url']
-    // )
-    // ),
-    // 'news'
-    // );
-    // }
     function companyMap()
     {
         import("Home.Action.MapAction");
@@ -447,50 +522,9 @@ class WeixinAction extends Action
         }
     }
 
-    function huiyuanka($name)
-    {
-        return $this->member();
-    }
-
-    function member()
-    {
-        $card = M('member_card_create')->where(array(
-            'token' => $this->token,
-            'wecha_id' => $this->data['FromUserName']
-        ))->find();
-        $cardInfo = M('member_card_set')->where(array(
-            'token' => $this->token
-        ))->find();
-        if ($card == false) {
-            $data['picurl'] = rtrim(C('site_url'), '/') . '/tpl/static/images/member.jpg';
-            $data['title'] = '会员卡,省钱，打折,促销，优先知道,有奖励哦';
-            $data['keyword'] = '尊贵vip，是您消费身份的体现,会员卡,省钱，打折,促销，优先知道,有奖励哦';
-            $data['url'] = rtrim(C('site_url'), '/') . U('Wap/Card/get_card', array(
-                    'token' => $this->token,
-                    'wecha_id' => $this->data['FromUserName']
-                ));
-        } else {
-            $data['picurl'] = rtrim(C('site_url'), '/') . '/tpl/static/images/vip.jpg';
-            $data['title'] = $cardInfo['cardname'];
-            $data['keyword'] = $cardInfo['msg'];
-            $data['url'] = rtrim(C('site_url'), '/') . U('Wap/Card/vip', array(
-                    'token' => $this->token,
-                    'wecha_id' => $this->data['FromUserName']
-                ));
-        }
-        return array(
-            array(
-                array(
-                    $data['title'],
-                    $data['keyword'],
-                    $data['picurl'],
-                    $data['url']
-                )
-            ),
-            'news'
-        );
-    }
-
+    /*
+     * 淘宝连接
+     */
     function taobao($name)
     {
         $name = array_merge($name);
@@ -518,40 +552,6 @@ class WeixinAction extends Action
             return '商家还未及时更新淘宝店铺的信息,回复帮助,查看功能详情';
         }
     }
-
-    function choujiang($name)
-    {
-        $data = M('lottery')->field('id,keyword,info,title,starpicurl')->where(array(
-            'token' => $this->token,
-            'status' => 1,
-            'type' => 1
-        ))->order('id desc')->find();
-        if ($data == false) {
-            return array(
-                '暂无抽奖活动',
-                'text'
-            );
-        }
-        $pic = $data['starpicurl'] ? $data['starpicurl'] : rtrim(C('site_url'), '/') . '/tpl/User/default/common/images/img/activity-lottery-start.jpg';
-        $url = rtrim(C('site_url'), '/') . U('Wap/Lottery/index', array(
-                'type' => 1,
-                'token' => $this->token,
-                'id' => $data['id'],
-                'wecha_id' => $this->data['FromUserName']
-            ));
-        return array(
-            array(
-                array(
-                    $data['title'],
-                    $data['info'],
-                    $pic,
-                    $url
-                )
-            ),
-            'news'
-        );
-    }
-
 
     /*
      *
@@ -608,37 +608,33 @@ class WeixinAction extends Action
         return $url;
     }
 
-    function keyword($key)
+    /*
+     * 关键字匹配
+     */
+    function keyword($key,$reload = false)
     {
-        /*$like['keyword'] = array(
-            'like',
-            '%' . $key . '%'
-        );
-        $like['token'] = $this->token;
-        $data = M('keyword')->where($like)->order('id desc')->find();
-        */
         $key = mb_strtoupper($key,'UTF-8');
-        LOG::write('关键字匹配'.$key,LOG::ERR);
+        LOG::write('关键字匹配'.$key,LOG::INFO);
         //模糊匹配
-        $where['keyword']    = array('like','%'.$key.'%');
-        $where['match_type'] = 2;
-        $where['token']      = $this->token;
+        $where['keyword'] = $key;
+        $where['token']   = $this->token;
+        $where['match_type'] = 1;
         $res = M('Keyword')->where($where)->find();
         //完全匹配
         if (!$res){
-            $where['keyword'] = $key;
-            $where['token']   = $this->token;
-            $where['match_type'] = 1;
+            $where['keyword']    = array('like','%'.$key.'%');
+            $where['match_type'] = 2;
+            $where['token']      = $this->token;
             $res = M('Keyword')->where($where)->find();
         }
         if ($res) {
             switch ($res['module']) {
-                case 'Home':
+                case 'Home':  //微官网
                     LOG::write('匹配微官网',LOG::INFO);
                     $this->trackdata('Home');//REQUEST
                     return $this->shouye();
                     break;
-                case 'Img':
+                case 'Img':   //图文回复
                     LOG::write('组装多图文'.$key,LOG::INFO);
                     $this->requestdata('imgnum');//REQUEST
                     $img_db = M('Img');
@@ -665,23 +661,7 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-                case 'Host':
-                    $this->requestdata('other');
-                    $host = M('Host')->where(array('id' => $res['pid']))->find();
-
-                    return array(
-                        array(
-                            array(
-                                $host['name'],
-                                $host['info'],
-                                $host['ppicurl'],
-                                C('site_url') . '/index.php?g=Wap&m=Host&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'] . '&hid=' . $res['pid']
-                            )
-                        ),
-                        'news'
-                    );
-                    break;
-                case 'Text':
+                case 'Text': //文本回复
                     LOG::write('匹配关键字:'.$key,LOG::INFO);
                     $this->requestdata('textnum');//REQUEST
                     $info = M('Text')->order('id desc')->find($res['pid']);
@@ -690,7 +670,7 @@ class WeixinAction extends Action
                         'text'
                     );
                     break;
-                case 'Reserve':
+                case 'Reserve':   //预约
                     LOG::write('匹配关键字:'.$key,LOG::INFO);
                     $this->trackdata('Reserve');//REQUEST
                     $info = M('Reserve')->find($res['pid']);
@@ -706,7 +686,7 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-                case 'Album':
+                case 'Album':  //相册
                     LOG::write('匹配相册:'.$key,LOG::INFO);
                     $this->trackdata('Album');//REQUEST
                     $info = M('Album')->find($res['pid']);
@@ -722,10 +702,10 @@ class WeixinAction extends Action
                         'news'
                     );
                     break;
-                case 'Comment':
+                case 'Comment'://留言板
                     LOG::write('匹配留言板:'.$key,LOG::INFO);
                     $this->trackdata('Comment');//REQUEST
-                    $info = M('Comment')->find($res['pid']);
+                    $info = M('CommentSet')->find($res['pid']);
                     return array(
                         array(
                             array(
@@ -733,6 +713,30 @@ class WeixinAction extends Action
                                 $info['msg_name'],
                                 $info['picurl'],
                                 C('site_url')."/Webmessage/{$this->wxuid}/comment?wecha_id={$this->data['FromUserName']}"
+                            )
+                        ),
+                        'news'
+                    );
+                    break;
+                case 'MemberCard':
+                    LOG::write('匹配MemberCard:'.$key,LOG::INFO);
+                    $this->trackdata('MemberCard');
+                    $info = M('MemberCardInfo')->find($res['pid']);
+                    $msg = array($info['shop_name'],$info['info'],$info['logo'],
+                        C('site_url')."/Webmember/{$this->wxuid}/index?wecha_id={$this->data['FromUserName']}");
+                    return array(array($msg),'news');
+                    break;
+                case 'Host':
+                    $this->requestdata('other');
+                    $host = M('Host')->where(array('id' => $res['pid']))->find();
+
+                    return array(
+                        array(
+                            array(
+                                $host['name'],
+                                $host['info'],
+                                $host['ppicurl'],
+                                C('site_url') . '/index.php?g=Wap&m=Host&a=index&token=' . $this->token . '&wecha_id=' . $this->data['FromUserName'] . '&hid=' . $res['pid']
                             )
                         ),
                         'news'
@@ -844,24 +848,14 @@ class WeixinAction extends Action
                     }
                     $url = C('site_url')."/npWap/{$model}/index.act?actid={$id}&token={$this->token}&wecha_id={$this->data['FromUserName']}";
 
-                        /*C('site_url') . U('Wap/' . $model . '/index', array(
-                            'token' => $this->token,
-                            'type' => $type,
-                            'wecha_id' => $this->data['FromUserName'],
-                            'id' => $id,
-                            'type' => $type
-                        ));*/
-                    return array(
-                        array(
-                            array(
-                                $title,
-                                $info,
-                                $picurl,
-                                $url
-                            )
-                        ),
-                        'news'
-                    );
+                    /*C('site_url') . U('Wap/' . $model . '/index', array(
+                        'token' => $this->token,
+                        'type' => $type,
+                        'wecha_id' => $this->data['FromUserName'],
+                        'id' => $id,
+                        'type' => $type
+                    ));*/
+                    return array(array(array($title,$info,$picurl,$url)),'news');
                 default:
                     $this->requestdata('videonum');
                     $info = M($res['module'])->order('id desc')->find($res['pid']);
@@ -878,65 +872,18 @@ class WeixinAction extends Action
         } else {
             $this->trackdata('UNMATCH');//REQUEST
             if (!strpos($this->fun, 'liaotian')) {
-                $other = M('Other')->where(array(
-                    'token' => $this->token
-                ))->find();
-                if ($other == false) {
-                    return array(
-                        '回复帮助，可了解所有功能',
-                        'text'
-                    );
-                } else {
-                    if (empty($other['keyword'])) {
-                        return array(
-                            $other['info'],
-                            'text'
-                        );
-                    } else {
-                        $img = M('Img')->field('id,text,pic,url,title')->limit(5)->order('id desc')->where(array(
-                            'token' => $this->token,
-                            'keyword' => array(
-                                'like',
-                                '%' . $other['keyword'] . '%'
-                            )
-                        ))->select();
-                        if ($img == false) {
-                            return array(
-                                '无此图文信息,请提醒商家，重新设定关键词',
-                                'text'
-                            );
-                        }
-                        foreach ($img as $keya => $infot) {
-                            if ($infot['url'] != false) {
-                                $url = $infot['url'];
-                            } else {
-                                $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array(
-                                        'token' => $this->token,
-                                        'id' => $infot['id']
-                                    ));
-                            }
-
-                            $return[] = array(
-                                $infot['title'],
-                                $infot['text'],
-                                $infot['pic'],
-                                $url
-                            );
-                        }
-                        return array(
-                            $return,
-                            'news'
-                        );
-                    }
+                $auto = M('Areply')->where(array('token' => $this->token))->find();
+                if ($auto['default_reply_flag']&&!$reload){
+                    return $this->keyword($auto['default_reply'],true);
+                }else{
+                    return array('无法匹配回复,请提醒商家，重新设定关键词','text');
                 }
             }
-            return array(
-                $this->chat($key),
-                'text'
-            );
+            return array($this->chat($key),'text');
         }
     }
 
+    //首页
     function shouye()
     {
         $home = M('Home')->where(array('token' => $this->token))->find();
@@ -953,20 +900,13 @@ class WeixinAction extends Action
                 $url = @ereg_replace('FromUserName',$this->data['FromUserName'],$home['homeurl']);;
             }
         }
-
         return array(
-            array(
-                array(
-                    $home['title'],
-                    $home['info'],
-                    $home['picurl'],
-                    $url
-                )
-            ),
+            array(array($home['title'],$home['info'],$home['picurl'],$url)),
             'news'
         );
     }
 
+    //快递
     function kuaidi($data)
     {
         $data = array_merge($data);
@@ -974,6 +914,7 @@ class WeixinAction extends Action
         return $str;
     }
 
+    //朗读
     function langdu($data)
     {
         $data = implode('', $data);
@@ -989,6 +930,7 @@ class WeixinAction extends Action
         );
     }
 
+    //健康
     function jiankang($data)
     {
         if (empty($data))
@@ -1013,6 +955,7 @@ class WeixinAction extends Action
         return $info;
     }
 
+    //附近
     function fujin($keyword)
     {
         $keyword = implode('', $keyword);
@@ -1020,7 +963,7 @@ class WeixinAction extends Action
             return $this->my . "很难过,无法识别主淫的指令,正确使用方法是:输入【附近+关键词】当" . $this->my . '提醒您输入地理位置的时候就OK啦';
         }
         $data = array();
-        $data['time'] = time();
+        $data['time'] = NOW_TIME;
         $data['token'] = $this->_get('token');
         $data['keyword'] = $keyword;
         $data['uid'] = $this->data['FromUserName'];
@@ -1038,10 +981,11 @@ class WeixinAction extends Action
         return "主人【" . $this->my . "】已经接收到你的指令\n请发送您的地理位置给我哈";
     }
 
+    //查询上一请求
     function recordLastRequest($key, $msgtype = 'text')
     {
         $rdata = array();
-        $rdata['time'] = time();
+        $rdata['time'] = NOW_TIME;
         $rdata['token'] = $this->_get('token');
         $rdata['keyword'] = $key;
         $rdata['msgtype'] = $msgtype;
@@ -1060,6 +1004,7 @@ class WeixinAction extends Action
         }
     }
 
+    //地图
     function map($x, $y)
     {
         $user_request_model = M('User_request');
@@ -1125,6 +1070,7 @@ class WeixinAction extends Action
         }
     }
 
+    //算命
     function suanming($name)
     {
         $name = implode('', $name);
@@ -1136,6 +1082,7 @@ class WeixinAction extends Action
         return $name . "\n" . trim($data[$num]);
     }
 
+    //
     function yinle($name)
     {
         $name = implode('', $name);
@@ -1189,22 +1136,6 @@ class WeixinAction extends Action
         return str_replace('mzxing_com', 'nicedog', $n);
     }
 
-    /*
-       function shouji($n){
-            $n = implode('', $n);
-            if (count($n) > 1) {
-                $this->error_msg($n);
-
-                return false;
-            };
-            $str = file_get_contents('http://www.096.me/api.php?phone=' . $n . '&mode=txt');
-            if ($str !== iconv('UTF-8', 'UTF-8', iconv('UTF-8', 'UTF-8', $str))) {
-                $str = iconv('GBK', 'UTF-8', $str);
-            }
-
-            return str_replace('\t', '', str_replace('|', "\n", $str));
-        }
-        */
     function shenfenzheng($n)
     {
         $n = implode('', $n);
@@ -1251,12 +1182,12 @@ class WeixinAction extends Action
     function huoche($data, $time = '')
     {
         $data = array_merge($data);
-        $data[2] = date('Y', time()) . $time;
+        $data[2] = date('Y', NOW_TIME) . $time;
         if (count($data) != 3) {
             $this->error_msg($data[0] . '至' . $data[1]);
             return false;
         };
-        $time = empty($time) ? date('Y-m-d', time()) : date('Y-', time()) . $time;
+        $time = empty($time) ? date('Y-m-d', NOW_TIME) : date('Y-', NOW_TIME) . $time;
         $json = file_get_contents("http://www.twototwo.cn/train/Service.aspx?format=json&action=QueryTrainScheduleByTwoStation&key=5da453b2-b154-4ef1-8f36-806ee58580f6&startStation=" . $data[0] . "&arriveStation=" . $data[1] . "&startDate=" . $data[2] . "&ignoreStartDate=0&like=1&more=0");
         if ($json) {
             $str = "";
@@ -1347,7 +1278,7 @@ class WeixinAction extends Action
     {
         $obj = new getYu();
         $ContentString = $obj->getGoogleTTS($data);
-        $randfilestring = 'mp3/' . time() . '_' . sprintf('%02d', rand(0, 999)) . ".mp3";
+        $randfilestring = 'mp3/' . NOW_TIME . '_' . sprintf('%02d', rand(0, 999)) . ".mp3";
         file_put_contents($randfilestring, $ContentString);
         return rtrim(C('site_url'), '/') . $randfilestring;
     }
@@ -1360,6 +1291,7 @@ class WeixinAction extends Action
         return str_replace('mzxing_com', 'nicedog', $str);
     }
 
+    //聊天
     function liaotian($name)
     {
         $name = array_merge($name);
@@ -1436,7 +1368,7 @@ class WeixinAction extends Action
                 $usersdata->where($dataarray)->setInc('connectnum');
             }
         }
-        if ($users['viptime'] > time()) {
+        if ($users['viptime'] > NOW_TIME) {
             $data['viptime'] = 1;
         }
         return $data;
@@ -1454,7 +1386,7 @@ class WeixinAction extends Action
         $mysql = M('Requestdata');
         $check = $mysql->field('id')->where($data)->find();
         if ($check == false) {
-            $data['time'] = time();
+            $data['time'] = NOW_TIME;
             $data[$field] = 1;
             $mysql->add($data);
         } else {
@@ -1473,7 +1405,7 @@ class WeixinAction extends Action
         $mysql = M('Requestdata');
         $check = $mysql->field('id')->where($data)->find();
         if ($check == false) {
-            $data['time'] = time();
+            $data['time'] = NOW_TIME;
             $data['click']  = 1;
             $mysql->add($data);
         } else {

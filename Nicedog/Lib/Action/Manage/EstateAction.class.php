@@ -376,10 +376,12 @@ class EstateAction extends UserAction{
         $db   = D('EstateSpace');
         $id = $this->_get('id');
         if ($id){
-            $info = $db->field('id,abid')->where(array('token'=>session('token'),'id'=>$id))->find();
+            $info = $db->field('id,pid,abid')->where(array('token'=>session('token'),'id'=>$id))->find();
             if ($info){
                 $db->delete($id);
                 $imglist = M('EstateImg')->field('id')->where(array('token'=>session('token'),'pid'=>$info['abid'],'type'=>3))->select();
+                //更新户型全景图数量
+                M('EstateHouse')->where('id='.$info['pid'])->setDec('fulldnum');
                 foreach($imglist as $img){
                     $this->imgDel($img['id']);
                 }

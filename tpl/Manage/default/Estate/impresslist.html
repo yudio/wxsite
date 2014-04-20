@@ -63,6 +63,7 @@
                                         <input type="checkbox" class="check_all" disabled="disabled" />
                                     </th>
                                     <th class="span3">印象标题</th>
+                                    <th class="span3">所属楼盘名称</th>
                                     <th class="span3">印象数</th>
                                     <th class="span1">是否显示</th>
                                     <th class="span1">显示顺序</th>
@@ -80,9 +81,11 @@
                                                 <input type="checkbox" name="check" value="{np:$vo.id}" />
                                             </td>
                                             <td>{np:$vo.title}</td>
+                                            <td>{np:$vo.pname}</td>
                                             <td>{np:$vo.comment}</td>
                                             <td><if condition="$vo['is_show'] eq 1"><span class="label">显示</span></if>
                                                 <if condition="$vo['is_show'] eq 0">不显示</if>
+                                                <if condition="$vo['is_show'] eq 2">用户印象</if>
                                             </td>
                                             <td>{np:$vo.sort}</td>
                                             <td>

@@ -1,0 +1,333 @@
+﻿body
+{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    font-family: "Microsoft Yahei";
+    word-break: break-all;
+}
+.tanchu
+{
+    width: 100%;
+    height: 50%;
+    background-color: #2B2B2B;
+    position: absolute;
+    z-index: 9999;
+    left: 180px;
+    display: none;
+}
+
+a
+{
+    font-size: 13px;
+    height: 23px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #0073dd;
+}
+
+a:link
+{
+    color: #0073dd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:active
+{
+    color: #0073dd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited
+{
+    color: #0073dd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover
+{
+    color: #0073dd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.moudule-radiusfrm
+{
+    font-family: "Microsoft Yahei";
+    padding: 1px;
+    border: 1px solid #dedede;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: White;
+}
+
+.moudule-radiusfrm div.a-title, .moudule-radiusfrm div.b-title, .moudule-radiusfrm div.c-title
+{
+    padding-left: 6px;
+    font-size: 15px;
+    color: #000000;
+    line-height: 30px;
+    border-bottom: 1px solid #dedede;
+    font-weight: bold;
+}
+
+.moudule-radiusfrm div.a-divimg
+{
+    margin: 10px 5px;
+    overflow: hidden;
+}
+
+.moudule-radiusfrm div.a-divimg img
+{
+    height: 108px;
+    width: 100%;
+}
+
+.moudule-radiusfrm div.b-detailfrm
+{
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-top: 15px;
+    width: 96%;
+    overflow: hidden;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 10px;
+}
+
+.moudule-radiusfrm div.b-divimg
+{
+    height: 70px;
+    width: 82px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 3px;
+}
+
+.moudule-radiusfrm div.b-divimg img
+{
+    height: 70px;
+    width: 82px;
+}
+
+.moudule-radiusfrm div.b-context
+{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.moudule-radiusfrm div.b-context div
+{
+    text-align: left;
+    font-size: 12px;
+    color: #737373;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 20px;
+}
+
+.moudule-radiusfrm div.b-context span
+{
+    font-size: 11px;
+    margin-left: 3px;
+    color: #d71818;
+    height: 20px;
+    font-weight: bold;
+}
+
+.moudule-radiusfrm div.c-content
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 13px;
+    color: #737373;
+    white-space: normal;
+    word-break: break-all;
+    overflow: hidden;
+    height: 100%;
+    margin-top:10px;
+}
+
+.moudule-radiusfrm div.c-divbtn
+{
+    margin-top: 5px;
+    border-top: 1px solid #dedede;
+    font-size: 13px;
+    color: #4997c8;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+}
+
+.moudule-radiusfrm div.c-divbtn-grey
+{
+    margin-top: 5px;
+    border-top: 1px solid #dedede;
+    font-size: 13px;
+    color: #737373;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+}
+
+.moudule-radiusfrm div.c-divbtn img
+{
+    font-size: 13px;
+    margin-left: 5px;
+    width: 10px;
+    height: 8px;
+}
+
+.moudule-radiusfrm div.c-divimgcontent
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 13px;
+    color: #737373;
+    white-space: normal;
+    word-break: break-all;
+    overflow: hidden;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.moudule-radiusfrm div.c-housetype
+{
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: left;
+    font-size: 13px;
+    color: #737373;
+    height: 23px;
+}
+
+.moudule-contextfrm
+{
+    font-family: "Microsoft Yahei";
+    background-color: Transparent;
+}
+
+.moudule-contextfrm div.subtitle
+{
+    font-size: 20px;
+    color: #000000;
+    margin-left: 5px;
+    width: 100%;
+}
+
+.moudule-contextfrm div.subtime
+{
+    font-size: 11px;
+    color: #8c8c8c;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+    width: 100%;
+}
+
+.moudule-contextfrm div.subcontext
+{
+    white-space: normal;
+    word-break: break-all;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+/* 以下是图片并附带有圆圈标识轮播CSS控制  projectinfodetail.aspx*/
+.swipe
+{
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.swipe-wrap
+{
+    overflow: hidden;
+    position: relative;
+    height: 175px;
+    width: 100%;
+}
+
+.swipe-wrap > div
+{
+    float: left;
+    width: 100%;
+    position: relative;
+    height: 175px;
+}
+
+.swipe-wrap > div img
+{
+    width: 100%;
+    height: 175px;
+}
+
+.swipe ul
+{
+    position: absolute;
+    right: 45%;
+    bottom: 0px;
+    height: 16px;
+}
+
+.swipe ul li
+{
+    display: inline-block;
+    border: 1px solid #B8B8B8;
+    background-color: #B8B8B8;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.swipe ul li:first-child
+{
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+}
+/* 遮挡页面DIV样式 */
+#shadowDiv
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FFF;
+    background-image: url('/Image/Zsxm_Background.png');
+    z-index: 3;
+}
+
+.pempty
+{
+    margin-top:10px;
+    border: 0px;
+}
+
+#detaillist p
+{
+    margin: 0px;
+}

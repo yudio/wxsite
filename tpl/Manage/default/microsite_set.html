@@ -99,7 +99,7 @@
 </div>
 <div class="control-group" style="display:none;">
     <label class="control-label" for="caption">图文消息标题：</label>
-
+d
     <div class="controls">
         <input type="text" name="caption" id="caption" value="{np:$home['caption']}" class="input-xlarge" data-rule-required="true"/>
         <span class="help-inline">发送关键词后返回的图文消息标题</span>
@@ -188,12 +188,12 @@
 
     <div class="controls">
         <div class="inline mp3">
-            <a id="m1" class="audio " href="{np::C('site_url')}{np::RES}/img/template/lib/default.mp3" style="display: none;">default.mp3</a>
+            <a id="m1" class="audio " href="{np:$home.bg_audio|default=C('site_url').STATICS.'/img/template/lib/default.mp3'}" style="display: none;">default.mp3</a>
         </div>
-        <input type="hidden" name="bg_audio" id="mp3url" value="{np::C('site_url')}{np::RES}/img/template/lib/default.mp3"/>
-                                        <span class="help-inline">
-											<button class="btn addmp3" type="button">选择音乐</button>
-                                        </span>
+        <input type="hidden" name="bg_audio" id="mp3url" value="{np:$home.bg_audio|default=C('site_url').STATICS.'/img/template/lib/default.mp3'}"/>
+        <span class="help-inline">
+			<button class="btn addmp3" type="button">选择音乐</button>
+        </span>
         <span class="help-inline">(保证浏览网页的加载速度,上传音乐最大为<span class="red">3MB</span>)</span>
     </div>
     <script type="text/javascript">
