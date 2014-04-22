@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,92 +5,276 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="Keywords" content="C('Keywords')" />
     <meta name="Description" content="C('Description')" />
-    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/core2.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/main2.css" media="all" />
-    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/src/wall/helper_min.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/src/wall/main.js"></script>
-    <script type="text/javascript" src="{np::STATICS}/src/wall/msgScroll.js"></script>
-    <title>微信墙</title>
-    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/home.css" media="all" />
+	<script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+	<script type="text/javascript" src="{np::STATICS}/src/wall/wxscreen.js"></script>
+	<title>微信墙</title>
+	<link rel="shortcut icon" href="{np::STATICS}img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
-    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+	<!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
 </head>
-<body>
 <script type="text/javascript">
-    $(function(){
-        window.msgr = new msg({
-            auto: true		}).init("#list_message").work();
-        window.msgr.index = 0;
-        window.msgr.getMessage();
+var len=3;
+var cur=0;//当前位置
+var mtime;
+var data=new Array();
+data[0]=new Array('0','./Uploads/userShare/bb1864cdee4d3d6e/image/20140420/5353920e13128.jpg','奈斯伙伴','欢迎来到微信大屏幕，积极发言哦！');
+//var word_id='96';
+var lastid='0';
+var maxid='0';
+var vep=true;//查看上墙说明
+var vone=false;//查看单条
 
-        setInterval(function(){
-            window.msgr.getMessage();
-        }, 5000);
-
-
-        window.msgr.getMessage = function(){
-            var that = this;
-            $.ajax({
-                url: "/Webwall/{np:$wxuid}/getCon",
-                type:"post",
-                data:{id:{np:$wid},wecha_id:'{np:$wecha_id}'},
-                dataType:"JSON",
-                success: function(res){
-                    if(res.result){
-                        that.data = res.data;//that.data.concat(res.data);
-                        var ols = [];
-                        ols.push('<ol class="ol_0">');
-                        ols.push("<!--list_lis_0-->");
-                        ols.push('</ol><ol class="ol_1">');
-                        ols.push("<!--list_lis_0-->");
-                        ols.push('</ol><ol class="ol_2">');
-                        ols.push("<!--list_lis_0-->");
-                        ols.push('</ol>');
-                        var TPL = '<li>\
-							<div class="tbox">\
-								<div class="header">\
-									<span><img src="{img}" /></span>\
-								</div>\
-								<div class="content">\
-									<h3>{title} <label style="font-size:14px;">{pdate}</label></h3>\
-									<p>{content}</p>\
-								</div>\
-							</div>\
-						</li>';
-                        var html = iTemplate.makeList(TPL, that.data);
-                        if(that.data.length>3){
-                            ols[1] = ols[3] = ols[5] = html;
-                        }else{
-                            ols[3] = html;
-                        }
-
-                        var ul = document.getElementById("list_message_ul");
-                        ul.innerHTML = ols.join("<!----Eric_wu---->");
-                        that.length = that.data.length;
-                    }else{
-                        return;
-                    }
+function viewOneHide(){
+	vone=false;
+	$("#mone").hide();
+}
+function viewOne(cid,t)
+{
+	if(vone==false)
+	{
+		vone=true;
+		var str=t.innerHTML;
+		$("#mone").html(str);
+		$("#mone").fadeIn(700).css({'border':'1px solid #fff','position':'absolute','top':0});
+	}else
+	{
+		vone=false;
+		$("#mone").hide();
+	}
+}
+function viewExplan()
+{
+	if(vep==false)
+	{
+		vep=true;
+		$("#explan").fadeIn(700).css({'position':'absolute','top':0});
+		//clearInterval(mtime);
+	}
+	else
+	{
+		vep=false;
+		$("#explan").hide();
+		//mtime=setInterval(messageAdd,5000);
+	}
+}
+function messageAdd()
+{
+	if(cur==len)
+	{
+		messageData();
+		return false;
+	}
+	var str='<li class="clearfix t-row" id=li'+cur+' onclick="viewOne('+cur+',this);">'
+				+'<div class="userimg left">'
+					+'<i class="elem"></i>'
+					+'<span class="elem2"></span>'
+					+'<a href="javascript:void(0);" class="head">'
+						+'<img class="msgAvatar" src="'+data[cur][1]+'" width="90" height="90">'
+					+'</a>'
+				+'</div>'
+				+'<div class="cont-box left">'
+					+'<p class="c-word">'
+						+'<a href="javascript:void(0);" class="user-name msgUserName">'+data[cur][2]+'：</a>'
+						+'<span class="cont displayContent" style="font-size:59px;" >'+data[cur][3]+'</span>'
+					+'</p>'
+				+'</div>'
+				+'<div class="btn-detail messageDetailBtn" >'
+					+'<div class="btn-style">'
+						+'<a href="javascript:void(0);" class="icon-arrow"></a>'
+					+'</div>'
+				+'</div>'
+			+'</li>';
+	$("#list").prepend(str);
+	$("#li"+cur).slideDown(10); 
+	cur++;
+	messageData();
+}
+function messageData()
+{
+	//var url="http://www.webafang.com/wewall/wall/api.php";
+	var url="getmsglist";
+	$.getJSON(url,{maxid:maxid,lastid:lastid,wid:{np:$wid}},function(d) {
+		//alert(d);return;
+		if(d['ret']==1)
+		{
+			$.each(d['data'], function(i,v){
+				data.push(new Array(v['num'],v['avatar'],v['nickname'],v['content']));
+				lastid=v['num'];
+                if(lastid>maxid)
+                {
+                    maxid=lastid;
                 }
-            });
-            return that;
-        }
-        window.msgr.getMessage();
-        //
-    });
+                //maxid=v['max'];
+				len++;
+			});
+		}
+        else{
+             maxid=0;
+             lastid=0;
+			 window.setTimeout('messageData();', 1000);
+		}	
+	});
+}
+window.onload=function()
+{
+	messageAdd();
+	mtime=setInterval(messageAdd,2000); //消息滚动的速度
+}
 </script>
-<body class="home">
-<div class="fbody ofh" >
-    <section id="list_message">
-        <ul id="list_message_ul" class="list_message">
+<style>
 
-        </ul>
-    </section>
-    <div class="nav">
-        <a href="javascript:;" onclick="window.msgr.next();" class="pre">&nbsp;</a>
-        <a href="javascript:;" onclick="window.msgr.prev();" class="next">&nbsp;</a>
-    </div>
+
+</style>
+<body class="home">
+<div id="wrap" class="wrapbg" >
+	<div id="whole">
+		<div id="container">
+			<div class="con-inner scrollBox" style="visibility: visible; overflow: hidden; position:relative;">
+				<ul id="list" class="user-list" style="position: relative; display: block;">
+					<!--
+					<li class="clearfix t-row" id="li103" onclick="viewOne(103,this);">
+						<div class="userimg left">
+							<i class="elem"></i>
+							<span class="elem2"></span>
+							<a href="javascript:void(0);" class="head">
+								<img class="msgAvatar" src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLDZRUoP8M7wJH4Vico4PyaBrvzqPws9thrcf2lPBTibaDs2bKq93bZnlu3tKGOpnNTRXRkniclzHZ77w/0" width="90" height="90"></a>
+						</div>
+						<div class="cont-box left">
+							<p class="c-word">
+								<a href="javascript:void(0);" class="user-name msgUserName">二宝二宝二宝：</a>
+								<span class="cont displayContent" style="font-size:59px;">沙壁拉拉</span>
+							</p>
+						</div>
+						<div class="btn-detail messageDetailBtn">
+							<div class="btn-style">
+								<a href="javascript:void(0);" class="icon-arrow"></a>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix t-row" id="li103" onclick="viewOne(103,this);">
+						<div class="userimg left">
+							<i class="elem"></i>
+							<span class="elem2"></span>
+							<a href="javascript:void(0);" class="head">
+								<img class="msgAvatar" src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLDZRUoP8M7wJH4Vico4PyaBrvzqPws9thrcf2lPBTibaDs2bKq93bZnlu3tKGOpnNTRXRkniclzHZ77w/0" width="90" height="90"></a>
+						</div>
+						<div class="cont-box left">
+							<p class="c-word">
+								<a href="javascript:void(0);" class="user-name msgUserName">二宝二宝二宝：</a>
+								<span class="cont displayContent" style="font-size:59px;">沙壁拉拉</span>
+							</p>
+						</div>
+						<div class="btn-detail messageDetailBtn">
+							<div class="btn-style">
+								<a href="javascript:void(0);" class="icon-arrow"></a>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix t-row" id="li103" onclick="viewOne(103,this);">
+						<div class="userimg left">
+							<i class="elem"></i>
+							<span class="elem2"></span>
+							<a href="javascript:void(0);" class="head">
+								<img class="msgAvatar" src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLDZRUoP8M7wJH4Vico4PyaBrvzqPws9thrcf2lPBTibaDs2bKq93bZnlu3tKGOpnNTRXRkniclzHZ77w/0" width="90" height="90"></a>
+						</div>
+						<div class="cont-box left">
+							<p class="c-word">
+								<a href="javascript:void(0);" class="user-name msgUserName">二宝二宝二宝：</a>
+								<span class="cont displayContent" style="font-size:59px;">沙壁拉拉</span>
+							</p>
+						</div>
+						<div class="btn-detail messageDetailBtn">
+							<div class="btn-style">
+								<a href="javascript:void(0);" class="icon-arrow"></a>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix t-row" id="li103" onclick="viewOne(103,this);">
+						<div class="userimg left">
+							<i class="elem"></i>
+							<span class="elem2"></span>
+							<a href="javascript:void(0);" class="head">
+								<img class="msgAvatar" src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLDZRUoP8M7wJH4Vico4PyaBrvzqPws9thrcf2lPBTibaDs2bKq93bZnlu3tKGOpnNTRXRkniclzHZ77w/0" width="90" height="90"></a>
+						</div>
+						<div class="cont-box left">
+							<p class="c-word">
+								<a href="javascript:void(0);" class="user-name msgUserName">二宝二宝二宝：</a>
+								<span class="cont displayContent" style="font-size:59px;">沙壁拉拉</span>
+							</p>
+						</div>
+						<div class="btn-detail messageDetailBtn">
+							<div class="btn-style">
+								<a href="javascript:void(0);" class="icon-arrow"></a>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix t-row" id="li103" onclick="viewOne(103,this);">
+						<div class="userimg left">
+							<i class="elem"></i>
+							<span class="elem2"></span>
+							<a href="javascript:void(0);" class="head">
+								<img class="msgAvatar" src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLDZRUoP8M7wJH4Vico4PyaBrvzqPws9thrcf2lPBTibaDs2bKq93bZnlu3tKGOpnNTRXRkniclzHZ77w/0" width="90" height="90"></a>
+						</div>
+						<div class="cont-box left">
+							<p class="c-word">
+								<a href="javascript:void(0);" class="user-name msgUserName">二宝二宝二宝：</a>
+								<span class="cont displayContent" style="font-size:59px;">沙壁拉拉</span>
+							</p>
+						</div>
+						<div class="btn-detail messageDetailBtn">
+							<div class="btn-style">
+								<a href="javascript:void(0);" class="icon-arrow"></a>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix t-row" id="li103" onclick="viewOne(103,this);">
+						<div class="userimg left">
+							<i class="elem"></i>
+							<span class="elem2"></span>
+							<a href="javascript:void(0);" class="head">
+								<img class="msgAvatar" src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLDZRUoP8M7wJH4Vico4PyaBrvzqPws9thrcf2lPBTibaDs2bKq93bZnlu3tKGOpnNTRXRkniclzHZ77w/0" width="90" height="90"></a>
+						</div>
+						<div class="cont-box left">
+							<p class="c-word">
+								<a href="javascript:void(0);" class="user-name msgUserName">二宝二宝二宝：</a>
+								<span class="cont displayContent" style="font-size:59px;">沙壁拉拉</span>
+							</p>
+						</div>
+						<div class="btn-detail messageDetailBtn">
+							<div class="btn-style">
+								<a href="javascript:void(0);" class="icon-arrow"></a>
+							</div>
+						</div>
+					</li>
+					-->
+				</ul>
+			</div>
+		</div>
+		
+		<!--单条弹层-->
+		<div class="detail-box messageDetailBox hidden detail-bar" style="display: none;" id="mone" onClick="viewOneHide();" style="border:10px solid red;"></div>
+		<!--单条弹层end-->
+
+		<!--二维码弹层-->
+		<div class="fl-layer floatLayer introBox" style="display:none;position:absolute;top:0;" id="explan" onClick="viewExplan();">
+			  <div class="fl-inner">
+					  <a href="javascript:void(0);" class="flbtn-close showIntroBtn"></a>
+				<p class="notice1">使用微信扫描以下任意二维码，关注后发送 <span style="color:#C30">##+内容</span> 即可上墙</p>
+				<ul class="img-list">
+					<li class="img-b"><img src="img/344.gif" alt=""></li>
+					<li class="img-d"><img src="img/300.gif" alt=""></li>
+					<li class="img-s"><img src="img/200.gif" alt=""></li>
+				</ul>
+				<p class="notice2">无法扫描二维码的用户，请关注微信号:
+				  <span class="js_weixinAccountName">consaid</span>&nbsp;&nbsp;&nbsp;<span style="color:#C30">现场投放时，显示设备应安装雅黑字体，详见<a href="http://screen.webafang.com/support.html" target="_blank">帮助</a>。</span>
+				</p>
+				<p class="notice2" style="margin-top:5px;">实际使用中您可以通过微八方后台自定义本页内容，并开启信息审核，审核后的内容可以上墙。</p>
+				</div>
+		  </div>
+    <!--二维码弹层end-->
+	</div>
 </div>
 </body>
-</html></body>
 </html>

@@ -13,6 +13,7 @@ class WebWallAction extends WebAction{
     private $wxuser;
 
 
+
     public function _initialize(){
         parent::_initialize();
         /*$agent = $_SERVER['HTTP_USER_AGENT'];
@@ -63,6 +64,40 @@ class WebWallAction extends WebAction{
         $id = $this->_get('wid');
         $this->assign('wid',$id);
         $this->display();
+    }
+
+    public function  getMsgList(){
+        $db = M('WallMsg');
+        $wid = $this->_get('wid');
+        $maxid = $this->_get('maxid','intval');
+        $lastid = $this->_get('lastid','intval');
+        if($wid){
+            //$wall = M('WallMsg')->where('id='.$wid)->find();
+            $where['token'] = $this->token;
+            $where['wid']	= $wid;
+            $where['status']= 1;
+            $where['id']=array('gt',$maxid);
+            $msglist=$db->where($where)->order('id asc')->find();
+            if(!$msglist)
+            {
+                $where['id']=array('lt',$lastid);
+                $msglist=$db->where($where)->order('id asc')->find();
+            }
+            if($msglist)
+            {
+                $this->ajaxReturn(array('data'=>array(array(
+                    'id'=>$msglist['id'],
+                    'num'=>$msglist['id'],
+                    'content'=>$msglist['content'],
+                    'nickname'=>$msglist['title'],
+                    'avatar'=>$msglist['headpic']
+                )),'ret'=>1));
+            }
+           else{
+               $this->ajaxReturn(array('data'=>array(),'ret'=>0));
+           }
+        }
+
     }
     public function getCon(){
         $db = M('WallMsg');
