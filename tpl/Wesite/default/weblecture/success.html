@@ -1,0 +1,48 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>微信公开课 - 报名</title>
+    <link rel="stylesheet" href="{np::STATICS}/css/lecture/wxadmin.css" />
+    <style>
+        .icon{
+            overflow: hidden;
+            margin: 30px auto;
+            text-align:center;
+        }
+        .tips{
+            margin: 15px auto 0;
+            display:block;
+            color:#99C584;
+            font-size:16px;
+            padding: 0 15px;
+        }
+        .error{
+            display:block;
+            margin: 5px auto;
+            color:#E76463;
+            padding:0 15px;
+        }
+        #content{
+            line-height:30px;
+        }
+    </style>
+    <script>
+        document.addEventListener('WeixinJSBridgeReady', function(){WeixinJSBridge.call('hideOptionMenu');WeixinJSBridge.invoke("hideToolbar");});
+    </script>
+</head>
+<body>
+<header id="header">
+    <h1>活动报名</h1>
+</header>
+<div id="content">
+    <div class="icon">
+        <img src="<notempty name='result'>/tpl/static/img/lecture/success-green-big.png<else/>/tpl/static/img/lecture/error-red-big.png</notempty>"/><br/>
+        <span class="error">报名信息已录入。由于您尚未关注我们的公众帐号，后续将无法接收报名状态通知，请点击<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE4Njc4NQ==&mid=200093357&idx=1&sn=9231547533d7d2eae68ffebfab35b3c2">这里</a>进行关注！</span>
+        <br/>
+    </div>
+</div>
+</body></html>

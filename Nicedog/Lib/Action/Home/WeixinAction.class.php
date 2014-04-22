@@ -45,6 +45,7 @@ class WeixinAction extends Action
                 $theme = $themedb->find($theme['id']);
             }
             $this->themeid = $theme['id'];
+            LOG::write('场景ID:'.$theme['type'],LOG::INFO);
             if ($theme['type']==0){ //默认回复
                 list($content, $type) = $this->reply($data);
                 $weixin->response($content, $type);
@@ -746,6 +747,14 @@ class WeixinAction extends Action
                         $msg = '请发送文本消息上墙吧！3分钟内无响应自动退出！';
                     }
                     return array($msg,'text');
+                    break;
+                case 'Lecture'://微邀请
+                    LOG::write('匹配微邀请:'.$key,LOG::INFO);
+                    $this->trackdata('Lecture');
+                    $info = M('Lecture')->find($res['pid']);
+                    $msg = array($info['info'],$info['desc'],$info['picurl'],
+                        C('site_url')."/WebLecture/{$this->wxuid}/index?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}");
+                    return array(array($msg),'news');
                     break;
                 case 'Host':
                     $this->requestdata('other');

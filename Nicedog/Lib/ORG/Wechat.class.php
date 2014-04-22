@@ -27,7 +27,7 @@ class Wechat
     {
         $this->data = array('ToUserName' => $this->data['FromUserName'], 'FromUserName' => $this->data['ToUserName'], 'CreateTime' => NOW_TIME, 'MsgType' => $type);
         $this->{$type}($content);
-        $this->data['FuncFlag'] = $flag;
+        //$this->data['FuncFlag'] = $flag;
         $xml = new SimpleXMLElement('<xml></xml>');
         $this->data2xml($xml, $this->data);
         $this->repxml = $xml;

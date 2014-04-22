@@ -1,0 +1,45 @@
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{border:0;margin:0;padding:0}
+img{ display:inline-block;}
+menu,ul,li{ list-style-type:none;}
+.fix{zoom:1;}
+.fix:after,.fix:before{display:block;content:" ";height:0;clear:both;overflow:hidden;visibility:hidden;}
+input {-webkit-appearance: none;}
+
+body,html {background-color: #eaeaea;overflow-x: hidden;position: relative;}
+
+#content {padding:0 0 46px 0;width: 100%;background-color: #eaeaea;min-height:430px;}
+
+#header {height: 46px;background-color: #007fba;top:0;width: 100%;z-index:9;left:0;}
+
+#header a,#header span {color: #fff;position: absolute;cursor: pointer}
+#header h1 {font-size: 1.3em;text-align: center;line-height: 46px;color: #fff; overflow: hidden;text-overflow: ellipsis;white-space:nowrap;padding: 0 60px;}
+#header .hbtn,#header .mbtn {right:10px;top: 6px;border-radius: 3px;padding: 6px 14px;text-decoration: none;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.5);}
+#header .mbtn {left:10px;right:auto}
+#header h1 img {width: 0.8em;vertical-align: middle;margin-left: 3px;margin-top: -3px;}
+
+
+#actlist {font-size: 0.9em;line-height: 1.4em;overflow: hidden;margin-bottom: 20px;}
+#actlist a {text-decoration: none;color: #333;display: inline-block;width: 100%;height: 100%;min-height:100px;padding-bottom: 32px;}
+#actlist li {border-bottom: 1px solid #ddd; position:relative;background-color: #fff;margin-bottom:10px;}
+#actlist p,#actlist h3 {padding-left: 96px;padding-right: 6px;}
+#actlist p {font-size: 0.9em;color: #666;}
+#actlist p img {vertical-align: middle;width: 1em;margin-right: 10px;}
+#actlist h3 {margin: 12px 0 5px;}
+#actlist .ui-act-bottom {padding:4px 0;background-color: #f6f6f6; position: absolute;bottom:0;width: 100%;text-indent: 10px;}
+.datebox {width: 70px;height:70px;border-radius: 3px;border:1px solid #ddd;background-color:#fff;position: absolute;top:12px;left:10px}
+.datebox .dated {background-color:#007fba;text-align: center;display: block;width: 100%;border-radius: 3px 3px 0 0;color:#fff;text-shadow:none;line-height: 1.6em;font-size: 0.9em}
+.datebox .datew {text-align:center;line-height: 2.8em;display: block;width: 100%;font-size: 1.2em;color: #0074aa;}
+#actlist .act_end {background:#eee;border-color:#ddd}
+.act_end .datebox .dated {background: #ccc}
+.act_end .datebox .datew {color: #999;}
+#actlist .act_end .ui-act-bottom {background: #eee}
+#actlist .act_end  h3 {color: #888;}
+.space {height: 10px;}
+
+
+.tab {height: 44px;line-height: 44px;background-color: #fff;}
+.tab a {width: 49%;float: left;display:block;text-align: center;text-decoration: none;color: #777;position:relative}
+.tab2 a {width: 32%;float: left;display:block;text-align: center;text-decoration: none;color: #777;position:relative}
+.tab a.cur {color: #007fba;}
+.tab u {position: absolute;border-color: transparent transparent #eaeaea transparent;border-style: solid;border-width: 0px 8px 8px 8px;width: 0;height: 0;display: block;bottom:0;left:50%;margin-left: -8px;}
+.tab .line {width: 1%;text-align: center;float: left;display:block;color: #ddd;}
