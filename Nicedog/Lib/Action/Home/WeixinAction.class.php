@@ -45,6 +45,7 @@ class WeixinAction extends Action
                 $theme = $themedb->find($theme['id']);
             }
             $this->themeid = $theme['id'];
+            LOG::write('场景ID:'.$theme['type'],LOG::INFO);
             if ($theme['type']==0){ //默认回复
                 list($content, $type) = $this->reply($data);
                 $weixin->response($content, $type);
@@ -713,8 +714,9 @@ class WeixinAction extends Action
                     //同步微信墙资料
                     $themedb = M('MemberTheme');
                     $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
-                    if ($walluser['status']==0){//资料不全
-                        if ($this->usertype>2){//服务号账户
+                    if (!$walluser||$walluser['status']==0){//资料不全
+                        LOG::write('usertype:'.$this->usertype,LOG::ERR);
+                        if ($this->usertype == 4){//服务号账户
                             $member = M('Member')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
                             if (!$walluser){    //同步资料
                                 $walluser['token'] = $member['token'];
@@ -746,6 +748,14 @@ class WeixinAction extends Action
                         $msg = '请发送文本消息上墙吧！3分钟内无响应自动退出！';
                     }
                     return array($msg,'text');
+                    break;
+                case 'Lecture'://微报名
+                    LOG::write('匹配微报名:'.$key,LOG::INFO);
+                    $this->trackdata('Lecture');
+                    $info = M('Lecture')->find($res['pid']);
+                    $msg = array($info['info'],$info['desc'],$info['picurl'],
+                        C('site_url')."/WebLecture/{$this->wxuid}/index?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}");
+                    return array(array($msg),'news');
                     break;
                 case 'Host':
                     $this->requestdata('other');

@@ -69,6 +69,19 @@ class AuthAction extends WebAction{
         }
     }
 
+    public function forward(){
+        $act = $this->_get('act');
+        $from = $this->_get('from');
+        switch($act){
+            case 'official':
+
+                break;
+            default:
+                echo '';
+        }
+        redirect('http://t.cn');
+    }
+
     public function recordAuth($data){
         $db = D('AuthRecord');
         if ($data['errcode']){ $this->error = $data['errmsg'];return false;}

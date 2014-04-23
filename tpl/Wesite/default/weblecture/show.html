@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>{np:$info.title}</title>
+  <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/lecture/home.css?v=13">
+ <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/lecture/animate.css">
+ <style>#wrapper{bottom:0;}</style>
+</head>
+<body style="background-image: url({np::STATICS}/img/lecture/lecturebg.jpg);">
+<div class="spinner">
+	<div class="cube1"></div>
+	<div class="cube2"></div>
+</div>
+<div id="wrapper" style="display:none">
+	<div class="scroller">
+		<div  id="section-sumary" style="display:none">
+			<h1>
+				<div>{np:$info.title}</div>
+				<span>{np:$info.info}</span>
+			</h1>
+			<div class="quick-sign">
+				<div>{np:$info.stime|date='m月d日',###}开始报名,敬请期待！</div>
+				<div>
+					<span class="place">活动地点：{np:$info.address}</span>
+					<span class="time">{np:$info.activity_time}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>  
+
+<script>
+	document.addEventListener('WeixinJSBridgeReady', function(){WeixinJSBridge.call('hideOptionMenu');});
+  </script>
+  <script src="{np::STATICS}/jquery.min.js"></script>
+  <script type="text/javascript" src="{np::STATICS}/src/lecture/mini.js"></script>
+  <script>
+  var code=[["#ff5252","#22ebd6"],["#ffd21d","#8a6fff"],["#fe702b","#296aff"]];
+  var timer=function(index){
+  	index<3?($(".cube1").css("backgroundColor",code[index][0])
+  	,$(".cube2").css("backgroundColor",code[index][1]),index++):index=0,
+  	setTimeout(function(){timer(index)},450)
+  };
+
+  var myScroll = new iScroll('wrapper', { checkDOMChanges: true,hScrollbar: false,hScroll:false,useTransform: false,onBeforeScrollStart: function (e) {}});
+  timer(0);
+  $(".spinner").css({left:($(window).width()-32)/2,top:($(window).height()-32)/2});
+  function hideSpinner(){
+  	$(".spinner").hide();
+  	$('.swiper-container').show().addClass('animate0 fadeInRight');
+  	var mySwiper = new Swiper('.swiper-container',{
+  		pagination: '.pagination',
+  		paginationClickable: true,
+  		slidesPerView:"auto"
+  	});
+  	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+  	$('#wrapper').fadeIn();
+  	$('#section-sumary').show().addClass('animate3 bounceIn');
+  }
+  setTimeout(hideSpinner,200);
+  </script>
+</body>
+</html>

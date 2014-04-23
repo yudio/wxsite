@@ -33,7 +33,7 @@ class MemberAction extends WebAction{
         }
         $this->wxuser = $wxuser;
         $this->wxname     = $wxuser['wxname'];
-        //用户Wecha_id
+        //获取用户Wecha_id
         if (session('wecha_id')){
             $this->wecha_id = session('wecha_id');
         }else{
@@ -41,7 +41,9 @@ class MemberAction extends WebAction{
             if (!$this->wecha_id){
                 $this->wecha_id = $this->_post('wecha_id');
             }
+            session('wecha_id',$this->wecha_id);
         }
+        //验证wecha_id有效性
         if (!$this->wecha_id||$this->wecha_id=='FromUserName'){
             $this->wecha_id='0';
         }

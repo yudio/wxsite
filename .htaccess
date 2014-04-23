@@ -36,4 +36,7 @@ RewriteRule ^WebWall/(.+)/(.+)$ index.php?g=Wesite&m=WebWall&a=$2&wxuid=$1&%{QUE
 #微名片
 RewriteRule ^vCard/(.+)$ index.php?g=Wesite&m=VCard&a=Index&cardno=$1&%{QUERY_STRING} [L,NC]
 
+#微邀请
+RewriteRule ^WebLecture/(.+)/(.+)$ index.php?g=Wesite&m=WebLecture&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
+
 </IfModule>

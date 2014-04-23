@@ -38,14 +38,21 @@ class IndexAction extends WebAction{
         }
 		$this->weixinUser = $wxuser;
         $this->wxname     = $wxuser['wxname'];
-		
-		if (isset($_GET['wecha_id'])&&$_GET['wecha_id']){
-			$_SESSION['wecha_id']=$_GET['wecha_id'];
-			$this->wecha_id=$this->_get('wecha_id');
-		}
-		if (isset($_SESSION['wecha_id'])){
-			$this->wecha_id=$_SESSION['wecha_id'];
-		}
+
+        //获取用户Wecha_id
+        if (session('wecha_id')){
+            $this->wecha_id = session('wecha_id');
+        }else{
+            $this->wecha_id	= $this->_get('wecha_id');
+            if (!$this->wecha_id){
+                $this->wecha_id = $this->_post('wecha_id');
+            }
+            session('wecha_id',$this->wecha_id);
+        }
+        //验证wecha_id有效性
+        if (!$this->wecha_id||$this->wecha_id=='FromUserName'){
+            $this->wecha_id='0';
+        }
 
 		//获取分类信息Classify
         $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts asc,id asc')->select();

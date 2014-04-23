@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>{np:$info.title}</title>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/lecture/mini.css">
+</head>
+<body style="background-image: url({np::STATICS}/img/lecture/lecturebg.jpg);">
+<div class="spinner">
+    <div class="cube1"></div>
+    <div class="cube2"></div>
+</div>
+<div id="wrapper" style="display:none">
+<div class="scroller">
+<div  id="section-sumary" style="display:none">
+    <h1>
+        <div>{np:$info.title}</div>
+        <span>{np:$info.info}</span>
+    </h1>
+    <div class="quick-sign">
+        <a href="javascript:;" onclick="gotoapply();">立即报名</a>
+        <div>
+            <span class="place">活动地点：{np:$info.address}</span>
+            <span class="time">{np:$info.activity_time}</span>
+        </div>
+    </div>
+</div>
+
+<div id="section-description" style="display:none">
+    <div class="title">
+        <h2>{np:$info.title}</h2>
+    </div>
+    <div id="description-content">
+        {np:$info.content}
+    </div>
+</div>
+<div id="section-apply" style="display:none">
+    <notempty name="record">
+        <if condition="$record['status'] eq 0">
+            <div class="applyerror">
+                <img src="{np::STATICS}/img/lecture/error-red-big.png">
+                <br>
+                <span class="error">您已经报名了！</span>
+            </div>
+        <elseif condition="$record['status'] eq 1"/>
+            <div class="applyerror">
+                <img src="{np::STATICS}/img/lecture/success-green-big.png">
+                <br>
+                <span class="tips">你的报名已经通过，请准时参加！</span>
+            </div>
+        <else/>
+            <div class="applyerror">
+                <img src="{np::STATICS}/img/lecture/error-red-big.png">
+                <br>
+                <span class="error">你的报名已被拒绝，感谢关注！</span>
+            </div>
+        </if>
+    <else/>
+    <h3>报名时间：{np:$info.stime|date='m月d日',###} ~ {np:$info.etime|date='m月d日',###} </h3>
+    <form action="submit" id="form1" class="formstyle" method="post" onsubmit="return checkform(this);">
+        <input type="hidden" name="rid" value="{np:$rid}" />
+        <if condition="$info['name_show'] eq 1">
+        <div class="formitems">
+            <label for="title">姓名：</label>
+            <input type="text" name="name" id="name" value="{np:$luser.name}" class="inp" placeholder="请输入您的姓名" required="required" />
+        </div>
+        </if>
+        <div class="formitems" style="display: none;"><!-- TODO -->
+            <label for="title">邮箱：</label>
+            <input type="text" name="email" id="email" value="" class="inp" placeholder="请输入您的电子邮箱"  />
+        </div>
+        <if condition="$info['tel_show'] eq 1">
+        <div class="formitems">
+            <label for="title">手机：</label>
+            <input type="text" name="tel" id="tel" value="{np:$luser.tel}" class="inp" placeholder="请输入您的手机号码" required="required" />
+        </div>
+        </if>
+        <if condition="$info['dept_show'] eq 1">
+        <div class="formitems">
+            <label for="title">公司：</label>
+            <input type="text" name="dept" id="dept" value="{np:$luser.dept}" class="inp" placeholder="请输入您的公司名称" required="required" />
+        </div>
+        </if>
+        <if condition="$info['position_show'] eq 1">
+        <div class="formitems">
+            <label for="title">职位：</label>
+            <input type="text" name="position" id="position" value="{np:$luser.position}" class="inp" placeholder="请输入您所担任的职位" required="required" />
+        </div>
+        </if>
+        <div class="formitems" style="display: none;"><!-- TODO -->
+            <label for="title">来源：</label>
+            <input type="text" name="sources" id="sources" value="" class="inp" placeholder="请输入得知会议的渠道信息"  />
+        </div>
+        <div class="formitems" style="display: none;"><!-- TODO -->
+            <label for="introduction">备注：</label>
+            <textarea cols="40" rows="6" name="note" id="note" class="inp" placeholder="其他备注" ></textarea>
+        </div>
+        <div class="formitems">
+            <input type="submit" value="确定报名" class="submitbtn" />
+        </div>
+    </form>
+    </notempty>
+</div>
+
+<div id="section-calendar" style="display:none">
+    {np:$info.schedule}
+</div>
+
+<div id="section-guests" style="display:none">
+    {np:$info.present}
+</div>
+
+<div  id="section-place" style="display:none">
+    <div class="inner">
+        <h4>{np:$info.address}</h4>
+        <div id="about-place">
+            <div class="summary-place-about">
+                <p>{np:$info.place}</p>
+            </div>
+            <div class="summary-place-eat">
+                <div style="width:80%;height:300px;margin: 0 0 10px 30px;" id="placecontainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="section-contact" style="display:none">
+    <ul>
+        <li></li>
+    </ul>
+</div>
+
+<div id="section-share" style="display:none">
+    <div class="pop-share"></div>
+</div>
+
+</div>
+</div>
+
+<div class="swiper-container" style="display:none;">
+    <div class="pagination"></div>
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+            <div class="swiper-item" attr="section-sumary" effect="bounceIn">
+                <div class="swiper-item-name">报名</div>
+                <div class="swiper-item-line"></div>
+                <div class="icon icon-style-2"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" >
+            <div class="swiper-item" attr="section-description" effect="bounceIn">
+                <div class="swiper-item-name">介绍</div>
+                <div class="swiper-item-line"></div>
+                <div class="icon icon-style-1"></div>
+            </div>
+        </div>
+
+
+
+        <div class="swiper-slide" >
+            <div class="swiper-item" attr="section-calendar" effect="fadeInDownBig">
+                <div class="swiper-item-name">日程</div>
+                <div class="swiper-item-line"></div>
+                <div class="icon icon-style-7"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="swiper-item" attr="section-guests" effect="bounceInRight">
+                <div class="swiper-item-name">嘉宾</div>
+                <div class="swiper-item-line"></div>
+                <div class="icon icon-style-10"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="swiper-item" attr="section-place" effect="bounceInLeft">
+                <div class="swiper-item-name">地点</div>
+                <div class="swiper-item-line"></div>
+                <div class="icon icon-style-6"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" >
+            <div class="swiper-item" attr="section-share" effect="fadeIn">
+                <div class="swiper-item-bg"></div>
+                <div class="swiper-item-name">分享</div>
+                <div class="swiper-item-line"></div>
+                <div class="icon icon-style-4"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="icontips" style="display:none;"></div>
+<script>
+    var dataForWeixin = {
+        appId: "{np:$appid}",
+        MsgImg: '{np:$info.picurl}',
+        TLImg: "",
+        url: "",
+        title: "{np:$info.title} -- {np:$info.info}",
+        desc: "{np:$info.desc}",
+        fakeid: "",
+        weibodesc: "{np:$info.info}",
+        callback: function () { }
+    };
+    document.addEventListener('WeixinJSBridgeReady', function(){WeixinJSBridge.call('showOptionMenu');WeixinJSBridge.invoke("hideToolbar");});
+</script>
+<script src="{np::STATICS}/src/lecture/jquery.min.js"></script>
+<script type="text/javascript" src="{np::STATICS}/src/lecture/mini-1.js"></script>
+<script src="http://map.qq.com/api/js?v=2.exp"></script>
+<script>
+    var mappostion = [{np:$info.lat},{np:$info.lng}];
+    var initplace = function() {
+
+        var mapcenter = new qq.maps.LatLng(mappostion[0],mappostion[1]);
+        var map = new qq.maps.Map(document.getElementById('placecontainer'),{
+            center: mapcenter,
+            zoom: 13
+        });
+        var marker = new qq.maps.Marker({
+            position: mapcenter,
+            map: map
+        });
+
+    }
+    setTimeout(initplace,3000);
+</script>
+</body>
+</html>
