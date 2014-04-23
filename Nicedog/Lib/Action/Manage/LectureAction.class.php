@@ -18,7 +18,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 预约列表
+     * 邀请函列表
      */
     public function lectureList(){
         $db =D('Lecture');
@@ -37,7 +37,7 @@ class LectureAction extends UserAction{
         $this->display();
     }
     /*
-     * 新增预约
+     * 新增邀请函
      */
     public function addLecture(){
         $db = D('Lecture');
@@ -68,7 +68,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 删除预约
+     * 删除邀请函
      */
     public function delLecture(){
         $where['id']=$this->_get('id','intval');
@@ -85,12 +85,20 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 预约记录列表
+     * 邀请函记录列表
      */
     public function lectureRecordList(){
         $db = M('LectureRecord');
-        $where['rid'] = $this->_get('rid','intval');
-        $list = $db->where($where)->select();
+        $rid = $this->_get('rid','intval');
+        if ($rid){
+            $where['rid'] = $rid;
+        }
+        $count=$db->where($where)->count();
+        $page=new Page($count,10);
+        $list=$db->where($where)->order('create_time desc')->limit($page->firstRow.','.$page->listRows)->select();
+        foreach($list as &$vo){
+            $vo['lecture'] = M('Lecture')->find($list['rid'])['title'];
+        }
         //等待客服电话
         $where['status'] = 0;
         $waitCount = $db->where($where)->count();
@@ -100,8 +108,9 @@ class LectureAction extends UserAction{
         //失败预定
         $where['status'] = 2;
         $failCount = $db->where($where)->count();
+        $this->assign('page',$page->show());
         $this->assign('list',$list);
-        $this->assign('count',count($list));
+        $this->assign('count',$count);
         $this->assign('waitCount',$passCount);
         $this->assign('passCount',$passCount);
         $this->assign('failCount',$failCount);
@@ -109,7 +118,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 预约记录详细页
+     * 邀请函记录详细页
      */
     public function lectureRecordDetail(){
         $db = M('LectureRecord');
@@ -120,7 +129,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 审核预约记录
+     * 审核邀请函记录
      */
     public function updatelectureRecord(){
         $db = M('LectureRecord');
@@ -138,7 +147,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 删除预约记录
+     * 删除邀请函记录
      */
     public function dellectureRecord(){
         $db = M('LectureRecord');
@@ -153,7 +162,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 预约统计
+     * 邀请函统计
      */
     public function myLecture(){
         $db = M('LectureRecord');

@@ -714,8 +714,9 @@ class WeixinAction extends Action
                     //同步微信墙资料
                     $themedb = M('MemberTheme');
                     $walluser = D('WallUser')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
-                    if ($walluser['status']==0){//资料不全
-                        if ($this->usertype>2){//服务号账户
+                    if (!$walluser||$walluser['status']==0){//资料不全
+                        LOG::write('usertype:'.$this->usertype,LOG::ERR);
+                        if ($this->usertype == 4){//服务号账户
                             $member = M('Member')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
                             if (!$walluser){    //同步资料
                                 $walluser['token'] = $member['token'];
@@ -748,8 +749,8 @@ class WeixinAction extends Action
                     }
                     return array($msg,'text');
                     break;
-                case 'Lecture'://微邀请
-                    LOG::write('匹配微邀请:'.$key,LOG::INFO);
+                case 'Lecture'://微报名
+                    LOG::write('匹配微报名:'.$key,LOG::INFO);
                     $this->trackdata('Lecture');
                     $info = M('Lecture')->find($res['pid']);
                     $msg = array($info['info'],$info['desc'],$info['picurl'],

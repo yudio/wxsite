@@ -77,8 +77,7 @@
                                         <th>电话</th>
                                         <th>公司</th>
                                         <th>订单状态</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th>邀请函</th>
                                         <th>用户是<br>
                                             否删除</th>
                                         <th>操作</th>
@@ -94,7 +93,7 @@
                                             <td><if condition="$vo['status'] eq 0"><span class="label">等待客服回电</span>
                                                 <elseif condition="$vo['status'] eq 1"/><span class="label label-satgreen">确认</span>
                                                 <else/><span class="label label-lightred">拒绝</span></if></td>
-                                            <td>&nbsp;</td><td>&nbsp;</td>
+                                            <td>{np:$vo.lecture}</td>
                                             <td><if condition="$vo.del_flag eq 0">否<else/>是</if></td>
                                             <td><a href="/npManage/lecture/lectureRecordDetail.act?id={np:$vo.id}" class="btn"  title="订单详情"><i class="icon-search"></i></a>
                                                 <a href="javascript:void(0);" onclick="del_reserve({np:$vo.id});" class="btn" title="删除"><i class="icon-remove"></i></a>
@@ -108,7 +107,7 @@
                             <script>
 
                             </script>
-                            <div class="dataTables_paginate paging_full_numbers"><span>       </span></div>
+                            <div class="dataTables_paginate paging_full_numbers"><span>{np:$page}</span></div>
 
                         </div>
                     </div>
@@ -191,7 +190,7 @@
         var id = $("#myModal2 .data-id").val();
         var state = $("#myModal2 .state").val();
         var order_msg = $("#myModal2 .order_msg").val();
-        $.ajax("/npManage/business/updateReserveRecord.act", {dataType: 'json', data: {'id':id,'state':state,'order_msg':order_msg}}).done(function (d) {
+        $.ajax("/npManage/lecture/updateLectureRecord.act", {dataType: 'json', data: {'id':id,'state':state,'order_msg':order_msg}}).done(function (d) {
             if(0 == d.errno){
                 G.ui.tips.err("操作成功！");
                 window.location.reload();
@@ -206,7 +205,7 @@
 
     function del_reserve(id){
         if(confirm('您确定要删除吗?')){
-            $.ajax("/npManage/business/delReserveRecord.act", {dataType: 'json', data: {'id':id}}).done(function (d) {
+            $.ajax("/npManage/lecture/delLectureRecord.act", {dataType: 'json', data: {'id':id}}).done(function (d) {
                 if(0 == d.errno){
                     G.ui.tips.err("操作成功！");
                     window.location.reload();

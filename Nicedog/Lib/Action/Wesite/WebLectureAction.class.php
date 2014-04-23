@@ -41,6 +41,7 @@ class WebLectureAction extends WebAction{
             if (!$this->wecha_id){
                 $this->wecha_id = $this->_post('wecha_id');
             }
+            session('wecha_id',$this->wecha_id);
         }
         //验证wecha_id有效性
         if (!$this->wecha_id||$this->wecha_id=='FromUserName'){
@@ -56,7 +57,7 @@ class WebLectureAction extends WebAction{
         $db = D('Lecture');
         $rid = $this->_get('rid','intval');
         $info = $db->where(array('token'=>$this->token,'id'=>$rid))->find();
-        $count = M('LectureRecord')->where(array('token'=>$this->token,'rid'=>$rid,'wecha_id'=>$this->wecha_id))->count();
+        $record = M('LectureRecord')->where(array('token'=>$this->token,'rid'=>$rid,'wecha_id'=>$this->wecha_id))->find();
         //格式化会议时间
         $tarr = explode('-',$info['activity_time']);
         $stime = strtotime($tarr[0]);
@@ -66,8 +67,18 @@ class WebLectureAction extends WebAction{
         }else{
             $info['activity_time'] = date('m月d日 H:i',$stime).' ~ '.date('H:i',$etime);
         }
+        //邀请函状态
+        if (NOW_TIME > $info['stime']&&NOW_TIME < $info['etime']){//报名开始
+            $db->data(array('id'=>$info['id'],'status'=>1))->save();
+        }elseif (NOW_TIME > $info['etime']){    //报名截止
+            $db->data(array('id'=>$info['id'],'status'=>2))->save();
+        }
+        $user = M('LectureUser')->where(array('token'=>$this->token,'wecha_id'=>$this->wecha_id))->find();
+        if ($user){
+            $this->assign('luser',$user);
+        }
         $this->assign('info',$info);
-        $this->assign('count',$count);
+        $this->assign('record',$record);
         $this->assign('rid',$rid);
         $this->assign('appid',$this->wxuser['appid']);
         if ($info['status']==1){
@@ -100,7 +111,8 @@ class WebLectureAction extends WebAction{
             $rid = $this->_post('rid','intval');
             $_POST['wecha_id'] = $this->wecha_id;
             $_POST['token'] = $this->token;
-            //更新用户资料
+            $result = false;//关注情况
+            //更新模块用户资料
             $where['token'] = $this->token;
             $where['wecha_id'] = $this->wecha_id;
             $user = M('LectureUser')->where($where)->find();
@@ -116,6 +128,11 @@ class WebLectureAction extends WebAction{
                 $user['id'] = $uid;
                 M('LectureUser')->data($user)->save();
             }
+            $where['status'] = 1;
+            $member = M('Member')->where($where)->find();
+            if ($member){
+                $result = true;
+            }
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
@@ -125,39 +142,35 @@ class WebLectureAction extends WebAction{
                     LOG::write('Reserve|submit'.$db->getError(),LOG::ERR);
                 }
             }else{
-                $info = M('Lecture')->where(array('id'=>$rid))->find();
-                /*if (!$info){
-                    $this->ajaxReturn(array('errno'=>'101','msg'=>'该预约已结束或删除！'),'JSON');
+                $info = M('Lecture')->where(array('id'=>$rid,'status'=>1))->find();
+                if (!$info){
+                    $result = '';
+                    $msg = '该微报名已结束或删除！';
                 }else{
-                    $time = time();
-                    if ($info['type']==1){
-                        if ($info['stime']>time()||$info['etime']<time()){
-                            $this->ajaxReturn(array('errno'=>'101','msg'=>'该预约已过期！'),'JSON');
-                        }
+                    if ($info['stime'] > NOW_TIME||$info['etime'] < NOW_TIME){
+                        $result = '';
+                        $msg = '该微报名已过期！';
                     }
-                    if ($info['type']==2){
-                        $where['createtime'] = array('lt',$time);                                      //小于现在
-                        $where['createtime'] = array('gt',mktime(0,0,0,date('m'),date('d'),date('Y')));//大于今天
-                        $where['rid'] = $rid;
-                        $num = $db->where($where)->count();
-                        if ($num>=$info['allnums']){
-                            $this->ajaxReturn(array('errno'=>'101','msg'=>'今日已经预约满额！'),'JSON');
-                        }
+                    /*$where['create_time'] = array('lt',$time);                                      //小于现在
+                    $where['create_time'] = array('gt',mktime(0,0,0,date('m'),date('d'),date('Y')));//大于今天
+                    $where['rid'] = $rid;
+                    $num = $db->where($where)->count();
+                    if ($num>=$info['allnums']){
+                        $this->ajaxReturn(array('errno'=>'101','msg'=>'今日已经预约满额！'),'JSON');
+                    }*/
+                    $where['rid'] = $rid;
+                    $num = $db->where($where)->count();
+                    if ($num>=$info['allnums']){
+                        $result = '';
+                        $msg = '报名已经满额'.$info['allnums'].'名！';
                     }
-                    if ($info['type']==3){
-                        $where['rid'] = $rid;
-                        $num = $db->where($where)->count();
-                        if ($num>=$info['allnums']){
-                            $this->ajaxReturn(array('errno'=>'101','msg'=>'全部预约已经满额！'),'JSON');
-                        }
-                    }
-                }*/
+                }
                 $_POST['create_time'] = time();
                 $_POST['del_flag']   = 0;
                 $_POST['status']     = 0;
 
                 $db->data($_POST)->add();
-                $this->assign('result',true);
+                $this->assign('result',$result);
                 $this->display('success');
                 //$this->ajaxReturn(array('errno'=>'0','msg'=>'报名成功！','url'=>'/weblecture/'.$this->wxuid.'/showlist?rid='.$rid.'&wecha_id='.$this->wecha_id),'JSON');
             }

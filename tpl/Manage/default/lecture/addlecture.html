@@ -44,7 +44,7 @@
 <div class="box">
     <div class="box-title">
         <div class="span10">
-            <h3><i class="icon-edit"></i>邀请函设置</h3>
+            <h3><i class="icon-edit"></i>微报名设置</h3>
         </div>
         <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
     </div>
@@ -53,11 +53,11 @@
             <input type="hidden" name="id" id="id" value="{np:$info.id|default=''}"/>
 
             <div class="control-group">
-                <label for="title" class="control-label">邀请函标题：</label>
+                <label for="title" class="control-label">微报名标题：</label>
 
                 <div class="controls">
                     <input type="text" name="title" id="title" class="input-xlarge"
-                           value="{np:$info.title|default='邀请函'}" data-rule-required="true"/><span
+                           value="{np:$info.title|default='微报名'}" data-rule-required="true"/><span
                         class="maroon">*</span>
                 </div>
             </div>
@@ -66,7 +66,7 @@
 
                 <div class="controls">
                     <input type="text" name="keyword" id="keyword" class="input-xlarge"
-                           value="{np:$info.keyword|default='邀请函'}" data-rule-required="true"/><span
+                           value="{np:$info.keyword|default='微报名'}" data-rule-required="true"/><span
                         class="maroon">*</span><span class="help-inline">如有多个关键字请用空格隔开</span>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <label for="info" class="control-label">图文消息标题：</label>
 
                 <div class="controls">
-                    <input type="text" name="info" id="info" class="input-xlarge" value="{np:$info.info|default='微邀请'}" data-rule-required="true"/>
+                    <input type="text" name="info" id="info" class="input-xlarge" value="{np:$info.info|default='微报名'}" data-rule-required="true"/>
                     <span class="maroon">*</span>
                 </div>
             </div>
@@ -101,22 +101,22 @@
                 </div>
             </div>
             <div class="control-group">
-                <label for="content" class="control-label">邀请函内容：</label>
+                <label for="content" class="control-label">微报名介绍：</label>
                 <div class="controls">
-                    <textarea id="content" name="content" placeholder="邀请函的介绍栏目" data-rule-required="true">{np:$info.content}</textarea>
+                    <textarea id="content" name="content" placeholder="微报名的介绍栏目" data-rule-required="true">{np:$info.content}</textarea>
                     <span class="maroon">*</span>
                 </div>
             </div>
             <div class="control-group">
                 <label for="schedule" class="control-label">行程安排：</label>
                 <div class="controls">
-                    <textarea id="schedule" name="schedule" placeholder="邀请函的日程栏目">{np:$info.schedule}</textarea>
+                    <textarea id="schedule" name="schedule" placeholder="微报名的日程栏目">{np:$info.schedule}</textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label for="present" class="control-label">与会嘉宾：</label>
                 <div class="controls">
-                    <textarea id="present" name="present" placeholder="邀请函的嘉宾栏目">{np:$info.present}</textarea>
+                    <textarea id="present" name="present" placeholder="微报名的嘉宾栏目">{np:$info.present}</textarea>
                 </div>
             </div>
             <div class="control-group">
@@ -191,7 +191,7 @@
                     <span class="help-inline">最多不超过200 个汉字</span>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="control-group" style="display: none;">
                 <label for="typename" class="control-label">订单接收设置：</label>
                 <div class="controls">
                     <label class="radio inline">
@@ -212,24 +212,24 @@
                 </div>
             </div>
 
-            <div class="control-group" <if condition="$info['type'] neq 1 and $info neq false">style="display: none;"</if>>
-            <label for="date" class="control-label"></label>
-
-            <div class="controls">
-                <div class="input-prepend">
-                    <span class="add-on"><i class="icon-calendar"></i></span>
-                    <input type="text" class="input-xlarge daterangepick" value="<empty name='info'><?php echo date('Y/m/d H:i:s').' - '.date('Y/m/d H:i:s',time()+172800);?><else/><if condition="$info['type'] eq 1">{np:$info.stime|date="Y/m/d H:i",###} - {np:$info.etime|date="Y/m/d H:i",###}</if></empty>" name="time" id="date" />
-                </div>
-                <span class="help-inline">填写订单的起始和结束时间(为空表示不限制)</span></div>
+    <div class="control-group">
+        <label for="date" class="control-label">限定时间</label>
+        <div class="controls">
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-calendar"></i></span>
+                <input type="text" class="input-xlarge daterangepick" value="<empty name='info'><?php echo date('Y/m/d H:i').' - '.date('Y/m/d H:i',time()+172800);?><else/>{np:$info.stime|date="Y/m/d H:i",###} - {np:$info.etime|date="Y/m/d H:i",###}</empty>" name="time" id="date" />
+            </div>
+            <span class="help-inline">填写订单的起始和结束时间(为空表示不限制)</span>
+        </div>
     </div>
-    <div class="control-group" <if condition="$info['type'] eq 1 or $info eq false">style="display: none;"</if> >
-    <label for="allnums" class="control-label"></label>
+    <div class="control-group" >
+    <label for="allnums" class="control-label">限定全部总量</label>
 
     <div class="controls">
-        <input type="text" name="allnums" id="allnums" class="input-mini" value='<if condition="$info[' type'] neq 1">{np:$info.allnums}</if>' data-rule-number="true" />
-        <span class="help-inline">填写最大接收订单数(为空表示不限制),今日预约量:</span>
+        <input type="text" name="allnums" id="allnums" class="input-mini" value='{np:$info.allnums}' data-rule-number="true" />
+        <span class="help-inline">填写最大接收订单数(为空表示不限制)</span>
     </div>
-</div>
+    </div>
 <script type="text/javascript">
     $(function () {
         $("input[type='radio']").click(function () {
@@ -361,7 +361,7 @@
                 <td>
                     <label class="checkbox">
                         <input type="checkbox" checked="checked"
-                               name="date_show" value="1">是否显示
+                               name="dept_show" value="1">是否显示
                     </label>
                 </td>
             </tr>
@@ -380,7 +380,7 @@
                 <td>
                     <label class="checkbox">
                         <input type="checkbox" checked="checked"
-                               name="time_show" value="1">是否显示
+                               name="position_show" value="1">是否显示
                     </label>
                 </td>
             </tr>
