@@ -33,7 +33,7 @@
                     <div class="box">
                         <div class="box-title">
                             <div class="span8">
-                                <h3><i class="icon-table"></i>微报名管理 </h3>
+                                <h3><i class="icon-table"></i>微报名用户管理 </h3>
                             </div>
                             <div class="span4">
                                 <form action="/npManage/lecture/lecturelist.act" method="get" class="form-horizontal">
@@ -48,7 +48,6 @@
                             <div class="row-fluid">
                                 <div class="span12 control-group">
                                     <div class="span4">
-                                        <a class="btn" href="/npManage/lecture/addlecture.act"><i class="icon-plus"></i>新增微报名</a>
                                         <a class="btn" href="javascript:location.reload()"><i class="icon-refresh"></i>刷新</a>
                                     </div>
                                     <div class="span8 datatabletool">
@@ -64,12 +63,13 @@
                                         <thead>
                                             <tr>
                                                 <th class='with-checkbox'>
-                                                    <input type="checkbox" class="check_all" /></th>
-                                                <th>微报名标题</th>
-                                                <th>关键字</th>
+                                                <input type="checkbox" class="check_all" /></th>
+                                                <th>用户姓名</th>
+                                                <th>OPEN_ID</th>
                                                 <th>联系电话</th>
-                                                <th>总订单限制</th>
-                                                <th>开始时间/结束时间</th>
+                                                <th>公司名称</th>
+                                                <th>职位</th>
+                                                <th>更新时间</th>
                                                 <th>操作</th>
                                             </tr>
                                         </thead>
@@ -78,14 +78,13 @@
                                             <tr>
                                                 <td class="with-checkbox">
                                                     <input type="checkbox" name="check" value="{np:$vo.id}"/></td>
-                                                <td>{np:$vo.title}</td>
-                                                <td>{np:$vo.keyword}</td>
+                                                <td>{np:$vo.name}</td>
+                                                <td>{np:$vo.wecha_id}</td>
                                                 <td>{np:$vo.tel}</td>
-                                                <td>{np:$vo.allnums}</td>
-                                                <td>{np:$vo.stime|date='Y/m/d H:i',###} - {np:$vo.etime|date='Y/m/d H:i',###}</td>
+                                                <td>{np:$vo.dept}</td>
+                                                <td>{np:$vo.position}</td>
+                                                <td>{np:$vo.update_time|date='Y-m-d H:i:s',###}</td>
                                                 <td >
-                                                    <a href="/npManage/Lecture/lectureRecordList.act?rid={np:$vo.id}" class="btn" title="订单管理"><i class="icon-cog"></i>订单管理</a>
-                                                    <a class="btn" href="/npManage/Lecture/addLecture.act?id={np:$vo.id}" title="编辑"><i class="icon-edit"></i>编辑</a>
                                                     <a class="btn" href="javascript:void(0)" onclick="del_reserve({np:$vo.id});" title="删除"><i class="icon-remove"></i>删除</a></td>
                                             </tr>
 
@@ -105,7 +104,7 @@
 	<script type="text/javascript">
 		function del_reserve(rid){
 			if(confirm('您确定要删除吗?')){
-				$.ajax("/npManage/lecture/delLecture.act", {dataType: 'json', data: {'id':rid}}).done(function (d) {
+				$.ajax("/npManage/lecture/dellectureUser.act", {dataType: 'json', data: {'id':rid}}).done(function (d) {
 					if(0 == d.errno){
 						G.ui.tips.err("操作成功！");
 						window.location.reload();

@@ -160,7 +160,7 @@ class WebLectureAction extends WebAction{
                     }*/
                     $where['rid'] = $rid;
                     $num = $db->where($where)->count();
-                    if ($num>=$info['allnums']){
+                    if ($info['allnums']>0&&$num>=$info['allnums']){
                         $result = '';
                         $msg = '报名已经满额'.$info['allnums'].'名！';
                     }

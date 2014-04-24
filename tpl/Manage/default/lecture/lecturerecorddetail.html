@@ -41,42 +41,36 @@
                     <div class="box-content">
                         <form action="/plus/formajax.php" method="post" class="form-horizontal form-validate">
                             <div class="control-group">
-                                <label class="control-label" for="username">订单号</label>
+                                <label class="control-label" for="keyid">订单号</label>
                                 <div class="controls">{np:$info.id}</div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="username">真实姓名</label>
-                                <div class="controls">{np:$info.contact}</div>
+                                <label class="control-label" for="name">真实姓名</label>
+                                <div class="controls">{np:$info.name}</div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="username">电话</label>
-                                <div class="controls">{np:$info.contacttel}</div>
+                                <label class="control-label" for="tel">电话</label>
+                                <div class="controls">{np:$info.tel}</div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="username"></label>
-                                <div class="controls">
-                                </div>
+                                <label class="control-label" for="dept">公司</label>
+                                <div class="controls">{np:$info.dept}</div>
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label" for="username"></label>
-                                <div class="controls">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="username">预订日期</label>
-                                <div class="controls">{np:$info.dateline} {np:$info.timepart}</div>
+                                <label class="control-label" for="position">职位</label>
+                                <div class="controls">{np:$info.position}</div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label" for="username">提交时间</label>
-                                <div class="controls">{np:$info.createtime|date='Y-m-d H:i:s',###}</div>
+                                <div class="controls">{np:$info.create_time|date='Y-m-d H:i:s',###}</div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label" for="username">订单状态</label>
                                 <div class="controls">
-                                    <if condition="$info['status'] eq 0"><span class="label">等待客服回电</span></if>
-                                    <if condition="$info['status'] eq 1"><span class="label label-satgreen">已确认</span></if>
-                                    <if condition="$info['status'] eq 2"><span class="label label-lightred">已拒绝</span></if>
+                                    <if condition="$info['status'] eq 0"><span class="label">等待客户支付</span></if>
+                                    <if condition="$info['status'] eq 1"><span class="label label-satgreen">已支付</span></if>
+                                    <if condition="$info['status'] eq 2"><span class="label label-lightred">已取消</span></if>
                                 </div>
                             </div>
                             <div class="control-group">
