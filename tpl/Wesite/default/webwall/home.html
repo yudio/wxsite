@@ -102,7 +102,7 @@ function messageData()
 			$.each(d['data'], function(i,v){
 				data.push(new Array(v['num'],v['avatar'],v['nickname'],v['content']));
 				lastid=v['num'];
-                if(lastid>maxid)
+                if(parseInt(lastid)>parseInt(maxid))
                 {
                     maxid=lastid;
                 }

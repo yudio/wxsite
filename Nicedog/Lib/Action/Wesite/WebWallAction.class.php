@@ -87,11 +87,11 @@ class WebWallAction extends WebAction{
             $where['wid']	= $wid;
             $where['status']= 1;
             $where['id']=array('gt',$maxid);
-            $msglist=$db->where($where)->order('id asc')->find();
+            $msglist=$db->where($where)->order('id desc')->find();
             if(!$msglist)
             {
                 $where['id']=array('lt',$lastid);
-                $msglist=$db->where($where)->order('id asc')->find();
+                $msglist=$db->where($where)->order('id desc')->find();
             }
             if($msglist)
             {
