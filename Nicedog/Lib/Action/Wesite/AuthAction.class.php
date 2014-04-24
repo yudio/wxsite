@@ -54,11 +54,26 @@ class AuthAction extends WebAction{
         }else{
             $authserv = new AuthService($this->wxuser);
             $this->code = $code;$this->state = $state;
+            $pid = 0;
+            if (strpos($state,'_')>0){
+                $arr = explode('_',$state);
+                $state = $arr[0];$pid = $arr[1];
+            }
             switch ($state){
                 case 'official':
                     $json = $authserv->auth2($code);
+                    $json['redirect_url'] = C('site_url').'/wesite/'.$this->wxuid.'/index?wecha_id='.$json['openid'];
                     if ($this->recordAuth($json)){
-                        redirect(C('site_url').'/wesite/'.$this->wxuid.'/index?wecha_id='.$json['openid']);
+                        redirect($json['redirect_url']);
+                    }else{
+                        echo "授权失败!".$this->error;
+                    }
+                    break;
+                case 'lecture':
+                    $json = $authserv->auth2($code);
+                    $json['redirect_url'] = C('site_url').'/WebLecture/'.$this->wxuid.'/index?rid='.$pid.'wecha_id='.$json['openid'];
+                    if ($this->recordAuth($json)){
+                        redirect($json['redirect_url']);
                     }else{
                         echo "授权失败!".$this->error;
                     }

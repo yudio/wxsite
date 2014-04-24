@@ -43,6 +43,9 @@ class LectureAction extends UserAction{
         $db = D('Lecture');
         if (IS_POST){
             $id = $this->_post('id','intval');
+            if (!$this->_post('is_auth')||$this->_post('is_auth')==0){
+                $_POST['is_auth'] = 0;
+            }
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
@@ -103,7 +106,7 @@ class LectureAction extends UserAction{
         if ($key){
             $where['name'] = array('like','%'.$key.'%');
         }
-
+        $where['token'] = session('token');
         $count=$db->where($where)->count();
         $page=new Page($count,10);
         $list=$db->where($where)->order('create_time desc')->limit($page->firstRow.','.$page->listRows)->select();

@@ -753,8 +753,13 @@ class WeixinAction extends Action
                     LOG::write('匹配微报名:'.$key,LOG::INFO);
                     $this->trackdata('Lecture');
                     $info = M('Lecture')->find($res['pid']);
-                    $msg = array($info['info'],$info['desc'],$info['picurl'],
-                        C('site_url')."/WebLecture/{$this->wxuid}/index?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}");
+                    $url = C('site_url')."/WebLecture/{$this->wxuid}/index?rid={$res['pid']}&wecha_id={$this->data['FromUserName']}";
+                    if ($info['is_auth']==1){//授权链接
+                        $wxuser = M('Wxuser')->find($this->wxuid);
+                        $authservice = new AuthService($wxuser);
+                        $url = $authservice->auth2url(C('site_url').'/webauth/'.$this->wxuid.'/redirect','snsapi_base','lecture_'.$res['pid']);
+                    }
+                    $msg = array($info['info'],$info['desc'],$info['picurl'],$url);
                     return array(array($msg),'news');
                     break;
                 case 'Host':
