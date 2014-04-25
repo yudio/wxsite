@@ -26,7 +26,7 @@ class UserAction extends BaseAction{
 			$this->redirect('Home/Index/index',null,3,'请登录！');
 		}else{
             $livetime = session('livetime');
-            if ((time()-$livetime)>144000){
+            if ((NOW_TIME-$livetime)>144000){
                 $this->redirect('Home/Index/index',null,3,'请重新登录！');
             }else{
                 session('livetime',time());

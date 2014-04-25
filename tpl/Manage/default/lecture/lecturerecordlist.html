@@ -38,7 +38,7 @@
                         </div>
                         <div class="span5">
                             <form action="" method="get" class="form-horizontal">
-                                <input type="text" id="date-input" class="input-small-z datepick"  name="date" placeholder="预定日期" />
+                                <input type="text" id="date-input" class="input-small-z "  name="key" placeholder="客户名字" />
                                 <select name="state" class="input-small">
                                     <option value="">全部</option>
                                     <option value="0">等待客户支付</option>
@@ -90,9 +90,9 @@
                                             <td>{np:$vo.name}</td>
                                             <td>{np:$vo.tel}</td>
                                             <td>{np:$vo.dept}</td>
-                                            <td><if condition="$vo['status'] eq 0"><span class="label">等待客服回电</span>
-                                                <elseif condition="$vo['status'] eq 1"/><span class="label label-satgreen">确认</span>
-                                                <else/><span class="label label-lightred">拒绝</span></if></td>
+                                            <td><if condition="$vo['status'] eq 0"><span class="label">等待客户支付</span>
+                                                <elseif condition="$vo['status'] eq 1"/><span class="label label-satgreen">已支付</span>
+                                                <else/><span class="label label-lightred">已取消</span></if></td>
                                             <td>{np:$vo.lecture}</td>
                                             <td><if condition="$vo.del_flag eq 0">否<else/>是</if></td>
                                             <td><a href="/npManage/lecture/lectureRecordDetail.act?id={np:$vo.id}" class="btn"  title="订单详情"><i class="icon-search"></i></a>

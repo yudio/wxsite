@@ -18,7 +18,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 邀请函列表
+     * 微报告列表
      */
     public function lectureList(){
         $db =D('Lecture');
@@ -37,12 +37,15 @@ class LectureAction extends UserAction{
         $this->display();
     }
     /*
-     * 新增邀请函
+     * 新增微报告
      */
     public function addLecture(){
         $db = D('Lecture');
         if (IS_POST){
             $id = $this->_post('id','intval');
+            if (!$this->_post('is_auth')||$this->_post('is_auth')==0){
+                $_POST['is_auth'] = 0;
+            }
             if ($id){//更新操作
                 if ($db->create()){
                     $db->save();
@@ -68,7 +71,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 删除邀请函
+     * 删除微报告
      */
     public function delLecture(){
         $where['id']=$this->_get('id','intval');
@@ -85,7 +88,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 邀请函记录列表
+     * 微报告记录列表
      */
     public function lectureRecordList(){
         $db = M('LectureRecord');
@@ -93,11 +96,22 @@ class LectureAction extends UserAction{
         if ($rid){
             $where['rid'] = $rid;
         }
+        //搜索 － 订单状态
+        $state = $this->_get('state');
+        if ($state){
+            $where['status'] = $state;
+        }
+        //搜索 - 客户名字
+        $key = $this->_get('key');
+        if ($key){
+            $where['name'] = array('like','%'.$key.'%');
+        }
+        $where['token'] = session('token');
         $count=$db->where($where)->count();
         $page=new Page($count,10);
         $list=$db->where($where)->order('create_time desc')->limit($page->firstRow.','.$page->listRows)->select();
         foreach($list as &$vo){
-            $vo['lecture'] = M('Lecture')->find($list['rid'])['title'];
+            $vo['lecture'] = M('Lecture')->find($vo['rid'])['title'];
         }
         //等待客服电话
         $where['status'] = 0;
@@ -118,7 +132,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 邀请函记录详细页
+     * 微报告记录详细页
      */
     public function lectureRecordDetail(){
         $db = M('LectureRecord');
@@ -129,7 +143,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 审核邀请函记录
+     * 审核微报告记录
      */
     public function updatelectureRecord(){
         $db = M('LectureRecord');
@@ -147,7 +161,7 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 删除邀请函记录
+     * 删除微报告记录
      */
     public function dellectureRecord(){
         $db = M('LectureRecord');
@@ -162,7 +176,41 @@ class LectureAction extends UserAction{
     }
 
     /*
-     * 邀请函统计
+     * 微报告用户列表
+     */
+    public function lectureuserList(){
+        $db =D('LectureUser');
+        $where['token'] = session('token');
+        $key = $this->_get('keyword');
+        if ($key){
+            $where['keyword'] = array('like','%'.trim($key).'%');
+        }
+        //$where['type']  = array(array('eq',2),array('eq',3),'OR');
+        $count=$db->where($where)->count();
+        $page=new Page($count,10);
+        $list=$db->where($where)->order('update_time desc')->limit($page->firstRow.','.$page->listRows)->select();
+        $this->assign('page',$page->show());
+        $this->assign('list',$list);
+        $this->assign('count',$count);
+        $this->display();
+    }
+    /*
+     * 删除微报告用户
+     */
+    public function dellectureUser(){
+        $db = M('LectureUser');
+        $where['id'] = $this->_get('id','intval');
+        $info = $db->where($where)->find();
+        if ($info){
+            $db->where($where)->delete();
+            $this->ajaxReturn(array('errno'=>'0'),'JSON');
+        }else{
+            $this->ajaxReturn(array('errno'=>'101','error'=>'记录不存在或已被删除！'),'JSON');
+        }
+    }
+
+    /*
+     * 微报告统计
      */
     public function myLecture(){
         $db = M('LectureRecord');

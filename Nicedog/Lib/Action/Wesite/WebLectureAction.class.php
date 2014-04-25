@@ -158,12 +158,14 @@ class WebLectureAction extends WebAction{
                     if ($num>=$info['allnums']){
                         $this->ajaxReturn(array('errno'=>'101','msg'=>'今日已经预约满额！'),'JSON');
                     }*/
-                    $where['rid'] = $rid;
-                    $num = $db->where($where)->count();
-                    if ($num>=$info['allnums']){
+                    $cond['rid'] = $rid;
+                    $cond['status'] = 1;//审核通过
+                    $num = $db->where($cond)->count();
+                    if ($info['allnums']>0&&$num>=$info['allnums']){
                         $result = '';
                         $msg = '报名已经满额'.$info['allnums'].'名！';
                     }
+                    $this->assign('info',$info);
                 }
                 $_POST['create_time'] = time();
                 $_POST['del_flag']   = 0;
