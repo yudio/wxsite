@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/core1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/main1.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/helper_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/main.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/jquery_flexslider.js"></script>
+    <title>微信墙</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+    $(function(){
+        shake();
+    });
+    function shake(){
+        var arg = arguments;
+        getRecord();
+        setTimeout(function(){
+            shake();
+        }, 1000);
+    }
+
+    function getRecord(){
+        var req = {
+            id:6684,
+            pid:110460,
+            bid:225472,
+            v:'866de5f5590e1b268937afc8be2eb032'
+        }
+        $.ajax({
+            url: "/webwall/getShake",
+            type:"post",
+            data:req,
+            dataType:"JSON",
+            success: function(res){
+                if(res && res.result && (1 == res.result) ){
+                    //console.log(res);
+                    showRace(res.data.players);
+                }else{
+
+                }
+            },
+            error: function(){
+                console.log(this);
+            }
+        });
+    }
+
+
+    function showRace(data){
+        if(data instanceof Array){
+            data = data.sort(function(p1, p2){
+                if(p1.totalStep<p2.totalStep){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            }).slice(0, 8);
+        }else{
+            return;
+        }
+        var TPL = '<li>\
+			<ol class="ol1">\
+				<span class="span1 nth_{nth}">&nbsp;</span>\
+				<span class="span2"><img src="{img}" /></span>\
+				<span class="span3">{nickName}</span>\
+			</ol>\
+			<ol class="ol2">\
+				<span id="step_{k}_1" class="span1" style="width:{totalStep}px;">&nbsp;</span>\
+				<span id="step_{k}_2" class="span2 step {odd}">&nbsp;</span>\
+			</ol>\
+		</li>';
+
+        var lis = iTemplate.makeList(TPL, data, function(k, v){
+            if(v.totalStep>=19){
+                v.totalStep = 19;
+                shake = function(){
+                    var TPL = '<span class="medal{k}">\
+								<label>{nickName}</label>\
+								<img src="{img}" />\
+							</span>';
+                    $("#medal").html(iTemplate.makeList(TPL, data.slice(0,3), function(k,v){
+                        return {
+                            k:parseInt(k)+1
+                        }
+                    }) );
+                    $("#pop_medal, #pop_medal_cover").addClass("on");
+                    sendResult({
+                        id:6684,
+                        pid:110460,
+                        bid:225472,
+                        v:'866de5f5590e1b268937afc8be2eb032',
+                        result: data.slice(0,3)
+                    });
+                }
+            }
+            return {
+                nth: parseInt(k)+1,
+                totalStep: v.totalStep*30,
+                odd: 1 == v.totalStep%2?"odd":"",
+                k:k
+            }
+        });
+        //console.log(lis);
+        $("#shake_body").html(lis);
+
+
+        function sendResult(req){
+            $.ajax({
+                url: "/webwall/getShakewin",
+                type:"post",
+                data:req,
+                dataType:"JSON",
+                success: function(res){
+                    if(1 == res.result){
+                        alert(JSON.stringify(req) );
+                    }else{
+
+                    }
+                },
+                error: function(){
+                    console.log(this);
+                }
+            });
+        }
+    }
+</script>
+<style>
+    body{
+        background-image: url(img/wall/web1.jpg);
+    }
+</style>
+<body class="shake">
+<div class="body">
+    <!----header---->
+    <div class="main_header">
+
+    </div>
+    <!----header end---->
+
+    <!----mainbody---->
+    <div class="main_body">
+        <div class="align_right pr_10 pt_10">
+            <img src="img/wall/logo.png" />
+        </div>
+        <div class="box_wall">
+            <ul id="shake_body" class="shake_body">
+                <!--li>
+                    <ol class="ol1">
+                        <span class="span1 nth_1">&nbsp;</span>
+                        <span class="span2"><img src="images/6.jpg" /></span>
+                        <span class="span3">Eric</span>
+                    </ol>
+                    <ol class="ol2">
+                        <span id="step_0_1" class="span1" style="width:0px;">&nbsp;</span>
+                        <span id="step_0_2" class="span2 step odd">&nbsp;</span>
+                    </ol>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li-->
+            </ul>
+        </div>
+        <div class="box_menu">
+            <ul class="clear">
+                <ol class="fl"><label></label></ol>
+                <li>
+                    <a href="javascript:;" class="yy on" onclick="playMsc(this, event);">
+                        <span></span>
+                        <label>微信墙</label>
+                    </a>
+                    <script>
+                        if(!-[1,]){
+                            document.write('<embed id="msc" src="http://video.weimob.com/wxwall/default/%E5%8D%A1%E5%86%9C.mp3" autostart="true" loop="true" hidden="true" />');
+                        }else{
+                            document.write('<audio id="msc" loop="true" hidden="true" autoplay="true"><source src="http://video.weimob.com/wxwall/default/%E5%8D%A1%E5%86%9C.mp3" ></audio>');
+                        }
+                    </script>
+                </li>
+                <li>
+                    <a href="javascript:;" class="qp" onclick="fullScreen(event, this);">
+                        <span></span>
+                        <label>全屏</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="ewm" onclick="$('#qrcode').addClass('on');">
+                        <span></span>
+                        <label>二维码</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webwall/shakeStart?id=6684&bid=225472&pid=110460&v=866de5f5590e1b268937afc8be2eb032" class="yyy">
+                        <span></span>
+                        <label>摇一摇</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webwall/Index?id=6684&bid=225472&pid=110460&v=866de5f5590e1b268937afc8be2eb032" class="wxq">
+                        <span></span>
+                        <label>微信墙</label>
+                    </a>
+                </li>
+            </ul>
+            <div id="qrcode" class="qrcode">
+                <header class="header">
+                    <ul>
+                        <li style="float:left;"><h5>二维码</h5></li>
+                        <li style="float:right;">
+                            <span class="close" onclick="$('#qrcode').removeClass('on');" style="padding-left:0;"></span>
+                        </li>
+                    </ul>
+                    <div class="qbody">
+                        <span><img src="" /></span>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="align_center white"><a href="" class="white"><a></div>
+    </div>
+    <div id="pop_medal" class="pop_window relative">
+        <span class="close" onclick="$('#pop_medal, #pop_medal_cover').removeClass('on');">&nbsp;</span>
+        <div class="medal ">
+            <p id="medal">
+                <!---->
+            </p>
+            <img src="img/wall/template1/13.png" />
+        </div>
+        <div class="relative">
+            <input type="image" onclick="location.reload();" src="img/wall/template1/19.png" class="oncemore" />
+            <div class="prize">
+                <img src="img/wall/template1/18.png" class="img" />
+                <table>
+                    <tr>
+                        <td style="width:193px;">
+                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" /></span>
+                            <div>
+                                <h5>1</h5>
+                                <label>1</label>
+                            </div>
+                        </td>
+
+                        <td style="width:193px;">
+                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" /></span>
+                            <div>
+                                <h5>2</h5>
+                                <label>2</label>
+                            </div>
+                        </td>
+
+                        <td style="width:193px;">
+                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" /></span>
+                            <div>
+                                <h5>3</h5>
+                                <label>3</label>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="pop_medal_cover" class="pop_medal_cover"></div>
+</div>
+</body>
+</html>
+</body>
+</html>

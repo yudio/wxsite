@@ -76,6 +76,35 @@ class WebWallAction extends WebAction{
         $this->display();
     }
 
+    public function shakeStart()
+    {
+        $id = $this->_get('wid','intval');
+        $db = D('Wall');
+        if($id != 0){
+            $info = $db->where('id='.$id)->find();
+            //dump($info);
+            if (!$info){exit('该微信墙活动不存在或已经结束！');}
+            $this->assign('wid',$id);
+            $this->assign('info',$info);
+        }else{
+            echo '该微信墙活动不存在或已经结束！';
+            exit;
+        }
+
+        $this->display();
+    }
+
+    public function shake()
+    {
+        $wid =$this->_get('wid','intval');
+        $token=$this->_get('token');
+        $db=M('ShakeSet');
+        if($wid!=0 && !$token){
+           // $where =
+        }
+    }
+
+
     public function  getMsgList(){
         $db = M('WallMsg');
         $wid = $this->_get('wid');

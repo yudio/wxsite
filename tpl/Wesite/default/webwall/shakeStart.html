@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/core1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/wall/main1.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/helper_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/main.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/wall/jquery_flexslider.js"></script>
+    <title>微信墙</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+
+    $(function(){
+
+    });
+
+    var seconds = 8;
+    function start_tick(){
+        $("#start_body, #tick_body").toggleClass("hidden");
+        tick(seconds);
+    }
+
+    function tick(s){
+        var arg = arguments;
+        var TPL ='<span class="seconds_num">'+s+'</span>\
+			<svg width="350" height="350">\
+				<g width="350" height="350" transform = "rotate('+(-360/seconds*s)+' 175 175)">\
+					<image x="163" y="0" width="24" height="65" xlink:href="{np::STATICS}/img/wall/template1/14.png" style="" />\
+				</g>\
+			</svg>';
+        $("#clock").html(TPL);
+        if(0>=s--){
+            location.href = "/webwall/{np:$wxuid}/shake?id={np:$wid}&wecha_id={np:$wecha_id}&token={np:$token}";
+            return;
+        }
+        setTimeout(function(){
+            arg.callee.apply(null, arg);
+        }, arg[1]||1000);
+    }
+</script>
+<style>
+    body{
+        <if condition="$info['pc_bg'] neq '' ">
+            background-image: url({np:$info.pc_bg});
+        <else/>
+        background-image:url({np::STATICS}/img/wall/web1.jpg);
+        </if>
+    }
+</style>
+<body class="tick">
+<div class="body">
+    <!----header---->
+    <div class="main_header">
+
+    </div>
+    <!----header end---->
+
+    <!----mainbody---->
+    <div class="main_body">
+        <div class="align_right pr_10 pt_10">
+            <img src="img/wall/logo.png" />
+        </div>
+        <div class="box_wall relative">
+            <div id="tick_body" class="tick_body hidden" style="position:relative;">
+                <div id="clock" class="clock">
+                    <span class="seconds_num">8</span>
+                    <svg width="350" height="350">
+                        <g width="350" height="350" transform = "rotate(0 175 175)">
+                            <image x="163" y="0" width="24" height="65" xlink:href="{np::STATICS}/img/wall/template1/14.png" style="" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div id="start_body" class="start_body">
+                <table>
+                    <tr>
+                        <td><img src="{np::STATICS}/img/wall/template1/16.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="img_wrap"><img src="" /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="image" src="{np::STATICS}/img/wall/template1/15.png" onclick="start_tick();" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="box_menu">
+            <ul class="clear">
+                <ol class="fl"><label></label></ol>
+                <li>
+                    <a href="javascript:;" class="yy on" onclick="playMsc(this, event);">
+                        <span></span>
+                        <label>微信墙</label>
+                    </a>
+                    <script>
+                        if(!-[1,]){
+                            document.write('<embed id="msc" src="{np:$info.mp3url}" autostart="true" loop="true" hidden="true" />');
+                        }else{
+                            document.write('<audio id="msc" loop="true" hidden="true" autoplay="true">' +
+                                    '<source src="{np:$info.mp3url}" ></audio>');
+                        }
+                    </script>
+                </li>
+                <li>
+                    <a href="javascript:;" class="qp" onclick="fullScreen(event, this);">
+                        <span></span>
+                        <label>全屏</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="ewm" onclick="$('#qrcode').addClass('on');">
+                        <span></span>
+                        <label>二维码</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webwall/{np:$wxuid}/shakeStart?wid={np:$wid}&wecha_id={np:$wecha_id}" class="yyy">
+                        <span></span>
+                        <label>摇一摇</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Webwall/{np:$wxuid}/Index?id=8502&bid=253928&pid=124545&v=245d755d6ee864818281ccd751085bfc" class="wxq">
+                        <span></span>
+                        <label>微信墙</label>
+                    </a>
+                </li>
+            </ul>
+            <div id="qrcode" class="qrcode">
+                <header class="header">
+                    <ul>
+                        <li style="float:left;"><h5>二维码</h5></li>
+                        <li style="float:right;">
+                            <span class="close" onclick="$('#qrcode').removeClass('on');" style="padding-left:0;"></span>
+                        </li>
+                    </ul>
+                    <div class="qbody">
+                        <span><img src="{np:$info.tdcode}" /></span>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="align_center white"><a href="" class="white"><a></div>
+    </div>
+</div>
+</body>
+</html>
+</body>
+</html>
