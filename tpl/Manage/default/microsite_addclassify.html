@@ -6,30 +6,30 @@
     <meta name="Keywords" content="{np::C('Keywords')}"/>
     <meta name="Description" content="{np::C('Description')}"/>
     <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css?2014-02-20-1" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/resource.css?2014-02-20-1" media="all"/>
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/form/jquery_form_min.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js?2014-02-20-1"></script>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all"/>
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
     <script type="text/javascript"
-            src="{np::RES}/src/plugins/validation/jquery_validate_methods.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/resource.js?2014-02-20-1"></script>
-    <script type="text/javascript" src="{np::STATICS}/inside.js?2014-02-20-1"></script>
+            src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/resource.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <!--[if IE 7]>
-    <link href="{np::RES}/css/font_awesome_ie7.css" rel="stylesheet"/>
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet"/>
     <![endif]-->
     <!--[if lte IE 8]>
-    <script src="{np::RES}/js/excanvas_min.js"></script>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-    <script src="{np::RES}/js/watermark.js"></script>
+    <script src="{np::STATICS}/js/watermark.js"></script>
     <![endif]-->
 </head>
 <script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
@@ -404,9 +404,17 @@
 </body>
 <script>
     $(document).ready(function () {
-        var resource = Resource.create();
+        var opt1 = {actval:'{np:$info.activity_value}'};
+        var resource = Resource.create(opt1);
         var ins = Resource.instance['res_block'];
-        ins.result = ins.result || {};
+        <if condition="$info['type'] eq 'map'">
+                ins.map = {
+            lat: {np:$info.lat},
+            lng: {np:$info.lng},
+            adr: "{np:$info.place}"
+        }
+            ins._loadBaidu_map();
+        </if>
 
         window.ICON();
     });

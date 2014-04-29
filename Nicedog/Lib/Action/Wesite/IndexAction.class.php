@@ -155,6 +155,8 @@ class IndexAction extends WebAction{
             if($pageNum==false){$pageNum=0;}
             $info=$db->where($where)->order('createtime DESC')->limit("{$pageNum},".$pageSize)->select();
             $info=$this->getTypeUrl($info);
+            $thisClassify = M('Classify')->find($classid);
+            $this->assign('thisclassify',$thisClassify);
             $this->assign('pageCount',$pagecount);
             $this->assign('pageNum',$pageNum);
             $this->assign('info',$info);

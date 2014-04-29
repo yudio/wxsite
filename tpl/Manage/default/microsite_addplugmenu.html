@@ -328,9 +328,9 @@
 <script type="text/javascript">
 
     $(function () {
-        var resource = Resource.create();
+        var opt1 = {actval:'{np:$info.activity_value}'};
+        var resource = Resource.create(opt1);
         var ins = Resource.instance['res_block'];
-        ins.result = ins.result || {};
 
         <if condition="$info['type'] eq 'map'">
                 ins.map = {

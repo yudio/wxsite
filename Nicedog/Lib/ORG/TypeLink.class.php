@@ -28,6 +28,9 @@ class TypeLink{
                      if ($arr['activity_type']=='lottery'){ //大转盘
                         $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
                      }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
+                     }
                      break;
                  case 'business':
                      switch ($arr['business_type']){
@@ -69,6 +72,9 @@ class TypeLink{
                  case 'activity':
                      if ($arr['activity_type']=='lottery'){ //大转盘
                          $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
+                     }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
                      }
                      break;
                  case 'business':
@@ -116,6 +122,9 @@ class TypeLink{
                      if ($arr['activity_type']=='lottery'){ //大转盘
                          $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
                      }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
+                     }
                      break;
                  case 'business':
                      switch ($arr['business_type']){
@@ -162,6 +171,9 @@ class TypeLink{
                  case 'activity':
                      if ($arr['activity_type']=='lottery'){ //大转盘
                          $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
+                     }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
                      }
                      break;
                  case 'business':
