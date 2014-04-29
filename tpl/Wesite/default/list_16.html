@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/reset.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/weimob-ui-1-1.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{np::RES}/css/template/list-8.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/wm-xin-a/font-awesome.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/zepto.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/template/swipe.js"></script>
+    <title>{np:$thisclassify.name}</title>
+    <include file="common:meta"/>
+</head>
+<body onselectstart="return true;" ondragstart="return false;" id="listhome3">
+<div style="height:35px!important;"></div>
+<div class="body">
+<header>
+		<div class="head_news">
+            <volist name="info" id="vo">
+                <if condition="$i eq 1">
+                    <a href="{np:$vo.url}">
+                        <ul>
+                            <li><img src="{np:$vo.pic}" style="width:100%; max-height:400px;" /></li>
+                        </ul>
+                        <ol>{np:$vo.title}</ol>
+                    </a>
+                </if>
+            </volist>
+	</div>
+</header>
+<section>
+	<ul class="list_ul list_ul_news">
+        <volist name="info" id="vo">
+            <if condition="$i gt 1">
+                <li>
+                    <a class="tbox" href="{np:$vo.url}">
+                        <div>
+                            <img src="{np:$vo.pic}" style="width:60px!important; height:60px;"/>
+                        </div>
+                        <div>
+                            <p>{np:$vo.title}</p>
+                            <p>{np:$vo.createtime|date='Y-m-d',###}</p>
+                        </div>
+                    </a>
+                </li>
+            </if>
+        </volist>
+
+		<li>
+			<a class="tbox" href="/wxplat/business/index.php/website/details?websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&cid=174">
+				<div>
+					<img src="/wxplat/index/uploadfile/201402242019450245.jpg" style="width:60px!important; height:60px;"/>
+				</div>
+				<div>
+					<p>集团战略</p>
+					<p>2014-02-24</p>
+				</div>
+			</a>
+		</li>
+				       </ul>
+       </section>
+</div>
+<!--  导航菜单 后台设置的快捷菜单 -->
+<include file="common:menu"/>
+<!--
+<div style="height:35px!important;"></div>
+	<div class="top_bar">
+		<nav>
+			<ul class="top_menu">
+				<li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
+				<li onclick="location.href='/wxplat/business/index.php/website/index?websiteid=87&uid=127&wechatid=fromUsername&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wxref=mp.weixin.qq.com'"><span class="icon-home"></span></li>
+				<li><a href="/wxplat/business/index.php/website/plugmenu?pid=14&websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&wxref=mp.weixin.qq.com"><span class="icon-phone"></span></a></li>
+				<li onclick="$('#menu_font').toggleClass('hidden');">
+					<span class="icon-list-ul"></span>
+					<ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+						<li>							
+								<a href="/wxplat/business/index.php/website/getlist?websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&cid=367&wxref=mp.weixin.qq.com" class="icon-globe ">红星商业</a>
+							</li>
+						<li>							
+								<a href="/wxplat/business/index.php/website/getlist?websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&cid=368&wxref=mp.weixin.qq.com" class="icon-home">关于福州爱琴海</a>
+							</li>
+						<li>							
+								<a href="/wxplat/business/index.php/website/getlist?websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&cid=379&wxref=mp.weixin.qq.com" class="icon-thumbs-up">主力业态</a>
+							</li>
+						<li>							
+								<a href="/wxplat/business/index.php/website/getlist?websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&cid=380&wxref=mp.weixin.qq.com" class="icon-plane">如何到达</a>
+							</li>
+						<li>							
+								<a href="/wxplat/business/index.php/website/getlist?websiteid=87&uid=127&token=vyI7jSy3D74Byd396386832OY9Gd7JYO&wechatid=fromUsername&cid=381&wxref=mp.weixin.qq.com" class="icon-gift">有奖互动</a>
+							</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>-->
+<include file="common:footer"/>
+</body>
+</html>
