@@ -37,7 +37,9 @@ class TypeLink{
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
@@ -82,7 +84,9 @@ class TypeLink{
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
@@ -131,7 +135,9 @@ class TypeLink{
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
@@ -181,7 +187,9 @@ class TypeLink{
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
