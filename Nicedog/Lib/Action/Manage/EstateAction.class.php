@@ -56,9 +56,10 @@ class EstateAction extends UserAction{
         $db   = D('EstateSet');
         $id = $this->_post('id');
         if ($id){
-            $info = $db->field('id')->where('id='.$id)->find();
+            $info = $db->where('id='.$id)->find();
             if ($info){
                 $db->delete($id);
+                KeyWord::delete(array('pid'=>$info['id'],'token'=>$info['token']),'Estate');
                 $this->ajaxReturn(array('errno'=>'0','error'=>'成功删除！'),'JSON');
             }else{
                 $this->ajaxReturn(array('errno'=>'1','error'=>'该记录不存在！'),'JSON');

@@ -5,11 +5,16 @@ RewriteEngine on
 
 RewriteCond %{HTTP_HOST} ^www\.nicepa\.cn$ [NC]
 RewriteRule .?  http://nicepa.cn%{REQUEST_URI} [R=301]
-
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#微信响应接口
 RewriteRule ^wechat/(.+)$ index.php/api/$1 [L]
-RewriteRule ^wesite/(.+)/(.+)$ index.php?g=Wesite&m=Index&a=$2&wxuid=$1&%{QUERY_STRING} [L]
-RewriteRule ^wewap/(.+)/(.+)/(.+)$ index.php?g=wap&m=$2&a=$3&wxname=$1&%{QUERY_STRING} [L]
+#全站通用入口
 RewriteRule ^np(.+)/(.+)/(.+)\.act$ index.php?g=$1&m=$2&a=$3&%{QUERY_STRING}  [L,NE]
+#微官网
+RewriteRule ^wesite/(.+)/(.+)$ index.php?g=Wesite&m=Index&a=$2&wxuid=$1&%{QUERY_STRING} [L]
+#微信通用入口
+RewriteRule ^wewap/(.+)/(.+)/(.+)$ index.php?g=Wesite&m=$2&a=$3&wxuid=$1&%{QUERY_STRING} [L,NC]
 
 #微预约
 RewriteRule ^reserve/(.+)/(.+)$ index.php?g=Wesite&m=reserve&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
@@ -38,5 +43,8 @@ RewriteRule ^vCard/(.+)$ index.php?g=Wesite&m=VCard&a=Index&cardno=$1&%{QUERY_ST
 
 #微邀请
 RewriteRule ^WebLecture/(.+)/(.+)$ index.php?g=Wesite&m=WebLecture&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
+
+#微活动
+RewriteRule ^WebActivity/(.+)/(.+)$ index.php?g=Wesite&m=WebActivity&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
 </IfModule>

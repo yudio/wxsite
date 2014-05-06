@@ -306,16 +306,11 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
                                     <div id="r_car" class="control-group r-module <if condition="$info['type'] neq 'car'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="suggestId">功能模块</label>
                                             <div class="controls">
                                                <select id="car_func"  name="r_car_function">
-
                                                 <option value="2001" data-list="" >最新资讯</option>
                                                 <option value="2002" data-list="" >全部车型</option>
                                                 <option value="2003" data-list="" >联系销售</option>
@@ -323,7 +318,6 @@
                                                 <option value="2005" data-list="" >预约保养</option>
                                                 <option value="2006" data-list="" >实用工具</option>
                                                 <option value="2007" data-list="" >车主关怀</option>
-
                                             </select>
                                             </div>
                                             <div class="margin-top hide">
@@ -338,14 +332,8 @@
                                                             <th>预约时间</th>
                                                         </tr>
                                                     </thead>
-
                                                     <tbody>
                                                     </tbody>
-
-
-
-
-
                                                 </table>
                                                 <div class="text-center no-record" style="display:block">没有正在进行中的预约</div>
                                             </div>
@@ -370,10 +358,6 @@
 
                                         </div>
                                     </div>
-
-
-
-
                                     <div id="r_food" class="control-group r-module <if condition="$info['type'] neq 'food'">hide</if>">
                                         <div class="control-group">
                                             <label class="control-label" for="suggestId">功能模块</label>
@@ -391,10 +375,6 @@
 
                                         </div>
                                     </div>
-
-
-
-
                                     <div id="r_vshop" class="control-group r-module <if condition="$info['type'] neq 'vshop'">hide</if>">
                                         <div class="control-group">
                                             <label for="suggestId" class="control-label">功能模块</label>
@@ -410,9 +390,6 @@
 
                                         </div>
                                     </div>
-
-
-
                                     <div id="r_vtg" class="control-group r-module <if condition="$info['type'] neq 'vtg'">hide</if>">
                                         <div class="control-group">
                                             <label for="suggestId" class="control-label">功能模块</label>
@@ -425,9 +402,6 @@
 
                                         </div>
                                     </div>
-
-
-
                                     <div id="r_vlife" class="control-group r-module <if condition="$info['type'] neq 'vlife'">hide</if>">
                                         <div class="control-group">
                                             <label for="suggestId" class="control-label">功能模块</label>
@@ -439,11 +413,6 @@
 
                                         </div>
                                     </div>
-
-
-
-
-
                                 <div class="form-actions">
 									<input type="hidden" name="id" id="tid" value="{np:$info.id}">
                                     <button type="submit" class="btn btn-primary" id="bsubmit">保存</button>
@@ -497,25 +466,18 @@
 
                     $(document).ready(function () {
 
-
-                        var resource = Resource.create();
+                        var opt1 = {actval:'{np:$info.activity_value}'};
+                        var resource = Resource.create(opt1);
                         var ins = Resource.instance['res_block'];
-                        ins.result = ins.result || {};
 
                         <if condition="$info['type'] eq 'map'">
-                        ins.map = {
+                                ins.map = {
                             lat: {np:$info.lat},
                             lng: {np:$info.lng},
                             adr: "{np:$info.place}"
                         }
-                        ins._loadBaidu_map();
+                            ins._loadBaidu_map();
                         </if>
-
-
-
-
-
-
 
                         var _pdata_table_id;
                         var _isoso = false;

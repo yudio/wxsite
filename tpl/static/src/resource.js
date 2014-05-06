@@ -17,6 +17,7 @@ function Builder(opt) {
 Builder.prototype.init = function () {
     var self = this;
     var opt = this.option;
+    var type = $('#type').val();
     var $target = $("#" + opt.id);
     $target.find("#type").change(function () {
         $target.find(".r-module").hide();
@@ -28,6 +29,10 @@ Builder.prototype.init = function () {
     //    parent.parent.showArticleChoice(self.allowMulArticle ? "all" : null);
     //    return false
     //});
+    //alert("["+type+"]");
+    if (type=='activity'){
+        self._loadAct();
+    };
     $target.find("#act").change(function () {
         self._loadAct()
     });
@@ -289,7 +294,11 @@ Builder.prototype._loadCar = function () {
                     for (var i = 0; i < data.length; i++) {
                         var item = data[i];
                         cont.push('<tr data-type="' + t + '" data-id="' + item.id + '" class="data-row">');
-                        cont.push('<td class="with-checkbox"><input type="radio" name="business_value" class="act-sel" value="' + item.id + '"/></td>');
+                        if (opt.actval == item.id){
+                            cont.push('<td class="with-checkbox"><input type="radio" name="business_value" class="act-sel" value="' + item.id + '" checked/></td>');
+                        }else{
+                            cont.push('<td class="with-checkbox"><input type="radio" name="business_value" class="act-sel" value="' + item.id + '"/></td>');
+                        }
                         cont.push('<td class="title">' + item.a_name + "</td>");
                         cont.push('<td class="keyword">' + item.keyword + "</td>");
                         cont.push("<td>" + item.start_time + "~" + item.end_time + "</td>");
@@ -318,14 +327,12 @@ Builder.prototype._loadAct = function () {
     var self = this;
     var opt = this.option;
     var $target = $("#" + opt.id);
-    var data = Resource.instance[opt.id].result;
     var t = $target.find("#act").val();
 
     if (100 != t) { // 圣诞活动特殊处理 @annchen
         $.post("/npManage/Activity/getActivityJSON.act", {
             action: "",
             action: "getAct",
-            wuid: data.wuid,
             type: t
         }, function (result) {
             if (result.success) {
@@ -337,7 +344,11 @@ Builder.prototype._loadAct = function () {
                     for (var i = 0; i < data.length; i++) {
                         var item = data[i];
                         cont.push('<tr data-type="' + t + '" data-id="' + item.id + '" class="data-row">');
-                        cont.push('<td class="with-checkbox"><input type="radio" name="activity_value" class="act-sel" value="' + item.id + '"/></td>');
+                        if (opt.actval == item.id){
+                            cont.push('<td class="with-checkbox"><input type="radio" name="activity_value" class="act-sel" value="' + item.id + '" checked/></td>');
+                        }else{
+                            cont.push('<td class="with-checkbox"><input type="radio" name="activity_value" class="act-sel" value="' + item.id + '"/></td>');
+                        }
                         cont.push('<td class="title">' + item.title + "</td>");
                         cont.push('<td class="keyword">' + item.keyword + "</td>");
                         cont.push("<td>" + item.start_time + "~" + item.end_time + "</td>");

@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" name="Keywords">
+    <meta content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" name="Description">
+    <link rel="stylesheet" type="text/css" href="http://stc.weimob.com/css/web_bb/activity_style.css?2014-03-07-1" media="all" />
+    <script type="text/javascript" src="http://stc.weimob.com/src/web_bb/zepto.js?2014-03-07-1"></script>
+    <script type="text/javascript" src="http://stc.weimob.com/src//web_bb/alert.js?2014-03-07-1"></script>
+    <title>刮刮卡</title>
+    <link rel="shortcut icon" href="http://stc.weimob.com/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="http://stc.weimob.com/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="http://stc.weimob.com/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="微盟">
+    <title>刮刮卡活动开始了  刮刮卡活动</title>
+    <style>
+        .masklayer{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:2000;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.5);
+            text-align:right;
+        }
+        .masklayer.on{
+            display:block;
+        }
+        .masklayer img{
+            margin-top:10px;
+            margin-right:30px;
+            width:160px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function loading(canvas, options) {
+            this.canvas = canvas;
+            if (options) {
+                this.radius = options.radius || 12;
+                this.circleLineWidth = options.circleLineWidth || 4;
+                this.circleColor = options.circleColor || 'lightgray';
+                this.moveArcColor = options.moveArcColor || 'gray';
+            } else {
+                this.radius = 12;
+                this.circelLineWidth = 4;
+                this.circleColor = 'lightgray';
+                this.moveArcColor = 'gray';
+            }
+        }
+        loading.prototype = {
+            show: function () {
+                var canvas = this.canvas;
+                if (!canvas.getContext) return;
+                if (canvas.__loading) return;
+                canvas.__loading = this;
+                var ctx = canvas.getContext('2d');
+                var radius = this.radius;
+                var me = this;
+                var rotatorAngle = Math.PI * 1.5;
+                var step = Math.PI / 6;
+                canvas.loadingInterval = setInterval(function () {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    var lineWidth = me.circleLineWidth;
+                    var center = { x: canvas.width / 2, y: canvas.height / 2 };
+
+                    ctx.beginPath();
+                    ctx.lineWidth = lineWidth;
+                    ctx.strokeStyle = me.circleColor;
+                    ctx.arc(center.x, center.y + 20, radius, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.stroke();
+                    //在圆圈上面画小圆   
+                    ctx.beginPath();
+                    ctx.strokeStyle = me.moveArcColor;
+                    ctx.arc(center.x, center.y + 20, radius, rotatorAngle, rotatorAngle + Math.PI * .45);
+                    ctx.stroke();
+                    rotatorAngle += step;
+
+                }, 100);
+            },
+            hide: function () {
+                var canvas = this.canvas;
+                canvas.__loading = false;
+                if (canvas.loadingInterval) {
+                    window.clearInterval(canvas.loadingInterval);
+                }
+                var ctx = canvas.getContext('2d');
+                if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        };
+    </script>
+</head>
+<body data-role="page" class="activity-scratch-card-winning">
+
+<div class="main">
+    <div class="cover">
+        <img src="http://stc.weimob.com/img/web_bb/activity/activity-scratch-card-bannerbg.png">
+        <div id="prize">请关注后抽奖</div>
+    </div>
+
+    <div class="content">
+
+        <div class="boxcontent boxwhite">
+            <div class="box">
+                <div class="title-brown"><span>奖项设置：</span></div>
+                <div class="Detail">
+                    <p>一等奖： 22。数量：10</p>                                                                                                                                            </div>
+            </div>
+        </div>
+        <div class="boxcontent boxwhite">
+            <div class="box">
+                <div class="title-brown">活动说明：</div>
+                <div class="Detail">
+                    <p class="red">请点击右上角查看公众号从公众号触发 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div class="masklayer on" ontouchmove="return true;" onclick="$(this).toggleClass('on');">
+    <img src="http://stc.weimob.com/img/instruction.png" />
+</div>
+</body>
+</html>
+</body>
+<script type="text/javascript">
+    (function() {
+        var wtj = document.createElement('script'); wtj.type = 'text/javascript'; wtj.async = true;
+        wtj.src = 'http://tj.weimob.com/wtj.js?url=' + encodeURIComponent(location.href);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wtj, s);
+    })();
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd80741dd59de91e1846b2add2c0ad2a2' type='text/javascript'%3E%3C/script%3E"));
+    function weimobAfterShare(shareFromWechatId,sendFriendLink,shareToPlatform){
+        var wmShare = document.createElement('script'); wmShare.type = 'text/javascript'; wmShare.async = true;
+        wmShare.src = 'http://tj.weimob.com/api-share.js?fromWechatId=' + shareFromWechatId + '&shareToPlatform=';
+        wmShare.src += shareToPlatform + '&pid=124547&sendFriendLink=' + encodeURIComponent(sendFriendLink);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wmShare, s);
+    }
+
+    /**
+     * 默认分享出去的数据
+     *
+     */
+    function getShareImageUrl(){
+        var share_imgurl = "";
+        if("" == share_imgurl){
+            var shareImgObj = document.getElementsByClassName("shareImgUrl")[0];
+            if('undefined' != typeof(shareImgObj)){
+                share_imgurl = shareImgObj.src;
+            }
+        }
+        return window.shareData.imgUrl || share_imgurl;
+    }
+
+    window.shareData = window.shareData || {
+        "timeLineLink": "http://www.weimob.com/activity/ScratchCard?id=27362&bid=253934&wechatid=fromUsername&pid=124547&v=4a12207616277f4cc516383a02e07870",
+        "sendFriendLink": "http://www.weimob.com/activity/ScratchCard?id=27362&bid=253934&wechatid=fromUsername&pid=124547&v=4a12207616277f4cc516383a02e07870",
+        "weiboLink": "http://www.weimob.com/activity/ScratchCard?id=27362&bid=253934&wechatid=fromUsername&pid=124547&v=4a12207616277f4cc516383a02e07870",
+        "tTitle": document.title,
+        "tContent": document.title,
+        "fTitle": document.title,
+        "fContent": document.title,
+        "wContent": document.title
+    }
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        // 发送给好友
+        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+            WeixinJSBridge.invoke('sendAppMessage', {
+                "img_url": getShareImageUrl(),
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.sendFriendLink,
+                "desc": window.shareData.fContent,
+                "title": window.shareData.fTitle
+            }, function (res) {
+                weimobAfterShare("",window.shareData.sendFriendLink,'appmessage');
+                _report('send_msg', res.err_msg);
+            })
+        });
+
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+            WeixinJSBridge.invoke('shareTimeline', {
+                "img_url": getShareImageUrl(),
+                "img_width": "640",
+                "img_height": "640",
+                "link": window.shareData.timeLineLink,
+                "desc": window.shareData.tContent,
+                "title": window.shareData.tTitle
+            }, function (res) {
+                weimobAfterShare("",window.shareData.timeLineLink,'timeline');
+                _report('timeline', res.err_msg);
+            });
+        });
+
+        // 分享到微博
+        WeixinJSBridge.on('menu:share:weibo', function (argv) {
+            WeixinJSBridge.invoke('shareWeibo', {
+                "content": window.shareData.wContent,
+                "url": window.shareData.weiboLink
+            }, function (res) {
+                weimobAfterShare("",window.shareData.weiboLink,'weibo');
+                _report('weibo', res.err_msg);
+            });
+        });
+    }, false);
+</script>
+<script type="text/javascript" src="http://kf.weimob.com/js/ChatFloat.js"></script>
+<script type="text/javascript">
+    var str_domain = location.href.split('/',4)[2];
+    var boolIsTest = true;
+    if(str_domain == 'www.weimob.com'){
+        boolIsTest = false;
+    }
+    new ChatFloat({
+        AId: '124547',
+        openid: "",
+        top:150,
+        right:0,
+        IsTest:boolIsTest
+    });
+</script>
+</html>

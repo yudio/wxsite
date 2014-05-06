@@ -253,6 +253,7 @@ class WeixinAction extends Action
                 $event['event_key'] = $data['EventKey'];
                 M('MemberEvent')->data($event)->add();
                 $this->trackdata('MENU_CLICK');//REQUEST
+                return $this->keyword($data['EventKey']);
                 break;
             case 'VIEW'://点击菜单跳转链接时的事件推送
                 $event['event']   = $data['Event'];
@@ -891,6 +892,28 @@ class WeixinAction extends Action
                         'id' => $id,
                         'type' => $type
                     ));*/
+                    return array(array(array($title,$info,$picurl,$url)),'news');
+                case 'Coupon':
+                    $this->trackdata('Coupon');//REQUEST
+                    $this->requestdata('other');
+                    $info = M('Coupon')->find($res['pid']);
+                    LOG::write('info_id:'.$res['pid'],LOG::ERR);
+                    if ($info == false || $info['status'] == 3) {
+                        return array(
+                            '活动可能已经结束或者被删除了',
+                            'text'
+                        );
+                    }
+                    if ($info['status'] == 1) {
+                        $picurl = $info['start_picurl'];
+                        $title = $info['title'];
+                        $info = $info['content'];
+                    } else {
+                        $picurl = $info['end_picurl'];
+                        $title = $info['end_title'];
+                        $info = $info['end_intro'];
+                    }
+                    $url = C('site_url')."/WebActivity/{$this->wxuid}/{$res['module']}?actid=".$res['pid']."&token={$this->token}&wecha_id={$this->data['FromUserName']}";
                     return array(array(array($title,$info,$picurl,$url)),'news');
                 default:
                     $this->requestdata('videonum');

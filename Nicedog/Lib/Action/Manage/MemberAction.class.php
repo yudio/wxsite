@@ -264,7 +264,6 @@ class MemberAction extends UserAction{
     public function delcardlevel(){
         $db = M('Member_card_level');
         $id = $this->_get('id','intval');
-        LOG::write('delcardlevel:'.$id,LOG::ERR);
         $level = $db->where(array('token'=>session('token'),'uid'=>session('uid'),'id'=>$id))->find();
         if ($level){
             $db->where(array('id'=>$id))->delete();

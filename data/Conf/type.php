@@ -26,6 +26,7 @@ return array (
     ),
     'businesslist' => array(
         array('value'=>'official', 'name'=> '微官网', 'list'=>'false'),
+        array('value'=>'vcard','name'=>'微名片','list'=>'false'),
         array('value'=>'vipcard', 'name'=> '会员卡', 'list'=>'false'),
         array('value'=>'message', 'name'=> '微留言', 'list'=>'false'),
         array('value'=>'albums', 'name'=> '微相册', 'list'=>'false'),
@@ -40,7 +41,7 @@ return array (
         //'tourism'     => '微旅游',
     ),
     'activitylist' => array(
-        array('value'=>'coupons', 'name'=> '优惠券'),
+        array('value'=>'coupon', 'name'=> '优惠券'),
         array('value'=>'scratchcard', 'name'=> '刮刮卡'),
         array('value'=>'lottery', 'name'=> '大转盘'),
         //array('value'=>'15', 'name'=> '一战到底'),

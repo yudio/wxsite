@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="{np::C('Keywords')}" name="Keywords">
     <meta content="{np::C('Description')}" name="Description">
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css?2014-03-07-1" media="all" />
-    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css?2014-03-07-1" media="all" />
-    <script type="text/javascript" src="{np::RES}/src/jQuery.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/inside.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js?2014-03-07-1"></script>
-    <script type="text/javascript" src="{np::RES}/src/plugins/fileupload/bootstrap_fileupload_min.js?2014-03-07-1"></script>
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/todc_bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::RES}/css/inside.css" media="all" />
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/inside.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::RES}/src/plugins/fileupload/bootstrap_fileupload_min.js"></script>
     <title>{np::C('site_name')}—{np::C('site_title')}</title>
     <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
     <!--[if lte IE 9]><script src="{np::RES}/src/watermark.js"></script><![endif]-->
@@ -33,7 +33,7 @@
 <div class="box">
 <div class="box-title">
     <div class="span7">
-        <h3><i class="icon-table"></i>大转盘SN码发放管理</h3>
+        <h3><i class="icon-table"></i>SN码发放管理</h3>
     </div>
     <div class="span5">
         <form action="/Weactivity/SnCode" method="get" class="form-horizontal">
@@ -60,17 +60,15 @@
 
 <div class="row-fluid">
     <div class="span8 control-group">
-        <a class="btn" data-toggle="modal" href="#myModal"><i class="icon-plus"></i>增加SN码数量</a>
-        <a class="btn" href="/Weactivity/ExportSn?aid=12405&ac=Bigwheel&pid=84870&tp=number&keyword=&state=">
-            <i class="icon-download-alt"></i>导出SN码和兑奖信息</a>
-        <a class="btn" href="/Weactivity/SnCode?aid=12405&ac=Bigwheel&pid=84870&tp=number&state=2">已发放</a>
-        <a class="btn" href="/Weactivity/SnCode?aid=12405&ac=Bigwheel&pid=84870&tp=number&state=3">已消费</a>
-
+        <a class="btn" href="/Weactivity/ExportSn?aid=12405&ac=Bigwheel&pid=84870&tp=number&keyword=&state="> <i class="icon-download-alt"></i>导出SN码和兑奖信息</a>
+        <a class="btn" href="/npManage/Activity/snlist.act?pid={np:$pid}&type={np:$type}&state=2">已发放</a>
+        <a class="btn" href="/npManage/Activity/snlist.act?pid={np:$pid}&type={np:$type}&state=3">已消费</a>
+        <a class="btn" href="/npManage/Activity/snlist.act?pid={np:$pid}&type={np:$type}">全部</a>
     </div>
 </div>
 
 <div class="alert">
-    本次活动奖品总数：个　 　抽中未兑换：1个　　抽中已兑换：1个
+    本次活动奖品总数：{np:$count}个　 　抽中未兑换：{np:$sentnum}个　　抽中已兑换：{np:$usenum}个
 </div>
 <p>
     领取规则先到先得！

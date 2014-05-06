@@ -421,7 +421,6 @@ class ReplyAction extends UserAction
         $this->assign('typelist',C('img_typelist'));
         $this->assign('businesslist',C('businesslist'));
         $this->assign('activitylist',C('activitylist'));
-        //dump($info);
         $this->display();
     }
     public function newsdel(){

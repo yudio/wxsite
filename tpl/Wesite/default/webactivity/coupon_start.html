@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/web_bb/activity_style.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/web_bb/zepto.js"></script>
+    <title>优惠券</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="eric.wu" name="author">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <script src="{np::STATICS}/jquery.min.js" ></script>
+    <style>
+        html,body{
+            height:100%;
+            background-color:#f8d410;
+        }
+        *{
+            padding:0;
+            margin:0;
+        }
+        .body{
+            max-width:640px;
+            margin:auto;
+            height:100%;
+        }
+
+        .counter{
+            display:inline-block;
+            width:30%;
+            height:25px;
+            line-height:25px;
+            position:absolute;
+            z-index:10;
+            top:76%;
+            left:35%;
+            font-size:25px;
+            margin-top:-25px;
+            color:#FFF;
+            text-align:center;
+            font-weight:bolder;
+            text-shadow:0 1px 2px #666;
+        }
+    </style>
+    <script>
+        //
+        window.addEventListener("DOMContentLoaded", function(){
+            var startTime = new Date("2014/04/25 10:48:00");
+            var dateArr = [];
+            var timer = null;
+            //
+            var flag = false;
+            function p_ush(d){
+                console.log(d);
+                if(0 === d && !dateArr[0]){
+                    dateArr.pop();
+                    flag = true;
+                }else{
+                    dateArr.push(d);
+                }
+            }
+            //
+            function getDiffDate(){
+                dateArr = [];
+                flag = false;
+                var diffMs = startTime.getTime() -  new Date().getTime();
+                if(diffMs<=1){
+                    //location.href = "http://www.baidu.com";
+                    location.reload();
+                    clearInterval(timer);
+                    return [0];
+                }
+
+                p_ush(Math.floor(diffMs/(1000*60*60*24)));//day
+                p_ush(Math.floor(diffMs%(1000*60*60*24)/(1000*60*60)));//hours
+                p_ush(Math.floor(diffMs%(1000*60*60)/(1000*60)));//minutes
+                p_ush(Math.floor(diffMs%(1000*60)/1000));//seconds
+                return dateArr;
+            }
+            //
+            var counter = document.getElementById("counter");
+            timer = setInterval(function(){
+                counter.innerText = getDiffDate().join(":");
+            }, 1000);
+        }, false);
+    </script>
+</head>
+<body onselectstart="return true;" ondragstart="return false;" ontouchmove="return false;">
+<section class="body">
+    <div style="position:relative;">
+        <img src="{np::STATICS}/img/web_bb/activity/yhq.jpg" style="width:100%;" />
+        <span id="counter" class="counter"></span>
+    </div>
+</section>
+</body>
+</html>
+</body>
+</html>

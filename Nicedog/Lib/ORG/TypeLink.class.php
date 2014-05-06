@@ -28,13 +28,18 @@ class TypeLink{
                      if ($arr['activity_type']=='lottery'){ //大转盘
                         $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
                      }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
+                     }
                      break;
                  case 'business':
                      switch ($arr['business_type']){
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
@@ -70,13 +75,18 @@ class TypeLink{
                      if ($arr['activity_type']=='lottery'){ //大转盘
                          $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
                      }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
+                     }
                      break;
                  case 'business':
                      switch ($arr['business_type']){
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
@@ -116,13 +126,18 @@ class TypeLink{
                      if ($arr['activity_type']=='lottery'){ //大转盘
                          $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
                      }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
+                     }
                      break;
                  case 'business':
                      switch ($arr['business_type']){
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
@@ -163,13 +178,18 @@ class TypeLink{
                      if ($arr['activity_type']=='lottery'){ //大转盘
                          $arr['url'] = "/npWap/Lottery/index.act?actid={$arr['activity_value']}&token={$arr['token']}&wecha_id=FromUserName";
                      }
+                     if ($arr['activity_type']=='coupon'){ //优惠券
+                         $arr['url'] = '/WebActivity/'.$_SESSION['wxid'].'/coupon?actid='.$arr['activity_value'].'&wecha_id=FromUserName';
+                     }
                      break;
                  case 'business':
                      switch ($arr['business_type']){
                          case 'official':
                              $arr['url'] = '/wesite/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
-                         case 'vipcard'://会员卡
+                         case 'vcard':
+                             $card = M('Vcard')->where(array('token'=>session('token')))->find();
+                             $arr['url'] = '/vcard/'.$card['id'];
                              break;
                          case 'reservation':
                              $arr['url'] = '/reserve/'.$_SESSION['wxid'].'/index?rid='.$arr['business_value'].'&wecha_id=FromUserName';
