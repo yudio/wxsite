@@ -26,7 +26,7 @@ return array (
     ),
     'businesslist' => array(
         array('value'=>'official', 'name'=> '微官网', 'list'=>'false'),
-        array('value'=>'vcard','name'=>'微名片','list'=>'false');
+        array('value'=>'vcard','name'=>'微名片','list'=>'false'),
         array('value'=>'vipcard', 'name'=> '会员卡', 'list'=>'false'),
         array('value'=>'message', 'name'=> '微留言', 'list'=>'false'),
         array('value'=>'albums', 'name'=> '微相册', 'list'=>'false'),
