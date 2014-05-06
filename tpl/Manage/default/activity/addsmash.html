@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="{np::C('Keywords')}" name="Keywords">
+    <meta content="{np::C('Description')}" name="Description">
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap_button.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/daterangepicker/daterangepicker.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/plugins/chosen/chosen.css" media="all" />
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/jquery-ui/jquery_ui_widget_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/wizard/jquery_form_wizard_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/mini_audio_player/jquery_jplayer_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/mini_audio_player/jquery_mb_miniPlayer.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/daterangepicker/moment_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/inside.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+    <!--[if lte IE 9]><script src="{np::STATICS}/src/watermark.js"></script><![endif]-->
+    <!--[if IE 7]><link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<link href="{np::STATICS}/wm-xin-a/mini_audio_player/miniplayer.css" rel="stylesheet" />
+<link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet" />
+<script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+<script src="{np::STATICS}/kindeditor/kindeditor_select_img.js"></script>
+<script src="{np::STATICS}/kindeditor/kindeditor_select_mp3.js"></script>
+<div id="main">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<div class="box">
+<div class="box-title">
+    <div class="span10">
+        <h3><i class="icon-edit"></i>编辑砸金蛋活动开始内容</h3>
+    </div>
+    <div class="span2"><a class="btn" href="Javascript:window.history.go(-1)">返回</a></div>
+</div>
+<div class="box-content">
+<form action="/npManage/Activity/addSmash.act" method="post" class='form-horizontal form-wizard'>
+<div class="step" id="firstStep">
+    <ul class="wizard-steps steps-3">
+        <li class='active'>
+            <div class="single-step">
+                <span class="title">1</span>
+                                                <span class="circle">
+                                                    <span class="active"></span>
+                                                </span>
+                                                <span class="description">活动开始内容
+                                                </span>
+            </div>
+        </li>
+        <li>
+            <div class="single-step">
+                <span class="title">2</span>
+                <span class="circle"></span>
+                                                <span class="description">活动结束内容
+                                                </span>
+            </div>
+        </li>
+        <li>
+            <div class="single-step">
+                <span class="title">3</span>
+                <span class="circle"></span>
+                                                <span class="description">活动设置
+                                                </span>
+            </div>
+        </li>
+
+    </ul>
+    <div class="step-forms">
+        <div class="span8">
+            <div class="control-group">
+                <label for="keyword" class="control-label">关键词：</label>
+                <div class="controls">
+                    <input type="text" name="keyword" id="keyword" value="{np:$info|default='砸金蛋'}" class="input-xlarge" data-rule-required="true" />
+                    <span class="maroon">*</span><span class="help-inline">多个关键字请用空格隔开，用户输入此关键词将会触发此活动。</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="title" class="control-label">活动名称：</label>
+                <div class="controls">
+                    <input type="text" name="title" id="title" value="{np:$info|default='砸金蛋活动开始了'}" class="input-xlarge" data-rule-required="true" data-rule-maxlength="10" />
+                    <span class="maroon">*</span><span class="help-inline">请不要多于10字!</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="suc_intro" class="control-label">兑奖信息：</label>
+                <div class="controls">
+                    <input type="text" name="suc_intro" id="suc_intro" value="{np:$info.suc_intro|default='兑奖请联系我们.'}" class="input-xlarge" data-rule-required="true" data-rule-maxlength="50"/>
+                    <span class="maroon">*</span><span class="help-inline">
+请不要多于50字! 这个设定但用户输入兑奖时候的显示信息!</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="content" class="control-label">简介：</label>
+                <div class="controls">
+                    <textarea class="input-xlarge" id="content" name="content" data-rule-required="true">{np:$info.content|default='亲，请点击进入砸金蛋抽奖活动页面，祝您好运哦！'}</textarea>
+                    <span class="maroon">*</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="time" class="control-label">活动时间：</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-calendar"></i></span>
+                        <input type="text" name="time" id="time" class="daterangepick input-xlarge"
+                               value="<empty name='info'><?php echo date('Y/m/d H:i').'-'.date('Y/m/d H:i',NOW_TIME+259200);?><else/>{np:$info.stime|date='Y/m/d H:i',###}-{np:$info.etime|date='Y/m/d H:i',###}</empty>" data-rule-required="true" readonly />
+                        <span class="maroon">*</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="act_intro" class="control-label">活动说明：</label>
+                <div class="controls">
+                    <textarea id="info" name="act_intro" data-rule-required="true">{np:$info.act_intro}</textarea>
+
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="repeat_reply" class="control-label">重复抽奖回复：</label>
+                <div class="controls">
+                    <input type="text" name="repeat_reply" value="{np:$info.repeat_reply|default='亲，继续努力哦！'}" id="repeat_reply" class="input-xlarge" data-rule-required="true" />
+                    <span class="maroon">*</span><span class="help-inline">
+ 	如果设置只允许抽一次奖的，请写：你已经玩过了，下次再来。 如果设置可多次抽奖，请写：亲，继续努力哦！</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="span4">
+
+            <div>
+                <img id="pic" src="{np:$info.start_picurl|default=C('site_url').STATICS.'/img/smashegg/start.jpg'}" />
+                <p></p>
+                <input class="input-xlarge" name="start_picurl" type="text" value="{np:$info.start_picurl|default=C('site_url').STATICS.'/img/smashegg/start.jpg'}" onchange="document.getElementById('pic').src = this.value;"  readonly /> <span class="help-inline"><a class="btn insertimage">选择图片</a></span>
+                <p>填写活动开始图片网址</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="step" id="secondStep">
+    <ul class="wizard-steps steps-3">
+        <li>
+            <div class="single-step">
+                <span class="title">1</span>
+                <span class="circle"></span>
+                                                <span class="description">活动开始内容
+                                                </span>
+            </div>
+        </li>
+        <li class='active'>
+            <div class="single-step">
+                <span class="title">2</span>
+                                                <span class="circle">
+                                                    <span class="active"></span>
+                                                </span>
+                                                <span class="description">活动结束内容
+                                                </span>
+            </div>
+        </li>
+        <li>
+            <div class="single-step">
+                <span class="title">3</span>
+                <span class="circle"></span>
+                                                <span class="description">活动设置
+                                                </span>
+            </div>
+        </li>
+
+    </ul>
+
+    <div class="span7">
+        <div class="control-group">
+            <label for="end_title" class="control-label">活动结束公告主题：</label>
+            <div class="controls">
+                <input type="text" name="end_title" id="end_title" value="{np:$info.end_title|default='砸金蛋活动已经结束了'}" class="input-xlarge" data-rule-required="true" />
+                <span class="maroon">*</span><span class="help-inline">请不要多于50字! </span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="end_intro" class="control-label">活动结束说明：</label>
+            <div class="controls">
+                <textarea class="input-xlarge" rows="5" id="end_intro" name="end_intro" data-rule-required="true">{np:$info.end_intro|default='亲，活动已经结束，请继续关注我们的后续活动哦。'}</textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="span4">
+        <div>
+            <img id="end" src="{np:$info.end_picurl|default=C('site_url').STATICS.'/img/smashegg/end.jpg'}" />
+            <p></p>
+            <input class="input-xlarge" type="text" name="end_picurl" value="{np:$info.end_picurl|default=C('site_url').STATICS.'/img/smashegg/end.jpg'}" onchange="document.getElementById('end').src=this.value;" readonly />
+            <span class="help-inline"><a class="btn insertimage">选择图片</a></span>
+            <p>填写活动结束图片网址</p>
+        </div>
+    </div>
+
+</div>
+<div class="step" id="thirdStep">
+<ul class="wizard-steps steps-3">
+    <li>
+        <div class="single-step">
+            <span class="title">1</span>
+            <span class="circle"></span>
+                                                <span class="description">活动开始内容
+                                                </span>
+        </div>
+    </li>
+    <li>
+        <div class="single-step">
+            <span class="title">2</span>
+            <span class="circle"></span>
+                                                <span class="description">活动结束内容
+                                                </span>
+        </div>
+    </li>
+    <li class='active'>
+        <div class="single-step">
+            <span class="title">3</span>
+            <span class="circle"></span>
+            <span class="active"></span>
+                                                <span class="description">活动设置
+                                                </span>
+        </div>
+    </li>
+
+</ul>
+<div class="control-group">
+    <label for="fist" class="control-label">奖品类别：</label>
+    <div class="controls">
+        <input type="text" name="c_type_one" id="fist" placeholder="如：一等奖" class="input-xlarge" data-rule-required="true" data-rule-maxlength="10" /><span class="maroon">*</span>
+        <span class="help-inline">请不要多于10字! </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="fist" class="control-label">奖品名称：</label>
+    <div class="controls">
+        <input type="text" name="c_name_one" id="fist" class="input-xlarge" data-rule-required="true" data-rule-maxlength="50" /><span class="maroon">*</span>
+        <span class="help-inline">请不要多于50字! </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="fistnums" class="control-label">奖品数量：</label>
+    <div class="controls">
+        <input type="text" name="c_num_one" id="fistnums" class="input-mini" data-rule-required="true" data-rule-number="true" /><span class="maroon">*</span>
+        <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="picurl" class="control-label">奖品图片：</label>
+    <div class="controls">
+
+        <input id="picurl" type="text" name="c_pic_one" class="input-xlarge"  readonly=""  value="" />
+        <span class="help-inline"><button class="btn select_img" id="pic_click" type="button">选择图片</button></span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="fist" class="control-label">奖品类别：</label>
+    <div class="controls">
+        <input type="text" name="c_type_two" id="fist" placeholder="如：二等奖" class="input-xlarge" data-rule-maxlength="10" />
+        <span class="help-inline">请不要多于10字! </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="second" class="control-label">奖品名称：</label>
+    <div class="controls">
+        <input type="text" name="c_name_two" id="second" class="input-xlarge" data-rule-maxlength="50" />
+        <span class="help-inline">请不要多于50字! </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="secondnums" class="control-label">奖品数量：</label>
+    <div class="controls">
+        <input type="text" name="c_num_two" id="secondnums" class="input-mini" data-rule-number="true" />
+        <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="picurl" class="control-label">奖品图片：</label>
+    <div class="controls">
+
+        <input id="picurl" type="text" name="c_pic_two" class="input-xlarge"  readonly=""  value="" />
+        <span class="help-inline"><button class="btn select_img" id="pic_click" type="button">选择图片</button></span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="fist" class="control-label">奖品类别：</label>
+    <div class="controls">
+        <input type="text" name="c_type_three" id="fist" placeholder="如：三等奖" class="input-xlarge" data-rule-maxlength="10" />
+        <span class="help-inline">请不要多于10字! </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="third" class="control-label">奖品名称：</label>
+    <div class="controls">
+        <input type="text" name="c_name_three" id="third" class="input-xlarge" data-rule-maxlength="50" />
+        <span class="help-inline">请不要多于50字! </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="thirdnums" class="control-label">奖品数量：</label>
+    <div class="controls">
+        <input type="text" name="c_num_three" id="thirdnums" class="input-mini" data-rule-number="true" />
+        <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="picurl" class="control-label">奖品图片：</label>
+    <div class="controls">
+
+        <input id="picurl" type="text" name="c_pic_three" class="input-xlarge"  readonly=""  value="" />
+        <span class="help-inline"><button class="btn select_img" id="pic_click" type="button">选择图片</button></span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="thirdnums" class="control-label"></label>
+    <div class="controls">
+        <a href="#collapse_div" class="btn" data-toggle="collapse">显示更多奖项</a>
+    </div>
+</div>
+
+<div id="collapse_div" class="collapse">
+    <div class="control-group">
+        <label for="fist" class="control-label">奖品类别：</label>
+        <div class="controls">
+            <input type="text" name="c_type_four" id="fist" placeholder="如：四等奖" class="input-xlarge" data-rule-maxlength="10" />
+            <span class="help-inline">请不要多于10字! </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="jp4" class="control-label">奖品名称：</label>
+        <div class="controls">
+            <input type="text" name="c_name_four" id="jp4" class="input-xlarge" data-rule-maxlength="50" />
+            <span class="help-inline">请不要多于50字! </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="jp4nums" class="control-label">奖品数量：</label>
+        <div class="controls">
+            <input type="text" name="c_num_four" id="jp4nums" class="input-mini" data-rule-number="true" />
+            <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="picurl" class="control-label">奖品图片：</label>
+        <div class="controls">
+
+            <input id="picurl" type="text" name="c_pic_four" class="input-xlarge"  readonly=""  value="" />
+            <span class="help-inline"><button class="btn select_img" id="pic_click" type="button">选择图片</button></span><span class="help-inline"></span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="fist" class="control-label">奖品类别：</label>
+        <div class="controls">
+            <input type="text" name="c_type_five" id="fist" placeholder="如：五等奖" class="input-xlarge" data-rule-maxlength="10" />
+            <span class="help-inline">请不要多于10字! </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="jp5" class="control-label">奖品名称：</label>
+        <div class="controls">
+            <input type="text" name="c_name_five" id="jp5" class="input-xlarge" data-rule-maxlength="50" />
+            <span class="help-inline">请不要多于50字! </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="jp5nums" class="control-label">奖品数量：</label>
+        <div class="controls">
+            <input type="text" name="c_num_five" id="jp5nums" class="input-mini" data-rule-number="true" />
+            <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="picurl" class="control-label">奖品图片：</label>
+        <div class="controls">
+
+            <input id="picurl" type="text" name="c_pic_five" class="input-xlarge"  readonly=""  value="" />
+            <span class="help-inline"><button class="btn select_img" id="pic_click" type="button">选择图片</button></span><span class="help-inline"></span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="fist" class="control-label">奖品类别：</label>
+        <div class="controls">
+            <input type="text" name="c_type_six" id="fist" placeholder="如：六等奖" class="input-xlarge" data-rule-maxlength="10" />
+            <span class="help-inline">请不要多于10字! </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="jp6" class="control-label">奖品名称：</label>
+        <div class="controls">
+            <input type="text" name="c_name_six" id="jp6" class="input-xlarge" data-rule-maxlength="50" />
+            <span class="help-inline">请不要多于50字! </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="jp6nums" class="control-label">奖品数量：</label>
+        <div class="controls">
+            <input type="text" name="c_num_six" id="jp6nums" class="input-mini" data-rule-number="true" />
+            <span class="help-inline">小于1000 如果超过1000你可以在后SN码管理面板随时分批添加 </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="picurl" class="control-label">奖品图片：</label>
+        <div class="controls">
+
+            <input id="picurl" type="text" name="c_pic_six" class="input-xlarge"  readonly=""  value="" />
+            <span class="help-inline"><button class="btn select_img" id="pic_click" type="button">选择图片</button></span><span class="help-inline"></span>
+        </div>
+    </div>
+</div>
+<div class="control-group">
+    <label for="total_num" class="control-label">每人最多允许抽奖总次数：</label>
+    <div class="controls">
+        <input type="text" name="total_num" id="total_num" class="input-xlarge" value="{np:$info.total_num|default=1}" data-rule-maxlength="15" />
+        <span class="help-inline">必须大于0小于30 推荐只设置1次!</span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="day_num" class="control-label">每人每天最多抽奖次数：</label>
+    <div class="controls">
+        <input type="text" name="day_num" id="day_num" class="input-xlarge" value="{np:$info.day_num}" data-rule-maxlength="15" />
+        <span class="help-inline"> 必须小于总抽奖次数！ 0 为不限制 抽完总数就不能抽了! 可以抽奖天数 = 总数/每天抽奖次数!</span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="probability" class="control-label">中奖概率</label>
+    <div class="controls">
+        <input type="text" name="probability" id="probability" class="input-mini" value="{np:$info.probability|default='1'}" data-rule-maxlength="15" />
+        <span class="help-inline">即用户每次抽奖的中奖概率</span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="password" class="control-label">兑奖密码：</label>
+    <div class="controls">
+        <input type="text" name="password" id="password" value="{np:$info.password}" class="input-xlarge" data-rule-maxlength="15" />
+        <span class="help-inline">消费确认密码长度小于15位 不设置密码,兑奖页面的密码输入框则不出现</span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="win_info" class="control-label">中奖提示：</label>
+    <div class="controls">
+        <textarea class="input-xlarge" id="win_info" name="win_info" data-rule-required="true">{np:$info.win_info|default='恭喜您中奖了！您的运气实在是太好了！'}</textarea>
+        <span class="maroon">*</span><span class="help-inline">建议30个字以内</span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="fail_info" class="control-label">未中奖提示：</label>
+    <div class="controls">
+        <textarea class="input-xlarge" id="fail_info" name="fail_info" data-rule-required="true">{np:$info.fail_info|default='感谢您的参与，请再接再厉哟！'}</textarea>
+        <span class="maroon">*</span><span class="help-inline">建议30个字以内</span>
+    </div>
+</div>
+<div class="control-group" style="display: none;">
+    <label for="third" class="control-label">SN码生成设置：</label>
+    <div class="controls">
+        <label class="radio inline">
+            <input type="radio" name="sn_code" value="1" checked="checked" />
+            自动生成
+        </label>
+        <label class="radio inline">
+            <input type="radio" name="sn_code" value="2" />
+            批量导入
+        </label>
+
+    </div>
+</div>
+<div class="control-group">
+    <label for="renamesn" class="control-label">SN码重命名为：</label>
+    <div class="controls">
+        <input type="text" name="sn_rename" id="renamesn" class="input-xlarge" value="SN码" readonly/>
+        <span class="help-inline">例如：CND码,充值密码,SN码 这个主意用于修改SN码的名称,你导入自己的SN码可以是充值密码 你就可以设为 充值密码</span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="renametel" class="control-label">手机号重命名：</label>
+    <div class="controls">
+        <input type="text" name="tel_rename" id="renametel" class="input-xlarge" value="手机号" readonly/>
+        <span class="help-inline">例如：QQ号,微信号,手机号,,邮寄地址! 不懂请默认设置手机号! 此字段主要收集用户的信息方便联系</span>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="mp3url">背景音乐</label>
+    <div class="controls">
+        <div class="inline mp3"><a id="m1" class="audio {skin:'blue'}" href="{np:$info.mp3url|default=C('site_url').STATICS.'/img/default/act.mp3'}" style="display: none;">merry christmas</a></div>
+        <input type="hidden" name="mp3url" id="mp3url" value="{np:$info.mp3url|default=C('site_url').STATICS.'/img/default/act.mp3'}" />
+        <span class="help-inline"><button class="btn addmp3" type="button">选择音乐</button></span>
+        <span class="help-inline">(保证浏览网页的加载速度,上传音乐最大为<span class="red">3MB</span>)</span>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="play_audio">功能选择</label>
+    <div class="controls ">
+        <label class="checkbox inline">
+            <input type="checkbox" name="play_audio" value="1" <empty name="info">checked</empty><if condition="$info['play_audio'] eq 1">checked</if>>
+            开启背景音乐
+        </label>
+        <span class="help-inline">(只有开启背景音乐前台砸蛋页面才会显示或播放)</span>
+    </div>
+</div>
+<div class="control-group" style="display: none;">
+    <label for="for_people" class="control-label">适用人群：</label>
+    <div class="controls">
+        <label class="radio inline">
+            <input type="radio" name="for_people" value="1" checked="checked" />
+            全部粉丝活动
+        </label>
+        <label class="radio inline">
+            <input type="radio" name="for_people" value="2" />
+            会员积分兑换活动
+        </label>
+        <label class="radio inline">
+            <input type="radio" name="for_people" value="3" />
+            会员充值/消费赠送活动
+        </label>
+                                            <span class="help-inline">勾选后，关键词失效，每人每天最多抽奖次数失效，请谨慎勾选。
+                                            </span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="show_user" class="control-label">显示设置：</label>
+    <div class="controls">
+        <label class="radio inline">
+            <input type="checkbox" name="show_user" value="1" <empty name="info">checked</empty><if condition="$info['show_user'] eq 1">checked</if>/>
+            活动页面显示中奖名单
+        </label>
+        <label class="radio inline">
+            <input type="checkbox" name="show_num" value="1" <empty name="info">checked</empty><if condition="$info['show_num'] eq 1">checked</if>/>
+            活动页面显示奖品数量
+        </label>
+    </div>
+</div>
+
+
+</div>
+
+<div class="span12">
+    <div class="form-actions">
+        <input type="reset" class="btn" value="Back" id="back" />
+        <input type="submit" class="btn btn-primary" value="Submit" id="next" />
+    </div>
+</div>
+</form>
+</div>
+<script>
+
+    var seting = {
+        themeType: "simple",
+        resizeType: 1,
+        syncType:"",
+        allowPreviewEmoticons: false,
+        items: [
+            'source', 'undo', 'redo', 'plainpaste', 'plainpaste', 'wordpaste', 'clearhtml', 'quickformat', 'selectall', 'fullscreen', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'hr',
+            'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+            'insertunorderedlist', '|', 'emoticons', 'image', 'link', 'unlink', 'baidumap'],
+        allowFileManager: true,
+        minWidth: 400,
+        width: 400,
+        afterCreate: function () {
+            this.sync();
+        },
+        afterBlur: function () {
+            this.sync();
+        }
+    }
+    KindEditor.ready(function (K) {
+        var editor1 = K.create('#info', seting);
+        var editor2 = K.create('#aginfo', seting);
+        var editor3 = K.create('#endinfo', seting);
+        K('a.insertimage').click(function (e) {
+            editor1.loadPlugin('smimage', function () {
+                editor1.plugin.imageDialog({
+                    imageUrl: $(e.target).parent().prev().val(),
+                    clickFn: function (url, title, width, height, border, align) {
+                        $(e.target).parent().prev().val(url);
+                        editor1.hideDialog();
+                    }
+                });
+            });
+        });
+    });
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

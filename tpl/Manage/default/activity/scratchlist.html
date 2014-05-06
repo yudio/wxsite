@@ -33,12 +33,11 @@
                     <div class="box">
                         <div class="box-title">
                             <div class="span8">
-                                <h3><i class="icon-table"></i>优惠券活动信息</h3>
+                                <h3><i class="icon-table"></i>刮刮卡活动信息</h3>
                             </div>
                             <div class="span4">
-                                <form action="/npManage/Activity/couponList.act" method="get" class="form-horizontal">
+                                <form action="/npManage/Activity/scratchList.act" method="get" class="form-horizontal">
                                     <input type="text" id="keyword-input" name="keywords" value="{np:$key}" class="input-small-z" placeholder="请输入关键词" data-rule-required="true" />
-                                    <input type="hidden" name="aid" id ="aid" value="72040">
                                     <button class="btn">查询</button>
                                 </form>
                             </div>
@@ -51,7 +50,7 @@
                             <div class="row-fluid">
                                 <div class="span12 control-group">
                                     <div class="span7">
-                                        <a class="btn" href="/npManage/Activity/addCoupon.act"><i class="icon-plus"></i>新增优惠券活动</a>
+                                        <a class="btn" href="/npManage/Activity/addScratch.act"><i class="icon-plus"></i>新增刮刮卡活动</a>
                                         <a class="btn" href="javascript:location.reload()"><i class="icon-refresh"></i>刷新</a>
                                     </div>
                                     <div class="span5 datatabletool">
@@ -90,15 +89,15 @@
                                                     {np:$vo.etime|date='Y-m-d H:i:s',###}</td>
                                                 <td><if condition="$vo.status eq '0'">未开始<elseif condition="$vo.status eq '1'"/>已开始<else/>已结束</if></td>
                                                 <td class="norightborder">
-                                                    <a href="/npManage/Activity/Snlist.act?pid={np:$vo.id}&type=Coupon" class="btn" rel="tooltip" title="管理sn码"><i class="icon-cog"></i>SN</a>
-                                                    <a class="btn" rel="tooltip" href="/npManage/Activity/addCoupon.act?id={np:$vo.id}" title="编辑"><i class="icon-edit"></i></a>
+                                                    <a href="/npManage/Activity/Snlist.act?pid={np:$vo.id}&type=Scratch" class="btn" rel="tooltip" title="管理sn码"><i class="icon-cog"></i>SN</a>
+                                                    <a class="btn" rel="tooltip" href="/npManage/Activity/addScratch.act?id={np:$vo.id}" title="编辑"><i class="icon-edit"></i></a>
                                                     <if condition="$vo.status eq 0">
-                                                    <a class="btn" title="开始活动" href="javascript:drop_confirm('您确定要开始吗,奖品的数量将不可编辑，其他设置中途可以随时修改!   本次活动将生成SN码{np:$vo.sn_num}个。', '/npManage/Activity/updateCoupon.act?id={np:$vo.id}&state=1');"><i class="icon-play"></i></a>
+                                                    <a class="btn" title="开始活动" href="javascript:drop_confirm('您确定要开始吗,奖品的数量将不可编辑，其他设置中途可以随时修改!   本次活动将生成SN码{np:$vo.sn_num}个。', '/npManage/Activity/updateScratch.act?id={np:$vo.id}&state=1');"><i class="icon-play"></i></a>
                                                     </if>
                                                     <if condition="$vo.status eq 1">
-                                                    <a class="btn" title="结束活动" href="javascript:drop_confirm('你确定要结束活动吗，结束后不可再开启本活动,用户抽奖数据也将会被删除! ', '/npManage/Activity/updateCoupon.act?id={np:$vo.id}&state=2');"><i class="icon-stop"></i></a>
+                                                    <a class="btn" title="结束活动" href="javascript:drop_confirm('你确定要结束活动吗，结束后不可再开启本活动,用户抽奖数据也将会被删除! ', '/npManage/Activity/updateScratch.act?id={np:$vo.id}&state=2');"><i class="icon-stop"></i></a>
                                                     </if>
-                                                    <a class="btn" rel="tooltip" href="javascript:drop_confirm('您确定要删除吗?', '/npManage/Activity/delCoupon.act?id={np:$vo.id}');" title="删除"><i class="icon-remove"></i></a></td>
+                                                    <a class="btn" rel="tooltip" href="javascript:drop_confirm('您确定要删除吗?', '/npManage/Activity/delScratch.act?id={np:$vo.id}');" title="删除"><i class="icon-remove"></i></a></td>
                                             </tr>
                                             </volist>
                                                                                    </tbody>

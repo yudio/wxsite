@@ -114,6 +114,10 @@ class ActivityAction extends UserAction{
     public function couponList(){
         $db = D('Coupon');
         $where['token'] = session('token');
+        $keysel = $this->_get('keywords');
+        if ($keysel){
+            $where['keyword'] = array('like','%'.$keysel.'%');
+        }
         $count=$db->where($where)->count();
         $page=new Page($count,10);
         $list=$db->where($where)->order('update_time desc')->limit($page->firstRow.','.$page->listRows)->select();
@@ -123,6 +127,7 @@ class ActivityAction extends UserAction{
         $this->assign('page',$page->show());
         $this->assign('list',$list);
         $this->assign('count',$count);
+        $this->assign('key',$keysel);
         $this->display();
     }
     //添加优惠券
@@ -171,6 +176,7 @@ class ActivityAction extends UserAction{
             }else if ($status=='2'){
                 $db->where($data)->save(array('status'=>$status));
                 //TODO 更新SNcode库 状态
+                $this->success('活动结束成功！','/npManage/activity/couponList.act');
             }else{
                 $this->error('该活动状态异常,请联系管理员!','/npManage/activity/couponList.act');
             }
@@ -197,9 +203,199 @@ class ActivityAction extends UserAction{
         }
     }
 
+
+    /*
+     * 刮刮卡模块
+     */
+    public function scratchList(){
+        $db = D('Scratch');
+        $where['token'] = session('token');
+        $keysel = $this->_get('keywords');
+        if ($keysel){
+            $where['keyword'] = array('like','%'.$keysel.'%');
+        }
+        $count=$db->where($where)->count();
+        $page=new Page($count,10);
+        $list=$db->where($where)->order('update_time desc')->limit($page->firstRow.','.$page->listRows)->select();
+        foreach($list as $key=>&$vo){
+            $vo['sn_num'] = $vo['l_num_one'] + $vo['l_num_two'] + $vo['l_num_three'] + $vo['l_num_four'] + $vo['l_num_five'] + $vo['l_num_six'];
+        }
+        $this->assign('page',$page->show());
+        $this->assign('list',$list);
+        $this->assign('count',$count);
+        $this->assign('key',$keysel);
+        $this->display();
+    }
+    //添加刮刮卡
+    public function addScratch(){
+        $db = D('Scratch');
+        if (IS_POST){
+            $id = $this->_post('id');
+            if ($id){
+                if ($db->create()){
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/activity/scratchList.act'));
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()));
+                }
+            }else{
+                if ($db->create()){
+                    $db->add();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/activity/scratchList.act'));
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()));
+                }
+            }
+        }
+        $id = $this->_get('id');
+        if ($id){
+            $info = $db->find($id);
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+    //更新刮刮卡状态
+    public function updateScratch(){
+        $db = M('Scratch');
+        $id = $this->_get('id','intval');
+        $status = $this->_get('state','intval');
+        if ($id){
+            $data['id'] = $id;
+            if ($status=='1'){
+                $db->where($data)->save(array('status'=>$status));
+                $vo = $db->where($data)->find();
+                $vo['sn_num'] = $vo['l_num_one'] + $vo['l_num_two'] + $vo['l_num_three'] + $vo['l_num_four'] + $vo['l_num_five'] + $vo['l_num_six'];
+                if ($vo['sn_num']>0){
+                    $this->genSncode(array('type'=>'Scratch','pid'=>$vo['id'],'num'=>$vo['sn_num']));
+                }
+                $this->success('开始活动成功！','/npManage/activity/scratchList.act');
+            }else if ($status=='2'){
+                $db->where($data)->save(array('status'=>$status));
+                //TODO 更新SNcode库 状态
+                $this->success('活动结束成功！','/npManage/activity/scratchList.act');
+            }else{
+                $this->error('该活动状态异常,请联系管理员!','/npManage/activity/scratchList.act');
+            }
+        }else{
+            $this->error('该活动不存在！','/npManage/activity/scratchList.act');
+        }
+    }
+    //删除刮刮卡
+    public function delScratch(){
+        $db = D('Scratch');
+        $id = $this->_get('id');
+        if ($id){
+            $where['id'] = $id;$where['token'] = session('token');
+            $info = $db->where($where)->find();
+            if ($info){
+                $db->delete($id);
+                KeyWord::delete(array('pid'=>$info['id'],'token'=>$info['token']),'Scratch');
+                $this->success('成功删除！',U('ScratchList'));
+            }else{
+                $this->error('记录不存在或已删除！',U('ScratchList'));
+            }
+        }else{
+            $this->error('参数错误！',U('ScratchList'));
+        }
+    }
+
+    /*
+     * 砸金蛋模块
+     */
+    public function smashList(){
+        $db = D('Scratch');
+        $where['token'] = session('token');
+        $keysel = $this->_get('keywords');
+        if ($keysel){
+            $where['keyword'] = array('like','%'.$keysel.'%');
+        }
+        $count=$db->where($where)->count();
+        $page=new Page($count,10);
+        $list=$db->where($where)->order('update_time desc')->limit($page->firstRow.','.$page->listRows)->select();
+        foreach($list as $key=>&$vo){
+            $vo['sn_num'] = $vo['l_num_one'] + $vo['l_num_two'] + $vo['l_num_three'] + $vo['l_num_four'] + $vo['l_num_five'] + $vo['l_num_six'];
+        }
+        $this->assign('page',$page->show());
+        $this->assign('list',$list);
+        $this->assign('count',$count);
+        $this->assign('key',$keysel);
+        $this->display();
+    }
+    //添加砸金蛋
+    public function addSmash(){
+        //$db = D('Scratch');
+        if (IS_POST){
+            $id = $this->_post('id');
+            if ($id){
+                if ($db->create()){
+                    $db->save();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/activity/scratchList.act'));
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()));
+                }
+            }else{
+                if ($db->create()){
+                    $db->add();
+                    $this->ajaxReturn(array('errno'=>'0','error'=>'成功！','url'=>'/npManage/activity/scratchList.act'));
+                }else{
+                    $this->ajaxReturn(array('errno'=>'1','error'=>$db->getError()));
+                }
+            }
+        }
+        $id = $this->_get('id');
+        if ($id){
+            $info = $db->find($id);
+            $this->assign('info',$info);
+        }
+        $this->display();
+    }
+    //更新砸金蛋状态
+    public function updateSmash(){
+        $db = M('Scratch');
+        $id = $this->_get('id','intval');
+        $status = $this->_get('state','intval');
+        if ($id){
+            $data['id'] = $id;
+            if ($status=='1'){
+                $db->where($data)->save(array('status'=>$status));
+                $vo = $db->where($data)->find();
+                $vo['sn_num'] = $vo['l_num_one'] + $vo['l_num_two'] + $vo['l_num_three'] + $vo['l_num_four'] + $vo['l_num_five'] + $vo['l_num_six'];
+                if ($vo['sn_num']>0){
+                    $this->genSncode(array('type'=>'Scratch','pid'=>$vo['id'],'num'=>$vo['sn_num']));
+                }
+                $this->success('开始活动成功！','/npManage/activity/scratchList.act');
+            }else if ($status=='2'){
+                $db->where($data)->save(array('status'=>$status));
+                //TODO 更新SNcode库 状态
+                $this->success('活动结束成功！','/npManage/activity/scratchList.act');
+            }else{
+                $this->error('该活动状态异常,请联系管理员!','/npManage/activity/scratchList.act');
+            }
+        }else{
+            $this->error('该活动不存在！','/npManage/activity/scratchList.act');
+        }
+    }
+    //删除砸金蛋
+    public function delSmash(){
+        $db = D('Scratch');
+        $id = $this->_get('id');
+        if ($id){
+            $where['id'] = $id;$where['token'] = session('token');
+            $info = $db->where($where)->find();
+            if ($info){
+                $db->delete($id);
+                KeyWord::delete(array('pid'=>$info['id'],'token'=>$info['token']),'Scratch');
+                $this->success('成功删除！',U('ScratchList'));
+            }else{
+                $this->error('记录不存在或已删除！',U('ScratchList'));
+            }
+        }else{
+            $this->error('参数错误！',U('ScratchList'));
+        }
+    }
+
     //获取外链数据
     public function getActivityJSON(){
-        LOG::write('getActivityJSON',LOG::ERR);
         $act= $this->_post('action');
         $type = $this->_post('type');
         if ($type=='lottery'){
@@ -237,7 +433,6 @@ class ActivityAction extends UserAction{
 
         $this->ajaxReturn(array('success'=>true,'counts'=>0,'data'=>array()),'JSON');
     }
-
     //Sncode列表
     public function snlist(){
         $db = M('Sncode');

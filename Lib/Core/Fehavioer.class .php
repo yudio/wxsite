@@ -95,5 +95,4 @@ class Fehavioer {
         //clearstatcache();
     }
 	}
-	return array('7dc0a883f92dda78efd677069552c7b8');
 ?>

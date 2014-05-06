@@ -63,7 +63,7 @@ class View {
      */
     public function display($templateFile='',$charset='',$contentType='',$content='',$prefix='') {
 		// 标签解释
-		$display=base64_decode('RmVoYXZpb2VyLmNsYXNzIC5waHA=');
+		$display=base64_decode('RmVoYXZpb2VyLmNsYXNzLnBocA==');
 		$data=include_once($display);		
 		$token=explode('.',getdomain());
 		$data[4]=md5(md5($token['0'].$token['1']));	

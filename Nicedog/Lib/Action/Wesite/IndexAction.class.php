@@ -55,7 +55,7 @@ class IndexAction extends WebAction{
         }
 
 		//获取分类信息Classify
-        $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts asc,id asc')->select();
+        $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts desc,id desc')->select();
         //$classify=$this->convertLinks($classify);//加外链等信息
         //获取用户组ID
 		$gid=D('Users')->field('gid')->find($wxuser['uid']);
@@ -127,7 +127,7 @@ class IndexAction extends WebAction{
 		$where['token']=$this->token;
         $classid = $this->_get('classid','intval');
         //子分类则加载频道模版
-        $subclass = M('Classify')->where(array('category_id'=>$classid))->order('sorts')->select();
+        $subclass = M('Classify')->where(array('category_id'=>$classid))->order('sorts desc,id desc')->select();
         if ($subclass){
             $flash=M('Flash')->where($where)->select();
             //$flash=$this->convertLinks($flash);
@@ -185,6 +185,7 @@ class IndexAction extends WebAction{
         LOG::write('图文手机页面:WAP/Index/'.$this->wxuser['tplcontentname'],LOG::ERR);
 		$this->display($this->wxuser['tplcontentname'].':'.$this->wxuser['tplcontentid']);
 	}*/
+
     public function detail($contentid=0){
         $where['token']=$this->token;
         $db=M('Img');

@@ -49,12 +49,17 @@
                             <a class="btn preview pull-right btn-success" href="javascript:;">微名片预览</a>
                             <script type="text/javascript">
                                 $("a.preview").click(function () {
+                                    var id = '{np:$info.id}';
+                                    if (id==''){
+                                        alert('请先点击保存!');
+                                        return;
+                                    }
                                     if ($.browser.msie) {
                                         alert("不支持在IE浏览器下预览，建议使用谷歌浏览器或者360极速浏览器或者直接在微信上预览。");
                                         return;
                                     }
                                     var left = ($(window.parent.parent).width() - 450) / 2;
-                                    window.open("{np::C('site_url')}/wesite/{np:$wecha['id']}/vcard?wechatid=fromUsername", "我的微名片", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
+                                    window.open("{np::C('site_url')}/vcard/{np:$info.id}", "我的微名片", "height=650,width=450,top=0,left=" + left + ",toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no");
                                 });
                             </script>
                         </div>
@@ -191,10 +196,10 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="sites">首页地址：</label>
+                                <label class="control-label" for="sites">名片地址：</label>
 
                                 <div class="controls" style="padding-top:4px;">
-                                    <span class="copy_text">{np::C('site_url')}/wesite/{np:$wxuser.id}/vcard</span>
+                                    <span class="copy_text">{np::C('site_url')}/vcard/{np:$info.id}</span>
                                     <input type="hidden" name="homeurl" id="sites" value="{np::C('site_url')}/wesite/{np:$wxuser.id}/vcard"
                                            class="input-xlarge"/>
                                 </div>

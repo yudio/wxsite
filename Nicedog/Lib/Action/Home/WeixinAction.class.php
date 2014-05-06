@@ -253,6 +253,7 @@ class WeixinAction extends Action
                 $event['event_key'] = $data['EventKey'];
                 M('MemberEvent')->data($event)->add();
                 $this->trackdata('MENU_CLICK');//REQUEST
+                return $this->keyword($data['EventKey']);
                 break;
             case 'VIEW'://点击菜单跳转链接时的事件推送
                 $event['event']   = $data['Event'];

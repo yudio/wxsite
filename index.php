@@ -12,7 +12,7 @@ if (get_magic_quotes_gpc()) {
     $_COOKIE = array_map('stripslashes_deep', $_COOKIE);
 }
 define('APP_NAME', '');
-define('CONF_PATH','./data/conf/');
+define('CONF_PATH','./data/Conf/');
 define('TMPL_PATH','./tpl/');
 define('HTML_PATH','./data/html/');
 define('CORE','./');
@@ -21,10 +21,9 @@ define('MEMORY_LIMIT_ON',function_exists('memory_get_usage'));
 if(MEMORY_LIMIT_ON) $GLOBALS['_startUseMems'] = memory_get_usage();
 define('APP_PATH','./Nicedog/');
 defined('APP_PATH') 	or define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']).'/');
-define('RUNTIME_PATH','./data/conf/logs/');
+define('RUNTIME_PATH','./data/Conf/logs/');
 defined('RUNTIME_PATH') or define('RUNTIME_PATH',APP_PATH.'Runtime/');
-define('APP_DEBUG',true);
-defined('APP_DEBUG') 	or define('APP_DEBUG',false);
+define('APP_DEBUG',false);
 $runtime = defined('MODE_NAME')?'~'.strtolower(MODE_NAME).'_runtime.php':'~runtime.php';
 defined('RUNTIME_FILE') or define('RUNTIME_FILE',RUNTIME_PATH.$runtime);
 
