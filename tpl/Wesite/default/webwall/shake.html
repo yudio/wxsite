@@ -31,13 +31,15 @@
 
     function getRecord(){
         var req = {
-            id:6684,
+            /*id:6684,
             pid:110460,
             bid:225472,
-            v:'866de5f5590e1b268937afc8be2eb032'
+            v:'866de5f5590e1b268937afc8be2eb032'*/
+            pid:{np:$pid},
+            v:'{np:$wecha_id}'
         }
         $.ajax({
-            url: "/webwall/getShake",
+            url: "/webwall/{np:$wxuid}/getShake",
             type:"post",
             data:req,
             dataType:"JSON",
@@ -59,7 +61,7 @@
     function showRace(data){
         if(data instanceof Array){
             data = data.sort(function(p1, p2){
-                if(p1.totalStep<p2.totalStep){
+                if(parseInt(p1.totalStep)<parseInt(p2.totalStep)){
                     return 1;
                 }else{
                     return -1;
@@ -68,6 +70,7 @@
         }else{
             return;
         }
+
         var TPL = '<li>\
 			<ol class="ol1">\
 				<span class="span1 nth_{nth}">&nbsp;</span>\
@@ -88,18 +91,16 @@
 								<label>{nickName}</label>\
 								<img src="{img}" />\
 							</span>';
-                    $("#medal").html(iTemplate.makeList(TPL, data.slice(0,3), function(k,v){
+                    $("#medal").html(iTemplate.makeList(TPL, data.slice(0,{np:$ljnum}), function(k,v){
                         return {
                             k:parseInt(k)+1
                         }
                     }) );
                     $("#pop_medal, #pop_medal_cover").addClass("on");
                     sendResult({
-                        id:6684,
-                        pid:110460,
-                        bid:225472,
-                        v:'866de5f5590e1b268937afc8be2eb032',
-                        result: data.slice(0,3)
+                        pid:{np:$pid},
+                        v:'{np:$wecha_id}',
+                        result: data.slice(0,{np:$ljnum})
                     });
                 }
             }
@@ -116,7 +117,7 @@
 
         function sendResult(req){
             $.ajax({
-                url: "/webwall/getShakewin",
+                url: "/webwall/{np:$wxuid}/getShakeWin",
                 type:"post",
                 data:req,
                 dataType:"JSON",
@@ -136,7 +137,11 @@
 </script>
 <style>
     body{
-        background-image: url(img/wall/web1.jpg);
+        <if condition="$info['pc_bg'] neq '' ">
+        background-image: url({np:$info.pc_bg});
+        <else/>
+        background-image:url({np::STATICS}/img/wall/web1.jpg);
+        </if>
     }
 </style>
 <body class="shake">
@@ -150,7 +155,7 @@
     <!----mainbody---->
     <div class="main_body">
         <div class="align_right pr_10 pt_10">
-            <img src="img/wall/logo.png" />
+            <img src="{np::STATICS}/img/wall/logo.png" />
         </div>
         <div class="box_wall">
             <ul id="shake_body" class="shake_body">
@@ -184,9 +189,10 @@
                     </a>
                     <script>
                         if(!-[1,]){
-                            document.write('<embed id="msc" src="http://video.weimob.com/wxwall/default/%E5%8D%A1%E5%86%9C.mp3" autostart="true" loop="true" hidden="true" />');
+                            document.write('<embed id="msc" src="{np:$info.mp3url}" autostart="true" loop="true" hidden="true" />');
                         }else{
-                            document.write('<audio id="msc" loop="true" hidden="true" autoplay="true"><source src="http://video.weimob.com/wxwall/default/%E5%8D%A1%E5%86%9C.mp3" ></audio>');
+                            document.write('<audio id="msc" loop="true" hidden="true" autoplay="true">' +
+                                    '<source src="{np:$info.mp3url}" ></audio>');
                         }
                     </script>
                 </li>
@@ -203,13 +209,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/Webwall/shakeStart?id=6684&bid=225472&pid=110460&v=866de5f5590e1b268937afc8be2eb032" class="yyy">
+                    <a href="/Webwall/{np:$wxuid}/shakeStart?wid={np:$wid}&token={np:$token}&wecha_id={np:$wecha_id}" class="yyy">
                         <span></span>
                         <label>摇一摇</label>
                     </a>
                 </li>
                 <li>
-                    <a href="/Webwall/Index?id=6684&bid=225472&pid=110460&v=866de5f5590e1b268937afc8be2eb032" class="wxq">
+                    <a  href="/Webwall/{np:$wxuid}/Home?wid={np:$wid}&token={np:$token}&wecha_id={np:$wecha_id}"  class="wxq">
                         <span></span>
                         <label>微信墙</label>
                     </a>
@@ -224,7 +230,7 @@
                         </li>
                     </ul>
                     <div class="qbody">
-                        <span><img src="" /></span>
+                        <span><img src="{np:$info.tdcode}" /></span>
                     </div>
                 </header>
             </div>
@@ -237,24 +243,28 @@
             <p id="medal">
                 <!---->
             </p>
-            <img src="img/wall/template1/13.png" />
+            <img src="{np::STATICS}/img/wall/template1/13.png" />
         </div>
         <div class="relative">
-            <input type="image" onclick="location.reload();" src="img/wall/template1/19.png" class="oncemore" />
+            <input type="image" onclick="location.reload();" src="{np::STATICS}/img/wall/template1/19.png" class="oncemore" />
             <div class="prize">
-                <img src="img/wall/template1/18.png" class="img" />
+                <img src="{np::STATICS}/img/wall/template1/18.png" class="img" />
                 <table>
                     <tr>
-                        <td style="width:193px;">
-                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" /></span>
-                            <div>
-                                <h5>1</h5>
-                                <label>1</label>
-                            </div>
-                        </td>
+                        <volist name="prizelist" id="vo">
+                            <td style="width:193px;">
+                                <span class="img_wrap"><img src="{np:$vo.prize_img}"  width="130" height="130" /></span>
+                                <div>
+                                    <h5>{np:$vo.type}</h5>
+                                    <label>{np:$vo.name}</label>
+                                </div>
+                            </td>
+                        </volist>
+                        <!--
+
 
                         <td style="width:193px;">
-                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" /></span>
+                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" width="130" height="130"  /></span>
                             <div>
                                 <h5>2</h5>
                                 <label>2</label>
@@ -262,12 +272,12 @@
                         </td>
 
                         <td style="width:193px;">
-                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png" /></span>
+                            <span class="img_wrap"><img src="http://img.weimob.com/static/36/ac/ba/image/20140409/20140409181138_16703.png"  width="130" height="130" /></span>
                             <div>
                                 <h5>3</h5>
                                 <label>3</label>
                             </div>
-                        </td>
+                        </td>-->
 
                     </tr>
                 </table>

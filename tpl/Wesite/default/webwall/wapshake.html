@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>摇一摇</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="Keywords" content="C('Keywords')" />
+    <meta name="Description" content="C('Description')" />
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Mobile Devices Support @end -->
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico" />
+</head>
+<body onselectstart="return true;" ondragstart="return false;">
+<style>
+    *{padding:0;margin:0;}
+    html, body{
+        height:100%;
+    }
+    body{
+        background:#2f3032;
+        background:url({np::STATICS}/img/wall/mobile/22.png), url({np::STATICS}/img/wall/mobile/20.png);
+        background-repeat: no-repeat, repeat-y;
+        background-position: 0 100%;
+        -webkit-background-size:100% auto;
+    }
+    .div_shake{
+        width: 150px;
+        height: 150px;
+        background: #ffffff;
+        border-radius: 130px;
+        position: absolute;
+        left: 50%;
+        top: 60px;
+        margin: 0 -75px;
+        z-index: 10;
+        text-align: center;
+        color: #ffffff;
+    }
+    .div_shake img{
+        width:100px;
+        height:100px;
+        margin:25px;
+    }
+    .div_shake img.on{
+        -webkit-transform: rotate(-30deg);
+    }
+    .div_shake label{
+        position: absolute;
+        z-index: 20;
+        width: 300px;
+        bottom: -10px;
+        top: 160px;
+        left: -75px;
+        text-align: center;
+        height: 20px;
+        font-size: 14px;
+    }
+
+    a.btn_music{
+        display:inline-block;
+        width:50px;
+        height:50px;
+        margin:5px 10px;
+        min-width:25px;
+        background:url("{np::STATICS}/img/wall/mobile/voice.png") no-repeat center bottom;
+        background-size:50px auto;
+        position: absolute;
+        right: 0;
+    }
+    a.btn_music.on{
+        background-position: center 0;
+    }
+</style>
+<script>
+    var audio = null;
+    var audioState = false;
+    document.addEventListener("DOMContentLoaded", function(){
+        init();
+        audio = document.getElementById("audio");
+        var audioHandle = document.getElementById("playbox");
+        audioHandle.onclick = function(){
+            this.classList.toggle("on");
+            audioState = this.classList.contains("on");
+            if(audioState){
+                audio.play();
+            }
+        }
+    }, false);
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('hideToolbar');
+        WeixinJSBridge.call('hideOptionMenu');
+    });
+    //
+    var SHAKE_THRESHOLD = 1000;
+    var last_update = 0;
+    var x=y=z=last_x=last_y=last_z=0;
+    var records = [[]];
+
+    function init(){
+        if({np:$isover}==0){
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion',deviceMotionHandler, false);
+            } else{
+                alert('not support mobile event');
+            }
+        }
+    }
+
+    function deviceMotionHandler(eventData) {
+        var acceleration =eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        if ((curTime - last_update)> 100) {
+            var diffTime = curTime -last_update;
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+            if (speed > SHAKE_THRESHOLD) {
+                var records_last = records[records.length-1];
+                records_last.push(speed);
+                if(records_last.length>=5){
+                    records.push([]);
+                    sendRecord(records_last);
+                }
+                //document.getElementById("show").value = JSON.stringify(records);
+            }
+            if(speed>SHAKE_THRESHOLD/5){
+                showShake();
+            }
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+    }
+    //
+    var _round =0;
+    function sendRecord(record){
+        var req = {
+            round:_round,
+            pid:{np:$pid},
+            wechatid:"{np:$wecha_id}",
+            record:record
+        }
+        $.ajax({
+            url: "/Webwall/{np:$wxuid}/sendShakeData",
+            type:"post",
+            data:req,
+            dataType:"JSON",
+            success: function(res){
+                if(1 == res.result){
+                    _round = res.round;
+                    console.log(req.round);
+                    alert(JSON.stringify(req) );
+                }else if(2==res.result){
+                    alert(res.message);
+                }
+                else{
+                    $('#tips').html(res.message);
+                    document.removeEventListener("devicemotion", function(){
+                                //remove listener and do nothing
+                                alert('本次活动已经结束，感谢参与！');
+                            },
+                            false);
+                }
+            },
+            error: function(){
+                console.log(this);
+            }
+        });
+    }
+    var showShake = (function(){
+        var last_shake_time = 0;
+        function go(){
+            var cur_shake_time = new Date().getTime();
+            if((cur_shake_time-last_shake_time)>80 ){
+                if(audioState && audio.paused){
+                    audio.play();
+                }
+                last_shake_time = cur_shake_time;
+                document.getElementById("div_shake").querySelector("img").classList.toggle("on");
+            }
+        }
+        return go;
+    })();
+
+</script>
+<body onselectstart="return true;" ondragstart="return false;" ontouchmove="event.preventDefault();">
+<div class="container card">
+    <a href="javascript:;" id="playbox" class="btn_music" onclick="playbox.init(this).play();" ontouchstart="event.stopPropagation();"></a>
+    <audio id="audio" src="{np::STATICS}/img/wall/mobile/shake_sound_male.mp3" style="pointer-events:none;display:none;width:0!important;height:0!important;"></audio>
+    <textarea id="show" style="width:100%;height:100%;min-height:200px;display:none;"></textarea>
+    <div id="div_shake" class="div_shake">
+        <img src="{np::STATICS}/img/wall/mobile/21.png"/>
+        <label style="font-size:20px;" id="tips">
+            <if condition="$isover eq 0 ">
+                摇起来！加油摇！金马奖就是你的！
+                <else/>
+                本次活动已经结束，谢谢参与！
+            </if>
+        </label>
+    </div>
+</div>
+</body>
+<div mark="stat_code" style="width:0px; height:0px; display:none;">
+</div>
+</body>
+</html>
+

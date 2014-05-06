@@ -39,7 +39,7 @@
 			</svg>';
         $("#clock").html(TPL);
         if(0>=s--){
-            location.href = "/webwall/{np:$wxuid}/shake?id={np:$wid}&wecha_id={np:$wecha_id}&token={np:$token}";
+            location.href = "/webwall/{np:$wxuid}/shake?wid={np:$wid}&token={np:$token}&wecha_id={np:$wecha_id}";
             return;
         }
         setTimeout(function(){
@@ -67,7 +67,7 @@
     <!----mainbody---->
     <div class="main_body">
         <div class="align_right pr_10 pt_10">
-            <img src="img/wall/logo.png" />
+            <img src="{np::STATICS}/img/wall/logo.png" />
         </div>
         <div class="box_wall relative">
             <div id="tick_body" class="tick_body hidden" style="position:relative;">
@@ -126,13 +126,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/Webwall/{np:$wxuid}/shakeStart?wid={np:$wid}&wecha_id={np:$wecha_id}" class="yyy">
+                    <a href="/Webwall/{np:$wxuid}/shakeStart?wid={np:$wid}&token={np:$token}&wecha_id={np:$wecha_id}" class="yyy">
                         <span></span>
                         <label>摇一摇</label>
                     </a>
                 </li>
                 <li>
-                    <a href="/Webwall/{np:$wxuid}/Index?id=8502&bid=253928&pid=124545&v=245d755d6ee864818281ccd751085bfc" class="wxq">
+                    <a  href="/Webwall/{np:$wxuid}/Home?wid={np:$wid}&wecha_id={np:$wecha_id}"  class="wxq">
                         <span></span>
                         <label>微信墙</label>
                     </a>

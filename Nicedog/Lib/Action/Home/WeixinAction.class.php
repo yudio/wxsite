@@ -593,7 +593,7 @@ class WeixinAction extends Action
      */
     function keyword($key,$reload = false)
     {
-        $key = mb_strtoupper($key,'UTF-8');
+       //$key = mb_strtoupper($key,'UTF-8');
         LOG::write('关键字匹配'.$key,LOG::INFO);
         //模糊匹配
         $where['keyword'] = $key;
