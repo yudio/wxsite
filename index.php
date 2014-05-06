@@ -23,7 +23,7 @@ define('APP_PATH','./Nicedog/');
 defined('APP_PATH') 	or define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']).'/');
 define('RUNTIME_PATH','./data/Conf/logs/');
 defined('RUNTIME_PATH') or define('RUNTIME_PATH',APP_PATH.'Runtime/');
-define('APP_DEBUG',false);
+define('APP_DEBUG',true);
 $runtime = defined('MODE_NAME')?'~'.strtolower(MODE_NAME).'_runtime.php':'~runtime.php';
 defined('RUNTIME_FILE') or define('RUNTIME_FILE',RUNTIME_PATH.$runtime);
 
