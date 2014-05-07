@@ -1,10 +1,10 @@
 <footer style="overflow:visible;">
-    <if condition="$homeInfo.plugmenu eq 0">
+    <if condition="$homeInfo.plugmenu neq 0">
 	<div class="weimob-copyright" style="padding-bottom:50px;">
     <else/>
         <div class="weimob-copyright">
     </if>
-		<a href="{np:$homeInfo.homeurl}">© {np:$homeInfo.copyright}</a>
+		<a href="{np:$homeInfo.homeurl}">&copy;{np:$homeInfo.copyright}</a>
 	</div>
 	<span class="weimob-support" style="display:none;">{np::C('copyright')}</span>
 </footer>
