@@ -1,0 +1,77 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <include file="common:meta"/>
+    <title>{np:$thisclassify.name}</title>
+	<link rel="stylesheet" href="{np::RES}/css/hospital/microweb.css" type="text/css">
+    <link rel="stylesheet" href="{np::RES}/css/hospital/public.css" type="text/css">
+	<link rel="stylesheet" href="{np::RES}/css/hospital/appoint.css" type="text/css">
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script type="text/javascript" language="javascript" src="{np::RES}/js/hospital/base.js"></script>
+</head>
+<body youdao="bind">
+    <div class="micro_box">
+        <div class="intro_top">
+            <div class="intro_top_con">
+                <img src="{np::RES}/images/hospital/dept_list.png" width="20" class="deptimg"><span class="fl" id="spanTitle">{np:$thisclassify.name}</span><div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="dept_list_box" id="DeptListDiv">
+			<ul id="deptListUL">
+				 <volist name="info" id="vo">
+					<li onclick="location.href='{np:$vo.url}'">{np:$vo.title}
+						<span class="appota"></span>
+						<span class="appotb"></span>
+					</li>
+				</volist>	
+			</ul>
+		</div>
+    </div>
+    
+<div class="foot_holder" id="menuTopListNew" style="">
+    <div class="foot_box">
+        <div class="backbtn" id="backUrlButtonNew">
+			<a href="javascript:history.go(-1);">
+				<span class="backtb">&nbsp;</span>
+			</a>
+		</div>
+        <div class="lolist">
+            <span class="listtb"></span>
+        </div>
+        <div class="list_tbtip">
+        </div>
+        <div class="list_detail">
+            <ul class="ulShow">
+				<volist name="classify" id="vo">
+					<if condition="$i lt 9">
+						<if condition="$i lt 5">
+							<if condition="$i%2 eq 0">
+								<li class="bor1">
+							<else/>
+								<li class="bor1 otbg">
+							</if>
+						<else/>
+							 <if condition="$i%2 eq 0">
+							  <li class="bor3 otbg">
+							 <else/>
+								 <li class="bor3">
+							 </if>
+						</if>
+						<a href="{np:$vo.url}" class="bor2">
+						<span class="list_jl" style="background:url({np:$vo.img})no-repeat;-webkit-background-size:28px 28px;-o-background-size: 28px 28px;width:28px;height:28px;"></span>{np:$vo.name}</a>
+					  </li>
+				  </if>
+				</volist>
+            </ul>
+        </div>
+    </div>
+</div>
+<div style="text-align:center;clear:both;margin-top:10px;padding:10px;font-size:13px;">
+	<a href="{np:$homeInfo.homeurl}">&copy;{np:$homeInfo.copyright}</a>
+</div>
+<div class="foot_screen">
+</div>
+    <div id="openDiv"></div>
+</body>
+</html>

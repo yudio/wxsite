@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+     <include file="common:meta"/>
+    <title>
+		{np:$homeInfo.title}   
+	</title>
+    <link rel="stylesheet" href="{np::RES}/css/hospital/microweb.css" type="text/css">
+    <link rel="stylesheet" href="{np::RES}/css/hospital/public.css" type="text/css">
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script language="javascript" type="text/javascript" src="{np::RES}/js/hospital/base.js"></script>
+</head>
+<body style="background: #e5e4e4;" youdao="bind">
+    <div class="micro_box">
+        <div class="hosp_index" id="focus">
+            <div class="bd">
+                <ul>
+					<volist name="flash" id="vo">
+						<li>
+							<if condition="$i eq 1">
+							 <li>
+								<a href="javascript:void(0);">
+									<img src="{np:$vo.img}" width="100%" height="170px">
+								</a>
+							</li>     
+							</if>
+						</li>
+					</volist>
+                                  
+                </ul>
+            </div>
+			<volist name="flash" id="vo">
+				<li>
+					<if condition="$i eq 1">
+					<div class="hosptit">
+						<span>
+							{np:$vo.title}
+						</span>
+					</div>
+					</if>
+				</li>
+			</volist>
+            
+        </div>
+        <div class="hosp_notb" id="scrollBox">
+            <div class="bd" id="menuList">
+				<ul>
+					 <volist name="classify" id="vo">
+						 <li style="height: auto; padding-top: 47.33333333333333px; padding-bottom: 47.33333333333333px;">
+							<a href="{np:$vo.url}">
+								<p>
+									<span style="display:block;background:url({np:$vo.img}) center center no-repeat;-webkit-background-size:28px 28px;-o-background-size: 28px 28px;width:28px;height:28px;"></span>
+								</p>
+								<p>{np:$vo.name}</p>
+							</a>
+						</li>
+					 </volist>
+				</ul>
+			</div> 
+        </div>
+    </div>
+</body>
+</html>

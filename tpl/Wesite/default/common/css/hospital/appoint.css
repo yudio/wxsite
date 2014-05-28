@@ -1,0 +1,91 @@
+.appoint_box{ width:100%; padding-top:10px;}
+.preappo{ width:84%; height:42px; line-height:42px; background:#fff; margin:15px auto 0 auto; border:1px solid #d3d3d3; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; color:#777; position:relative; padding:2px;}
+.preappo .app_title{ float:left; width:100%; height:42px;}
+.apposel{ width:100%; height:42px; padding-left:5%; padding-right:20%; -webkit-appearance:none; -moz-appearance:none; appearance:none; border:none; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size:15px; color:#777;}
+.ghapposel{ width:100%; height:42px; padding-left:5%; padding-right:20%; -webkit-appearance:none; -moz-appearance:none; appearance:none; border:none; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size:15px; color:#777; display:block; background:#fff; position:absolute; z-index:102; filter: alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0; opacity:0;}
+.apposel .optionaa{ width:100px; display:block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.preappo .appotip{ position:relative; float:right; margin:12px 20% 0 0;}
+.preappo .appota { right:7%; top:15px; border-color:#88a67f transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:10px 10px 0 10px; height:0; width:0; position:absolute; z-index:103;}
+.preappo .appotb { right:7%; top:13px; border-color:#fff transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:10px 10px 0 10px; height:0; width:0; position:absolute; z-index:103;}
+.appoint_box .appobtn{ width:84%; height:43px; line-height:43px; background:#ff9500; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; margin:15px auto; text-align:center; cursor:pointer; color:#fff; font-size:19px;}
+.appo_time{ width:96%; background:url(/images/time_bg.png) repeat-x; line-height:27px; padding:12px 2%;} 
+.appo_time .time_box{ width:37%; height:27px; line-height:27px; float:right; background:#fff; border:1px solid #d0d0d0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; position:relative;}
+.time_box .appota { right:4%; top:10px; border-color:#88a67f transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.time_box .appotb { right:4%; top:8px; border-color:#fff transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.appo_time .time_box .selcss{ width:97%; line-height:20px; -webkit-appearance:none; -moz-appearance:none; appearance:none; border:none; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size:15px; color:#777; float:left; padding-left:3%;}
+.appo_box{ width:100%; margin-top:5px;}
+.appo_box ul li{ display:block; width:89%; background:#ffffff; padding:10px 2%; margin-top:10px; margin-left:3%; overflow:hidden; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px;}
+.prehead{ width:23%; text-align:center; float:left;}
+.premess{ width:65%; float:left; font-size:14px; color:#999; line-height:22px; padding:3px 1% 0 1%;}
+.new_record{ width:50%; float:left; font-size:14px; color:#999; line-height:22px; padding:3px 1% 0 1%;}
+.othermess{ width:75%; float:left; font-size:15px; color:#999; line-height:22px; padding-top:3px;}
+.name{ color:#007cd9; font-size:20px; margin-right:5px;}
+.level{ color:#777; font-size:12px;}
+.preopera{ width:32%; float:left; text-align:center; font-size:14px; line-height:35px; margin-top:5px; border-left:1px solid #cacaca; padding:15px 0 10px 0; position:relative; color:#999999;}
+.preopera .letotal{ font-size:25px; color:#02c04e;}
+.preopera .preyue{ position:absolute; width:26px; height:20px; background:url(/images/yue.png) no-repeat; background-size:52px 20px; -webkit-background-size:52px 20px; -o-background-size:52px 20px; top:-1px; left:-3px;}
+.preopera .preyue2{ position:absolute; width:26px; height:20px; background:url(/images/yue.png) no-repeat; background-size:52px 20px; -webkit-background-size:52px 20px; -o-background-size:52px 20px; top:-1px; left:-3px; background-position:-27px 0;}
+.newopera{ width:25%; float:left; text-align:center; font-size:14px; line-height:35px; margin-top:5px; padding:15px 0 10px 0; position:relative; color:#999999;}
+.newopera a{ background:#b0e2a0; padding:3px 5px; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; font-size:12px; color:#319312;}
+
+.source_mess{ width:93%; background:#fff; padding:10px 0; overflow:hidden; margin-bottom:10px; margin-left:3%; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px;}
+.source_mess .sou_head{ width:24%; text-align:center; float:left;}
+.source_mess .sou_mess{ width:75%; float:left; font-size:14px; color:#999; line-height:22px; padding-top:3px;}
+.source_box{ width:100%; padding:10px 0 50px 0;}
+.source_time{ width:100%; border-top:1px solid #ece9e9; height:40px; line-height:40px; margin-top:10px; position:relative; font-size:15px;}
+.source_time a{ display:block; width:33%; float:left; text-align:center; color:#535353;}
+.source_time a.hit{ color:#00a040;}
+.source_time .sou_bor{ border-right:1px solid #d3d3d3;}
+.source_time .sour_tip{ width:17px; height:12px; position:absolute; background:url(/images/sourtip.png) no-repeat; background-size:100%; -webkit-background-size:100%; -o-background-size:100%; left:14%; bottom:-16px; display:none;}
+.source_list{ width:92%; margin:0 auto; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; background:#fff;}
+.source_list ul li{ height:35px; line-height:35px; border-bottom:1px solid #f1edee; font-size:14px; padding:4px 0 4px 8px; position:relative;}
+.source_list ul li .appota { right:8px; top:13px; border-color:transparent transparent transparent #b3b3b3; border-style:dashed dashed dashed solid; border-width:8px 0 8px 8px; height:0; width:0; position:absolute;}
+.source_list ul li .appotb { right:11px; top:13px; border-color:transparent transparent transparent #fff; border-style:dashed dashed dashed solid; border-width:8px 0 8px 8px; height:0; width:0; position:absolute;}
+.source_list ul li.bg{ background:#f7f7f7;}
+.gomicro{ width:100%; height:45px; line-height:43px; background:#000; position:fixed; bottom:0; left:0; opacity: 0.8; -moz-opacity:0.8; filter:alpha(opacity=80); color:#888d8f;}
+.gomicro a{ display:block; width:80%; height:45px; padding-left:20%; line-height:43px; color:#888d8f;}
+.microtb{ float:left; margin:10px 0 0 10px;}
+
+.soudet_mess{ width:91%; background:#fff; padding:10px 0 10px 2%; overflow:hidden; margin-bottom:10px; margin-left:3%; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; line-height:23px;}
+.soudet_mess .soutitle{ float:left; text-align:left; overflow:hidden; padding:5px 5px 0 0;}
+.soudet_mess .soutime{ float:left; overflow:hidden; font-size:15px;}
+.appo_time2{ width:91%; background:#fff; padding:10px 0 10px 2%; overflow:hidden; margin-bottom:10px; margin-left:3%; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; line-height:27px;}
+.appo_time2 .soudet_mem{ width:37%; height:27px; line-height:27px; float:left; background:#fff; border:1px solid #d0d0d0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; position:relative;}
+.soudet_mem .appota { right:4%; top:10px; border-color:#88a67f transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.soudet_mem .appotb { right:4%; top:8px; border-color:#fff transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.appo_time2 .soudet_mem .selcss{ width:97%; line-height:20px; -webkit-appearance:none; -moz-appearance:none; appearance:none; border:none; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size:16px; color:#777; float:left; padding-left:3%;}
+.visits_tip{ width:93%; background:#fff; padding:5px 0; margin-bottom:10px; margin-left:3%; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; font-size:15px; line-height:26px; overflow:hidden;}
+.visits_tip .vtitle{ color:#535353; font-size:15px; padding-bottom:5px; padding-left:3%;}
+.visits_tip .vtitle .hidestep{ float:right; font-size:14px; margin-right:14px;}
+.visits_tip .visits_det{ width:94%; margin:0 auto; padding:5px 3%; color:#777; border-top:1px solid #e3e3e3; font-size:14px;}
+.meals_tit{ font-size:16px; color:#535353; margin-top:5px;}
+.visits_tip .buytip{ color:#fc2e2e; }
+.visits_tip .buybtn { background:#ed8c14; font-size:15px; border:1px solid #B7B7B7; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; font-size:15px; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; text-align:center; padding:5px 5px; color:#fff; cursor:pointer; float:right;}
+.visits_tip a{ color:#233db7;}
+.total_pay{ text-align:center; font-size:18px; padding:10px 0 5px 0; color:#000; border-top:1px dashed #b1ada7; margin-top:10px;}
+.appo_btn{ padding:5px 0 30px 0;}
+.appo_btn a{ display:block; width:93%; height:40px; line-height:40px; background:#ff8a01; color:#fff; text-align:center; border:1px solid #da7600; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; font-size:17px; margin-left:3%;}
+/* success appoint pop */
+.apps_tip{ text-align:center; color:#21a638; font-size:18px; padding:20px 0;}
+.apps_bor{ border-bottom:1px dashed #dddddd;}
+.his_time{ width:96%; height:27px; line-height:20px; border-bottom:1px solid #e3e3e3; padding-left:4%; color:#999999; margin-bottom:10px; font-size:15px;}
+.his_tb{ float:left; margin-right:6px;}
+/* order form popup */
+.order_con{ width:100%;}
+.order_top{ width:100%; background:#fafafa; overflow:hidden; padding:5px 0;}
+.space1{ display:block; width:15%; float:left; text-align:center; font-size:15px;}
+.space2{ display:block; width:59%; float:left; font-size:15px;}
+.space3{ display:block; width:23%; float:left; text-align:right; font-size:15px;}
+.order_detail{ width:100%;}
+.order_detail p{ border-bottom:1px dashed #ddd; overflow:hidden; padding:5px 0;}
+.order_total{ width:97%; padding:7px 3% 7px 0; text-align:right; background:#e6e6e6; color:#777;}
+.order_tip{ width:96%; padding:15px 2% 10px 2%; border-bottom:1px dashed #ddd; font-size:13px; margin-bottom:10px;}
+
+.appo_seltime{ width:93%; background:#fff; line-height:36px; padding:5px 0%; margin-left:3%; border:1px solid #e6e6e6; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; box-shadow:0px 1px 0px #eaeaea; -webkit-box-shadow:0px 1px 0px #eaeaea; -moz-box-shadow:0px 1px 0px #eaeaea;}
+.appo_seltime .seltime_box{ width:81%; height:36px; line-height:36px; float:left; background:#fff; position:relative; margin-left:1%; margin-top:5px;}
+.seltime_box .timeselt{ width:100%; height:36px; line-height:36px; padding-left:13%; -webkit-appearance:none; -moz-appearance:none; appearance:none; border:none; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; color:#777; border:1px solid #d0d0d0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; background:url(/images/time_tb.png) 2% center no-repeat; background-size:22px 22px; -webkit-background-size:22px 22px; -o-background-size:25px 25px; font-size:13px;}
+.seltime_box .timesta { right:4%; top:15px; border-color:#88a67f transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.seltime_box .timestb { right:4%; top:13px; border-color:#fff transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.sel_refresh{ float:left; margin-left:8px; color:#00f; margin-top:5px;}
+
+.selhidden{ width:68%; height:100%; position:absolute; background:#fff; z-index:101; top:0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; display:block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; padding:0 16% 0 16%; text-align:center;}

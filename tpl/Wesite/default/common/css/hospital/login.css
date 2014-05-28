@@ -1,0 +1,46 @@
+/* login */
+.login_box{ width:100%; padding-top:20px;}
+.login_box .prelog{ width:88%; height:48px; line-height:48px; margin:0 auto 15px auto; background:#fff; border:1px solid #d3d3d3; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+.prelog .zhtb{ margin:10px 6px 0 10px; float:left;}
+.prelog .login_zh{ background:#fff; border:0px; width:80%; height:38px; line-height: normal; line-height: 38px\9; font-family:"\5FAE\8F6F\96C5\9ED1", Helvetica; font-size:16px; float:left; margin-top:2px;}
+.login_opera{ width:100%; overflow:hidden;}
+.login_opera .login_btn{ display:block; width:40%; height:45px; line-height:45px; background:#ff8a01; float:left; border:1px solid #da7600; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-align:center; color:#fff; font-size:18px; margin:5px 0 0 6%;}
+.login_opera .login_regbtn{ display:block; width:40%; height:45px; line-height:45px; background:#1b980a; float:left; border:1px solid #127105; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-align:center; color:#fff; font-size:18px; margin:5px 0 0 6%;}
+.login_opera .forget_pass{ float:right; margin-right:12%; margin-top:20px; display:inline; color:#919191;}
+.login_bywx{ width:78%; height:50px; margin:20px auto; background:#28a811; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; cursor:pointer; padding:20px 0 0 10%;}
+.login_bywx .wximg{ float:left;}
+.login_bywx .wxtip{ float:left; color:#fff; font-size:19px; margin:3px;} 
+.login_bywx .wxpoint{ position:relative; float:left; margin-left:30px; margin-top:5px;}
+.Rpointa { right:0; top:0; border-color:transparent transparent transparent #fff; border-style:dashed dashed dashed solid; border-width:10px 0 10px 10px; height:0; width:0; position:absolute;}
+.Rpointb { right:5px; top:0; border-color:transparent transparent transparent #28a811; border-style:dashed dashed dashed solid; border-width:10px 0 10px 10px; height:0; width:0; position:absolute;}
+/* password change */
+.pass_top{ width:100%; padding:0 0 10px 0; height:26px; line-height:26px; font-size:18px; color:#9fa1a3;}
+.passtb{ margin:0 7px 0 6%; float:left;}
+.login_box .prepass{ width:90%; height:48px; line-height:48px; margin:0 auto 15px auto; color:#bebebe;}
+.pass_text{ width:93%; height:48px; line-height:normal; line-height:48px\9; border:1px solid #d3d3d3; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size: 16px; padding:0 3%;}
+.pass_btn{ width:100%;}
+.pass_btn a{ display:block; width:87%; height:45px; line-height:45px; background:#ff8a01; float:left; border:1px solid #da7600; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-align:center; color:#fff; font-size:18px; margin:5px 0 0 6%;}
+/* Registration */
+.regist_top{ width:88%; padding:0 6% 10px 6%; height:22px; line-height:22px; font-size:15px; color:#9fa1a3;}
+.regist_zh{ width:94%; height:48px; line-height:normal; line-height:48px\9; border:1px solid #d3d3d3; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size: 16px; padding:0 3%;}
+.regist_yzh{ width:40%; height:45px; line-height:normal; line-height:45px\9; border:1px solid #d3d3d3; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size: 16px; padding:0 3%; float:left;}
+.yzh_get{ display:block; width:43%; height:48px; line-height:48px; background:#fafafb; float:left; border:1px solid #dddddd; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:15px; margin-left:7%; text-align:center; color:#777777;}
+.reg_area{ width:40%; height:35px; line-height:35px; background:#fff; margin-bottom:15px; border:1px solid #d3d3d3; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; color:#777; position:relative; float:left; margin-left:6%;}
+.reg_area .reg_title{ float:left; width:100%; height:40px;}
+.regsel{ width:100%; height:26px; padding-left:2%; -webkit-appearance:none; -moz-appearance:none; appearance:none; border:none; font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica; font-size:16px; color:#777; font-size:15px;}
+.reg_area .regta { right:5%; top:14px; border-color:#88a67f transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.reg_area .regtb { right:5%; top:12px; border-color:#fff transparent transparent transparent; border-style:solid dashed dashed dashed; border-width:8px 8px 0 8px; height:0; width:0; position:absolute;}
+.login_box .reg_tip{ width:90%; color:#919191; overflow:hidden; padding:20px 5% 50px 5%; font-size:15px; line-height:25px;}
+.login_box .regwxtip{ color:#ff8a01; font-size:16px;}
+.tologin{ width:90%; margin:5px auto; text-align:right; line-height:30px;}
+/* download */
+.down_top{ width:100%; text-align:center; padding:10px 0;}
+.down_box{ width:100%; text-align:center; color:#020202;}
+.down_box .dtit{ font-size:30px; padding-bottom:5px;}
+.down_box .down_btn{ display:block; width:60%; height:50px; line-height:50px; background:#95964a; border:1px solid #676e3a; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; color:#fff; font-size:17px; margin:10px 0 0 20%;}
+.down_tip{ width:90%; margin:15px auto; overflow:hidden;}
+.dotip_l{ width:10%; text-align:right; float:left; padding-top:10px;}
+.dotip_r{ width:90%; text-align:left; float:left;}
+.down_screen{ width:100%; height:100%; background:#000; filter: alpha(opacity=60); -moz-opacity:0.6; -khtml-opacity:0.6; opacity:0.6; position:fixed; z-index:10001; top:0; left:0;}
+.down_gol{ width:auto; height:40px; line-height:40px; padding:5px 25px; position:fixed; background:#fff; box-shadow:2px 2px 2px #000; -webkit-box-shadow:0px 0px 8px #000; -moz-box-shadow:2px 2px 2px #000; -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px; text-align:center; z-index:10002; top:38px; right:75px; color:#000; font-size:18px;}
+.down_point{ width:50px; height:60px; background:url(/images/load_point.png) no-repeat; background-size:40px 58px; -webkit-background-size:40px 58px; -o-background-size:40px 58px; position:absolute; right:-60px; top:-36px;}

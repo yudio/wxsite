@@ -47,4 +47,7 @@ RewriteRule ^WebLecture/(.+)/(.+)$ index.php?g=Wesite&m=WebLecture&a=$2&wxuid=$1
 #微活动
 RewriteRule ^WebActivity/(.+)/(.+)$ index.php?g=Wesite&m=WebActivity&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
 
+#微医疗
+RewriteRule ^Hospital/(.+)/(.+)$ index.php?g=Wesite&m=Hospital&a=$2&wxuid=$1&%{QUERY_STRING} [L,NC]
+
 </IfModule>

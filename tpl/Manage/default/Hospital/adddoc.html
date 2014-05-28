@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="Keywords" content="{np::C('Keywords')}"/>
+    <meta name="Description" content="{np::C('Description')}"/>
+    <link rel="shortcut icon" href="{np::STATICS}/img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/bootstrap_responsive_min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/themes.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/todc_bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/inside.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{np::STATICS}/css/resource.css" media="all"/>
+    <script type="text/javascript" src="{np::STATICS}/src/jQuery.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/bootstrap_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/form/jquery_form_min.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/plugins/validation/jquery_validate_min.js"></script>
+    <script type="text/javascript"
+            src="{np::STATICS}/src/plugins/validation/jquery_validate_methods.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/src/resource.js"></script>
+    <script type="text/javascript" src="{np::STATICS}/inside.js"></script>
+    <title>{np::C('site_name')}—{np::C('site_title')}</title>
+    <!--[if IE 7]>
+    <link href="{np::STATICS}/css/font_awesome_ie7.css" rel="stylesheet"/>
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="{np::STATICS}/js/excanvas_min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="{np::STATICS}/js/watermark.js"></script>
+    <![endif]-->
+</head>
+<script src="http://api.map.baidu.com/getscript?v=2.0&ak=T6LUak3ZjSxnl2qVHywtZabi&services=true" type="text/javascript" type="text/javascript"></script>
+<script src="{np::STATICS}/kindeditor/kindeditor-min.js"></script>
+<script src="{np::STATICS}/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" >
+        KindEditor.ready(function (K) {
+            var editor = K.editor({
+                themeType: 'simple',
+                allowFileManager: true
+            });
+            $('a.insertimage').live('click', function (e) {
+                editor.loadPlugin('smimage', function () {
+                    editor.plugin.imageDialog({
+                        imageUrl: $(e.target).prev().val(),
+                        userRoot: 'bb1864cdee4d3d6e',
+                        clickFn: function (url, title, width, height, border, align) {
+                            $(e.target).prev().val(url);
+                            if ('img' == $(e.target).prev().prev().attr('type')) {
+                                $(e.target).prev().hide();
+                                $(e.target).prev().prev().attr('src', url);
+                                $(e.target).prev().prev().show();
+                            }
+                            editor.hideDialog();
+                        }
+                    });
+                });
+            });
+        });
+</script>
+<link href="{np::STATICS}/kindeditor/themes/default/default.css" rel="stylesheet"/>
+
+<style>
+    option {
+        padding: 5px;
+    }
+</style>
+
+<body>
+<div id="main">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<div class="box">
+<div class="box-title">
+    <div class="span12">
+        <h3><i class="icon-cog"></i>新增专家</h3>
+    </div>
+</div>
+<form action="/npManage/hospital/docinsert.act" method="post" class="form-horizontal form-validate">
+<div class="box-content">
+<div class="control-group">
+    <label for="classname" class="control-label">专家姓名：</label>
+    <div class="controls">
+        <input type="text" id="classname" name="name" value="" class="input-medium" data-rule-required="true"/>
+        <span class="maroon">*</span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="description" class="control-label">专家职称：</label>
+    <div class="controls">
+        <input type="text" id="description" name="title" value="" class="input-medium"  data-rule-required="true"/>
+        <span class="maroon">*</span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="brief">擅长疾病</label>
+    <div class="controls">
+        <textarea id="brief" name="goodat" class="input-xlarge ui-wizard-content ui-helper-reset ui-state-default" style="resize:none; width:274px; height:120px;" data-rule-required="true"></textarea>
+        <span class="maroon">*</span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="insertimage" class="control-label">专家头像:</label>
+    <div class="controls">
+        <img type="img" src="{np::RES}/images/hospital/man_55x70.jpg" style="max-height:50px;"/>
+        <input type="hidden" name="headimg" value="{np::RES}/images/hospital/man_55x70.jpg"
+               class="input-medium"/>
+        <a class="btn insertimage">上传头像</a>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="brief">接诊时间</label>
+    <div class="controls">
+        <textarea id="brief" name="duty" class="input-xlarge ui-wizard-content ui-helper-reset ui-state-default" style="resize:none; width:274px; height:120px;" data-rule-required="true"></textarea>
+        <span class="maroon">*</span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="content_desc" class="control-label">专家简介：</label>
+    <div class="controls">
+        <textarea id="content_desc" name="desc" placeholder="必须填写">{np:$info.content}</textarea>
+    </div>
+</div>
+<script type="text/javascript">
+    KindEditor.ready(function (K) {
+        var editor = K.create("#content_desc", G.set.KindEditor_seting);
+    });
+</script>
+<div class="control-group">
+    <label class="control-label" for="brief">联系方式</label>
+    <div class="controls">
+        <textarea id="brief" name="contact" class="input-xlarge ui-wizard-content ui-helper-reset ui-state-default" style="resize:none; width:274px; height:120px;" data-rule-required="true"></textarea>
+        <span class="maroon">*</span><span class="help-inline"></span>
+    </div>
+</div>
+<div class="control-group">
+    <label for="sort" class="control-label">显示顺序：</label>
+    <div class="controls">
+        <input type="text" id="sorts" name="sort" value="0" class="input-mini" data-rule-required="true"
+               data-rule-number="true"/>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label">是否显示：</label>
+    <div class="controls">
+        <label class="radio inline"><input type="radio" value="1" name="status" checked="checked"/>显示</label>
+        <label class="radio inline"><input type="radio" value="0" name="status"/>隐藏</label>
+    </div>
+</div>
+
+<div id="res_block">
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">保存</button>
+        <button type="button" class="btn" onclick="window.history.go(-1);">取消</button>
+    </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script>
+    window.document.onkeydown = function (e) {
+        if ('' == document.activeElement.id) {
+            var e = e || event;
+　 				var currKey = e.keyCode || e.which || e.charCode;
+            if (8 == currKey) {
+                return false;
+            }
+        }
+    };
+</script>
+</html>

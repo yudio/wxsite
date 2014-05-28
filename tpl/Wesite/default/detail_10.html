@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <include file="common:meta"/>
+    <title>{np:$info.title}</title>
+	<link rel="stylesheet" href="{np::RES}/css/hospital/microweb.css" type="text/css">
+    <link rel="stylesheet" href="{np::RES}/css/hospital/public.css" type="text/css">
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script language="javascript" type="text/javascript" src="{np::RES}/js/hospital/base.js"></script>
+</head>
+<body youdao="bind">
+    <div class="micro_box">
+        <div class="artic_tit">
+            <p id="title">{np:$info.title}</p>
+            <p id="time" class="arttime">{np:$info.createtime|date='Y-m-d',###}</p>
+        </div>
+        <div class="artic_text" id="content">
+			{np:$info.text}
+		</div>
+    </div>
+    
+<div class="foot_holder" id="menuTopListNew" style="">
+    <div class="foot_box">
+        <div class="backbtn" id="backUrlButtonNew">
+			<a href="javascript:history.go(-1);">
+				<span class="backtb">&nbsp;</span>
+			</a>
+		</div>
+        <div class="lolist">
+            <span class="listtb"></span>
+        </div>
+        <div class="list_tbtip">
+        </div>
+        <div class="list_detail">
+            <ul class="ulShow">
+				<volist name="classify" id="vo">
+					<if condition="$i lt 9">
+						<if condition="$i lt 5">
+							<if condition="$i%2 eq 0">
+								<li class="bor1">
+							<else/>
+								<li class="bor1 otbg">
+							</if>
+						<else/>
+							 <if condition="$i%2 eq 0">
+							  <li class="bor3 otbg">
+							 <else/>
+								 <li class="bor3">
+							 </if>
+						</if>
+						<a href="{np:$vo.url}" class="bor2">
+						<span class="list_jl" style="background:url({np:$vo.img})no-repeat;-webkit-background-size:28px 28px;-o-background-size: 28px 28px;width:28px;height:28px;"></span>{np:$vo.name}</a>
+					  </li>
+				  </if>
+				</volist>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="foot_screen">
+</div>
+<div id="openDiv"></div>
+</body>
+</html>

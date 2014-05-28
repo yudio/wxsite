@@ -7,7 +7,7 @@ function strExists($haystack, $needle)
 
 class IndexAction extends WebAction{
 	private $wxuser;	//微信公共帐号信息
-	private $classify;	//分类信息
+	public  $classify;	//分类信息
 	private $wecha_id;
 	private $copyright;
 	public $company;
@@ -36,7 +36,7 @@ class IndexAction extends WebAction{
         if (!isset($this->token)){
             $this->token = $wxuser['token'];
         }
-		$this->weixinUser = $wxuser;
+        $this->weixinUser = $wxuser;
         $this->wxname     = $wxuser['wxname'];
 
         //获取用户Wecha_id
