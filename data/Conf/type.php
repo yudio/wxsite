@@ -32,6 +32,7 @@ return array (
         array('value'=>'albums', 'name'=> '微相册', 'list'=>'false'),
         array('value'=>'buy', 'name'=> '微商城', 'list'=>'false'),
         array('value'=>'reservation', 'name'=> '微预约', 'list'=>'true'),
+        array('value'=>'hospital', 'name'=> '微医疗', 'list'=>'true'),
         //'medical'     => '微医疗',
         //'hotels'      => '微酒店',
         //'survey'      => '微调研',
@@ -73,6 +74,7 @@ return array (
         'shop' => '微商城',
         'tg' => '微团购',
     ),
+    //分类管理中，回复类型列表
     'class_typelist' => array(
         array('value'=>'article','name'=>'图文'),
         array('value'=>'link', 'name'=> '链接'),
@@ -80,6 +82,7 @@ return array (
         array('value'=>'map', 'name' => '导航'),
         array('value'=>'activity', 'name' => '活动'),
         array('value'=>'business', 'name' => '业务模块'),
+
         /*array('value'=>'car', 'name' => '微汽车'),
         array('value'=>'estate', 'name' => '微房产'),
         array('value'=>'food', 'name' => '微餐饮'),

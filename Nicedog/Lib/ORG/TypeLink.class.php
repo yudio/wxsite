@@ -53,6 +53,10 @@ class TypeLink{
                          case 'vipcard':
                              $arr['url'] = '/Webmember/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
+                         /*eric 新增hospital*/
+                         case 'hospital':
+                             $arr['url'] = '/hospital/'.$_SESSION['wxid'].'/doclist?wecha_id=FromUserName';
+                             break;
                      }
                      break;
                  default:
@@ -99,6 +103,10 @@ class TypeLink{
                              break;
                          case 'vipcard':
                              $arr['url'] = '/Webmember/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
+                             break;
+                         /*eric 新增hospital*/
+                         case 'hospital':
+                             $arr['url'] = '/hospital/'.$_SESSION['wxid'].'/doclist?wecha_id=FromUserName';
                              break;
                      }
                      break;
@@ -150,6 +158,10 @@ class TypeLink{
                              break;
                          case 'vipcard':
                              $arr['url'] = '/Webmember/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
+                             break;
+                         /*eric 新增hospital*/
+                         case 'hospital':
+                             $arr['url'] = '/hospital/'.$_SESSION['wxid'].'/doclist?wecha_id=FromUserName';
                              break;
                      }
                      break;
@@ -203,6 +215,10 @@ class TypeLink{
                          case 'vipcard':
                              $arr['url'] = '/Webmember/'.$_SESSION['wxid'].'/index?wecha_id=FromUserName';
                              break;
+                         /*eric 新增hospital*/
+                         case 'hospital':
+                             $arr['url'] = '/hospital/'.$_SESSION['wxid'].'/doclist?wecha_id=FromUserName';
+                             break;
                      }
                      break;
                  default:
@@ -216,8 +232,5 @@ class TypeLink{
             return C('site_url').$arr['url'];
         }
     }
-
-
 }
-
 ?>

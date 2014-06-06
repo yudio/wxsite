@@ -7,7 +7,7 @@ function strExists($haystack, $needle)
 
 class IndexAction extends WebAction{
 	private $wxuser;	//微信公共帐号信息
-	public  $classify;	//分类信息
+	private $classify;	//分类信息
 	private $wecha_id;
 	private $copyright;
 	public $company;

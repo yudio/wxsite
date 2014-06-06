@@ -41,6 +41,7 @@ class HospitalAction extends WebAction{
         }
         $this->wxuser = $wxuser;
         $this->wxname     = $wxuser['wxname'];
+        $this->assign('wxuser',$wxuser);
 
         //获取用户Wecha_id
         if (session('wecha_id')){
@@ -63,16 +64,38 @@ class HospitalAction extends WebAction{
         //获取分类信息Classify
         $classify=M('Classify')->where(array('token'=>$this->token,'category_id'=>0,'status'=>1))->order('sorts desc,id desc')->select();
         $this->classify=$classify;
+        $this->assign('classify',$this->classify);
     }
     public function doclist(){
         $db=D('Doctors');
-        $where['token']=session('token');
+        $where['token']=$this->token;
         $count=$db->where($where)->count();
         $page=new Page($count,100);
         $info=$db->where($where)->order('sorts')->limit($page->firstRow.','.$page->listRows)->select();
         $this->assign('page',$page->show());
         $this->assign('info',$info);
-        $this->assign('classify',$this->classify);
         $this->display();
     }
+
+    public function detail(){
+        $id = $this->_get('id','intval');
+        if($id!=0){
+            $db=D('Doctors');
+            $where['id'] = $id;
+            $info = $db->where($where)->find();
+            if($info){
+                $this->assign('info',$info);
+            }
+            else{
+                echo '信息不存在！';
+                exit;
+            }
+        }
+        else{
+            echo '信息不存在！';
+            exit;
+        }
+        $this->display();
+    }
+
 }

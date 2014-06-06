@@ -26,7 +26,7 @@ textarea,input{outline:none}
 .Cff6c00{ color:#ff6c00;}
 .Cbbb{ color:#bbb;}
 .C007cd9{ color:#007cd9;}
-.skillbox{ width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.skillbox{ width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;padding-top:7px;}
 .getmore{ width:100%; color:#777777; text-align:center; height:40px; line-height:40px; font-size:15px;}
 .getmore a{ display:block; color:#777777; height:100%;}
 .nomess{ width:100%; text-align:center; padding-top:80px; font-size:17px; color:#a3a3a3; line-height:30px;}

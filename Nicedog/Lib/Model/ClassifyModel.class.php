@@ -38,6 +38,7 @@ class ClassifyModel extends Model{
         M('Classify')->data(array('id'=>$data['id'],'url'=>$kdata['url']))->save();
 
         $kdata['typename'] = $this->getTypeName();
+        LOG::write('eric:'.$kdata['url'].' type:'.$kdata['typename'],LOG::ERR);
         $kdata['pid'] = $data['id'];
         $kdata['module'] = 'Classify';
         $db->data($kdata)->add();
@@ -71,5 +72,4 @@ class ClassifyModel extends Model{
             }
         }
     }
-	
 }

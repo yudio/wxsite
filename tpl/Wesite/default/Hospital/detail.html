@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <include file="common:meta"/>
     <title>医生详情</title>
-    <link rel="stylesheet" href="css/microweb.css" type="text/css">
-    <link rel="stylesheet" href="css/public.css" type="text/css">
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="js/base.js"></script>
-    <script type="text/javascript" src="js/Doctor/DocIntroduction.js?v=201405231705"></script>
+    <link rel="stylesheet" href="{np::RES}/css/hospital/microweb.css" type="text/css">
+    <link rel="stylesheet" href="{np::RES}/css/hospital/public.css" type="text/css">
+    <script type="text/javascript" src="{np::RES}/src/jQuery.js"></script>
+    <script language="javascript" type="text/javascript" src="{np::RES}/js/hospital/base.js"></script>
 </head>
 <body youdao="bind">
     <div class="micro_box">
         <div class="intro_top">
             <div class="intro_top_con">
-                <img src="images/peoptb.png" width="20" class="figuimg"><span class="fl">人物介绍</span><div class="clear">
+                <img src="{np::RES}/images/hospital/peoptb.png" width="20" class="figuimg"><span class="fl">人物介绍</span><div class="clear">
                 </div>
             </div>
         </div>
         <div class="figu_box" id="docInfoDIV">
             <div class="prefigu">
-                <span class="figu_step1" style="height: 22px;">姓名</span> <span class="figu_step2" id="sDocname" style="height: 22px;">万建新</span>
-                <span class="figu_step1" style="height: 22px;">职称</span> <span class="figu_step2" id="sDoclevel" style="height: 22px;">主任医师</span>
+                <span class="figu_step1" style="height: 22px;">姓名</span> <span class="figu_step2" id="sDocname" style="height: 22px;">{np:$info.title}</span>
+                <span class="figu_step1" style="height: 22px;">职称</span> <span class="figu_step2" id="sDoclevel" style="height: 22px;">{np:$info.name}</span>
             </div>
             <div class="prefigu">
-                <span class="figu_step1" style="height: 44px;">所在<br>
-                    地区</span> <span class="figu_step2" id="sDocarea" style="height: 44px;">福建省 福州市</span><span class="figu_step1" style="height: 44px;">所在<br>
-                        医院</span> <span class="figu_step2" id="sDochosname" style="height: 44px;">福建医科大学附属第一医院</span>
+                <span class="figu_step1" style="height: 44px;">接诊<br>
+                    时间</span> <span class="figu_step2" id="sDocarea" style="height: 44px;">{np:$info.duty}</span><span class="figu_step1" style="height: 44px;">联系<br>
+                        电话</span> <span class="figu_step2" id="sDochosname" style="height: 44px;">{np:$info.contact}</span>
             </div>
             <div class="prefigu">
                 <span class="figu_step1" style="height: 44px;">擅长<br>
-                    疾病</span> <span class="figu_step3" id="sDocskill" style="height: 44px;">肾病内科疾病的诊治，肾小球疾病、急慢性肾功能竭、狼疮性肾炎、复杂性尿路感染的诊治。</span>
+                    疾病</span> <span class="figu_step3" id="sDocskill" style="height: 44px;">{np:$info.goodat}</span>
             </div>
             <div class="prefigu">
                 <span class="figu_step1">个人<br>
-                    简介</span> <span class="figu_step3" id="sDocInfo">万建新，医学博士，现任福建医科大学附属第一医院肾内科主任、主任医师、教授、博士研究生导师。曾留学于日本大学医学部。擅长各种原发和继发性肾小球疾病、急慢性肾衰竭、复杂性尿路感染等疾病的诊治和血液净化治疗。主持和参与国家十二五科技支撑计划等各类课题研究20多项，在国内外核心期刊上发表论文70多篇，获福建省科学技术三等奖2项，福建医学科技二等奖2项。担任中华医学会肾脏病学分会委员，中国医师协会肾脏内科医师分会常委，中国医院协会血液净化中心管理分会委员，卫生部肾病学专业医疗质控专家工作组成员，中国高血压联盟理事，福建省医学会肾脏病学分会主任委员，福建省中西医结合学会肾脏病分会副主任委员，福建省血液透析治疗质量控制中心副主任委员，福建医科大学学术委员会委员，福建省卫生系列高级技术职称评委会成员，《中华高血压杂志》、《中华肾脏病杂志》、《肾脏病透析肾移植杂志》、《中国中西医结合肾病杂志》、《中国血液净化》、《临床肾脏病杂志》和《福建医科大学学报》等杂志常务编委和编委。入选国家级突发公共卫生事件应急专家和福建省高等学校新世纪优秀人才。　　</span>
+                    简介</span> <span class="figu_step3" id="sDocInfo">{np:$info.desc}</span>
             </div>
         </div>
     </div>
-    
-<div class="foot_holder" id="menuTopListNew" style="">
-    <div class="foot_box">
-        <div class="backbtn" id="backUrlButtonNew">
-            <span class="backtb">&nbsp;</span></div>
-        <div class="lolist">
-            <span class="listtb"></span>
-        </div>
-        <div class="list_tbtip">
-        </div>
-        <div class="list_detail">
-            <ul class="ulShow">
-                <li class="bor1"><a href="/UserManage/GuaHaoList.aspx?platformType=0&amp;sourceType=1&amp;sourceId=32" class="bor2">
-                    <span class="list_jl"></span>挂号记录</a></li>
-                <li class="bor1 otbg"><a href="/UserManage/Default.aspx?platformType=0&amp;sourceType=1&amp;sourceId=32" class="bor2">
-                    <span class="list_zh"></span>我的账户</a></li>
-                <li class="bor1"><a href="/UserManage/ChangePassword.aspx?platformType=0&amp;sourceType=1&amp;sourceId=32" class="bor2"><span class="list_pass"></span>修改密码</a></li>
-                <li class="bor1 otbg" onclick="ToDefault()"><a href="javascript:;"><span class="list_wgw">
-                </span>微官网</a></li>
-                <li class="bor3"><a href="/UserManage/MemberList.aspx?platformType=0&amp;sourceType=1&amp;sourceId=32" class="bor2">
-                    <span class="list_jzr"></span>就诊人</a></li>
-                <li class="bor3"><a class="bor2"></a></li>
-                <li class="bor3"><a class="bor2"></a></li>
-                <li class="bor3 otbg"><a></a></li>
-            </ul>
+
+
+    <div class="foot_holder" id="menuTopListNew" style="">
+        <div class="foot_box">
+            <div class="backbtn" id="backUrlButtonNew">
+                <a href="javascript:history.go(-1);">
+                    <span class="backtb">&nbsp;</span>
+                </a>
+            </div>
+            <div class="lolist">
+                <span class="listtb"></span>
+            </div>
+            <div class="list_tbtip">
+            </div>
+            <div class="list_detail">
+                <ul class="ulShow">
+                    <volist name="classify" id="vo">
+                        <if condition="$i lt 9">
+                            <if condition="$i lt 5">
+                                <if condition="$i%2 eq 0">
+                                    <li class="bor1">
+                                        <else/>
+                                    <li class="bor1 otbg">
+                                </if>
+                                <else/>
+                                <if condition="$i%2 eq 0">
+                                    <li class="bor3 otbg">
+                                        <else/>
+                                    <li class="bor3">
+                                </if>
+                            </if>
+                            <a href="{np:$vo.url}" class="bor2">
+                                <span class="list_jl" style="background:url({np:$vo.img})no-repeat;-webkit-background-size:28px 28px;-o-background-size: 28px 28px;width:28px;height:28px;"></span>{np:$vo.name}</a>
+                            </li>
+                        </if>
+                    </volist>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 <div class="foot_screen">
 </div>
 <script language="javascript" type="text/javascript">

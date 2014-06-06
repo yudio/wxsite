@@ -36,8 +36,12 @@ class FlashModel extends Model{
         $_POST['id'] = $data['id'];
         $kdata['url'] = TypeLink::getTypeLink($_POST,'Slide');
         M('Flash')->data(array('id'=>$data['id'],'url'=>$kdata['url']))->save();
-
-        $kdata['typename'] = $this->getTypeName();
+        if($this->getTypeName()!=""){
+           $kdata['typename'] = $this->getTypeName();
+        }
+        else{
+            $kdata['typename']="empty_link";
+        }
         $kdata['pid'] = $data['id'];
         $kdata['module'] = 'Slide';
         $db->data($kdata)->add();
@@ -49,7 +53,12 @@ class FlashModel extends Model{
     protected function _after_update($data,$options) {
         $db = D('Typelink');
         $kdata = $_POST;
-        $kdata['typename'] = $this->getTypeName();
+        if($this->getTypeName()!=""){
+            $kdata['typename'] = $this->getTypeName();
+        }
+        else{
+            $kdata['typename']="empty_link";
+        }
         LOG::write('KDATA:'.$kdata['typename'],LOG::ERR);
         $where['pid'] = $data['id'];
         $where['module'] = 'Slide';
